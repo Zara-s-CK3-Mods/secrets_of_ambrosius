@@ -1,0 +1,2098 @@
+﻿# Standard Values
+@pos_compat_high = 30
+@pos_compat_medium = 15
+@pos_compat_low = 5
+
+@neg_compat_high = -30
+@neg_compat_medium = -15
+@neg_compat_low = -5
+
+zz_magister = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = magic_acolyte
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = zz_magister
+						track = secrets_of_the_higher_mysteries
+						value < 100
+					}
+				}
+				desc = magic_acolyte
+			}
+			desc = magic_master
+		}
+	}
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_zz_magister_desc
+			}
+			desc = trait_zz_magister_character_desc
+		}
+	}
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = higher_mysteries_01.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = zz_magister
+						track = secrets_of_the_higher_mysteries
+						value < 100
+					}
+				}
+				desc = higher_mysteries_01.dds
+			}
+			desc = higher_mysteries_02.dds
+		}
+	}
+	category = lifestyle
+
+	opposite_opinion = -50
+	learning = 2
+	intrigue = 2
+	monthly_prestige = 0.5
+	culture_modifier = {
+		parameter = magister_lords_of_valyria
+		direct_vassal_opinion = 10
+		monthly_prestige = 0.5
+		monthly_dynasty_prestige = 1
+		diplomatic_range_mult = 0.25
+		domain_limit = 4
+		vassal_limit = 10
+		vassal_opinion = 10
+	}
+	culture_modifier = {
+		parameter = sorceror_lords
+		monthly_income_mult = 0.2
+		monthly_piety_from_buildings_mult = 0.2
+		monthly_prestige_from_buildings_mult = 0.2
+		monthly_dynasty_prestige = 0.1
+	}
+	#ruler_designer_cost = 50
+	shown_in_ruler_designer = yes
+	ai_vengefulness = 20
+	ai_zeal = -20
+	ai_boldness = 20
+	ai_energy = 20
+	tracks = {
+		secrets_of_the_higher_mysteries = {
+			25 = {
+				monthly_influence = 0.5
+				learning = 2
+				culture_modifier = {
+					parameter = mage_scholars
+					learning = 2
+				}
+			}
+			50 = {
+				monthly_influence = 1
+				learning = 2
+				culture_modifier = {
+					parameter = mage_scholars
+					learning = 2
+				}
+			}
+			75 = {
+				monthly_influence = 1.5
+				learning = 3
+				culture_modifier = {
+					parameter = mage_scholars
+					learning = 3
+				}
+			}
+			100 = {
+				monthly_influence = 2
+				learning = 3
+				culture_modifier = {
+					parameter = mage_scholars
+					learning = 3
+				}
+			}
+		}
+		blood_magic = {
+			25 = {
+				enemy_hard_casualty_modifier = 0.01
+				hard_casualty_modifier = -0.01
+			}
+			50 = {
+				enemy_hard_casualty_modifier = 0.01
+				hard_casualty_modifier = -0.01
+			}
+			75 = {
+				enemy_hard_casualty_modifier = 0.01
+				hard_casualty_modifier = -0.01
+			}
+			100 = {
+				enemy_hard_casualty_modifier = 0.01
+				hard_casualty_modifier = -0.01
+			}
+		}
+		shadow_magic = {
+			25 = {
+				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+			}
+			50 = {
+				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+			}
+			75 = {
+				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+			}
+			100 = {
+				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+			}
+		}
+		dream_magic = {
+			25 = {
+				enemy_hostile_scheme_phase_duration_add = minor_scheme_phase_duration_malus_value
+			}
+			50 = {
+				enemy_hostile_scheme_phase_duration_add = minor_scheme_phase_duration_malus_value
+			}
+			75 = {
+				enemy_hostile_scheme_phase_duration_add = minor_scheme_phase_duration_malus_value
+			}
+			100 = {
+				enemy_hostile_scheme_phase_duration_add = minor_scheme_phase_duration_malus_value
+			}
+		}
+		alchemy_magic = {
+			25 = {
+				monthly_income = 1
+			}
+			50 = {
+				monthly_income = 2
+			}
+			75 = { 
+				monthly_income = 3
+			}
+			100 = {
+				monthly_income = 5
+			}
+		}
+		fire_magic = {
+			25 = {
+				prowess = 1
+				advantage = 1
+				enemy_hard_casualty_modifier = 0.01
+				character_travel_safety = 1
+			}
+			50 = {
+				prowess = 1
+				advantage = 1
+				enemy_hard_casualty_modifier = 0.01
+				character_travel_safety = 1
+			}
+			75 = {
+				prowess = 1
+				advantage = 1
+				enemy_hard_casualty_modifier = 0.01
+				character_travel_safety = 1
+			}
+			100 = {
+				prowess = 1
+				advantage = 1
+				enemy_hard_casualty_modifier = 0.01
+				character_travel_safety = 1
+			}
+		}
+		air_magic = {
+			25 = {
+				prowess = 1
+				advantage = 1
+				enemy_hard_casualty_modifier = 0.01
+				character_travel_safety = 1
+			}
+			50 = {
+				prowess = 1
+				advantage = 1
+				enemy_hard_casualty_modifier = 0.01
+				character_travel_safety = 1
+			}
+			75 = {
+				prowess = 1
+				advantage = 1
+				enemy_hard_casualty_modifier = 0.01
+				character_travel_safety = 1
+			}
+			100 = {
+				prowess = 1
+				advantage = 1
+				enemy_hard_casualty_modifier = 0.01
+				character_travel_safety = 1
+			}
+		}
+		water_magic = {
+			25 = {
+				prowess = 1
+				advantage = 1
+				enemy_hard_casualty_modifier = 0.01
+				character_travel_safety = 1
+			}
+			50 = {
+				prowess = 1
+				advantage = 1
+				enemy_hard_casualty_modifier = 0.01
+				character_travel_safety = 1
+			}
+			75 = {
+				prowess = 1
+				advantage = 1
+				enemy_hard_casualty_modifier = 0.01
+				character_travel_safety = 1
+			}
+			100 = {
+				prowess = 1
+				advantage = 1
+				enemy_hard_casualty_modifier = 0.01
+				character_travel_safety = 1
+			}
+		}
+		drops_of_power = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+	}
+	compatibility = {
+		lifestyle_mystic = 10
+		possessed_genetic = 30
+	}
+	opposites = {
+	}
+}
+
+starwalker = {
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = starwalker
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = starwalker
+						track = chosen_of_the_heavens
+						value < 100
+					}
+				}
+				desc = starwalker
+			}
+			desc = he_who_walks_between_worlds
+		}
+	}
+	icon = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = heavens_chosen_01.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = starwalker
+						track = chosen_of_the_heavens
+						value < 100
+					}
+				}
+				desc = heavens_chosen_01.dds
+			}
+			desc = heavens_chosen_02.dds
+		}
+	}
+	category = lifestyle
+	opposite_opinion = -50
+	learning = 1
+	intrigue = 1
+	monthly_prestige = 0.5
+	culture_modifier = {
+		parameter = starwalker
+		direct_vassal_opinion = 10
+		monthly_prestige = 0.5
+		monthly_dynasty_prestige = 1
+	}
+	#ruler_designer_cost = 50
+	shown_in_ruler_designer = no
+	ai_vengefulness = 20
+	ai_zeal = -20
+	ai_boldness = 20
+	ai_energy = 20
+	tracks = {
+		chosen_of_the_heavens = {
+			25 = {
+				trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.50
+				trait_track_blood_magic_xp_gain_mult = 0.50
+				trait_track_shadow_magic_xp_gain_mult = 0.50
+				trait_track_dream_magic_xp_gain_mult = 0.50
+				trait_track_alchemy_magic_xp_gain_mult = 0.50
+				trait_track_fire_magic_xp_gain_mult = 0.50
+				trait_track_air_magic_xp_gain_mult = 0.50
+				trait_track_water_magic_xp_gain_mult = 0.50
+			}
+			50 = {
+				trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.50
+				trait_track_blood_magic_xp_gain_mult = 0.50
+				trait_track_shadow_magic_xp_gain_mult = 0.50
+				trait_track_dream_magic_xp_gain_mult = 0.50
+				trait_track_alchemy_magic_xp_gain_mult = 0.50
+				trait_track_fire_magic_xp_gain_mult = 0.50
+				trait_track_air_magic_xp_gain_mult = 0.50
+				trait_track_water_magic_xp_gain_mult = 0.50
+			}
+			75 = {
+				trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.50
+				trait_track_blood_magic_xp_gain_mult = 0.50
+				trait_track_shadow_magic_xp_gain_mult = 0.50
+				trait_track_dream_magic_xp_gain_mult = 0.50
+				trait_track_alchemy_magic_xp_gain_mult = 0.50
+				trait_track_fire_magic_xp_gain_mult = 0.50
+				trait_track_air_magic_xp_gain_mult = 0.50
+				trait_track_water_magic_xp_gain_mult = 0.50
+			}
+			100 = {
+				trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.50
+				trait_track_blood_magic_xp_gain_mult = 0.50
+				trait_track_shadow_magic_xp_gain_mult = 0.50
+				trait_track_dream_magic_xp_gain_mult = 0.50
+				trait_track_alchemy_magic_xp_gain_mult = 0.50
+				trait_track_fire_magic_xp_gain_mult = 0.50
+				trait_track_air_magic_xp_gain_mult = 0.50
+				trait_track_water_magic_xp_gain_mult = 0.50
+			}
+		}
+		stores_of_power_01 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		stores_of_power_02 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		stores_of_power_03 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		stores_of_power_04 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		stores_of_power_05 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		stores_of_power_06 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		stores_of_power_07 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		stores_of_power_08 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		stores_of_power_09 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		stores_of_power_10 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}	
+	}
+}
+
+
+
+zz_draconic_longevity = {
+	icon = "immortal.dds"
+	# This is definitely a very clever allusion to the 10k immortals and not just landing arbitrarily on a certain number of zeros.
+	ruler_designer_cost = 10000
+
+	opposites = { incapable }
+
+	shown_in_ruler_designer = no
+	
+	desc = trait_zz_draconic_longevity_desc
+
+	immortal = yes
+	# Dummy flags — just here for loc really.
+	flag = is_immortal
+	flag = immortal_visuals
+	flag = immortal_fertility
+	flag = immortal_incapability
+	long_reign_bonus_mult = -1000
+	no_prowess_loss_from_age = yes
+}
+
+zz_valyrian_longevity = {
+	icon = "immortal.dds"
+	# This is definitely a very clever allusion to the 10k immortals and not just landing arbitrarily on a certain number of zeros.
+	ruler_designer_cost = 10000
+
+	opposites = { incapable }
+
+	shown_in_ruler_designer = no
+	
+	
+	desc = trait_zz_valyrian_longevity_desc
+
+	immortal = yes
+	# Dummy flags — just here for loc really.
+	flag = is_immortal
+	flag = immortal_visuals
+	flag = immortal_fertility
+	flag = immortal_incapability
+	flag = pneumonic_immunity
+	flag = disease_immunity_pneumonic
+	flag = ill_immunity
+	flag = disease_immunity_ill
+	flag = measles_immunity
+	flag = disease_immunity_measles
+	flag = bubonic_immunity
+	flag = disease_immunity_bubonic_plague
+	flag = gout_ridden_immunity
+	flag = disease_immunity_gout
+	flag = consumption_immunity
+	flag = disease_immunity_consumption
+	flag = cancer_immunity
+	flag = disease_immunity_cancer
+	flag = typhus_immunity
+	flag = disease_immunity_typhus
+	flag = small_pox_immunity
+	flag = disease_immunity_smallpox
+	flag = dysentery_immunity
+	flag = disease_immunity_dysentery
+	flag = ergotism_immunity
+	flag = disease_immunity_ergotism
+	flag = leper_immunity
+	flag = disease_immunity_leper
+	flag = lovers_pox_immunity
+	flag = disease_immunity_lovers_pox
+	flag = great_pox_immunity
+	flag = disease_immunity_great_pox
+
+	long_reign_bonus_mult = -1000
+	no_prowess_loss_from_age = yes
+}
+
+disease_resistance_alchemical = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 20
+	flag = pneumonic_immunity
+	flag = disease_immunity_pneumonic
+	flag = ill_immunity
+	flag = disease_immunity_ill
+	flag = measles_immunity
+	flag = disease_immunity_measles
+	flag = bubonic_immunity
+	flag = disease_immunity_bubonic_plague
+	flag = gout_ridden_immunity
+	flag = disease_immunity_gout
+	flag = consumption_immunity
+	flag = disease_immunity_consumption
+	flag = cancer_immunity
+	flag = disease_immunity_cancer
+	flag = typhus_immunity
+	flag = disease_immunity_typhus
+	flag = small_pox_immunity
+	flag = disease_immunity_smallpox
+	flag = dysentery_immunity
+	flag = disease_immunity_dysentery
+	flag = ergotism_immunity
+	flag = disease_immunity_ergotism
+	flag = leper_immunity
+	flag = disease_immunity_leper
+	flag = lovers_pox_immunity
+	flag = disease_immunity_lovers_pox
+	flag = great_pox_immunity
+	flag = disease_immunity_great_pox
+	
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_alchemical = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_alchemical_desc
+			}
+			desc = trait_disease_resistance_alchemical_desc
+		}
+	}
+}
+
+disease_resistance_pneumonic = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = pneumonic_immunity
+	flag = disease_immunity_pneumonic
+	
+
+	
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_pneumonic = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_pneumonic_desc
+			}
+			desc = trait_disease_resistance_pneumonic_desc
+		}
+	}
+}
+
+disease_resistance_ill = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = ill_immunity
+	flag = disease_immunity_ill
+	
+
+
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_ill = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_ill_desc
+			}
+			desc = trait_disease_resistance_ill_desc
+		}
+	}
+}
+
+disease_resistance_measles = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = measles_immunity
+	flag = disease_immunity_measles
+	
+
+
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_measles = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_measles_desc
+			}
+			desc = trait_disease_resistance_measles_desc
+		}
+	}
+}
+disease_resistance_bubonic_plague = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = bubonic_immunity
+	flag = disease_immunity_bubonic_plague
+	
+
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_bubonic_plague = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_bubonic_desc
+			}
+			desc = trait_disease_resistance_bubonic_desc
+		}
+	}
+}
+disease_resistance_gout_ridden = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = gout_ridden_immunity
+	flag = disease_immunity_gout
+	
+
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_gout_ridden = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_gout_ridden_desc
+			}
+			desc = trait_disease_resistance_gout_ridden_desc
+		}
+	}
+}
+disease_resistance_consumption = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = consumption_immunity
+	flag = disease_immunity_consumption
+	
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_consumption = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_consumption_desc
+			}
+			desc = trait_disease_resistance_consumption_desc
+		}
+	}
+}
+disease_resistance_cancer = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = cancer_immunity
+	flag = disease_immunity_cancer
+	
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_cancer = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_cancer_desc
+			}
+			desc = trait_disease_resistance_cancer_desc
+		}
+	}
+}
+disease_resistance_typhus = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = typhus_immunity
+	flag = disease_immunity_typhus
+	
+
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_typhus = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_typhus_desc
+			}
+			desc = trait_disease_resistance_typhus_desc
+		}
+	}
+}
+disease_resistance_smallpox = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = small_pox_immunity
+	flag = disease_immunity_smallpox
+	
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_smallpox = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_smallpox_desc
+			}
+			desc = trait_disease_resistance_smallpox_desc
+		}
+	}
+}
+disease_resistance_dysentery = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = dysentery_immunity
+	flag = disease_immunity_dysentery
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_dysentery = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_dysentery_desc
+			}
+			desc = trait_disease_resistance_dysentery_desc
+		}
+	}
+}
+disease_resistance_ergotism = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = ergotism_immunity
+	flag = disease_immunity_ergotism
+
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_ergotism = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_ergotism_desc
+			}
+			desc = trait_disease_resistance_ergotism_desc
+		}
+	}
+}
+disease_resistance_leper = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = leper_immunity
+	flag = disease_immunity_leper
+
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_leper = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_leper_desc
+			}
+			desc = trait_disease_resistance_leper_desc
+		}
+	}
+}
+disease_resistance_lovers_pox = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = lovers_pox_immunity
+	flag = disease_immunity_lovers_pox
+
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_lovers_pox = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_lovers_pox_desc
+			}
+			desc = trait_disease_resistance_lovers_pox_desc
+		}
+	}
+}
+disease_resistance_great_pox = {
+	opposites = {
+	}
+	shown_in_ruler_designer = no
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 0
+	epidemic_resistance = 1
+	flag = great_pox_immunity
+	flag = disease_immunity_great_pox
+
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		disease_resistance_great_pox = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_disease_resistance_great_pox_desc
+			}
+			desc = trait_disease_resistance_great_pox_desc
+		}
+	}
+}
+
+lifespan_bad_1  = {
+	opposites = {
+		lifespan_good
+		lifespan_bad_3 #To prevent multiple tiers of the same congenital trait
+		lifespan_bad_2
+	}
+	
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = -5
+	
+	group = lifespan_bad
+	level = 1
+
+	ai_rationality = dominant_negative_ai_value
+	
+	genetic = yes
+	physical = yes
+	
+	ruler_designer_cost = -15
+
+	compatibility = {
+		lifespan_bad_1 = @pos_compat_medium
+		lifespan_bad_2 = @pos_compat_medium
+		lifespan_bad_3 = @pos_compat_medium
+		lifespan_good_1 = @neg_compat_medium
+		lifespan_good_2 = @neg_compat_medium
+		lifespan_good_3 = @neg_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_bad_1_desc
+			}
+			desc = trait_lifespan_bad_1_desc
+		}
+	}
+}
+lifespan_bad_2 = {
+	opposites = {
+		lifespan_good
+		lifespan_bad_3 #To prevent multiple tiers of the same congenital trait
+		lifespan_bad_1
+	}
+	
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = -25
+	
+	group = lifespan_bad
+	level = 2
+
+	ai_rationality = dominant_negative_ai_value
+	
+	genetic = yes
+	physical = yes
+	
+	ruler_designer_cost = -30
+
+	compatibility = {
+		lifespan_bad_1 = @pos_compat_medium
+		lifespan_bad_2 = @pos_compat_medium
+		lifespan_bad_3 = @pos_compat_medium
+		lifespan_good_1 = @neg_compat_medium
+		lifespan_good_2 = @neg_compat_medium
+		lifespan_good_3 = @neg_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_bad_2_desc
+			}
+			desc = trait_lifespan_bad_2_desc
+		}
+	}
+}
+lifespan_bad_3 = {
+	opposites = {
+		lifespan_good
+		lifespan_bad_2 #To prevent multiple tiers of the same congenital trait
+		lifespan_bad_1
+	}
+	
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = -50
+	
+	group = lifespan_bad
+	level = 3
+
+	ai_rationality = dominant_negative_ai_value
+	
+	genetic = yes
+	physical = yes
+	
+	ruler_designer_cost = -60
+
+	compatibility = {
+		lifespan_bad_1 = @pos_compat_medium
+		lifespan_bad_2 = @pos_compat_medium
+		lifespan_bad_3 = @pos_compat_medium
+		lifespan_good_1 = @neg_compat_medium
+		lifespan_good_2 = @neg_compat_medium
+		lifespan_good_3 = @neg_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_bad_3_desc
+			}
+			desc = trait_lifespan_bad_3_desc
+		}
+	}
+}
+
+lifespan_good_1 = {
+	opposites = {
+		lifespan_bad
+		lifespan_good_3 #To prevent multiple tiers of the same congenital trait
+		lifespan_good_2
+	}
+	
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 10
+	
+
+	group = lifespan_good
+	level = 1
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 80
+	
+	compatibility = {
+		lifespan_good_1 = @pos_compat_medium
+		lifespan_good_2 = @pos_compat_medium
+		lifespan_good_3 = @pos_compat_medium
+		lifespan_bad_1 = @neg_compat_medium
+		lifespan_bad_2 = @neg_compat_medium
+		lifespan_bad_3 = @neg_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_good_1_desc
+			}
+			desc = trait_lifespan_good_1_desc
+		}
+	}
+}
+lifespan_good_2 = {
+	opposites = {
+		lifespan_bad
+		lifespan_good_3 #To prevent multiple tiers of the same congenital trait
+		lifespan_good_1
+	}
+	
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 50
+	
+
+	group = lifespan_good
+	level = 2
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 160
+	
+	compatibility = {
+		lifespan_good_1 = @pos_compat_medium
+		lifespan_good_2 = @pos_compat_medium
+		lifespan_good_3 = @pos_compat_medium
+		lifespan_bad_1 = @neg_compat_medium
+		lifespan_bad_2 = @neg_compat_medium
+		lifespan_bad_3 = @neg_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_good_2_desc
+			}
+			desc = trait_lifespan_good_2_desc
+		}
+	}
+}
+lifespan_good_3 = {
+	opposites = {
+		lifespan_bad
+		lifespan_good_2 #To prevent multiple tiers of the same congenital trait
+		lifespan_good_1
+	}
+	
+	birth = 0.00
+	random_creation = 0.00
+	
+	life_expectancy = 100
+	
+
+	group = lifespan_good
+	level = 3
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 320
+	
+	compatibility = {
+		lifespan_good_1 = @pos_compat_medium
+		lifespan_good_2 = @pos_compat_medium
+		lifespan_good_3 = @pos_compat_medium
+		lifespan_bad_1 = @neg_compat_medium
+		lifespan_bad_2 = @neg_compat_medium
+		lifespan_bad_3 = @neg_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_lifespan_good_3_desc
+			}
+			desc = trait_lifespan_good_3_desc
+		}
+	}
+}
+
+
+
+
+
+magic_blood_bad_1 = {
+	opposites = {
+		magic_blood_good
+		magic_blood_bad_3 #To prevent multiple tiers of the same congenital trait
+		magic_blood_bad_2
+	}
+	
+	birth = 0.00
+	random_creation = 0.00
+	trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = -0.05
+	trait_track_blood_magic_xp_gain_mult = -0.05
+	trait_track_shadow_magic_xp_gain_mult = -0.05
+	trait_track_dream_magic_xp_gain_mult = -0.05
+	trait_track_alchemy_magic_xp_gain_mult = -0.05
+	trait_track_fire_magic_xp_gain_mult = -0.05
+	trait_track_air_magic_xp_gain_mult = -0.05
+	trait_track_water_magic_xp_gain_mult = -0.05
+	trait_track_drops_of_power_xp_gain_mult = -0.25
+	trait_track_stores_of_power_01_xp_gain_mult = -0.25
+	trait_track_stores_of_power_02_xp_gain_mult = -0.25
+	trait_track_stores_of_power_03_xp_gain_mult = -0.25
+	trait_track_stores_of_power_04_xp_gain_mult = -0.25
+	trait_track_stores_of_power_05_xp_gain_mult = -0.25
+	trait_track_stores_of_power_06_xp_gain_mult = -0.25
+	trait_track_stores_of_power_07_xp_gain_mult = -0.25
+	trait_track_stores_of_power_08_xp_gain_mult = -0.25
+	trait_track_stores_of_power_09_xp_gain_mult = -0.25
+	trait_track_stores_of_power_10_xp_gain_mult = -0.25
+	
+	tracks = {
+
+	}
+	group = magic_blood_bad
+	level = 1
+	
+	ai_rationality = dominant_negative_ai_value
+	
+	genetic = yes
+	physical = yes
+	
+	ruler_designer_cost = -40
+	
+	compatibility = {
+		magic_blood_good_1 = @neg_compat_medium
+		magic_blood_good_2 = @neg_compat_medium
+		magic_blood_good_3 = @neg_compat_medium
+		magic_blood_bad_1 = @pos_compat_medium
+		magic_blood_bad_2 = @pos_compat_medium
+		magic_blood_bad_3 = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_magic_blood_bad_1_desc
+			}
+			desc = trait_magic_blood_bad_1_desc
+		}
+	}
+}
+magic_blood_bad_2 = {
+	opposites = {
+		magic_blood_good
+		magic_blood_bad_3 #To prevent multiple tiers of the same congenital trait
+		magic_blood_bad_1
+	}
+	
+	birth = 0.00
+	random_creation = 0.00
+	trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = -0.15
+	trait_track_blood_magic_xp_gain_mult = -0.15
+	trait_track_shadow_magic_xp_gain_mult = -0.15
+	trait_track_dream_magic_xp_gain_mult = -0.15
+	trait_track_alchemy_magic_xp_gain_mult = -0.15
+	trait_track_fire_magic_xp_gain_mult = -0.15
+	trait_track_air_magic_xp_gain_mult = -0.15
+	trait_track_water_magic_xp_gain_mult = -0.15
+	trait_track_drops_of_power_xp_gain_mult = -0.5
+	trait_track_stores_of_power_01_xp_gain_mult = -0.5
+	trait_track_stores_of_power_02_xp_gain_mult = -0.5
+	trait_track_stores_of_power_03_xp_gain_mult = -0.5
+	trait_track_stores_of_power_04_xp_gain_mult = -0.5
+	trait_track_stores_of_power_05_xp_gain_mult = -0.5
+	trait_track_stores_of_power_06_xp_gain_mult = -0.5
+	trait_track_stores_of_power_07_xp_gain_mult = -0.5
+	trait_track_stores_of_power_08_xp_gain_mult = -0.5
+	trait_track_stores_of_power_09_xp_gain_mult = -0.5
+	trait_track_stores_of_power_10_xp_gain_mult = -0.5
+	
+	tracks = {
+
+	}
+	group = magic_blood_bad
+	level = 2
+	
+	ai_rationality = dominant_negative_ai_value
+	
+	genetic = yes
+	physical = yes
+	
+	ruler_designer_cost = -80
+	
+	compatibility = {
+		magic_blood_good_1 = @neg_compat_medium
+		magic_blood_good_2 = @neg_compat_medium
+		magic_blood_good_3 = @neg_compat_medium
+		magic_blood_bad_1 = @pos_compat_medium
+		magic_blood_bad_2 = @pos_compat_medium
+		magic_blood_bad_3 = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_magic_blood_bad_2_desc
+			}
+			desc = trait_magic_blood_bad_2_desc
+		}
+	}
+}
+magic_blood_bad_3 = {
+	opposites = {
+		magic_blood_good
+		magic_blood_bad_2 #To prevent multiple tiers of the same congenital trait
+		magic_blood_bad_1
+	}
+	
+	birth = 0.00
+	random_creation = 0.00
+	trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = -0.25
+	trait_track_blood_magic_xp_gain_mult = -0.25
+	trait_track_shadow_magic_xp_gain_mult = -0.25
+	trait_track_dream_magic_xp_gain_mult = -0.25
+	trait_track_alchemy_magic_xp_gain_mult = -0.25
+	trait_track_fire_magic_xp_gain_mult = -0.25
+	trait_track_air_magic_xp_gain_mult = -0.25
+	trait_track_water_magic_xp_gain_mult = -0.25
+	trait_track_drops_of_power_xp_gain_mult = -0.75
+	trait_track_stores_of_power_01_xp_gain_mult = -0.75
+	trait_track_stores_of_power_02_xp_gain_mult = -0.75
+	trait_track_stores_of_power_03_xp_gain_mult = -0.75
+	trait_track_stores_of_power_04_xp_gain_mult = -0.75
+	trait_track_stores_of_power_05_xp_gain_mult = -0.75
+	trait_track_stores_of_power_06_xp_gain_mult = -0.75
+	trait_track_stores_of_power_07_xp_gain_mult = -0.75
+	trait_track_stores_of_power_08_xp_gain_mult = -0.75
+	trait_track_stores_of_power_09_xp_gain_mult = -0.75
+	trait_track_stores_of_power_10_xp_gain_mult = -0.75
+	
+	tracks = {
+
+	}
+	group = magic_blood_bad
+	level = 3
+	
+	ai_rationality = dominant_negative_ai_value
+	
+	genetic = yes
+	physical = yes
+	
+	ruler_designer_cost = -160
+	
+	compatibility = {
+		magic_blood_good_1 = @neg_compat_medium
+		magic_blood_good_2 = @neg_compat_medium
+		magic_blood_good_3 = @neg_compat_medium
+		magic_blood_bad_1 = @pos_compat_medium
+		magic_blood_bad_2 = @pos_compat_medium
+		magic_blood_bad_3 = @pos_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_magic_blood_bad_3_desc
+			}
+			desc = trait_magic_blood_bad_3_desc
+		}
+	}
+}
+magic_blood_good_1 = {
+	opposites = {
+		magic_blood_bad
+		magic_blood_good_3 #To prevent multiple tiers of the same congenital trait
+		magic_blood_good_2
+	}
+	
+	birth = 0.00
+	random_creation = 0.00
+	trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.05
+	trait_track_blood_magic_xp_gain_mult = 0.05
+	trait_track_shadow_magic_xp_gain_mult = 0.05
+	trait_track_dream_magic_xp_gain_mult = 0.05
+	trait_track_alchemy_magic_xp_gain_mult = 0.05
+	trait_track_fire_magic_xp_gain_mult = 0.05
+	trait_track_air_magic_xp_gain_mult = 0.05
+	trait_track_water_magic_xp_gain_mult = 0.05
+	
+	tracks = {
+
+	}
+	group = magic_blood_good
+	level = 1
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 90
+	
+	compatibility = {
+		magic_blood_good_1 = @pos_compat_medium
+		magic_blood_good_2 = @pos_compat_medium
+		magic_blood_good_3 = @pos_compat_medium
+		magic_blood_bad_1 = @neg_compat_medium
+		magic_blood_bad_2 = @neg_compat_medium
+		magic_blood_bad_3 = @neg_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_magic_blood_good_1_desc
+			}
+			desc = trait_magic_blood_good_1_desc
+		}
+	}
+}
+magic_blood_good_2 = {
+	opposites = {
+		magic_blood_bad
+		magic_blood_good_3 #To prevent multiple tiers of the same congenital trait
+		magic_blood_good_1
+	}
+	
+	birth = 0.00
+	random_creation = 0.00
+	trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.1
+	trait_track_blood_magic_xp_gain_mult = 0.1
+	trait_track_shadow_magic_xp_gain_mult = 0.1
+	trait_track_dream_magic_xp_gain_mult = 0.1
+	trait_track_alchemy_magic_xp_gain_mult = 0.1
+	trait_track_fire_magic_xp_gain_mult = 0.1
+	trait_track_air_magic_xp_gain_mult = 0.1
+	trait_track_water_magic_xp_gain_mult = 0.1
+	
+	tracks = {
+		magic_blood_good_2_stores_of_power_01 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		magic_blood_good_2_stores_of_power_02 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+	}
+	group = magic_blood_good
+	level = 2
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 180
+	
+	compatibility = {
+		magic_blood_good_1 = @pos_compat_medium
+		magic_blood_good_2 = @pos_compat_medium
+		magic_blood_good_3 = @pos_compat_medium
+		magic_blood_bad_1 = @neg_compat_medium
+		magic_blood_bad_2 = @neg_compat_medium
+		magic_blood_bad_3 = @neg_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_magic_blood_good_2_desc
+			}
+			desc = trait_magic_blood_good_2_desc
+		}
+	}
+}
+magic_blood_good_3 = {
+	opposites = {
+		magic_blood_bad
+		magic_blood_good_2 #To prevent multiple tiers of the same congenital trait
+		magic_blood_good_1
+	}
+	
+	birth = 0.00
+	random_creation = 0.00
+	trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.1
+	trait_track_blood_magic_xp_gain_mult = 0.1
+	trait_track_shadow_magic_xp_gain_mult = 0.1
+	trait_track_dream_magic_xp_gain_mult = 0.1
+	trait_track_alchemy_magic_xp_gain_mult = 0.1
+	trait_track_fire_magic_xp_gain_mult = 0.1
+	trait_track_air_magic_xp_gain_mult = 0.1
+	trait_track_water_magic_xp_gain_mult = 0.1
+
+	
+	tracks = {
+		magic_blood_good_3_stores_of_power_01 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		magic_blood_good_3_stores_of_power_02 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		magic_blood_good_3_stores_of_power_03 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		magic_blood_good_3_stores_of_power_04 = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+	}
+	group = magic_blood_good
+	level = 3
+	
+	ai_rationality = dominant_positive_ai_value
+	
+	genetic = yes
+	good = yes
+	physical = yes
+	
+	ruler_designer_cost = 360
+	
+	compatibility = {
+		magic_blood_good_1 = @pos_compat_medium
+		magic_blood_good_2 = @pos_compat_medium
+		magic_blood_good_3 = @pos_compat_medium
+		magic_blood_bad_1 = @neg_compat_medium
+		magic_blood_bad_2 = @neg_compat_medium
+		magic_blood_bad_3 = @neg_compat_medium
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_magic_blood_good_3_desc
+			}
+			desc = trait_magic_blood_good_3_desc
+		}
+	}
+}
+
+born_beneath_the_comet = {
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { NOT = { exists = this } }
+				desc = trait_born_beneath_the_comet_desc
+			}
+			desc = trait_born_beneath_the_comet_character_desc
+		}
+		
+	}
+	category = fame
+	opposite_opinion = -50
+	#ruler_designer_cost = 50
+	shown_in_ruler_designer = no
+	# ai_vengefulness = 20
+	# ai_zeal = -20
+	# ai_boldness = 20
+	# ai_energy = 20
+	
+	trait_track_drops_of_power_xp_gain_mult = 0.25
+	trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = 0.25
+	trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = 0.25
+	trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = 0.25
+	trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = 0.25
+	trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = 0.25
+	trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = 0.25
+	trait_track_stores_of_power_01_xp_gain_mult = 0.25
+	trait_track_stores_of_power_02_xp_gain_mult = 0.25
+	trait_track_stores_of_power_03_xp_gain_mult = 0.25
+	trait_track_stores_of_power_04_xp_gain_mult = 0.25
+	trait_track_stores_of_power_05_xp_gain_mult = 0.25
+	trait_track_stores_of_power_06_xp_gain_mult = 0.25
+	trait_track_stores_of_power_07_xp_gain_mult = 0.25
+	trait_track_stores_of_power_08_xp_gain_mult = 0.25
+	trait_track_stores_of_power_09_xp_gain_mult = 0.25
+	trait_track_stores_of_power_10_xp_gain_mult = 0.25
+}
+
+
+zz_loyal_functionary = {
+	category = fame
+	# It's deliberate that this doesn't conflict with disinherit: you can turn it off at any point, which you can't with disinherit, so they're allowed to overlap even if they're redundant when both applied.
+
+	inheritance_blocker = all
+	claim_inheritance_blocker = all
+	
+	stress_gain_mult = -0.1
+	stress_loss_mult = 0.1
+	
+	flag = cannot_inherit_titles
+
+	shown_in_ruler_designer = no
+	
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					NOT = { exists = this }
+				}
+				desc = trait_gallivanter_desc
+			}
+			desc = trait_gallivanter_character_desc
+		}
+	}
+}

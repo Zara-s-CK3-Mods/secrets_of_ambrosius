@@ -1,0 +1,4744 @@
+﻿zz_valyria_cast_setup = {
+	
+}
+
+
+zz_valyria_make_zz_valyria_make_mages_list = {
+	remove_variable = zz_mage
+	clear_variable_list = mages_list
+	if = { 
+		limit = {
+			has_trait = zz_magister
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = mages_list
+				target = prev
+			}
+		}
+	}
+	every_spouse = {
+		limit = {
+			has_trait = zz_magister
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = mages_list
+				target = prev
+			}
+		}
+	}
+	every_consort = {
+		limit = {
+			has_trait = zz_magister
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = mages_list
+				target = prev
+			}
+		}
+	}
+	every_living_mage = {
+		limit = {
+			liege_or_court_owner ?= scope:$MAGIC_USER$
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = mages_list
+				target = prev
+			}
+		}
+	}
+	every_court_mage = {
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = mages_list
+				target = prev
+			}
+		}
+	}
+	every_realm_mage = {
+		limit = {
+			liege_or_court_owner ?= scope:$MAGIC_USER$
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = mages_list
+				target = prev
+			}
+		}
+	}
+	ordered_in_list = {
+		variable = mages_list
+		position = 0
+		order_by = learning
+		save_scope_as = zz_mage
+	}
+	set_variable = {
+		name = zz_mage
+		value = scope:zz_mage
+	}	
+}
+
+
+zz_setup_scroll_learning_lists = { 
+	zz_valyria_make_item_caster_list = {MAGIC_USER = zz_magic_user}
+	zz_valyria_make_scroll_learner_list = {MAGIC_USER = zz_magic_user}
+	zz_valyria_make_scroll_learner_not_mage_list = {MAGIC_USER = zz_magic_user}
+	zz_valyria_make_scroll_learner_mage_list = {MAGIC_USER = zz_magic_user}
+	zz_valyria_make_scroll_list = {MAGIC_USER = zz_magic_user ITEM_CASTER = zz_item_caster}
+}
+
+zz_valyria_make_realm_mage_list = {
+	remove_variable = zz_magic_caster
+	clear_variable_list = mage_list
+	scope:story_owner = {
+		if = { 
+			limit = {
+				has_trait = zz_magister
+			}
+			PREV = {
+				add_to_variable_list = {
+					name = mage_list
+					target = prev
+				}
+			}
+		}
+		every_spouse = {
+			limit = {
+				has_trait = zz_magister
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = mage_list
+					target = prev
+				}
+			}
+		} 
+		every_consort = {
+			limit = {
+				has_trait = zz_magister
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = mage_list
+					target = prev
+				}
+			}
+		} 
+		house ?= {
+			every_house_mage = {
+				PREVPREV = {
+					add_to_variable_list = {
+						name = mage_list
+						target = prev
+					}
+				}
+			}
+		}
+		
+		every_court_mage = {
+			PREV = {
+				add_to_variable_list = {
+					name = mage_list
+					target = prev
+				}
+			}
+		}
+		every_realm_mage = {
+			PREV = {
+				add_to_variable_list = {
+					name = mage_list
+					target = prev
+				}
+			}
+		}
+		every_living_mage = {
+			limit = {
+				liege_or_court_owner ?= scope:story_owner 
+			}
+			PREV = {
+				add_to_variable_list = {
+					name = mage_list
+					target = prev
+				}
+			}
+		}
+	}
+}
+zz_valyria_make_mage_list = {
+	remove_variable = zz_magic_caster
+	clear_variable_list = mage_list
+	if = { 
+		limit = {
+			has_trait = zz_magister
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = mage_list
+				target = prev
+			}
+		}
+	}
+	every_spouse = {
+		limit = {
+			has_trait = zz_magister
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = mage_list
+				target = prev
+			}
+		}
+	} 
+	every_consort = {
+		limit = {
+			has_trait = zz_magister
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = mage_list
+				target = prev
+			}
+		}
+	} 
+	house ?= {
+		every_house_mage = {
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = mage_list
+					target = prev
+				}
+			}
+		}
+	}
+	
+	every_court_mage = {
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = mage_list
+				target = prev
+			}
+		}
+	}
+	every_realm_mage = {
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = mage_list
+				target = prev
+			}
+		}
+	}
+	every_living_mage = {
+		limit = {
+			liege_or_court_owner ?= scope:$MAGIC_USER$
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = mage_list
+				target = prev
+			}
+		}
+	}
+	if = {
+		limit = {
+			not = {
+				has_variable = zz_magic_caster
+			}
+		}
+		
+		ordered_in_list = {
+			variable = mage_list
+			position = 0
+			save_scope_as = zz_magic_caster
+		}
+		set_variable = {
+			name = zz_magic_caster
+			value = scope:zz_magic_caster
+		}	
+	}
+}
+
+zz_valyria_make_spell_list = {
+	remove_variable = zz_valyria_mystery
+	clear_variable_list = zz_valyria_spell_list
+	clear_variable_list = zz_valyria_spell_blood_list
+	clear_variable_list = zz_valyria_spell_shadow_list
+	clear_variable_list = zz_valyria_spell_dream_list
+	clear_variable_list = zz_valyria_spell_alchemy_list
+	clear_variable_list = zz_valyria_spell_fire_list
+	clear_variable_list = zz_valyria_spell_air_list
+	clear_variable_list = zz_valyria_spell_water_list
+	
+	scope:$MAGIC_CASTER$ = {
+		every_memory = {
+			limit = { 
+				has_memory_category = blood_magic
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_spell_blood_list
+					target = prev
+				}
+				add_to_variable_list = {
+					name = zz_valyria_spell_list
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = zz_valyria_mystery }
+					}
+					set_variable = { name = zz_valyria_mystery value = prev }
+				}
+			}
+		}
+		every_memory = {
+			limit = { 
+				has_memory_category = shadow_magic
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_spell_shadow_list
+					target = prev
+				}
+				add_to_variable_list = {
+					name = zz_valyria_spell_list
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = zz_valyria_mystery }
+					}
+					set_variable = { name = zz_valyria_mystery value = prev }
+				}
+			}
+		}
+		every_memory = {
+			limit = { 
+				has_memory_category = dream_magic
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_spell_dream_list
+					target = prev
+				}
+				add_to_variable_list = {
+					name = zz_valyria_spell_list
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = zz_valyria_mystery }
+					}
+					set_variable = { name = zz_valyria_mystery value = prev }
+				}
+			}
+		}
+		every_memory = {
+			limit = { 
+				has_memory_category = alchemy_magic
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_spell_alchemy_list
+					target = prev
+				}
+				add_to_variable_list = {
+					name = zz_valyria_spell_list
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = zz_valyria_mystery }
+					}
+					set_variable = { name = zz_valyria_mystery value = prev }
+				}
+			}
+		}
+		every_memory = {
+			limit = { 
+				has_memory_category = fire_magic
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_spell_fire_list
+					target = prev
+				}
+				add_to_variable_list = {
+					name = zz_valyria_spell_list
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = zz_valyria_mystery }
+					}
+					set_variable = { name = zz_valyria_mystery value = prev }
+				}
+			}
+		}
+		every_memory = {
+			limit = { 
+				has_memory_category = air_magic
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_spell_air_list
+					target = prev
+				}
+				add_to_variable_list = {
+					name = zz_valyria_spell_list
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = zz_valyria_mystery }
+					}
+					set_variable = { name = zz_valyria_mystery value = prev }
+				}
+			}
+		}
+		every_memory = {
+			limit = { 
+				has_memory_category = water_magic
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_spell_water_list
+					target = prev
+				}
+				add_to_variable_list = {
+					name = zz_valyria_spell_list
+					target = prev
+				}
+			}
+		}
+	}
+}
+
+
+zz_valyria_make_item_caster_list = {
+	
+	if = {
+		limit = { 
+			var:zz_item_caster ?= { 
+				NOT = {
+					any_character_artifact = {
+						has_variable = spell
+						var:item_type ?= flag:scroll
+					}
+				}
+			}
+		}
+		remove_variable = zz_item_caster
+	}
+	clear_variable_list = item_caster_list
+	
+	if = { 
+		limit = {
+			any_character_artifact = {
+				has_variable = spell
+				var:item_type ?= flag:scroll
+			}
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = item_caster_list
+				target = prev
+			}
+		}
+	}
+	every_spouse = {
+		limit = {
+			any_character_artifact = {
+				has_variable = spell
+				var:item_type ?= flag:scroll
+			}
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = item_caster_list
+				target = prev
+			}
+		}
+	}
+	every_consort = {
+		limit = {
+			any_character_artifact = {
+				has_variable = spell
+				var:item_type ?= flag:scroll
+			}
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = item_caster_list
+				target = prev
+			}
+		}
+	}
+	every_courtier_or_guest = {
+		limit = {
+			any_character_artifact = {
+				has_variable = spell
+				var:item_type ?= flag:scroll
+			}
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = item_caster_list
+				target = prev
+			}
+		}
+	}
+	if = { 
+		limit = {
+			NOT = {
+				has_variable = zz_item_caster
+			}
+		}
+		ordered_in_list = {
+			variable = item_caster_list
+			position = 0
+			save_scope_as = zz_item_caster
+		}
+		if = {
+			limit = {
+				exists = scope:zz_item_caster
+			}
+			set_variable = {
+				name = zz_item_caster
+				value = scope:zz_item_caster
+			}
+		}
+	}
+}
+
+zz_valyria_make_scroll_learner_list = {
+	
+	remove_variable = zz_valyria_scroll_learner
+	clear_variable_list = zz_valyria_scroll_learner_list
+	
+	scope:$MAGIC_USER$ = {
+		
+		add_to_variable_list = {
+			name = zz_valyria_scroll_learner_list
+			target = prev
+		}
+		every_spouse = {
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_list
+					target = prev
+				}
+			}
+		}
+		every_consort = {
+			add_to_variable_list = {
+				name = zz_valyria_scroll_learner_list
+				target = prev
+			}
+		}
+		every_close_or_extended_family_member = {
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_list
+					target = prev
+				}
+			}
+		}
+		house ?= {
+			every_house_member = {
+				scope:$MAGIC_USER$ = {
+					add_to_variable_list = {
+						name = zz_valyria_scroll_learner_list
+						target = prev
+					}
+				}
+			}
+		}
+		every_courtier_or_guest = {
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_list
+					target = prev
+				}
+			}
+		}
+		every_vassal_or_below = {
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_list
+					target = prev
+				}
+			}
+		}
+		if = {
+			limit = { 
+				NOT = {
+					has_variable = zz_valyria_scroll_learner
+				}
+			}
+			ordered_in_list = {
+				variable = zz_valyria_scroll_learner_list
+				position = 0
+				save_scope_as = zz_valyria_scroll_learner
+			}
+			set_variable = {
+				name = zz_valyria_scroll_learner
+				value = scope:zz_valyria_scroll_learner
+			}
+		}
+		
+	}
+}
+
+zz_valyria_make_scroll_learner_not_mage_list = {
+	if = {
+		limit = { 
+			var:zz_valyria_scroll_learner ?= { 
+				has_trait = zz_magister
+			}
+		}
+		remove_variable = zz_valyria_scroll_learner
+	}
+	clear_variable_list = zz_valyria_scroll_learner_not_mage_list
+	
+	scope:$MAGIC_USER$ = {
+		if = { 
+			limit = {
+				not = {
+					has_trait = zz_magister
+				}
+			}
+			add_to_variable_list = {
+				name = zz_valyria_scroll_learner_not_mage_list
+				target = prev
+			}
+		}
+		
+		every_spouse = {
+			limit = {
+				not = {
+					has_trait = zz_magister
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_not_mage_list
+					target = prev
+				}
+			}
+		}
+		every_consort = {
+			limit = {
+				not = {
+					has_trait = zz_magister
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_not_mage_list
+					target = prev
+				}
+			}
+		}
+		
+		every_close_or_extended_family_member = {
+			limit = {
+				not = {
+					has_trait = zz_magister
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_not_mage_list
+					target = prev
+				}
+			}
+		}
+		house ?= {
+			every_house_member = {
+				limit = {
+					not = {
+						has_trait = zz_magister
+					}
+				}
+				scope:$MAGIC_USER$ = {
+					add_to_variable_list = {
+						name = zz_valyria_scroll_learner_not_mage_list
+						target = prev
+					}
+				}
+			}
+		}
+		every_courtier_or_guest = {
+			limit = {
+				not = {
+					has_trait = zz_magister
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_not_mage_list
+					target = prev
+				}
+			}
+		}
+		every_vassal_or_below = {
+			limit = {
+				not = {
+					has_trait = zz_magister
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_not_mage_list
+					target = prev
+				}
+			}
+		}
+		if = {
+			limit = { 
+				NOT = {
+					has_variable = zz_valyria_scroll_learner
+				}
+			}
+			ordered_in_list = {
+				variable = zz_valyria_scroll_learner_not_mage_list
+				position = 0
+				save_scope_as = zz_valyria_scroll_learner
+			}
+			set_variable = {
+				name = zz_valyria_scroll_learner
+				value = scope:zz_valyria_scroll_learner
+			}
+		}
+	}
+}
+zz_valyria_make_scroll_learner_mage_list = {
+	if = {
+		limit = { 
+			var:zz_valyria_scroll_learner ?= { 
+				NOT = {
+					has_trait = zz_magister
+				}
+			}
+		}
+		remove_variable = zz_valyria_scroll_learner
+	}
+	clear_variable_list = zz_valyria_scroll_learner_mage_list
+	
+	scope:$MAGIC_USER$ = {
+		if = { 
+			limit = {
+				has_trait = zz_magister
+			}
+			add_to_variable_list = {
+				name = zz_valyria_scroll_learner_mage_list
+				target = prev
+			}
+		}
+		
+		every_spouse = {
+			limit = {
+				has_trait = zz_magister
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_mage_list
+					target = prev
+				}
+			}
+		}
+		every_consort = {
+			limit = {
+				has_trait = zz_magister
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_mage_list
+					target = prev
+				}
+			}
+		}
+		every_close_or_extended_family_member = {
+			limit = {
+				has_trait = zz_magister
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_mage_list
+					target = prev
+				}
+			}
+		}
+		house ?= {
+			every_house_member = {
+				limit = {
+					has_trait = zz_magister
+				}
+				scope:$MAGIC_USER$ = {
+					add_to_variable_list = {
+						name = zz_valyria_scroll_learner_mage_list
+						target = prev
+					}
+				}
+			}
+		}
+		every_courtier_or_guest = {
+			limit = {
+				has_trait = zz_magister
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_mage_list
+					target = prev
+				}
+			}
+		}
+		every_vassal_or_below = {
+			limit = {
+				has_trait = zz_magister
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_learner_mage_list
+					target = prev
+				}
+			}
+		} 
+		if = {
+			limit = { 
+				NOT = {
+					has_variable = zz_valyria_scroll_learner
+				}
+			}
+			ordered_in_list = {
+				variable = zz_valyria_scroll_learner_mage_list
+				position = 0
+				save_scope_as = zz_valyria_scroll_learner
+			}
+			set_variable = {
+				name = zz_valyria_scroll_learner
+				value = scope:zz_valyria_scroll_learner
+			}
+		}
+	}
+}
+
+zz_valyria_make_scroll_list = {
+	remove_variable = zz_valyria_scroll
+	clear_variable_list = zz_valyria_scroll_list
+	
+	scope:$ITEM_CASTER$ ?= {
+		every_character_artifact= {
+			limit = { 
+				has_variable = spell
+				var:item_type = flag:scroll
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_scroll_list
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = zz_valyria_scroll }
+					}
+					set_variable = { name = zz_valyria_scroll value = prev }
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_make_magic_master_list = {
+	remove_variable = zz_magic_master
+	clear_variable_list = magic_master_list
+	if = { 
+		limit = {
+			has_trait = zz_magister
+			NOT = {
+				any_relation = { type = zz_magic_master }
+			}
+			NOT = {
+				any_relation = { type = zz_magic_apprentice  }
+			}
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = magic_master_list
+				target = prev
+			}
+		}
+	}
+	every_spouse = {
+		limit = {
+			has_trait = zz_magister
+			NOT = {
+				any_relation = { type = zz_magic_master }
+			}
+			NOT = {
+				any_relation = { type = zz_magic_apprentice  }
+			}
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = magic_master_list
+				target = prev
+			}
+		}
+	}
+	every_consort = {
+		limit = {
+			has_trait = zz_magister
+			NOT = {
+				any_relation = { type = zz_magic_master }
+			}
+			NOT = {
+				any_relation = { type = zz_magic_apprentice  }
+			}
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = magic_master_list
+				target = prev
+			}
+		}
+	}
+	house ?= {
+		every_house_mage = {
+			limit = {
+				NOT = {
+					any_relation = { type = zz_magic_master }
+				}
+				NOT = {
+					any_relation = { type = zz_magic_apprentice  }
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_master_list
+					target = prev
+				}
+			}
+		}
+	}
+	
+	every_court_mage = {
+		limit = {
+			NOT = {
+				any_relation = { type = zz_magic_master }
+			}
+			NOT = {
+				any_relation = { type = zz_magic_apprentice  }
+			}
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = magic_master_list
+				target = prev
+			}
+		}
+	}
+	every_realm_mage = {
+		limit = {
+			NOT = {
+				any_relation = { type = zz_magic_master }
+			}
+			NOT = {
+				any_relation = { type = zz_magic_apprentice  }
+			}
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = magic_master_list
+				target = prev
+			}
+		}
+	}
+	every_living_mage = {
+		limit = {
+			liege_or_court_owner ?= scope:$MAGIC_USER$
+			NOT = {
+				any_relation = { type = zz_magic_master }
+			}
+			NOT = {
+				any_relation = { type = zz_magic_apprentice  }
+			}
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = magic_master_list
+				target = prev
+			}
+		}
+	}
+	ordered_in_list = {
+		variable = magic_master_list
+		position = 0
+		order_by = learning
+		save_scope_as = zz_magic_master
+		limit = {
+			NOT = {
+				any_relation = { type = zz_magic_master }
+			}
+			NOT = {
+				any_relation = { type = zz_magic_apprentice  }
+			}
+		}
+	}
+	if = {
+		limit = {
+			exists = scope:zz_magic_master
+		}
+		set_variable = {
+			name = zz_magic_master
+			value = scope:zz_magic_master
+		}
+	}
+}
+
+zz_valyria_make_magic_learner_list = {
+	remove_variable = zz_valyria_magic_learner
+	clear_variable_list = magic_learner_list
+	
+	scope:$MAGIC_USER$ = {
+		if = { 
+			limit = {
+				NOT = {
+					has_trait = zz_magister
+				}
+
+			}
+			add_to_variable_list = {
+				name = magic_learner_list
+				target = prev
+			}
+		}
+		every_spouse = {
+			limit = {
+				NOT = {
+					has_trait = zz_magister
+				}
+				NOT = {
+					any_relation = { type = zz_magic_master }
+				}
+				NOT = {
+					any_relation = { type = zz_magic_apprentice  }
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_learner_list
+					target = prev
+				}
+			}
+		}
+		every_consort = {
+			limit = {
+				NOT = {
+					has_trait = zz_magister
+				}
+				NOT = {
+					any_relation = { type = zz_magic_master }
+				}
+				NOT = {
+					any_relation = { type = zz_magic_apprentice  }
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_learner_list
+					target = prev
+				}
+			}
+		}
+		every_close_or_extended_family_member = {
+			limit = {
+				NOT = {
+					has_trait = zz_magister
+				}
+				NOT = {
+					any_relation = { type = zz_magic_master }
+				}
+				NOT = {
+					any_relation = { type = zz_magic_apprentice  }
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_learner_list
+					target = prev
+				}
+			}
+		}
+		every_courtier_or_guest = {
+			limit = {
+				NOT = {
+					has_trait = zz_magister
+				}
+				NOT = {
+					any_relation = { type = zz_magic_master }
+				}
+				NOT = {
+					any_relation = { type = zz_magic_apprentice  }
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_learner_list
+					target = prev
+				}
+			}
+		}
+		every_vassal_or_below = {
+			limit = {
+				NOT = {
+					has_trait = zz_magister
+				}
+				NOT = {
+					any_relation = { type = zz_magic_master }
+				}
+				NOT = {
+					any_relation = { type = zz_magic_apprentice  }
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_learner_list
+					target = prev
+				}
+			}
+		}
+		ordered_in_list = {
+			variable = magic_learner_list
+			position = 0
+			order_by = learning
+			save_scope_as = zz_valyria_magic_learner
+			limit = {
+				NOT = {
+					any_relation = { type = zz_magic_master }
+				}
+				NOT = {
+					any_relation = { type = zz_magic_apprentice  }
+				}
+			}
+		} 
+		if = {
+			limit = {
+				exists = scope:zz_valyria_magic_learner
+			}
+			set_variable = {
+				name = zz_valyria_magic_learner
+				value = scope:zz_valyria_magic_learner
+			}
+		}
+	}
+}
+
+zz_valyria_make_magic_mystery_master_list = {
+	remove_variable = zz_magic_mystery_master
+	clear_variable_list = magic_mystery_master_list
+	if = { 
+		limit = {
+			has_trait = zz_magister
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = magic_mystery_master_list
+				target = prev
+			}
+		}
+	}
+	every_spouse = {
+		limit = {
+			has_trait = zz_magister
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = magic_mystery_master_list
+				target = prev
+			}
+		}
+	}
+	every_consort = {
+		limit = {
+			has_trait = zz_magister
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = magic_mystery_master_list
+				target = prev
+			}
+		}
+	}
+	house ?= {
+		every_house_mage = {
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_master_list
+					target = prev
+				}
+			}
+		}
+	}
+	
+	every_court_mage = {
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = magic_mystery_master_list
+				target = prev
+			}
+		}
+	}
+	every_realm_mage = {
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = magic_mystery_master_list
+				target = prev
+			}
+		}
+	}
+	every_living_mage = {
+		limit = {
+			liege_or_court_owner ?= scope:$MAGIC_USER$
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = magic_mystery_master_list
+				target = prev
+			}
+		}
+	}
+	ordered_in_list = {
+		variable = magic_mystery_master_list
+		position = 0
+		order_by = learning
+		save_scope_as = zz_magic_mystery_master
+	}
+	set_variable = {
+		name = zz_magic_mystery_master
+		value = scope:zz_magic_mystery_master
+	}	
+}
+
+zz_valyria_make_master_spell_list = {
+	remove_variable = zz_valyria_teach_mystery
+	clear_variable_list = zz_valyria_teach_mystery_list
+	
+	scope:$MAGIC_TEACHER$ ?= {
+		every_memory = {
+			limit = { 
+				has_memory_category = magic
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_teach_mystery_list
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = zz_valyria_teach_mystery }
+					}
+					set_variable = { name = zz_valyria_teach_mystery value = prev }
+				}
+			}
+		}
+	}
+}
+zz_valyria_make_magic_mystery_learner_list = {
+	remove_variable = zz_valyria_mystery_magic_learner
+	clear_variable_list = magic_mystery_learner_list
+	
+	scope:$MAGIC_USER$ = {
+		add_to_variable_list = {
+			name = magic_mystery_learner_list
+			target = prev
+		}
+		every_spouse = {
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_list
+					target = prev
+				}
+			}
+		}
+		every_consort = {
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_list
+					target = prev
+				}
+			}
+		}
+		every_close_or_extended_family_member = {
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_list
+					target = prev
+				}
+			}
+		}
+		every_courtier_or_guest = {
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_list
+					target = prev
+				}
+			}
+		}
+		every_vassal_or_below = {
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_list
+					target = prev
+				}
+			}
+		}
+		ordered_in_list = {
+			variable = magic_mystery_learner_list
+			position = 0
+			order_by = learning
+			save_scope_as = zz_valyria_mystery_magic_learner
+		}
+		set_variable = {
+			name = zz_valyria_mystery_magic_learner
+			value = scope:zz_valyria_mystery_magic_learner
+		}
+	}
+}
+zz_valyria_make_magic_mystery_learner_not_mage_list = {
+	remove_variable = zz_valyria_mystery_magic_learner
+	clear_variable_list = magic_mystery_learner_not_mage_list
+	
+	scope:$MAGIC_USER$ = {
+		if = { 
+			limit = {
+				not = {
+					has_trait = zz_magister
+				}
+			}
+			add_to_variable_list = {
+				name = magic_mystery_learner_not_mage_list
+				target = prev
+			}
+		}
+		every_spouse = {
+			limit = {
+				not = {
+					has_trait = zz_magister
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_not_mage_list
+					target = prev
+				}
+			}
+		}
+		every_consort = {
+			limit = {
+				not = {
+					has_trait = zz_magister
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_not_mage_list
+					target = prev
+				}
+			}
+		}
+		every_close_or_extended_family_member = {
+			limit = {
+				not = {
+					has_trait = zz_magister
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_not_mage_list
+					target = prev
+				}
+			}
+		}
+		every_courtier_or_guest = {
+			limit = {
+				not = {
+					has_trait = zz_magister
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_not_mage_list
+					target = prev
+				}
+			}
+		}
+		every_vassal_or_below = {
+			limit = {
+				not = {
+					has_trait = zz_magister
+				}
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_not_mage_list
+					target = prev
+				}
+			}
+		}
+		ordered_in_list = {
+			variable = magic_mystery_learner_not_mage_list
+			position = 0
+			order_by = learning
+			save_scope_as = zz_valyria_mystery_magic_learner
+		}
+		set_variable = {
+			name = zz_valyria_mystery_magic_learner
+			value = scope:zz_valyria_mystery_magic_learner
+		}
+	}
+}
+zz_valyria_make_magic_mystery_learner_mage_list = {
+	remove_variable = zz_valyria_mystery_magic_learner
+	clear_variable_list = magic_mystery_learner_mage_list
+	
+	scope:$MAGIC_USER$ = {
+		if = { 
+			limit = {
+				has_trait = zz_magister
+			}
+			add_to_variable_list = {
+				name = magic_mystery_learner_mage_list
+				target = prev
+			}
+		}
+		every_spouse = {
+			limit = {
+				has_trait = zz_magister
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_mage_list
+					target = prev
+				}
+			}
+		}
+		every_consort = {
+			limit = {
+				has_trait = zz_magister
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_mage_list
+					target = prev
+				}
+			}
+		}
+		every_close_or_extended_family_member = {
+			limit = {
+				has_trait = zz_magister
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_mage_list
+					target = prev
+				}
+			}
+		}
+		every_courtier_or_guest = {
+			limit = {
+				has_trait = zz_magister
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_mage_list
+					target = prev
+				}
+			}
+		}
+		every_vassal_or_below = {
+			limit = {
+				has_trait = zz_magister
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = magic_mystery_learner_mage_list
+					target = prev
+				}
+			}
+		}
+		ordered_in_list = {
+			variable = magic_mystery_learner_mage_list
+			position = 0
+			order_by = learning
+			save_scope_as = zz_valyria_mystery_magic_learner
+		}
+		set_variable = {
+			name = zz_valyria_mystery_magic_learner
+			value = scope:zz_valyria_mystery_magic_learner
+		}
+	}
+}
+
+zz_valyria_make_scroll_maker_list = {
+	remove_variable = zz_scroll_maker
+	clear_variable_list = scroll_maker_list
+	if = { 
+		limit = {
+			has_trait = zz_magister
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = scroll_maker_list
+				target = prev
+			}
+		}
+	}
+	every_spouse = {
+		limit = {
+			has_trait = zz_magister
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = scroll_maker_list
+				target = prev
+			}
+		}
+	}
+	every_consort = {
+		limit = {
+			has_trait = zz_magister
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = scroll_maker_list
+				target = prev
+			}
+		}
+	}
+	house ?= {
+		every_house_mage = {
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = scroll_maker_list
+					target = prev
+				}
+			}
+		}
+	}
+	every_court_mage = {
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = scroll_maker_list
+				target = prev
+			}
+		}
+	}
+	every_realm_mage = {
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = scroll_maker_list
+				target = prev
+			}
+		}
+	}
+	every_living_mage = {
+		limit = {
+			liege_or_court_owner ?= scope:$MAGIC_USER$
+		}
+		scope:$MAGIC_USER$ = {
+			add_to_variable_list = {
+				name = scroll_maker_list
+				target = prev
+			}
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				any_in_list = {
+					variable = scroll_maker_list
+					scope:zz_scroll_maker ?= this 
+				}
+			}
+		}
+		ordered_in_list = {
+			variable = scroll_maker_list
+			position = 0
+			save_scope_as = zz_scroll_maker
+		}
+		set_variable = {
+			name = zz_scroll_maker
+			value = scope:zz_scroll_maker
+		}	
+	}
+	
+}
+
+
+zz_valyria_make_scroll_maker_spell_list = {
+	remove_variable = zz_valyria_mystery
+	clear_variable_list = zz_valyria_spell_list 
+	
+	scope:$SCROLL_MAKER$ ?= {
+		every_memory = {
+			limit = { 
+				has_memory_category = magic
+			}
+			scope:$MAGIC_USER$ = {
+				add_to_variable_list = {
+					name = zz_valyria_spell_list
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = zz_valyria_mystery }
+					}
+					set_variable = { name = zz_valyria_mystery value = prev }
+				}
+			}
+		}
+	}
+}
+
+zz_targeted_character_province_selection_list_effect = {
+	clear_variable_list = possible_provinces
+	remove_variable = selected_province
+	if = {
+		limit = {
+			has_variable = zz_selected_mystery_province
+		}
+		var:zz_selected_mystery_province = {
+			root = {
+				add_to_variable_list = {
+					name = possible_provinces
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_province }
+					}
+					set_variable = { name = selected_province value = prev }
+				}
+			}
+		}
+	}
+	scope:recipient = {
+		capital_province = {
+			root = {
+				add_to_variable_list = {
+					name = possible_provinces
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_province }
+					}
+					set_variable = { name = selected_province value = prev }
+				}
+			}
+		}
+		every_realm_province = {
+			limit = {
+				province_owner = prev
+			}
+			root = {
+				add_to_variable_list = {
+					name = possible_provinces
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_province }
+					}
+					set_variable = { name = selected_province value = prev }
+				}
+			}
+		}
+		every_realm_province = {
+			root = {
+				add_to_variable_list = {
+					name = possible_provinces
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_province }
+					}
+					set_variable = { name = selected_province value = prev }
+				}
+			}
+		}
+	}
+}
+
+zz_targeted_character_county_selection_list_effect = {
+	clear_variable_list = possible_county
+	remove_variable = selected_county
+	if = {
+		limit = {
+			has_variable = zz_selected_mystery_county
+		}
+		var:zz_selected_mystery_county = {
+			root = {
+				add_to_variable_list = {
+					name = possible_county
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_county }
+					}
+					set_variable = { name = selected_county value = prev }
+				}
+			}
+		}
+	}
+	scope:recipient = {
+		
+		capital_county = {
+			root = {
+				add_to_variable_list = {
+					name = possible_county
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_county }
+					}
+					set_variable = { name = selected_county value = prev }
+				}
+			}
+		}
+		every_realm_county = {
+			limit = {
+				holder = prev
+			}
+			root = {
+				add_to_variable_list = {
+					name = possible_county
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_county }
+					}
+					set_variable = { name = selected_county value = prev }
+				}
+			}
+		}
+		every_realm_county = {
+			root = {
+				add_to_variable_list = {
+					name = possible_county
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_county }
+					}
+					set_variable = { name = selected_county value = prev }
+				}
+			}
+		}
+	}
+}
+
+zz_targed_character_army_selection_list_effect = {
+	clear_variable_list = possible_armies
+	remove_variable = selected_army
+	scope:recipient = {
+		every_army = {
+			root = {
+				add_to_variable_list = {
+					name = possible_armies
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_army }
+					}
+					set_variable = { name = selected_army value = prev }
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_duel_stress_effect = { 
+	if = {
+		limit = {
+			has_trait = compassionate
+			has_trait = wrathful
+			has_trait = sadistic
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_gain
+			wrathful = medium_stress_impact_loss
+			sadistic = medium_stress_impact_loss
+		}
+	}
+	else_if = {
+		limit = {
+			OR = {
+				has_relation_rival = scope:recipient
+				has_relation_nemesis = scope:recipient
+			}
+		}
+		add_stress = major_stress_loss
+		stress_impact = {
+			forgiving = medium_stress_impact_gain
+			wrathful = medium_stress_impact_loss
+			sadistic = medium_stress_impact_loss
+		}
+	}
+}
+
+zz_miscast_critical_effect = {
+	if = { 
+		limit = { exists = var:zz_miscast_count}
+		if = { 
+			limit = { 
+				var:zz_miscast_count = zz_valyria_miscast_counter
+				
+			}
+			death = {
+				death_reason = death_miscast_magic
+				killer = scope:secondary_recipient
+			}
+		}
+		random_list = {
+			50 = {
+				modifier = {
+					has_trait = starwalker 
+					add = 25
+				}
+				modifier = {
+					has_trait = born_beneath_the_comet
+					add = 10
+				}
+				modifier = {
+					has_trait = magic_blood_good_3
+					add = 5
+				}
+			}
+			50 = {
+				change_variable = {
+					name =  zz_miscast_count
+					add = 1
+				}
+			}
+		}
+	}
+	else = {
+		random = {
+			chance = 50
+			set_variable = {
+				name = zz_miscast_count 
+				value = 1
+				months = { 1 240}
+			}
+		}
+		
+	}
+}
+zz_valyria_spell_failure_effect = { 
+	random_list = {
+		50 = {
+			send_interface_message = {
+				type = send_interface_message_as_popup_spell_miscast
+				title = spell_failure
+				desc = spell_failure_txt
+				left_icon = scope:secondary_recipient
+				right_icon = scope:recipient
+				custom_tooltip = spell_failure_txt
+				custom_tooltip = {
+					text = miscast_wound
+					scope:secondary_recipient  = {
+						increase_wounds_effect = { REASON = fire_magic }
+						zz_miscast_critical_effect = yes
+					}
+				}
+			}
+		}
+		30 = {
+			send_interface_message = {
+				type = send_interface_message_as_popup_spell_miscast
+				title = spell_failure
+				desc = spell_failure_txt
+				left_icon = scope:secondary_recipient
+				right_icon = scope:recipient
+				custom_tooltip = spell_failure_txt
+				custom_tooltip = {
+					text = miscast_mutation
+					scope:secondary_recipient  = {
+						zz_miscast_critical_effect = yes
+						random_list = {
+							1 = {
+								modifier = {
+									has_trait = scaly 
+									add = -1
+								}
+								add_trait_force_tooltip = scaly
+							}
+							1 = {
+								modifier = {
+									has_trait = infertile 
+									add = -1
+								}
+								add_trait_force_tooltip = infertile
+							}
+							1 = {
+								modifier = {
+									has_trait = weak 
+									add = -1
+								}
+								add_trait_force_tooltip = weak
+							}
+							1 = {
+								modifier = {
+									has_trait = dull 
+									add = -1
+								}
+								add_trait_force_tooltip = dull
+							}
+							1 = {
+								modifier = {
+									has_trait = dwarf 
+									add = -1
+								}
+								add_trait_force_tooltip = dwarf
+							}
+							1 = {
+								modifier = {
+									has_trait = giant 
+									add = -1
+								}
+								add_trait_force_tooltip = giant
+							}
+							1 = {
+								modifier = {
+									has_trait = spindly 
+									add = -1
+								}
+								add_trait_force_tooltip = spindly
+							}
+							1 = {
+								modifier = {
+									has_trait = wheezing 
+									add = -1
+								}
+								add_trait_force_tooltip = wheezing
+							}
+							1 = {
+								modifier = {
+									has_trait = bleeder 
+									add = -1
+								}
+								add_trait_force_tooltip = bleeder
+							}
+							1 = {
+								modifier = {
+									has_trait = hunchbacked 
+									add = -1
+								}
+								add_trait_force_tooltip = hunchbacked
+							}
+							1 = {
+								modifier = {
+									has_trait = clubfooted 
+									add = -1
+								}
+								add_trait_force_tooltip = clubfooted
+							}
+							1 = {
+								modifier = {
+									has_trait = lisping 
+									add = -1
+								}
+								add_trait_force_tooltip = lisping
+							}
+							1 = {
+								modifier = {
+									has_trait = stuttering 
+									add = -1
+								}
+								add_trait_force_tooltip = stuttering
+							}
+							1 = {
+								modifier = {
+									has_trait = intellect_bad_3 
+									add = -1
+								}
+								zz_valyria_blood_magic_trait_downgrade = { TYPE = intellect }
+							}
+							1 = {
+								modifier = {
+									has_trait = physique_bad_3 
+									add = -1
+								}
+								zz_valyria_blood_magic_trait_downgrade = { TYPE = physique }
+							}
+							1 = {
+								modifier = {
+									has_trait = beauty_bad_3 
+									add = -1
+								}
+								zz_valyria_blood_magic_trait_downgrade = { TYPE = beauty }
+							}
+							1 = {
+								modifier = {
+									has_trait = magic_blood_bad_3 
+									add = -1
+								}
+								zz_valyria_blood_magic_trait_downgrade = { TYPE = magic_blood }
+							}
+							1 = {
+								modifier = {
+									has_trait = lifespan_bad_3 
+									add = -1
+								}
+								zz_valyria_blood_magic_trait_downgrade = { TYPE = lifespan }
+							}
+						}	
+					}
+				}
+			}
+		} 
+		20 = {		
+			modifier = {
+				scope:secondary_recipient  = {
+					has_trait = starwalker
+				}
+				add = { 
+					value = {
+						value = "has_trait_xp(starwalker|chosen_of_the_heavens)" 
+						multiply = 16	
+					}
+				}
+			}
+			modifier = {
+				add = 100	
+				scope:secondary_recipient  = {
+					has_trait = starwalker
+				}
+				
+			}
+			modifier = {
+				add = 20
+				scope:secondary_recipient  = {
+					has_trait = born_beneath_the_comet
+				}
+				
+			}
+			modifier = {
+				add = 15
+				scope:secondary_recipient  = {
+					has_trait = born_beneath_the_comet
+				}
+				has_trait = magic_blood_good_3
+				
+			}
+			modifier = {
+				add = 10
+				scope:secondary_recipient  = {
+					has_trait = magic_blood_good_2
+				}
+				
+			}
+			modifier = {
+				add = 5
+				scope:secondary_recipient  = {
+					has_trait = magic_blood_good_1
+				}
+				
+			}
+			modifier = {
+				scope:secondary_recipient  = {
+					has_trait = magic_blood_bad_1
+				}
+				add = -5
+			}
+			modifier = {
+				add = -10
+				scope:secondary_recipient  = {
+					has_trait = magic_blood_bad_2
+				}
+				
+			}
+			modifier = {
+				add = -15
+				scope:secondary_recipient  = {
+					has_trait = magic_blood_bad_3
+				}
+				
+			}
+			send_interface_message = {
+				type = send_interface_message_as_popup_spell_miscast
+				title = spell_failure
+				desc = spell_failure_txt
+				left_icon = scope:secondary_recipient
+				right_icon = scope:recipient
+				custom_tooltip = spell_failure_txt
+				custom_tooltip = {
+					text = miscast_nothing
+				}
+			}
+		}
+	}
+	
+}
+
+zz_valyria_magic_apply_province_modifier_effect = {
+	if = { 
+		limit = { 
+			scope:secondary_recipient = { 
+				any_equipped_character_artifact = { 
+					has_variable = glass_candle
+				}
+			}	
+		}
+		add_province_modifier = {
+			modifier = $MODIFIER$
+			months = $BOOSTED_DURATION$
+		}		
+	}
+	else = { 
+		add_province_modifier = {
+			modifier = $MODIFIER$
+			months = $DURATION$
+		}		
+	}
+}
+
+zz_valyria_magic_apply_county_modifier_effect = {
+	if = { 
+		limit = { 
+			scope:secondary_recipient = { 
+				any_equipped_character_artifact = { 
+					has_variable = glass_candle
+				}
+			}	
+		}
+		add_county_modifier = {
+			modifier = $MODIFIER$
+			months = $BOOSTED_DURATION$
+		}		
+	}
+	else = { 
+		add_county_modifier = {
+			modifier = $MODIFIER$
+			months = $DURATION$
+		}		
+	}
+}
+zz_valyria_magic_apply_character_modifier_effect = {
+	if = { 
+		limit = { 
+			scope:secondary_recipient = { 
+				any_equipped_character_artifact = { 
+					has_variable = glass_candle
+				}
+			}	
+		}
+		add_character_modifier = {
+			modifier = $MODIFIER$
+			years = $BOOSTED_DURATION$
+		}	
+	}
+	else = { 
+		add_character_modifier = {
+			modifier = $MODIFIER$
+			years = $DURATION$
+		}	
+	}
+}
+
+
+zz_valyria_mana_increase = {
+	add_trait_xp = {
+		trait = $TRAIT$
+		track = $TRACK$
+		value =  1
+	}
+}
+
+
+zz_valyria_mana_gain = {
+	set_variable = { name = managain value = $MANAGAIN$}
+	if = {
+		limit = { 
+			culture = { has_cultural_tradition = tradition_zz_sorcerous_studies }
+		}
+		change_variable = {
+			name = managain
+			multiply = 2
+		}
+	}
+	while = {
+		count = mana_gain_addition
+		if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = zz_magister TRACK = drops_of_power }
+			}
+			zz_valyria_mana_increase = { TRAIT = zz_magister TRACK = drops_of_power }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = magic_blood_good_2 TRACK = magic_blood_good_2_stores_of_power_01 }
+			}
+			zz_valyria_mana_increase = { TRAIT = magic_blood_good_2 TRACK = magic_blood_good_2_stores_of_power_01 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = magic_blood_good_2 TRACK = magic_blood_good_2_stores_of_power_02 }
+			}
+			zz_valyria_mana_increase = { TRAIT = magic_blood_good_2 TRACK = magic_blood_good_2_stores_of_power_02 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_01 }
+			}
+			zz_valyria_mana_increase = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_01 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_02 }
+			}
+			zz_valyria_mana_increase = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_02 }
+		}
+		
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_03 }
+			}
+			zz_valyria_mana_increase = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_03 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_04 }
+			}
+			zz_valyria_mana_increase = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_04 }
+		}
+		
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = starwalker TRACK = stores_of_power_01 }
+			}
+			zz_valyria_mana_increase = { TRAIT = starwalker TRACK = stores_of_power_01 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = starwalker TRACK = stores_of_power_02 }
+			}
+			zz_valyria_mana_increase = { TRAIT = starwalker TRACK = stores_of_power_02 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = starwalker TRACK = stores_of_power_03 }
+			}
+			zz_valyria_mana_increase = { TRAIT = starwalker TRACK = stores_of_power_03 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = starwalker TRACK = stores_of_power_04 }
+			}
+			zz_valyria_mana_increase = { TRAIT = starwalker TRACK = stores_of_power_04 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = starwalker TRACK = stores_of_power_05 }
+			}
+			zz_valyria_mana_increase = { TRAIT = starwalker TRACK = stores_of_power_05 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = starwalker TRACK = stores_of_power_05 }
+			}
+			zz_valyria_mana_increase = { TRAIT = starwalker TRACK = stores_of_power_05 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = starwalker TRACK = stores_of_power_06 }
+			}
+			zz_valyria_mana_increase = { TRAIT = starwalker TRACK = stores_of_power_06 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = starwalker TRACK = stores_of_power_07 }
+			}
+			zz_valyria_mana_increase = { TRAIT = starwalker TRACK = stores_of_power_07 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = starwalker TRACK = stores_of_power_08 }
+			}
+			zz_valyria_mana_increase = { TRAIT = starwalker TRACK = stores_of_power_08 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = starwalker TRACK = stores_of_power_09 }
+			}
+			zz_valyria_mana_increase = { TRAIT = starwalker TRACK = stores_of_power_09 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_gain_trigger = { TRAIT = starwalker TRACK = stores_of_power_10 }
+			}
+			zz_valyria_mana_increase = { TRAIT = starwalker TRACK = stores_of_power_10 }
+		}
+		else_if = { 
+			limit = { 
+				has_trait = starwalker
+				has_trait_xp = {
+					trait = starwalker
+					track = chosen_of_the_heavens
+					value >= 100
+				}
+			}
+			if = {
+				limit = {
+					has_variable = zz_drops_of_power 
+				}
+				change_variable = {
+					name = zz_drops_of_power
+					add = 1
+				}
+			}
+			else = {
+				set_variable = {
+					name = zz_drops_of_power
+					value = 1
+				}
+			}
+			
+		}
+	}
+	remove_variable = managain
+}
+
+zz_valyria_mana_spend_subtract = {
+	hidden_effect = {
+		add_trait_xp = {
+			trait = $TRAIT$
+			track =  $TRACK$
+			value = -1
+		}
+	}
+}
+
+zz_valyria_mana_spend = {
+	while = {
+		count = mana_cost_subtraction
+		if = { 
+			limit = { 
+				has_trait = starwalker
+				has_variable = zz_drops_of_power
+				var:zz_drops_of_power >= 1
+			}
+			change_variable = {
+				name = zz_drops_of_power
+				subtract = 1
+			}
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = starwalker TRACK = stores_of_power_10 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = starwalker TRACK = stores_of_power_10 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = starwalker TRACK = stores_of_power_09 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = starwalker TRACK = stores_of_power_09 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = starwalker TRACK = stores_of_power_08 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = starwalker TRACK = stores_of_power_08 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = starwalker TRACK = stores_of_power_07 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = starwalker TRACK = stores_of_power_07 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = starwalker TRACK = stores_of_power_06 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = starwalker TRACK = stores_of_power_06 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = starwalker TRACK = stores_of_power_05 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = starwalker TRACK = stores_of_power_05 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = starwalker TRACK = stores_of_power_04 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = starwalker TRACK = stores_of_power_04 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = starwalker TRACK = stores_of_power_03 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = starwalker TRACK = stores_of_power_03 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = starwalker TRACK = stores_of_power_02 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = starwalker TRACK = stores_of_power_02 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = starwalker TRACK = stores_of_power_01 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = starwalker TRACK = stores_of_power_01 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_04 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_04 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_03 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_03 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_02 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_02 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_01 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = magic_blood_good_3 TRACK = magic_blood_good_3_stores_of_power_01 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = magic_blood_good_2 TRACK = magic_blood_good_2_stores_of_power_02 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = magic_blood_good_2 TRACK = magic_blood_good_2_stores_of_power_02 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = magic_blood_good_2 TRACK = magic_blood_good_2_stores_of_power_01 }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = magic_blood_good_2 TRACK = magic_blood_good_2_stores_of_power_01 }
+		}
+		else_if = { 
+			limit = { 
+				zz_valyria_mana_spend_trigger = { TRAIT = zz_magister TRACK = drops_of_power }
+			}
+			zz_valyria_mana_spend_subtract = { TRAIT = zz_magister TRACK = drops_of_power }
+		}
+	}
+	
+	remove_variable = zz_manacost
+}
+
+zz_valyria_gain_spell_experience = { 
+	add_trait_xp = { 
+		trait = zz_magister
+		track = $XPTRACK$ 
+		value = $XPGAIN$ 
+	}
+}
+
+zz_valyria_magic_cast_xp_gain = {
+	zz_valyria_gain_spell_experience = {
+		XPGAIN = 1 
+		XPTRACK = secrets_of_the_higher_mysteries
+	}
+	zz_valyria_gain_spell_experience = {
+		XPGAIN = 1 
+		XPTRACK = $SKILL$
+	}
+}
+
+zz_valyria_magic_cast_ui_effect = { 
+	
+	random_list = { 
+		40 = { 
+			modifier = {
+				add = zz_spellcast_value
+			}
+			custom_tooltip = zz_spell_succes
+		}
+		60 = { 
+			zz_valyria_spell_failure_effect = yes
+		}
+	}
+}	
+
+zz_valyria_magic_craft_ui_effect = { 
+	
+	random_list = { 
+		65 = { 
+			modifier = {
+				add = zz_spellcast_value
+			}
+			custom_tooltip = zz_craft_succes
+		}
+		35 = { 
+			zz_valyria_spell_failure_effect = yes
+		}
+	}
+}	
+
+zz_valyria_magic_cast_effect = { 
+	
+	if = {
+		limit = {
+			OR = {
+				NOT = {
+					exists = var:cast_type
+				}
+				var:cast_type = flag:mystery
+			}
+			
+		}
+		scope:secondary_recipient = {
+			remove_variable = casttype
+			zz_valyria_magic_cast_xp_gain = {
+				SKILL = $SKILL$
+			}
+		}
+		random_list = { 
+			40 = { 
+				modifier = {
+					add = zz_spellcast_value
+				}
+				$SPELL$_effect = yes
+			}
+			60 = { 
+				zz_valyria_spell_failure_effect = yes
+			}
+		}
+	}
+	else = {
+		if = { 
+			limit = {
+				var:cast_type = flag:scroll
+			}
+			scope:zz_valyria_scroll = {
+				if = {
+					limit = {
+						var:item_type ?= flag:scroll
+						var:spell = flag:$SPELL$
+					}
+					scope:secondary_recipient = {
+						remove_variable = casttype
+						set_variable = {
+							name = casttype 
+							value = flag:scroll
+							days = 1
+						}
+						remove_variable = cast_potency
+						set_variable = {
+							name = cast_potency 
+							value = scope:zz_valyria_scroll.var:cast_potency
+						}
+					}
+				}
+				destroy_artifact = this
+			}
+			$SPELL$_effect = yes
+			if = { 
+				limit = {
+					scope:zz_item_caster ?= {
+						any_character_artifact = {
+							has_variable = spell
+						}
+					}
+				} 
+				root = {
+					zz_valyria_make_scroll_list = {MAGIC_USER = zz_magic_user ITEM_CASTER = zz_item_caster}
+				}
+			}
+			else = {
+				root = {
+					zz_valyria_make_item_caster_list = {MAGIC_USER = zz_magic_user}
+					zz_valyria_make_scroll_list = {MAGIC_USER = zz_magic_user ITEM_CASTER = zz_item_caster}
+				}
+			}
+		}
+	}
+	
+	root = {
+		save_scope_as = actor 
+		
+	}
+}			
+
+zz_ui_setup_effect = {
+	scope:actor = {
+		save_scope_as = zz_magic_user
+		zz_valyria_make_mage_list =  {MAGIC_USER = zz_magic_user}
+		
+		zz_valyria_make_spell_list = {MAGIC_USER = zz_magic_user MAGIC_CASTER = zz_magic_caster}
+		zz_valyria_make_item_caster_list = {MAGIC_USER = zz_magic_user}
+		zz_valyria_make_scroll_list = {MAGIC_USER = zz_magic_user ITEM_CASTER = zz_item_caster}
+		
+		remove_variable = cast_type
+		set_variable = {
+			name = cast_type
+			value = flag:mystery
+		}
+	}
+	scope:recipient = {
+		save_scope_as = zz_magic_target
+	}
+	scope:actor = {
+		set_variable = {
+			name = zz_magic_ui
+			value = flag:spell_casting
+		}
+		set_variable = {
+			name = zz_magic_user
+			value = scope:zz_magic_user
+		}		
+		
+		set_variable = {
+			name = zz_magic_target
+			value = scope:zz_magic_target
+		}
+		set_variable = {
+			name = zz_valyria_mystery_cost
+			value = var:zz_valyria_mystery.var:manacost
+		}
+	}
+}
+
+
+
+
+zz_valyria_set_spell_values = {
+	scope:new_memory = { 
+		set_variable = { 
+			name = manacost
+			value = $MP$
+		}
+		set_variable = {
+			name = spell_name 
+			value = scope:spell_name
+		}
+		set_variable = { 
+			name = targets_dragon
+			value = flag:true
+		}
+		set_variable = { 
+			name = targets_self 
+			value = flag:true
+		}
+		set_variable = { 
+			name = targets_caster
+			value = flag:true
+		}
+		set_variable = { 
+			name = targets_maa
+			value = flag:false
+		}
+	}
+}
+
+
+zz_add_spell = {
+	if = {
+		limit = {
+			NOT = { 
+				zz_valyria_knows_spell = {
+					SPELL = $SPELL$
+				}
+			}
+		}
+		save_scope_as = spell_learner
+		scope:spell_learner = {
+			create_character_memory = {
+				type = $SPELL$
+			}
+			scope:new_memory = {
+				set_variable = {
+					name = learning_location
+					value = scope:spell_learner.location
+				}
+				save_scope_as = zz_spell
+			}
+			save_scope_value_as = {
+				name = spell_name
+				value = flag:$SPELL$
+			}
+			zz_valyria_set_spell_values = {MP = $SPELL$_cost }
+			scope:activity ?= {
+				add_activity_log_entry = {
+					key = zz_valyria_magic_learn_spell
+					score = 25
+					tags = { good learning activity }
+					character = root
+					#Effect
+					custom_tooltip = zz_valyria_magic_learn_spell_desc
+				}
+			}
+		}
+		send_interface_message = {
+			type = send_interface_message_as_feed_spell_learning
+			title = zz_valyria_magic_learn_spell_title
+			left_icon = scope:spell_learner
+			right_icon = scope:spell_learner
+			custom_tooltip = zz_valyria_magic_learn_spell_desc
+			if = { 
+				limit = {
+					not = {
+						has_trait = zz_magister
+					}
+				}
+				add_trait_force_tooltip = zz_magister
+			}
+		}		
+	}
+}
+
+zz_gain_magic_49_spell = { 
+	random_list = {
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_01}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_01 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_02}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_02 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_03}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_03 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_04}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_04 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_05}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_05 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_06}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_06 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_07}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_07 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_08}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_08 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_09}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_09 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_10}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_10 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_11}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_11 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_12}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_12 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_13}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_13 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_14}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_14 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_15}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_15 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_16}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_16 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_17}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_17 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_18}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_18 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_19}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_19 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_20}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_20 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_21}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_21 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_22}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_22 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_23}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_23 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_24}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_24 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_25}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_25 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_26}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_26 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_27}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_27 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_28}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_28 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_29}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_29 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_30}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_30 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_31}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_31 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_32}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_32 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_33}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_33 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_34}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_34 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_35}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_35 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_36}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_36 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_37}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_37 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_38}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_38 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_39}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_39 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_40}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_40 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_41}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_41 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_42 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_42 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_43 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_43 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_44}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_44 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_45}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_45 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_46}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_46 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_47}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_47 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_48}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_48 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_49}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_49 }
+		}
+		
+	}
+	
+}
+
+zz_gain_magic_29_spell = { 
+	random_list = {
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_01}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_01 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_02}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_02 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_03}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_03 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_04}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_04 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_05}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_05 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_06}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_06 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_07}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_07 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_08}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_08 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_09}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_09 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_10}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_10 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_11}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_11 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_12}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_12 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_13}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_13 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_14}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_14 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_15}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_15 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_16}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_16 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_17}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_17 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_18}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_18 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_19}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_19 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_20}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_20 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_21}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_21 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_22}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_22 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_23}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_23 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_24}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_24 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_25}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_25 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_26}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_26 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_27}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_27 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_28}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_28 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_29}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_29 }
+		}
+	}
+}
+
+zz_gain_magic_17_spell = { 
+	random_list = {
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_01}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_01 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_02}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_02 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_03}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_03 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_04}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_04 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_05}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_05 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_06}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_06 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_07}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_07 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_08}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_08 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_09}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_09 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_10}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_10 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_11}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_11 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_12}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_12 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_13}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_13 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_14}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_14 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_15}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_15 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_16}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_16 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_17}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_17 }
+		}
+	}
+}
+zz_gain_magic_11_spell = { 
+	random_list = {
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_01}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_01 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_02 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_02 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_03 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_03 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_04 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_04 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_05 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_05 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_06 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_06 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_07 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_07 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_08 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_08 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_09 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_09 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_10 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_10 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_11 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_11 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_12 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_12 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_13 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_13 }
+		}
+	}
+}
+
+zz_gain_blood_magic_spell = { 
+	zz_gain_magic_29_spell = {
+		MAGIC = blood
+	}	
+}
+
+zz_gain_shadow_magic_spell = { 
+	zz_gain_magic_11_spell = {
+		MAGIC = shadow
+	}	
+}
+
+zz_gain_dream_magic_spell = { 
+	zz_gain_magic_49_spell = {
+		MAGIC = dream
+	}	
+}
+
+zz_gain_alchemy_spell = { 
+	zz_gain_magic_17_spell = {
+		MAGIC = alchemy
+	}
+}
+
+
+zz_gain_fire_magic_spell = { 
+	zz_gain_magic_11_spell = {
+		MAGIC = fire
+	}
+}
+
+
+
+zz_gain_air_magic_spell = { 
+	zz_gain_magic_11_spell = {
+		MAGIC = air
+	}	
+}
+zz_gain_water_magic_spell = { 
+	zz_gain_magic_11_spell = {
+		MAGIC = water
+	}
+}
+
+zz_random_gain_magic_spell = {
+	random_list = {
+		100 = {
+			trigger = {
+				NAND = {
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_01
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_02
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_03
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_04
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_05
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_06
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_07				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_08				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_09				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_10				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_11				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_12				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_13				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_14				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_15				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_16				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_17				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_18				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_19				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_20				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_21				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_22				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_23				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_24			
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_25			
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_26			
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_27				
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_28			
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_blood_magic_29			
+					}
+				}
+			}
+			modifier = { 
+				var:current_school_of_magic ?= flag:blood_magic 
+				add = 10000
+			}
+			zz_gain_blood_magic_spell = yes 
+		}
+		100 = { 
+			trigger = {
+				NAND = {
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_01
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_02
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_03
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_04
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_05
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_06
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_07
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_08
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_09
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_10
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_11
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_12
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_13
+					}
+				}
+			}
+			modifier = { 
+				var:current_school_of_magic ?= flag:shadow_magic 
+				add = 10000
+			}
+			zz_gain_shadow_magic_spell = yes 
+		}
+		100 = { 
+			trigger = {
+				NAND = {
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_dream_magic_01
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_dream_magic_02
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_dream_magic_03
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_dream_magic_04
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_dream_magic_05
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_06
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_07
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_09
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_10
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_11
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_12
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_13
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_14
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_15
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_16
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_17
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_18
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_19
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_20
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_21
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_22
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_23
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_24
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_25
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_26
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_27
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_28
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_29
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_30
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_31
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_32
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_33
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_34
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_35
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_36
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_37
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_38
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_39
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_41
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_42
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_43
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_44
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_45
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_46
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_47
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_48
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_49
+					}
+					
+					
+				}
+			}
+			modifier = { 
+				var:current_school_of_magic ?= flag:dream_magic 
+				add = 10000
+			}
+			zz_gain_dream_magic_spell = yes 
+		}
+		100 = { 
+			trigger = {
+				NAND = {
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_01
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_02
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_03
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_04
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_05
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_06
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_07
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_08
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_09
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_10
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_11
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_12
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_13
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_14
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_15
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_16
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_alchemy_magic_17
+					}
+				}
+			}
+			modifier = { 
+				var:current_school_of_magic ?= flag:alchemy_magic 
+				add = 10000
+			}
+			zz_gain_alchemy_spell = yes 
+		}
+		100 = { 
+			trigger = {
+				NAND = {
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_01
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_02
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_03
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_04
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_05
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_06
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_07
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_08
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_09
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_10
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_11
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_12
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_13
+					}
+				}
+			}
+			modifier = { 
+				var:current_school_of_magic ?= flag:fire_magic 
+				add = 10000
+			}
+			zz_gain_fire_magic_spell = yes
+		}
+		100 = {
+			trigger = {
+				NAND = {
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_water_magic_01
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_water_magic_02
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_water_magic_03
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_water_magic_04
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_water_magic_05
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_water_magic_06
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_water_magic_07
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_water_magic_08
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_water_magic_09
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_water_magic_10
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_water_magic_11
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_water_magic_12
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_water_magic_13
+					}
+					
+				}
+			}
+			modifier = { 
+				var:current_school_of_magic ?= flag:water_magic 
+				add = 10000
+			}
+			
+			zz_gain_water_magic_spell  = yes 
+		}
+		100 = { 
+			trigger = {
+				NAND = {
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_01
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_02
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_03
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_04
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_05
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_06
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_08
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_09
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_10
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_11
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_12
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_13
+					}
+				}
+			}
+			
+			modifier = { 
+				var:current_school_of_magic ?= flag:air_magic 
+				add = 10000
+			}
+			zz_gain_air_magic_spell = yes
+		}			
+	}
+}
+
+zz_valyria_magic_learning_compare_memory = {
+	scope:zz_magic_master = {
+		random_memory = {
+			limit = {
+				has_memory_type = $SPELL$
+				NOT = {
+					scope:zz_magic_learner = {
+						any_memory = {
+							has_memory_type = $SPELL$
+						}
+					}
+				}
+			}
+			scope:zz_magic_learner = {
+				zz_add_spell = { 
+					SPELL = $SPELL$
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_learning_gui_effect = {
+	if  = { 
+		limit  = {
+			scope:zz_valyria_teach_mystery = {
+				has_memory_type = $SPELL$
+			}
+		}
+		scope:zz_valyria_mystery_magic_learner = {
+			zz_add_spell = { 
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+zz_valyria_magic_learning_gui_tooltip_effect = {
+	if = {
+		limit = {
+			scope:zz_valyria_teach_mystery = { 
+				has_memory_type = $SPELL$
+			}
+		}
+		custom_tooltip = $SPELL$.tooltip.desc
+	}
+}
+
+zz_valyria_magic_casting_gui_tooltip_effect = {
+	if = {
+		limit = {
+			scope:zz_valyria_mystery = { 
+				has_memory_type = $SPELL$
+			}
+		}
+		custom_tooltip = $SPELL$.tooltip.desc
+	}
+}
+
+zz_valyria_magic_casting_scroll_gui_tooltip_effect = {
+	if = {
+		limit = {
+			scope:zz_valyria_scroll = { 
+				var:spell ?= flag:$SPELL$
+			}
+		}
+		custom_tooltip = $SPELL$.tooltip.desc
+	}
+}
+
+zz_valyria_magic_casting_gui_effect = {
+	if = {
+		limit = {
+			scope:zz_valyria_mystery = { 
+				has_memory_type = $SPELL$
+			}
+		}
+		custom_tooltip = $SPELL$.tooltip.desc
+		trigger_event = { 
+			id = $EVENT$ 
+		}
+	}
+}
+
+zz_valyria_magic_casting_scroll_gui_effect = {
+	if = {
+		limit = {
+			scope:zz_valyria_scroll = { 
+				var:spell ?= flag:$SPELL$
+			}
+		}
+		custom_tooltip = $SPELL$.tooltip.desc
+		trigger_event = { 
+			id = $EVENT$ 
+		}
+	}
+}
+zz_valyria_magic_learning_scroll_gui_effect = {
+	if = {
+		limit = {
+			scope:zz_valyria_scroll ?= { 
+				var:spell ?= flag:$SPELL$
+			}
+		}
+		scope:zz_valyria_scroll = {
+			destroy_artifact = this
+		}
+		custom_tooltip = $SPELL$.tooltip.desc
+		scope:zz_valyria_scroll_learner = {
+			zz_add_spell = { 
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+zz_valyria_scroll_making_gui_effect = {
+	if  = { 
+		limit  = {
+			scope:zz_valyria_mystery ?= {
+				has_memory_type = $SPELL$
+			}
+		}
+		zz_valyria_magic_create_artifact_scroll_effect = { OWNER = root }
+		scope:newly_created_artifact = {
+			
+			set_variable = {
+				name = item_type
+				value = flag:scroll 
+			}
+			set_variable = {
+				name = spell
+				value = flag:$SPELL$
+			}
+			set_variable = {
+				name = cast_potency
+				value = {
+					scope:zz_scroll_maker = {
+						value = zz_valyria_higher_mysteries_stat_gui
+					}
+				}
+			}
+			set_artifact_name = zz_valyria_artifact_magic_scroll_name
+		}
+	}
+}
+
+zz_valyria_magic_create_artifact_scroll_effect = {
+	$OWNER$ = { save_scope_as = owner }
+	
+	set_artifact_rarity_illustrious = yes
+	
+	create_artifact = {
+		name = agot_artifact_saans_scrolls_name
+		description = agot_artifact_saans_scrolls_desc
+		visuals = scroll
+		type = scroll
+		modifier = religious_head_letter_modifier
+		save_scope_as = newly_created_artifact
+		wealth = scope:wealth
+		quality = scope:quality
+		history = { type = created_before_history }
+	}
+}
+
+zz_scroll_making_effect = {
+	zz_valyria_magic_create_artifact_scroll_effect = { OWNER = root }
+	scope:newly_created_artifact = {
+		set_variable = {
+			name = item_type
+			value = flag:scroll 
+		}
+		set_variable = {
+			name = spell
+			value = flag:$SPELL$
+		}
+		set_variable = {
+			name = cast_potency
+			value = $POTENCY$
+		}
+		set_artifact_name = zz_valyria_artifact_magic_scroll_name
+	}
+}
+
+zz_random_scroll_gain_effect = {
+	
+	random_list = {
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_01$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_02$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_03$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_04$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_05$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_06$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_07$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_08$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_09$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_10$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_11$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_12$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_13$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_14$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_15$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_16$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_17$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_18$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_19$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_20$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_21$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_22$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_23$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_24$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_25$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_26$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_27$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_28$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_29$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_30$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_31$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_32$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_33$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_34$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_35$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_36$ }
+		}
+		100 = {
+			zz_scroll_making_effect = { POTENCY = 50 SPELL= $SPELL_37$ }
+		}
+	}
+}
+
+zz_scroll_11_effect = {
+	random_list = {
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_01 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_02 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_03 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_04 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_05 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_06 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_07 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_08 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_09 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_10 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_11 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_12 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_13 }}
+	}
+}
+zz_scroll_17_effect = {
+	random_list = {
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_01 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_02 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_03 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_04 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_05 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_06 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_07 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_08 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_09 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_10 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_11 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_12 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_13 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_14 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_15 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_16 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_17 }}
+	}
+}
+zz_scroll_29_effect = {
+	random_list = {
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_01 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_02 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_03 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_04 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_05 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_06 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_07 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_08 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_09 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_10 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_11 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_12 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_13 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_14 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_15 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_16 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_17 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_18 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_19 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_20 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_21 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_22 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_23 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_24 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_25 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_26 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_27 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_28 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_29 }}
+	}
+}
+zz_scroll_49_effect = {
+	random_list = {
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_01 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_02 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_03 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_04 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_05 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_06 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_07 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_08 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_09 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_10 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_11 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_12 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_13 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_14 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_15 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_16 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_17 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_18 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_19 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_20 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_21 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_22 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_23 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_24 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_25 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_26 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_27 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_28 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_29 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_30 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_31 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_32 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_33 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_34 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_35 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_36 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_37 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_38 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_39 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_40 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_41 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_42 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_43 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_44 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_45 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_46 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_47 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_48 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_49 }}
+	}
+}
+
+zz_gain_blood_magic_scroll = { 
+	zz_scroll_29_effect = { 
+		MAGIC = blood
+	}	
+}
+
+zz_gain_shadow_magic_scroll = { 
+	zz_scroll_11_effect = { 
+		MAGIC = shadow
+	}	
+	
+}
+
+zz_gain_dream_magic_scroll = { 
+	zz_scroll_49_effect = { 
+		MAGIC = dream
+	}	
+}
+
+
+
+zz_gain_alchemy_scroll = { 
+	zz_scroll_17_effect = { 
+		MAGIC = alchemy
+	}	
+}
+
+
+zz_gain_fire_magic_scroll = { 
+	zz_scroll_11_effect = { 
+		MAGIC = fire
+	}		
+}
+
+
+
+zz_gain_air_magic_scroll = { 
+	zz_scroll_11_effect = { 
+		MAGIC = air
+	}	
+}
+zz_gain_water_magic_scroll = { 
+	zz_scroll_11_effect = { 
+		MAGIC = water
+	}	
+}
+
+zz_random_gain_magic_scroll = {
+	random_list = {
+		100 = {
+			modifier = { 
+				var:current_school_of_magic ?= flag:blood_magic 
+				add = 10000
+			}
+			zz_gain_blood_magic_scroll = yes 
+		}
+		100 = { 
+			modifier = { 
+				var:current_school_of_magic ?= flag:shadow_magic 
+				add = 10000
+			}
+			zz_gain_shadow_magic_scroll = yes 
+		}
+		100 = { 
+			modifier = { 
+				var:current_school_of_magic ?= flag:dream_magic 
+				add = 10000
+			}
+			zz_gain_dream_magic_scroll = yes 
+		}
+		100 = { 
+			modifier = { 
+				var:current_school_of_magic ?= flag:alchemy_magic 
+				add = 10000
+			}
+			zz_gain_alchemy_scroll = yes 
+		}
+		100 = { 
+			modifier = { 
+				var:current_school_of_magic ?= flag:fire_magic 
+				add = 10000
+			}
+			zz_gain_fire_magic_scroll = yes
+		}
+		100 = {
+			modifier = { 
+				var:current_school_of_magic ?= flag:water_magic 
+				add = 10000
+			}
+			
+			zz_gain_water_magic_scroll  = yes 
+		}
+		100 = { 
+			modifier = { 
+				var:current_school_of_magic ?= flag:air_magic 
+				add = 10000
+			}
+			zz_gain_air_magic_scroll = yes
+		}			
+	}
+}
+
+zz_copy_memories = {
+	
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_01 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_02 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_03 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_04 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_05 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_06 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_07 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_08 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_09 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_10 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_11 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_12 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_13 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_14 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_15 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_16 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_17 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_18 }
+	zz_valyria_magic_learning_compare_memory = { SPELL =  zz_valyria_magic_blood_magic_19 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_blood_magic_20 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_blood_magic_21 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_blood_magic_22 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_blood_magic_23 }
+	
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_01 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_02 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_03 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_04 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_05 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_06 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_07 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_08 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_09 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_10 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_11 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_12 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_13 }
+	
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_01 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_02 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_03 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_04 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_05 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_06 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_07 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_08 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_09 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_10 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_11 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_12 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_13 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_14 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_15 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_16 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_17 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_18 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_19 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_20 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_21 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_22 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_23 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_24 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_25 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_26 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_27 }zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_11 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_28 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_29 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_30 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_31 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_32 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_33 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_34 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_35 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_36 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_37 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_38 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_39 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_40 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_41 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_42 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_43 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_44 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_45 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_46 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_47 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_48 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_49 }
+	
+	
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_01 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_02 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_03 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_04 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_05 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_06 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_07 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_08 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_09 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_10 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_11 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_12 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_13 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_14 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_15 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_16 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_alchemy_magic_17 }
+	
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_01 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_02 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_03 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_04 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_05 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_06 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_07 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_08 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_09 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_10 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_11 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_12 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_13 }
+	
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_01 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_02 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_03 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_04 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_05 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_06 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_07 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_08 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_09 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_10 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_11 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_12 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_13 }
+	
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_01 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_02 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_03 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_04 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_05 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_06 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_07 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_08 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_09 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_10 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_11 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_12 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_13 }
+}
+
+
+zz_even_if_dead_add_to_list = {
+	root = {
+		add_to_variable_list = {
+			name = zz_valyria_possible_characters
+			target = prev
+		}
+		if = {
+			limit = {
+				NOT = { has_variable = zz_valyria_selected_character }
+			}
+			set_variable = { name = zz_valyria_selected_character value = prev }
+		}
+	}
+}
+
+zz_magic_list_effect = {
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_01 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_02 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_03 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_04 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_05 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_06 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_07 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_08 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_09 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_10 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_11 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_12 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_13 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_14 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_15 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_16 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_17 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_18 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_19 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_20 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_21 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_22 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_23 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_24 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_25 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_26 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_27 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_28 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_29 }
+	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_01 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_02 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_03 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_04 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_05 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_06 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_07 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_08 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_09 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_10 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_11 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_12 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_13 }
+	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_01 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_02 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_03 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_04 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_05 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_06 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_07 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_08 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_09 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_10 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_11 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_12 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_13 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_14 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_15 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_16 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_17 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_18 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_19 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_20 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_21 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_22 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_23 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_24 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_25 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_26 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_27 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_28 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_29 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_30 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_31 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_32 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_33 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_34 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_35 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_36 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_37 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_38 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_39 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_40 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_41 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_42 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_43 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_44 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_45 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_46 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_47 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_48 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_49 }
+	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_01 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_02 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_03 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_04 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_05 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_06 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_07 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_08 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_09 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_10 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_11 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_12 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_13 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_14 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_15 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_16 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_17 }
+	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_01 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_02 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_03 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_04 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_05 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_06 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_07 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_08 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_09 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_10 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_11 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_12 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_13 }
+	
+	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_01 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_02 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_03 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_04 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_05 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_06 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_07 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_08 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_09 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_10 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_11 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_12 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_13 }
+	
+	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_01 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_02  }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_03 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_04 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_05 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_06 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_07 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_08 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_09 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_10 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_11 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_12 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_13 }
+}
+
+zz_magic_list_cast_effect = {
+	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_01 EVENT = zz_valyria_magic_blood_magic_spells.001 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_02 EVENT = zz_valyria_magic_blood_magic_spells.002 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_03 EVENT = zz_valyria_magic_blood_magic_spells.003 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_04 EVENT = zz_valyria_magic_blood_magic_spells.004 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_05 EVENT = zz_valyria_magic_blood_magic_spells.005 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_06 EVENT = zz_valyria_magic_blood_magic_spells.006 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_07 EVENT = zz_valyria_magic_blood_magic_spells.007 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_08 EVENT = zz_valyria_magic_blood_magic_spells.008 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_09 EVENT = zz_valyria_magic_blood_magic_spells.009 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_10 EVENT = zz_valyria_magic_blood_magic_spells.010 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_11 EVENT = zz_valyria_magic_blood_magic_spells.011 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_12 EVENT = zz_valyria_magic_blood_magic_spells.012 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_13 EVENT = zz_valyria_magic_blood_magic_spells.013 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_14 EVENT = zz_valyria_magic_blood_magic_spells.014 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_15 EVENT = zz_valyria_magic_blood_magic_spells.015 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_16 EVENT = zz_valyria_magic_blood_magic_spells.016 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_17 EVENT = zz_valyria_magic_blood_magic_spells.017 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_18 EVENT = zz_valyria_magic_blood_magic_spells.018 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_19 EVENT = zz_valyria_magic_blood_magic_spells.019 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_20 EVENT = zz_valyria_magic_blood_magic_spells.020 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_21 EVENT = zz_valyria_magic_blood_magic_spells.021 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_22 EVENT = zz_valyria_magic_blood_magic_spells.022 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_23 EVENT = zz_valyria_magic_blood_magic_spells.023 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_24 EVENT = zz_valyria_magic_blood_magic_spells.024 }	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_25 EVENT = zz_valyria_magic_blood_magic_spells.025 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_26 EVENT = zz_valyria_magic_blood_magic_spells.026 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_27 EVENT = zz_valyria_magic_blood_magic_spells.027 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_28 EVENT = zz_valyria_magic_blood_magic_spells.028 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_blood_magic_29 EVENT = zz_valyria_magic_blood_magic_spells.029 }
+	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_01 EVENT = zz_valyria_magic_shadow_magic_spells.001 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_02 EVENT = zz_valyria_magic_shadow_magic_spells.002 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_03 EVENT = zz_valyria_magic_shadow_magic_spells.003 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_04 EVENT = zz_valyria_magic_shadow_magic_spells.004 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_05 EVENT = zz_valyria_magic_shadow_magic_spells.005 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_06 EVENT = zz_valyria_magic_shadow_magic_spells.006 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_07 EVENT = zz_valyria_magic_shadow_magic_spells.007 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_08 EVENT = zz_valyria_magic_shadow_magic_spells.008 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_09 EVENT = zz_valyria_magic_shadow_magic_spells.009 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_10 EVENT = zz_valyria_magic_shadow_magic_spells.010 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_11 EVENT = zz_valyria_magic_shadow_magic_spells.011 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_12 EVENT = zz_valyria_magic_shadow_magic_spells.012 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_13 EVENT = zz_valyria_magic_shadow_magic_spells.013 }
+	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_01 EVENT = zz_valyria_magic_dream_magic_spells.001 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_02 EVENT = zz_valyria_magic_dream_magic_spells.002 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_03 EVENT = zz_valyria_magic_dream_magic_spells.003 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_04 EVENT = zz_valyria_magic_dream_magic_spells.004 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_05 EVENT = zz_valyria_magic_dream_magic_spells.005 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_06 EVENT = zz_valyria_magic_dream_magic_spells.006 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_07 EVENT = zz_valyria_magic_dream_magic_spells.007 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_08 EVENT = zz_valyria_magic_dream_magic_spells.008 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_09 EVENT = zz_valyria_magic_dream_magic_spells.009 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_10 EVENT = zz_valyria_magic_dream_magic_spells.010 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_11 EVENT = zz_valyria_magic_dream_magic_spells.011 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_12 EVENT = zz_valyria_magic_dream_magic_spells.012 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_13 EVENT = zz_valyria_magic_dream_magic_spells.013 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_14 EVENT = zz_valyria_magic_dream_magic_spells.014 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_15 EVENT = zz_valyria_magic_dream_magic_spells.015 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_16 EVENT = zz_valyria_magic_dream_magic_spells.016 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_17 EVENT = zz_valyria_magic_dream_magic_spells.017 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_18 EVENT = zz_valyria_magic_dream_magic_spells.018 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_19 EVENT = zz_valyria_magic_dream_magic_spells.019 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_20 EVENT = zz_valyria_magic_dream_magic_spells.020 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_21 EVENT = zz_valyria_magic_dream_magic_spells.021 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_22 EVENT = zz_valyria_magic_dream_magic_spells.022 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_23 EVENT = zz_valyria_magic_dream_magic_spells.023 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_24 EVENT = zz_valyria_magic_dream_magic_spells.024 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_25 EVENT = zz_valyria_magic_dream_magic_spells.025 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_26 EVENT = zz_valyria_magic_dream_magic_spells.026 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_27 EVENT = zz_valyria_magic_dream_magic_spells.027 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_28 EVENT = zz_valyria_magic_dream_magic_spells.028 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_29 EVENT = zz_valyria_magic_dream_magic_spells.029 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_30 EVENT = zz_valyria_magic_dream_magic_spells.030 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_31 EVENT = zz_valyria_magic_dream_magic_spells.031 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_32 EVENT = zz_valyria_magic_dream_magic_spells.032 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_33 EVENT = zz_valyria_magic_dream_magic_spells.033 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_34 EVENT = zz_valyria_magic_dream_magic_spells.034 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_35 EVENT = zz_valyria_magic_dream_magic_spells.035 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_36 EVENT = zz_valyria_magic_dream_magic_spells.036 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_37 EVENT = zz_valyria_magic_dream_magic_spells.037 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_38 EVENT = zz_valyria_magic_dream_magic_spells.038 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_39 EVENT = zz_valyria_magic_dream_magic_spells.039 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_40 EVENT = zz_valyria_magic_dream_magic_spells.040 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_41 EVENT = zz_valyria_magic_dream_magic_spells.041 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_42 EVENT = zz_valyria_magic_dream_magic_spells.042 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_43 EVENT = zz_valyria_magic_dream_magic_spells.043 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_44 EVENT = zz_valyria_magic_dream_magic_spells.044 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_45 EVENT = zz_valyria_magic_dream_magic_spells.045 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_46 EVENT = zz_valyria_magic_dream_magic_spells.046 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_47 EVENT = zz_valyria_magic_dream_magic_spells.047 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_48 EVENT = zz_valyria_magic_dream_magic_spells.048 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_49 EVENT = zz_valyria_magic_dream_magic_spells.049 }
+	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_01 EVENT = zz_valyria_magic_alchemy_magic_spells.001 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_02 EVENT = zz_valyria_magic_alchemy_magic_spells.002 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_03 EVENT = zz_valyria_magic_alchemy_magic_spells.003 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_04 EVENT = zz_valyria_magic_alchemy_magic_spells.004 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_05 EVENT = zz_valyria_magic_alchemy_magic_spells.005 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_06 EVENT = zz_valyria_magic_alchemy_magic_spells.006 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_07 EVENT = zz_valyria_magic_alchemy_magic_spells.007 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_08 EVENT = zz_valyria_magic_alchemy_magic_spells.008 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_09 EVENT = zz_valyria_magic_alchemy_magic_spells.009 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_10 EVENT = zz_valyria_magic_alchemy_magic_spells.010 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_11 EVENT = zz_valyria_magic_alchemy_magic_spells.011 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_12 EVENT = zz_valyria_magic_alchemy_magic_spells.012 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_13 EVENT = zz_valyria_magic_alchemy_magic_spells.013 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_14 EVENT = zz_valyria_magic_alchemy_magic_spells.014 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_15 EVENT = zz_valyria_magic_alchemy_magic_spells.015 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_16 EVENT = zz_valyria_magic_alchemy_magic_spells.016 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_alchemy_magic_17 EVENT = zz_valyria_magic_alchemy_magic_spells.017 }
+	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_01 EVENT = zz_valyria_magic_fire_magic_spells.001 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_02 EVENT = zz_valyria_magic_fire_magic_spells.002 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_03 EVENT = zz_valyria_magic_fire_magic_spells.003 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_04 EVENT = zz_valyria_magic_fire_magic_spells.004 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_05 EVENT = zz_valyria_magic_fire_magic_spells.005 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_06 EVENT = zz_valyria_magic_fire_magic_spells.006 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_07 EVENT = zz_valyria_magic_fire_magic_spells.007 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_08 EVENT = zz_valyria_magic_fire_magic_spells.008 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_09 EVENT = zz_valyria_magic_fire_magic_spells.009 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_10 EVENT = zz_valyria_magic_fire_magic_spells.010 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_11 EVENT = zz_valyria_magic_fire_magic_spells.011 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_12 EVENT = zz_valyria_magic_fire_magic_spells.012 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_13 EVENT = zz_valyria_magic_fire_magic_spells.013 }
+	
+	
+	
+	
+	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_01 EVENT = zz_valyria_magic_air_magic_spells.001 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_02 EVENT = zz_valyria_magic_air_magic_spells.002 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_03 EVENT = zz_valyria_magic_air_magic_spells.003 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_04 EVENT = zz_valyria_magic_air_magic_spells.004 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_05 EVENT = zz_valyria_magic_air_magic_spells.005 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_06 EVENT = zz_valyria_magic_air_magic_spells.006 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_07 EVENT = zz_valyria_magic_air_magic_spells.007 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_08 EVENT = zz_valyria_magic_air_magic_spells.008 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_09 EVENT = zz_valyria_magic_air_magic_spells.009 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_10 EVENT = zz_valyria_magic_air_magic_spells.010 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_11 EVENT = zz_valyria_magic_air_magic_spells.011 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_12 EVENT = zz_valyria_magic_air_magic_spells.012 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_13 EVENT = zz_valyria_magic_air_magic_spells.013 }
+	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_01 EVENT = zz_valyria_magic_water_magic_spells.001 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_02 EVENT = zz_valyria_magic_water_magic_spells.002 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_03 EVENT = zz_valyria_magic_water_magic_spells.003 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_04 EVENT = zz_valyria_magic_water_magic_spells.004 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_05 EVENT = zz_valyria_magic_water_magic_spells.005 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_06 EVENT = zz_valyria_magic_water_magic_spells.006 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_07 EVENT = zz_valyria_magic_water_magic_spells.007 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_08 EVENT = zz_valyria_magic_water_magic_spells.008 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_09 EVENT = zz_valyria_magic_water_magic_spells.009 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_10 EVENT = zz_valyria_magic_water_magic_spells.010 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_11 EVENT = zz_valyria_magic_water_magic_spells.011 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_12 EVENT = zz_valyria_magic_water_magic_spells.012 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_13 EVENT = zz_valyria_magic_water_magic_spells.013 }
+}

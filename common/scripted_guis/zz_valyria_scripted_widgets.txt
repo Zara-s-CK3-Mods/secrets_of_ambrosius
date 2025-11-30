@@ -1,0 +1,263 @@
+﻿zz_valyria_artifact_selecting = {
+	scope = character
+
+	is_valid = {
+	}
+
+	is_shown = {
+		var:zz_valyria_selected_artifact?= scope:zz_valyria_selected_artifact
+	}
+
+	effect = {
+		set_variable = { name = zz_valyria_selected_artifact value = scope:zz_valyria_selected_artifact }
+	}
+}
+
+zz_valyria_character_selecting = {
+	scope = character
+	is_shown = {
+		var:zz_valyria_selected_character ?= scope:zz_valyria_selected_character
+	}
+	effect = {
+		if = { # removes selection --> no selection at all
+			limit = {
+				exists = var:zz_valyria_selected_character
+				var:zz_valyria_selected_character = scope:zz_valyria_selected_character
+
+				always = no # enable variable below once we have an instance where you shoudl be allowed to unselect a character
+				#has_variable = is_allow_unselecting_character # set this variable on the character if you want to be allowed to unselect
+			}
+			scope:zz_valyria_selected_character = {
+				remove_variable = si_selecting_character
+			}
+			remove_variable = zz_valyria_selected_character
+		}
+		else = {
+			if = {
+				limit = {
+					exists = var:zz_valyria_selected_character
+					NOT = { var:zz_valyria_selected_character = scope:zz_valyria_selected_character }
+					var:zz_valyria_selected_character = {
+						is_alive = yes
+					}
+				}
+				var:zz_valyria_selected_character = {
+					remove_variable = si_selecting_character
+				}
+			}
+			set_variable = {
+				name = zz_valyria_selected_character
+				value = scope:zz_valyria_selected_character
+			}
+			scope:zz_valyria_selected_character = {
+				if = {
+					limit = {
+						is_alive = yes
+					}
+					set_variable = {
+						name = si_selecting_character
+						value = root
+					}
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_regiment_selecting = {
+	scope = character
+	saved_scopes = {
+		selected_regiment
+	}
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_regiment ?= scope:selected_regiment
+	}
+
+	effect = {
+		set_variable = { name = selected_regiment value = scope:selected_regiment }
+	}
+}
+
+zz_valyria_army_selecting = {
+	scope = character
+	saved_scopes = {
+		selected_army
+	}
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_army ?= scope:selected_army
+	}
+
+	effect = {
+		set_variable = { name = selected_army value = scope:selected_army }
+	}
+}
+
+zz_valyria_province_selecting = {
+	scope = character
+	saved_scopes = {
+		selected_province
+	}
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_province ?= scope:selected_province
+	}
+
+	effect = {
+		set_variable = { name = selected_province value = scope:selected_province }
+	}
+}
+zz_valyria_county_selecting = {
+	scope = character
+	saved_scopes = {
+		selected_county
+	}
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_county ?= scope:selected_county
+	}
+
+	effect = {
+		set_variable = { name = selected_county value = scope:selected_county }
+	}
+}
+zz_valyria_duchy_selecting = {
+	scope = character
+	saved_scopes = {
+		selected_duchy
+	}
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_duchy ?= scope:selected_duchy
+	}
+
+	effect = {
+		set_variable = { name = selected_duchy value = scope:selected_duchy }
+	}
+}
+zz_valyria_epidemic_selecting = {
+	scope = character
+	saved_scopes = {
+		selected_epidemic
+	}
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_epidemic ?= scope:selected_epidemic
+	}
+
+	effect = {
+		set_variable = { name = selected_epidemic value = scope:selected_epidemic }
+	}
+}
+zz_valyria_secret_selecting = {
+	scope = character
+	saved_scopes = {
+		selected_secret
+	}
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_secret ?= scope:selected_secret
+	}
+
+	effect = {
+		set_variable = { name = selected_secret value = scope:selected_secret }
+	}
+}
+zz_valyria_scheme_selecting = {
+	scope = character
+	saved_scopes = {
+		selected_scheme
+	}
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_scheme ?= scope:selected_scheme
+	}
+
+	effect = {
+		set_variable = { name = selected_scheme value = scope:selected_scheme }
+	}
+}
+zz_valyria_trait_selecting = {
+	scope = character
+	saved_scopes = {
+		selected_trait
+	}
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_trait ?= scope:selected_trait
+	}
+
+	effect = {
+		set_variable = { name = selected_trait value = scope:selected_trait }
+	}
+}
+
+zz_valyria_religion_selecting = {
+	scope = character
+	saved_scopes = {
+		selected_religion
+	}
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_religion ?= scope:selected_religion
+	}
+
+	effect = {
+		set_variable = { name = selected_religion value = scope:selected_religion }
+	}
+}
+
+zz_valyria_culture_selecting = {
+	scope = character
+	saved_scopes = {
+		selected_culture
+	}
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_culture ?= scope:selected_culture
+	}
+
+	effect = {
+		set_variable = { name = selected_culture value = scope:selected_culture }
+	}
+}
+
+zz_valyria_flag_selecting = {
+	scope = character
+	saved_scopes = {
+		selected_flag
+	}
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_flag ?= scope:selected_flag
+	}
+
+	effect = {
+		set_variable = { name = selected_flag value = scope:selected_flag }
+	}
+}

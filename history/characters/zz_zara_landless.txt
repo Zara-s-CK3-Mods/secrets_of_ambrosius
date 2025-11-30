@@ -1,0 +1,574 @@
+﻿Merlin_01 = {
+	name = Merlinus # Canon, AKA: Zaret The Mage, a lord
+	dynasty = dynn_Ambrosius
+	dna = Merlin_01
+	sexuality = heterosexual
+	martial = 15
+	diplomacy = 20
+	intrigue = 20
+	stewardship = 20
+	learning = 400
+	prowess = 10
+
+	religion = catholic
+	culture = roman
+
+
+	trait = education_learning_5
+	trait = patient
+	trait = diligent
+	trait = humble
+	trait = calm
+	trait = curious
+	trait = zz_magister
+	trait = starwalker
+	trait = born_beneath_the_comet
+	trait = magic_blood_good_3
+	trait = lifespan_good_3
+	trait = zz_valyrian_longevity 
+	trait = disease_resistance_alchemical
+	trait = immortal 
+	trait = intellect_good_3
+	trait = knight_errant
+	trait = journaller
+	trait = shrewd
+	trait = poet
+	portrait_override = {	
+		portrait_modifier_overrides = {
+			custom_hair=male_hair_northern_01
+			custom_beards=male_beard_rtt_01
+			custom_headgear=male_empty
+		}
+	}
+	disallow_random_traits = yes
+
+	1.1.1 = {
+		birth = yes
+		effect = {
+			add_trait_xp = {
+				trait = knight_errant 
+				value = 100
+			}
+			zz_valyria_mana_gain = {
+				MANAGAIN = 1000
+			}
+			add_trait_xp = { 
+				trait = starwalker 
+				track = chosen_of_the_heavens
+				value = 30
+			}
+			set_immortal_age = 20
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 100 
+				XPTRACK = secrets_of_the_higher_mysteries
+			}			
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 100 
+				XPTRACK = dream_magic
+			}
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 100 
+				XPTRACK = blood_magic
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_blood_magic_01
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_blood_magic_02
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_blood_magic_05
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_blood_magic_07
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_blood_magic_08
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_blood_magic_09
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_blood_magic_10
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_blood_magic_11
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_blood_magic_18
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_blood_magic_19
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_blood_magic_20
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_blood_magic_21
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_blood_magic_22
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_01
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_02
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_03
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_05
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_06
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_09
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_10
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_11
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_12
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_13
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_14
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_15
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_47
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_48
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_dream_magic_49
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_alchemy_magic_03
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_fire_magic_01
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_air_magic_04
+			}
+			zz_add_spell = { 
+				SPELL = zz_valyria_magic_water_magic_04
+			}
+			dynasty = { 
+				add_dynasty_modifier = incest_heritage_dynasty_modifier
+				add_dynasty_prestige = 20000
+				add_dynasty_perk = kin_legacy_1
+				add_dynasty_perk = kin_legacy_2
+				add_dynasty_perk = kin_legacy_3
+				add_dynasty_perk = kin_legacy_4
+				add_dynasty_perk = kin_legacy_5
+				add_dynasty_perk = fp2_urbanism_legacy_1
+				add_dynasty_perk = fp2_coterie_legacy_1
+				add_dynasty_perk = ep3_administrative_legacy_1
+			}
+		}
+	}
+
+	1.1.1 = { give_nickname = nick_the_mage  }
+}
+
+
+
+
+Dummy_Merlin_01 = {
+	name = Zaret
+	dna = Merlin_01
+	religion = "hellenic_pagan"
+	culture = "roman"
+	1.1.1 = {
+		birth = "1.1.1"
+		add_character_flag = has_scripted_appearance
+	}
+	20.1.2 = { death = "20.1.2" }
+}
+
+Dummy_Merlin_02 = {
+	name = Rhaegar
+	dna = Merlin_02
+	religion = "hellenic_pagan"
+	culture = "roman"
+	1.1.1 = {
+		birth = "1.1.1"
+		add_character_flag = has_scripted_appearance
+	}
+	20.1.2 = { death = "20.1.2" }
+}
+
+Dummy_Merlin_03 = {
+	name = Melko
+	dna = Merlin_03
+	religion = "hellenic_pagan"
+	culture = "roman"
+	1.1.1 = {
+		birth = "1.1.1"
+		add_character_flag = has_scripted_appearance
+	}
+	20.1.2 = { death = "20.1.2" }
+}
+Dummy_Merlin_04 = {
+	name = Aerion
+	dna = Merlin_04
+	religion = "hellenic_pagan"
+	culture = "roman"
+	1.1.1 = {
+		birth = "1.1.1"
+		add_character_flag = has_scripted_appearance
+	}
+	20.1.2 = { death = "20.1.2" }
+}
+Dummy_Merlin_05 = {
+	name = Jaehaerys
+	dna = Merlin_05
+	religion = "hellenic_pagan"
+	culture = "roman"
+	1.1.1 = {
+		birth = "1.1.1"
+		add_character_flag = has_scripted_appearance
+	}
+	20.1.2 = { death = "20.1.2" }
+}
+Dummy_Merlin_06 = {
+	name = Aemon
+	dna = Merlin_06
+	religion = "hellenic_pagan"
+	culture = "roman"
+	1.1.1 = {
+		birth = "1.1.1"
+		add_character_flag = has_scripted_appearance
+	}
+	20.1.2 = { death = "20.1.2" }
+}
+Dummy_Merlin_07 = {
+	name = Viserys
+	dna = Merlin_07
+	religion = "hellenic_pagan"
+	culture = "roman"
+	1.1.1 = {
+		birth = "1.1.1"
+		add_character_flag = has_scripted_appearance
+	}
+	20.1.2 = { death = "20.1.2" }
+}
+Dummy_Merlin_08 = {
+	name = Annatar
+	dna = Merlin_08
+	religion = "hellenic_pagan"
+	culture = "roman"
+	1.1.1 = {
+		birth = "1.1.1"
+		add_character_flag = has_scripted_appearance
+	}
+	20.1.2 = { death = "20.1.2" }
+	portrait_override = {	
+		portrait_modifier_overrides = {
+			custom_hair=m_hair_fp3_iranian_01
+			custom_beards=male_empty
+		}
+	}
+}
+Dummy_Merlin_09 = {
+	name = Geralt
+	dna = Merlin_09
+	religion = "hellenic_pagan"
+	culture = "roman"
+	1.1.1 = {
+		birth = "1.1.1"
+		add_character_flag = has_scripted_appearance
+	}
+	20.1.2 = { death = "20.1.2" }
+	portrait_override = {	
+		portrait_modifier_overrides = {
+			custom_beards=male_beard_mena_04
+			custom_hair=male_hair_northern_02
+		}
+	}
+}
+
+
+Nimue_01 = {
+	name = Nimue # Canon, AKA: Zaret The Mage, a lord
+	dynasty = dynn_Ambrosius
+	dna = Nimue_01
+	sexuality = heterosexual
+	female = yes
+	martial = 15
+	diplomacy = 20
+	intrigue = 20
+	stewardship = 20
+	learning = 40
+	prowess = 10
+	
+
+	religion = "hellenic_pagan"
+	culture = "roman"
+	father = Merlin_01
+
+
+
+	trait = education_learning_5
+	trait = patient
+	trait = diligent
+	trait = humble
+	trait = calm
+	trait = curious
+	trait = immortal
+	trait = magic_blood_good_3
+	trait = lifespan_good_3
+	trait = disease_resistance_alchemical
+	trait = intellect_good_3
+	trait = beauty_good_3
+	trait = journaller
+	trait = shrewd
+	trait = zz_magister
+	portrait_override = {	
+		portrait_modifier_overrides = {
+			custom_beards=female_empty
+			custom_hair=female_hair_fp2_iberian_christian_01
+		}
+	}
+	disallow_random_traits = yes
+
+	850.1.1 = {
+		birth = yes
+		employer = Merlin_01
+		set_immortal_age = 16
+		zz_add_spell = { 
+			SPELL = zz_valyria_magic_blood_magic_01
+		}
+	}
+
+
+}
+Isolde_01 = {
+	name = Isolde # Canon, AKA: Zaret The Mage, a lord
+	dynasty = dynn_Ambrosius
+	dna = Isolde_01
+	sexuality = heterosexual
+	female = yes
+	martial = 35
+	diplomacy = 40
+	intrigue = 20
+	stewardship = 30
+	learning = 20
+	prowess = 20
+	
+
+	religion = "hellenic_pagan"
+	culture = "roman"
+	father = Merlin_01
+
+
+
+	trait = education_diplomacy_5
+	trait = patient
+	trait = diligent
+	trait = humble
+	trait = calm
+	trait = curious
+	trait = immortal
+	trait = magic_blood_good_3
+	trait = lifespan_good_3
+	trait = disease_resistance_alchemical
+	trait = intellect_good_3
+	trait = beauty_good_3
+	trait = journaller
+	trait = shrewd
+	trait = zz_magister
+	portrait_override = {	
+		portrait_modifier_overrides = {
+			custom_beards=female_empty
+			custom_hair=female_hair_indian_03
+		}
+	}
+	disallow_random_traits = yes
+
+	850.1.1 = {
+		birth = yes
+		employer = Merlin_01
+		set_immortal_age = 16
+		zz_add_spell = { 
+			SPELL = zz_valyria_magic_blood_magic_01
+		}
+	}
+
+
+}
+
+Joccasta_01 = {
+	name = Joccasta # Canon, AKA: Zaret The Mage, a lord
+	dynasty = dynn_Ambrosius
+	dna = Joccasta_01
+	sexuality = heterosexual
+	female = yes
+	martial = 15
+	diplomacy = 20
+	intrigue = 10
+	stewardship = 40
+	learning = 20
+	prowess = 10
+	
+
+	religion = "hellenic_pagan"
+	culture = "roman"
+	father = Merlin_01
+
+
+	trait = education_stewardship_5
+	trait = patient
+	trait = diligent
+	trait = humble
+	trait = calm
+	trait = curious
+	trait = immortal
+	trait = magic_blood_good_3
+	trait = lifespan_good_3
+	trait = disease_resistance_alchemical
+	trait = intellect_good_3
+	trait = beauty_good_3
+	trait = journaller
+	trait = shrewd
+	trait = zz_magister
+	portrait_override = {	
+		portrait_modifier_overrides = {
+			custom_hair=female_hair_fp2_iberian_christian_01
+			custom_beards=female_empty
+		}
+	}
+	disallow_random_traits = yes
+
+	850.1.1 = {
+		birth = yes
+		employer = Merlin_01
+		set_immortal_age = 16
+		zz_add_spell = { 
+			SPELL = zz_valyria_magic_blood_magic_01
+		}
+	}
+
+
+}
+
+Elenore_01 = {
+	name = Elenore # Canon, AKA: Zaret The Mage, a lord
+	dynasty = dynn_Ambrosius
+	dna = Elenore_01
+	sexuality = heterosexual
+	female = yes
+	martial = 35
+	diplomacy = 20
+	intrigue = 20
+	stewardship = 20
+	learning = 20
+	prowess = 10
+	
+
+	religion = "hellenic_pagan"
+	culture = "roman"
+	father = Merlin_01
+
+
+
+	trait = education_martial_5
+	trait = patient
+	trait = diligent
+	trait = humble
+	trait = calm
+	trait = curious
+	trait = immortal
+	trait = magic_blood_good_3
+	trait = lifespan_good_3
+	trait = disease_resistance_alchemical
+	trait = intellect_good_3
+	trait = beauty_good_3
+	trait = journaller
+	trait = shrewd
+	trait = zz_magister
+	portrait_override = {	
+		portrait_modifier_overrides = {
+			custom_hair=female_hair_fp2_iberian_christian_01
+			custom_beards=female_empty
+		}
+	}
+	disallow_random_traits = yes
+
+	850.1.1 = {
+		birth = yes
+		employer = Merlin_01
+		set_immortal_age = 16
+		zz_add_spell = { 
+			SPELL = zz_valyria_magic_blood_magic_01
+		}
+	}
+
+
+}
+
+Arwen_01 = {
+	name = Arwen # Canon, AKA: Zaret The Mage, a lord
+	dynasty = dynn_Ambrosius
+	dna = Arwen_01
+	sexuality = heterosexual
+	female = yes
+	martial = 15
+	diplomacy = 20
+	intrigue = 40
+	stewardship = 20
+	learning = 20
+	prowess = 10
+	father = Merlin_01
+
+	religion = "hellenic_pagan"
+	culture = "roman"
+
+
+	trait = education_intrigue_5
+	trait = patient
+	trait = diligent
+	trait = humble
+	trait = calm
+	trait = curious
+	trait = immortal
+	trait = magic_blood_good_3
+	trait = lifespan_good_3
+	trait = disease_resistance_alchemical
+	trait = intellect_good_3
+	trait = beauty_good_3
+	trait = journaller
+	trait = shrewd
+	trait = zz_magister
+	portrait_override = {	
+		portrait_modifier_overrides = {
+			custom_hair=female_hair_fp2_iberian_christian_01
+			custom_beards=female_empty
+		}
+	}
+	disallow_random_traits = yes
+
+	850.1.1 = {
+		birth = yes
+		employer = Merlin_01
+		set_immortal_age = 16
+		zz_add_spell = { 
+			SPELL = zz_valyria_magic_blood_magic_01
+		}
+	}
+
+
+}

@@ -1,0 +1,3675 @@
+﻿namespace = zz_valyria_magic_dream_magic_spells 
+
+zz_valyria_magic_dream_magic_spells.001 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.001.t
+	desc = zz_valyria_magic_dream_magic_spells.001.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.001.opt.a
+		hidden_effect = {
+			save_scope_value_as = {
+				name = option_01
+				value = yes 
+			} 
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL = zz_valyria_magic_dream_magic_01
+			}
+		}
+		
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.001.opt.b
+		hidden_effect = {
+			save_scope_value_as = {
+				name = option_02
+				value = yes 
+			} 
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL = zz_valyria_magic_dream_magic_01
+			}
+		}		
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.001.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.002 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.002.t
+	desc = zz_valyria_magic_dream_magic_spells.002.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_traits
+		remove_variable = selected_trait
+		trait:lifestyle_blademaster = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:lifestyle_mystic = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:lifestyle_reveler = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:lifestyle_hunter = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:lifestyle_physician = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:lifestyle_herbalist = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:lifestyle_gardener = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:knight_errant = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:confucian_education = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+	}
+
+	widget = {
+		is_shown = {
+		}
+		gui = "event_window_trait_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.002.opt.a
+		hidden_effect = {
+			var:selected_trait ?= {
+				save_scope_as = trait 
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_02
+			}
+		}
+	
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.002.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.003 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.003.t
+	desc = zz_valyria_magic_dream_magic_spells.003.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	immediate = {
+		remove_variable = selected_flag
+		clear_variable_list = possible_flags
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:lifestyle_01
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:lifestyle_02
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:lifestyle_03
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:lifestyle_04
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:lifestyle_05
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:lifestyle_06
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:lifestyle_07
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:lifestyle_08
+		}
+		set_variable = {
+			name = selected_flag
+			value = flag:lifestyle_01
+		}
+	}
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_flag_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.003.opt.a
+		hidden_effect = {
+			switch = {
+				trigger = var:selected_flag
+				flag:lifestyle_01 = {
+					save_scope_value_as = {
+						name = option_01
+						value = yes 
+					} 
+				}
+				flag:lifestyle_02 = {
+					save_scope_value_as = {
+						name = option_02
+						value = yes 
+					} 
+				}
+				flag:lifestyle_03 = {
+					save_scope_value_as = {
+						name = option_03
+						value = yes 
+					} 
+				}
+				flag:lifestyle_04 = {
+					save_scope_value_as = {
+						name = option_04
+						value = yes 
+					} 
+				}
+				flag:lifestyle_05 = {
+					save_scope_value_as = {
+						name = option_05
+						value = yes 
+					} 
+				}
+				flag:lifestyle_06 = {
+					save_scope_value_as = {
+						name = option_06
+						value = yes 
+					} 
+				}
+				flag:lifestyle_07 = {
+					save_scope_value_as = {
+						name = option_07
+						value = yes 
+					} 
+				}
+				flag:lifestyle_08 = {
+					save_scope_value_as = {
+						name = option_08
+						value = yes 
+					} 
+				}
+			}
+			
+			
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_03
+			}
+		}
+
+		
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.003.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.004 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.004.t
+	desc = zz_valyria_magic_dream_magic_spells.004.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.004.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_04
+			}	
+		}
+
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.004.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.005 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.005.t
+	desc = zz_valyria_magic_dream_magic_spells.005.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_traits
+		remove_variable = selected_trait
+		every_trait_in_category = {
+			category = personality
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:zz_loyal_functionary = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:gallivanter = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:hashishiyah = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:drunkard = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:rakish = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:reclusive = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:irritable = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:flagellant = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:profligate = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:improvident = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:contrite = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:comfort_eater = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:inappetetic = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:journaller = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:confider = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:athletic = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		every_trait_in_category = {
+			category = commander
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+
+	}
+	widget = {
+		is_shown = {
+		}
+		gui = "event_window_trait_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.005.opt.a
+		hidden_effect = {
+			var:selected_trait ?= {
+				save_scope_as = trait 
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_05
+			}
+		}
+
+	}
+	
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.005.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.006 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.006.t
+	desc = zz_valyria_magic_dream_magic_spells.006.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_traits
+		remove_variable = selected_trait
+		trait:education_learning_1 = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_trait }
+					}
+					set_variable = { name = selected_trait value = prev }
+				}
+			}
+		}
+		trait:education_stewardship_1 = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:education_diplomacy_1 = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:education_intrigue_1 = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:education_martial_1 = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:education_martial_prowess_1 = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:education_republican_knowledge_1 = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+
+		
+	}
+
+	widget = {
+		is_shown = {
+		}
+		gui = "event_window_trait_group_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.006.opt.a
+		hidden_effect = {
+			var:selected_trait ?= {
+				save_scope_as = trait 
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_06
+			}	
+		}
+
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.006.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.007 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.007.t
+	desc = zz_valyria_magic_dream_magic_spells.007.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.007.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_07
+			}	
+		}
+
+		
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.007.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.008 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.008.t
+	desc = zz_valyria_magic_dream_magic_spells.008.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.008.opt.a
+		hidden_effect = {
+			save_scope_value_as = {
+				name = option_01
+				value = yes 
+			} 
+			zz_valyria_magic_cast_effect = { 
+				SKILL = blood_magic
+				SPELL = zz_valyria_magic_dream_magic_08
+			}
+		}
+		
+	}
+	option = {
+		name = zz_valyria_magic_blood_magic_spells.008.opt.a
+		hidden_effect = {
+			save_scope_value_as = {
+				name = option_02
+				value = yes 
+			} 
+			zz_valyria_magic_cast_effect = { 
+				SKILL = blood_magic
+				SPELL = zz_valyria_magic_dream_magic_08
+			}
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.008.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.009 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.009.t
+	desc = zz_valyria_magic_dream_magic_spells.009.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.009.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_04
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.009.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.010 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.010.t
+	desc = zz_valyria_magic_dream_magic_spells.010.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.010.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_10
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.010.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.011 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.011.t
+	desc = zz_valyria_magic_dream_magic_spells.011.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.011.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_11
+			}	
+		}
+
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.011.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.012 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.012.t
+	desc = zz_valyria_magic_dream_magic_spells.012.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_targeting_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.012.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_12
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.012.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.013 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.013.t
+	desc = zz_valyria_magic_dream_magic_spells.013.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_secret
+		remove_variable = selected_secret
+		scope:recipient = {
+			every_secret = {
+				root = {
+					add_to_variable_list = {
+						name = possible_secret
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_secret }
+						}
+						set_variable = { name = selected_secret value = prev }
+					}
+				}
+			}
+		}
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_secret_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.013.opt.a
+		hidden_effect = {
+			var:selected_secret = {
+				save_scope_as = secret
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_13
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.013.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.014 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.014.t
+	desc = zz_valyria_magic_dream_magic_spells.014.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_secret
+		remove_variable = selected_secret
+		scope:recipient = {
+			every_targeting_secret = {
+				root = {
+					add_to_variable_list = {
+						name = possible_secret
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_secret }
+						}
+						set_variable = { name = selected_secret value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_secret_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.014.opt.a
+		hidden_effect = {
+			var:selected_secret = {
+				save_scope_as = secret
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_14
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.014.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.015 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.015.t
+	desc = zz_valyria_magic_dream_magic_spells.015.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_secret
+		remove_variable = selected_secret
+		scope:recipient = {
+			every_known_secret = {
+				root = {
+					add_to_variable_list = {
+						name = possible_secret
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_secret }
+						}
+						set_variable = { name = selected_secret value = prev }
+					}
+				}
+			}
+		}
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_secret_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.015.opt.a
+		hidden_effect = {
+			var:selected_secret = {
+				save_scope_as = secret
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_15
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.015.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.016 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.016.t
+	desc = zz_valyria_magic_dream_magic_spells.016.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_secret
+		remove_variable = selected_secret
+		scope:recipient = {
+			every_secret = {
+				root = {
+					add_to_variable_list = {
+						name = possible_secret
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_secret }
+						}
+						set_variable = { name = selected_secret value = prev }
+					}
+				}
+			}
+		}
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_secret_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.016.opt.a
+		hidden_effect = {
+			var:selected_secret = {
+				save_scope_as = secret
+			}
+			trigger_event = zz_valyria_magic_dream_magic_spells.01601
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.016.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.01601 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.016.t
+	desc = zz_valyria_magic_dream_magic_spells.016.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		zz_valyria_every_secret_knower_list = yes
+	}
+	widget = {
+		is_shown = {
+			root = {
+				any_in_list = {
+					variable = zz_valyria_possible_characters
+					count > 0
+				}
+			}
+		}
+		gui = "event_window_character_selection_five_options"
+		container = "custom_widgets_container"
+	}
+	
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.016.opt.a
+		hidden_effect = {
+			var:zz_valyria_selected_character = {
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_16
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.016.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.017 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.017.t
+	desc = zz_valyria_magic_dream_magic_spells.017.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_secret
+		remove_variable = selected_secret
+		scope:recipient = {
+			every_targeting_secret = {
+				root = {
+					add_to_variable_list = {
+						name = possible_secret
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_secret }
+						}
+						set_variable = { name = selected_secret value = prev }
+					}
+				}
+			}
+		}
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_secret_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.017.opt.a
+		hidden_effect = {
+			var:selected_secret = {
+				save_scope_as = secret
+			}
+			trigger_event = zz_valyria_magic_dream_magic_spells.01701
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.017.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.01701 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.017.t
+	desc = zz_valyria_magic_dream_magic_spells.017.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list ?= zz_valyria_possible_characters
+		remove_variable = zz_valyria_selected_character
+		scope:secret = {
+			every_secret_knower = {
+				root = {
+					add_to_variable_list = {
+						name = zz_valyria_possible_characters
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = zz_valyria_selected_character }
+						}
+						set_variable = { name = zz_valyria_selected_character value = prev }
+					}
+				}
+			}
+		}
+	}
+	widget = {
+		is_shown = {
+			root = {
+				any_in_list = {
+					variable = zz_valyria_possible_characters
+					count > 0
+				}
+			}
+		}
+		gui = "event_window_character_selection_five_options"
+		container = "custom_widgets_container"
+	}
+	
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.017.opt.a
+		hidden_effect = {
+			var:zz_valyria_selected_character = {
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_17
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.017.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.018 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.018.t
+	desc = zz_valyria_magic_dream_magic_spells.018.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_secret
+		remove_variable = selected_secret
+		scope:recipient = {
+			every_known_secret = {
+				root = {
+					add_to_variable_list = {
+						name = possible_secret
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_secret }
+						}
+						set_variable = { name = selected_secret value = prev }
+					}
+				}
+			}
+		}
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_secret_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.018.opt.a
+		hidden_effect = {
+			var:selected_secret = {
+				save_scope_as = secret
+			}
+			trigger_event = zz_valyria_magic_dream_magic_spells.01801
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.018.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.01801 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.018.t
+	desc = zz_valyria_magic_dream_magic_spells.018.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list ?= zz_valyria_possible_characters
+		remove_variable = zz_valyria_selected_character
+		scope:secret = {
+			every_secret_knower = {
+				root = {
+					add_to_variable_list = {
+						name = zz_valyria_possible_characters
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = zz_valyria_selected_character }
+						}
+						set_variable = { name = zz_valyria_selected_character value = prev }
+					}
+				}
+			}
+		}
+	}
+	widget = {
+		is_shown = {
+			root = {
+				any_in_list = {
+					variable = zz_valyria_possible_characters
+					count > 0
+				}
+			}
+		}
+		gui = "event_window_character_selection_five_options"
+		container = "custom_widgets_container"
+	}
+	
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.018.opt.a
+		hidden_effect = {
+			var:zz_valyria_selected_character = {
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_18
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.018.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.019 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.019.t
+	desc = zz_valyria_magic_dream_magic_spells.019.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_targeting_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.019.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_19
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.019.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.020 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.020.t
+	desc = zz_valyria_magic_dream_magic_spells.020.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.020.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_20
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.020.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.021 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.020.t
+	desc = zz_valyria_magic_dream_magic_spells.020.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_targeting_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.020.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_21
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.021.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.022 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.022.t
+	desc = zz_valyria_magic_dream_magic_spells.022.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.022.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_22
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.022.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.023 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.023.t
+	desc = zz_valyria_magic_dream_magic_spells.023.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_targeting_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.023.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			trigger_event = zz_valyria_magic_dream_magic_spells.02301	
+		}
+		
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.023.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.02301 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.023.t
+	desc = zz_valyria_magic_dream_magic_spells.023.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list ?= zz_valyria_possible_characters
+		remove_variable = zz_valyria_selected_character
+		scope:scheme = {
+			scheme_owner = {
+				root = {
+					add_to_variable_list = {
+						name = zz_valyria_possible_characters
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = zz_valyria_selected_character }
+						}
+						set_variable = { name = zz_valyria_selected_character value = prev }
+					}
+				}
+			}
+			every_scheme_agent_character = {
+				root = {
+					add_to_variable_list = {
+						name = zz_valyria_possible_characters
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = zz_valyria_selected_character }
+						}
+						set_variable = { name = zz_valyria_selected_character value = prev }
+					}
+				}
+			}
+		}
+	}
+	widget = {
+		is_shown = {
+			root = {
+				any_in_list = {
+					variable = zz_valyria_possible_characters
+					count > 0
+				}
+			}
+		}
+		gui = "event_window_character_selection_five_options"
+		container = "custom_widgets_container"
+	}
+	
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.023.opt.a
+		hidden_effect = {
+			var:zz_valyria_selected_character = {
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_23
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.023.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.024 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.024.t
+	desc = zz_valyria_magic_dream_magic_spells.024.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.024.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			trigger_event = zz_valyria_magic_dream_magic_spells.02401					
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.024.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.02401 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.024.t
+	desc = zz_valyria_magic_dream_magic_spells.024.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list ?= zz_valyria_possible_characters
+		remove_variable = zz_valyria_selected_character
+		scope:scheme = {
+			scheme_owner = {
+				root = {
+					add_to_variable_list = {
+						name = zz_valyria_possible_characters
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = zz_valyria_selected_character }
+						}
+						set_variable = { name = zz_valyria_selected_character value = prev }
+					}
+				}
+			}
+			every_scheme_agent_character = {
+				root = {
+					add_to_variable_list = {
+						name = zz_valyria_possible_characters
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = zz_valyria_selected_character }
+						}
+						set_variable = { name = zz_valyria_selected_character value = prev }
+					}
+				}
+			}
+		}
+	}
+	widget = {
+		is_shown = {
+			root = {
+				any_in_list = {
+					variable = zz_valyria_possible_characters
+					count > 0
+				}
+			}
+		}
+		gui = "event_window_character_selection_five_options"
+		container = "custom_widgets_container"
+	}
+	
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.024.opt.a
+		hidden_effect = {
+			var:zz_valyria_selected_character = {
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_24
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.024.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.025 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.025.t
+	desc = zz_valyria_magic_dream_magic_spells.025.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_targeting_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.025.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			trigger_event = zz_valyria_magic_dream_magic_spells.02501
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.025.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.02501 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.025.t
+	desc = zz_valyria_magic_dream_magic_spells.025.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list ?= zz_valyria_possible_characters
+		remove_variable = zz_valyria_selected_character
+		scope:scheme = {
+			scheme_owner = {
+				root = {
+					add_to_variable_list = {
+						name = zz_valyria_possible_characters
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = zz_valyria_selected_character }
+						}
+						set_variable = { name = zz_valyria_selected_character value = prev }
+					}
+				}
+			}
+			every_scheme_agent_character = {
+				root = {
+					add_to_variable_list = {
+						name = zz_valyria_possible_characters
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = zz_valyria_selected_character }
+						}
+						set_variable = { name = zz_valyria_selected_character value = prev }
+					}
+				}
+			}
+		}
+	}
+	widget = {
+		is_shown = {
+			root = {
+				any_in_list = {
+					variable = zz_valyria_possible_characters
+					count > 0
+				}
+			}
+		}
+		gui = "event_window_character_selection_five_options"
+		container = "custom_widgets_container"
+	}
+	
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.025.opt.a
+		hidden_effect = {
+			var:zz_valyria_selected_character = {
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_25
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.025.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.026 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.026.t
+	desc = zz_valyria_magic_dream_magic_spells.026.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.026.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			trigger_event = zz_valyria_magic_dream_magic_spells.02601
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.026.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.02601 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.026.t
+	desc = zz_valyria_magic_dream_magic_spells.026.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list ?= zz_valyria_possible_characters
+		remove_variable = zz_valyria_selected_character
+		scope:scheme = {
+			scheme_owner = {
+				root = {
+					add_to_variable_list = {
+						name = zz_valyria_possible_characters
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = zz_valyria_selected_character }
+						}
+						set_variable = { name = zz_valyria_selected_character value = prev }
+					}
+				}
+			}
+			every_scheme_agent_character = {
+				root = {
+					add_to_variable_list = {
+						name = zz_valyria_possible_characters
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = zz_valyria_selected_character }
+						}
+						set_variable = { name = zz_valyria_selected_character value = prev }
+					}
+				}
+			}
+		}
+	}
+	widget = {
+		is_shown = {
+			root = {
+				any_in_list = {
+					variable = zz_valyria_possible_characters
+					count > 0
+				}
+			}
+		}
+		gui = "event_window_character_selection_five_options"
+		container = "custom_widgets_container"
+	}
+	
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.026.opt.a
+		hidden_effect = {
+			var:zz_valyria_selected_character = {
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_26
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.026.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.027 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.027.t
+	desc = zz_valyria_magic_dream_magic_spells.027.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_targeting_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.027.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_27
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.027.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.028 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.028.t
+	desc = zz_valyria_magic_dream_magic_spells.028.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.028.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_28
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.028.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.029 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.029.t
+	desc = zz_valyria_magic_dream_magic_spells.029.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_targeting_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.029.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_29
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.029.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.030 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.030.t
+	desc = zz_valyria_magic_dream_magic_spells.030.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.030.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_30
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.030.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.031 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.031.t
+	desc = zz_valyria_magic_dream_magic_spells.031.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_targeting_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.031.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_31
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.031.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.032 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.032.t
+	desc = zz_valyria_magic_dream_magic_spells.032.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_scheme = {
+				root = {
+					add_to_variable_list = {
+						name = possible_schemes
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_scheme }
+						}
+						set_variable = { name = selected_scheme value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_schemes_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.032.opt.a
+		hidden_effect = {
+			var:selected_scheme = {
+				save_scope_as = scheme
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_32
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.032.opt.z
+	}
+}
+
+zz_valyria_magic_dream_magic_spells.033 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.033.t
+	desc = zz_valyria_magic_dream_magic_spells.033.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+
+	}
+
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.033.opt.a
+		hidden_effect = {
+			save_scope_value_as = {
+				name = option_01
+				value = yes 
+			} 
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_33
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.033.opt.b
+		trigger = {
+			scope:secondary_recipient = {
+				zz_valyria_has_mana_to_cast = {
+					MANACOST = 12
+				}
+			}
+		}
+		hidden_effect = {
+			save_scope_value_as = {
+				name = option_02
+				value = yes 
+			} 
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_33
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.033.opt.c
+		trigger = {
+			scope:secondary_recipient = {
+				zz_valyria_has_mana_to_cast = {
+					MANACOST = 45
+				}
+			}
+		}
+		hidden_effect = {
+			save_scope_value_as = {
+				name = option_03
+				value = yes 
+			} 
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_33
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.033.opt.z
+	}
+}
+
+zz_valyria_magic_dream_magic_spells.034 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.034.t
+	desc = zz_valyria_magic_dream_magic_spells.034.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_culture
+		remove_variable = selected_culture
+		root = {
+			culture = {
+				add_to_variable_list = {
+					name = possible_culture
+					target = prev
+				}
+			}
+		}
+		every_culture_global = {
+			limit = { 
+				NOT = { is_in_list = possible_culture }
+			}
+			root = {
+				add_to_variable_list = {
+					name = possible_culture
+					target = prev
+				}
+				scope:recipient.culture = {
+					root = {
+						set_variable = { name = selected_culture value = prev }
+					}
+				}
+				
+				if = {
+					limit = {
+						NOT = { has_variable = selected_culture }
+					}
+					set_variable = { name = selected_culture value = prev }
+				}
+			}
+		}
+
+	}
+	widget = {
+		is_shown = {
+		}
+		gui = "event_window_culture_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.034.opt.a
+		hidden_effect = {
+			var:selected_culture ?= {
+				save_scope_as = culture 
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_34
+			}
+		}
+
+	}
+	
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.034.opt.z
+	}
+}
+
+zz_valyria_magic_dream_magic_spells.035 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.035.t
+	desc = zz_valyria_magic_dream_magic_spells.035.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_religions
+		remove_variable = selected_religion
+		root = {
+			faith = {
+				root = {
+					add_to_variable_list = {
+						name = possible_religions
+						target = prev
+					}
+				}
+				
+			}
+		}
+		scope:secondary_recipient = {
+			faith = {
+				root = {
+					add_to_variable_list = {
+						name = possible_religions
+						target = prev
+					}
+				}
+			}
+		}
+		every_religion_global = {
+			every_faith = {
+				limit = { 
+					NOT = { is_in_list = possible_religions }
+				}
+				root = {
+					add_to_variable_list = {
+						name = possible_religions
+						target = prev
+					}
+					scope:recipient.faith = {
+						root = {
+							set_variable = { name = selected_religion value = prev }
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_religion }
+						}
+						set_variable = { name = selected_religion value = prev }
+					}
+				}
+			}
+		}
+	}
+	widget = {
+		is_shown = {
+		}
+		gui = "event_window_religion_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.035.opt.a
+		hidden_effect = {
+			var:selected_religion ?= {
+				save_scope_as = religion 
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_35
+			}
+		}
+
+	}
+	
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.035.opt.z
+	}
+}
+
+zz_valyria_magic_dream_magic_spells.036 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.036.t
+	desc = zz_valyria_magic_dream_magic_spells.036.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_culture
+		remove_variable = selected_culture
+		root = {
+			culture = {
+				root = {
+					add_to_variable_list = {
+						name = possible_culture
+						target = prev
+					}
+				}
+				
+			}
+		}
+		every_culture_global = {
+			limit = { 
+				NOT = { is_in_list = possible_culture }
+			}
+			root = {
+				add_to_variable_list = {
+					name = possible_culture
+					target = prev
+				}
+				scope:recipient.culture = {
+					root = {
+						set_variable = { name = selected_culture value = prev }
+					}
+				}
+				if = {
+					limit = {
+						NOT = { has_variable = selected_culture }
+					}
+					set_variable = { name = selected_culture value = prev }
+				}
+			}
+		}
+
+	}
+	widget = {
+		is_shown = {
+		}
+		gui = "event_window_culture_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.036.opt.a
+
+		hidden_effect = {			
+			var:selected_culture ?= {
+				save_scope_as = culture 
+			}
+			trigger_event = zz_valyria_magic_dream_magic_spells.03601
+		}
+
+	}
+	
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.036.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.03601 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.036.t
+	desc = zz_valyria_magic_dream_magic_spells.036.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_county_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_county_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.036.opt.a
+		hidden_effect = {
+			var:selected_county ?= {
+				save_scope_as = target 
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_36
+			}
+		}
+	}
+}
+
+zz_valyria_magic_dream_magic_spells.037 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.037.t
+	desc = zz_valyria_magic_dream_magic_spells.037.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_religions
+		remove_variable = selected_religion
+		root = {
+			faith = {
+				ROOT = {
+					add_to_variable_list = {
+						name = possible_religions
+						target = prev
+					}
+				}
+				
+			}
+		}
+		every_religion_global = {
+			every_faith = {
+				limit = { 
+					NOT = { is_in_list = possible_religions }
+				}
+				root = {	
+					add_to_variable_list = {
+						name = possible_religions
+						target = prev
+					}
+					scope:recipient.faith = {
+						root = {
+							set_variable = { name = selected_religion value = prev }
+						}
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_religion }
+						}
+						set_variable = { name = selected_religion value = prev }
+					}
+				}
+			}
+		}
+	}
+	widget = {
+		is_shown = {
+		}
+		gui = "event_window_religion_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.037.opt.a
+
+		hidden_effect = {			
+			var:selected_religion ?= {
+				save_scope_as = religion
+			}
+			trigger_event = zz_valyria_magic_dream_magic_spells.03701
+		}
+
+	}
+	
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.037.opt.z
+	}
+}
+
+zz_valyria_magic_dream_magic_spells.03701 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.037.t
+	desc = zz_valyria_magic_dream_magic_spells.037.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_county_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_county_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.037.opt.a
+		hidden_effect = {
+			var:selected_county ?= {
+				save_scope_as = target 
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_37
+			}
+		}
+	}
+}
+
+
+zz_valyria_magic_dream_magic_spells.038 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.038.t
+	desc = zz_valyria_magic_dream_magic_spells.038.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_county_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_county_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.038.opt.a
+		hidden_effect = {
+			var:selected_county ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_38
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.038.opt.z
+	}
+}
+
+zz_valyria_magic_dream_magic_spells.039 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.039.t
+	desc = zz_valyria_magic_dream_magic_spells.039.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_county_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_county_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.039.opt.a
+		hidden_effect = {
+			var:selected_county ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_39
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.039.opt.z
+	}
+}
+
+zz_valyria_magic_dream_magic_spells.040 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.040.t
+	desc = zz_valyria_magic_dream_magic_spells.040.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_secret
+		remove_variable = selected_secret
+		scope:recipient = {
+			every_secret = {
+				root = {
+					add_to_variable_list = {
+						name = possible_secret
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_secret }
+						}
+						set_variable = { name = selected_secret value = prev }
+					}
+				}
+			}
+		}
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_secret_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.040.opt.a
+		hidden_effect = {
+			var:selected_secret = {
+				save_scope_as = secret
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_40
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.040.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.041 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.041.t
+	desc = zz_valyria_magic_dream_magic_spells.041.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_secret
+		remove_variable = selected_secret
+		scope:recipient = {
+			every_targeting_secret = {
+				root = {
+					add_to_variable_list = {
+						name = possible_secret
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_secret }
+						}
+						set_variable = { name = selected_secret value = prev }
+					}
+				}
+			}
+		}
+
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_secret_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.041.opt.a
+		hidden_effect = {
+			var:selected_secret = {
+				save_scope_as = secret
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_41
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.041.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.042 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.042.t
+	desc = zz_valyria_magic_dream_magic_spells.042.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_secret
+		remove_variable = selected_secret
+		scope:recipient = {
+			every_known_secret = {
+				root = {
+					add_to_variable_list = {
+						name = possible_secret
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_secret }
+						}
+						set_variable = { name = selected_secret value = prev }
+					}
+				}
+			}
+		}
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_secret_selection"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.042.opt.a
+		hidden_effect = {
+			var:selected_secret = {
+				save_scope_as = secret
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_42
+			}	
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.042.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.043 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.043.t
+	desc = zz_valyria_magic_dream_magic_spells.043.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_county_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_county_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.043.opt.a
+		hidden_effect = {
+			var:selected_county ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_43
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.043.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.044 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.044.t
+	desc = zz_valyria_magic_dream_magic_spells.044.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_county_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_county_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.044.opt.a
+		hidden_effect = {
+			var:selected_county ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_44
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.044.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.045 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.045.t
+	desc = zz_valyria_magic_dream_magic_spells.045.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_county_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_county_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.045.opt.a
+		hidden_effect = {
+			var:selected_county ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_45
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.045.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.046 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.046.t
+	desc = zz_valyria_magic_dream_magic_spells.046.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_county_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_county_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.046.opt.a
+		hidden_effect = {
+			var:selected_county ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_46
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.046.opt.z
+	}
+}
+
+zz_valyria_magic_dream_magic_spells.047 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.002.t
+	desc = zz_valyria_magic_dream_magic_spells.002.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	immediate = {
+		clear_variable_list = possible_armies
+		remove_variable = selected_army
+		scope:recipient = {
+			every_army = {
+				root = {
+					add_to_variable_list = {
+						name = possible_armies
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_army }
+						}
+						set_variable = { name = selected_army value = prev }
+					}
+				}
+			}
+		}
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_army_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.047.opt.a
+		hidden_effect = {
+			var:selected_army ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_47
+			}
+		}
+	}
+	option = {
+		name =   zz_valyria_magic_dream_magic_spells.047.opt.z
+	}
+}
+
+zz_valyria_magic_dream_magic_spells.048 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.048.t
+	desc = zz_valyria_magic_dream_magic_spells.048.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.048.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL = zz_valyria_magic_dream_magic_48
+			}
+		}
+		
+	}
+	
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.048.opt.z
+	}
+}
+zz_valyria_magic_dream_magic_spells.049 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic_spells.049.t
+	desc = zz_valyria_magic_dream_magic_spells.049.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	left_portrait = root
+	lower_center_portrait = {
+		character = scope:secondary_recipient
+	}
+	right_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.049.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL = zz_valyria_magic_dream_magic_49
+			}
+		}
+		
+	}
+	
+	option = {
+		name = zz_valyria_magic_dream_magic_spells.049.opt.z
+	}
+}

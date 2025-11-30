@@ -1,0 +1,24 @@
+﻿living_mage = {
+	base = living_character
+	conditions = {
+		has_trait = zz_magister
+	}
+}
+house_mage = {
+	base = house_member
+	conditions = {
+		has_trait = zz_magister
+	}
+}
+court_mage = { 
+	base = courtier_or_guest
+	conditions = {
+		has_trait = zz_magister
+	}
+}
+realm_mage = { 
+	base = vassal_or_below
+	conditions = {
+		has_trait = zz_magister
+	}
+}

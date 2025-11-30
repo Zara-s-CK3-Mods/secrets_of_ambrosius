@@ -1,0 +1,3282 @@
+﻿namespace = zz_valyria_magic_education
+
+
+# INVALIDATION - PRISON
+zz_valyria_magic_education.0005 = {
+	type = character_event
+	title = zz_valyria_magic_education.0005.t
+	desc = zz_valyria_magic_education.0005.desc
+	theme = prison
+
+	left_portrait = {
+		character = root
+		animation = prisonhouse
+	}
+
+	immediate = {
+		imprisoner ?= {
+			save_scope_as = jailor
+		}
+		create_character_memory = {
+			type = imprisoned_adult_education
+			participants = {
+				jailor = scope:jailor
+			}
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_education.0005.a
+	}
+}
+
+
+# CONCLUSION EVENT
+zz_valyria_magic_education.0009 = {
+	type = activity_event
+	title = zz_valyria_magic_education.0009.t
+	desc = {
+		desc = zz_valyria_magic_education.0009.desc
+
+	}
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = thinking
+	}
+
+
+	immediate = {
+		#Reward effects
+		
+		
+		scope:activity = {
+		}
+	}
+	## Any Study, Increase Skill 
+	option = {
+		name = zz_valyria_magic_education.0009.a
+		trigger = {
+			OR = {
+				has_character_flag = perfect_reward
+				has_character_flag = high_reward
+			}
+		}
+		switch = {
+			trigger = has_character_flag
+			study_valyrian_secrets = { 
+				zz_valyria_gain_spell_experience = {
+					XPGAIN = 3 
+					XPTRACK = secrets_of_the_higher_mysteries
+				}
+			}
+			study_blood_magic = { 
+				zz_valyria_gain_spell_experience = {
+					XPGAIN = 3 
+					XPTRACK = blood_magic
+				}
+			}
+			study_shadow_magic = {
+				zz_valyria_gain_spell_experience = {
+					XPGAIN = 3 
+					XPTRACK = shadow_magic
+				}
+			}
+			study_dream_magic = {
+				zz_valyria_gain_spell_experience = {
+					XPGAIN = 3 
+					XPTRACK = dream_magic
+				}
+			}
+			study_alchemy_magic = {
+				zz_valyria_gain_spell_experience = {
+					XPGAIN = 3 
+					XPTRACK = alchemy_magic
+				}
+			}
+			study_fire_magic ={
+				zz_valyria_gain_spell_experience = {
+					XPGAIN = 3 
+					XPTRACK = fire_magic
+				}
+			}
+			study_air_magic = {
+				zz_valyria_gain_spell_experience = {
+					XPGAIN = 3 
+					XPTRACK = air_magic
+				}
+			}
+			study_water_magic = {
+				zz_valyria_gain_spell_experience = {
+					XPGAIN = 3
+					XPTRACK = water_magic
+				}
+			}
+		}
+	}
+	## Valyrian Studies, Random Spell 
+	option = {
+		name = zz_valyria_magic_education.0009.b 
+		trigger = {
+			OR = {
+				has_character_flag = perfect_reward
+				has_character_flag = high_reward
+			}
+			has_character_flag  = study_valyrian_secrets
+		}
+		zz_random_gain_magic_spell = yes
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood_magic
+		trigger = {
+			OR = {
+				has_character_flag = perfect_reward
+				has_character_flag = high_reward
+			}
+			has_character_flag = study_blood_magic
+		}
+		trigger_event = zz_valyria_magic_education.00091
+	}
+
+	option = {
+		name = zz_valyria_magic_education.0009.shadow_magic
+		trigger = {
+			OR = {
+				has_character_flag = perfect_reward
+				has_character_flag = high_reward
+			}
+			has_character_flag = study_shadow_magic
+		}
+		trigger_event = zz_valyria_magic_education.00092
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream_magic
+		trigger = {
+			OR = {
+				has_character_flag = perfect_reward
+				has_character_flag = high_reward
+			}
+			has_character_flag = study_dream_magic
+		}
+		trigger_event = zz_valyria_magic_education.00093
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy_magic
+		trigger = {
+			OR = {
+				has_character_flag = perfect_reward
+				has_character_flag = high_reward
+			}
+			has_character_flag = study_alchemy_magic
+		}
+		trigger_event = zz_valyria_magic_education.00094
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic
+		trigger = {
+			OR = {
+				has_character_flag = perfect_reward
+				has_character_flag = high_reward
+			}
+			has_character_flag = study_fire_magic
+		}
+		trigger_event = zz_valyria_magic_education.00095
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic
+		trigger = {
+			OR = {
+				has_character_flag = perfect_reward
+				has_character_flag = high_reward
+			}
+			has_character_flag = study_air_magic
+		}
+		trigger_event = zz_valyria_magic_education.00096
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic
+		trigger = {
+			OR = {
+				has_character_flag = perfect_reward
+				has_character_flag = high_reward
+			}
+			has_character_flag = study_water_magic
+		}
+		trigger_event = zz_valyria_magic_education.00097
+	}
+	
+	## Shadow Magic 
+
+	## Dream Magic 
+
+
+	## Alchemy Magic 
+
+
+	
+	## Fire Magic
+		
+	## Water Magic
+	
+
+	
+	## Air Magic
+	
+
+	## No Choice
+	option = {
+		trigger = {
+		}
+		name = zz_valyria_magic_education.0009.zz
+		ai_chance = {
+			base = 100
+		}
+	}
+	after = { 
+		remove_character_flag = perfect_reward
+		remove_character_flag = high_reward
+		remove_character_flag = ok_reward
+		remove_character_flag = study_valyrian_secrets
+		remove_character_flag = study_blood_magic
+		remove_character_flag = study_shadow_magic
+		remove_character_flag = study_dream_magic
+		remove_character_flag = study_alchemy_magic
+		remove_character_flag = study_fire_magic
+		remove_character_flag = study_water_magic
+		remove_character_flag = study_air_magic
+	}
+}
+
+# Blood Magic Education - All Mysteries
+zz_valyria_magic_education.00091 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_education.0009.t
+	desc = {
+		desc = zz_valyria_magic_education.0009.desc
+	}
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = thinking
+	}
+
+
+	immediate = {
+		#Reward effects
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.a
+		trigger = {
+		}
+		zz_valyria_gain_spell_experience = {
+			XPGAIN = 3 
+			XPTRACK = blood_magic
+		}
+	}
+
+	## Learn Healing Spell
+	option = {
+		name = zz_valyria_magic_education.0009.blood.01
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_01
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_01.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_01
+		}
+	}
+	## Learn Genetic Manipulation Spell
+	option = {
+		name = zz_valyria_magic_education.0009.blood.02
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_02
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_02.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_02
+		}
+	}
+	## Restore MAA
+	option = {
+		name = zz_valyria_magic_education.0009.blood.03
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_03
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_03.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_03
+		}
+	}
+	## Restore Army
+	option = {
+		name = zz_valyria_magic_education.0009.blood.04
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_04
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_04.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_04
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.05
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_05
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_05.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_05
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.06
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_06
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_06.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_06
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.07
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_07
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_07.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_07
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.08
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_08
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_08.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_08
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.09
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_09
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_09.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_09
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.10
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_10
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_10.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_10
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.11
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_11
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_11.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_11
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.12
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_12
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_12.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_12
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.13
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_13
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_13.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_13
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.14
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_14
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_14.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_14
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.15
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_15
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_15.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_15
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.16
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_16
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_16.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_16
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.17
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_17
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_17.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_17
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.18
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_18
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_18.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_18
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.19
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_19
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_19.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_19
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.20
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_20
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_20.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_20
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.21
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_21
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_21.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_21
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.22
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_22
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_22.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_22
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.23
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_23
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_23.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_23
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.24
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_24
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_24.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_24
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.25
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_25
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_25.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_25
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.26
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_26
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_26.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_26
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.27
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_27
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_27.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_27
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.28
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_28
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_28.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_28
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.blood.29
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_blood_magic_29
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_blood_magic_29.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_blood_magic_29
+		}
+	}
+}
+
+# Shadow Magic Education - All Mysteries
+zz_valyria_magic_education.00092 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_education.0009.t
+	desc = {
+		desc = zz_valyria_magic_education.0009.desc
+	}
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = thinking
+	}
+
+
+	immediate = {
+		#Reward effects
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.a
+		trigger = {
+		}
+		zz_valyria_gain_spell_experience = {
+			XPGAIN = 3 
+			XPTRACK = shadow_magic
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.shadow.01
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_shadow_magic_01
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_shadow_magic_01.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_shadow_magic_01
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.shadow.02
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_shadow_magic_02
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_shadow_magic_02.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_shadow_magic_02
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.shadow.03
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_shadow_magic_03
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_shadow_magic_03.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_shadow_magic_03
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.shadow.04
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_shadow_magic_04
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_shadow_magic_04.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_shadow_magic_04
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.shadow.05
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_shadow_magic_05
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_shadow_magic_05.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_shadow_magic_05
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.shadow.06
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_shadow_magic_06
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_shadow_magic_06.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_shadow_magic_06
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.shadow.07
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_shadow_magic_07
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_shadow_magic_07.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_shadow_magic_07
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.shadow.08
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_shadow_magic_08
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_shadow_magic_08.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_shadow_magic_08
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.shadow.09
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_shadow_magic_09
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_shadow_magic_09.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_shadow_magic_09
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.shadow.10
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_shadow_magic_10
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_shadow_magic_10.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_shadow_magic_10
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.shadow.11
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_shadow_magic_11
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_shadow_magic_11.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_shadow_magic_11
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.shadow.12
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_shadow_magic_12
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_shadow_magic_12.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_shadow_magic_12
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.shadow.13
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_shadow_magic_13
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_shadow_magic_13.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_shadow_magic_13
+		}
+	}
+}
+
+# Dream Magic Education - All Mysteries
+zz_valyria_magic_education.00093 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_education.0009.t
+	desc = {
+		desc = zz_valyria_magic_education.0009.desc
+	}
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = thinking
+	}
+
+
+	immediate = {
+		#Reward effects
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.a
+		trigger = {
+		}
+		zz_valyria_gain_spell_experience = {
+			XPGAIN = 3 
+			XPTRACK = dream_magic
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.01
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_01
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_01.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_01
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.dream.02
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_02
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_02.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_02
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.03
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_03
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_03.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_03
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.04
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_04
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_04.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_04
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.05
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_05
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_05.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_05
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.dream.06
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_06
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_06.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_06
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.dream.07
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_07
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_07.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_07
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.dream.08
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_08
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_08.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_08
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.dream.09
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_09
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_09.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_09
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.dream.10
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_10
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_10.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_10
+		}
+	}
+	
+	option = {
+		name = zz_valyria_magic_education.0009.dream.11
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_11
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_11.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_11
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.12
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_12
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_12.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_12
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.13
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_13
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_13.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_13
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.14
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_14
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_14.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_14
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.15
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_15
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_15.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_15
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.16
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_16
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_16.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_16
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.17
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_17
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_17.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_17
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.18
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_18
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_18.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_18
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.19
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_19
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_19.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_19
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.20
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_20
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_20.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_20
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.21
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_21
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_21.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_21
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.22
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_22
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_22.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_22
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.23
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_23
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_23.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_23
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.24
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_24
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_24.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_24
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.25
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_25
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_25.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_25
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.26
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_26
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_27.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_26
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.27
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_27
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_27.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_27
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.28
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_28
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_28.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_28
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.29
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_29
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_29.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_29
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.30
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_30
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_30.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_30
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.31
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_31
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_31.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_31
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.32
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_32
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_32.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_32
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.33
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_33
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_33.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_33
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.34
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_34
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_34.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_34
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.35
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_35
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_35.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_35
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.36
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_36
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_36.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_36
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.37
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_37
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_37.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_37
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.38
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_38
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_38.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_38
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.39
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_39
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_39.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_39
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.40
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_40
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_40.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_40
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.41
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_41
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_41.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_41
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.42
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_42
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_42.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_42
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.43
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_43
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_43.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_43
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.44
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_44
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_44.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_44
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.45
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_45
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_45.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_45
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.46
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_46
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_46.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_46
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.47
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_47
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_47.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_47
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.48
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_48
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_48.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_48
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.dream.49
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_dream_magic_49
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_dream_magic_49.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_dream_magic_49
+		}
+	}
+}
+
+# Alchemy Magic Education - All Mysteries
+zz_valyria_magic_education.00094 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_education.0009.t
+	desc = {
+		desc = zz_valyria_magic_education.0009.desc
+	}
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = thinking
+	}
+
+
+	immediate = {
+		#Reward effects
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.a
+		trigger = {
+		}
+		zz_valyria_gain_spell_experience = {
+			XPGAIN = 3 
+			XPTRACK = alchemy_magic
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.01
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_01
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_01.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_01
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.02
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_02
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_02.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_02
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.03
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_03
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_03.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_03
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.04
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_04
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_04.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_04
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.05
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_05
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_05.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_05
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.06
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_06
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_06.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_06
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.07
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_07
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_07.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_07
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.08
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_08
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_08.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_08
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.09
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_09
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_09.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_09
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.10
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_10
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_10.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_10
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.11
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_11
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_11.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_11
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.12
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_12
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_12.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_12
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.13
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_13
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_13.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_13
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.14
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_14
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_14.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_14
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.15
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_15
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_15.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_15
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.16
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_16
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_16.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_16
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.alchemy.17
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_alchemy_magic_17
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_alchemy_magic_17.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_alchemy_magic_17
+		}
+	}
+}
+
+# Fire Magic Education - All Mysteries
+zz_valyria_magic_education.00095 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_education.0009.t
+	desc = {
+		desc = zz_valyria_magic_education.0009.desc
+	}
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = thinking
+	}
+
+
+	immediate = {
+		#Reward effects
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.a
+		trigger = {
+		}
+		zz_valyria_gain_spell_experience = {
+			XPGAIN = 3 
+			XPTRACK = fire_magic
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic.01
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_fire_magic_01
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_fire_magic_01.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_fire_magic_01
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic.02
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_fire_magic_02
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_fire_magic_02.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_fire_magic_02
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic.03
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_fire_magic_03
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_fire_magic_03.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_fire_magic_03
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic.04
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_fire_magic_04
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_fire_magic_04.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_fire_magic_04
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic.05
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_fire_magic_05
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_fire_magic_05.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_fire_magic_05
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic.06
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_fire_magic_06
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_fire_magic_06.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_fire_magic_06
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic.07
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_fire_magic_07
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_fire_magic_07.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_fire_magic_07
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic.08
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_fire_magic_08
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_fire_magic_08.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_fire_magic_08
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic.09
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_fire_magic_09
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_fire_magic_09.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_fire_magic_09
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic.10
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_fire_magic_10
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_fire_magic_10.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_fire_magic_10
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic.11
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_fire_magic_11
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_fire_magic_11.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_fire_magic_11
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic.12
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_fire_magic_12
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_fire_magic_12.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_fire_magic_12
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.fire_magic.13
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_fire_magic_13
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_fire_magic_13.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_fire_magic_13
+		}
+	}
+}
+
+# Air Magic Education - All Mysteries
+zz_valyria_magic_education.00096 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_education.0009.t
+	desc = {
+		desc = zz_valyria_magic_education.0009.desc
+	}
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = thinking
+	}
+
+
+	immediate = {
+		#Reward effects
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.a
+		trigger = {
+		}
+		zz_valyria_gain_spell_experience = {
+			XPGAIN = 3 
+			XPTRACK = air_magic
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic.01
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_air_magic_01
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_air_magic_01.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_air_magic_01
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic.02
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_air_magic_02
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_air_magic_02.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_air_magic_02
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic.03
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_air_magic_03
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_air_magic_03.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_air_magic_03
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic.04
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_air_magic_04
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_air_magic_04.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_air_magic_04
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic.05
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_air_magic_05
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_air_magic_05.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_air_magic_05
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic.06
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_air_magic_06
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_air_magic_06.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_air_magic_06
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic.07
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_air_magic_07
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_air_magic_07.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_air_magic_07
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic.08
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_air_magic_08
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_air_magic_08.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_air_magic_08
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic.09
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_air_magic_09
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_air_magic_09.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_air_magic_09
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic.10
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_air_magic_10
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_air_magic_10.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_air_magic_10
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic.11
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_air_magic_11
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_air_magic_11.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_air_magic_11
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic.12
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_air_magic_12
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_air_magic_12.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_air_magic_12
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.air_magic.13
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_air_magic_13
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_air_magic_13.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_air_magic_13
+		}
+	}	
+}
+
+# Water Magic Education - All Mysteries
+zz_valyria_magic_education.00097 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_education.0009.t
+	desc = {
+		desc = zz_valyria_magic_education.0009.desc
+	}
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = thinking
+	}
+
+
+	immediate = {
+		#Reward effects
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.a
+		trigger = {
+		}
+		zz_valyria_gain_spell_experience = {
+			XPGAIN = 3
+			XPTRACK = water_magic
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic.01
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_water_magic_01
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_water_magic_01.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_water_magic_01
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic.02
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_water_magic_02
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_water_magic_02.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_water_magic_02
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic.03
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_water_magic_03
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_water_magic_03.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_water_magic_03
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic.04
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_water_magic_04
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_water_magic_04.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_water_magic_04
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic.05
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_water_magic_05
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_water_magic_05.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_water_magic_05
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic.06
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_water_magic_06
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_water_magic_06.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_water_magic_06
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic.07
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_water_magic_07
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_water_magic_07.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_water_magic_07
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic.08
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_water_magic_08
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_water_magic_08.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_water_magic_08
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic.09
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_water_magic_09
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_water_magic_09.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_water_magic_09
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic.10
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_water_magic_10
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_water_magic_10.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_water_magic_10
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic.11
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_water_magic_11
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_water_magic_11.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_water_magic_11
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic.12
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_water_magic_12
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_water_magic_12.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_water_magic_12
+		}
+	}	
+	option = {
+		name = zz_valyria_magic_education.0009.water_magic.13
+		trigger = {
+			NOT = { 
+				zz_valyria_knows_spell  = {
+					SPELL = zz_valyria_magic_water_magic_13
+				}
+			}
+		}
+		custom_tooltip = zz_valyria_magic_water_magic_13.tooltip.desc
+		zz_magic_education_learn_spell_effect = { 
+			SPELL = zz_valyria_magic_water_magic_13
+		}
+	}	
+}
+
+## ARRIVAL EVENTS
+zz_valyria_magic_education.0010 = {
+	type = activity_event
+	title = zz_valyria_magic_education.0010.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					location = {
+						has_university_building_trigger = yes
+					}
+				}
+				desc = zz_valyria_magic_education.0010.desc_uni
+			}
+			desc = zz_valyria_magic_education.0010.desc
+		}
+		#desc = zz_valyria_magic_education.0010.desc_end
+		triggered_desc = {
+			trigger = {
+				"scope:host.capital_province.squared_distance(scope:location)" >= squared_distance_massive
+			}
+			desc = zz_valyria_magic_education.0010.desc_very_very_far
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = happy_teacher
+	}
+
+	immediate = {
+		scope:activity.activity_location = { save_scope_as = location }
+	}
+
+	option = {
+		name = zz_valyria_magic_education.0010.a
+	}
+}
+
+### ADULT EDUCATION AT DESTINATION EVENTS ###
+
+## You find a a book of technical skill
+
+zz_valyria_magic_education.0100 = {
+	type = activity_event
+	title = zz_valyria_magic_education.0100.t
+	desc = zz_valyria_magic_education.0100.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	cooldown = { months = 6 }
+
+	trigger = {
+		always = yes
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			has_trait = theologian
+			add = 2
+		}
+		modifier = {
+			has_trait = scholar
+			add = 1
+		}
+	}
+
+	immediate = {
+		scope:activity = {
+			activity_location = { save_scope_as = location }
+		}
+		root = { save_scope_as = book_creator }
+		set_variable = {
+			name = skill_points 
+			value = 5
+			days = 5
+		}
+	}
+
+	# Option A: Study hard intent: think and try to resolve the questions
+	option = {
+		name = zz_valyria_magic_education.0100.a
+		#custom_tooltip = zz_valyria_magic_education.0100.a.tt
+		trigger = {
+			scope:activity = {
+				has_activity_option = {
+					category = adult_education_option_books
+					option = adult_education_books_good
+				}
+			}
+		}
+
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.0100.a
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0100.b
+		#custom_tooltip = zz_valyria_magic_education.0100.b.tt
+		trigger = {
+
+		}
+		set_variable = {
+			name = reward_scale 
+			value = flag:massive
+			days = 5
+		}
+		remove_variable = skill_points
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.0100.b
+		}
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+
+
+	# Option Z: opt-out
+	option = {
+		name = zz_valyria_magic_education.0100.z
+		#custom_tooltip = zz_valyria_magic_education.0100.z.tt
+		stress_impact = {
+			base = medium_stress_impact_loss
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				has_trait = lazy
+				add = 100
+			}
+			modifier = {
+				has_trait = intellect_bad
+				add = 100
+			}
+			modifier = {
+				has_trait = dull
+				add = 100
+			}
+		}
+	}
+}
+
+zz_valyria_magic_education.0200 = {
+	type = activity_event
+	title = zz_valyria_magic_education.0200.t
+	desc = zz_valyria_magic_education.0200.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	cooldown = { months = 6 }
+
+	trigger = {
+		always = yes
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			has_trait = theologian
+			add = 2
+		}
+		modifier = {
+			has_trait = scholar
+			add = 1
+		}
+	}
+
+	immediate = {
+		scope:activity = {
+			activity_location = { save_scope_as = location }
+		}
+		root = { save_scope_as = book_creator }
+		set_variable = {
+			name = skill_points 
+			value = 5
+			days = 5
+		}
+	}
+
+	# Option A: Study hard intent: think and try to resolve the questions
+	option = {
+		name = zz_valyria_magic_education.0200.a
+		trigger = {
+			scope:activity = {
+				has_activity_option = {
+					category = adult_education_option_books
+					option = adult_education_books_good
+				}
+			}
+		}
+
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.0200.a
+		}		
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.0200.b
+		trigger = {
+
+		}
+		set_variable = {
+			name = reward_scale 
+			value = flag:massive
+			days = 5
+		}
+		remove_variable = skill_points
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.0200.b
+		}	
+
+		ai_chance = {
+			base = 100
+		}
+	}
+
+
+	# Option Z: opt-out
+	option = {
+		name = zz_valyria_magic_education.0200.z
+		stress_impact = {
+			base = medium_stress_impact_loss
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				has_trait = lazy
+				add = 100
+			}
+			modifier = {
+				has_trait = intellect_bad
+				add = 100
+			}
+			modifier = {
+				has_trait = dull
+				add = 100
+			}
+		}
+	}
+}
+
+## You have progressed your studies by a moderate amount. 
+
+zz_valyria_magic_education.1100  = {
+	type = activity_event
+	title = zz_valyria_magic_education.1100.t
+	desc = zz_valyria_magic_education.1100.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	cooldown = { months = 6 }
+
+	trigger = {
+		always = yes
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			has_trait = theologian
+			add = 2
+		}
+		modifier = {
+			has_trait = scholar
+			add = 1
+		}
+	}
+
+	immediate = {
+		scope:activity = {
+			activity_location = { save_scope_as = location }
+		}
+		root = { save_scope_as = book_creator }
+	}
+
+	# Option A: Study hard intent: think and try to resolve the questions
+	option = {
+		name = zz_valyria_magic_education.1100.a
+		trigger = {
+			scope:activity = {
+				has_activity_option = {
+					category = adult_education_option_books
+					option = adult_education_books_good
+				}
+			}
+		}
+		set_variable = {
+			name = reward_scale 
+			value = flag:massive
+			days = 5
+		}
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.1100.a
+		}		
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.1100.b
+		trigger = {
+		}
+
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.1100.b
+		}				
+		ai_chance = {
+			base = 100
+		}
+	}
+
+
+	# Option Z: opt-out
+	option = {
+		name = zz_valyria_magic_education.1100.z
+		stress_impact = {
+			base = medium_stress_impact_loss
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				has_trait = lazy
+				add = 100
+			}
+			modifier = {
+				has_trait = intellect_bad
+				add = 100
+			}
+			modifier = {
+				has_trait = dull
+				add = 100
+			}
+		}
+	}
+}
+
+## You have progressed your studies by a major amount. 
+zz_valyria_magic_education.1200 = {
+	type = activity_event
+	title = zz_valyria_magic_education.1200.t
+	desc = zz_valyria_magic_education.1200.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	cooldown = { months = 6 }
+
+	trigger = {
+		always = yes
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			has_trait = theologian
+			add = 2
+		}
+		modifier = {
+			has_trait = scholar
+			add = 1
+		}
+	}
+
+	immediate = {
+		scope:activity = {
+			activity_location = { save_scope_as = location }
+		}
+		root = { save_scope_as = book_creator }
+	}
+
+	# Option A: Study hard intent: think and try to resolve the questions
+	option = {
+		name = zz_valyria_magic_education.1200.a
+		trigger = {
+			scope:activity = {
+				has_activity_option = {
+					category = adult_education_option_books
+					option = adult_education_books_good
+				}
+			}
+		}
+		set_variable = {
+			name = reward_scale 
+			value = flag:massive
+			days = 5
+		}
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.1200.a
+		}		
+
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.1200.b
+		trigger = {
+		}
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.1200.b
+		}		
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	# Option Z: opt-out
+	option = {
+		name = zz_valyria_magic_education.1200.z
+		stress_impact = {
+			base = medium_stress_impact_loss
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				has_trait = lazy
+				add = 100
+			}
+			modifier = {
+				has_trait = intellect_bad
+				add = 100
+			}
+			modifier = {
+				has_trait = dull
+				add = 100
+			}
+		}
+	}
+}
+
+### Learn Random Spell
+zz_valyria_magic_education.2100 = {
+	type = activity_event
+	title = zz_valyria_magic_education.2100.t
+	desc = zz_valyria_magic_education.2100.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	cooldown = { months = 6 }
+
+	trigger = {
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			has_trait = theologian
+			add = 2
+		}
+		modifier = {
+			has_trait = scholar
+			add = 1
+		}
+	}
+
+	immediate = {
+		scope:activity = {
+			activity_location = { save_scope_as = location }
+		}
+		root = { save_scope_as = book_creator }
+		set_variable = { 
+			name = random_spell 
+			value =  yes
+			days = 5
+		}
+	}
+
+	# Option A: Study hard intent: think and try to resolve the questions
+	option = {
+		name = zz_valyria_magic_education.2100.a
+		trigger = {
+			scope:activity = {
+				has_activity_option = {
+					category = adult_education_option_books
+					option = adult_education_books_good
+				}
+			}
+		}
+
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.2100.a
+		}		
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.2100.b
+		trigger = {
+		}
+		remove_variable = random_spell
+		set_variable = {
+			name = skill_points
+			value = 3
+			days = 5
+		}
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.2100.b
+		}			
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.2100.y
+		trigger = {
+		}
+		remove_variable = random_spell
+		set_variable = {
+			name = reward_scale 
+			value = flag:massive
+			days = 5
+		}
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.2100.y
+		}	
+		ai_chance = {
+			base = 100
+		}
+	}
+
+
+	# Option Z: opt-out
+	option = {
+		name = zz_valyria_magic_education.2100.z
+		stress_impact = {
+			base = medium_stress_impact_loss
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				has_trait = lazy
+				add = 100
+			}
+			modifier = {
+				has_trait = intellect_bad
+				add = 100
+			}
+			modifier = {
+				has_trait = dull
+				add = 100
+			}
+		}
+	}
+}
+
+
+zz_valyria_magic_education.2200 = {
+	type = activity_event
+	title = zz_valyria_magic_education.2200.t
+	desc = zz_valyria_magic_education.2200.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+
+	center_portrait = {
+		character = root
+		animation = personality_rational
+	}
+
+	cooldown = { months = 6 }
+
+	trigger = {
+	}
+
+	weight_multiplier = {
+		base = 1
+		modifier = {
+			has_trait = theologian
+			add = 2
+		}
+		modifier = {
+			has_trait = scholar
+			add = 1
+		}
+	}
+
+	immediate = {
+		scope:activity = {
+			activity_location = { save_scope_as = location }
+		}
+		root = { save_scope_as = book_creator }
+		set_variable = { 
+			name = random_spell 
+			value =  yes
+			days = 5
+		}
+	}
+
+	# Option A: Study hard intent: think and try to resolve the questions
+	option = {
+		name = zz_valyria_magic_education.2200.a
+		trigger = {
+			scope:activity = {
+				has_activity_option = {
+					category = adult_education_option_books
+					option = adult_education_books_good
+				}
+			}
+		}
+
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.2200.a
+		}	
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.2200.b
+		trigger = {
+		}
+		remove_variable = random_spell
+		set_variable = {
+			name = skill_points
+			value = 3
+			days = 5
+		}
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.2200.b
+		}	
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = zz_valyria_magic_education.2200.y
+		trigger = {
+		}
+		remove_variable = random_spell
+		set_variable = {
+			name = reward_scale 
+			value = flag:massive
+			days = 5
+		}
+		zz_valyria_magic_education_skill_test = {
+			SKILL = learning
+			ZZ_EVENT_OPTION_NAME = zz_valyria_magic_education.2200.y
+		}	
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+
+
+	# Option Z: opt-out
+	option = {
+		name = zz_valyria_magic_education.2200.z
+		stress_impact = {
+			base = medium_stress_impact_loss
+		}
+		ai_chance = {
+			base = 50
+			modifier = {
+				has_trait = lazy
+				add = 100
+			}
+			modifier = {
+				has_trait = intellect_bad
+				add = 100
+			}
+			modifier = {
+				has_trait = dull
+				add = 100
+			}
+		}
+	}
+}

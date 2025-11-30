@@ -1,0 +1,508 @@
+﻿zz_valyria_magic_water_magic_01_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_01.toast.t
+		desc = zz_valyria_magic_water_magic_01.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient					
+		custom_tooltip = zz_valyria_magic_water_magic_01.toast.tt
+	}
+	zz_valyria_magic_duel_stress_effect = yes 
+	scope:recipient = {
+		hidden_effect = {
+			force_character_skill_recalculation = yes
+			add_character_modifier = duel_edge_debuff_02_modifier
+		}
+	}
+	zz_configure_start_magic_combat_effect = {
+		SC_INITIATOR = scope:secondary_recipient
+		SC_ATTACKER = scope:secondary_recipient
+		SC_DEFENDER = scope:recipient
+		FATALITY = possible
+		FIXED = no
+		LOCALE = tavern
+		OUTPUT_EVENT = jason_locale_events.201 
+		INVALIDATION_EVENT = single_combat.1006
+		MAGIC = water
+	}
+}
+zz_valyria_magic_water_magic_02_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_02.toast.t
+		desc = zz_valyria_magic_water_magic_02.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient					
+		custom_tooltip = zz_valyria_magic_water_magic_02.toast.tt
+	}
+	scope:target = {
+		deplete_army_by_percentage = zz_valyria_magic_water_magic_02_value
+	}
+}
+
+zz_valyria_magic_water_magic_03_effect = {
+	
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_03.toast.t
+		desc = zz_valyria_magic_water_magic_03.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient					
+		custom_tooltip = zz_valyria_magic_water_magic_03.toast.tt
+	}
+	scope:target = {
+		add_supply = zz_valyria_magic_water_magic_03_value 
+	}
+}
+
+zz_valyria_magic_water_magic_04_effect = {
+	
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_04.toast.t
+		desc = zz_valyria_magic_water_magic_04.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient					
+		custom_tooltip = zz_valyria_magic_water_magic_04.toast.tt
+	}
+	if = {
+		limit = {
+			scope:option_01 ?= yes
+		}
+		scope:target = {
+			create_epidemic_outbreak = {
+				type = scope:epidemic
+				intensity = minor
+				save_scope_as = mysteries_of_rhoyne  # optional
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:option_02 ?= yes
+		}
+		scope:secondary_recipient = {
+			set_variable = {
+				name = zz_manacost 
+				value = 25
+			}
+
+			zz_valyria_mana_spend = yes
+		}
+		scope:target = {
+			create_epidemic_outbreak = {
+				type = scope:epidemic
+				intensity = major
+				save_scope_as = mysteries_of_rhoyne  # optional
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:option_03 ?= yes
+		}
+		scope:secondary_recipient = {
+			set_variable = {
+				name = zz_manacost 
+				value = 75
+			}
+			zz_valyria_mana_spend = yes
+		}
+		scope:target = {
+			create_epidemic_outbreak = {
+				type = scope:epidemic
+				intensity = apocalyptic
+				save_scope_as = mysteries_of_rhoyne  # optional
+			}
+		}
+	}
+}
+
+zz_valyria_magic_water_magic_05_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_05.toast.t
+		desc = zz_valyria_magic_water_magic_05.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_water_magic_05.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_water_magic_05_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 2
+		}
+			
+
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_water_magic_06_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_06.toast.t
+		desc = zz_valyria_magic_water_magic_06.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:target
+		custom_tooltip = zz_valyria_magic_water_magic_06.toast.tt
+	}
+	scope:target = {
+		zz_valyria_magic_apply_province_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_water_magic_06_modifier
+			DURATION = -1
+			BOOSTED_DURATION = -1
+		}
+		set_variable = {
+			name = epidemic_cooldown_general
+			years = zz_valyria_magic_water_magic_06_value
+		}
+	}
+}
+
+zz_valyria_magic_water_magic_07_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_07.toast.t
+		desc = zz_valyria_magic_water_magic_07.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient					
+		custom_tooltip = zz_valyria_magic_water_magic_07.toast.tt
+	}
+	scope:target = {
+		county = {
+			change_development_level = zz_valyria_magic_water_magic_07_value
+		}
+	}
+}
+
+zz_valyria_magic_water_magic_08_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_08.toast.t
+		desc = zz_valyria_magic_water_magic_08.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_water_magic_08.toast.tt
+	}
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_water_magic_08_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 2
+		}
+	}
+}
+
+zz_valyria_magic_water_magic_09_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_09.toast.t
+		desc = zz_valyria_magic_water_magic_09.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_water_magic_09.toast.tt
+	}
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_water_magic_09_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 2
+		}
+	}
+}
+
+zz_valyria_magic_water_magic_10_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title =  zz_valyria_magic_water_magic_10.toast.t
+		desc =  zz_valyria_magic_water_magic_10.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip =  zz_valyria_magic_water_magic_10.toast.tt
+	}
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_water_magic_10_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 2
+		}
+	}
+}
+
+zz_valyria_magic_water_magic_11_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_11.toast.t
+		desc = zz_valyria_magic_water_magic_11.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_water_magic_11.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		scope:actor = {
+			stress_impact = {
+				compassionate = medium_stress_impact_loss
+				sadistic = minor_stress_gain
+				callous = minor_stress_gain
+			}
+		}
+	}
+	while = {
+		count = zz_valyria_magic_water_magic_11_value 
+		scope:recipient = { 
+			stress_impact = {
+				base = minor_stress_impact_loss
+			}
+			add_character_flag = {
+				flag = immune_to_disease
+				years = zz_valyria_magic_water_magic_11_value
+			}
+			if = { 
+				limit = { 
+					OR = { 
+						has_character_modifier = chronic_headaches_modifier 
+						has_character_modifier = infected_wound_modifier
+						has_character_modifier = gangrene_modifier
+					}
+				}
+				if = { limit = { has_character_modifier = chronic_headaches_modifier }
+					remove_character_modifier = chronic_headaches_modifier
+				}
+				if = { limit = { has_character_modifier = infected_wound_modifier }
+					remove_character_modifier = infected_wound_modifier
+				}
+				if = { limit = { has_character_modifier = gangrene_modifier }
+					remove_character_modifier = gangrene_modifier
+				}
+			}
+			else = { 
+				switch = { 
+					trigger = has_trait 
+					
+					ill = { 
+						recover_from_disease_effect = { DISEASE = ill } #Removes the trait, sends event "health.2202" to those who care
+						remove_disease_treatment_effect = yes
+					}
+					sickly = {
+						remove_trait = sickly
+					}
+					pneumonic = {
+						recover_from_disease_effect = { DISEASE = pneumonic } #Removes the trait, sends event "health.2202" to those who care
+						remove_disease_treatment_effect = yes
+					}
+					great_pox = {
+						recover_from_disease_effect = { DISEASE = great_pox } #Removes the trait, sends event "health.2202" to those who care & sexual partners
+						remove_disease_treatment_effect = yes
+					}
+					early_great_pox = {
+						remove_trait = early_great_pox
+					}
+					lovers_pox ={
+						remove_trait = lovers_pox
+					}
+					leper ={
+						remove_trait = leper
+					}
+					gout_ridden = {
+						recover_from_disease_effect = { DISEASE = gout_ridden } #Removes the trait, sends event "health.2202" to those who care
+						remove_disease_treatment_effect = yes
+					}
+					consumption = {
+						recover_from_disease_effect = { DISEASE = consumption } #Removes the trait, sends event "health.2202" to those who care
+						remove_disease_treatment_effect = yes
+					}
+					cancer = {
+						recover_from_disease_effect = { DISEASE = cancer } #Removes the trait, sends event "health.2202" to those who care
+						remove_disease_treatment_effect = yes
+					}
+					typhus = {
+						recover_from_disease_effect = { DISEASE = typhus } #Removes the trait, sends event "health.2202" to those who care
+						remove_disease_treatment_effect = yes
+					}
+					bubonic_plague = {
+						recover_from_disease_effect = { DISEASE = bubonic_plague } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
+						remove_disease_treatment_effect = yes
+					}
+					smallpox = {
+						recover_from_disease_effect = { DISEASE = smallpox } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
+						remove_disease_treatment_effect = yes
+					}
+					measles = {
+						recover_from_disease_effect = { DISEASE = measles } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
+						remove_disease_treatment_effect = yes
+					}
+					dysentery = {
+						recover_from_disease_effect = { DISEASE = dysentery } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
+						remove_disease_treatment_effect = yes
+					}
+					ergotism = {
+						recover_from_disease_effect = { DISEASE = ergotism } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
+						remove_disease_treatment_effect = yes
+					}
+				}
+			}
+		}
+	}
+	scope:recipient = {				
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}		
+}
+
+
+zz_valyria_magic_water_magic_12_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_12.toast.t
+		desc = zz_valyria_magic_water_magic_12.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_water_magic_12.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_water_magic_12_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 2
+		}
+			
+
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+zz_valyria_magic_water_magic_13_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_13.toast.t
+		desc = zz_valyria_magic_water_magic_13.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_water_magic_13.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_water_magic_13_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 2
+		}
+			
+
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_water_magic_14_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_14.toast.t
+		desc = zz_valyria_magic_water_magic_14.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:target
+		custom_tooltip = zz_valyria_magic_water_magic_14.toast.tt
+	}
+	scope:target = {
+		zz_valyria_magic_apply_province_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_water_magic_14_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_15_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_water_magic_15.toast.t
+		desc = zz_valyria_magic_water_magic_15.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:target
+		custom_tooltip = zz_valyria_magic_water_magic_15.toast.tt
+	}
+	scope:target = {
+		zz_valyria_magic_apply_province_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_water_magic_15_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 1
+		}
+	}
+}

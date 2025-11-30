@@ -1,0 +1,6 @@
+﻿dynn_Ambrosius = {
+	name = "dynn_Ambrosius"
+	culture = "roman"
+	motto = dynn_Ambrosius_motto # Through Spells of Word and Feats of Mind
+	#divine_blood = yes
+}

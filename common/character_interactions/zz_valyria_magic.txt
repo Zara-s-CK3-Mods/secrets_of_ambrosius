@@ -1,0 +1,1848 @@
+﻿## Teach Magic Decision 
+
+zz_valyria_magic_01.interaction = {
+
+	desc = zz_valyria_magic_01.interaction.interaction.desc
+	icon = icon_magic
+	#icon = blood_magic
+	#icon = shadow_magic	
+	#icon = dream_magic
+	#icon = alchemy_magic 
+	#icon = fire_magic
+	#icon = air_magic
+	#icon = water_magic
+
+	
+	common_interaction = yes
+	interface_priority = 40000
+	category = interaction_category_religion
+
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+			
+			is_imprisoned = no
+			zz_valyria_is_mage = yes 
+		}
+		scope:recipient = {
+		}	
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			zz_valyria_is_mage = yes 
+		}
+	}
+	hidden = yes 
+
+	cooldown_against_recipient = { days = 0 } 
+	cooldown = { days = 0 } 
+	ignores_pending_interaction_block = yes
+	use_diplomatic_range = yes
+	on_send = {
+		zz_ui_setup_effect = yes 
+	}
+	on_accept = {
+
+	}
+	auto_accept = yes
+	ai_targets = {
+		ai_recipients = self
+	}
+
+	ai_frequency = 12
+
+	ai_will_do = {
+		base = 0
+
+	}
+}
+
+zz_gift_artifact_interaction = {
+	category = interaction_category_friendly
+	common_interaction = no
+	interface_priority = 30
+	desc = zz_gift_artifact_interaction_desc
+	icon = artisan_inspiration
+
+	target_type = artifact
+	target_filter = actor_artifacts
+
+	greeting = positive
+	notification_text = GIFT_ARTIFACT_PROPOSAL
+
+	answer_accept_key = GIFT_ARTIFACT_ACCEPT
+	answer_reject_key = GIFT_ARTIFACT_REJECT
+	
+	ai_targets = {
+		ai_recipients = scripted_relations
+		ai_recipients = liege
+		ai_recipients = spouses
+		ai_recipients = vassals
+	}
+	ai_targets = {
+		ai_recipients = neighboring_rulers
+		ai_recipients = peer_vassals
+		max = 10
+	}
+	ai_targets = {
+		ai_recipients = family
+		ai_recipients = children
+		ai_recipients = dynasty
+		max = 20
+	}
+	ai_target_quick_trigger = {
+		adult = yes
+	}
+	ai_frequency = 84
+
+	can_be_picked_artifact = {
+		scope:actor = {
+			is_ai = no
+		}
+
+		scope:target = {
+			has_variable = zz_crafted
+		}
+		scope:actor = {
+			any_character_artifact = {
+				this = scope:target
+			}
+		}
+	}
+
+
+	#You can't give yourself a gift, even if it should count as self-care
+	is_shown = {
+		NOT = {
+			scope:recipient = scope:actor
+		}
+		scope:actor = {
+			has_any_artifact = yes
+		}
+
+		#AGOT Added, no non-human interactions
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
+	}
+
+	is_valid_showing_failures_only = {
+		# needs to have an artifact to give away
+		scope:recipient = { is_busy_in_events_localised = yes }
+		scope:actor = {
+			NOT = {
+				is_at_war_with = scope:recipient
+			}
+			is_imprisoned = no
+			trigger_if = {
+				limit = {
+					is_ai = no
+				}
+				custom_description = {
+					text = "any_unequipped_artifact_tt"
+					any_character_artifact = {
+						is_equipped = no
+					}
+				}
+			}
+			#AGOT Added
+			trigger_else = {
+				any_character_artifact = { agot_valid_ai_gift = yes }
+			}
+		}
+		trigger_if = {
+			limit = {
+				exists = scope:target.var:banner_dynasty
+				exists = scope:recipient.dynasty
+			}
+			custom_description = {
+				text = "gift_artifact_dynasty_banner_head_tt"
+				scope:recipient = scope:target.var:banner_dynasty.dynast
+			}
+		}
+
+		#AGOT Added, cannot interact with unavailable people
+		scope:recipient = {
+			agot_is_available_for_anything = yes
+		}
+	}
+
+	on_accept = {
+		# Warning for multiple gifts
+		if = {
+			limit = {
+				scope:recipient = {
+					has_opinion_modifier = {
+						target = scope:actor
+						modifier = gift_artifact_opinion
+					}
+				}
+			}
+			custom_tooltip = ALREADY_SENT_GIFT_WARNING
+		}
+		# Struggle Catalyst
+		if = { # Struggle Catalyst
+			limit = {
+				scope:actor = {
+					any_character_struggle = {
+						involvement = involved
+						activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
+							CATALYST = catalyst_gift_independent_ruler
+							CHAR = scope:recipient
+						}
+					}
+				}
+			}
+			hidden_effect = {
+				scope:actor = {
+					every_character_struggle = {
+						involvement = involved
+						activate_struggle_catalyst = {
+							catalyst = catalyst_gift_independent_ruler
+							character = scope:actor
+						}
+					}
+				}
+			}
+			#AGOT Disabled
+			# limit = {
+			# 	fp3_struggle_involves_one_supporter_and_one_detractor = {
+			# 		FIRST = scope:actor
+			# 		SECOND = scope:recipient
+			# 	}
+			# 	scope:actor = {
+			# 		any_character_struggle = {
+			# 			#involvement = involved
+			# 			activate_struggle_catalyst_secondary_character_involvement_either_trigger = {
+			# 				CATALYST = catalyst_gift_supporter_detractor_ruler
+			# 				CHAR = scope:recipient
+			# 			}
+			# 		}
+			# 	}
+			# }
+			# hidden_effect = {
+			# 	scope:actor = {
+			# 		every_character_struggle = {
+			# 			#involvement = involved
+			# 			limit = {
+			# 				activate_struggle_catalyst_secondary_character_involvement_either_trigger = {
+			# 					CATALYST = catalyst_gift_supporter_detractor_ruler
+			# 					CHAR = scope:recipient
+			# 				}
+			# 			}
+			# 			activate_struggle_catalyst = {
+			# 				catalyst = catalyst_gift_supporter_detractor_ruler
+			# 				character = scope:actor
+			# 			}
+			# 			log_debug_variable_for_persian_struggle_effect = { VAR = concession_catalyst_gift_supporter_detractor_ruler }
+			# 		}
+			# 	}
+			# }
+		}
+
+		scope:target = {
+			set_variable = {
+				name = suppress_artifact_notifications
+				value = yes
+				days = 1
+			}
+			set_variable = { name = gifted_artifact value = yes days = 9125 }
+		}
+		scope:recipient = {
+			# Verify that they could become friend
+			if = {
+				limit = {
+					NAND = {
+						has_relation_friend = scope:actor
+						has_relation_lover = scope:actor
+						has_relation_soulmate = scope:actor
+						has_relation_best_friend = scope:actor
+					}
+				}
+				gifting_leads_towards_friendship_effect = yes
+			}
+		}
+		scope:actor = {
+			send_interface_toast = {
+				type = event_toast_effect_neutral
+				title = gift_artifact_interaction_notification
+				left_icon = scope:recipient
+				right_icon = scope:target
+				scope:recipient = {
+					if = {
+						limit = { scope:target = { can_be_claimed_by = scope:recipient } }
+						if = {
+							limit = { any_personal_claimed_artifact = { this = scope:target } }
+							show_as_tooltip = { remove_personal_artifact_claim = scope:target }
+						}
+						else = { show_as_tooltip = { house = { remove_house_artifact_claim = scope:target } } }
+					}
+				}
+				
+				scope:target = { set_owner = scope:recipient }
+
+				
+				if = {
+					limit = {
+						scope:target = { is_unique = yes }
+					}
+					add_clan_unity_interaction_effect = {
+						CHARACTER = scope:actor
+						TARGET = scope:recipient
+						VALUE = medium_unity_gain
+						DESC = clan_unity_given_artifact.desc
+						REVERSE_NON_HOUSE_TARGET = no
+					}
+					stress_impact = {
+						greedy = major_stress_impact_gain
+						generous = major_stress_impact_loss
+					}
+				}
+				else_if = {# Unity goes here, too!
+					limit = { scope:target = { rarity = masterwork } }
+					add_clan_unity_interaction_effect = {
+						CHARACTER = scope:actor
+						TARGET = scope:recipient
+						VALUE = minor_unity_gain
+						DESC = clan_unity_given_artifact.desc
+						REVERSE_NON_HOUSE_TARGET = no
+					}
+					stress_impact = {
+						greedy = minor_stress_impact_gain
+						generous = minor_stress_impact_loss
+					}
+				}
+				else_if = {
+					limit = { scope:target = { rarity = famed } }
+					add_clan_unity_interaction_effect = {
+						CHARACTER = scope:actor
+						TARGET = scope:recipient
+						VALUE = minor_unity_gain
+						DESC = clan_unity_given_artifact.desc
+						REVERSE_NON_HOUSE_TARGET = no
+					}
+					stress_impact = {
+						greedy = medium_stress_impact_gain
+						generous = medium_stress_impact_loss
+					}
+				}
+				else_if = {
+					limit = { scope:target = { rarity = illustrious } }
+					add_clan_unity_interaction_effect = {
+						CHARACTER = scope:actor
+						TARGET = scope:recipient
+						VALUE = minor_unity_gain
+						DESC = clan_unity_given_artifact.desc
+						REVERSE_NON_HOUSE_TARGET = no
+					}
+					stress_impact = {
+						greedy = major_stress_impact_gain
+						generous = major_stress_impact_loss
+					}
+				}
+				if = {
+					limit = { scope:recipient = { is_ai = yes } }
+					reverse_add_opinion = {
+						target = scope:recipient
+						modifier = gift_artifact_opinion
+						opinion = gift_artifact_opinion
+					}
+				}
+				#FP3 Tenet Communal Possessions Perk - piety gain for gift giving. 
+				if = { 
+					limit = {
+						scope:actor = {
+								faith = {
+					 			has_doctrine_parameter = piety_from_gifts_active
+					 		}
+					 	}
+					}
+					scope:actor = {
+						if = {
+							limit = { #the better the artifact, the more piety you gain
+								scope:target = { rarity = illustrious }
+							}
+							add_piety = massive_piety_gain 
+						}
+						else_if = {
+							limit = {
+								scope:target = { rarity = famed }
+							}
+							add_piety = major_piety_gain 
+						}
+						else_if = {
+							limit = {
+								scope:target = { rarity = masterwork }
+							}
+							add_piety = medium_piety_gain 
+						}
+						else = {
+							add_piety = minor_piety_gain
+						}				 
+					}		
+				}
+			}
+
+			# Warning for low opinion gain
+			if = {
+				limit = {
+					scope:target = { artifact_durability <= define:NInventory|ARTIFACT_LOW_DURABILITY }
+				}
+				custom_tooltip = artifact_gift_low_durability_tt
+			}
+			if = {
+				limit = {
+					scope:target = { artifact_durability <= define:NInventory|ARTIFACT_VERY_LOW_DURABILITY }
+				}
+				custom_tooltip = artifact_gift_very_low_durability_tt
+			}
+			if = {
+				limit = {
+					scope:target = { 
+						OR = {
+							AND = {
+								has_variable = banner_house
+								NOT = { var:banner_house = scope:recipient.house }
+							}
+							AND = {
+								has_variable = banner_dynasty
+								NOT = { var:banner_dynasty = scope:recipient.dynasty }
+							}
+						}
+					}
+				}
+				custom_tooltip = artifact_gift_useless_banner_tt
+			}
+			else_if = {
+				limit = {
+					scope:recipient = {
+						NOR = {
+							can_equip_artifact = scope:target
+							can_benefit_from_artifact = scope:target
+						}
+					}
+				}
+				custom_tooltip = artifact_gift_useless_tt
+			}
+			else_if = {
+				limit = {
+					scope:recipient = {
+						NOT = { can_equip_artifact = scope:target }
+					}
+				}
+				custom_tooltip = artifact_gift_equip_tt
+			}
+			else_if = {
+				limit = {
+					scope:recipient = {
+						NOT = { can_benefit_from_artifact = scope:target }
+					}
+				}
+				custom_tooltip = artifact_gift_benefit_tt
+			}
+			if = {
+				limit = { scope:recipient.liege = scope:actor }
+				custom_tooltip = artifact_gift_vassal_tt
+			}
+			if = {
+				limit = { scope:recipient = scope:actor.faith.religious_head }
+				custom_tooltip = artifact_gift_religious_head_tt
+			}
+		}
+		scope:recipient = {
+			hidden_effect = {
+				send_interface_toast = {
+					type = event_toast_effect_neutral
+					title = gift_artifact_interaction_notification
+					left_icon = scope:actor
+					right_icon = scope:target
+
+					show_as_tooltip = {
+						scope:target = { set_owner = scope:recipient }
+						if = {
+							limit = { is_ai = yes }
+							add_opinion = {
+								target = scope:actor
+								modifier = gift_artifact_opinion
+								opinion = gift_artifact_opinion
+							}
+						}
+
+						# Unity stuff, scales with tier # If we're a clan this interaction affects unity
+						if = { # In a better world, this would be a switch
+							#AGOT Modified : fixed typo 
+							#limit = { scope:target = { rarity = Masterwork } } # todo_cd_polish, make the UI show this before you gift
+							limit = { scope:target = { rarity = masterwork } } # todo_cd_polish, make the UI show this before you gift
+							add_clan_unity_interaction_effect = {
+								CHARACTER = scope:actor
+								TARGET = scope:recipient
+								VALUE = minor_unity_gain
+								DESC = clan_unity_given_artifact.desc
+								REVERSE_NON_HOUSE_TARGET = no
+							}
+						}
+						else_if = {
+							#AGOT Modified : fixed typo 
+							#limit = { scope:target = { rarity = Famed } }
+							limit = { scope:target = { rarity = famed } }
+							add_clan_unity_interaction_effect = {
+								CHARACTER = scope:actor
+								TARGET = scope:recipient
+								VALUE = medium_unity_gain
+								DESC = clan_unity_given_artifact.desc
+								REVERSE_NON_HOUSE_TARGET = no
+							}
+						}
+						else_if = {
+							#AGOT Modified : fixed typo
+							#limit = { scope:target = { rarity = Illustrious } }
+							limit = { scope:target = { rarity = illustrious } }
+							add_clan_unity_interaction_effect = {
+								CHARACTER = scope:actor
+								TARGET = scope:recipient
+								VALUE = major_unity_gain
+								DESC = clan_unity_given_artifact.desc
+								REVERSE_NON_HOUSE_TARGET = no
+							}
+						}
+					}
+				}
+				if = {
+					limit = {
+						is_ruler = no
+						trigger_if = {
+							limit = {
+								scope:target = {
+									artifact_slot_type = primary_armament
+								}
+							}
+							OR = {
+								NOT = {
+									any_equipped_character_artifact = {
+										artifact_slot_type = primary_armament
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = illustrious
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = primary_armament
+										NOT = {
+											rarity = illustrious
+										}
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = famed
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = primary_armament
+										NOR = {
+											rarity = illustrious
+											rarity = famed
+										}
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = masterwork
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = primary_armament
+										NOR = {
+											rarity = illustrious
+											rarity = famed
+											rarity = masterwork
+										}
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = common
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = primary_armament
+										NOR = {
+											rarity = illustrious
+											rarity = famed
+											rarity = masterwork
+											rarity = common
+										}
+									}
+								}
+							}
+						}
+						trigger_if = {
+							limit = {
+								scope:target = {
+									artifact_slot_type = armor
+								}
+							}
+							OR = {
+								NOT = {
+									any_equipped_character_artifact = {
+										artifact_slot_type = armor
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = illustrious
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = armor
+										NOT = {
+											rarity = illustrious
+										}
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = famed
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = armor
+										NOR = {
+											rarity = illustrious
+											rarity = famed
+										}
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = masterwork
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = armor
+										NOR = {
+											rarity = illustrious
+											rarity = famed
+											rarity = masterwork
+										}
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = common
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = armor
+										NOR = {
+											rarity = illustrious
+											rarity = famed
+											rarity = masterwork
+											rarity = common
+										}
+									}
+								}
+							}
+						}
+						trigger_if = {
+							limit = {
+								scope:target = {
+									artifact_slot_type = regalia
+								}
+							}
+							OR = {
+								NOT = {
+									any_equipped_character_artifact = {
+										artifact_slot_type = regalia
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = illustrious
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = regalia
+										NOT = {
+											rarity = illustrious
+										}
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = famed
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = regalia
+										NOR = {
+											rarity = illustrious
+											rarity = famed
+										}
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = masterwork
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = regalia
+										NOR = {
+											rarity = illustrious
+											rarity = famed
+											rarity = masterwork
+										}
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = common
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = regalia
+										NOR = {
+											rarity = illustrious
+											rarity = famed
+											rarity = masterwork
+											rarity = common
+										}
+									}
+								}
+							}
+						}
+						trigger_if = {
+							limit = {
+								scope:target = {
+									artifact_slot_type = helmet
+								}
+							}
+							OR = {
+								NOT = {
+									any_equipped_character_artifact = {
+										artifact_slot_type = helmet
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = illustrious
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = helmet
+										NOT = {
+											rarity = illustrious
+										}
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = famed
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = helmet
+										NOR = {
+											rarity = illustrious
+											rarity = famed
+										}
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = masterwork
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = helmet
+										NOR = {
+											rarity = illustrious
+											rarity = famed
+											rarity = masterwork
+										}
+									}
+								}
+								AND = {
+									scope:target = {
+										rarity = common
+									}
+									any_equipped_character_artifact = {
+										artifact_slot_type = helmet
+										NOR = {
+											rarity = illustrious
+											rarity = famed
+											rarity = masterwork
+											rarity = common
+										}
+									}
+								}
+							}
+						}
+					}
+					scope:target = {
+						equip_artifact_to_owner_replace = yes
+					}
+				}
+			}
+		}
+	}
+
+	auto_accept = no
+	
+	ai_accept = {
+		base = 0
+		modifier = {
+			add = 100
+			desc = ARTIFACT_REASON
+		}
+		modifier = {
+			add = -80
+			NOT = {
+				can_equip_artifact = scope:target
+			}
+			desc = ARTIFACT_NOT_EQUIPPABLE_REASON
+		}
+		modifier = {
+			add = -40
+			NOT = {
+				can_benefit_from_artifact = scope:target
+			}
+			#AGOT Added
+			NOT = {
+				scope:target = {
+					has_variable = traditional_house_owner
+				}
+			}
+			desc = ARTIFACT_NOT_BENEFIT_REASON
+		}
+		modifier = {
+			add = -500
+			scope:target = {
+				has_variable = unwanted_artifact
+			}
+			#No harm in reusing the wording
+			desc = ARTIFACT_CURSED_REASON
+		}
+		modifier = {
+			add = -1000
+			scope:target = {
+				has_variable = cursed_artifact
+			}
+			desc = ARTIFACT_CURSED_REASON
+		}
+		modifier = {
+			add = 100
+			exists = scope:target.var:banner_dynasty
+			exists = scope:recipient.dynasty
+			scope:recipient = scope:target.var:banner_dynasty.dynast
+			desc = ARTIFACT_DYNASTY_BANNER_REASON
+		}
+		modifier = {
+			add = -200
+			OR = {
+				exists = scope:target.var:banner_dynasty
+				exists = scope:target.var:banner_house
+			}
+			exists = scope:recipient.house
+			trigger_if = {
+				limit = { exists = scope:target.var:banner_dynasty }
+				NOT = { scope:target.var:banner_dynasty = scope:recipient.dynasty }
+			}
+			trigger_else = {
+				NOT = { scope:target.var:banner_house = scope:recipient.house }
+			}
+			desc = ARTIFACT_USELESS_BANNER_REASON
+		}
+		# Struggle motive
+		modifier = {
+			desc = AI_STRUGGLE_INTENT
+			scope:recipient = {
+				#AGOT Modified, true indepedence required
+				#is_independent_ruler = yes
+				agot_is_independent_ruler = yes
+				any_character_struggle = {
+					involvement = involved
+				}
+			}
+			add = {
+				value = 0
+				if = {
+					limit = {
+						scope:recipient = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gift_independent_ruler
+							}
+							has_character_flag = agenda_towards_escalation
+						}
+					}
+					add = -100
+				}
+				else_if = {
+					limit = {
+						scope:recipient = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gift_independent_ruler
+							}
+						}
+					}
+					add = 200
+				}
+			}
+		}
+		# Unity modifiers
+		evaluate_action_increasing_house_unity = {
+			VALUE = 100
+		}
+		#AGOT Added
+		modifier = {
+			add = 300
+			exists = scope:recipient.dynasty
+			scope:target.var:traditional_house_owner ?= scope:recipient.dynasty.dynasty_founder.house
+			desc = traditional_house_artifact_modifier_desc
+		}
+	}
+	
+	ai_potential = {
+		has_any_artifact = yes
+		trigger_if = {
+			limit = {
+				exists = scope:target.var:banner_dynasty
+				exists = scope:recipient.dynasty
+				scope:recipient = scope:target.var:banner_dynasty.dynast
+			}
+			NOT = {
+				scope:actor = {
+					has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:recipient }
+				}
+			}
+		}
+		trigger_else = {
+			is_adult = yes
+			ai_greed <= high_positive_ai_value
+			# the AI shouldn't give away equipped artifacts
+			has_any_unequipped_artifact = yes
+		
+			NOT = {
+				has_trait = greedy
+			}
+		}
+	}
+	
+	ai_min_reply_days = 0
+	ai_max_reply_days = 0
+	
+	ai_will_do = {
+		base = 0
+		
+		modifier = {
+			add = 100
+			scope:recipient = {
+				OR = {
+					has_relation_friend = scope:actor
+					has_relation_lover = scope:actor
+					is_close_or_extended_family_of = scope:actor
+					AND = {
+						exists = dynasty
+						exists = scope:actor.dynasty
+						dynasty = scope:actor.dynasty
+					}
+					
+					AND = {
+						ai_greed <= low_negative_ai_value
+						OR = { # Lieges/vassals, within realm
+							is_vassal_of = scope:actor
+							target_is_vassal_or_below = scope:actor
+						}
+						opinion = {
+							target = scope:recipient
+							value >= medium_positive_opinion
+						}
+					}
+				}
+			}
+			
+			scope:target = {
+				is_equipped = no
+			}
+			
+			scope:recipient = {
+				OR = {
+					AND = { # Players like nice gifts
+						scope:target = {
+							OR = {
+								rarity = famed
+								rarity = illustrious
+							}
+						}
+						is_ai = no	
+					}
+					AND = { # Might as well give Court Artifacts to their liege if they cant use them themselves
+						has_royal_court = yes
+						has_dlc_feature = court_artifacts
+						target_is_vassal_or_below = scope:actor
+						scope:actor = {
+							has_royal_court = no
+						}
+						scope:target = {
+							OR = {
+								artifact_slot_type = throne
+								artifact_slot_type = wall_big
+								artifact_slot_type = wall_small
+								artifact_slot_type = sculpture
+								artifact_slot_type = book
+								artifact_slot_type = pedestal
+							}
+						}
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = primary_armament
+						}
+						scope:actor = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = primary_armament
+							}
+						}
+						NOT = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = primary_armament
+							}
+						}	
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = regalia
+						}
+						scope:actor = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = regalia
+							}
+						}
+						NOT = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = regalia
+							}
+						}	
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = helmet
+						}
+						scope:actor = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = helmet
+							}
+						}
+						NOT = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = helmet
+							}
+						}	
+					}
+					AND = {
+						scope:target = {
+							artifact_slot_type = armor
+						}
+						scope:actor = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = armor
+							}
+						}
+						NOT = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = armor
+							}
+						}	
+					}
+					AND = {
+						can_equip_artifact = scope:target # To avoid gifting old children's toys to adults...
+						can_benefit_from_artifact = scope:target
+						scope:target = {
+							artifact_slot_type = miscellaneous
+						}
+						scope:actor = {
+							any_equipped_character_artifact = {
+								count >= 4
+								artifact_slot_type = miscellaneous
+							}
+						}
+						any_equipped_character_artifact = {
+							count < 4
+							artifact_slot_type = miscellaneous
+						}
+					}
+					AND = {
+						has_royal_court = yes
+						scope:target = {
+							artifact_slot_type = throne
+						}
+						scope:actor = {
+							OR = {
+								has_royal_court = no
+								any_equipped_character_artifact = {
+									artifact_slot_type = throne
+								}
+							}
+						}
+						NOT = {
+							any_equipped_character_artifact = {
+								artifact_slot_type = throne
+							}
+						}	
+					}
+					AND = {
+						has_royal_court = yes
+						scope:target = {
+							artifact_slot_type = wall_big
+						}
+						scope:actor = {
+							OR = {
+								has_royal_court = no
+								any_equipped_character_artifact = {
+									count >= 3
+									artifact_slot_type = wall_big
+								}
+							}
+						}
+						any_equipped_character_artifact = {
+							count < 3
+							artifact_slot_type = wall_big
+						}
+					}
+					AND = {
+						has_royal_court = yes
+						scope:target = {
+							artifact_slot_type = wall_small
+						}
+						scope:actor = {
+							OR = {
+								has_royal_court = no
+								any_equipped_character_artifact = {
+									count >= 3
+									artifact_slot_type = wall_small
+								}
+							}
+						}
+						any_equipped_character_artifact = {
+							count < 3
+							artifact_slot_type = wall_small
+						}
+					}
+					AND = {
+						has_royal_court = yes
+						scope:target = {
+							artifact_slot_type = sculpture
+						}
+						scope:actor = {
+							OR = {
+								has_royal_court = no
+								any_equipped_character_artifact = {
+									count >= 2
+									artifact_slot_type = sculpture
+								}
+							}
+						}
+						any_equipped_character_artifact = {
+							count < 2
+							artifact_slot_type = sculpture
+						}
+					}
+					AND = {
+						has_royal_court = yes
+						scope:target = {
+							artifact_slot_type = book
+						}
+						scope:actor = {
+							OR = {
+								has_royal_court = no
+								any_equipped_character_artifact = {
+									count >= 2
+									artifact_slot_type = book
+								}
+							}
+						}
+						any_equipped_character_artifact = {
+							count < 2
+							artifact_slot_type = book
+						}
+					}
+					AND = {
+						has_royal_court = yes
+						scope:target = {
+							artifact_slot_type = pedestal
+						}
+						scope:actor = {
+							OR = {
+								has_royal_court = no
+								any_equipped_character_artifact = {
+									count >= 4
+									artifact_slot_type = pedestal
+								}
+							}
+						}
+						any_equipped_character_artifact = {
+							count < 4
+							artifact_slot_type = pedestal
+						}
+					}
+				}
+			}
+		}
+
+		# Struggle
+		modifier = {
+			scope:recipient = {
+				#AGOT Modified, true indepedence required
+				#is_independent_ruler = yes
+				agot_is_independent_ruler = yes
+			}
+			scope:actor = {
+				any_character_struggle = {
+					involvement = involved
+				}
+			}
+			add = {
+				value = 0
+				if = {
+					limit = {
+						scope:actor = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gift_independent_ruler
+							}
+							has_character_flag = agenda_towards_escalation
+						}
+					}
+					add = -100
+				}
+				else_if = {
+					limit = {
+						scope:actor = {
+							any_character_struggle = {
+								phase_has_catalyst = catalyst_gift_independent_ruler
+							}
+						}
+					}
+					add = 200
+				}
+			}
+		}
+
+		# Unity modifiers
+		evaluate_action_increasing_house_unity = {
+			VALUE = 100
+		}
+		
+		modifier = {
+			factor = 2
+			scope:recipient = {
+				is_ai = no
+			}
+		}
+		
+		modifier = {
+			factor = 0.25
+			scope:recipient = {
+				highest_held_title_tier = tier_barony
+			}
+		}
+		
+		modifier = { # Unlanded characters do not equip artifacts, no point in giving them artifacts
+			factor = 0
+			scope:recipient = {
+				is_ruler = no
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			scope:recipient = {
+				has_relation_rival = scope:actor
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			scope:target = {
+				has_variable = cursed_artifact
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			scope:target = {
+				is_equipped = yes
+			}
+		}
+		
+		modifier = {
+			factor = 0
+			scope:target = {
+				has_variable = gifted_artifact
+			}
+		}
+		
+		modifier = { # So that the AI doesn't give player toys
+			factor = 0
+			scope:recipient = {
+				is_ai = no
+				NOT = {
+					can_equip_artifact = scope:target
+				}
+			}
+		}
+
+		modifier = {
+			factor = 0
+			scope:target = { exists = var:relic_religion}
+			scope:actor = {
+				has_religion = scope:target.var:relic_religion
+			}
+		}
+
+		modifier = {
+			factor = 0
+			OR = {
+				exists = scope:target.var:banner_house
+				exists = scope:target.var:banner_dynasty
+			}
+			scope:recipient = {
+				NOT = {
+					can_benefit_from_artifact = scope:target
+				}
+			}
+		}
+
+		modifier = {
+			add = 100
+			exists = scope:target.var:banner_dynasty
+			exists = scope:recipient.dynasty
+			scope:recipient = scope:target.var:banner_dynasty.dynast
+			NOT = {
+				scope:actor = {
+					has_any_bad_relationship_with_character_trigger = { CHARACTER = scope:recipient }
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_02.interaction = {
+
+	desc = zz_valyria_magic_02.interaction.desc
+
+	common_interaction = yes
+	interface_priority = 40000
+	category = interaction_category_religion
+
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+		}
+		scope:recipient = {
+			has_relation_magic_master = scope:actor
+		}	
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = {
+		}
+	}
+	
+
+	cooldown_against_recipient = { days = 0 } 
+	cooldown = { days = 0 } 
+	ignores_pending_interaction_block = yes
+	use_diplomatic_range = yes
+	on_send = {
+		scope:actor = {
+		}
+
+		scope:recipient = {
+		}
+	}
+	on_accept = {
+		scope:actor = {
+		}
+		scope:recipient = {
+			if = {
+				limit = {
+					scope:convert_culture = yes
+				}
+				set_culture_same_as = scope:actor
+			}
+			if = {
+				limit = {
+					scope:convert_faith = yes
+				}
+				
+				set_character_faith = scope:actor.faith
+			}
+			if = {
+				limit = {
+					scope:surrender_titles = yes
+				}
+				
+				force_step_down_landed_titles = yes
+
+			}
+			if = {
+				limit = {
+					scope:join_war = yes
+				}
+				scope:actor = {
+					every_character_war = {
+						set_called_to = scope:recipient
+						if = {
+							limit = {
+								is_attacker = PREV
+							}
+							add_attacker = scope:recipient
+						}
+						if = {
+							limit = {
+								is_defender = PREV
+							}
+							add_defender = scope:recipient
+						}
+					}
+				}
+				
+				create_alliance = scope:actor
+			}
+			if = {
+				limit = {
+					scope:surrender_war = yes
+				}
+				every_character_war = {
+					if = {
+						limit = {
+							is_attacker = PREV
+							is_war_leader = PREV
+						}
+						end_war = defender
+					}
+					if = {
+						limit = {
+							is_defender = PREV
+							is_war_leader = PREV
+						}
+						end_war = attacker
+					}
+				}
+			}
+			if = {
+				limit = {
+					scope:become_lover = yes
+				}
+				
+				set_relation_lover = {
+					target = scope:actor
+				}
+			}
+			if = {
+				limit = {
+					scope:become_friend = yes
+				}
+				
+				set_relation_friend = {
+					target = scope:actor
+				}
+			}
+			if = {
+				limit = {
+					scope:become_soulmate = yes
+				}
+				
+				set_relation_soulmate = {
+					target = scope:actor
+				}
+			}
+			if = {
+				limit = {
+					scope:become_ally = yes
+				}
+				
+				create_alliance = scope:actor
+			}
+			if = {
+				limit = {
+					scope:incapacitate = yes
+				}
+				
+				add_trait = incapable
+			}
+			if = {
+				limit = {
+					scope:commit_suicide = yes
+				}
+				
+				show_as_tooltip = {
+					committed_suicide_effect = yes
+				}
+				custom_tooltip = commit_suicide_decision_effect_tooltip
+				trigger_event = {
+					on_action = commit_suicide
+				}
+			}
+		}
+	}
+	auto_accept = yes
+	ai_targets = {
+		ai_recipients = self
+	}
+
+	ai_frequency = 12
+
+	ai_will_do = {
+		base = 0
+
+	}
+	send_option = {
+		flag = convert_culture
+		localization = zz_convert_culture
+		is_valid = {
+			NOT = {
+				scope:recipient.culture = scope:actor.culture
+			}
+		}
+	}
+	send_option = {
+		flag = convert_faith
+		localization = zz_convert_faith
+		is_valid = {
+			NOT = {
+				scope:recipient.faith = scope:actor.faith
+			}
+		}
+	}
+	send_option = {
+		flag = surrender_titles
+		localization = zz_surrender_titles
+	}
+	send_option = {
+		flag = join_war
+		localization = zz_join_war
+		is_valid = {
+			scope:actor = {
+				is_at_war = yes
+			}
+		}
+	}
+	send_option = {
+		flag = surrender_war
+		localization = zz_surrender
+		is_valid = {
+			scope:recipient = {
+				is_at_war = yes
+				any_character_war = {
+					is_war_leader = PREV
+				}
+			}
+		}
+	}
+	send_option = {
+		flag = become_friend
+		localization = zz_become_friend
+	}
+	send_option = {
+		flag = become_lover
+		localization = zz_become_lover
+	}
+	send_option = {
+		flag = become_soulmate
+		localization = zz_become_soulmate
+	}
+	send_option = {
+		flag = become_ally
+		localization = zz_become_ally
+	}
+	send_option = {
+		flag = incapacitate
+		localization = zz_incapacitate
+	}
+	send_option = {
+		flag = commit_suicide
+		localization = zz_commit_suicide
+	}
+	
+}
+
+zz_valyria_magic_03.interaction = {
+
+	desc = zz_valyria_magic_03.interaction.desc
+
+	common_interaction = yes
+	interface_priority = 40000
+	category = interaction_category_religion
+
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+			this = character:Merlin_01
+			scope:recipient = this 
+		}
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = {
+		}
+	}
+	
+
+	cooldown_against_recipient = { days = 0 } 
+	cooldown = { days = 0 } 
+	ignores_pending_interaction_block = yes
+	use_diplomatic_range = yes
+	on_send = {
+		scope:actor = {
+		}
+
+		scope:recipient = {
+		}
+	}
+	on_accept = {
+		scope:actor = {
+		}
+		scope:recipient = {
+			if = {
+				limit = {
+					scope:take_face_01 = yes
+				}
+				copy_inheritable_appearance_from = character:Dummy_Merlin_01
+			}
+			if = {
+				limit = {
+					scope:take_face_02 = yes
+				}
+				copy_inheritable_appearance_from = character:Dummy_Merlin_02
+			}
+			if = {
+				limit = {
+					scope:take_face_03 = yes
+				}
+				copy_inheritable_appearance_from = character:Dummy_Merlin_03
+			}
+			if = {
+				limit = {
+					scope:take_face_04 = yes
+				}
+				copy_inheritable_appearance_from = character:Dummy_Merlin_04
+			}
+			if = {
+				limit = {
+					scope:take_face_05 = yes
+				}
+				copy_inheritable_appearance_from = character:Dummy_Merlin_05
+			}
+			if = {
+				limit = {
+					scope:take_face_06 = yes
+				}
+				copy_inheritable_appearance_from = character:Dummy_Merlin_06
+			}
+			if = {
+				limit = {
+					scope:take_face_07 = yes
+				}
+				copy_inheritable_appearance_from = character:Dummy_Merlin_07
+			}
+			if = {
+				limit = {
+					scope:take_face_08 = yes
+				}
+				copy_inheritable_appearance_from = character:Dummy_Merlin_08
+			}
+			if = {
+				limit = {
+					scope:take_face_09 = yes
+				}
+				copy_inheritable_appearance_from = character:Dummy_Merlin_09
+			}
+
+		}
+	}
+	auto_accept = yes
+	ai_targets = {
+		ai_recipients = self
+	}
+
+	ai_frequency = 12
+
+	ai_will_do = {
+		base = 0
+
+	}
+	send_option = {
+		flag = take_face_01
+		localization = take_face_01
+	}
+	send_option = {
+		flag = take_face_02
+		localization = take_face_02
+	}
+	send_option = {
+		flag = take_face_03
+		localization = take_face_03
+	}
+	send_option = {
+		flag = take_face_04
+		localization = take_face_04
+	}
+	send_option = {
+		flag = take_face_05
+		localization = take_face_05
+	}
+	send_option = {
+		flag = take_face_06
+		localization = take_face_06
+	}
+	send_option = {
+		flag = take_face_07
+		localization = take_face_07
+	}
+	send_option = {
+		flag = take_face_08
+		localization = take_face_08
+	}
+	send_option = {
+		flag = take_face_09
+		localization = take_face_09
+	}
+	
+	
+}
+
+zz_revoke_title_interaction = {
+	category = interaction_category_vassal
+	common_interaction = no
+	highlighted_reason = HIGHLIGHTED_HAS_REVOKE_TITLE_REASON
+	notification_text = REVOKE_TITLE_PROPOSAL
+	interface_priority = 110
+
+	name = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:actor = {
+						government_allows = administrative
+					}
+					scope:recipient = {
+						government_allows = administrative
+					}
+				}
+				desc = revoke_governorship_interaction
+			}
+			desc = revoke_title_interaction
+		}
+	}
+
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					scope:actor = {
+						government_allows = administrative
+					}
+					scope:recipient = {
+						government_allows = administrative
+					}
+				}
+				desc = revoke_governorship_interaction_desc
+			}
+			desc = revoke_title_interaction_desc
+		}
+	}
+
+	icon = {
+		trigger = {
+			scope:actor = {
+				government_allows = administrative
+			}
+			scope:recipient = {
+				government_allows = administrative
+			}
+		}
+		reference = revoke_governorship
+	}
+	icon = revoke_title
+
+	special_interaction = revoke_title_interaction
+	interface = revoke_title
+	target_type = title
+	target_filter = recipient_domain_titles
+	ai_maybe = yes
+	can_send_despite_rejection = yes
+	popup_on_receive = yes
+	pause_on_receive = yes
+
+	ai_min_reply_days = 4
+	ai_max_reply_days = 9
+
+	on_decline_summary = general_rebellion_decline_summary
+
+	# actor character giving the titles
+	# recipient character receiving the titles
+
+	hidden = yes 		
+	is_shown = {
+	}
+
+	is_valid_showing_failures_only = {
+	
+	}
+
+	can_send = {
+
+	}
+
+	# Highlighted in the interaction menu when right-clicking a character
+	is_highlighted = {
+
+	}
+
+	can_be_picked_title = {
+	}
+
+	has_valid_target = {
+		scope:target = {
+			NOR = { 
+				is_noble_family_title = yes 
+				is_nomad_title = yes
+			}
+		}
+	}
+
+
+
+	send_options_exclusive = no
+
+	on_send = {
+
+	}
+
+	cost = {
+
+	}
+
+	on_auto_accept = {
+
+	}
+
+	on_accept = {
+	}
+
+	on_decline = {
+
+	}
+
+	auto_accept = {
+
+	}
+	ai_accept = {
+		base = 0 # Try to make it 0 for most interactions
+
+	
+	}
+
+	# AI
+	ai_targets = {
+	}
+	ai_frequency = 0 # This is handled via code instead; see REVOKE_TITLE_TICK in the AI defines. All the logic for *if* to send a revoke though is scripted below
+
+	ai_potential = {
+
+	}
+
+	ai_will_do = {
+		base = -1000
+
+		# We want to avoid tyranny unless we've got a good reason
+		# And even if we can avoid tyranny we don't want to revoke just because we can, so this only gets us to -10
+		# Certain characters will revoke despite tyranny, if their rationality is sufficiently low
+	}
+}

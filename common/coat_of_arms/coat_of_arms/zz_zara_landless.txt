@@ -1,0 +1,23 @@
+dynn_Ambrosius = {
+	pattern = "pattern_solid.dds"
+	color1=purple
+	color2=rgb { 255 0 255 }
+	color3=rgb { 196 100 4 }
+	colored_emblem={
+		color1=rgb { 255 0 255 }
+		color2=rgb { 255 0 255 }
+		texture="d_Pheonix1.dds"
+	}
+}
+
+d_laamp_Merlin_A = {
+	pattern = "pattern_solid.dds"
+	color1=purple
+	color2=rgb { 255 0 255 }
+	color3=rgb { 196 100 4 }
+	colored_emblem={
+		color1=rgb { 255 0 255 }
+		color2=rgb { 255 0 255 }
+		texture="d_Pheonix1.dds"
+	}
+}

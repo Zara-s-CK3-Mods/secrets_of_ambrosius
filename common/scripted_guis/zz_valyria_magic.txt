@@ -1,0 +1,316 @@
+﻿zz_valyria_cast_click = {
+	scope = character
+	is_shown = {
+		zz_valyria_is_mage = yes 
+	}
+	is_valid = {
+
+	}
+	effect = {
+		save_scope_as = actor 
+		scope:opened_character = {
+			save_scope_as = recipient
+		}
+		zz_ui_setup_effect = yes 
+	}
+}
+
+zz_valyria_magic_open = {
+	scope = character
+	is_valid = {
+		zz_open_mage_window = yes
+	}
+}
+
+zz_valyria_magic_casting = {
+	scope = character
+	saved_scopes = {
+	}
+	is_shown = {
+		var:zz_magic_ui ?= flag:spell_casting
+		is_ai = no
+	}
+	is_valid = {
+	}
+	effect = {
+	}
+}
+
+zz_valyria_magic_casting_close = {
+	scope = character
+	saved_scopes = {
+	}
+	is_shown = {
+	}
+	is_valid = {
+	}
+	effect = {
+		remove_variable = zz_magic_ui
+		remove_variable = cast_type
+		remove_variable = zz_magic_caster
+		remove_variable = zz_selected_mystery_province
+		remove_variable = zz_selected_mystery_county
+		clear_variable_list = zz_valyria_spell_list
+	}
+}
+
+
+zz_valyria_magic_casting_mystery = {
+	scope = character
+	is_shown = {
+		is_ai = no
+		zz_valyria_is_mage = yes
+	}
+	is_valid = {
+		var:cast_type ?= flag:mystery
+	}
+	effect = {
+		set_variable = {
+			name = cast_type
+			value = flag:mystery
+		}
+	}
+}
+
+zz_valyria_magic_casting_mystery_click = {
+	scope = character
+	effect = {
+		set_variable = {
+			name = cast_type
+			value = flag:mystery
+		}
+	}
+}
+
+zz_valyria_magic_casting_scroll_casting = {
+	scope = character
+	is_shown = {
+		is_ai = no
+		zz_valyria_is_scroll_holder = yes
+	}
+	is_valid = {
+		var:cast_type ?= flag:scroll
+	}
+	effect = {
+		set_variable = {
+			name = cast_type
+			value = flag:scroll
+		}
+		
+	}
+}
+zz_valyria_magic_casting_scroll_casting_click = {
+	scope = character
+	effect = {
+		var:zz_magic_user = {
+			save_scope_as = zz_magic_user
+		}
+		set_variable = {
+			name = cast_type
+			value = flag:scroll
+		}
+		zz_valyria_make_item_caster_list = {MAGIC_USER = zz_magic_user}
+		zz_valyria_make_scroll_list = {MAGIC_USER = zz_magic_user ITEM_CASTER = zz_item_caster}
+	}
+}
+
+zz_valyria_magic_caster = {
+	scope = character
+	saved_scopes = {
+		zz_magic_caster
+	}
+	is_shown = {
+		var:zz_magic_caster ?= scope:zz_magic_caster
+	}
+	
+	effect = {
+		save_scope_as = zz_magic_user 
+		set_variable = {
+			name = zz_magic_caster
+			value = scope:zz_magic_caster
+		}
+		zz_valyria_make_spell_list = {MAGIC_USER = zz_magic_user MAGIC_CASTER = zz_magic_caster}
+	}
+}
+
+
+zz_valyria_magic_item_caster = {
+	scope = character
+	saved_scopes = {
+		zz_item_caster
+	}
+	is_shown = {
+		var:zz_item_caster ?= scope:zz_item_caster
+	}
+	
+	effect = {
+		save_scope_as = zz_magic_user 
+		set_variable = {
+			name = zz_item_caster
+			value = scope:zz_item_caster
+		}
+		zz_valyria_make_scroll_list = {MAGIC_USER = zz_magic_user ITEM_CASTER = zz_item_caster}
+	}
+}
+
+
+
+zz_valyria_blood_magic_01 = {
+	scope = character
+	saved_scopes = {
+		zz_valyria_mystery
+	}
+	is_shown = {
+		var:zz_valyria_mystery ?= scope:zz_valyria_mystery
+	}
+	is_valid = {
+		zz_magic_list_trigger = {
+			TRIGGER_TYPE = mystery
+		}
+	}
+		
+	effect = {
+		set_variable = {
+			name = zz_valyria_mystery
+			value = scope:zz_valyria_mystery
+		}
+		set_variable = {
+			name = zz_valyria_mystery_cost
+			value = var:zz_valyria_mystery.var:manacost
+		}
+		zz_magic_list_effect = { 
+			MAGIC_EFFECT = zz_valyria_magic_casting_gui_tooltip_effect
+		}
+		
+	}
+}
+
+zz_valyria_item_scroll_01 = {
+	scope = character
+	saved_scopes = {
+		zz_valyria_scroll
+	}
+	is_shown = {
+		var:zz_valyria_scroll ?= scope:zz_valyria_scroll
+	}
+	is_valid = {
+		zz_magic_list_trigger = {
+			TRIGGER_TYPE = scroll
+		}
+	}
+		
+	effect = {
+		set_variable = {
+			name = zz_valyria_scroll
+			value = scope:zz_valyria_scroll
+		}
+
+		zz_magic_list_effect = { 
+			MAGIC_EFFECT = zz_valyria_magic_casting_scroll_gui_tooltip_effect
+		}
+		
+	}
+}
+
+zz_valyria_magic_cast_set_current_character = {
+	scope = character
+	is_valid = {
+
+	}
+	effect = {
+		set_variable = {
+			name = zz_magic_target
+			value = scope:zz_character_window_character
+		}
+	}
+}
+
+zz_valyria_magic_cast = {
+	scope = character
+	is_valid = {
+		exists = var:zz_valyria_mystery
+		var:zz_magic_caster = {
+			zz_valyria_has_mana_to_cast = {
+				MANACOST = root.var:zz_valyria_mystery.var:manacost
+			}
+		}
+		
+	}
+	effect = {
+		save_scope_as = actor
+		var:zz_magic_caster = {
+			save_scope_as = secondary_recipient
+			
+		}
+		var:zz_magic_target = { 
+			save_scope_as = recipient
+		}
+		var:zz_valyria_mystery = {
+			save_scope_as = zz_valyria_mystery
+		}
+		scope:secondary_recipient = { 
+			set_variable = {
+				name = zz_manacost 
+				value = current_mystery_cost
+			}
+			zz_valyria_mana_spend = yes
+		}
+		root = {
+			#remove_variable = zz_magic_ui
+		}
+		zz_magic_list_cast_effect = { 
+			MAGIC_EFFECT = zz_valyria_magic_casting_gui_effect
+		}
+	}
+}
+
+
+
+
+zz_valyria_magic_scroll_cast = {
+	scope = character
+	saved_scopes = {
+		zz_item_caster
+	}
+	effect = {
+
+		save_scope_as = actor
+		var:zz_magic_user = {
+			save_scope_as = zz_magic_user
+		}
+		var:zz_item_caster ?= {
+			save_scope_as = zz_item_caster
+		}
+
+		var:zz_item_caster = {
+			save_scope_as = secondary_recipient
+		}
+		var:zz_magic_target = { 
+			save_scope_as = recipient
+		}
+		var:zz_valyria_scroll = {
+			save_scope_as = zz_valyria_scroll
+		}
+		root = {
+			#remove_variable = zz_magic_ui
+		}
+		zz_magic_list_cast_effect = { 
+			MAGIC_EFFECT = zz_valyria_magic_casting_scroll_gui_effect
+		}
+	}
+}
+
+zz_valyria_magic_cast_ui = {
+	scope = character
+	effect = {
+
+		save_scope_as = actor
+		var:zz_magic_caster = {
+			save_scope_as = secondary_recipient
+		}
+		var:zz_magic_target = { 
+			save_scope_as = recipient
+		}
+		zz_valyria_magic_cast_ui_effect = yes
+	}
+}

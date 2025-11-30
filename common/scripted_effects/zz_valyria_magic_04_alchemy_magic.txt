@@ -1,0 +1,858 @@
+﻿zz_enchant_apply_modifier_effect = {
+	if = {
+		limit = {
+			scope:modifier = flag:$MODIFIER$
+		}
+		if = { 
+			limit = { 
+				root = {
+					scope:modifier = flag:item_modifier_11
+				}
+			}
+			scope:secondary_recipient = {
+				set_variable = {
+					name = zz_manacost 
+					value = 400
+				}
+				zz_valyria_mana_spend = yes
+			}
+		}
+		if = { 
+			limit = { 
+				root = {
+					scope:modifier = flag:item_modifier_01
+				}
+			}
+			scope:secondary_recipient = {
+				set_variable = {
+					name = zz_manacost 
+					value = 200
+				}
+				zz_valyria_mana_spend = yes
+			}
+		}
+		scope:target = {
+			while = {
+				count = zz_valyria_magic_alchemy_magic_06_value
+				if = { 
+					limit = { 
+						root = {
+							scope:modifier = flag:item_modifier_11
+						}
+					}
+					if = {
+						limit = {
+							exists = var:item_mana_gain
+						}
+						change_variable = {
+							name = item_mana_gain
+							add = 0.25
+						}
+					}
+					else = {
+						set_variable = {
+							name = item_mana_gain
+							value = 0.25
+						}
+					}
+				}
+				add_artifact_modifier = $MODIFIER$
+			}
+		}
+	}
+}
+
+
+
+# Alchemical Magic
+zz_valyria_magic_alchemy_magic_01_effect = {  
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_01.toast.t
+		desc = zz_valyria_magic_alchemy_magic_01.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:target
+		custom_tooltip = zz_valyria_magic_alchemy_magic_01.toast.tt
+	}
+	scope:target = {
+		zz_valyria_magic_apply_province_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_alchemy_magic_01_modifier
+			DURATION = 120
+			BOOSTED_DURATION = 240
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_02_effect = {  
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_02.toast.t
+		desc = zz_valyria_magic_alchemy_magic_02.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:target
+		custom_tooltip = zz_valyria_magic_alchemy_magic_02.toast.tt
+	}
+	scope:target = {
+		zz_valyria_magic_apply_province_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_alchemy_magic_02_modifier
+			DURATION = 120
+			BOOSTED_DURATION = 240
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_03_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_03.toast.t
+		desc = zz_valyria_magic_alchemy_magic_03.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_alchemy_magic_03.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	scope:recipient = { 
+		add_gold = zz_valyria_magic_alchemy_magic_03_value 
+		domicile ?= { change_provisions = zz_valyria_magic_alchemy_magic_03_value }
+	}
+	scope:recipient = {
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_04_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_04.toast.t
+		desc = zz_valyria_magic_alchemy_magic_04.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_alchemy_magic_04.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_alchemy_magic_04_option_01_modifier
+			DURATION = -1
+			BOOSTED_DURATION = -1
+		}
+	}
+	scope:recipient = {			
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+
+zz_valyria_magic_alchemy_magic_05_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_05.toast.t
+		desc = zz_valyria_magic_alchemy_magic_05.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_alchemy_magic_05.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	if = {
+		limit = {
+			scope:option_01 ?= yes 
+		}
+		scope:recipient = {
+			zz_valyria_magic_apply_character_modifier_effect = { 
+				MODIFIER = zz_valyria_magic_alchemy_magic_05_option_01_modifier
+				DURATION = -1
+				BOOSTED_DURATION = -1
+			}
+		}
+	}
+	if = {
+		limit = {
+			scope:option_02 ?= yes 
+		}
+		scope:recipient = {
+			zz_valyria_magic_apply_character_modifier_effect = { 
+				MODIFIER = zz_valyria_magic_alchemy_magic_05_option_02_modifier
+				DURATION = -1
+				BOOSTED_DURATION = -1
+			}
+		}
+	}
+	scope:recipient = {			
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+
+zz_valyria_magic_alchemy_magic_06_effect = {  
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_06.toast.t
+		desc = zz_valyria_magic_alchemy_magic_06.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:target
+		custom_tooltip = zz_valyria_magic_alchemy_magic_06.toast.tt
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_01
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_02
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_03
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_04
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_05
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_06
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_07
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_08
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_09
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_10
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_11
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_12
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_12
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_13
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_14
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_15
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_16
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_17
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_18
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_19
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_20
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_21
+	}
+}
+
+zz_valyria_magic_alchemy_magic_07_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_07.toast.t
+		desc = zz_valyria_magic_alchemy_magic_07.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_alchemy_magic_07.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	scope:recipient = { add_piety = zz_valyria_magic_alchemy_magic_07_value } 
+					
+	scope:recipient = {
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_08_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_08.toast.t
+		desc = zz_valyria_magic_alchemy_magic_08.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_alchemy_magic_08.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	scope:recipient = { add_prestige = zz_valyria_magic_alchemy_magic_08_value } 
+					
+	scope:recipient = {
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_09_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_09.toast.t
+		desc = zz_valyria_magic_alchemy_magic_09.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_alchemy_magic_09.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	scope:recipient = { 
+		dynasty = { add_dynasty_prestige = zz_valyria_magic_alchemy_magic_09_value}
+	}
+					
+	scope:recipient = {
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_10_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_10.toast.t
+		desc = zz_valyria_magic_alchemy_magic_10.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_alchemy_magic_10.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	if = { 
+		limit = {
+			scope:option_01 ?= yes 
+		}
+		if = { 
+			limit = {
+				scope:recipient = { 
+					has_trait = immortal 
+				}
+			}
+			set_variable = {
+				name = immortal_effective_age
+				value = scope:recipient.effective_age
+				days = 1
+			}
+			change_variable = {
+				name = immortal_effective_age
+				subtract = 1
+			}
+			scope:recipient = {
+				set_immortal_age = root.var:immortal_effective_age
+			}
+		}
+		else = {
+			scope:recipient = {
+				change_age = -1
+			}
+		}
+	} 
+	else = {
+		if = { 
+			limit = {
+				scope:recipient = { 
+					has_trait = immortal 
+				}
+			}
+			set_variable = {
+				name = immortal_effective_age
+				value = scope:recipient.effective_age
+				days = 1
+			}
+			change_variable = {
+				name = immortal_effective_age
+				subtract = zz_valyria_magic_alchemy_magic_10_value
+			}
+			scope:recipient = {
+				set_immortal_age = root.var:immortal_effective_age
+			}
+		}
+		else = {
+			scope:recipient = {
+				change_age = zz_valyria_magic_alchemy_magic_10_mortal_value
+			}
+		}
+	}
+
+	
+	scope:recipient = {
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_11_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_11.toast.t
+		desc = zz_valyria_magic_alchemy_magic_11.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_alchemy_magic_11.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	if = { 
+		limit = {
+			scope:option_01 ?= yes 
+		}
+		if = { 
+			limit = {
+				scope:recipient = { 
+					has_trait = immortal 
+				}
+			}
+			set_variable = {
+				name = immortal_effective_age
+				value = scope:recipient.effective_age
+				days = 1
+			}
+			change_variable = {
+				name = immortal_effective_age
+				add = 1
+			}
+			scope:recipient = {
+				set_immortal_age = root.var:immortal_effective_age
+			}
+		}
+		else = {
+			scope:recipient = {
+				change_age = 1
+			}
+		}
+	} 
+	else = {
+		if = { 
+			limit = {
+				scope:recipient = { 
+					has_trait = immortal 
+				}
+			}
+			set_variable = {
+				name = immortal_effective_age
+				value = scope:recipient.effective_age
+				days = 1
+			}
+			change_variable = {
+				name = immortal_effective_age
+				add = zz_valyria_magic_alchemy_magic_11_value
+			}
+			scope:recipient = {
+				set_immortal_age = root.var:immortal_effective_age
+			}
+		}
+		else = {
+			scope:recipient = {
+				change_age = zz_valyria_magic_alchemy_magic_11_value
+			}
+		}
+	}
+
+	
+	scope:recipient = {
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_12_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_12.toast.t
+		desc = zz_valyria_magic_alchemy_magic_12.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_alchemy_magic_12.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_alchemy_magic_04_option_02_modifier
+			DURATION = -1
+			BOOSTED_DURATION = -1
+		}
+	}
+	scope:recipient = {			
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_13_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_13.toast.t
+		desc = zz_valyria_magic_alchemy_magic_13.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_alchemy_magic_13.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_alchemy_magic_04_option_03_modifier
+			DURATION = -1
+			BOOSTED_DURATION = -1
+		}
+	}
+	scope:recipient = {			
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_14_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_14.toast.t
+		desc = zz_valyria_magic_alchemy_magic_14.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_alchemy_magic_14.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_alchemy_magic_04_option_04_modifier
+			DURATION = -1
+			BOOSTED_DURATION = -1
+		}
+	}
+	scope:recipient = {			
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+
+zz_valyria_magic_alchemy_magic_15_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_15.toast.t
+		desc = zz_valyria_magic_alchemy_magic_15.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_alchemy_magic_15.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_alchemy_magic_04_option_05_modifier
+			DURATION = -1
+			BOOSTED_DURATION = -1
+		}
+	}
+	scope:recipient = {			
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_16_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_16.toast.t
+		desc = zz_valyria_magic_alchemy_magic_16.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_alchemy_magic_16.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_alchemy_magic_04_option_06_modifier
+			DURATION = -1
+			BOOSTED_DURATION = -1
+		}
+	}
+	scope:recipient = {			
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_17_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_alchemy_magic_17.toast.t
+		desc = zz_valyria_magic_alchemy_magic_17.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient					
+		custom_tooltip = zz_valyria_magic_alchemy_magic_17.toast.tt
+	}
+	zz_valyria_magic_duel_stress_effect = yes 
+	scope:recipient = {
+		hidden_effect = {
+			force_character_skill_recalculation = yes
+			add_character_modifier = duel_edge_debuff_02_modifier
+		}
+	}
+	zz_configure_start_magic_combat_effect = {
+		SC_INITIATOR = scope:secondary_recipient
+		SC_ATTACKER = scope:secondary_recipient
+		SC_DEFENDER = scope:recipient
+		FATALITY = possible
+		FIXED = no
+		LOCALE = tavern
+		OUTPUT_EVENT = jason_locale_events.201 
+		INVALIDATION_EVENT = single_combat.1006
+		MAGIC = alchemy
+	}
+}

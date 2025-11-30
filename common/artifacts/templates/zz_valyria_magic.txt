@@ -1,0 +1,13 @@
+﻿zz_valyria_mages_ring_artifact_template = {
+	can_benefit = {
+		has_trait = zz_magister
+	}
+	fallback = {
+		learning = 1
+		monthly_prestige = 0.1
+	}
+	ai_score = {
+		value = 100
+	}
+}
+

@@ -1,0 +1,1101 @@
+﻿
+
+
+zz_valyria_magic_management = {
+	scope = character
+	is_shown = {
+		OR = {
+			zz_valyria_is_mage = yes 
+			zz_valyria_is_scroll_holder = yes 
+		}
+	}
+
+	effect = {
+		if = { 
+			limit = {
+				NOT = {
+					exists = var:zz_magic_ui
+				}
+			}
+			
+			custom_tooltip = order_scroll_learning_decision_effect_tooltip
+			remove_variable = zz_magic_user
+			remove_variable = zz_magic_ui
+			remove_variable = learning_type
+			save_scope_as = actor
+			save_scope_as = zz_magic_user
+			set_variable = {
+				name = zz_magic_user
+				value = scope:zz_magic_user
+			}
+			remove_variable = zz_magic_caster
+			clear_variable_list = zz_valyria_spell_list
+			if = {
+				limit = {
+					zz_valyria_is_mage = yes 
+				}
+				
+				zz_valyria_make_magic_master_list = {MAGIC_USER = zz_magic_user}
+				zz_valyria_make_magic_learner_list = {MAGIC_USER = zz_magic_user}
+				
+				zz_valyria_make_magic_mystery_master_list = {MAGIC_USER = zz_magic_user}
+				zz_valyria_make_magic_mystery_learner_list = {MAGIC_USER = zz_magic_user}
+				zz_valyria_make_magic_mystery_learner_not_mage_list = {MAGIC_USER = zz_magic_user}
+				zz_valyria_make_magic_mystery_learner_mage_list = {MAGIC_USER = zz_magic_user}
+				zz_valyria_make_master_spell_list = {MAGIC_USER = zz_magic_user MAGIC_TEACHER = zz_magic_mystery_master}	
+				zz_valyria_make_mage_list =  {MAGIC_USER = zz_magic_user}
+				zz_valyria_make_scroll_maker_list =  {MAGIC_USER = zz_magic_user}
+				zz_valyria_make_scroll_maker_spell_list = {MAGIC_USER = zz_magic_user SCROLL_MAKER = zz_scroll_maker } 
+
+			}
+			if = { 
+				limit = {
+					zz_valyria_is_scroll_holder = yes 
+				} 
+				zz_setup_scroll_learning_lists = yes 
+			}
+			if = {
+				limit = {
+					zz_valyria_is_mage = yes 
+					zz_valyria_can_become_apprentice = yes
+					
+				}
+				set_variable = {
+					name = learning_type
+					value = flag:apprentice
+				}
+			}
+			else_if = {
+				limit = {
+					zz_valyria_is_mage = yes 
+				}
+				set_variable = {
+					name = learning_type
+					value = flag:mystery
+				}
+			}
+			else = {
+				set_variable = {
+					name = learning_type
+					value = flag:scroll
+				}
+			}
+			set_variable = {
+				name = zz_magic_ui
+				value = flag:scroll_learning
+			}
+		}
+		else = {
+			remove_variable = zz_magic_ui
+		}
+	}
+}
+
+zz_valyria_magic_manangement_window = { 
+	scope = character
+	saved_scopes = {
+	}
+	is_shown = {
+		is_ai = no
+		exists = var:zz_magic_ui 
+		NOT = {
+			var:zz_magic_ui  = flag:spell_casting
+		}
+	}
+}
+
+zz_valyria_magic_manangement_window_mages_tab = { 
+	scope = character
+	saved_scopes = {
+	}
+	is_shown = {
+		is_ai = no
+		zz_valyria_is_mage = yes
+	}
+	is_valid = {
+		var:zz_magic_ui ?= flag:mages
+	}
+	effect = {
+		set_variable = { 
+			name = zz_magic_ui 
+			value = flag:mages
+		}
+	}
+}
+zz_valyria_magic_manangement_window_mages_tab_click = {
+	scope = character
+	effect = {
+		save_scope_as = zz_magic_user
+		set_variable = {
+			name = zz_magic_user
+			value = scope:zz_magic_user
+		}
+		zz_valyria_make_mage_list =  {MAGIC_USER = zz_magic_user}
+		set_variable = {
+			name = zz_magic_ui
+			value = flag:mages
+		}
+	}
+}
+zz_valyria_magic_manangement_window_magic_learning_tab = { 
+	scope = character
+	saved_scopes = {
+	}
+	is_shown = {
+		is_ai = no
+		zz_valyria_is_mage = yes
+	}
+	is_valid = {
+		var:zz_magic_ui ?= flag:scroll_learning
+	}
+	effect = {
+		var:zz_magic_user = {
+			save_scope_as = zz_magic_user
+		}
+		if = { 
+			limit = {
+				zz_valyria_is_scroll_holder = yes 
+			} 
+			zz_setup_scroll_learning_lists = yes
+			set_variable = { 
+				name = zz_magic_ui 
+				value = flag:scroll_learning
+			}
+		}
+		else_if = {
+			limit = {
+				zz_valyria_is_mage = yes 
+				zz_valyria_can_become_apprentice = yes
+			}
+			set_variable = {
+				name = learning_type
+				value = flag:apprentice
+			}
+		}
+		else_if = {
+			limit = {
+				zz_valyria_is_mage = yes 
+			}
+			set_variable = {
+				name = learning_type			
+				value = flag:mystery
+			}
+		}
+		
+	}
+}
+
+zz_valyria_magic_manangement_window_magic_learning_tab_click = {
+	scope = character
+	effect = {
+		set_variable = {
+			name = zz_magic_ui
+			value = flag:scroll_learning
+		}
+	}
+}
+
+
+
+
+zz_valyria_magic_manangement_window_magic_scroll_making_tab = { 
+	scope = character
+	saved_scopes = {
+	}
+	is_shown = {
+		is_ai = no
+		zz_valyria_is_mage = yes
+	}
+	is_valid = {
+		var:zz_magic_ui ?= flag:scroll_making
+	}
+	effect = {
+		save_scope_as = zz_magic_user
+		set_variable = {
+			name = zz_magic_user
+			value = scope:zz_magic_user
+		}
+		zz_valyria_make_scroll_maker_list =  {MAGIC_USER = zz_magic_user}
+		zz_valyria_make_scroll_maker_spell_list = {MAGIC_USER = zz_magic_user SCROLL_MAKER = zz_scroll_maker } 
+
+		set_variable = { 
+			name = zz_magic_ui 
+			value = flag:scroll_making
+		}
+	}
+}
+
+zz_valyria_magic_manangement_window_magic_scroll_making_tab_click = {
+	scope = character
+	effect = {
+		set_variable = {
+			name = zz_magic_ui
+			value = flag:scroll_making
+		}
+	}
+}
+
+
+zz_valyria_magic_scroll_learning = {
+	scope = character
+	saved_scopes = {
+	}
+	is_shown = {
+		is_ai = no
+		var:zz_magic_ui ?= flag:scroll_learning
+	}
+	is_valid = {
+	}
+	effect = {
+	}
+}
+
+zz_valyria_magic_scroll_mages = {
+	scope = character
+	saved_scopes = {
+	}
+	is_shown = {
+		is_ai = no
+		var:zz_magic_ui ?= flag:mages
+	}
+	is_valid = {
+	}
+	effect = {
+	}
+}
+
+zz_valyria_magic_scroll_learning_close = {
+	scope = character
+	saved_scopes = {
+	}
+	is_shown = {
+	}
+	is_valid = {
+	}
+	effect = {
+		remove_variable = zz_magic_ui
+	}
+}
+
+
+
+
+
+zz_valyria_magic_learning_type_apprentice = {
+	scope = character
+	is_shown = {
+		is_ai = no
+		zz_valyria_is_mage = yes
+		zz_valyria_can_become_apprentice = yes
+	}
+	is_valid = {
+		var:learning_type ?= flag:apprentice
+		
+		
+	}
+	effect = {
+		set_variable = {
+			name = learning_type
+			value = flag:apprentice
+		}
+	}
+}
+
+zz_valyria_magic_learning_type_apprentice_click = {
+	scope = character
+	is_valid = {
+	}
+	effect = {
+		set_variable = {
+			name = learning_type
+			value = flag:apprentice
+		}
+	}
+}
+
+zz_valyria_mages_selection = {
+	scope = character
+	saved_scopes = {
+		zz_magic_caster
+	}
+	is_shown = {
+		var:zz_magic_caster ?= scope:zz_magic_caster
+	}
+	
+	effect = {
+		save_scope_as = zz_magic_user 
+		set_variable = {
+			name = zz_magic_caster
+			value = scope:zz_magic_caster
+		}
+	}
+}
+
+zz_valyria_magic_learning_type_apprentice_master = {
+	scope = character
+	saved_scopes = {
+		zz_magic_master
+	}
+	is_valid = {
+		scope:zz_magic_master ?= {
+			NOT = {
+				any_relation = { type = zz_magic_master this = scope:zz_magic_master }
+			}
+			NOT = { 
+				any_relation = { type = zz_magic_apprentice this = scope:zz_magic_master }
+			}
+		}
+	}
+	is_shown = {
+		var:zz_magic_master ?= scope:zz_magic_master
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		set_variable = {
+			name = zz_magic_master
+			value = scope:zz_magic_master
+		}
+	}
+}
+
+zz_valyria_magic_learning_type_apprentice_learner = {
+	scope = character
+	saved_scopes = {
+		zz_valyria_magic_learner
+	}
+	is_valid = {
+
+		scope:zz_valyria_magic_learner ?= {
+			NOT = { 
+				any_relation = { type = zz_magic_master this = scope:zz_valyria_magic_learner }
+			}
+		}
+	}
+	is_shown = {
+		var:zz_valyria_magic_learner ?= scope:zz_valyria_magic_learner
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		set_variable = {
+			name = zz_valyria_magic_learner
+			value = scope:zz_valyria_magic_learner
+		}
+	}
+}
+zz_valyria_magic_learning_type_apprentice_learn = {
+	scope = character
+
+	is_valid = {
+		var:zz_magic_master = {
+			has_trait = zz_magister
+			NOT = { 
+				any_relation = { type = zz_magic_apprentice  }
+			}
+		}
+		var:zz_valyria_magic_learner = { 
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		NOT = {
+			var:zz_magic_master ?= var:zz_valyria_magic_learner
+		}		
+	}
+	effect = {
+		save_scope_as = actor
+		var:zz_magic_user = {
+			save_scope_as = zz_magic_user
+		}
+
+		var:zz_magic_master = {
+			save_scope_as = zz_magic_master
+			save_scope_as = secondary_recipient
+		}
+		var:zz_valyria_magic_learner = { 
+			save_scope_as = zz_valyria_magic_learner
+			save_scope_as = recipient
+		}
+		scope:zz_valyria_magic_learner = {
+			zz_random_gain_magic_spell = yes
+		}
+
+		scope:zz_valyria_magic_learner = {
+			every_relation = {
+				type = zz_magic_master
+				remove_relation_zz_magic_apprentice = scope:zz_valyria_magic_learner
+			}
+		}
+		var:zz_magic_master = {
+			set_relation_zz_magic_apprentice  = scope:zz_valyria_magic_learner
+		}
+		trigger_event = {
+			years = 3
+			id = zz_valyria_magic.2
+		}
+
+		zz_valyria_make_magic_master_list = {MAGIC_USER = zz_magic_user}
+		zz_valyria_make_magic_learner_list = {MAGIC_USER = zz_magic_user}
+	}
+}
+zz_valyria_magic_learning_type_mystery  = {
+	scope = character
+	is_shown = {
+		is_ai = no
+		zz_valyria_is_mage = yes
+	}
+	is_valid = {
+		var:learning_type ?= flag:mystery
+	}
+	effect = {
+		set_variable = {
+			name = learning_type
+			value = flag:mystery
+		}
+	}
+}
+zz_valyria_magic_learning_type_mystery_click = {
+	scope = character
+	effect = {
+		set_variable = {
+			name = learning_type
+			value = flag:mystery
+		}
+	}
+}
+
+zz_valyria_magic_learning_type_mystery_master = {
+	scope = character
+	saved_scopes = {
+		zz_magic_mystery_master
+	}
+	is_shown = {
+		var:zz_magic_mystery_master ?= scope:zz_magic_mystery_master
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		set_variable = {
+			name = zz_magic_mystery_master
+			value = scope:zz_magic_mystery_master
+		}
+		
+		zz_valyria_make_master_spell_list = {MAGIC_USER = zz_magic_user MAGIC_TEACHER = zz_magic_mystery_master}
+	}
+}
+zz_valyria_magic_learning_type_mystery_mystery = {
+	scope = character
+	saved_scopes = {
+		zz_valyria_teach_mystery
+	}
+	is_shown = {
+		var:zz_valyria_teach_mystery ?= scope:zz_valyria_teach_mystery
+	}
+	is_valid = {
+		zz_magic_list_trigger_check_trigger = {
+			TRIGGER_TO_CHECK = zz_valyria_learn_spell_gui_trigger
+		}
+	}
+	effect = {
+		set_variable = {
+			name = zz_valyria_teach_mystery
+			value = scope:zz_valyria_teach_mystery
+		}
+		zz_magic_list_effect = { 
+			MAGIC_EFFECT = zz_valyria_magic_learning_gui_tooltip_effect
+		}
+	}
+}
+zz_valyria_magic_learning_type_mystery_learner = {
+	scope = character
+	saved_scopes = {
+	}
+	is_shown = {
+		var:zz_valyria_mystery_magic_learner ?= scope:zz_valyria_mystery_magic_learner
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		set_variable = {
+			name = zz_valyria_mystery_magic_learner
+			value = scope:zz_valyria_mystery_magic_learner
+		}
+	}
+}
+
+zz_valyria_magic_learning_type_mystery_teach = {
+	scope = character
+	is_valid = {
+		gold >= 1000
+		zz_magic_list_trigger_check_trigger = {
+			TRIGGER_TO_CHECK = zz_valyria_learn_spell_click_block_trigger
+		}
+	}
+	effect = {
+		remove_short_term_gold = 1000
+		save_scope_as = actor
+		var:zz_magic_user = {
+			save_scope_as = zz_magic_user
+		}
+		var:zz_valyria_teach_mystery = {
+			save_scope_as = zz_valyria_teach_mystery
+		}
+		var:zz_magic_mystery_master = {
+			save_scope_as = zz_magic_mystery_master
+		}
+		var:zz_valyria_mystery_magic_learner = {
+			save_scope_as = zz_valyria_mystery_magic_learner
+		}
+		add_piety = massive_piety_loss 
+		zz_magic_list_effect = { 
+			MAGIC_EFFECT = zz_valyria_magic_learning_gui_effect
+		}
+		
+
+		var:zz_magic_mystery_master = {
+			add_character_flag = { flag = zz_valyria_magic_taught_magic months = 18 } 
+		}
+		zz_valyria_make_magic_master_list =  {MAGIC_USER = zz_magic_user}
+		zz_valyria_make_magic_learner_list =  {MAGIC_USER = zz_magic_user}
+			
+		zz_valyria_make_magic_mystery_master_list =  {MAGIC_USER = zz_magic_user}
+		zz_valyria_make_magic_mystery_learner_list =  {MAGIC_USER = zz_magic_user}
+		zz_valyria_make_magic_mystery_learner_not_mage_list = {MAGIC_USER = zz_magic_user}
+		zz_valyria_make_magic_mystery_learner_mage_list = {MAGIC_USER = zz_magic_user}
+		zz_valyria_make_master_spell_list = {MAGIC_USER = zz_magic_user MAGIC_TEACHER = zz_magic_mystery_master}
+	}
+}
+zz_valyria_magic_learning_type_scroll = {
+	scope = character
+	is_shown = {
+		is_ai = no
+		zz_valyria_is_scroll_holder = yes
+	}
+	is_valid = {
+		var:learning_type ?= flag:scroll
+	}
+	effect = {
+		set_variable = {
+			name = learning_type
+			value = flag:scroll
+		}
+	}
+}
+zz_valyria_magic_learning_type_scroll_click = {
+	scope = character
+	effect = {
+		save_scope_as = actor
+		var:zz_magic_user = {
+			save_scope_as = zz_magic_user
+		}
+		var:zz_item_caster ?= {
+			save_scope_as = zz_item_caster
+		}
+		var:zz_item_caster ?= {
+			save_scope_as = secondary_recipient
+		}
+
+		if = { 
+			limit = {
+				zz_valyria_is_scroll_holder = yes 
+			} 
+			zz_setup_scroll_learning_lists = yes 
+			set_variable = {
+				name = learning_type
+				value = flag:scroll
+			}
+		}
+		else = {
+			if = {
+				limit = {
+					zz_valyria_is_mage = yes 
+					zz_valyria_can_become_apprentice = yes
+				}
+				set_variable = {
+					name = learning_type
+					value = flag:apprentice
+				}
+			}
+			else_if = {
+				limit = {
+					zz_valyria_is_mage = yes 
+				}
+				set_variable = {
+					name = learning_type			
+					value = flag:mystery
+				}
+			}
+		}
+	}
+}
+
+
+zz_valyria_magic_scroll_learning_owner = {
+	scope = character
+	saved_scopes = {
+		zz_item_caster
+	}
+	is_shown = {
+		var:zz_item_caster ?= scope:zz_item_caster
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		set_variable = {
+			name = zz_item_caster
+			value = scope:zz_item_caster
+		}
+		zz_valyria_make_scroll_list = {MAGIC_USER = zz_magic_user ITEM_CASTER = zz_item_caster}
+	}
+}
+
+zz_valyria_magic_scroll_learning_seroll = {
+	scope = character
+	saved_scopes = {
+		zz_valyria_scroll
+	}
+	is_shown = {
+		var:zz_valyria_scroll ?= scope:zz_valyria_scroll
+	}
+	is_valid = {
+		zz_magic_list_trigger_check_trigger = {
+			TRIGGER_TO_CHECK = zz_valyria_scroll_learn_trigger
+		}
+		
+
+	}
+		
+	effect = {
+		set_variable = {
+			name = zz_valyria_scroll
+			value = scope:zz_valyria_scroll
+		}
+		zz_magic_list_effect = { 
+			MAGIC_EFFECT = zz_valyria_magic_casting_scroll_gui_tooltip_effect
+		}
+	}
+}
+zz_valyria_magic_scroll_learning_learner = {
+	scope = character
+	saved_scopes = {
+		zz_item_caster
+	}
+	is_shown = {
+		var:zz_valyria_scroll_learner ?= scope:zz_valyria_scroll_learner
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		set_variable = {
+			name = zz_valyria_scroll_learner
+			value = scope:zz_valyria_scroll_learner
+		}
+	}
+}
+zz_valyria_magic_scroll_learn = {
+	scope = character
+	effect = {
+		save_scope_as = actor
+		var:zz_magic_user = {
+			save_scope_as = zz_magic_user
+		}
+		var:zz_item_caster ?= {
+			save_scope_as = zz_item_caster
+		}
+		var:zz_item_caster ?= {
+			save_scope_as = secondary_recipient
+		}
+		var:zz_valyria_scroll_learner ?= { 
+			save_scope_as = recipient
+		}
+		var:zz_valyria_scroll_learner ?= { 
+			save_scope_as = zz_valyria_scroll_learner
+		}
+		var:zz_valyria_scroll ?= {
+			save_scope_as = zz_valyria_scroll
+		}
+		zz_magic_list_effect = { 
+			MAGIC_EFFECT = zz_valyria_magic_learning_scroll_gui_effect
+		}
+		if = { 
+			limit = {
+				zz_valyria_is_scroll_holder = yes 
+			} 
+			zz_setup_scroll_learning_lists = yes
+		}
+		else_if = {
+			limit = {
+				zz_valyria_is_mage = yes 
+			}
+			set_variable = {
+				name = learning_type
+				value = flag:apprentice
+			}
+		}
+		
+	}
+}
+
+
+zz_valyria_magic_school_selection_generalist_magic = {
+	scope = character
+	saved_scopes = {
+	}
+	is_valid = {
+		not = {
+			var:zz_magic_caster.var:current_school_of_magic ?= flag:generalist_magic
+		}
+	}
+	is_shown = {
+		var:zz_magic_caster.var:current_school_of_magic ?= flag:generalist_magic
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		var:zz_magic_caster = {
+			set_variable = {
+				name = current_school_of_magic 
+				value = flag:generalist_magic
+			}
+		}
+	}
+}
+zz_valyria_magic_school_selection_blood_magic = {
+	scope = character
+	saved_scopes = {
+	}
+	is_valid = {
+		not = {
+			var:zz_magic_caster.var:current_school_of_magic ?= flag:blood_magic
+		}
+	}
+	is_shown = {
+		var:zz_magic_caster.var:current_school_of_magic ?= flag:blood_magic
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		var:zz_magic_caster = {
+			set_variable = {
+				name = current_school_of_magic 
+				value = flag:blood_magic
+			}
+		}
+	}
+}
+zz_valyria_magic_school_selection_shadow_magic = {
+	scope = character
+	saved_scopes = {
+	}
+	is_valid = {
+		not = {
+			var:zz_magic_caster.var:current_school_of_magic ?= flag:shadow_magic
+		}
+	}
+	is_shown = {
+		var:zz_magic_caster.var:current_school_of_magic ?= flag:shadow_magic
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		var:zz_magic_caster = {
+			set_variable = {
+				name = current_school_of_magic 
+				value = flag:shadow_magic
+			}
+		}
+	}
+}
+zz_valyria_magic_school_selection_dream_magic = {
+	scope = character
+	saved_scopes = {
+	}
+	is_valid = {
+		not = {
+			var:zz_magic_caster.var:current_school_of_magic ?= flag:dream_magic
+		}
+	}
+	is_shown = {
+		var:zz_magic_caster.var:current_school_of_magic ?= flag:dream_magic
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		var:zz_magic_caster = {
+			set_variable = {
+				name = current_school_of_magic 
+				value = flag:dream_magic
+			}
+		}
+	}
+}
+zz_valyria_magic_school_selection_alchemy_magic = {
+	scope = character
+	saved_scopes = {
+	}
+	is_valid = {
+		not = {
+			var:zz_magic_caster.var:current_school_of_magic ?= flag:alchemy_magic
+		}
+	}
+	is_shown = {
+		var:zz_magic_caster.var:current_school_of_magic ?= flag:alchemy_magic
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		var:zz_magic_caster = {
+			set_variable = {
+				name = current_school_of_magic 
+				value = flag:alchemy_magic
+			}
+		}
+	}
+}
+zz_valyria_magic_school_selection_fire_magic = {
+	scope = character
+	saved_scopes = {
+	}
+	is_valid = {
+		not = {
+			var:zz_magic_caster.var:current_school_of_magic ?= flag:fire_magic
+		}
+	}
+	is_shown = {
+		var:zz_magic_caster.var:current_school_of_magic ?= flag:fire_magic
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		var:zz_magic_caster = {
+			set_variable = {
+				name = current_school_of_magic 
+				value = flag:fire_magic
+			}
+		}
+	}
+}
+zz_valyria_magic_school_selection_air_magic = {
+	scope = character
+	saved_scopes = {
+	}
+	is_valid = {
+		not = {
+			var:zz_magic_caster.var:current_school_of_magic ?= flag:air_magic
+		}
+	}
+	is_shown = {
+		var:zz_magic_caster.var:current_school_of_magic ?= flag:air_magic
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		var:zz_magic_caster = {
+			set_variable = {
+				name = current_school_of_magic 
+				value = flag:air_magic
+			}
+		}
+	}
+}
+zz_valyria_magic_school_selection_water_magic = {
+	scope = character
+	saved_scopes = {
+	}
+	is_valid = {
+		not = {
+			var:zz_magic_caster.var:current_school_of_magic ?= flag:water_magic
+		}
+	}
+	is_shown = {
+		var:zz_magic_caster.var:current_school_of_magic ?= flag:water_magic
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		var:zz_magic_caster = {
+			set_variable = {
+				name = current_school_of_magic 
+				value = flag:water_magic
+			}
+		}
+	}
+}
+
+zz_valyria_magic_school_study_magic = {
+	scope = character
+	saved_scopes = {
+	}
+	is_valid = {
+		exists = var:zz_magic_caster.var:current_school_of_magic
+		not = {
+			var:zz_magic_caster = {
+				any_scheme = {
+					type = further_magical_education_scheme
+				}
+ 			}
+		}
+	}
+	is_shown = {
+		var:zz_magic_caster = {
+			any_scheme = {
+				type = further_magical_education_scheme
+			}
+		}
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		var:zz_magic_caster = {
+			start_scheme = {
+				type = further_magical_education_scheme
+				target_character = scope:zz_magic_user.var:zz_magic_caster
+			}
+		}
+	}
+}
+
+zz_valyria_magic_school_blood_offering = {
+	scope = character
+	saved_scopes = {
+	}
+	is_valid = {
+		not = {
+			var:zz_magic_caster.var:blood_sacrifice ?= flag:true
+		}
+	}
+	is_shown = {
+		var:zz_magic_caster.var:blood_sacrifice ?= flag:true
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		var:zz_magic_caster = {
+			set_variable = {
+				name = blood_sacrifice
+				value = flag:true
+				days = 45 
+			}
+			random = {
+				chance = 50
+				increase_wounds_effect = { REASON = blood_magic }
+			}				
+			if = {
+				limit = {
+					has_trait = magic_blood_good_3
+				}
+				zz_valyria_mana_gain = {
+					MANAGAIN = 3
+				}
+			}
+			else ={
+				zz_valyria_mana_gain = {
+					MANAGAIN = 1
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_school_piety_offering = {
+	scope = character
+	saved_scopes = {
+	}
+	is_valid = {
+		piety > 2000
+		not = {
+			var:zz_magic_caster.var:piety_sacrifice ?= flag:true
+		}
+	}
+	is_shown = {
+		var:zz_magic_caster.var:piety_sacrifice ?= flag:true
+	}
+	effect = {
+		save_scope_as = zz_magic_user 
+		add_piety = -2000
+		var:zz_magic_caster = {
+			set_variable = {
+				name = piety_sacrifice
+				value = flag:true
+				days = 45 
+			}			
+			if = {
+				limit = {
+					has_trait = magic_blood_good_3
+				}
+				zz_valyria_mana_gain = {
+					MANAGAIN = 3
+				}
+			}
+			else ={
+				zz_valyria_mana_gain = {
+					MANAGAIN = 1
+				}
+			}
+		}
+	}
+}
+
+
+zz_valyria_magic_scroll_maker = {
+	scope = character
+	saved_scopes = {
+		zz_scroll_maker
+	}
+	is_shown = {
+		var:zz_scroll_maker ?= scope:zz_scroll_maker
+	}
+	effect = {
+		scope:zz_scroll_maker = {
+			root = {
+				clear_variable_list = zz_valyria_spell_list
+				set_variable = {
+					name = zz_scroll_maker
+					value = scope:zz_scroll_maker
+				}
+			}
+			scope:zz_scroll_maker = {
+				every_memory = {
+					limit = { 
+						has_memory_category = magic
+					}
+					root = {
+						add_to_variable_list = {
+							name = zz_valyria_spell_list
+							target = prev
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_scroll_making_action_01 = {
+	scope = character
+	saved_scopes = {
+		zz_valyria_mystery
+	}
+	is_shown = {
+		var:zz_valyria_mystery ?= scope:zz_valyria_mystery
+	}
+	is_valid = {
+	}
+
+	effect = {
+		set_variable = {
+			name = zz_valyria_mystery
+			value = scope:zz_valyria_mystery
+		}
+	}
+}
+
+zz_valyria_scroll_make = {
+	scope = character
+	is_valid = {
+		gold >= root.zz_valyria_scroll_cost
+	}
+	effect = {
+		var:zz_valyria_mystery = {
+			save_scope_as = zz_valyria_mystery
+		}
+		var:zz_scroll_maker ?= {
+			save_scope_as = zz_scroll_maker
+		}
+		remove_short_term_gold = {
+			value = {
+				value = 0 
+				add = root.zz_valyria_scroll_cost
+				multiply = 0.5
+			}
+		}
+		zz_magic_list_effect = { 
+			MAGIC_EFFECT = zz_valyria_scroll_making_gui_effect
+		}
+	}
+}

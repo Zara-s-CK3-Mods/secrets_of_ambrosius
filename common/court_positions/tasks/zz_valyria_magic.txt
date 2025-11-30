@@ -1,0 +1,644 @@
+﻿zz_valyria_court_mage_drops_of_power_ritual = {
+	court_position_types = { zz_valyria_court_mages_court_position }
+	
+	is_valid_showing_failures_only = {
+		trigger_if = {
+			limit = {
+				has_variable = drops_of_power_ritual_cooldown 
+			}
+			custom_tooltip = {
+				NOT = { has_variable = drops_of_power_ritual_cooldown } 
+				text = court_mage_drops_of_power_ritual_cooldown
+			}
+		}
+	}
+	cost = {
+		gold = 5
+		piety = 2
+	}
+	on_start = {
+		custom_tooltip = zz_valyria_court_mages_court_position_drops_of_power_ritual_tt
+		set_variable = active_drops_of_power_ritual
+		trigger_event = zz_valyria_magic_court_mages_ritual.001
+	}
+	
+	on_yearly = {
+		
+		if = {
+			limit = {
+				NOT = { has_variable = drops_of_power_ritual_cooldown }
+			}
+			trigger_event = zz_valyria_magic_court_mages_ritual.001
+		}
+	}
+	
+	on_end = {
+		remove_variable = active_drops_of_power_ritual
+	}
+	
+	ai_will_do = {
+		value = 0
+	}
+}
+
+
+zz_valyria_court_mages_court_position_task_magic_scroll_01 = {
+	court_position_types = { zz_valyria_court_mages_court_position }
+	
+	is_shown = {
+	}
+	is_valid_showing_failures_only = {
+	}
+	
+	cost = {
+		round = no
+		gold = {
+			add = {
+				value = monthly_court_position_task_cost_double
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+	
+	base_employer_modifier = {
+		monthly_dynasty_prestige = 0.1
+	}
+	
+	employee_modifier = {
+		learning = 2
+		diplomacy = 2
+	}
+	
+	on_yearly = {
+		random = {
+			chance = {
+				value = 5
+				add = {
+					value = this.aptitude:zz_valyria_court_mages_court_position
+					multiply = 10
+					if = {
+						limit = {
+							has_trait = lazy
+						}
+						multiply = 0.5
+					}
+				}
+			}
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+			save_scope_as = artificer
+			scope:liege = {
+				send_interface_toast = {
+					type = msg_court_inspiration
+					left_icon = scope:artificer
+					title = zz_craft_scroll
+					desc = zz_craft_scroll_effect
+					if = { 
+						limit = { 
+							scope:artificer = {
+								var:current_school_of_magic ?= flag:blood_magic 
+							}
+						}
+						zz_gain_blood_magic_scroll = yes 
+					}
+					else_if = { 
+						limit = { 
+							scope:artificer = {
+								var:current_school_of_magic ?= flag:shadow_magic 
+							}
+						}
+						zz_gain_shadow_magic_scroll = yes 
+					}
+					else_if = { 
+						limit = { 
+							scope:artificer = {
+								var:current_school_of_magic ?= flag:dream_magic 
+							}
+						}
+						zz_gain_dream_magic_scroll = yes 
+					}
+					else_if = { 
+						limit = { 
+							scope:artificer = {
+								var:current_school_of_magic ?= flag:alchemy_magic
+							}
+						}
+						zz_gain_alchemy_scroll = yes 
+					}
+					else_if = { 
+						limit = { 
+							scope:artificer = {
+								var:current_school_of_magic ?= flag:fire_magic 
+							}
+						}
+						zz_gain_fire_magic_scroll = yes 
+					}
+					else_if = { 
+						limit = { 
+							scope:artificer = {
+								var:current_school_of_magic ?= flag:water_magic 
+							}
+						}
+						zz_gain_water_magic_scroll = yes 
+					}
+					else_if = { 
+						limit = { 
+							scope:artificer = {
+								var:current_school_of_magic ?= flag:air_magic 
+							}
+						}
+						zz_gain_air_magic_scroll = yes 
+					}
+					else = { 
+						random_list = {
+							1 = {
+								zz_gain_blood_magic_scroll = yes 
+							}
+							1 = {
+								zz_gain_shadow_magic_scroll = yes 
+							}
+							1 = {
+								zz_gain_dream_magic_scroll = yes 
+							}
+							1 = {
+								zz_gain_alchemy_scroll = yes 
+							}
+							1 = {
+								zz_gain_fire_magic_scroll = yes 
+							}
+							1 = {
+								zz_gain_water_magic_scroll = yes 
+							}
+							1 = {
+								zz_gain_air_magic_scroll = yes 
+							}
+						}
+					}
+					
+				}
+			}
+		}
+	}
+	on_start = {
+		custom_tooltip = court_artificer_court_position_task_learning_tt
+		add_character_flag = regular_inspiration_block
+	}
+	on_end = {
+		remove_character_flag = regular_inspiration_block
+	}
+	
+	ai_will_do = {
+		value = 0
+		if = {
+			limit = {
+				monthly_character_income < monthly_court_position_task_cost_double
+			}
+			add = -1000
+		}
+	}
+}
+
+zz_valyria_court_mages_court_position_improve_self = {
+	court_position_types = { zz_valyria_court_mages_court_position }
+
+	# Monthly cost for the task
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	employee_modifier = {
+		trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.25
+	}
+
+	on_start = {
+		custom_tooltip = physician_improve_self_fallback_tt
+	}
+
+	on_monthly = {
+		random = {
+			chance = {
+				value = 3
+				add = {
+					value = "aptitude(zz_valyria_court_mages_court_position)"
+					multiply = 0.5
+				}
+			}
+			if = {
+				limit = {
+					NOT = { has_trait = zz_magister }
+				}
+				add_trait = zz_magister
+			}
+			else = {
+				random_list = {
+					30 = {
+						add_learning_skill = 1
+					}
+					70 = {
+						trigger = {
+							has_trait_xp = {
+								trait = zz_magister
+								track = secrets_of_the_higher_mysteries
+								value <= 100
+							}
+						}
+						add_trait_xp = {
+							trait = zz_magister
+							track = secrets_of_the_higher_mysteries
+							value = 3
+						}
+					}
+				}
+			}
+		}
+	}
+
+	ai_will_do = {
+		value = 50 # Always good
+		if = {
+			limit = {
+				monthly_character_income < monthly_court_position_task_cost_double
+			}
+			add = -1000
+		}
+	}
+}
+
+zz_valyria_court_mages_court_position_improve_others = {
+	court_position_types = { zz_valyria_court_mages_court_position }
+
+	# Monthly cost for the task
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	employee_modifier = {
+		general_opinion = 5
+		stress_gain_mult = 0.25
+		child_opinion = 5
+	}
+
+	on_start = {
+		set_variable = court_tutor_teach_kids
+		custom_tooltip = court_tutor_improve_others_fallback_tt
+	}
+
+	on_monthly = {
+		zz_valyria_gain_spell_experience = {
+			XPGAIN = 1
+			XPTRACK = secrets_of_the_higher_mysteries
+		}
+		random = {
+			chance = {
+				value = 1
+				add = {
+					value = "aptitude(zz_valyria_court_mages_court_position)"
+					multiply = 4
+				}
+			}
+			# Find target
+			random_list = {
+				1 = {
+					liege_or_court_owner = { 
+						save_scope_as = target_character 
+						save_scope_as = liege_character
+					}
+				}
+				1 = {
+					liege_or_court_owner = {
+						random_court_position_holder = {
+							limit = {
+								NOT = { this = root }
+							}
+							save_scope_as = target_character
+						}
+					}
+				}
+				1 = {
+					liege_or_court_owner = {
+						random_heir = {
+							limit = { 
+								liege_or_court_owner = prev 
+								NOT = { this = root }
+							}
+							save_scope_as = target_character
+							save_scope_as = heir_character
+						}
+					}
+				}
+			}
+			if = {
+				limit = {
+					exists = scope:target_character
+				}
+				random_list = {
+					3 = { # Martial
+						trigger = {
+							scope:target_character.martial < root.martial
+							scope:target_character = {
+								OR = {
+									scope:liege_character ?= scope:target_character
+									scope:heir_character ?= scope:target_character
+									has_court_position = akolouthos_court_position
+									has_court_position = garuda_court_position
+									has_court_position = master_of_horse_court_position
+									has_court_position = boyan_court_position
+									has_court_position = siege_engineer_court_position
+									has_court_position = cherbi_court_position
+									has_court_position = keeper_of_the_horses_court_position
+									has_court_position = zz_valyria_court_mages_court_position
+								}
+							}
+						}
+						court_tutor_improve_others_skill_effect = { SKILL = martial }
+					}
+					3 = { # Diplomacy
+						trigger = {
+							scope:target_character.diplomacy < root.diplomacy
+							scope:target_character = {
+								OR = {
+									scope:liege_character ?= scope:target_character
+									scope:heir_character ?= scope:target_character
+									has_court_position = cultural_emissary_court_position
+									has_court_position = lady_in_waiting_court_position
+									has_court_position = cupbearer_court_position
+									has_court_position = chief_eunuch_court_position
+									has_court_position = court_jester_court_position
+									has_court_position = court_poet_court_position
+									has_court_position = court_musician_court_position
+									has_court_position = chronicler_court_position
+									has_court_position = yeke_jarquchi_court_position
+									has_court_position = foreign_emissary_court_position
+									has_court_position = zz_valyria_court_mages_court_position
+								}
+							}
+						}
+						court_tutor_improve_others_skill_effect = { SKILL = diplomacy }
+					}
+					3 = { # Stewardship
+						trigger = {
+							scope:target_character.stewardship < root.stewardship
+							scope:target_character = {
+								OR = {
+									scope:liege_character ?= scope:target_character
+									scope:heir_character ?= scope:target_character
+									has_court_position = bookmaker_court_position
+									has_court_position = keeper_of_swans_court_position
+									has_court_position = court_gardener_court_position
+									has_court_position = travel_leader_court_position
+									has_court_position = royal_architect_court_position
+									has_court_position = seneschal_court_position
+									has_court_position = yurtchi_court_position
+									has_court_position = zz_valyria_court_mages_court_position
+								}
+							}
+						}
+						court_tutor_improve_others_skill_effect = { SKILL = stewardship }
+					}
+					3 = { # Learning
+						trigger = {
+							scope:target_character.learning < root.learning
+							scope:target_character = {
+								OR = {
+									scope:liege_character ?= scope:target_character
+									scope:heir_character ?= scope:target_character
+									has_court_position = court_physician_court_position
+									has_court_position = chief_qadi_court_position
+									has_court_position = antiquarian_court_position
+									has_court_position = wet_nurse_court_position
+									has_court_position = high_almoner_court_position
+									has_court_position = court_artificer_court_position
+									has_court_position = cave_hermit_court_position
+									has_court_position = court_brewmaster_court_position
+									has_court_position = court_astrologer_court_position
+									has_court_position = zz_valyria_court_mages_court_position
+								}
+							}
+						}
+						court_tutor_improve_others_skill_effect = { SKILL = learning }
+					}
+					1 = { # Physician trait
+						trigger = {
+							OR = {
+								NOT = { exists = scope:liege_character }
+								NOT = { scope:liege_character = scope:target_character }
+							}
+							scope:target_character = {
+								OR = {
+									has_court_position = court_physician_court_position
+									has_court_position = travel_leader_court_position
+									has_court_position = court_scholar_court_position
+									has_court_position = zz_valyria_court_mages_court_position
+								}
+							}
+						}
+						if = {
+							limit = {
+								scope:target_character = { 
+									NOT = { has_trait = lifestyle_physician }
+								}
+							}
+							court_tutor_improve_others_trait_effect = { TRAIT = lifestyle_physician }
+						}
+						else = {
+							court_tutor_improve_others_trait_xp_effect = { TRAIT = lifestyle_physician }
+						}
+					}
+					1 = { # Traveler trait
+						trigger = {
+							scope:target_character = {
+								has_court_position = travel_leader_court_position
+							}
+						}
+						if = {
+							limit = {
+								scope:target_character = { 
+									NOT = { has_trait = lifestyle_traveler }
+								}
+							}
+							court_tutor_improve_others_trait_effect = { TRAIT = lifestyle_traveler }
+						}
+						else = {
+							court_tutor_improve_others_trait_track_xp_effect = { 
+								TRAIT = lifestyle_traveler
+								TRACK = travel
+							}
+						}
+					}
+					1 = { # Gardener trait
+						trigger = {
+							scope:target_character = {
+								OR = {
+									has_court_position = court_physician_court_position
+									has_court_position = travel_leader_court_position
+									has_court_position = court_scholar_court_position
+									has_court_position = zz_valyria_court_mages_court_position
+								}
+								NOT = { has_trait = lifestyle_gardener }
+							}
+						}
+						court_tutor_improve_others_trait_effect = { TRAIT = lifestyle_gardener }
+					}
+					1 = { # Herbalist trait
+						trigger = {
+							scope:target_character = {
+								OR = {
+									has_court_position = court_physician_court_position
+									has_court_position = court_gardener_court_position
+									has_court_position = travel_leader_court_position
+									has_court_position = food_taster_court_position
+									has_court_position = cave_hermit_court_position
+									has_court_position = zz_valyria_court_mages_court_position
+								}
+								NOT = { has_trait = lifestyle_herbalist }
+							}
+						}
+						court_tutor_improve_others_trait_effect = { TRAIT = lifestyle_herbalist }
+					}
+					1 = { # Reveler trait
+						trigger = {
+							scope:target_character = {
+								OR = {
+									has_court_position = travel_leader_court_position
+									has_court_position = court_poet_court_position
+									has_court_position = court_musician_court_position
+									has_court_position = court_brewmaster_court_position
+								}
+								NOT = { has_trait = lifestyle_reveler }
+							}
+						}
+						court_tutor_improve_others_trait_effect = { TRAIT = lifestyle_reveler }
+					}
+					1 = { # Hunter trait
+						trigger = {
+							scope:target_character = {
+								OR = {
+									has_court_position = keeper_of_swans_court_position
+									has_court_position = travel_leader_court_position
+									has_court_position = master_of_hunt_court_position
+								}
+							}
+						}
+						if = {
+							limit = {
+								scope:target_character = { 
+									NOT = { has_trait = lifestyle_hunter }
+								}
+							}
+							court_tutor_improve_others_trait_effect = { TRAIT = lifestyle_hunter }
+						}
+						else = {
+							court_tutor_improve_others_trait_track_xp_effect = { 
+								TRAIT = lifestyle_hunter
+								TRACK = hunter
+							}
+						}
+					}
+					1 = { # Blademaster trait
+						trigger = {
+							scope:target_character = {
+								OR = {
+									has_court_position = garuda_court_position
+									has_court_position = bodyguard_court_position
+									has_court_position = champion_court_position
+									has_court_position = master_assassin_court_position
+									has_court_position = zz_valyria_court_mages_court_position
+								}
+							}
+						}
+						if = {
+							limit = {
+								scope:target_character = { 
+									NOT = { has_trait = lifestyle_blademaster }
+								}
+							}
+							court_tutor_improve_others_trait_effect = { TRAIT = lifestyle_blademaster }
+						}
+						else = {
+							court_tutor_improve_others_trait_xp_effect = { TRAIT = lifestyle_blademaster }
+						}
+					}
+					1 = { # Mystic trait
+						trigger = {
+							scope:target_character = {
+								OR = {
+									has_court_position = court_physician_court_position
+									has_court_position = cave_hermit_court_position
+									has_court_position = zz_valyria_court_mages_court_position
+								}
+							}
+						}
+						if = {
+							limit = {
+								scope:target_character = { 
+									NOT = { has_trait = lifestyle_mystic }
+								}
+							}
+							court_tutor_improve_others_trait_effect = { TRAIT = lifestyle_mystic }
+						}
+						else = {
+							court_tutor_improve_others_trait_xp_effect = { TRAIT = lifestyle_mystic }
+						}
+					}
+				}
+			}
+		}
+	}
+	on_end = {
+		remove_variable = court_tutor_teach_kids
+	}
+	ai_will_do = {
+		value = 0 # Never used by AI
+	}
+}
+
+zz_valyria_court_mages_court_position_teach_kids = {
+	court_position_types = { zz_valyria_court_mages_court_position }
+
+	# Monthly cost for the task
+	cost = {
+		round = no
+		prestige = {
+			add = {
+				value = monthly_court_position_task_cost
+				desc = COURT_POSITION_TASK_COST_BREAKDOWN_BASE
+				format = "BASE_VALUE_FORMAT_DECIMALS_PLUS_NEGATIVE"
+			}
+		}
+	}
+
+	employee_modifier = {
+		stress_gain_mult = 0.25
+		child_opinion = 5
+	}
+
+	on_start = {
+		set_variable = court_tutor_teach_kids
+		custom_tooltip = court_tutor_teach_kids_tt
+	}
+
+	on_end = {
+		remove_variable = court_tutor_teach_kids
+	}
+
+	ai_will_do = {
+		value = 0 # Never used by AI
+	}
+}

@@ -1,0 +1,117 @@
+﻿poi_valyria_magic = {
+	build_province_list = {
+		every_province = { 
+			limit = {
+				zz_valyria_magic_sites = yes
+			}
+			add_to_list = provinces
+		}
+		
+		every_special_building_province = {	
+			limit = {
+				has_building_with_flag = { flag = travel_point_of_interest_magic }
+			}
+			add_to_list = provinces
+		}
+		while = { 
+			count = 25
+			random_province = { 
+				limit = { 
+					NOT = { is_in_list = provinces }
+				}
+				add_to_list = provinces
+			}
+		}
+	}
+	
+	on_visit = {
+		switch = { 
+			trigger = location
+			province:b_roma = { root = { trigger_event = zz_valyria_magic.0010 } } #Citadel
+			province:b_constantinople = { root = { trigger_event = zz_valyria_magic.0011 } } #Dragonstone
+			province:b_canterbury = { root = { trigger_event = zz_valyria_magic.0012 } } #Winterfall
+			province:b_oxford = { root = { trigger_event = zz_valyria_magic.0013 } } #Castle Black
+			province:b_paris = { root = { trigger_event = zz_valyria_magic.0014 } } #Harrenhal
+			province:b_cambridge = { root = { trigger_event = zz_valyria_magic.0015 } } #Water Gardens
+			province:b_reims = { root = { trigger_event = zz_valyria_magic.0016 } } #Pentos
+			province:b_vaticano = { root = { trigger_event = zz_valyria_magic.0017 } } #Temple of Rhllor
+			province:b_milano = { root = { trigger_event = zz_valyria_magic.0018 } } #Myr
+			province:b_jerusalem = { root = { trigger_event = zz_valyria_magic.0019 } } #Zobti Bastion
+			province:b_lyon = { root = { trigger_event = zz_valyria_magic.0020 } } #Temple of Trade
+			province:b_munchen = { root = { trigger_event = zz_valyria_magic.0021 } } #Lys
+			province:b_berlin = { root = { trigger_event = zz_valyria_magic.0022 } } #The Sealord's Palace
+			province:b_toledo = { root = { trigger_event = zz_valyria_magic.0023 } } #The Arsenal
+			province:b_antiocheia = { root = { trigger_event = zz_valyria_magic.0024 } } #The Purple Habour
+			province:b_durham = { root = { trigger_event = zz_valyria_magic.0025 } } #Court of Smiles
+			province:b_saint_denis = { root = { trigger_event = zz_valyria_magic.0026 } } #Isle of the Gods
+			fallback = {
+				send_interface_toast = {
+					title = poi_magic.visit
+					left_icon = root
+					custom_tooltip = poi_valyria_magic.effect
+					if = { 
+						limit = { 
+							NOT = {
+								has_trait = zz_magister
+							}
+						}
+						trigger_event =  zz_valyria_magic.9000
+						
+					}
+					else = {
+						random = {
+							chance = 75
+							trigger_event =  zz_valyria_magic.9000
+						}
+					}
+				}
+			}
+		}
+		
+		
+		
+		traveler_travel_xp_effect = {
+			MIN = 3
+			MAX = 5
+		}
+	}
+}
+poi_valyria_magic_volcano = {
+	build_province_list = {
+		every_province = {
+			limit = { 
+				zz_valyria_doom_sites = yes 
+			}
+			add_to_list = provinces
+		}
+		while = { 
+			count = 10
+			random_province = { 
+				limit = { 
+					NOT = { is_in_list = provinces }
+				}
+				add_to_list = provinces
+			}
+		}
+	}
+	on_visit = {
+		send_interface_toast = {
+			title = poi_valyria_magic_volcano.visit
+			left_icon = root
+			custom_tooltip = poi_valyria_magic_volcano.effect
+			add_trait_xp = { 
+				trait = starwalker 
+				track = chosen_of_the_heavens
+				value = 3
+			}
+			root.location = {
+				save_scope_as = doom_location
+			}
+			add_character_flag = dragon_training
+			trigger_event = {
+				id = zz_valyria_the_doom.001
+				days = 1
+			}
+		}
+	}
+}

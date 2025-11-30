@@ -1,0 +1,1839 @@
+﻿
+namespace = zz_valyria_magic
+
+#You read a book of magic. 
+zz_valyria_magic.9000 = {
+	type = character_event
+	title = zz_valyria_magic.9000.t
+	desc = zz_valyria_magic.9000.desc
+	theme = university
+	left_portrait = root
+
+
+	immediate = {
+		zz_random_gain_magic_scroll = yes
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+		NOT = { 
+			has_character_flag = no_magic
+		}
+		
+	}
+
+	option = {
+		name = zz_valyria_magic.9000.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.9000.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.9000.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.9000.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+
+zz_valyria_magic.2 = {
+	hidden = yes
+	scope = none
+	trigger = {
+	}
+	immediate = {
+		scope:zz_valyria_magic_learner = {
+			every_relation = {
+				type = zz_magic_master
+				remove_relation_zz_magic_apprentice = scope:zz_valyria_magic_learner
+			}
+		}
+	}
+	option = {
+		scope:zz_magic_master = {
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 10 
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+		scope:zz_magic_learner = {
+			save_scope_as = zz_valyria_mystery_magic_learner
+			zz_random_gain_magic_spell = yes 
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 25 
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+			random_list = { 
+				1 = {
+					add_random_tiered_trait_track_xp_effect = {
+						TRAIT = zz_magister
+						TRACK = blood_magic
+						LEVEL_1 = yes
+						LEVEL_3 = no
+					}
+				}
+				1 = {
+					add_random_tiered_trait_track_xp_effect = {
+						TRAIT = zz_magister
+						TRACK = shadow_magic
+						LEVEL_1 = yes
+						LEVEL_3 = no
+					}
+				}
+				1 = {
+					add_random_tiered_trait_track_xp_effect = {
+						TRAIT = zz_magister
+						TRACK = dream_magic
+						LEVEL_1 = yes
+						LEVEL_3 = no
+					}
+				}
+				1 = {
+					add_random_tiered_trait_track_xp_effect = {
+						TRAIT = zz_magister
+						TRACK = alchemy_magic
+						LEVEL_1 = yes
+						LEVEL_3 = no
+					}
+				}
+				1 = {
+					add_random_tiered_trait_track_xp_effect = {
+						TRAIT = zz_magister
+						TRACK = fire_magic
+						LEVEL_1 = yes
+						LEVEL_3 = no
+					}
+				}
+				1 = {
+					add_random_tiered_trait_track_xp_effect = {
+						TRAIT = zz_magister
+						TRACK = air_magic
+						LEVEL_1 = yes
+						LEVEL_3 = no
+					}
+				}
+				1 = {
+					add_random_tiered_trait_track_xp_effect = {
+						TRAIT = zz_magister
+						TRACK = water_magic
+						LEVEL_1 = yes
+						LEVEL_3 = no
+					}
+				}
+			}
+		}
+	}
+}
+
+
+zz_valyria_magic.0010 = {
+	type = character_event
+	title = zz_valyria_magic.0010.t
+	desc = zz_valyria_magic.0010.desc
+	theme = university
+	left_portrait = root
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_blood_magic_01 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0010.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0010.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0010.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0010.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0010.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0010.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0011 = {
+	type = character_event
+	title = zz_valyria_magic.0011.t
+	desc = zz_valyria_magic.0011.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_dragonstone
+	}
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_blood_magic_06 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll_01
+		}
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_blood_magic_08 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll_02
+		}
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_blood_magic_09 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll_03
+		}
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_blood_magic_10 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll_04
+		}
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_blood_magic_18 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll_05
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0011.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0011.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0011.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0011.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0011.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll_01
+			destroy_artifact = scope:magic_scroll_02
+			destroy_artifact = scope:magic_scroll_03
+			destroy_artifact = scope:magic_scroll_04
+			destroy_artifact = scope:magic_scroll_05
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0011.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll_01
+			destroy_artifact = scope:magic_scroll_02
+			destroy_artifact = scope:magic_scroll_03
+			destroy_artifact = scope:magic_scroll_04
+			destroy_artifact = scope:magic_scroll_05
+		}
+	}
+}
+zz_valyria_magic.0012 = {
+	type = character_event
+	title = zz_valyria_magic.0012.t
+	desc = zz_valyria_magic.0012.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_winterfell
+	}
+
+
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_dream_magic_04 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0012.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0012.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0012.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0012.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0012.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0012.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0013 = {
+	type = character_event
+	title = zz_valyria_magic.0013.t
+	desc = zz_valyria_magic.0013.desc
+	theme = docks
+	override_background = {
+		reference = zz_valyria_castle_black
+	}
+	
+	left_portrait = root
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_dream_magic_33 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0013.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0013.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0013.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0013.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0013.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0013.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0014 = {
+	type = character_event
+	title = zz_valyria_magic.0014.t
+	desc = zz_valyria_magic.0014.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_harrenhal
+	}
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_dream_magic_01 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0014.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0014.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0014.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0014.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0014.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0014.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0015 = {
+	type = character_event
+	title = zz_valyria_magic.0015.t
+	desc = zz_valyria_magic.0015.desc
+	theme = university
+	override_background = {
+		reference = zz_valyria_water_gardens
+	}
+	left_portrait = root
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_water_magic_01 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0015.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0015.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0015.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0015.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0015.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0015.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0016 = {
+	type = character_event
+	title = zz_valyria_magic.0016.t
+	desc = zz_valyria_magic.0016.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_pentos
+	}
+
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_air_magic_01 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0016.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0016.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0016.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0016.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0016.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0016.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0017 = {
+	type = character_event
+	title = zz_valyria_magic.0017.t
+	desc = zz_valyria_magic.0017.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_temple_of_rhllor
+	}
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_fire_magic_06 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0017.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0017.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0010.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0017.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0010.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0010.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0018 = {
+	type = character_event
+	title = zz_valyria_magic.0018.t
+	desc = zz_valyria_magic.0018.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_myr
+	}
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_fire_magic_07 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0018.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0018.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0018.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0018.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0018.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0018.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0019 = {
+	type = character_event
+	title = zz_valyria_magic.0019.t
+	desc = zz_valyria_magic.0019.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_tyrosh
+	}
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_shadow_magic_05 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0019.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0019.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0019.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0019.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0019.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0019.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0020 = {
+	type = character_event
+	title = zz_valyria_magic.0020.t
+	desc = zz_valyria_magic.0020.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_temple_of_trade
+	}
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_alchemy_magic_01 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0020.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0020.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0020.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0020.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0020.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0020.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0021 = {
+	type = character_event
+	title = zz_valyria_magic.0021.t
+	desc = zz_valyria_magic.0021.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_lys
+	}
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_alchemy_magic_03 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0021.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0021.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0021.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0021.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0021.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0021.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0022 = {
+	type = character_event
+	title = zz_valyria_magic.0022.t
+	desc = zz_valyria_magic.0022.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_sealords_palace
+	}
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_water_magic_08 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0022.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0022.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0022.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0022.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0022.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0022.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0023 = {
+	type = character_event
+	title = zz_valyria_magic.0023.t
+	desc = zz_valyria_magic.0023.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_arsenal
+	}
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_air_magic_05 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0023.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0023.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0023.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0023.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0023.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0023.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0024 = {
+	type = character_event
+	title = zz_valyria_magic.0024.t
+	desc = zz_valyria_magic.0024.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_purple_harbor
+	}
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_blood_magic_02 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0024.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0024.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0024.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0024.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0024.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0024.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0025 = {
+	type = character_event
+	title = zz_valyria_magic.0025.t
+	desc = zz_valyria_magic.0025.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_court_of_smiles
+	}
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_blood_magic_01 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0025.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0025.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0025.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0025.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0025.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0025.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0026 = {
+	type = character_event
+	title = zz_valyria_magic.0026.t
+	desc = zz_valyria_magic.0026.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_isle_of_the_gods
+	}
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_shadow_magic_01 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0026.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0026.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0026.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0026.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0026.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0026.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+zz_valyria_magic.0027 = {
+	type = character_event
+	title = zz_valyria_magic.0027.t
+	desc = zz_valyria_magic.0027.desc
+	theme = university
+	left_portrait = root
+	override_background = {
+		reference = zz_valyria_house_of_the_undying
+	}
+
+
+	immediate = {
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_dream_magic_13 }
+		scope:newly_created_artifact = {
+			save_scope_as = magic_scroll
+		}
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_magic.0027.a
+		trigger = {
+			is_ai = no
+			NOT = {
+				has_trait = zz_magister
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0027.zz_valyria_magic_youre_a_wizard_harry
+			 
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0027.b
+		trigger = {
+			has_trait = zz_magister
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic.0027.zz_valyria_magic_youre_a_wizard_harry
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 1
+				XPTRACK = secrets_of_the_higher_mysteries
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0027.z
+		trigger = {
+			NAND = {
+				has_trait = zz_magister
+				is_ai = no
+			}
+		}
+		custom_tooltip = {
+			text = burn_you_witch
+			add_character_flag = no_magic
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+	option = {
+		name = zz_valyria_magic.0027.zz
+		trigger = {
+			is_ai = yes 
+		}
+		random = {
+			chance = 75 
+			destroy_artifact = scope:magic_scroll
+		}
+	}
+}
+
+
+namespace = zz_valyria_the_doom
+
+zz_valyria_the_doom.001 = {
+	type = character_event
+	title = zz_valyria_the_doom.001.t
+	theme = university
+	left_portrait = root
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = {
+					has_character_flag = valyria_the_doom_01
+				}
+				desc = zz_valyria_the_doom.0001.01.desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = valyria_the_doom_02
+				}
+				desc = zz_valyria_the_doom.0001.02.desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = valyria_the_doom_03
+				}
+				desc = zz_valyria_the_doom.0001.03.desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = valyria_the_doom_04
+				}
+				desc = zz_valyria_the_doom.0001.04.desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = valyria_the_doom_05
+				}
+				desc = zz_valyria_the_doom.0001.05.desc
+			}
+			triggered_desc = {
+				trigger = {
+					has_character_flag = valyria_the_doom_06
+				}
+				desc = zz_valyria_the_doom.0001.06.desc
+			}
+			desc = zz_valyria_the_doom.0001.01.desc
+		}
+	}
+
+	immediate = {
+		random_list = { 
+			1 = { 
+				trigger = {
+					NOT = {
+						has_character_flag = valyria_the_doom_01
+					}
+				}
+				add_character_flag = valyria_the_doom_01
+			}
+			1 = { 
+				trigger = {
+					NOT = {
+						has_character_flag = valyria_the_doom_02
+					}
+				}
+				add_character_flag = valyria_the_doom_02
+			}
+			1 = { 
+				trigger = {
+					NOT = {
+						has_character_flag = valyria_the_doom_03
+					}
+				}
+				add_character_flag = valyria_the_doom_03
+			}
+			1 = { 
+				trigger = {
+					NOT = {
+						has_character_flag = valyria_the_doom_04
+					}
+				}
+				add_character_flag = valyria_the_doom_04
+			}
+			1 = { 
+				trigger = {
+					NOT = {
+						has_character_flag = valyria_the_doom_05
+					}
+				}
+				add_character_flag = valyria_the_doom_05
+			}
+			1 = { 
+				trigger = {
+					NOT = {
+						has_character_flag = valyria_the_doom_06
+					}
+				}
+				add_character_flag = valyria_the_doom_06
+			}
+		}
+	}
+
+	trigger = {
+		NOT ={
+			has_character_flag = doom_learned
+		}
+	}
+
+	option = {
+		name = zz_valyria_the_doom.001.a
+		trigger = {
+		}
+		custom_tooltip = {
+			text = zz_valyria_the_doom.001.a.desc
+		}
+	}
+	after = {
+		if = { 
+			limit = {
+				has_character_flag = valyria_the_doom_01
+				has_character_flag = valyria_the_doom_02
+				has_character_flag = valyria_the_doom_03
+				has_character_flag = valyria_the_doom_04
+				has_character_flag = valyria_the_doom_05
+				has_character_flag = valyria_the_doom_06
+			}
+			add_character_flag = doom_learned
+			trigger_event = {
+				id = zz_valyria_the_doom.002
+				days = 25
+			}
+		}
+	}
+}
+
+
+zz_valyria_the_doom.002 = {
+	type = character_event
+	title = zz_valyria_the_doom.002.t
+	desc = zz_valyria_the_doom.002.desc
+	theme = university
+	left_portrait = root
+
+
+	immediate = {
+	}
+
+	trigger = {
+	}
+
+	option = {
+		name = zz_valyria_the_doom.002.a
+		trigger = {
+			is_ai = no
+		}
+		if = {
+			limit = {
+				NOT = {
+					has_trait = starwalker
+				}
+			}
+			zz_random_gain_magic_spell = yes
+			add_trait_force_tooltip = starwalker
+			add_trait_xp = { 
+				trait = starwalker
+				track = chosen_of_the_heavens
+				value = 5
+			}
+		}
+		else = {
+			add_trait_xp = { 
+				trait = starwalker
+				track = chosen_of_the_heavens
+				value = 50
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_the_doom.002.b
+		trigger = {
+			NOT = {
+				has_trait = starwalker
+			}
+		}
+	}
+}
+
+
+namespace = zz_valyria_magic_court_mages_ritual
+
+
+zz_valyria_magic_court_mages_ritual.001 = {
+	type = character_event
+	hidden = yes
+
+	trigger = {
+		NOT = { has_variable = drops_of_power_ritual_cooldown }
+		liege = {
+			exists = court_position:zz_valyria_court_mages_court_position
+		}
+		
+		has_variable = active_drops_of_power_ritual
+	}
+
+	immediate = {
+		# Set a cooldown, so it can only happen once every 6 months
+		set_variable = {
+			name = drops_of_power_ritual_cooldown
+			days = 179
+		}
+		zz_valyria_gain_spell_experience = {
+			XPGAIN = 1 
+			XPTRACK = secrets_of_the_higher_mysteries
+		}
+
+
+		set_variable = { name = managain value = zz_valyria_court_mage_task_value days = 1 }
+
+		scope:liege = {
+			clear_variable_list = mages_in_court_list
+			if = { 
+				limit = {
+					has_trait = zz_magister
+				}
+				scope:liege ={
+					add_to_variable_list = {
+						name = mages_in_court_list
+						target = prev
+					}
+				}
+				every_spouse = {
+					limit = {
+						has_trait = zz_magister
+					}
+					scope:liege = {
+						add_to_variable_list = {
+							name = mages_in_court_list
+							target = prev
+						}
+					}
+				}
+				every_living_mage = {
+					limit = {
+						liege_or_court_owner ?= scope:liege
+					}
+					scope:liege = {
+						add_to_variable_list = {
+							name = mages_in_court_list
+							target = prev
+						}
+					}
+				}
+			}
+			every_in_list = {
+				variable = mages_in_court_list
+				zz_valyria_mana_gain = {
+					MANAGAIN = root.zz_valyria_court_mage_task_value
+				}
+			}
+		}
+		trigger_event = {
+			id = zz_valyria_magic_court_mages_ritual.001
+			months = 6
+		}
+	}
+}
+
+
+namespace = zz_valyria_magic_management
+
+zz_valyria_magic_management.003 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_management.003.t
+	desc = zz_valyria_magic_management.003.desc
+	theme = witchcraft
+	left_portrait = root
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list ?= zz_valyria_possible_characters
+		root = {
+			add_to_variable_list = {
+				name = zz_valyria_possible_characters
+				target = prev
+			}
+		}
+		every_courtier_or_guest = {
+			root = {
+				add_to_variable_list = {
+					name = zz_valyria_possible_characters
+					target = prev
+				}
+			}
+		}
+		ordered_in_list = {
+			variable = zz_valyria_possible_characters
+			set_variable = {
+				name = zz_valyria_selected_character
+				value = root
+			}
+			root = {
+				set_variable = {
+					name = zz_valyria_selected_character
+					value = prev
+				}
+			}
+		}
+	}
+	widget = {
+		is_shown = {
+			root = {
+				any_in_list = {
+					variable = zz_valyria_possible_characters
+					count > 0
+				}
+			}
+		}
+		gui = "event_window_character_selection_five_options"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_management.003a
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					NOT = {
+						has_nickname = nick_the_archmage
+					}
+				}
+			}
+			var:zz_valyria_selected_character = {
+				give_nickname = nick_the_archmage
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.003b
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					NOT = {
+						has_nickname = nick_the_necromancer
+					}
+				}
+			}
+			var:zz_valyria_selected_character = {
+				give_nickname = nick_the_necromancer
+			}
+		}
+	}
+}

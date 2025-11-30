@@ -1,0 +1,22 @@
+﻿valryia_study_magic_scheme_modifier = {
+	modifier = {
+		add = 10
+		desc = "SCHEME_MAGIC_EDUCATION"
+	}
+	#Language
+	modifier = {
+		add = 5
+		desc = YOU_SPEAK_THE_LANGUAGE
+		scope:owner = { knows_language_of_culture = scope:target.culture }
+	}
+
+	# Taught Dragon Lore
+	modifier = {
+		scope:owner = { has_trait = magic_blood_good_3 }
+		add = 10
+		desc = scheme_mage_blood_good
+	}
+}
+
+
+

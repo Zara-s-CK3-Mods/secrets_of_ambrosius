@@ -1,0 +1,478 @@
+﻿zz_valyria_magic_air_magic_01_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_01.toast.t
+		desc = zz_valyria_magic_air_magic_01.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient					
+		custom_tooltip = zz_valyria_magic_air_magic_01.toast.tt
+	}
+	zz_valyria_magic_duel_stress_effect = yes 
+	scope:recipient = {
+		hidden_effect = {
+			force_character_skill_recalculation = yes
+			add_character_modifier = duel_edge_debuff_02_modifier
+		}
+	}
+	zz_configure_start_magic_combat_effect = {
+		SC_INITIATOR = scope:secondary_recipient
+		SC_ATTACKER = scope:secondary_recipient
+		SC_DEFENDER = scope:recipient
+		FATALITY = possible
+		FIXED = no
+		LOCALE = tavern
+		OUTPUT_EVENT = jason_locale_events.201 
+		INVALIDATION_EVENT = single_combat.1006
+		MAGIC = air
+	}
+}
+
+
+zz_valyria_magic_air_magic_02_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_02.toast.tt 
+		desc = zz_valyria_magic_air_magic_02.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient					
+		custom_tooltip = zz_valyria_magic_air_magic_02.toast.tt
+	}
+	scope:target = {
+		change_maa_troops_count = zz_valyria_magic_air_magic_02_value 
+	}
+}
+
+
+zz_valyria_magic_air_magic_03_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_03.toast.t
+		desc = zz_valyria_magic_air_magic_03.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_air_magic_03.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_air_magic_03_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 2
+		}
+			
+
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+zz_valyria_magic_air_magic_04_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_04.toast.tt 
+		desc = zz_valyria_magic_air_magic_04.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient					
+		custom_tooltip = zz_valyria_magic_air_magic_04.toast.tt
+	}
+	while = {
+		count = zz_valyria_magic_air_magic_04_value
+		scope:target = {
+			every_army_in_location = {
+				limit = { 
+					NOT = {
+						army_owner = scope:actor
+					}
+				}
+				deplete_army_by_percentage = 0.05
+			}
+			destroy_random_building_variable_effect = yes 
+		}
+	}
+}
+
+zz_valyria_magic_air_magic_05_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_05.toast.t
+		desc = zz_valyria_magic_air_magic_05.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_air_magic_05.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_air_magic_05_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 2
+		}
+			
+
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_air_magic_06_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_06.toast.t
+		desc = zz_valyria_magic_air_magic_06.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient					
+		custom_tooltip = zz_valyria_magic_air_magic_06.toast.tt
+	}
+	scope:target = {
+		deplete_army_by_percentage = zz_valyria_magic_air_magic_06_value
+	}
+}
+
+zz_valyria_magic_air_magic_07_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_07.toast.t
+		desc = zz_valyria_magic_air_magic_07.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_air_magic_07.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_air_magic_07_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 2
+		}
+			
+
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_air_magic_08_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_08.toast.t
+		desc = zz_valyria_magic_air_magic_08.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient					
+		custom_tooltip = zz_valyria_magic_air_magic_08.toast.tt
+	}
+	scope:recipient = {
+		every_knight = {
+			limit = {
+				knight_army = scope:target
+				is_in_army = yes 
+			}
+			random_list = {
+				50 = {
+					modifier = {
+						add = zz_valyria_magic_air_magic_08_value_01
+					}
+					maimed_in_battle_effect = yes
+					random_list = {
+						50 = {
+							modifier = {
+								add = zz_valyria_magic_air_magic_08_value_01
+							}
+							death = {
+								death_reason = death_air_magic
+								killer = scope:secondary_recipient
+							}
+						}
+						50 = {
+							increase_wounds_effect = { REASON = air_magic }
+							add_stress = massive_stress_gain
+						}
+					}
+					
+				}
+				50 = { 
+
+				}
+			}
+		}
+	}
+	scope:target = {
+		every_army_maa_regiment = {
+			random_list = { 
+				50 = { 
+					modifier = {
+						add = zz_valyria_magic_air_magic_08_value_01
+					}
+					change_maa_troops_count = zz_valyria_magic_air_magic_08_value_02 
+				}
+				50 = { 
+
+				}
+
+			}
+			
+		}
+	}
+}
+
+
+zz_valyria_magic_air_magic_09_effect = { 
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_09.toast.tt 
+		desc = zz_valyria_magic_air_magic_09.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient					
+		custom_tooltip = zz_valyria_magic_air_magic_09.toast.tt
+	}
+	scope:target = {
+		remove_holding = yes 
+		change_county_control = massive_county_control_loss
+		county = {
+			change_development_level = {
+				subtract = development_level
+				multiply = 0.2
+				floor = yes
+			}
+		}
+		
+		every_army_in_location = {
+			limit = { 
+				NOT = {
+					army_owner = scope:actor
+				}
+			}
+			deplete_army_by_percentage = zz_valyria_magic_air_magic_09_value
+		}
+	}
+}
+
+zz_valyria_magic_air_magic_10_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_10.toast.t
+		desc = zz_valyria_magic_air_magic_10.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_air_magic_10.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER =zz_valyria_magic_air_magic_10_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 2
+		}
+			
+
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_air_magic_11_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_11.toast.t
+		desc = zz_valyria_magic_air_magic_11.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_air_magic_11.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER =zz_valyria_magic_air_magic_11_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 2
+		}
+			
+
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_air_magic_12_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_12.toast.t
+		desc = zz_valyria_magic_air_magic_12.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_air_magic_12.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER =zz_valyria_magic_air_magic_12_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 2
+		}
+			
+
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_air_magic_13_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_13.toast.t
+		desc = zz_valyria_magic_air_magic_13.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_air_magic_13.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		zz_valyria_magic_apply_character_modifier_effect = { 
+			MODIFIER =zz_valyria_magic_air_magic_13_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 2
+		}
+			
+
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
