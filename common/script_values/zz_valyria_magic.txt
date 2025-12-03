@@ -101,6 +101,7 @@ zz_valyria_court_mage_task_value = {
 	value = 0
 	add = { 
 		value = "has_trait_xp(zz_magister|secrets_of_the_higher_mysteries)"
+		add = learning 
 		divide = 20
 		min = 1
 	}
@@ -117,6 +118,7 @@ zz_valyria_crafting_learning = {
 
 zz_valyria_magic_higher_mysteries_base_value = {
 	value  = "has_trait_xp(zz_magister|secrets_of_the_higher_mysteries)"
+	add = learning 
 }
 
 
@@ -2184,8 +2186,10 @@ zz_spellcast_value = {
 			limit = { 
 				has_trait = zz_magister
 			}
-			add =  "has_trait_xp(zz_magister|secrets_of_the_higher_mysteries)"
-			multiply = 2
+			add = {
+				value = "has_trait_xp(zz_magister|secrets_of_the_higher_mysteries)"
+				multiply = 2
+			}
 		}
 		if = { 
 			limit = {
@@ -2215,8 +2219,10 @@ zz_spellcast_value = {
 			limit = {
 				has_trait = starwalker
 			}
-			add =  "has_trait_xp(starwalker|chosen_of_the_heavens)"
-			multiply = 3
+			add = {
+				value =  "has_trait_xp(starwalker|chosen_of_the_heavens)"
+				multiply = 5
+			}
 		}
 	}
 }
