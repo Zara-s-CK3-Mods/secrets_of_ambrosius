@@ -3,85 +3,23 @@
 	percent = yes
 	hidden = no 
 }
-trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = {
+
+trait_track_drops_of_power_cap_xp_gain_mult = {
     decimals = 0
-	percent = yes
-	hidden = yes 
+	percent = no
+	hidden = no 
 }
-trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
+
+trait_track_drops_of_power_gain_xp_gain_mult = {
+    decimals = 2
+	percent = no
+	hidden = no 
 }
-trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = {
+
+trait_track_drops_of_power_mult_xp_gain_mult = {
     decimals = 0
 	percent = yes
-	hidden = yes 
-}
-trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
-}
-trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
-}
-trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
-}
-trait_track_stores_of_power_01_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
-}
-trait_track_stores_of_power_02_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
-}
-trait_track_stores_of_power_03_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
-}
-trait_track_stores_of_power_04_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
-}
-trait_track_stores_of_power_05_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
-}
-trait_track_stores_of_power_06_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
-}
-trait_track_stores_of_power_07_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
-}
-trait_track_stores_of_power_08_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
-}
-trait_track_stores_of_power_09_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
-}
-trait_track_stores_of_power_10_xp_gain_mult = {
-    decimals = 0
-	percent = yes
-	hidden = yes 
+	hidden = no 
 }
 
 

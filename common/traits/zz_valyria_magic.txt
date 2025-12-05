@@ -257,28 +257,6 @@ zz_magister = {
 				character_travel_safety = 1
 			}
 		}
-		drops_of_power = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
 	}
 	compatibility = {
 		lifestyle_mystic = 10
@@ -387,226 +365,6 @@ starwalker = {
 				trait_track_water_magic_xp_gain_mult = 0.50
 			}
 		}
-		stores_of_power_01 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
-		stores_of_power_02 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
-		stores_of_power_03 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
-		stores_of_power_04 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
-		stores_of_power_05 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
-		stores_of_power_06 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
-		stores_of_power_07 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
-		stores_of_power_08 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
-		stores_of_power_09 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
-		stores_of_power_10 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}	
 	}
 }
 
@@ -1568,16 +1326,7 @@ magic_blood_bad_1 = {
 	trait_track_air_magic_xp_gain_mult = -0.05
 	trait_track_water_magic_xp_gain_mult = -0.05
 	trait_track_drops_of_power_xp_gain_mult = -0.25
-	trait_track_stores_of_power_01_xp_gain_mult = -0.25
-	trait_track_stores_of_power_02_xp_gain_mult = -0.25
-	trait_track_stores_of_power_03_xp_gain_mult = -0.25
-	trait_track_stores_of_power_04_xp_gain_mult = -0.25
-	trait_track_stores_of_power_05_xp_gain_mult = -0.25
-	trait_track_stores_of_power_06_xp_gain_mult = -0.25
-	trait_track_stores_of_power_07_xp_gain_mult = -0.25
-	trait_track_stores_of_power_08_xp_gain_mult = -0.25
-	trait_track_stores_of_power_09_xp_gain_mult = -0.25
-	trait_track_stores_of_power_10_xp_gain_mult = -0.25
+
 	
 	tracks = {
 
@@ -1631,16 +1380,6 @@ magic_blood_bad_2 = {
 	trait_track_air_magic_xp_gain_mult = -0.15
 	trait_track_water_magic_xp_gain_mult = -0.15
 	trait_track_drops_of_power_xp_gain_mult = -0.5
-	trait_track_stores_of_power_01_xp_gain_mult = -0.5
-	trait_track_stores_of_power_02_xp_gain_mult = -0.5
-	trait_track_stores_of_power_03_xp_gain_mult = -0.5
-	trait_track_stores_of_power_04_xp_gain_mult = -0.5
-	trait_track_stores_of_power_05_xp_gain_mult = -0.5
-	trait_track_stores_of_power_06_xp_gain_mult = -0.5
-	trait_track_stores_of_power_07_xp_gain_mult = -0.5
-	trait_track_stores_of_power_08_xp_gain_mult = -0.5
-	trait_track_stores_of_power_09_xp_gain_mult = -0.5
-	trait_track_stores_of_power_10_xp_gain_mult = -0.5
 	
 	tracks = {
 
@@ -1694,16 +1433,6 @@ magic_blood_bad_3 = {
 	trait_track_air_magic_xp_gain_mult = -0.25
 	trait_track_water_magic_xp_gain_mult = -0.25
 	trait_track_drops_of_power_xp_gain_mult = -0.75
-	trait_track_stores_of_power_01_xp_gain_mult = -0.75
-	trait_track_stores_of_power_02_xp_gain_mult = -0.75
-	trait_track_stores_of_power_03_xp_gain_mult = -0.75
-	trait_track_stores_of_power_04_xp_gain_mult = -0.75
-	trait_track_stores_of_power_05_xp_gain_mult = -0.75
-	trait_track_stores_of_power_06_xp_gain_mult = -0.75
-	trait_track_stores_of_power_07_xp_gain_mult = -0.75
-	trait_track_stores_of_power_08_xp_gain_mult = -0.75
-	trait_track_stores_of_power_09_xp_gain_mult = -0.75
-	trait_track_stores_of_power_10_xp_gain_mult = -0.75
 	
 	tracks = {
 
@@ -1756,6 +1485,7 @@ magic_blood_good_1 = {
 	trait_track_fire_magic_xp_gain_mult = 0.05
 	trait_track_air_magic_xp_gain_mult = 0.05
 	trait_track_water_magic_xp_gain_mult = 0.05
+	trait_track_drops_of_power_xp_gain_mult = 0.25
 	
 	tracks = {
 
@@ -1809,52 +1539,10 @@ magic_blood_good_2 = {
 	trait_track_fire_magic_xp_gain_mult = 0.1
 	trait_track_air_magic_xp_gain_mult = 0.1
 	trait_track_water_magic_xp_gain_mult = 0.1
+	trait_track_drops_of_power_xp_gain_mult = 0.50
 	
 	tracks = {
-		magic_blood_good_2_stores_of_power_01 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
-		magic_blood_good_2_stores_of_power_02 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
+		
 	}
 	group = magic_blood_good
 	level = 2
@@ -1905,97 +1593,10 @@ magic_blood_good_3 = {
 	trait_track_fire_magic_xp_gain_mult = 0.1
 	trait_track_air_magic_xp_gain_mult = 0.1
 	trait_track_water_magic_xp_gain_mult = 0.1
+	trait_track_drops_of_power_xp_gain_mult = 0.75
 
 	
 	tracks = {
-		magic_blood_good_3_stores_of_power_01 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
-		magic_blood_good_3_stores_of_power_02 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
-		magic_blood_good_3_stores_of_power_03 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
-		magic_blood_good_3_stores_of_power_04 = {
-			10 = {
-			}
-			20 = {
-			}
-			30 = {
-			}
-			40 = {
-			}
-			50 = {
-			}
-			60 = {
-			}
-			70 = {
-			}
-			80 = {
-			}
-			90 = {
-			}
-			100 = {
-			}
-		}
 	}
 	group = magic_blood_good
 	level = 3
@@ -2051,22 +1652,7 @@ born_beneath_the_comet = {
 	# ai_energy = 20
 	
 	trait_track_drops_of_power_xp_gain_mult = 0.25
-	trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = 0.25
-	trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = 0.25
-	trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = 0.25
-	trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = 0.25
-	trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = 0.25
-	trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = 0.25
-	trait_track_stores_of_power_01_xp_gain_mult = 0.25
-	trait_track_stores_of_power_02_xp_gain_mult = 0.25
-	trait_track_stores_of_power_03_xp_gain_mult = 0.25
-	trait_track_stores_of_power_04_xp_gain_mult = 0.25
-	trait_track_stores_of_power_05_xp_gain_mult = 0.25
-	trait_track_stores_of_power_06_xp_gain_mult = 0.25
-	trait_track_stores_of_power_07_xp_gain_mult = 0.25
-	trait_track_stores_of_power_08_xp_gain_mult = 0.25
-	trait_track_stores_of_power_09_xp_gain_mult = 0.25
-	trait_track_stores_of_power_10_xp_gain_mult = 0.25
+
 }
 
 
@@ -2096,3 +1682,107 @@ zz_loyal_functionary = {
 		}
 	}
 }
+
+
+
+zz_magic_dummy_trait = {
+	shown_in_ruler_designer = no
+	shown_in_encyclopedia = no
+	tracks = {
+		drops_of_power = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		drops_of_power_cap = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		drops_of_power_gain = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+		drops_of_power_mult = {
+			10 = {
+			}
+			20 = {
+			}
+			30 = {
+			}
+			40 = {
+			}
+			50 = {
+			}
+			60 = {
+			}
+			70 = {
+			}
+			80 = {
+			}
+			90 = {
+			}
+			100 = {
+			}
+		}
+	}
+	opposites = {
+	}
+}
+
+
+# trait_track_drops_of_power_cap_xp_gain_mult
+# trait_track_drops_of_power_gain_xp_gain_mult
+# trait_track_drops_of_power_mult_xp_gain_mult

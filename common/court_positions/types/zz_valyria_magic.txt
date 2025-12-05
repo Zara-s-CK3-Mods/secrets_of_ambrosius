@@ -163,12 +163,10 @@
 			if = {
 				limit = {
 					scope:liege = {
-						exists = dynasty
-						dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
+						dynasty ?= { has_dynasty_perk = fp2_coterie_legacy_1 }
 
 						employs_court_position = zz_valyria_court_mages_court_position
 						any_court_position_holder = {
-							THIS = scope:employee
 							type = zz_valyria_court_mages_court_position
 							exists = dynasty
 							house = prev.house
@@ -248,205 +246,45 @@
 	scaling_employer_modifiers = {
 		terrible = {
 			trait_track_drops_of_power_xp_gain_mult = 0.01
-			trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = 0.01
-			trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = 0.01
-			trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = 0.01
-			trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = 0.01
-			trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = 0.01
-			trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = 0.01
-			trait_track_stores_of_power_01_xp_gain_mult = 0.01
-			trait_track_stores_of_power_02_xp_gain_mult = 0.01
-			trait_track_stores_of_power_03_xp_gain_mult = 0.01
-			trait_track_stores_of_power_04_xp_gain_mult = 0.01
-			trait_track_stores_of_power_05_xp_gain_mult = 0.01
-			trait_track_stores_of_power_06_xp_gain_mult = 0.01
-			trait_track_stores_of_power_07_xp_gain_mult = 0.01
-			trait_track_stores_of_power_08_xp_gain_mult = 0.01
-			trait_track_stores_of_power_09_xp_gain_mult = 0.01
-			trait_track_stores_of_power_10_xp_gain_mult = 0.01
-
 		}
 		poor = {
 			court_grandeur_baseline_add = 1
 			trait_track_drops_of_power_xp_gain_mult = 0.03
-			trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = 0.03
-			trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = 0.03
-			trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = 0.03
-			trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = 0.03
-			trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = 0.03
-			trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = 0.03
-			trait_track_stores_of_power_01_xp_gain_mult = 0.03
-			trait_track_stores_of_power_02_xp_gain_mult = 0.03
-			trait_track_stores_of_power_03_xp_gain_mult = 0.03
-			trait_track_stores_of_power_04_xp_gain_mult = 0.03
-			trait_track_stores_of_power_05_xp_gain_mult = 0.03
-			trait_track_stores_of_power_06_xp_gain_mult = 0.03
-			trait_track_stores_of_power_07_xp_gain_mult = 0.03
-			trait_track_stores_of_power_08_xp_gain_mult = 0.03
-			trait_track_stores_of_power_09_xp_gain_mult = 0.03
-			trait_track_stores_of_power_10_xp_gain_mult = 0.03
 		}
 		average = {
 			court_grandeur_baseline_add = 1
 			trait_track_drops_of_power_xp_gain_mult = 0.05
-			trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = 0.05
-			trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = 0.05
-			trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = 0.05
-			trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = 0.05
-			trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = 0.05
-			trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = 0.05
-			trait_track_stores_of_power_01_xp_gain_mult = 0.05
-			trait_track_stores_of_power_02_xp_gain_mult = 0.05
-			trait_track_stores_of_power_03_xp_gain_mult = 0.05
-			trait_track_stores_of_power_04_xp_gain_mult = 0.05
-			trait_track_stores_of_power_05_xp_gain_mult = 0.05
-			trait_track_stores_of_power_06_xp_gain_mult = 0.05	
-			trait_track_stores_of_power_07_xp_gain_mult = 0.05
-			trait_track_stores_of_power_08_xp_gain_mult = 0.05
-			trait_track_stores_of_power_09_xp_gain_mult = 0.05	
-			trait_track_stores_of_power_10_xp_gain_mult = 0.05
+	
 		}
 		good = {
 			court_grandeur_baseline_add = 2
 			trait_track_drops_of_power_xp_gain_mult = 0.07
-			trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = 0.07
-			trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = 0.07
-			trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = 0.07
-			trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = 0.07
-			trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = 0.07
-			trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = 0.07
-			trait_track_stores_of_power_01_xp_gain_mult = 0.07
-			trait_track_stores_of_power_02_xp_gain_mult = 0.07
-			trait_track_stores_of_power_03_xp_gain_mult = 0.07
-			trait_track_stores_of_power_04_xp_gain_mult = 0.07
-			trait_track_stores_of_power_05_xp_gain_mult = 0.07
-			trait_track_stores_of_power_06_xp_gain_mult = 0.07
-			trait_track_stores_of_power_07_xp_gain_mult = 0.07
-			trait_track_stores_of_power_08_xp_gain_mult = 0.07
-			trait_track_stores_of_power_09_xp_gain_mult = 0.07
-			trait_track_stores_of_power_10_xp_gain_mult = 0.07
 		}
 		excellent = {
 			court_grandeur_baseline_add = 3
 			trait_track_drops_of_power_xp_gain_mult = 0.1
-			trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = 0.1
-			trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = 0.1
-			trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = 0.1
-			trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = 0.1
-			trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = 0.1
-			trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = 0.1
-			trait_track_stores_of_power_01_xp_gain_mult = 0.1
-			trait_track_stores_of_power_02_xp_gain_mult = 0.1
-			trait_track_stores_of_power_03_xp_gain_mult = 0.1
-			trait_track_stores_of_power_04_xp_gain_mult = 0.1
-			trait_track_stores_of_power_05_xp_gain_mult = 0.1
-			trait_track_stores_of_power_06_xp_gain_mult = 0.1
-			trait_track_stores_of_power_07_xp_gain_mult = 0.1
-			trait_track_stores_of_power_08_xp_gain_mult = 0.1
-			trait_track_stores_of_power_09_xp_gain_mult = 0.1
-			trait_track_stores_of_power_10_xp_gain_mult = 0.1
 		}
 	}
 	scaling_employer_court_modifiers = {
 		terrible = {
 			trait_track_drops_of_power_xp_gain_mult = 0.01
-			trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = 0.01
-			trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = 0.01
-			trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = 0.01
-			trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = 0.01
-			trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = 0.01
-			trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = 0.01
-			trait_track_stores_of_power_01_xp_gain_mult = 0.01
-			trait_track_stores_of_power_02_xp_gain_mult = 0.01
-			trait_track_stores_of_power_03_xp_gain_mult = 0.01
-			trait_track_stores_of_power_04_xp_gain_mult = 0.01
-			trait_track_stores_of_power_05_xp_gain_mult = 0.01
-			trait_track_stores_of_power_06_xp_gain_mult = 0.01
-			trait_track_stores_of_power_07_xp_gain_mult = 0.01
-			trait_track_stores_of_power_08_xp_gain_mult = 0.01
-			trait_track_stores_of_power_09_xp_gain_mult = 0.01
-			trait_track_stores_of_power_10_xp_gain_mult = 0.01
-
 		}
 		poor = {
 			court_grandeur_baseline_add = 1
 			trait_track_drops_of_power_xp_gain_mult = 0.03
-			trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = 0.03
-			trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = 0.03
-			trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = 0.03
-			trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = 0.03
-			trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = 0.03
-			trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = 0.03
-			trait_track_stores_of_power_01_xp_gain_mult = 0.03
-			trait_track_stores_of_power_02_xp_gain_mult = 0.03
-			trait_track_stores_of_power_03_xp_gain_mult = 0.03
-			trait_track_stores_of_power_04_xp_gain_mult = 0.03
-			trait_track_stores_of_power_05_xp_gain_mult = 0.03
-			trait_track_stores_of_power_06_xp_gain_mult = 0.03
-			trait_track_stores_of_power_07_xp_gain_mult = 0.03
-			trait_track_stores_of_power_08_xp_gain_mult = 0.03
-			trait_track_stores_of_power_09_xp_gain_mult = 0.03
-			trait_track_stores_of_power_10_xp_gain_mult = 0.03
 		}
 		average = {
 			court_grandeur_baseline_add = 1
 			trait_track_drops_of_power_xp_gain_mult = 0.05
-			trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = 0.05
-			trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = 0.05
-			trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = 0.05
-			trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = 0.05
-			trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = 0.05
-			trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = 0.05
-			trait_track_stores_of_power_01_xp_gain_mult = 0.05
-			trait_track_stores_of_power_02_xp_gain_mult = 0.05
-			trait_track_stores_of_power_03_xp_gain_mult = 0.05
-			trait_track_stores_of_power_04_xp_gain_mult = 0.05
-			trait_track_stores_of_power_05_xp_gain_mult = 0.05
-			trait_track_stores_of_power_06_xp_gain_mult = 0.05		
-			trait_track_stores_of_power_07_xp_gain_mult = 0.05
-			trait_track_stores_of_power_08_xp_gain_mult = 0.05
-			trait_track_stores_of_power_09_xp_gain_mult = 0.05
-			trait_track_stores_of_power_10_xp_gain_mult = 0.05
 		}
 		good = {
 			court_grandeur_baseline_add = 2
 			trait_track_drops_of_power_xp_gain_mult = 0.07
-			trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = 0.07
-			trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = 0.07
-			trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = 0.07
-			trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = 0.07
-			trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = 0.07
-			trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = 0.07
-			trait_track_stores_of_power_01_xp_gain_mult = 0.07
-			trait_track_stores_of_power_02_xp_gain_mult = 0.07
-			trait_track_stores_of_power_03_xp_gain_mult = 0.07
-			trait_track_stores_of_power_04_xp_gain_mult = 0.07
-			trait_track_stores_of_power_05_xp_gain_mult = 0.07
-			trait_track_stores_of_power_06_xp_gain_mult = 0.07
-			trait_track_stores_of_power_07_xp_gain_mult = 0.07
-			trait_track_stores_of_power_08_xp_gain_mult = 0.07
-			trait_track_stores_of_power_09_xp_gain_mult = 0.07
-			trait_track_stores_of_power_10_xp_gain_mult = 0.07
+
 		}
 		excellent = {
 			court_grandeur_baseline_add = 3
 			trait_track_drops_of_power_xp_gain_mult = 0.1
-			trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = 0.1
-			trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = 0.1
-			trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = 0.1
-			trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = 0.1
-			trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = 0.1
-			trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = 0.1
-			trait_track_stores_of_power_01_xp_gain_mult = 0.1
-			trait_track_stores_of_power_02_xp_gain_mult = 0.1
-			trait_track_stores_of_power_03_xp_gain_mult = 0.1
-			trait_track_stores_of_power_04_xp_gain_mult = 0.1
-			trait_track_stores_of_power_05_xp_gain_mult = 0.1
-			trait_track_stores_of_power_06_xp_gain_mult = 0.1
-			trait_track_stores_of_power_07_xp_gain_mult = 0.1
-			trait_track_stores_of_power_08_xp_gain_mult = 0.1
-			trait_track_stores_of_power_09_xp_gain_mult = 0.1
-			trait_track_stores_of_power_10_xp_gain_mult = 0.1
 		}
 	}
 
@@ -456,23 +294,6 @@
 	modifier = {
 		learning = 2
 		trait_track_drops_of_power_xp_gain_mult = 0.25
-		trait_track_magic_blood_good_2_stores_of_power_01_xp_gain_mult = 0.25
-		trait_track_magic_blood_good_2_stores_of_power_02_xp_gain_mult = 0.25
-		trait_track_magic_blood_good_3_stores_of_power_01_xp_gain_mult = 0.25
-		trait_track_magic_blood_good_3_stores_of_power_02_xp_gain_mult = 0.25
-		trait_track_magic_blood_good_3_stores_of_power_03_xp_gain_mult = 0.25
-		trait_track_magic_blood_good_3_stores_of_power_04_xp_gain_mult = 0.25
-		trait_track_stores_of_power_01_xp_gain_mult = 0.25
-		trait_track_stores_of_power_02_xp_gain_mult = 0.25
-		trait_track_stores_of_power_03_xp_gain_mult = 0.25
-		trait_track_stores_of_power_04_xp_gain_mult = 0.25
-		trait_track_stores_of_power_05_xp_gain_mult = 0.25
-		trait_track_stores_of_power_06_xp_gain_mult = 0.25
-		trait_track_stores_of_power_07_xp_gain_mult = 0.25
-		trait_track_stores_of_power_08_xp_gain_mult = 0.25
-		trait_track_stores_of_power_09_xp_gain_mult = 0.25
-		trait_track_stores_of_power_10_xp_gain_mult = 0.25
-
 	}
 
 	on_court_position_received = {

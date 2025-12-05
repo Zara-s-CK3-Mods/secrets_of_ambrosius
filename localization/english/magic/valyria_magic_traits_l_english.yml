@@ -111,6 +111,11 @@
 
   trait_track_drops_of_power_xp_gain_mult:0 "[GetTrait('zz_magister').GetTraitTrackByKey( 'drops_of_power' ).GetName] [trait_level_track_xp|E] Gain"
 
+
+  trait_track_drops_of_power_mult_xp_gain_mult:0 "[GetTrait('zz_magic_dummy_trait').GetTraitTrackByKey( 'drops_of_power_mult' ).GetName] %"
+  trait_track_drops_of_power_gain_xp_gain_mult:0 "[GetTrait('zz_magic_dummy_trait').GetTraitTrackByKey( 'drops_of_power_gain' ).GetName] Gain"
+
+
   trait_magic_blood_bad:0 "Magic Blood (Detriment)"
   trait_magic_blood_bad_1:0 "Magic Inept"
   trait_magic_blood_bad_1_desc:0 ""

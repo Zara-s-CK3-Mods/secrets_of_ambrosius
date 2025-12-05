@@ -463,6 +463,28 @@ zz_craft_item_apply_modifier_effect = {
 						}
 					}
 				}
+				else_if = { 
+					limit = { 
+						root = {
+							var:zz_selected_modifier = flag:item_modifier_01
+						}
+					}
+					if = {
+						limit = {
+							exists = var:item_mana_gain_mult
+						}
+						change_variable = {
+							name = item_mana_gain_mult
+							add = 0.01
+						}
+					}
+					else = {
+						set_variable = {
+							name = item_mana_gain_mult
+							value = 0.01
+						}
+					}
+				}
 				add_artifact_modifier = $MODIFIER$
 			}
 		}
@@ -492,6 +514,14 @@ zz_valyria_crafting_calculate_crafting_cost_item_effect = {
 		ITEM = item_ring
 		COST = zz_item_vs_ring_cost
 	}	
+	zz_item_calculate_cost_effect = {
+		ITEM = item_glass_candle
+		COST = zz_item_glass_candle_cost
+	}
+	zz_item_calculate_cost_effect = {
+		ITEM = item_dragon_horn
+		COST = zz_item_dragon_horn_cost
+	}
 }
 
 zz_valyria_crafting_calculate_crafting_cost_modifier_effect = {
