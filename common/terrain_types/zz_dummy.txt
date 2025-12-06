@@ -1,0 +1,20 @@
+@provisions_cost_minimal = 25
+@provisions_cost_light = 50
+@provisions_cost_medium = 80
+@provisions_cost_high = 100
+@provisions_cost_extreme = 150
+
+zz_magic_dummy = {
+	color = hsv { 0.1 0.5 0.8 }
+	travel_danger_color = hsv { 0.1 0.5 0.8 }
+	travel_danger_score = 10
+	provision_cost = @provisions_cost_light
+	county_fertility = 30
+
+	province_modifier = {
+		supply_limit_mult = 0
+		travel_danger = 10
+		county_fertility_growth_add = plains_county_fertility_value
+	}
+	
+}

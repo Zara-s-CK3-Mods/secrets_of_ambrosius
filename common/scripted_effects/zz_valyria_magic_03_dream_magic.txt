@@ -593,10 +593,8 @@ zz_valyria_magic_dream_magic_07_effect = {
 		}
 	}
 	scope:recipient = { 
-		zz_valyria_magic_apply_character_modifier_effect = { 
-			MODIFIER = zz_valyria_magic_dream_magic_07_modifier
-			DURATION = 2
-			BOOSTED_DURATION = 5
+		culture = {
+			add_fascination_progress_time = zz_valyria_magic_dream_magic_07_value
 		}
 	}			
 	scope:recipient = {		

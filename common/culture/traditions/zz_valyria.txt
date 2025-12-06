@@ -22,6 +22,9 @@
 	parameters = {
 		magister_lords_of_valyria = yes 
 	}
+	character_modifier = {
+		trait_track_drops_of_power_cap_xp_gain_mult = 100
+	}
 	
 	cost = {
 		prestige = 1000
@@ -58,6 +61,7 @@ tradition_zz_sorcerous_studies = {
 		sorceror_lords = yes 
 	}
 	character_modifier = {
+		trait_track_drops_of_power_mult_xp_gain_mult = 0.5
 	}
 	
 	cost = {

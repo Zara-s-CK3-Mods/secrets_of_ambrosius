@@ -22,6 +22,12 @@
 		}
 	}
 	if = {
+		limit = { 
+			culture = { has_cultural_tradition = tradition_zz_cultural_mage_lords }
+		}
+		add = 100
+	} 
+	if = {
 		limit = {
 			has_trait = starwalker
 		}
@@ -81,6 +87,74 @@ zz_valyria_mana_gain_mult = {
 			}
 			add = this.var:item_mana_gain_mult
 		}
+	}
+	if = {
+		limit = {
+			has_court_position = zz_valyria_court_mages_court_position
+		}
+		if = {
+			limit = {
+				this.aptitude:zz_valyria_court_mages_court_position >= 4
+			}
+			add = 0.2
+		}
+		else_if = {
+			limit = {
+				this.aptitude:zz_valyria_court_mages_court_position = 3
+			}
+			add = 0.15
+		}
+		else_if = {
+			limit = {
+				this.aptitude:zz_valyria_court_mages_court_position = 2
+			}
+			add = 0.1
+		}
+		else_if = {
+			limit = {
+				this.aptitude:zz_valyria_court_mages_court_position = 1
+			}
+			add = 0.05
+		}
+	}
+	every_court_position_holder ?= {
+		type = zz_valyria_court_mages_court_position
+		if = {
+			limit = {trait_track_drops_of_power_mult_xp_gain_mult
+				this.aptitude:zz_valyria_court_mages_court_position >= 4
+			}
+			add = 0.5
+		}
+		else_if = {
+			limit = {
+				this.aptitude:zz_valyria_court_mages_court_position = 3
+			}
+			add = 0.4
+		}
+		else_if = {
+			limit = {
+				this.aptitude:zz_valyria_court_mages_court_position = 2
+			}
+			add = 0.3
+		}
+		else_if = {
+			limit = {
+				this.aptitude:zz_valyria_court_mages_court_position = 1
+			}
+			add = 0.2
+		}
+	}
+	if = {
+		limit = { 
+			culture = { has_cultural_tradition = tradition_zz_sorcerous_studies }
+		}
+		add = 0.5
+	} 
+	if = {
+		limit = {
+			has_trait = born_beneath_the_comet
+		}
+		add = 0.25
 	}
 	if = {
 		limit = {
@@ -164,12 +238,6 @@ zz_valyria_drops_power_passive_gain = {
 				add = this.var:mystery_potency
 			}
 		}
-		if = {
-			limit = { 
-				culture = { has_cultural_tradition = tradition_zz_sorcerous_studies }
-			}
-			multiply = 2
-		} 
 		multiply = zz_valyria_mana_gain_mult
 	}
 }
@@ -1034,7 +1102,7 @@ zz_valyria_magic_dream_magic_07_value = {
 	add = { 
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_dream_magic_base_value
-			divide = 5
+			divide = 1.5
 			min = 1
 		}
 	}
