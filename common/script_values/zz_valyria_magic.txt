@@ -120,7 +120,7 @@ zz_valyria_mana_gain_mult = {
 	every_court_position_holder ?= {
 		type = zz_valyria_court_mages_court_position
 		if = {
-			limit = {trait_track_drops_of_power_mult_xp_gain_mult
+			limit = {
 				this.aptitude:zz_valyria_court_mages_court_position >= 4
 			}
 			add = 0.5
