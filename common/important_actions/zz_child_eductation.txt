@@ -1,0 +1,65 @@
+﻿action_child_education_personality = {
+	type = alert
+
+	check_create_action = {
+		every_courtier = {
+			if = {
+				limit = {
+					root = {
+						has_relation_ward = prev
+						is_character_interaction_valid = {
+							recipient = prev
+							interaction = influence_child_personality_interaction
+						}
+					}
+				}
+				try_create_important_action = {
+					important_action_type = action_child_education_personality
+					actor = root
+					recipient = this 
+				}
+			}	
+		}
+	}
+
+	effect = {
+		open_interaction_window = {
+			interaction = influence_child_personality_interaction
+			actor = scope:actor
+			recipient = scope:recipient
+		}
+	}
+}
+
+action_child_education_commander = {
+	type = alert
+
+	check_create_action = {
+		every_courtier = {
+			if = {
+				limit = {
+					root = {
+						has_relation_ward = prev
+						is_character_interaction_valid = {
+							recipient = prev
+							interaction = influence_child_commander_interaction
+						}
+					}
+				}
+				try_create_important_action = {
+					important_action_type = action_child_education_commander
+					actor = root
+					recipient = this 
+				}
+			}	
+		}
+	}
+
+	effect = {
+		open_interaction_window = {
+			interaction = influence_child_commander_interaction
+			actor = scope:actor
+			recipient = scope:recipient
+		}
+	}
+}
