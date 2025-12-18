@@ -1,7 +1,4 @@
-﻿
-
-
-zz_valyria_magic_management = {
+﻿zz_valyria_magic_management = {
 	scope = character
 	is_shown = {
 		OR = {
