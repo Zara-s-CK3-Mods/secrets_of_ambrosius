@@ -192,6 +192,67 @@ zz_valyria_mana_gain_mult = {
 			add = 0.25
 		}
 	} 
+	if = {
+		limit = {
+			house ?= {
+				has_house_power_parameter = zz_mage_lords_1
+			}
+		}
+		add = 0.05
+	}
+	if = {
+		limit = {
+			house ?= {
+				has_house_power_parameter = zz_mage_lords_2
+			}
+			
+		}
+		add = 0.10
+	}
+	if = {
+		limit = {
+			house ?= {
+				has_house_power_parameter = zz_mage_lords_3
+			}
+			
+		}
+		add = 0.15
+	}
+	if = {
+		limit = {
+			house ?= {
+				has_house_power_parameter = zz_mage_lords_1
+			}
+			is_house_head = yes 
+		}
+		add = 0.1
+	}
+	if = {
+		limit = {
+			house ?= {
+				has_house_power_parameter = zz_mage_lords_2
+			}
+			is_house_head = yes
+		}
+		add = 0.2
+	}
+	if = {
+		limit = {
+			house ?= {
+				has_house_power_parameter = zz_mage_lords_3
+			}
+			is_house_head = yes 
+		}
+		add = 0.3
+	}
+	every_noble_family = { 
+		limit = {
+			house ?= {
+				has_house_power_parameter = zz_mage_lord
+			}
+		}
+		add = 0.10
+	}
 }
 
 zz_valyria_drops_power_passive_gain = { 
