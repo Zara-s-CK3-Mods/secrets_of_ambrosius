@@ -103,8 +103,50 @@ manage_grant_culture_trait_decision = {
 			is_valid = {
 
 			}
-			current_description = go_trait_cap_desc
-			localization = go_trait_cap_desc
+			current_description = tradition_zz_valyrian_practices_desc
+			localization = tradition_zz_valyrian_practices_name
+			icon = "gfx/interface/icons/government_types/administrative_government.dds"
+			ai_chance = {
+				value = 10
+			}
+		}
+		item = { # Administrative
+			value = go_mage_lords
+			is_shown = {
+			}
+			is_valid = {
+
+			}
+			current_description = tradition_zz_cultural_mage_lords_desc
+			localization = tradition_zz_cultural_mage_lords_name
+			icon = "gfx/interface/icons/government_types/administrative_government.dds"
+			ai_chance = {
+				value = 10
+			}
+		}
+		item = { # Administrative
+			value = go_sorcerous_studies
+			is_shown = {
+			}
+			is_valid = {
+
+			}
+			current_description = tradition_zz_sorcerous_studies_desc
+			localization = tradition_zz_sorcerous_studies_name
+			icon = "gfx/interface/icons/government_types/administrative_government.dds"
+			ai_chance = {
+				value = 10
+			}
+		}
+		item = { # Administrative
+			value = go_magic_studies
+			is_shown = {
+			}
+			is_valid = {
+
+			}
+			current_description = tradition_zz_magic_studies_desc
+			localization = tradition_zz_magic_studies_name
 			icon = "gfx/interface/icons/government_types/administrative_government.dds"
 			ai_chance = {
 				value = 10
@@ -215,6 +257,24 @@ manage_grant_culture_trait_decision = {
 			limit = { scope:go_cultural_trait_cap = yes }
 			culture = {
 				add_culture_tradition = tradition_zz_valyrian_practices
+			}
+		}
+		if = {
+			limit = { scope:go_mage_lords = yes }
+			culture = {
+				add_culture_tradition = tradition_zz_cultural_mage_lords
+			}
+		}
+		if = {
+			limit = { scope:go_sorcerous_studies = yes }
+			culture = {
+				add_culture_tradition = tradition_zz_sorcerous_studies
+			}
+		}
+		if = {
+			limit = { scope:go_magic_studies = yes }
+			culture = {
+				add_culture_tradition = tradition_zz_magic_studies
 			}
 		}
 		else_if = {

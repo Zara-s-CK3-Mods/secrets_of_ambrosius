@@ -13,15 +13,15 @@
 
   ### Court Taks 
   zz_valyria_court_mage_drops_of_power_ritual:0 " [drops_of_power|E] Ritual"
-  zz_valyria_court_mages_court_position_drops_of_power_ritual_desc:0 "A potent conjuring of power, all mages in your court gain [drops_of_power|E]."
-  zz_valyria_court_mages_court_position_drops_of_power_ritual_tt:0 "A potent conjuring of power, all mages in your court gain [drops_of_power|E]."
-
+  zz_valyria_court_mage_drops_of_power_ritual_desc:0 "A potent conjuring of power, all mages in your court gain [drops_of_power|E]."
+  zz_valyria_court_mage_drops_of_power_ritual_tt:0 "A potent conjuring of power, all mages in your court gain [drops_of_power|E]."
+  
 
 
   court_mage_drops_of_power_ritual_cooldown: "This task cannot be initiated until #color_white [GetCurrentDateWithDiff( GetVarTimeRemaining( liege.MakeScope, 'drops_of_power_ritual_cooldown') )]#!"
 
   zz_valyria_court_mages_court_position_task_magic_scroll_01:"Craft Scroll"
-
+  zz_valyria_court_mages_court_position_task_magic_scroll_01_desc:0 "Craft a random scroll of magic"
   zz_craft_scroll:0 "Scribe Scroll"
 
   zz_craft_scroll_effect:0 "Your [GetCourtPositionType('zz_valyria_court_mages_court_position').GetName()] [artificer.GetFirstName] has scribed a scroll."

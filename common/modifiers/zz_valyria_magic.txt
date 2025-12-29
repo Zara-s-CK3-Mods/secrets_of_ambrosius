@@ -267,7 +267,7 @@ zz_valyria_magic_dream_magic_07_modifier = {
 
 zz_valyria_magic_dream_magic_10_modifier = {
 	icon = magic_positive
-	trait_track_drops_of_power_xp_gain_mult = 0.01
+	trait_track_drops_of_power_mult_xp_gain_mult = 0.01
 	stacking = yes
 	scale = {
 		value = zz_valyria_magic_dream_magic_10_value
