@@ -17,7 +17,7 @@
 		piety = 2
 	}
 	on_start = {
-		custom_tooltip = zz_valyria_court_mages_court_position_drops_of_power_ritual_tt
+		custom_tooltip = zz_valyria_court_mage_drops_of_power_ritual_tt
 		set_variable = active_drops_of_power_ritual
 		trigger_event = zz_valyria_magic_court_mages_ritual.001
 	}
