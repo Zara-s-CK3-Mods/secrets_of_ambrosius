@@ -258,6 +258,14 @@ zz_valyria_mana_gain_mult = {
 		}
 		add = 0.10
 	}
+	if = { 
+		limit = {
+			culture = {
+				has_cultural_parameter = mage_scholars
+			}
+		}
+		add = 0.5
+	}
 }
 
 zz_valyria_drops_power_passive_gain = { 

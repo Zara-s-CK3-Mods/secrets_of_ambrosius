@@ -346,3 +346,9 @@ zz_valyria_sword_type_58.desc:0 "A Firstmen Long Sword of Bronze"
 
   zz_valyria_ring_type_10.name:0 "Magic Ring (All Magic)"
   zz_valyria_ring_type_10.desc:0 "$BULLET_WITH_TAB$ Crafting Cost: [EmptyScope.ScriptValue('zz_item_vs_ring_cost')|V0] \nAn enchanted ring, that shall boost your ability to gain XP in all fields of magic."
+
+
+  zz_drops_of_power_attrition_mult:0 ""
+  zz_drops_of_power_advantage:0 "$trait_track_drops_of_power_cap_xp_gain_mult$"
+  zz_drops_of_power_development_growth:0 "$trait_track_drops_of_power_gain_xp_gain_mult$"
+  zz_drops_of_power_development_growth_factor:0 "$trait_track_drops_of_power_mult_xp_gain_mult$"

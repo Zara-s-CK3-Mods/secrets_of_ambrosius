@@ -1,0 +1,15 @@
+zz_drops_of_power = {
+	color = hsv { 0.1 0.5 0.8 }
+	travel_danger_color = hsv { 0.1 0.5 0.8 }
+	travel_danger_score = 10
+	provision_cost = 25
+	county_fertility = 30
+
+	province_modifier = {
+		supply_limit_mult = 0
+		travel_danger = 10
+		county_fertility_growth_add = plains_county_fertility_value
+	}
+	
+	audio_parameter = 1.0
+}
