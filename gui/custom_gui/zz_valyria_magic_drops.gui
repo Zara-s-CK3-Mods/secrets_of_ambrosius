@@ -117,6 +117,19 @@
                                                 widget_drop_value_breakdown_tooltip = {}
                                             }
                                         }
+                                        spacer = {
+                                            size = {10 0}
+                                        }
+                                        text_single = {
+                                            text = "[Character.MakeScope.ScriptValue('zz_valyria_mana_gain_mult')|0|+=]"
+                                            min_width = 75
+                                            max_width = 75
+                                            align = right
+                                            default_format = "#high"
+                                            tooltipwidget = {
+                                                widget_drop_value_breakdown_tooltip = {}
+                                            }
+                                        }
                                         expand = {}
                                     }
                                     
