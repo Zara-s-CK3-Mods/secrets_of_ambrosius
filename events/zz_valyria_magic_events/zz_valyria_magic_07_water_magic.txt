@@ -1,12 +1,12 @@
 ﻿
 
-namespace = zz_valyria_magic_water_magic_spells 
+namespace = zz_valyria_magic_water_magic
 
-zz_valyria_magic_water_magic_spells.001 = {
+zz_valyria_magic_water_magic.001 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.001.t
-	desc = zz_valyria_magic_water_magic_spells.001.desc
+	title = zz_valyria_magic_water_magic.001.t
+	desc = zz_valyria_magic_water_magic.001.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -18,7 +18,7 @@ zz_valyria_magic_water_magic_spells.001 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_water_magic_spells.001.opt.a
+		name = zz_valyria_magic_water_magic.001.opt.a
 		hidden_effect = {
 			save_scope_value_as = {
 				name = option_01
@@ -31,7 +31,7 @@ zz_valyria_magic_water_magic_spells.001 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.001.opt.b
+		name = zz_valyria_magic_water_magic.001.opt.b
 		hidden_effect = {
 			save_scope_value_as = {
 				name = option_02
@@ -45,15 +45,15 @@ zz_valyria_magic_water_magic_spells.001 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_water_magic_spells.001.opt.z
+		name = zz_valyria_magic_water_magic.001.opt.z
 	}
 }
 
-zz_valyria_magic_water_magic_spells.002 = {
+zz_valyria_magic_water_magic.002 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.002.t
-	desc = zz_valyria_magic_water_magic_spells.002.desc
+	title = zz_valyria_magic_water_magic.002.t
+	desc = zz_valyria_magic_water_magic.002.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -93,7 +93,7 @@ zz_valyria_magic_water_magic_spells.002 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.002.opt.a
+		name = zz_valyria_magic_water_magic.002.opt.a
 		hidden_effect = {
 			var:selected_army ?= { 
 				save_scope_as = target
@@ -105,15 +105,15 @@ zz_valyria_magic_water_magic_spells.002 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.002.opt.z
+		name = zz_valyria_magic_water_magic.002.opt.z
 	}
 }
 
-zz_valyria_magic_water_magic_spells.003 = {
+zz_valyria_magic_water_magic.003 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.003.t
-	desc = zz_valyria_magic_water_magic_spells.003.desc
+	title = zz_valyria_magic_water_magic.003.t
+	desc = zz_valyria_magic_water_magic.003.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -153,7 +153,7 @@ zz_valyria_magic_water_magic_spells.003 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.003.opt.a
+		name = zz_valyria_magic_water_magic.003.opt.a
 		hidden_effect = {
 			var:selected_army ?= { 
 				save_scope_as = target
@@ -165,16 +165,16 @@ zz_valyria_magic_water_magic_spells.003 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.003.opt.z
+		name = zz_valyria_magic_water_magic.003.opt.z
 	}
 }
 
 
-zz_valyria_magic_water_magic_spells.004 = {
+zz_valyria_magic_water_magic.004 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.004.t
-	desc = zz_valyria_magic_water_magic_spells.004.desc
+	title = zz_valyria_magic_water_magic.004.t
+	desc = zz_valyria_magic_water_magic.004.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -212,28 +212,28 @@ zz_valyria_magic_water_magic_spells.004 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.004.opt.e
+		name = zz_valyria_magic_water_magic.004.opt.e
 		hidden_effect = {			
 			var:selected_epidemic ?= { 
 				save_scope_as = epidemic
 			}
-			trigger_event = zz_valyria_magic_water_magic_spells.00401
+			trigger_event = zz_valyria_magic_water_magic.00401
 		}
 	}
 
 
 	
 	option = {
-		name = zz_valyria_magic_water_magic_spells.004.opt.z
+		name = zz_valyria_magic_water_magic.004.opt.z
 	}
 }
 
 
-zz_valyria_magic_water_magic_spells.00401 = {
+zz_valyria_magic_water_magic.00401 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.004.t
-	desc = zz_valyria_magic_water_magic_spells.004.desc
+	title = zz_valyria_magic_water_magic.004.t
+	desc = zz_valyria_magic_water_magic.004.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -257,7 +257,7 @@ zz_valyria_magic_water_magic_spells.00401 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_water_magic_spells.004.opt.a
+		name = zz_valyria_magic_water_magic.004.opt.a
 		trigger = {
 			scope:recipient = {			
 			}
@@ -282,7 +282,7 @@ zz_valyria_magic_water_magic_spells.00401 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.004.opt.b
+		name = zz_valyria_magic_water_magic.004.opt.b
 		trigger = {
 			scope:recipient = {			
 			}
@@ -307,7 +307,7 @@ zz_valyria_magic_water_magic_spells.00401 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.004.opt.c
+		name = zz_valyria_magic_water_magic.004.opt.c
 		trigger = {
 			scope:recipient = {			
 			}
@@ -333,11 +333,11 @@ zz_valyria_magic_water_magic_spells.00401 = {
 	}
 }
 
-zz_valyria_magic_water_magic_spells.005 = {
+zz_valyria_magic_water_magic.005 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.005.t
-	desc = zz_valyria_magic_water_magic_spells.005.desc
+	title = zz_valyria_magic_water_magic.005.t
+	desc = zz_valyria_magic_water_magic.005.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -349,7 +349,7 @@ zz_valyria_magic_water_magic_spells.005 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_water_magic_spells.005.opt.a	
+		name = zz_valyria_magic_water_magic.005.opt.a	
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
@@ -358,16 +358,16 @@ zz_valyria_magic_water_magic_spells.005 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.005.opt.z
+		name = zz_valyria_magic_water_magic.005.opt.z
 	}
 }
 
 
-zz_valyria_magic_water_magic_spells.006 = {
+zz_valyria_magic_water_magic.006 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.006.t
-	desc = zz_valyria_magic_water_magic_spells.006.desc
+	title = zz_valyria_magic_water_magic.006.t
+	desc = zz_valyria_magic_water_magic.006.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -390,7 +390,7 @@ zz_valyria_magic_water_magic_spells.006 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.006.opt.a
+		name = zz_valyria_magic_water_magic.006.opt.a
 		hidden_effect = {
 			var:selected_province ?= { 
 				save_scope_as = target
@@ -402,15 +402,15 @@ zz_valyria_magic_water_magic_spells.006 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.006.opt.z
+		name = zz_valyria_magic_water_magic.006.opt.z
 	}
 }
 
-zz_valyria_magic_water_magic_spells.007 = {
+zz_valyria_magic_water_magic.007 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.007.t
-	desc = zz_valyria_magic_water_magic_spells.007.desc
+	title = zz_valyria_magic_water_magic.007.t
+	desc = zz_valyria_magic_water_magic.007.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -433,7 +433,7 @@ zz_valyria_magic_water_magic_spells.007 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.007.opt.a
+		name = zz_valyria_magic_water_magic.007.opt.a
 		hidden_effect = {
 			var:selected_province ?= { 
 				save_scope_as = target
@@ -445,15 +445,15 @@ zz_valyria_magic_water_magic_spells.007 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.007.opt.z
+		name = zz_valyria_magic_water_magic.007.opt.z
 	}
 }
 
-zz_valyria_magic_water_magic_spells.008 = {
+zz_valyria_magic_water_magic.008 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.008.t
-	desc = zz_valyria_magic_water_magic_spells.008.desc
+	title = zz_valyria_magic_water_magic.008.t
+	desc = zz_valyria_magic_water_magic.008.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -465,7 +465,7 @@ zz_valyria_magic_water_magic_spells.008 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_water_magic_spells.008.opt.a	
+		name = zz_valyria_magic_water_magic.008.opt.a	
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
@@ -474,16 +474,16 @@ zz_valyria_magic_water_magic_spells.008 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.008.opt.z
+		name = zz_valyria_magic_water_magic.008.opt.z
 	}
 }
 
 
-zz_valyria_magic_water_magic_spells.009 = {
+zz_valyria_magic_water_magic.009 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.009.t
-	desc = zz_valyria_magic_water_magic_spells.009.desc
+	title = zz_valyria_magic_water_magic.009.t
+	desc = zz_valyria_magic_water_magic.009.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -495,7 +495,7 @@ zz_valyria_magic_water_magic_spells.009 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_water_magic_spells.009.opt.a	
+		name = zz_valyria_magic_water_magic.009.opt.a	
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
@@ -504,15 +504,15 @@ zz_valyria_magic_water_magic_spells.009 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.009.opt.z
+		name = zz_valyria_magic_water_magic.009.opt.z
 	}
 }
 
-zz_valyria_magic_water_magic_spells.010 = {
+zz_valyria_magic_water_magic.010 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.010.t
-	desc = zz_valyria_magic_water_magic_spells.010.desc
+	title = zz_valyria_magic_water_magic.010.t
+	desc = zz_valyria_magic_water_magic.010.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -524,7 +524,7 @@ zz_valyria_magic_water_magic_spells.010 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_water_magic_spells.010.opt.a	
+		name = zz_valyria_magic_water_magic.010.opt.a	
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
@@ -533,15 +533,15 @@ zz_valyria_magic_water_magic_spells.010 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.010.opt.z
+		name = zz_valyria_magic_water_magic.010.opt.z
 	}
 }
 
-zz_valyria_magic_water_magic_spells.011 = {
+zz_valyria_magic_water_magic.011 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.011.t
-	desc = zz_valyria_magic_water_magic_spells.011.desc
+	title = zz_valyria_magic_water_magic.011.t
+	desc = zz_valyria_magic_water_magic.011.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -553,7 +553,7 @@ zz_valyria_magic_water_magic_spells.011 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_water_magic_spells.011.opt.a	
+		name = zz_valyria_magic_water_magic.011.opt.a	
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
@@ -562,16 +562,16 @@ zz_valyria_magic_water_magic_spells.011 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.011.opt.z
+		name = zz_valyria_magic_water_magic.011.opt.z
 	}
 }
 
 
-zz_valyria_magic_water_magic_spells.012 = {
+zz_valyria_magic_water_magic.012 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.012.t
-	desc = zz_valyria_magic_water_magic_spells.012.desc
+	title = zz_valyria_magic_water_magic.012.t
+	desc = zz_valyria_magic_water_magic.012.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -583,7 +583,7 @@ zz_valyria_magic_water_magic_spells.012 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_water_magic_spells.012.opt.a	
+		name = zz_valyria_magic_water_magic.012.opt.a	
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
@@ -592,15 +592,15 @@ zz_valyria_magic_water_magic_spells.012 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.012.opt.z
+		name = zz_valyria_magic_water_magic.012.opt.z
 	}
 }
 
-zz_valyria_magic_water_magic_spells.013 = {
+zz_valyria_magic_water_magic.013 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic_spells.013.t
-	desc = zz_valyria_magic_water_magic_spells.013.desc
+	title = zz_valyria_magic_water_magic.013.t
+	desc = zz_valyria_magic_water_magic.013.desc
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -612,7 +612,7 @@ zz_valyria_magic_water_magic_spells.013 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_water_magic_spells.013.opt.a	
+		name = zz_valyria_magic_water_magic.013.opt.a	
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
@@ -621,6 +621,6 @@ zz_valyria_magic_water_magic_spells.013 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_water_magic_spells.013.opt.z
+		name = zz_valyria_magic_water_magic.013.opt.z
 	}
 }

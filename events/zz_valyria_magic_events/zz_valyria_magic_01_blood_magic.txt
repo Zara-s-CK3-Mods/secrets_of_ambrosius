@@ -35,11 +35,11 @@ zz_valyria_magic_blood_magic.0003 = {
 
 namespace = zz_valyria_magic_blood_magic_spells
 
-zz_valyria_magic_blood_magic_spells.001 = {
+zz_valyria_magic_blood_magic.001 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.001.t
-	desc = zz_valyria_magic_blood_magic_spells.001.desc
+	title = zz_valyria_magic_blood_magic.001.t
+	desc = zz_valyria_magic_blood_magic.001.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -51,7 +51,7 @@ zz_valyria_magic_blood_magic_spells.001 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.001.opt.a
+		name = zz_valyria_magic_blood_magic.001.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
@@ -61,15 +61,15 @@ zz_valyria_magic_blood_magic_spells.001 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.001.opt.z
+		name = zz_valyria_magic_blood_magic.001.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.002 = {
+zz_valyria_magic_blood_magic.002 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.002.t
-	desc = zz_valyria_magic_blood_magic_spells.002.desc
+	title = zz_valyria_magic_blood_magic.002.t
+	desc = zz_valyria_magic_blood_magic.002.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -347,7 +347,7 @@ zz_valyria_magic_blood_magic_spells.002 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.002.opt.a
+		name = zz_valyria_magic_blood_magic.002.opt.a
 		trigger = { 
 		}
 		hidden_effect = {
@@ -362,15 +362,15 @@ zz_valyria_magic_blood_magic_spells.002 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.002.opt.z
+		name = zz_valyria_magic_blood_magic.002.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.003 = {
+zz_valyria_magic_blood_magic.003 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.003.t
-	desc = zz_valyria_magic_blood_magic_spells.003.desc
+	title = zz_valyria_magic_blood_magic.003.t
+	desc = zz_valyria_magic_blood_magic.003.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -418,7 +418,7 @@ zz_valyria_magic_blood_magic_spells.003 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.003.opt.a
+		name = zz_valyria_magic_blood_magic.003.opt.a
 		trigger = {
 			scope:recipient = {
 				any_maa_regiment = {
@@ -439,14 +439,14 @@ zz_valyria_magic_blood_magic_spells.003 = {
 
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.003.opt.z
+		name = zz_valyria_magic_blood_magic.003.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.004 = {
+zz_valyria_magic_blood_magic.004 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.004.t
-	desc = zz_valyria_magic_blood_magic_spells.004.desc
+	title = zz_valyria_magic_blood_magic.004.t
+	desc = zz_valyria_magic_blood_magic.004.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -472,7 +472,7 @@ zz_valyria_magic_blood_magic_spells.004 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.004.opt.a
+		name = zz_valyria_magic_blood_magic.004.opt.a
 		trigger = {
 			scope:recipient = {
 				has_raised_armies = yes
@@ -490,15 +490,15 @@ zz_valyria_magic_blood_magic_spells.004 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.003.opt.z
+		name = zz_valyria_magic_blood_magic.003.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.005 = {
+zz_valyria_magic_blood_magic.005 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.005.t
-	desc = zz_valyria_magic_blood_magic_spells.005.desc
+	title = zz_valyria_magic_blood_magic.005.t
+	desc = zz_valyria_magic_blood_magic.005.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -540,25 +540,25 @@ zz_valyria_magic_blood_magic_spells.005 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.005.opt.a
+		name = zz_valyria_magic_blood_magic.005.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_artifact?= { 
 				save_scope_as = target
 			}
-			trigger_event = zz_valyria_magic_blood_magic_spells.00501
+			trigger_event = zz_valyria_magic_blood_magic.00501
 		}
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.005.opt.z
+		name = zz_valyria_magic_blood_magic.005.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.00501 = {
+zz_valyria_magic_blood_magic.00501 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.005.t
-	desc = zz_valyria_magic_blood_magic_spells.005.desc
+	title = zz_valyria_magic_blood_magic.005.t
+	desc = zz_valyria_magic_blood_magic.005.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -586,7 +586,7 @@ zz_valyria_magic_blood_magic_spells.00501 = {
 	
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.005.opt.a
+		name = zz_valyria_magic_blood_magic.005.opt.a
 		trigger = {
 			scope:recipient = {
 			}
@@ -606,7 +606,7 @@ zz_valyria_magic_blood_magic_spells.00501 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.005.opt.b
+		name = zz_valyria_magic_blood_magic.005.opt.b
 		trigger = {
 			scope:recipient = {
 			}
@@ -627,7 +627,7 @@ zz_valyria_magic_blood_magic_spells.00501 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.005.opt.c
+		name = zz_valyria_magic_blood_magic.005.opt.c
 		trigger = {
 			scope:recipient = {
 			}
@@ -648,14 +648,14 @@ zz_valyria_magic_blood_magic_spells.00501 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.005.opt.z
+		name = zz_valyria_magic_blood_magic.005.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.006 = {
+zz_valyria_magic_blood_magic.006 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.006.t
-	desc = zz_valyria_magic_blood_magic_spells.006.desc
+	title = zz_valyria_magic_blood_magic.006.t
+	desc = zz_valyria_magic_blood_magic.006.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -668,7 +668,7 @@ zz_valyria_magic_blood_magic_spells.006 = {
 
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.006.opt.a
+		name = zz_valyria_magic_blood_magic.006.opt.a
 		trigger = {
 			scope:recipient = {
 			}
@@ -684,14 +684,14 @@ zz_valyria_magic_blood_magic_spells.006 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.006.opt.z
+		name = zz_valyria_magic_blood_magic.006.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.007 = {
+zz_valyria_magic_blood_magic.007 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.007.t
-	desc = zz_valyria_magic_blood_magic_spells.007.desc
+	title = zz_valyria_magic_blood_magic.007.t
+	desc = zz_valyria_magic_blood_magic.007.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -703,7 +703,7 @@ zz_valyria_magic_blood_magic_spells.007 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.007.opt.a
+		name = zz_valyria_magic_blood_magic.007.opt.a
 		trigger = {
 			scope:recipient = {
 			}
@@ -716,15 +716,15 @@ zz_valyria_magic_blood_magic_spells.007 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.001.opt.z
+		name = zz_valyria_magic_blood_magic.001.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.008 = {
+zz_valyria_magic_blood_magic.008 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.008.t
-	desc = zz_valyria_magic_blood_magic_spells.008.desc
+	title = zz_valyria_magic_blood_magic.008.t
+	desc = zz_valyria_magic_blood_magic.008.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -736,7 +736,7 @@ zz_valyria_magic_blood_magic_spells.008 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.008.opt.a
+		name = zz_valyria_magic_blood_magic.008.opt.a
 		trigger = {
 			scope:recipient = {
 			}
@@ -749,14 +749,14 @@ zz_valyria_magic_blood_magic_spells.008 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.008.opt.z
+		name = zz_valyria_magic_blood_magic.008.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.009 = {
+zz_valyria_magic_blood_magic.009 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.009.t
-	desc = zz_valyria_magic_blood_magic_spells.009.desc
+	title = zz_valyria_magic_blood_magic.009.t
+	desc = zz_valyria_magic_blood_magic.009.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -768,7 +768,7 @@ zz_valyria_magic_blood_magic_spells.009 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.009.opt.a
+		name = zz_valyria_magic_blood_magic.009.opt.a
 		trigger = {
 			scope:recipient = {
 			}
@@ -781,14 +781,14 @@ zz_valyria_magic_blood_magic_spells.009 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.009.opt.z
+		name = zz_valyria_magic_blood_magic.009.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.010 = {
+zz_valyria_magic_blood_magic.010 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.010.t
-	desc = zz_valyria_magic_blood_magic_spells.010.desc
+	title = zz_valyria_magic_blood_magic.010.t
+	desc = zz_valyria_magic_blood_magic.010.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -800,7 +800,7 @@ zz_valyria_magic_blood_magic_spells.010 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.010.opt.a
+		name = zz_valyria_magic_blood_magic.010.opt.a
 		trigger = {
 			scope:recipient = {
 			}
@@ -813,15 +813,15 @@ zz_valyria_magic_blood_magic_spells.010 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.010.opt.z
+		name = zz_valyria_magic_blood_magic.010.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.011 = {
+zz_valyria_magic_blood_magic.011 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.011.t
-	desc = zz_valyria_magic_blood_magic_spells.011.desc
+	title = zz_valyria_magic_blood_magic.011.t
+	desc = zz_valyria_magic_blood_magic.011.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -833,7 +833,7 @@ zz_valyria_magic_blood_magic_spells.011 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.011.opt.a
+		name = zz_valyria_magic_blood_magic.011.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
@@ -842,14 +842,14 @@ zz_valyria_magic_blood_magic_spells.011 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.011.opt.z
+		name = zz_valyria_magic_blood_magic.011.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.012 = {
+zz_valyria_magic_blood_magic.012 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.012.t
-	desc = zz_valyria_magic_blood_magic_spells.012.desc
+	title = zz_valyria_magic_blood_magic.012.t
+	desc = zz_valyria_magic_blood_magic.012.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -861,7 +861,7 @@ zz_valyria_magic_blood_magic_spells.012 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.012.opt.a
+		name = zz_valyria_magic_blood_magic.012.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
@@ -870,14 +870,14 @@ zz_valyria_magic_blood_magic_spells.012 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.012.opt.z
+		name = zz_valyria_magic_blood_magic.012.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.013 = {
+zz_valyria_magic_blood_magic.013 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.013.t
-	desc = zz_valyria_magic_blood_magic_spells.013.desc
+	title = zz_valyria_magic_blood_magic.013.t
+	desc = zz_valyria_magic_blood_magic.013.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -889,7 +889,7 @@ zz_valyria_magic_blood_magic_spells.013 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.013.opt.a
+		name = zz_valyria_magic_blood_magic.013.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
@@ -899,14 +899,14 @@ zz_valyria_magic_blood_magic_spells.013 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.013.opt.z
+		name = zz_valyria_magic_blood_magic.013.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.014 = {
+zz_valyria_magic_blood_magic.014 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.014.t
-	desc = zz_valyria_magic_blood_magic_spells.014.desc
+	title = zz_valyria_magic_blood_magic.014.t
+	desc = zz_valyria_magic_blood_magic.014.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -918,7 +918,7 @@ zz_valyria_magic_blood_magic_spells.014 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.014.opt.a
+		name = zz_valyria_magic_blood_magic.014.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
@@ -927,14 +927,14 @@ zz_valyria_magic_blood_magic_spells.014 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.014.opt.z
+		name = zz_valyria_magic_blood_magic.014.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.015 = {
+zz_valyria_magic_blood_magic.015 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.015.t
-	desc = zz_valyria_magic_blood_magic_spells.015.desc
+	title = zz_valyria_magic_blood_magic.015.t
+	desc = zz_valyria_magic_blood_magic.015.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -946,7 +946,7 @@ zz_valyria_magic_blood_magic_spells.015 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.015.opt.a
+		name = zz_valyria_magic_blood_magic.015.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
@@ -956,14 +956,14 @@ zz_valyria_magic_blood_magic_spells.015 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.015.opt.z
+		name = zz_valyria_magic_blood_magic.015.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.016 = {
+zz_valyria_magic_blood_magic.016 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.016.t
-	desc = zz_valyria_magic_blood_magic_spells.016.desc
+	title = zz_valyria_magic_blood_magic.016.t
+	desc = zz_valyria_magic_blood_magic.016.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1004,7 +1004,7 @@ zz_valyria_magic_blood_magic_spells.016 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.016.opt.a
+		name = zz_valyria_magic_blood_magic.016.opt.a
 		hidden_effect = {
 			var:selected_army = {
 				save_scope_as = target 
@@ -1016,14 +1016,14 @@ zz_valyria_magic_blood_magic_spells.016 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.016.opt.z
+		name = zz_valyria_magic_blood_magic.016.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.017 = {
+zz_valyria_magic_blood_magic.017 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.017.t
-	desc = zz_valyria_magic_blood_magic_spells.017.desc
+	title = zz_valyria_magic_blood_magic.017.t
+	desc = zz_valyria_magic_blood_magic.017.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1035,7 +1035,7 @@ zz_valyria_magic_blood_magic_spells.017 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.017.opt.a
+		name = zz_valyria_magic_blood_magic.017.opt.a
 		hidden_effect = {
 			save_scope_value_as = {
 				name = option_01
@@ -1048,7 +1048,7 @@ zz_valyria_magic_blood_magic_spells.017 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.017.opt.a
+		name = zz_valyria_magic_blood_magic.017.opt.a
 		hidden_effect = {
 			save_scope_value_as = {
 				name = option_02
@@ -1062,15 +1062,15 @@ zz_valyria_magic_blood_magic_spells.017 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.017.opt.z
+		name = zz_valyria_magic_blood_magic.017.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.018 = {
+zz_valyria_magic_blood_magic.018 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.018.t
-	desc = zz_valyria_magic_blood_magic_spells.018.desc
+	title = zz_valyria_magic_blood_magic.018.t
+	desc = zz_valyria_magic_blood_magic.018.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1097,7 +1097,7 @@ zz_valyria_magic_blood_magic_spells.018 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.018.opt.a
+		name = zz_valyria_magic_blood_magic.018.opt.a
 		trigger = { 
 		}
 		hidden_effect = {
@@ -1112,14 +1112,14 @@ zz_valyria_magic_blood_magic_spells.018 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.018.opt.z
+		name = zz_valyria_magic_blood_magic.018.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.019 = {
+zz_valyria_magic_blood_magic.019 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.019.t
-	desc = zz_valyria_magic_blood_magic_spells.019.desc
+	title = zz_valyria_magic_blood_magic.019.t
+	desc = zz_valyria_magic_blood_magic.019.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1131,7 +1131,7 @@ zz_valyria_magic_blood_magic_spells.019 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.019.opt.a
+		name = zz_valyria_magic_blood_magic.019.opt.a
 		hidden_effect = {
 			save_scope_value_as = {
 				name = option_01
@@ -1144,7 +1144,7 @@ zz_valyria_magic_blood_magic_spells.019 = {
 		}		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.019.opt.b
+		name = zz_valyria_magic_blood_magic.019.opt.b
 		hidden_effect = {
 			save_scope_value_as = {
 				name = option_02
@@ -1160,14 +1160,14 @@ zz_valyria_magic_blood_magic_spells.019 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.015.opt.z
+		name = zz_valyria_magic_blood_magic.015.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.020 = {
+zz_valyria_magic_blood_magic.020 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.020.t
-	desc = zz_valyria_magic_blood_magic_spells.020.desc
+	title = zz_valyria_magic_blood_magic.020.t
+	desc = zz_valyria_magic_blood_magic.020.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1179,7 +1179,7 @@ zz_valyria_magic_blood_magic_spells.020 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.020.opt.a
+		name = zz_valyria_magic_blood_magic.020.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
@@ -1188,15 +1188,15 @@ zz_valyria_magic_blood_magic_spells.020 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.020.opt.z
+		name = zz_valyria_magic_blood_magic.020.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.021 = {
+zz_valyria_magic_blood_magic.021 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.021.t
-	desc = zz_valyria_magic_blood_magic_spells.021.desc
+	title = zz_valyria_magic_blood_magic.021.t
+	desc = zz_valyria_magic_blood_magic.021.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1208,7 +1208,7 @@ zz_valyria_magic_blood_magic_spells.021 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.021.opt.a
+		name = zz_valyria_magic_blood_magic.021.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
@@ -1219,15 +1219,15 @@ zz_valyria_magic_blood_magic_spells.021 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.021.opt.z
+		name = zz_valyria_magic_blood_magic.021.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.022 = {
+zz_valyria_magic_blood_magic.022 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.022.t
-	desc = zz_valyria_magic_blood_magic_spells.022.desc
+	title = zz_valyria_magic_blood_magic.022.t
+	desc = zz_valyria_magic_blood_magic.022.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1269,26 +1269,26 @@ zz_valyria_magic_blood_magic_spells.022 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.a
+		name = zz_valyria_magic_blood_magic.022.opt.a
 		trigger = {
 		}
 		hidden_effect = {
 			var:zz_valyria_selected_artifact?= { 
 				save_scope_as = target
 			}
-			trigger_event = zz_valyria_magic_blood_magic_spells.02201
+			trigger_event = zz_valyria_magic_blood_magic.02201
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.z
+		name = zz_valyria_magic_blood_magic.022.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.02201 = {
+zz_valyria_magic_blood_magic.02201 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.022.t
-	desc = zz_valyria_magic_blood_magic_spells.022.desc
+	title = zz_valyria_magic_blood_magic.022.t
+	desc = zz_valyria_magic_blood_magic.022.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1314,24 +1314,24 @@ zz_valyria_magic_blood_magic_spells.02201 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.a
+		name = zz_valyria_magic_blood_magic.022.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target_char_01
 			}
-			trigger_event = zz_valyria_magic_blood_magic_spells.02202
+			trigger_event = zz_valyria_magic_blood_magic.02202
 		}
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.z
+		name = zz_valyria_magic_blood_magic.022.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.02202 = {
+zz_valyria_magic_blood_magic.02202 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.022.t
-	desc = zz_valyria_magic_blood_magic_spells.022.desc
+	title = zz_valyria_magic_blood_magic.022.t
+	desc = zz_valyria_magic_blood_magic.022.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1357,24 +1357,24 @@ zz_valyria_magic_blood_magic_spells.02202 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.a
+		name = zz_valyria_magic_blood_magic.022.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target_char_02
 			}
-			trigger_event = zz_valyria_magic_blood_magic_spells.02203
+			trigger_event = zz_valyria_magic_blood_magic.02203
 		}
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.z
+		name = zz_valyria_magic_blood_magic.022.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.02203 = {
+zz_valyria_magic_blood_magic.02203 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.022.t
-	desc = zz_valyria_magic_blood_magic_spells.022.desc
+	title = zz_valyria_magic_blood_magic.022.t
+	desc = zz_valyria_magic_blood_magic.022.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1400,24 +1400,24 @@ zz_valyria_magic_blood_magic_spells.02203 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.a
+		name = zz_valyria_magic_blood_magic.022.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target_char_03
 			}
-			trigger_event = zz_valyria_magic_blood_magic_spells.02204
+			trigger_event = zz_valyria_magic_blood_magic.02204
 		}
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.z
+		name = zz_valyria_magic_blood_magic.022.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.02204 = {
+zz_valyria_magic_blood_magic.02204 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.022.t
-	desc = zz_valyria_magic_blood_magic_spells.022.desc
+	title = zz_valyria_magic_blood_magic.022.t
+	desc = zz_valyria_magic_blood_magic.022.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1443,24 +1443,24 @@ zz_valyria_magic_blood_magic_spells.02204 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.a
+		name = zz_valyria_magic_blood_magic.022.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target_char_04
 			}
-			trigger_event = zz_valyria_magic_blood_magic_spells.02205
+			trigger_event = zz_valyria_magic_blood_magic.02205
 		}
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.z
+		name = zz_valyria_magic_blood_magic.022.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.02205 = {
+zz_valyria_magic_blood_magic.02205 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.022.t
-	desc = zz_valyria_magic_blood_magic_spells.022.desc
+	title = zz_valyria_magic_blood_magic.022.t
+	desc = zz_valyria_magic_blood_magic.022.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1486,24 +1486,24 @@ zz_valyria_magic_blood_magic_spells.02205 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.a
+		name = zz_valyria_magic_blood_magic.022.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target_char_05
 			}
-			trigger_event = zz_valyria_magic_blood_magic_spells.02206
+			trigger_event = zz_valyria_magic_blood_magic.02206
 		}
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.z
+		name = zz_valyria_magic_blood_magic.022.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.02206 = {
+zz_valyria_magic_blood_magic.02206 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.022.t
-	desc = zz_valyria_magic_blood_magic_spells.022.desc
+	title = zz_valyria_magic_blood_magic.022.t
+	desc = zz_valyria_magic_blood_magic.022.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1529,24 +1529,24 @@ zz_valyria_magic_blood_magic_spells.02206 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.a
+		name = zz_valyria_magic_blood_magic.022.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target_char_06
 			}
-			trigger_event = zz_valyria_magic_blood_magic_spells.02207
+			trigger_event = zz_valyria_magic_blood_magic.02207
 		}
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.z
+		name = zz_valyria_magic_blood_magic.022.opt.z
 	}
 }
-zz_valyria_magic_blood_magic_spells.02207 = {
+zz_valyria_magic_blood_magic.02207 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.022.t
-	desc = zz_valyria_magic_blood_magic_spells.022.desc
+	title = zz_valyria_magic_blood_magic.022.t
+	desc = zz_valyria_magic_blood_magic.022.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1572,7 +1572,7 @@ zz_valyria_magic_blood_magic_spells.02207 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.a
+		name = zz_valyria_magic_blood_magic.022.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target_char_07
@@ -1585,15 +1585,15 @@ zz_valyria_magic_blood_magic_spells.02207 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.022.opt.z
+		name = zz_valyria_magic_blood_magic.022.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.023 = {
+zz_valyria_magic_blood_magic.023 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.023.t
-	desc = zz_valyria_magic_blood_magic_spells.023.desc
+	title = zz_valyria_magic_blood_magic.023.t
+	desc = zz_valyria_magic_blood_magic.023.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1605,7 +1605,7 @@ zz_valyria_magic_blood_magic_spells.023 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.023.opt.a
+		name = zz_valyria_magic_blood_magic.023.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
@@ -1615,16 +1615,16 @@ zz_valyria_magic_blood_magic_spells.023 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.023.opt.z
+		name = zz_valyria_magic_blood_magic.023.opt.z
 	}
 }
 
 
-zz_valyria_magic_blood_magic_spells.024 = {
+zz_valyria_magic_blood_magic.024 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.024.t
-	desc = zz_valyria_magic_blood_magic_spells.024.desc
+	title = zz_valyria_magic_blood_magic.024.t
+	desc = zz_valyria_magic_blood_magic.024.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1636,7 +1636,7 @@ zz_valyria_magic_blood_magic_spells.024 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.024.opt.a
+		name = zz_valyria_magic_blood_magic.024.opt.a
 		trigger = {
 			scope:recipient = {
 			}
@@ -1649,15 +1649,15 @@ zz_valyria_magic_blood_magic_spells.024 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.001.opt.z
+		name = zz_valyria_magic_blood_magic.001.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.025 = {
+zz_valyria_magic_blood_magic.025 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.025.t
-	desc = zz_valyria_magic_blood_magic_spells.025.desc
+	title = zz_valyria_magic_blood_magic.025.t
+	desc = zz_valyria_magic_blood_magic.025.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1669,7 +1669,7 @@ zz_valyria_magic_blood_magic_spells.025 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.025.opt.a
+		name = zz_valyria_magic_blood_magic.025.opt.a
 		trigger = {
 			scope:recipient = {
 			}
@@ -1682,15 +1682,15 @@ zz_valyria_magic_blood_magic_spells.025 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.001.opt.z
+		name = zz_valyria_magic_blood_magic.001.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.026 = {
+zz_valyria_magic_blood_magic.026 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.026.t
-	desc = zz_valyria_magic_blood_magic_spells.026.desc
+	title = zz_valyria_magic_blood_magic.026.t
+	desc = zz_valyria_magic_blood_magic.026.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1702,7 +1702,7 @@ zz_valyria_magic_blood_magic_spells.026 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.026.opt.a
+		name = zz_valyria_magic_blood_magic.026.opt.a
 		trigger = {
 			scope:recipient = {
 			}
@@ -1715,15 +1715,15 @@ zz_valyria_magic_blood_magic_spells.026 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.001.opt.z
+		name = zz_valyria_magic_blood_magic.001.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.027 = {
+zz_valyria_magic_blood_magic.027 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.027.t
-	desc = zz_valyria_magic_blood_magic_spells.027.desc
+	title = zz_valyria_magic_blood_magic.027.t
+	desc = zz_valyria_magic_blood_magic.027.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1735,7 +1735,7 @@ zz_valyria_magic_blood_magic_spells.027 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.027.opt.a
+		name = zz_valyria_magic_blood_magic.027.opt.a
 		trigger = {
 			scope:recipient = {
 			}
@@ -1748,15 +1748,15 @@ zz_valyria_magic_blood_magic_spells.027 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.001.opt.z
+		name = zz_valyria_magic_blood_magic.001.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.028 = {
+zz_valyria_magic_blood_magic.028 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.028.t
-	desc = zz_valyria_magic_blood_magic_spells.028.desc
+	title = zz_valyria_magic_blood_magic.028.t
+	desc = zz_valyria_magic_blood_magic.028.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1768,7 +1768,7 @@ zz_valyria_magic_blood_magic_spells.028 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.028.opt.a
+		name = zz_valyria_magic_blood_magic.028.opt.a
 		trigger = {
 			scope:recipient = {
 			}
@@ -1781,15 +1781,15 @@ zz_valyria_magic_blood_magic_spells.028 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.001.opt.z
+		name = zz_valyria_magic_blood_magic.001.opt.z
 	}
 }
 
-zz_valyria_magic_blood_magic_spells.029 = {
+zz_valyria_magic_blood_magic.029 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic_spells.029.t
-	desc = zz_valyria_magic_blood_magic_spells.029.desc
+	title = zz_valyria_magic_blood_magic.029.t
+	desc = zz_valyria_magic_blood_magic.029.desc
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1801,7 +1801,7 @@ zz_valyria_magic_blood_magic_spells.029 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.029.opt.a
+		name = zz_valyria_magic_blood_magic.029.opt.a
 		trigger = {
 			scope:recipient = {
 			}
@@ -1814,7 +1814,7 @@ zz_valyria_magic_blood_magic_spells.029 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.001.opt.z
+		name = zz_valyria_magic_blood_magic.001.opt.z
 	}
 }
 

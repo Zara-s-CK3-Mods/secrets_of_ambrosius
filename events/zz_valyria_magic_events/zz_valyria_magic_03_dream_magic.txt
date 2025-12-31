@@ -1,10 +1,10 @@
-﻿namespace = zz_valyria_magic_dream_magic_spells 
+﻿namespace = zz_valyria_magic_dream_magic
 
-zz_valyria_magic_dream_magic_spells.001 = {
+zz_valyria_magic_dream_magic.001 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.001.t
-	desc = zz_valyria_magic_dream_magic_spells.001.desc
+	title = zz_valyria_magic_dream_magic.001.t
+	desc = zz_valyria_magic_dream_magic.001.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -16,7 +16,7 @@ zz_valyria_magic_dream_magic_spells.001 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.001.opt.a
+		name = zz_valyria_magic_dream_magic.001.opt.a
 		hidden_effect = {
 			save_scope_value_as = {
 				name = option_01
@@ -30,7 +30,7 @@ zz_valyria_magic_dream_magic_spells.001 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.001.opt.b
+		name = zz_valyria_magic_dream_magic.001.opt.b
 		hidden_effect = {
 			save_scope_value_as = {
 				name = option_02
@@ -43,14 +43,14 @@ zz_valyria_magic_dream_magic_spells.001 = {
 		}		
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.001.opt.z
+		name = zz_valyria_magic_dream_magic.001.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.002 = {
+zz_valyria_magic_dream_magic.002 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.002.t
-	desc = zz_valyria_magic_dream_magic_spells.002.desc
+	title = zz_valyria_magic_dream_magic.002.t
+	desc = zz_valyria_magic_dream_magic.002.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -151,7 +151,7 @@ zz_valyria_magic_dream_magic_spells.002 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.002.opt.a
+		name = zz_valyria_magic_dream_magic.002.opt.a
 		hidden_effect = {
 			var:selected_trait ?= {
 				save_scope_as = trait 
@@ -165,14 +165,14 @@ zz_valyria_magic_dream_magic_spells.002 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.002.opt.z
+		name = zz_valyria_magic_dream_magic.002.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.003 = {
+zz_valyria_magic_dream_magic.003 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.003.t
-	desc = zz_valyria_magic_dream_magic_spells.003.desc
+	title = zz_valyria_magic_dream_magic.003.t
+	desc = zz_valyria_magic_dream_magic.003.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -231,7 +231,7 @@ zz_valyria_magic_dream_magic_spells.003 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.003.opt.a
+		name = zz_valyria_magic_dream_magic.003.opt.a
 		hidden_effect = {
 			switch = {
 				trigger = var:selected_flag
@@ -295,14 +295,14 @@ zz_valyria_magic_dream_magic_spells.003 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.003.opt.z
+		name = zz_valyria_magic_dream_magic.003.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.004 = {
+zz_valyria_magic_dream_magic.004 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.004.t
-	desc = zz_valyria_magic_dream_magic_spells.004.desc
+	title = zz_valyria_magic_dream_magic.004.t
+	desc = zz_valyria_magic_dream_magic.004.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -314,7 +314,7 @@ zz_valyria_magic_dream_magic_spells.004 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.004.opt.a
+		name = zz_valyria_magic_dream_magic.004.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = dream_magic
@@ -324,14 +324,14 @@ zz_valyria_magic_dream_magic_spells.004 = {
 
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.004.opt.z
+		name = zz_valyria_magic_dream_magic.004.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.005 = {
+zz_valyria_magic_dream_magic.005 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.005.t
-	desc = zz_valyria_magic_dream_magic_spells.005.desc
+	title = zz_valyria_magic_dream_magic.005.t
+	desc = zz_valyria_magic_dream_magic.005.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -607,7 +607,7 @@ zz_valyria_magic_dream_magic_spells.005 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.005.opt.a
+		name = zz_valyria_magic_dream_magic.005.opt.a
 		hidden_effect = {
 			var:selected_trait ?= {
 				save_scope_as = trait 
@@ -621,14 +621,14 @@ zz_valyria_magic_dream_magic_spells.005 = {
 	}
 	
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.005.opt.z
+		name = zz_valyria_magic_dream_magic.005.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.006 = {
+zz_valyria_magic_dream_magic.006 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.006.t
-	desc = zz_valyria_magic_dream_magic_spells.006.desc
+	title = zz_valyria_magic_dream_magic.006.t
+	desc = zz_valyria_magic_dream_magic.006.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -714,7 +714,7 @@ zz_valyria_magic_dream_magic_spells.006 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.006.opt.a
+		name = zz_valyria_magic_dream_magic.006.opt.a
 		hidden_effect = {
 			var:selected_trait ?= {
 				save_scope_as = trait 
@@ -727,14 +727,14 @@ zz_valyria_magic_dream_magic_spells.006 = {
 
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.006.opt.z
+		name = zz_valyria_magic_dream_magic.006.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.007 = {
+zz_valyria_magic_dream_magic.007 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.007.t
-	desc = zz_valyria_magic_dream_magic_spells.007.desc
+	title = zz_valyria_magic_dream_magic.007.t
+	desc = zz_valyria_magic_dream_magic.007.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -746,7 +746,7 @@ zz_valyria_magic_dream_magic_spells.007 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.007.opt.a
+		name = zz_valyria_magic_dream_magic.007.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = dream_magic
@@ -757,14 +757,14 @@ zz_valyria_magic_dream_magic_spells.007 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.007.opt.z
+		name = zz_valyria_magic_dream_magic.007.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.008 = {
+zz_valyria_magic_dream_magic.008 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.008.t
-	desc = zz_valyria_magic_dream_magic_spells.008.desc
+	title = zz_valyria_magic_dream_magic.008.t
+	desc = zz_valyria_magic_dream_magic.008.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -776,7 +776,7 @@ zz_valyria_magic_dream_magic_spells.008 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.008.opt.a
+		name = zz_valyria_magic_dream_magic.008.opt.a
 		hidden_effect = {
 			save_scope_value_as = {
 				name = option_01
@@ -790,7 +790,7 @@ zz_valyria_magic_dream_magic_spells.008 = {
 		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic_spells.008.opt.a
+		name = zz_valyria_magic_blood_magic.008.opt.a
 		hidden_effect = {
 			save_scope_value_as = {
 				name = option_02
@@ -804,14 +804,14 @@ zz_valyria_magic_dream_magic_spells.008 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.008.opt.z
+		name = zz_valyria_magic_dream_magic.008.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.009 = {
+zz_valyria_magic_dream_magic.009 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.009.t
-	desc = zz_valyria_magic_dream_magic_spells.009.desc
+	title = zz_valyria_magic_dream_magic.009.t
+	desc = zz_valyria_magic_dream_magic.009.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -823,7 +823,7 @@ zz_valyria_magic_dream_magic_spells.009 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.009.opt.a
+		name = zz_valyria_magic_dream_magic.009.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = dream_magic
@@ -832,14 +832,14 @@ zz_valyria_magic_dream_magic_spells.009 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.009.opt.z
+		name = zz_valyria_magic_dream_magic.009.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.010 = {
+zz_valyria_magic_dream_magic.010 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.010.t
-	desc = zz_valyria_magic_dream_magic_spells.010.desc
+	title = zz_valyria_magic_dream_magic.010.t
+	desc = zz_valyria_magic_dream_magic.010.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -851,7 +851,7 @@ zz_valyria_magic_dream_magic_spells.010 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.010.opt.a
+		name = zz_valyria_magic_dream_magic.010.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = dream_magic
@@ -860,14 +860,14 @@ zz_valyria_magic_dream_magic_spells.010 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.010.opt.z
+		name = zz_valyria_magic_dream_magic.010.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.011 = {
+zz_valyria_magic_dream_magic.011 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.011.t
-	desc = zz_valyria_magic_dream_magic_spells.011.desc
+	title = zz_valyria_magic_dream_magic.011.t
+	desc = zz_valyria_magic_dream_magic.011.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -908,7 +908,7 @@ zz_valyria_magic_dream_magic_spells.011 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.011.opt.a
+		name = zz_valyria_magic_dream_magic.011.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
@@ -921,14 +921,14 @@ zz_valyria_magic_dream_magic_spells.011 = {
 
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.011.opt.z
+		name = zz_valyria_magic_dream_magic.011.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.012 = {
+zz_valyria_magic_dream_magic.012 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.012.t
-	desc = zz_valyria_magic_dream_magic_spells.012.desc
+	title = zz_valyria_magic_dream_magic.012.t
+	desc = zz_valyria_magic_dream_magic.012.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -969,7 +969,7 @@ zz_valyria_magic_dream_magic_spells.012 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.012.opt.a
+		name = zz_valyria_magic_dream_magic.012.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
@@ -981,14 +981,14 @@ zz_valyria_magic_dream_magic_spells.012 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.012.opt.z
+		name = zz_valyria_magic_dream_magic.012.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.013 = {
+zz_valyria_magic_dream_magic.013 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.013.t
-	desc = zz_valyria_magic_dream_magic_spells.013.desc
+	title = zz_valyria_magic_dream_magic.013.t
+	desc = zz_valyria_magic_dream_magic.013.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1028,7 +1028,7 @@ zz_valyria_magic_dream_magic_spells.013 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.013.opt.a
+		name = zz_valyria_magic_dream_magic.013.opt.a
 		hidden_effect = {
 			var:selected_secret = {
 				save_scope_as = secret
@@ -1040,14 +1040,14 @@ zz_valyria_magic_dream_magic_spells.013 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.013.opt.z
+		name = zz_valyria_magic_dream_magic.013.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.014 = {
+zz_valyria_magic_dream_magic.014 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.014.t
-	desc = zz_valyria_magic_dream_magic_spells.014.desc
+	title = zz_valyria_magic_dream_magic.014.t
+	desc = zz_valyria_magic_dream_magic.014.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1088,7 +1088,7 @@ zz_valyria_magic_dream_magic_spells.014 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.014.opt.a
+		name = zz_valyria_magic_dream_magic.014.opt.a
 		hidden_effect = {
 			var:selected_secret = {
 				save_scope_as = secret
@@ -1100,14 +1100,14 @@ zz_valyria_magic_dream_magic_spells.014 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.014.opt.z
+		name = zz_valyria_magic_dream_magic.014.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.015 = {
+zz_valyria_magic_dream_magic.015 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.015.t
-	desc = zz_valyria_magic_dream_magic_spells.015.desc
+	title = zz_valyria_magic_dream_magic.015.t
+	desc = zz_valyria_magic_dream_magic.015.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1147,7 +1147,7 @@ zz_valyria_magic_dream_magic_spells.015 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.015.opt.a
+		name = zz_valyria_magic_dream_magic.015.opt.a
 		hidden_effect = {
 			var:selected_secret = {
 				save_scope_as = secret
@@ -1159,14 +1159,14 @@ zz_valyria_magic_dream_magic_spells.015 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.015.opt.z
+		name = zz_valyria_magic_dream_magic.015.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.016 = {
+zz_valyria_magic_dream_magic.016 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.016.t
-	desc = zz_valyria_magic_dream_magic_spells.016.desc
+	title = zz_valyria_magic_dream_magic.016.t
+	desc = zz_valyria_magic_dream_magic.016.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1206,23 +1206,23 @@ zz_valyria_magic_dream_magic_spells.016 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.016.opt.a
+		name = zz_valyria_magic_dream_magic.016.opt.a
 		hidden_effect = {
 			var:selected_secret = {
 				save_scope_as = secret
 			}
-			trigger_event = zz_valyria_magic_dream_magic_spells.01601
+			trigger_event = zz_valyria_magic_dream_magic.01601
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.016.opt.z
+		name = zz_valyria_magic_dream_magic.016.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.01601 = {
+zz_valyria_magic_dream_magic.01601 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.016.t
-	desc = zz_valyria_magic_dream_magic_spells.016.desc
+	title = zz_valyria_magic_dream_magic.016.t
+	desc = zz_valyria_magic_dream_magic.016.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1250,7 +1250,7 @@ zz_valyria_magic_dream_magic_spells.01601 = {
 	
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.016.opt.a
+		name = zz_valyria_magic_dream_magic.016.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target
@@ -1262,14 +1262,14 @@ zz_valyria_magic_dream_magic_spells.01601 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.016.opt.z
+		name = zz_valyria_magic_dream_magic.016.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.017 = {
+zz_valyria_magic_dream_magic.017 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.017.t
-	desc = zz_valyria_magic_dream_magic_spells.017.desc
+	title = zz_valyria_magic_dream_magic.017.t
+	desc = zz_valyria_magic_dream_magic.017.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1309,23 +1309,23 @@ zz_valyria_magic_dream_magic_spells.017 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.017.opt.a
+		name = zz_valyria_magic_dream_magic.017.opt.a
 		hidden_effect = {
 			var:selected_secret = {
 				save_scope_as = secret
 			}
-			trigger_event = zz_valyria_magic_dream_magic_spells.01701
+			trigger_event = zz_valyria_magic_dream_magic.01701
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.017.opt.z
+		name = zz_valyria_magic_dream_magic.017.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.01701 = {
+zz_valyria_magic_dream_magic.01701 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.017.t
-	desc = zz_valyria_magic_dream_magic_spells.017.desc
+	title = zz_valyria_magic_dream_magic.017.t
+	desc = zz_valyria_magic_dream_magic.017.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1370,7 +1370,7 @@ zz_valyria_magic_dream_magic_spells.01701 = {
 	
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.017.opt.a
+		name = zz_valyria_magic_dream_magic.017.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target
@@ -1382,14 +1382,14 @@ zz_valyria_magic_dream_magic_spells.01701 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.017.opt.z
+		name = zz_valyria_magic_dream_magic.017.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.018 = {
+zz_valyria_magic_dream_magic.018 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.018.t
-	desc = zz_valyria_magic_dream_magic_spells.018.desc
+	title = zz_valyria_magic_dream_magic.018.t
+	desc = zz_valyria_magic_dream_magic.018.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1429,23 +1429,23 @@ zz_valyria_magic_dream_magic_spells.018 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.018.opt.a
+		name = zz_valyria_magic_dream_magic.018.opt.a
 		hidden_effect = {
 			var:selected_secret = {
 				save_scope_as = secret
 			}
-			trigger_event = zz_valyria_magic_dream_magic_spells.01801
+			trigger_event = zz_valyria_magic_dream_magic.01801
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.018.opt.z
+		name = zz_valyria_magic_dream_magic.018.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.01801 = {
+zz_valyria_magic_dream_magic.01801 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.018.t
-	desc = zz_valyria_magic_dream_magic_spells.018.desc
+	title = zz_valyria_magic_dream_magic.018.t
+	desc = zz_valyria_magic_dream_magic.018.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1490,7 +1490,7 @@ zz_valyria_magic_dream_magic_spells.01801 = {
 	
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.018.opt.a
+		name = zz_valyria_magic_dream_magic.018.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target
@@ -1502,14 +1502,14 @@ zz_valyria_magic_dream_magic_spells.01801 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.018.opt.z
+		name = zz_valyria_magic_dream_magic.018.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.019 = {
+zz_valyria_magic_dream_magic.019 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.019.t
-	desc = zz_valyria_magic_dream_magic_spells.019.desc
+	title = zz_valyria_magic_dream_magic.019.t
+	desc = zz_valyria_magic_dream_magic.019.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1550,7 +1550,7 @@ zz_valyria_magic_dream_magic_spells.019 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.019.opt.a
+		name = zz_valyria_magic_dream_magic.019.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
@@ -1562,14 +1562,14 @@ zz_valyria_magic_dream_magic_spells.019 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.019.opt.z
+		name = zz_valyria_magic_dream_magic.019.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.020 = {
+zz_valyria_magic_dream_magic.020 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.020.t
-	desc = zz_valyria_magic_dream_magic_spells.020.desc
+	title = zz_valyria_magic_dream_magic.020.t
+	desc = zz_valyria_magic_dream_magic.020.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1610,7 +1610,7 @@ zz_valyria_magic_dream_magic_spells.020 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.020.opt.a
+		name = zz_valyria_magic_dream_magic.020.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
@@ -1622,14 +1622,14 @@ zz_valyria_magic_dream_magic_spells.020 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.020.opt.z
+		name = zz_valyria_magic_dream_magic.020.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.021 = {
+zz_valyria_magic_dream_magic.021 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.020.t
-	desc = zz_valyria_magic_dream_magic_spells.020.desc
+	title = zz_valyria_magic_dream_magic.020.t
+	desc = zz_valyria_magic_dream_magic.020.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1670,7 +1670,7 @@ zz_valyria_magic_dream_magic_spells.021 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.020.opt.a
+		name = zz_valyria_magic_dream_magic.020.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
@@ -1682,14 +1682,14 @@ zz_valyria_magic_dream_magic_spells.021 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.021.opt.z
+		name = zz_valyria_magic_dream_magic.021.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.022 = {
+zz_valyria_magic_dream_magic.022 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.022.t
-	desc = zz_valyria_magic_dream_magic_spells.022.desc
+	title = zz_valyria_magic_dream_magic.022.t
+	desc = zz_valyria_magic_dream_magic.022.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1730,7 +1730,7 @@ zz_valyria_magic_dream_magic_spells.022 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.022.opt.a
+		name = zz_valyria_magic_dream_magic.022.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
@@ -1742,14 +1742,14 @@ zz_valyria_magic_dream_magic_spells.022 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.022.opt.z
+		name = zz_valyria_magic_dream_magic.022.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.023 = {
+zz_valyria_magic_dream_magic.023 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.023.t
-	desc = zz_valyria_magic_dream_magic_spells.023.desc
+	title = zz_valyria_magic_dream_magic.023.t
+	desc = zz_valyria_magic_dream_magic.023.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1790,24 +1790,24 @@ zz_valyria_magic_dream_magic_spells.023 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.023.opt.a
+		name = zz_valyria_magic_dream_magic.023.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
 			}
-			trigger_event = zz_valyria_magic_dream_magic_spells.02301	
+			trigger_event = zz_valyria_magic_dream_magic.02301	
 		}
 		
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.023.opt.z
+		name = zz_valyria_magic_dream_magic.023.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.02301 = {
+zz_valyria_magic_dream_magic.02301 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.023.t
-	desc = zz_valyria_magic_dream_magic_spells.023.desc
+	title = zz_valyria_magic_dream_magic.023.t
+	desc = zz_valyria_magic_dream_magic.023.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1866,7 +1866,7 @@ zz_valyria_magic_dream_magic_spells.02301 = {
 	
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.023.opt.a
+		name = zz_valyria_magic_dream_magic.023.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target
@@ -1878,14 +1878,14 @@ zz_valyria_magic_dream_magic_spells.02301 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.023.opt.z
+		name = zz_valyria_magic_dream_magic.023.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.024 = {
+zz_valyria_magic_dream_magic.024 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.024.t
-	desc = zz_valyria_magic_dream_magic_spells.024.desc
+	title = zz_valyria_magic_dream_magic.024.t
+	desc = zz_valyria_magic_dream_magic.024.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -1926,23 +1926,23 @@ zz_valyria_magic_dream_magic_spells.024 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.024.opt.a
+		name = zz_valyria_magic_dream_magic.024.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
 			}
-			trigger_event = zz_valyria_magic_dream_magic_spells.02401					
+			trigger_event = zz_valyria_magic_dream_magic.02401					
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.024.opt.z
+		name = zz_valyria_magic_dream_magic.024.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.02401 = {
+zz_valyria_magic_dream_magic.02401 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.024.t
-	desc = zz_valyria_magic_dream_magic_spells.024.desc
+	title = zz_valyria_magic_dream_magic.024.t
+	desc = zz_valyria_magic_dream_magic.024.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2001,7 +2001,7 @@ zz_valyria_magic_dream_magic_spells.02401 = {
 	
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.024.opt.a
+		name = zz_valyria_magic_dream_magic.024.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target
@@ -2013,14 +2013,14 @@ zz_valyria_magic_dream_magic_spells.02401 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.024.opt.z
+		name = zz_valyria_magic_dream_magic.024.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.025 = {
+zz_valyria_magic_dream_magic.025 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.025.t
-	desc = zz_valyria_magic_dream_magic_spells.025.desc
+	title = zz_valyria_magic_dream_magic.025.t
+	desc = zz_valyria_magic_dream_magic.025.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2061,23 +2061,23 @@ zz_valyria_magic_dream_magic_spells.025 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.025.opt.a
+		name = zz_valyria_magic_dream_magic.025.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
 			}
-			trigger_event = zz_valyria_magic_dream_magic_spells.02501
+			trigger_event = zz_valyria_magic_dream_magic.02501
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.025.opt.z
+		name = zz_valyria_magic_dream_magic.025.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.02501 = {
+zz_valyria_magic_dream_magic.02501 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.025.t
-	desc = zz_valyria_magic_dream_magic_spells.025.desc
+	title = zz_valyria_magic_dream_magic.025.t
+	desc = zz_valyria_magic_dream_magic.025.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2136,7 +2136,7 @@ zz_valyria_magic_dream_magic_spells.02501 = {
 	
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.025.opt.a
+		name = zz_valyria_magic_dream_magic.025.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target
@@ -2148,14 +2148,14 @@ zz_valyria_magic_dream_magic_spells.02501 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.025.opt.z
+		name = zz_valyria_magic_dream_magic.025.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.026 = {
+zz_valyria_magic_dream_magic.026 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.026.t
-	desc = zz_valyria_magic_dream_magic_spells.026.desc
+	title = zz_valyria_magic_dream_magic.026.t
+	desc = zz_valyria_magic_dream_magic.026.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2196,23 +2196,23 @@ zz_valyria_magic_dream_magic_spells.026 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.026.opt.a
+		name = zz_valyria_magic_dream_magic.026.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
 			}
-			trigger_event = zz_valyria_magic_dream_magic_spells.02601
+			trigger_event = zz_valyria_magic_dream_magic.02601
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.026.opt.z
+		name = zz_valyria_magic_dream_magic.026.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.02601 = {
+zz_valyria_magic_dream_magic.02601 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.026.t
-	desc = zz_valyria_magic_dream_magic_spells.026.desc
+	title = zz_valyria_magic_dream_magic.026.t
+	desc = zz_valyria_magic_dream_magic.026.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2271,7 +2271,7 @@ zz_valyria_magic_dream_magic_spells.02601 = {
 	
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.026.opt.a
+		name = zz_valyria_magic_dream_magic.026.opt.a
 		hidden_effect = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target
@@ -2283,14 +2283,14 @@ zz_valyria_magic_dream_magic_spells.02601 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.026.opt.z
+		name = zz_valyria_magic_dream_magic.026.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.027 = {
+zz_valyria_magic_dream_magic.027 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.027.t
-	desc = zz_valyria_magic_dream_magic_spells.027.desc
+	title = zz_valyria_magic_dream_magic.027.t
+	desc = zz_valyria_magic_dream_magic.027.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2331,7 +2331,7 @@ zz_valyria_magic_dream_magic_spells.027 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.027.opt.a
+		name = zz_valyria_magic_dream_magic.027.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
@@ -2343,14 +2343,14 @@ zz_valyria_magic_dream_magic_spells.027 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.027.opt.z
+		name = zz_valyria_magic_dream_magic.027.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.028 = {
+zz_valyria_magic_dream_magic.028 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.028.t
-	desc = zz_valyria_magic_dream_magic_spells.028.desc
+	title = zz_valyria_magic_dream_magic.028.t
+	desc = zz_valyria_magic_dream_magic.028.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2391,7 +2391,7 @@ zz_valyria_magic_dream_magic_spells.028 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.028.opt.a
+		name = zz_valyria_magic_dream_magic.028.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
@@ -2403,14 +2403,14 @@ zz_valyria_magic_dream_magic_spells.028 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.028.opt.z
+		name = zz_valyria_magic_dream_magic.028.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.029 = {
+zz_valyria_magic_dream_magic.029 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.029.t
-	desc = zz_valyria_magic_dream_magic_spells.029.desc
+	title = zz_valyria_magic_dream_magic.029.t
+	desc = zz_valyria_magic_dream_magic.029.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2451,7 +2451,7 @@ zz_valyria_magic_dream_magic_spells.029 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.029.opt.a
+		name = zz_valyria_magic_dream_magic.029.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
@@ -2463,14 +2463,14 @@ zz_valyria_magic_dream_magic_spells.029 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.029.opt.z
+		name = zz_valyria_magic_dream_magic.029.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.030 = {
+zz_valyria_magic_dream_magic.030 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.030.t
-	desc = zz_valyria_magic_dream_magic_spells.030.desc
+	title = zz_valyria_magic_dream_magic.030.t
+	desc = zz_valyria_magic_dream_magic.030.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2511,7 +2511,7 @@ zz_valyria_magic_dream_magic_spells.030 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.030.opt.a
+		name = zz_valyria_magic_dream_magic.030.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
@@ -2523,14 +2523,14 @@ zz_valyria_magic_dream_magic_spells.030 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.030.opt.z
+		name = zz_valyria_magic_dream_magic.030.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.031 = {
+zz_valyria_magic_dream_magic.031 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.031.t
-	desc = zz_valyria_magic_dream_magic_spells.031.desc
+	title = zz_valyria_magic_dream_magic.031.t
+	desc = zz_valyria_magic_dream_magic.031.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2571,7 +2571,7 @@ zz_valyria_magic_dream_magic_spells.031 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.031.opt.a
+		name = zz_valyria_magic_dream_magic.031.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
@@ -2583,14 +2583,14 @@ zz_valyria_magic_dream_magic_spells.031 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.031.opt.z
+		name = zz_valyria_magic_dream_magic.031.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.032 = {
+zz_valyria_magic_dream_magic.032 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.032.t
-	desc = zz_valyria_magic_dream_magic_spells.032.desc
+	title = zz_valyria_magic_dream_magic.032.t
+	desc = zz_valyria_magic_dream_magic.032.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2631,7 +2631,7 @@ zz_valyria_magic_dream_magic_spells.032 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.032.opt.a
+		name = zz_valyria_magic_dream_magic.032.opt.a
 		hidden_effect = {
 			var:selected_scheme = {
 				save_scope_as = scheme
@@ -2643,15 +2643,15 @@ zz_valyria_magic_dream_magic_spells.032 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.032.opt.z
+		name = zz_valyria_magic_dream_magic.032.opt.z
 	}
 }
 
-zz_valyria_magic_dream_magic_spells.033 = {
+zz_valyria_magic_dream_magic.033 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.033.t
-	desc = zz_valyria_magic_dream_magic_spells.033.desc
+	title = zz_valyria_magic_dream_magic.033.t
+	desc = zz_valyria_magic_dream_magic.033.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2667,7 +2667,7 @@ zz_valyria_magic_dream_magic_spells.033 = {
 
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.033.opt.a
+		name = zz_valyria_magic_dream_magic.033.opt.a
 		hidden_effect = {
 			save_scope_value_as = {
 				name = option_01
@@ -2680,7 +2680,7 @@ zz_valyria_magic_dream_magic_spells.033 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.033.opt.b
+		name = zz_valyria_magic_dream_magic.033.opt.b
 		trigger = {
 			scope:secondary_recipient = {
 				zz_valyria_has_mana_to_cast = {
@@ -2700,7 +2700,7 @@ zz_valyria_magic_dream_magic_spells.033 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.033.opt.c
+		name = zz_valyria_magic_dream_magic.033.opt.c
 		trigger = {
 			scope:secondary_recipient = {
 				zz_valyria_has_mana_to_cast = {
@@ -2720,15 +2720,15 @@ zz_valyria_magic_dream_magic_spells.033 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.033.opt.z
+		name = zz_valyria_magic_dream_magic.033.opt.z
 	}
 }
 
-zz_valyria_magic_dream_magic_spells.034 = {
+zz_valyria_magic_dream_magic.034 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.034.t
-	desc = zz_valyria_magic_dream_magic_spells.034.desc
+	title = zz_valyria_magic_dream_magic.034.t
+	desc = zz_valyria_magic_dream_magic.034.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2781,7 +2781,7 @@ zz_valyria_magic_dream_magic_spells.034 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.034.opt.a
+		name = zz_valyria_magic_dream_magic.034.opt.a
 		hidden_effect = {
 			var:selected_culture ?= {
 				save_scope_as = culture 
@@ -2795,15 +2795,15 @@ zz_valyria_magic_dream_magic_spells.034 = {
 	}
 	
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.034.opt.z
+		name = zz_valyria_magic_dream_magic.034.opt.z
 	}
 }
 
-zz_valyria_magic_dream_magic_spells.035 = {
+zz_valyria_magic_dream_magic.035 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.035.t
-	desc = zz_valyria_magic_dream_magic_spells.035.desc
+	title = zz_valyria_magic_dream_magic.035.t
+	desc = zz_valyria_magic_dream_magic.035.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2869,7 +2869,7 @@ zz_valyria_magic_dream_magic_spells.035 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.035.opt.a
+		name = zz_valyria_magic_dream_magic.035.opt.a
 		hidden_effect = {
 			var:selected_religion ?= {
 				save_scope_as = religion 
@@ -2883,15 +2883,15 @@ zz_valyria_magic_dream_magic_spells.035 = {
 	}
 	
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.035.opt.z
+		name = zz_valyria_magic_dream_magic.035.opt.z
 	}
 }
 
-zz_valyria_magic_dream_magic_spells.036 = {
+zz_valyria_magic_dream_magic.036 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.036.t
-	desc = zz_valyria_magic_dream_magic_spells.036.desc
+	title = zz_valyria_magic_dream_magic.036.t
+	desc = zz_valyria_magic_dream_magic.036.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2946,26 +2946,26 @@ zz_valyria_magic_dream_magic_spells.036 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.036.opt.a
+		name = zz_valyria_magic_dream_magic.036.opt.a
 
 		hidden_effect = {			
 			var:selected_culture ?= {
 				save_scope_as = culture 
 			}
-			trigger_event = zz_valyria_magic_dream_magic_spells.03601
+			trigger_event = zz_valyria_magic_dream_magic.03601
 		}
 
 	}
 	
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.036.opt.z
+		name = zz_valyria_magic_dream_magic.036.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.03601 = {
+zz_valyria_magic_dream_magic.03601 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.036.t
-	desc = zz_valyria_magic_dream_magic_spells.036.desc
+	title = zz_valyria_magic_dream_magic.036.t
+	desc = zz_valyria_magic_dream_magic.036.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -2989,7 +2989,7 @@ zz_valyria_magic_dream_magic_spells.03601 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.036.opt.a
+		name = zz_valyria_magic_dream_magic.036.opt.a
 		hidden_effect = {
 			var:selected_county ?= {
 				save_scope_as = target 
@@ -3002,11 +3002,11 @@ zz_valyria_magic_dream_magic_spells.03601 = {
 	}
 }
 
-zz_valyria_magic_dream_magic_spells.037 = {
+zz_valyria_magic_dream_magic.037 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.037.t
-	desc = zz_valyria_magic_dream_magic_spells.037.desc
+	title = zz_valyria_magic_dream_magic.037.t
+	desc = zz_valyria_magic_dream_magic.037.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3062,27 +3062,27 @@ zz_valyria_magic_dream_magic_spells.037 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.037.opt.a
+		name = zz_valyria_magic_dream_magic.037.opt.a
 
 		hidden_effect = {			
 			var:selected_religion ?= {
 				save_scope_as = religion
 			}
-			trigger_event = zz_valyria_magic_dream_magic_spells.03701
+			trigger_event = zz_valyria_magic_dream_magic.03701
 		}
 
 	}
 	
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.037.opt.z
+		name = zz_valyria_magic_dream_magic.037.opt.z
 	}
 }
 
-zz_valyria_magic_dream_magic_spells.03701 = {
+zz_valyria_magic_dream_magic.03701 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.037.t
-	desc = zz_valyria_magic_dream_magic_spells.037.desc
+	title = zz_valyria_magic_dream_magic.037.t
+	desc = zz_valyria_magic_dream_magic.037.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3106,7 +3106,7 @@ zz_valyria_magic_dream_magic_spells.03701 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.037.opt.a
+		name = zz_valyria_magic_dream_magic.037.opt.a
 		hidden_effect = {
 			var:selected_county ?= {
 				save_scope_as = target 
@@ -3120,11 +3120,11 @@ zz_valyria_magic_dream_magic_spells.03701 = {
 }
 
 
-zz_valyria_magic_dream_magic_spells.038 = {
+zz_valyria_magic_dream_magic.038 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.038.t
-	desc = zz_valyria_magic_dream_magic_spells.038.desc
+	title = zz_valyria_magic_dream_magic.038.t
+	desc = zz_valyria_magic_dream_magic.038.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3147,7 +3147,7 @@ zz_valyria_magic_dream_magic_spells.038 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.038.opt.a
+		name = zz_valyria_magic_dream_magic.038.opt.a
 		hidden_effect = {
 			var:selected_county ?= { 
 				save_scope_as = target
@@ -3159,15 +3159,15 @@ zz_valyria_magic_dream_magic_spells.038 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.038.opt.z
+		name = zz_valyria_magic_dream_magic.038.opt.z
 	}
 }
 
-zz_valyria_magic_dream_magic_spells.039 = {
+zz_valyria_magic_dream_magic.039 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.039.t
-	desc = zz_valyria_magic_dream_magic_spells.039.desc
+	title = zz_valyria_magic_dream_magic.039.t
+	desc = zz_valyria_magic_dream_magic.039.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3190,7 +3190,7 @@ zz_valyria_magic_dream_magic_spells.039 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.039.opt.a
+		name = zz_valyria_magic_dream_magic.039.opt.a
 		hidden_effect = {
 			var:selected_county ?= { 
 				save_scope_as = target
@@ -3202,15 +3202,15 @@ zz_valyria_magic_dream_magic_spells.039 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.039.opt.z
+		name = zz_valyria_magic_dream_magic.039.opt.z
 	}
 }
 
-zz_valyria_magic_dream_magic_spells.040 = {
+zz_valyria_magic_dream_magic.040 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.040.t
-	desc = zz_valyria_magic_dream_magic_spells.040.desc
+	title = zz_valyria_magic_dream_magic.040.t
+	desc = zz_valyria_magic_dream_magic.040.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3250,7 +3250,7 @@ zz_valyria_magic_dream_magic_spells.040 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.040.opt.a
+		name = zz_valyria_magic_dream_magic.040.opt.a
 		hidden_effect = {
 			var:selected_secret = {
 				save_scope_as = secret
@@ -3262,14 +3262,14 @@ zz_valyria_magic_dream_magic_spells.040 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.040.opt.z
+		name = zz_valyria_magic_dream_magic.040.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.041 = {
+zz_valyria_magic_dream_magic.041 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.041.t
-	desc = zz_valyria_magic_dream_magic_spells.041.desc
+	title = zz_valyria_magic_dream_magic.041.t
+	desc = zz_valyria_magic_dream_magic.041.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3310,7 +3310,7 @@ zz_valyria_magic_dream_magic_spells.041 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.041.opt.a
+		name = zz_valyria_magic_dream_magic.041.opt.a
 		hidden_effect = {
 			var:selected_secret = {
 				save_scope_as = secret
@@ -3322,14 +3322,14 @@ zz_valyria_magic_dream_magic_spells.041 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.041.opt.z
+		name = zz_valyria_magic_dream_magic.041.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.042 = {
+zz_valyria_magic_dream_magic.042 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.042.t
-	desc = zz_valyria_magic_dream_magic_spells.042.desc
+	title = zz_valyria_magic_dream_magic.042.t
+	desc = zz_valyria_magic_dream_magic.042.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3369,7 +3369,7 @@ zz_valyria_magic_dream_magic_spells.042 = {
 	}
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.042.opt.a
+		name = zz_valyria_magic_dream_magic.042.opt.a
 		hidden_effect = {
 			var:selected_secret = {
 				save_scope_as = secret
@@ -3381,14 +3381,14 @@ zz_valyria_magic_dream_magic_spells.042 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.042.opt.z
+		name = zz_valyria_magic_dream_magic.042.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.043 = {
+zz_valyria_magic_dream_magic.043 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.043.t
-	desc = zz_valyria_magic_dream_magic_spells.043.desc
+	title = zz_valyria_magic_dream_magic.043.t
+	desc = zz_valyria_magic_dream_magic.043.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3411,7 +3411,7 @@ zz_valyria_magic_dream_magic_spells.043 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.043.opt.a
+		name = zz_valyria_magic_dream_magic.043.opt.a
 		hidden_effect = {
 			var:selected_county ?= { 
 				save_scope_as = target
@@ -3423,14 +3423,14 @@ zz_valyria_magic_dream_magic_spells.043 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.043.opt.z
+		name = zz_valyria_magic_dream_magic.043.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.044 = {
+zz_valyria_magic_dream_magic.044 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.044.t
-	desc = zz_valyria_magic_dream_magic_spells.044.desc
+	title = zz_valyria_magic_dream_magic.044.t
+	desc = zz_valyria_magic_dream_magic.044.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3453,7 +3453,7 @@ zz_valyria_magic_dream_magic_spells.044 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.044.opt.a
+		name = zz_valyria_magic_dream_magic.044.opt.a
 		hidden_effect = {
 			var:selected_county ?= { 
 				save_scope_as = target
@@ -3465,14 +3465,14 @@ zz_valyria_magic_dream_magic_spells.044 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.044.opt.z
+		name = zz_valyria_magic_dream_magic.044.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.045 = {
+zz_valyria_magic_dream_magic.045 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.045.t
-	desc = zz_valyria_magic_dream_magic_spells.045.desc
+	title = zz_valyria_magic_dream_magic.045.t
+	desc = zz_valyria_magic_dream_magic.045.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3495,7 +3495,7 @@ zz_valyria_magic_dream_magic_spells.045 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.045.opt.a
+		name = zz_valyria_magic_dream_magic.045.opt.a
 		hidden_effect = {
 			var:selected_county ?= { 
 				save_scope_as = target
@@ -3507,14 +3507,14 @@ zz_valyria_magic_dream_magic_spells.045 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.045.opt.z
+		name = zz_valyria_magic_dream_magic.045.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.046 = {
+zz_valyria_magic_dream_magic.046 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.046.t
-	desc = zz_valyria_magic_dream_magic_spells.046.desc
+	title = zz_valyria_magic_dream_magic.046.t
+	desc = zz_valyria_magic_dream_magic.046.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3537,7 +3537,7 @@ zz_valyria_magic_dream_magic_spells.046 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.046.opt.a
+		name = zz_valyria_magic_dream_magic.046.opt.a
 		hidden_effect = {
 			var:selected_county ?= { 
 				save_scope_as = target
@@ -3549,15 +3549,15 @@ zz_valyria_magic_dream_magic_spells.046 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.046.opt.z
+		name = zz_valyria_magic_dream_magic.046.opt.z
 	}
 }
 
-zz_valyria_magic_dream_magic_spells.047 = {
+zz_valyria_magic_dream_magic.047 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.002.t
-	desc = zz_valyria_magic_dream_magic_spells.002.desc
+	title = zz_valyria_magic_dream_magic.002.t
+	desc = zz_valyria_magic_dream_magic.002.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3597,7 +3597,7 @@ zz_valyria_magic_dream_magic_spells.047 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.047.opt.a
+		name = zz_valyria_magic_dream_magic.047.opt.a
 		hidden_effect = {
 			var:selected_army ?= { 
 				save_scope_as = target
@@ -3609,15 +3609,15 @@ zz_valyria_magic_dream_magic_spells.047 = {
 		}
 	}
 	option = {
-		name =   zz_valyria_magic_dream_magic_spells.047.opt.z
+		name =   zz_valyria_magic_dream_magic.047.opt.z
 	}
 }
 
-zz_valyria_magic_dream_magic_spells.048 = {
+zz_valyria_magic_dream_magic.048 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.048.t
-	desc = zz_valyria_magic_dream_magic_spells.048.desc
+	title = zz_valyria_magic_dream_magic.048.t
+	desc = zz_valyria_magic_dream_magic.048.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3629,7 +3629,7 @@ zz_valyria_magic_dream_magic_spells.048 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.048.opt.a
+		name = zz_valyria_magic_dream_magic.048.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = dream_magic
@@ -3640,14 +3640,14 @@ zz_valyria_magic_dream_magic_spells.048 = {
 	}
 	
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.048.opt.z
+		name = zz_valyria_magic_dream_magic.048.opt.z
 	}
 }
-zz_valyria_magic_dream_magic_spells.049 = {
+zz_valyria_magic_dream_magic.049 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic_spells.049.t
-	desc = zz_valyria_magic_dream_magic_spells.049.desc
+	title = zz_valyria_magic_dream_magic.049.t
+	desc = zz_valyria_magic_dream_magic.049.desc
 	theme = university 
 	override_background = {
 		reference = zz_dream_magic
@@ -3659,7 +3659,7 @@ zz_valyria_magic_dream_magic_spells.049 = {
 	right_portrait = scope:recipient
 
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.049.opt.a
+		name = zz_valyria_magic_dream_magic.049.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = dream_magic
@@ -3670,6 +3670,6 @@ zz_valyria_magic_dream_magic_spells.049 = {
 	}
 	
 	option = {
-		name = zz_valyria_magic_dream_magic_spells.049.opt.z
+		name = zz_valyria_magic_dream_magic.049.opt.z
 	}
 }
