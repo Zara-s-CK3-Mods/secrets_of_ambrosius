@@ -631,7 +631,7 @@ zz_valyria_magic_dream_magic_08_effect = {
 				target = scope:recipient
 				75 = {
 					modifier = {
-						add = zzz_valyria_magic_dream_magic_08_value
+						add = zz_valyria_magic_dream_magic_08_value
 					}
 					add_dread = medium_dread_gain
 					scope:recipient = {
@@ -672,7 +672,7 @@ zz_valyria_magic_dream_magic_08_effect = {
 				target = scope:recipient
 				75 = {
 					modifier = {
-						add = zzz_valyria_magic_dream_magic_08_value
+						add = zz_valyria_magic_dream_magic_08_value
 					}
 					scope:actor = { 
 						add_dread = major_dread_gain

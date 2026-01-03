@@ -1,4 +1,4 @@
-zz_drops_of_power = {
+﻿zz_drops_of_power = {
 	color = hsv { 0.1 0.5 0.8 }
 	travel_danger_color = hsv { 0.1 0.5 0.8 }
 	travel_danger_score = 10

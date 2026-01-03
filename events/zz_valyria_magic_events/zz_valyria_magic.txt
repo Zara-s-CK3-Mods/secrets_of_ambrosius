@@ -65,7 +65,7 @@ zz_valyria_magic.9000 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic.9000.zz
+		name = zz_valyria_magic.9000.z
 		trigger = {
 			is_ai = yes 
 		}

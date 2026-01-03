@@ -1193,7 +1193,7 @@ zz_valyria_magic_dream_magic_07_value = {
 	}
 }
 
-zzz_valyria_magic_dream_magic_08_value = {
+zz_valyria_magic_dream_magic_08_value = {
 	value = 0
 	add = { 
 		scope:secondary_recipient = { 

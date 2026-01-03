@@ -2281,7 +2281,7 @@ scripted_effect work_out_wounds_or_death_effect = {
 						target = scope:recipient
 						75 = {
 							modifier = {
-								add = zzz_valyria_magic_dream_magic_08_value
+								add = zz_valyria_magic_dream_magic_08_value
 							}
 							
 							scope:secondary_recipient = {
