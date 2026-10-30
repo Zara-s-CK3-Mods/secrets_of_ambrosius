@@ -2094,7 +2094,7 @@ zz_valyria_magic_dream_magic_045_effect = {
 				}
 			}		
 			scope:target = {
-				change_development_progress_with_overflow = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+				change_prosperity_progress_with_overflow = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
 			}
 			scope:recipient = {		
 				if = {
@@ -2134,7 +2134,7 @@ zz_valyria_magic_dream_magic_046_effect = {
 				}
 			}		
 			scope:target = {
-				change_development_progress_with_overflow = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+				change_prosperity_progress_with_overflow = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
 			}
 			scope:recipient = {		
 				if = {

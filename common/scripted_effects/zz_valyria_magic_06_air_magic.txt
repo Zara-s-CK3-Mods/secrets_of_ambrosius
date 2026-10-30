@@ -352,8 +352,8 @@ zz_valyria_magic_air_magic_009_effect = {
 				remove_holding = yes
 				change_county_control = massive_county_control_loss
 				county = {
-					change_development_level = {
-						subtract = development_level
+					change_prosperity_level = {
+						subtract = prosperity_level
 						multiply = 0.2
 						floor = yes
 					}

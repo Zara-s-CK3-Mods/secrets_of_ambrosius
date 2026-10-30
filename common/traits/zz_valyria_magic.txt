@@ -360,7 +360,7 @@ zz_magister = {
 		same_faith_opinion = -30
 		clergy_opinion = -30
 		religious_vassal_opinion = -30
-		monthly_county_control_decline_add = -0.4
+		monthly_control_change_when_above_baseline_add = 0.4
 		domain_tax_same_faith_mult = -0.2
 		popular_opinion_add = -10
 	}
@@ -370,7 +370,7 @@ zz_magister = {
 		same_faith_opinion = -15
 		clergy_opinion = -15
 		religious_vassal_opinion = -15
-		monthly_county_control_decline_add = -0.2
+		monthly_control_change_when_above_baseline_add = 0.2
 		domain_tax_same_faith_mult = -0.1
 		popular_opinion_add = -5
 	}

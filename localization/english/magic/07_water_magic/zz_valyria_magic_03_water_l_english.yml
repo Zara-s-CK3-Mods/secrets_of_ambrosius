@@ -111,10 +111,10 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_water_magic_007.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_bsp$\n\nThe arts of [water_magic|E] allows for a most terrifying power. You can purify a chosen province, increasing its development level."
+  zz_valyria_magic_water_magic_007.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_bsp$\n\nThe arts of [water_magic|E] allows for a most terrifying power. You can purify a chosen province, increasing its prosperity level."
   ##event
   zz_valyria_magic_water_magic.007.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.007.name$"
-  zz_valyria_magic_water_magic.007.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. Indeed, even their final act, to unleash a plague unto the waking world was born from their powers over the waters.You could call upon a rejuvenating flow of water and transform one of the provines of [recipient.GetFirstName], improving its development level and making it more attractive for a migrating population."
+  zz_valyria_magic_water_magic.007.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. Indeed, even their final act, to unleash a plague unto the waking world was born from their powers over the waters.You could call upon a rejuvenating flow of water and transform one of the provines of [recipient.GetFirstName], improving its prosperity level and making it more attractive for a migrating population."
   zz_valyria_magic_water_magic.007.opt.a:0 "Yes, let it flower!"
   zz_valyria_magic_water_magic.007.opt.z:0 "No, do not cast!"
   ## Spell Toast

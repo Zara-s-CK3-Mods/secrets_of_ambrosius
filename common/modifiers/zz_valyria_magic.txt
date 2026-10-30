@@ -289,7 +289,7 @@ zz_valyria_magic_dream_magic_010_modifier = {
 
 zz_valyria_magic_dream_magic_038_modifier = {
 	icon = magic_positive
-	county_opinion_add = 1
+	popular_opinion_add = 0.2
 	stacking = yes
 	scale = {
 		value = zz_valyria_magic_dream_magic_038_value_01
@@ -300,7 +300,7 @@ zz_valyria_magic_dream_magic_038_modifier = {
 
 zz_valyria_magic_dream_magic_039_modifier = {
 	icon = magic_positive
-	county_opinion_add = -1
+	popular_opinion_add = -0.2
 	stacking = yes
 	scale = {
 		value = zz_valyria_magic_dream_magic_039_value_01
@@ -345,8 +345,8 @@ zz_valyria_magic_dream_magic_055_modifier = {
 }
 zz_valyria_magic_alchemy_magic_001_modifier = {
 	icon = magic_positive
-	development_growth_factor = 0.01
-	development_growth = 0.1
+	prosperity_growth_factor = 0.01
+	prosperity_growth = 0.1
 	stacking = yes
 	scale = {
 		value = zz_valyria_magic_alchemy_magic_001_value_01
@@ -642,7 +642,7 @@ zz_valyria_magic_water_magic_005_modifier = {
 zz_valyria_magic_water_magic_006_modifier = {
 	icon = magic_positive
 	epidemic_resistance = 2
-	tax_mult = 0.01
+	all_tax_mult = 0.01
 	stacking = yes
 	scale = {
 		value = zz_valyria_magic_water_magic_006_value_01

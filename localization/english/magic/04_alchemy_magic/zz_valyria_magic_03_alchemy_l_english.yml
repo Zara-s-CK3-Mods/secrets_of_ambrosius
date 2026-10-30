@@ -4,8 +4,8 @@ l_english:
 
   ## Alchemical Magic
   ## Interaction
-  ##\n\nThe use of the arcane forces of [alchemy_magic|E] to increase the development in the chosen province of the selected subject.
-  zz_valyria_magic_alchemy_magic_001.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_bsp$\n\nThe use of the arcane forces of [alchemy_magic|E] to increase the development in the chosen province of the selected subject. \n\nThrough the secret arts of [alchemy_magic|E] it is possible to enrich the very soil, to bring forth growth and prosperity."
+  ##\n\nThe use of the arcane forces of [alchemy_magic|E] to increase the prosperity in the chosen province of the selected subject.
+  zz_valyria_magic_alchemy_magic_001.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_bsp$\n\nThe use of the arcane forces of [alchemy_magic|E] to increase the prosperity in the chosen province of the selected subject. \n\nThrough the secret arts of [alchemy_magic|E] it is possible to enrich the very soil, to bring forth growth and prosperity."
 
   ## event
   zz_valyria_magic_alchemy_magic.001.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.001.name$"
@@ -14,7 +14,7 @@ l_english:
   zz_valyria_magic_alchemy_magic.001.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.001.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.001.name$"
-  zz_valyria_magic_alchemy_magic.001.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ improving the development rate of [target.GetName]"
+  zz_valyria_magic_alchemy_magic.001.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ improving the prosperity growth of [target.GetName]"
   zz_valyria_magic_alchemy_magic.001.toast.tt:0 "$zz_valyria_magic_alchemy_magic.001.toast.desc$"
   zz_valyria_magic_alchemy_magic.001.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.001.name$"
   zz_valyria_magic_alchemy_magic.001.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$.."  

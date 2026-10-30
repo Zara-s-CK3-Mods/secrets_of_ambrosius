@@ -783,16 +783,16 @@ l_english:
   zz_valyria_magic_dream_magic.044.f.toast.tt:0 "$zz_valyria_magic_dream_magic.044.f.toast.desc$"  
 
   ## Interaction
-  zz_valyria_magic_dream_magic_045.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_tcc$\n$zz_ccd$\n\nThrough the use of [dream_magic|E], it is possible to enter the minds of an inhabitant of a county, and inspire progress and development."
+  zz_valyria_magic_dream_magic_045.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_tcc$\n$zz_ccd$\n\nThrough the use of [dream_magic|E], it is possible to enter the minds of an inhabitant of a county, and inspire progress and prosperity."
   ## Spell Options
   #event
   zz_valyria_magic_dream_magic.045.t:0 "[dream_magic|E] - $zz_valyria_magic_dream_magic.045.name$"
-  zz_valyria_magic_dream_magic.045.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe lingering power of dreams is more than a subtle undercurrent of the world, but rather, an subtle and enduring legacy of creation's common origins. Through their dreams you can scour the minds of the subjects of [recipient.GetFirstName] and inspire development and progress. Top bring about a new golden age, and see their lands glisten with golden spires and great works of art. Are you sure you wish to do this?"
+  zz_valyria_magic_dream_magic.045.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe lingering power of dreams is more than a subtle undercurrent of the world, but rather, an subtle and enduring legacy of creation's common origins. Through their dreams you can scour the minds of the subjects of [recipient.GetFirstName] and inspire prosperity and progress. Top bring about a new golden age, and see their lands glisten with golden spires and great works of art. Are you sure you wish to do this?"
   zz_valyria_magic_dream_magic.045.opt.a:0 "Yes, Let us bring about a golden age!"
   zz_valyria_magic_dream_magic.045.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_dream_magic.045.toast.t:0 "[dream_magic|E] - $zz_valyria_magic_dream_magic.045.name$"
-  zz_valyria_magic_dream_magic.045.toast.desc:0 "$zz_toast_01$ [dream_magic|E], $zz_toast_02$ bringing progress and development to one of [recipient.GetFirstName]'s counties'."
+  zz_valyria_magic_dream_magic.045.toast.desc:0 "$zz_toast_01$ [dream_magic|E], $zz_toast_02$ bringing progress and prosperity to one of [recipient.GetFirstName]'s counties'."
   zz_valyria_magic_dream_magic.045.toast.tt:0 "$zz_valyria_magic_dream_magic.045.toast.desc$"
 
   zz_valyria_magic_dream_magic.045.f.toast.t:0 "Failure [dream_magic|E] - $zz_valyria_magic_dream_magic.045.name$"
@@ -801,7 +801,7 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_dream_magic_046.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_tcc$\n$zz_ccd$\n\nThrough the use of [dream_magic|E], it is possible to enter the minds of an inhabitant of a county, and strip away from them their progress and development."
+  zz_valyria_magic_dream_magic_046.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_tcc$\n$zz_ccd$\n\nThrough the use of [dream_magic|E], it is possible to enter the minds of an inhabitant of a county, and strip away from them their progress and prosperity."
   ## Spell Options
   #event
   zz_valyria_magic_dream_magic.046.t:0 "[dream_magic|E] - $zz_valyria_magic_dream_magic.046.name$"
@@ -810,7 +810,7 @@ l_english:
   zz_valyria_magic_dream_magic.046.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_dream_magic.046.toast.t:0 "[dream_magic|E] - $zz_valyria_magic_dream_magic.046.name$"
-  zz_valyria_magic_dream_magic.046.toast.desc:0 "$zz_toast_01$ [dream_magic|E], $zz_toast_02$ stripping away progress and development from one of  [recipient.GetFirstName]'s counties'."
+  zz_valyria_magic_dream_magic.046.toast.desc:0 "$zz_toast_01$ [dream_magic|E], $zz_toast_02$ stripping away progress and prosperity from one of  [recipient.GetFirstName]'s counties'."
   zz_valyria_magic_dream_magic.046.toast.tt:0 "$zz_valyria_magic_dream_magic.046.toast.desc$"
 
   zz_valyria_magic_dream_magic.046.f.toast.t:0 "Failure [dream_magic|E] - $zz_valyria_magic_dream_magic.046.name$"

@@ -251,7 +251,7 @@ zz_valyria_magic_water_magic_007_effect = {
 			}
 			scope:target = {
 				county = {
-					change_development_level = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					change_prosperity_level = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
 				}
 			}
 		}
