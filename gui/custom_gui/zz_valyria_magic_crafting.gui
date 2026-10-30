@@ -342,23 +342,6 @@ types zz_valyria_magic_crafting {
 									}
 								}
 								button_standard = {
-									datacontext = "[GetScriptedGui('zz_valyria_magic_item_craft_dragonfire')]"
-									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
-									widget = {
-										size = { 100 50 }
-										text_single = {
-											Raw_Text = "Dragon Fire"
-											fontsize = 18
-											resizeparent = yes
-											align = center|nobaseline
-											default_format = "#low"		
-											margin = { 5 5 }
-										}	
-									}
-								}
-								button_standard = {
 									datacontext = "[GetScriptedGui('zz_valyria_magic_item_craft_human_sacrifice')]"
 									enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
 									down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
@@ -447,7 +430,7 @@ types zz_valyria_magic_crafting {
 	type crafting_window_sword_selection_view = window {
 		name = "crafting_window_sword_selection_view"
 		movable = no
-		layer = top
+		layer = confirmation
 		parentanchor = top|hcenter
 		position = { -500 20 }
 		
@@ -526,7 +509,7 @@ types zz_valyria_magic_crafting {
 	type crafting_window_ring_selection_view = window {
 		name = "crafting_window_ring_selection_view"
 		movable = no
-		layer = top
+		layer = confirmation
 		parentanchor = top|hcenter
 		position = { -500 20 }
 		

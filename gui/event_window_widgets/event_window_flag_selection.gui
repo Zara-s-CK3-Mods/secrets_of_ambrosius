@@ -1,7 +1,7 @@
 widget = {
 	allow_outside = yes
 	name = "event_window_flag_selection"
-	size = { 550 300 }
+	size = { 350 250 } # Size of the insert inside the event window; needs to fit under the text box since a margin will only push the content and not the widget
 
 	vbox = {
 		#text_single = {block "header" { text = "This is a Header" } }
@@ -13,35 +13,32 @@ widget = {
 			scrollbox = {
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
-				minimumsize = { 550 250 }
+				minimumsize = { 350 250 }
 				blockoverride "scrollbox_content" {
-					vbox = {
+					fixedgridbox = {
+						addcolumn = 300
+						addrow = 50
 						datamodel = "[GetPlayer.MakeScope.GetList('possible_flags')]"
-						datacontext = "[GetScriptedGui('zz_valyria_flag_selecting')]"
+						
 						item = {
 							button_standard = {
-								size = { 510 45 }
+								size = { 300 45 }
+								datacontext = "[GetScriptedGui('zz_valyria_flag_selecting')]"
 								down = "[GetScriptedGui( 'zz_valyria_flag_selecting' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_flag', MakeScopeFlag(Scope.GetFlagKey) ).End )]"
 								onclick = "[GetScriptedGui( 'zz_valyria_flag_selecting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_flag', MakeScopeFlag(Scope.GetFlagKey) ).End )]"
+								tooltip = "[Scope.GetFlagName]"
 
-								widget = {
-									size = { 90 45 }
-									parentanchor = left
-								}
-								widget = {
-									size = { 460 45 }
-									parentanchor = right
-									text_single = {
-										text = "[Scope.GetFlagName]"
-										parentanchor = center
-										#default_format = "#high"
-										using = Font_Size_Small
-									}
+								text_single = {
+									layoutpolicy_horizontal = expanding
+									text = "[Scope.GetFlagName]"
+									max_width = 280
+									parentanchor = center
+									align = center|nobaseline
+									using = Font_Size_Small
 								}
 							}
 						}
 					}
-					spacer = { size = { 0 20 } }
 				}
 			}
 		}

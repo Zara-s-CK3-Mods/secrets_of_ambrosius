@@ -1,0 +1,34 @@
+﻿magic_oral_folklore_success_modifier = {
+	icon = beast_positive
+	scheme_success_chance = 10
+}
+magic_oral_folklore_failure_modifier = {
+	icon = beast_negative
+	scheme_success_chance = -10
+}
+
+magic_written_lore_success_modifier = {
+	icon = beast_positive
+	scheme_success_chance = 10
+}
+magic_written_lore_failure_modifier = {
+	icon = beast_negative
+	scheme_success_chance = -10
+}
+
+magic_good_singing = {
+	icon = beast_positive
+	scheme_success_chance = 5
+}
+magic_bad_singing = {
+	icon = beast_negative
+	scheme_success_chance = -5
+}
+magic_good_speaking = {
+	icon = beast_positive
+	scheme_success_chance = 5
+}
+magic_bad_speaking = {
+	icon = beast_negative
+	scheme_success_chance = -5
+}

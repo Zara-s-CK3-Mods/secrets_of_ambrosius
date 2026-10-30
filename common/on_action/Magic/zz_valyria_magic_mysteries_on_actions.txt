@@ -1,0 +1,6 @@
+﻿zz_valyria_magic_blood_magic_011_on_action = {
+	effect = { 
+		
+		remove_character_modifier = zz_valyria_magic_blood_magic_011_modifier
+	}
+}

@@ -1,4 +1,4 @@
-
+﻿
 @max_height_before_scrolling = 920
 
 #adjustment to make scrollbar appear as if outside window
@@ -37,7 +37,7 @@ window = {
 		allow_outside = yes
 
 		puppet_item_selection_flowcontainer = {
-			position = { -50 0 }
+			position = { -55 40 }
 		}
 
 		interaction_list_flowcontainer = { }
@@ -56,65 +56,184 @@ types InteractionTypes
 		alwaystransparent = no
 		direction = vertical
 		ignoreinvisible = yes
-		
-		button_close = {
-			size = { 24 24 }
-			parentanchor = top|hcenter
-			widgetanchor = top|hcenter
+		allow_outside = yes
 
-			visible = "[CharacterInteractionMenuWindow.IsPuppetViewActive]"
-			
-			onclick = "[CharacterInteractionMenuWindow.ClearPuppetFilter]"
+		datamodel = "[CharacterInteractionMenuWindow.GetAvailablePuppets]"
 
-			using = Animation_ShowHide_Quick
-
-			tooltip = "CLOSE_TOOLTIP"
-
-			background = {
-				using = Background_Area_Dark
-				margin = { 6 6 }
-				alpha = 0.8
-			}
-		}
-
-		datamodel = "[CharacterInteractionMenuWindow.GetAvailablePuppets]"		
 		item = {
-			available_puppet_button = {}
+			# Parent widget added to allow for animations on button hover
+			widget = {
+				size = { 80 60 }
+				allow_outside = yes
+
+				# Selection glow
+				icon = {
+					visible = "[And( CharacterInteractionMenuWindow.IsPuppetViewActive, ObjectsEqual( CharacterInteractionMenuWindow.GetSelectedPuppetType, PuppetInteractionsFilter.GetPuppetType ) )]"
+					texture = "gfx/interface/buttons/interaction_menu_tab_background_glow.dds"
+					parentanchor = center
+					position = { -23 0 }
+					size = { 80 64 }
+
+					# Glow animation when tab is selected
+					state = {
+						name = a
+						next = b
+						trigger_on_create = yes
+						alpha = 1
+						duration = 1.5
+						using = Animation_Curve_Default
+					}
+
+					state = {
+						name = b
+						next = a
+						alpha = 0.7
+						duration = 1.5
+						using = Animation_Curve_Default
+					}
+				}
+
+				available_puppet_button = {
+					position = { -20 0 }
+					parentanchor = center
+					allow_outside = yes
+				}
+			}
 		}
 	}
 
-	type available_puppet_button = button_round {
-		size = { 48 48 }
+	type available_puppet_button = button {
+		size = { 80 60 }
+		framesize = { 160 120 }
+		texture = "gfx/interface/buttons/button_tab_interaction_menu.dds"
 
-		enabled = "[Or( Not( CharacterInteractionMenuWindow.IsPuppetViewActive ), Not( ObjectsEqual( CharacterInteractionMenuWindow.GetSelectedPuppetType, PuppetInteractionsFilter.GetPuppetType ) ) )]"
+		gfxtype = togglepushbuttongfx
+		effectname = "NoHighlight"
+
+		upframe = 1
+		uphoverframe = 2
+		uppressedframe = 3
+		downframe = 2
+
+		alwaystransparent = "[And( CharacterInteractionMenuWindow.IsPuppetViewActive, ObjectsEqual( CharacterInteractionMenuWindow.GetSelectedPuppetType, PuppetInteractionsFilter.GetPuppetType ) )]"
+		down = "[And( CharacterInteractionMenuWindow.IsPuppetViewActive, ObjectsEqual( CharacterInteractionMenuWindow.GetSelectedPuppetType, PuppetInteractionsFilter.GetPuppetType ) )]"
 		onclick = "[CharacterInteractionMenuWindow.SelectPuppet( PuppetInteractionsFilter.GetPuppetType )]"
+
 		tooltip = "puppet_interaction_filter_tt"
-		
+		tooltip_offset = { 408 0 }
+
+		highlight_icon = {
+			size = { 100% 100% }
+			gfxtype = togglepushbuttongfx
+			effectname = "NoHighlight"
+			texture = "gfx/interface/buttons/button_tab_interaction_menu_mouseover.dds"
+			framesize  = { 160 120 }
+
+			upframe = 1
+			uphoverframe = 2
+			uppressedframe = 1
+			downframe = 1
+			downhoverframe = 1
+			downpressedframe = 1
+			disableframe = 1
+
+			alpha = 0.5
+
+			block "button_standard_mouseover" {}
+		}
+
+		# Hover & Selected Position Animation
 		state = {
-			name = "_mouse_enter"
-			on_start = "[CharacterInteractionMenuWindow.PreviewPuppetInteractions( PuppetInteractionsFilter.GetPuppetType )]"
+			name = "active_offset"
+			trigger_when = "[ObjectsEqual( CharacterInteractionMenuWindow.GetSelectedPuppetType, PuppetInteractionsFilter.GetPuppetType )]"
+			duration = 0.15
+			position = { -26 0 }
+			using = Animation_Curve_Default
 		}
 
 		state = {
-			name = "_mouse_leave"
-			on_start = "[CharacterInteractionMenuWindow.ClearPuppetPreview]"
+			name = "inactive_offset"
+			trigger_when = "[Not( ObjectsEqual( CharacterInteractionMenuWindow.GetSelectedPuppetType, PuppetInteractionsFilter.GetPuppetType ) )]"
+			duration = 0.15
+			position = { -20 0 }
+			using = Animation_Curve_Default
 		}
-		
-		icon = {
+
+		widget = {
 			parentanchor = center
-			size = { 44 44 }
+			position = { 5 0 }
+			size = { 48 48 }
 			alwaystransparent = yes
 
-			texture = "[PuppetInteractionsFilter.GetPuppetType.GetIcon( PuppetInteractionsFilter.GetPuppet )]"
-		}
+			highlight_icon = {
+				size = { 48 48 }
+				texture = "gfx/interface/buttons/button_tab_interaction_menu_icon_background.dds"
+				parentanchor = center
+			}
 
-		text_single = {
-			parentanchor = bottom|hcenter
-			widgetanchor = bottom|hcenter
+			icon = {
+				size = { 36 36 }
+				texture = "gfx/interface/component_masks/mask_fade_circle.dds"
+				parentanchor = center
+				alpha = 0.7
 
-			using = Background_Area_Dark
+				modify_texture = {
+					color = "[PuppetInteractionsFilter.GetPuppetType.GetColor]"
+					blend_mode = overlay
+				}
+			}
 
-			raw_text = "[CharacterInteractionMenuWindow.GetAvailableActionsForPuppetType( PuppetInteractionsFilter.GetPuppetType )]"
+			# Selected & deselected alpha Animation
+			state = {
+				name = "alpha_selected"
+				trigger_when = "[Or( Not( CharacterInteractionMenuWindow.IsPuppetViewActive ), ObjectsEqual( CharacterInteractionMenuWindow.GetSelectedPuppetType, PuppetInteractionsFilter.GetPuppetType ) )]"
+				duration = 0.15
+				alpha = 1
+				using = Animation_Curve_Default
+			}
+
+			state = {
+				name = "alpha_deselected"
+				trigger_when = "[And( CharacterInteractionMenuWindow.IsPuppetViewActive, Not( ObjectsEqual( CharacterInteractionMenuWindow.GetSelectedPuppetType, PuppetInteractionsFilter.GetPuppetType ) ) )]"
+				duration = 0.15
+				alpha = 0.6
+				using = Animation_Curve_Default
+			}
+
+			highlight_icon = {
+				parentanchor = center
+				position = { 0 1 }
+				size = { 46 46 }
+				alwaystransparent = yes
+
+				texture = "[PuppetInteractionsFilter.GetPuppetType.GetIcon( PuppetInteractionsFilter.GetPuppet )]"
+
+				modify_texture = {
+					texture = "gfx/interface/component_masks/round_button_icon_mask.dds"
+					blend_mode = alphamultiply
+				}
+			}
+
+			text_single = {
+				parentanchor = bottom|hcenter
+				widgetanchor = bottom|hcenter
+				position = { 0 5 }
+				alwaystransparent = yes
+
+				raw_text = "[CharacterInteractionMenuWindow.GetAvailableActionsForPuppetType( PuppetInteractionsFilter.GetPuppetType )]"
+				align = nobaseline
+				default_format = "#high;glow_color:{0,0,0,1.0}"
+
+				background = {
+					using = Background_Area_ExtraDark
+					margin = { 10 2 }
+
+					modify_texture = {
+						texture = "gfx/interface/component_masks/mask_fade_circle.dds"
+						blend_mode = alphamultiply
+					}
+				}
+			}
 		}
 	}
 
@@ -129,7 +248,7 @@ types InteractionTypes
 			spriteType = Corneredtiled
 			spriteborder = { 11 11 }
 			spriteborder_top = 49
-			margin = { 8 14 }
+			margin = { 8 12 }
 			margin_right = @scrollbar_outside_tweak_negative_plus_8
 
 			modify_texture = {
@@ -143,7 +262,7 @@ types InteractionTypes
 			name = "puppet_info"
 			visible = "[CharacterInteractionMenuWindow.IsPuppetViewActive]"
 			size = { 317 32 }
-			
+
 			datacontext = "[CharacterInteractionMenuWindow.GetCurrentPuppetCharacter]"
 
 			hbox = {
@@ -168,6 +287,18 @@ types InteractionTypes
 					layoutpolicy_horizontal = expanding
 					text = "puppet_interact_as_title"
 				}
+
+				expand = {}
+
+				button_close = {
+					size = { 20 20 }
+
+					onclick = "[CharacterInteractionMenuWindow.ClearPuppetFilter]"
+
+					using = Animation_ShowHide_Quick
+
+					tooltip = "CLOSE_TOOLTIP"
+				}
 			}
 		}
 
@@ -189,7 +320,7 @@ types InteractionTypes
 				background = {
 					using = Background_Header_Pattern
 					margin = { 0 4 }
-					margin_bottom = 12
+					margin_bottom = 8
 					alpha = 0.5
 				}
 
@@ -215,7 +346,6 @@ types InteractionTypes
 				expand = {}
 
 				hbox = {
-					zz_magic_cast_button_interaction = {}
 					button_pin = {
 						name = "button_pin"
 						visible = "[Not(Character.IsPinned)]"
@@ -225,6 +355,8 @@ types InteractionTypes
 						tooltip = "PIN_TT"
 						using = tooltip_se
 					}
+					## SOTHM added
+					zz_magic_cast_button_interaction = {}
 
 					button_barbershop = {
 						name = "customize_portrait"
@@ -256,14 +388,14 @@ types InteractionTypes
 						tooltip = "GOTO_CHARACTER"
 						using = tooltip_ne
 					}
-
 				}
 			}
 		}
 
 		widget = {
-			size = { 317 40 }
 			visible = [CharacterInteractionMenuWindow.OutsideDiplomaticRange]
+			size = { 317 40 }
+			
 			tooltip = OUT_OF_DIPLOMACY_RANGE_TOOLTIP
 
 			text_label_center = {
@@ -318,9 +450,9 @@ types InteractionTypes
 
 	type more_interactions_container = container
 	{
-		visible = "[CharacterInteractionMenuWindow.AreMoreInteractionsVisisble]"
 		alwaystransparent = no
 		name = "more_interactions_container"
+		visible = "[CharacterInteractionMenuWindow.AreMoreInteractionsVisisble]"
 
 		container = {
 			#this is used in code as an offset to its position
@@ -330,7 +462,11 @@ types InteractionTypes
 				texture = "gfx/interface/skinned/interaction_menu_bg.dds"
 				spriteType = Corneredtiled
 				spriteborder = { 11 11 }
-				margin = { 8 8 }
+				spriteborder_top = 49
+				margin = { 8 14 }
+
+				# don't resize the bg if the menu is empty: outside of diplo range and don't have debug interactions
+				margin_right = "[Select_int32(And(CharacterInteractionMenuWindow.OutsideDiplomaticRange, Not(InDebugMode)), '(int32)0', '(int32)8')]"
 				shaderfile = "gfx/FX/pdxgui_default.shader"
 
 				modify_texture = {

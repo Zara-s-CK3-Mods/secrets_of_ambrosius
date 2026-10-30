@@ -9,6 +9,7 @@ drops_of_power = {
 	texture = "gfx/interface/icons/trait_level_tracks/drops_of_power.dds"
 }
 passive_drops_of_power = {
+	alias = { dop_i }
 	texture = "gfx/interface/icons/trait_level_tracks/drops_of_power.dds"
 }
 max_drops_of_power = {
@@ -39,8 +40,5 @@ water_magic = {
 	texture = "gfx/interface/icons/trait_level_tracks/water_magic.dds"
 }
 
-dragon_magic = {
-	texture = "gfx/interface/icons/trait_level_tracks/dragon_magic.dds"
-}
 
 

@@ -28,7 +28,6 @@ zz_valyria_magic_further_education.0099 = {
 # Tamed Dragon Bonding scheme success
 zz_valyria_magic_further_education.0001 = {
 	type = character_event
-	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_further_education.0001.t
 	desc = zz_valyria_magic_further_education.0001.desc
 	theme = befriend_scheme
@@ -44,135 +43,81 @@ zz_valyria_magic_further_education.0001 = {
 			limit = {
 				var:current_school_of_magic ?= flag:generalist_magic 
 			}
-			add_trait_xp = {
-				trait = zz_magister
-				track = secrets_of_the_higher_mysteries
-				value = {
-					integer_range = {
-						min = 1
-						max = 3
-					}
-				}
+
+			zz_valyria_gain_spell_experience_min_max = {
+				XPGAIN = 1
+				XPGAIN_MAX = 3
+				XPTRACK = secrets_of_the_higher_mysteries
 			}
 		}
 		if = {
 			limit = {
 				var:current_school_of_magic ?= flag:blood_magic
 			}
-			add_trait_xp = {
-				trait = zz_magister
-				track = blood_magic
-				value = {
-					integer_range = {
-						min = 1
-						max = 3
-					}
-				}
+			zz_valyria_gain_spell_experience_min_max = {
+				XPGAIN = 1
+				XPGAIN_MAX = 3
+				XPTRACK = blood_magic
 			}
 		}
 		if = {
 			limit = {
 				var:current_school_of_magic ?= flag:shadow_magic 
 			}
-			add_trait_xp = {
-				trait = zz_magister
-				track = shadow_magic
-				value = {
-					integer_range = {
-						min = 1
-						max = 3
-					}
-				}
+			zz_valyria_gain_spell_experience_min_max = {
+				XPGAIN = 1
+				XPGAIN_MAX = 3
+				XPTRACK = shadow_magic
 			}
 		}
 		if = {
 			limit = {
 				var:current_school_of_magic ?= flag:dream_magic
 			}
-			add_trait_xp = {
-				trait = zz_magister
-				track = dream_magic
-				value = {
-					integer_range = {
-						min = 1
-						max = 3
-					}
-				}
+			zz_valyria_gain_spell_experience_min_max = {
+				XPGAIN = 1
+				XPGAIN_MAX = 3
+				XPTRACK = dream_magic
 			}
 		}
 		if = {
 			limit = {
 				var:current_school_of_magic ?= flag:alchemy_magic
 			}
-			add_trait_xp = {
-				trait = zz_magister
-				track = alchemy_magic
-				value = {
-					integer_range = {
-						min = 1
-						max = 3
-					}
-				}
+			zz_valyria_gain_spell_experience_min_max = {
+				XPGAIN = 1
+				XPGAIN_MAX = 3
+				XPTRACK = alchemy_magic
 			}
 		}
 		if = {
 			limit = {
 				var:current_school_of_magic ?= flag:fire_magic
 			}
-			add_trait_xp = {
-				trait = zz_magister
-				track = fire_magic
-				value = {
-					integer_range = {
-						min = 1
-						max = 3
-					}
-				}
+			zz_valyria_gain_spell_experience_min_max = {
+				XPGAIN = 1
+				XPGAIN_MAX = 3
+				XPTRACK = fire_magic
 			}
 		}
 		if = {
 			limit = {
 				var:current_school_of_magic ?= flag:air_magic
 			}
-			add_trait_xp = {
-				trait = zz_magister
-				track = air_magic
-				value = {
-					integer_range = {
-						min = 1
-						max = 3
-					}
-				}
+			zz_valyria_gain_spell_experience_min_max = {
+				XPGAIN = 1
+				XPGAIN_MAX = 3
+				XPTRACK = air_magic
 			}
 		}
 		if = {
 			limit = {
 				var:current_school_of_magic ?= flag:water_magic
 			}
-			add_trait_xp = {
-				trait = zz_magister
-				track = water_magic
-				value = {
-					integer_range = {
-						min = 1
-						max = 3
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
-				var:current_school_of_magic ?= flag:dragon_magic
-			}
-			add_trait_xp = {
-				trait = zz_magister
-				track = dragon_magic
-				value = {
-					integer_range = {
-						min = 1
-						max = 3
-					}
-				}
+			zz_valyria_gain_spell_experience_min_max = {
+				XPGAIN = 1
+				XPGAIN_MAX = 3
+				XPTRACK = water_magic
 			}
 		}
 	}
@@ -186,7 +131,6 @@ zz_valyria_magic_further_education.0001 = {
 # Tamed Dragon Bonding scheme failure
 zz_valyria_magic_further_education.0002 = {
 	type = character_event
-	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_further_education.0002.t
 	desc = zz_valyria_magic_further_education.0002.desc
 	theme = befriend_scheme
@@ -211,10 +155,12 @@ zz_valyria_magic_further_education.0002 = {
 
 zz_valyria_magic_further_education.1000 = {
 	type = character_event
-	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_further_education.1000.t
 	desc = zz_valyria_magic_further_education.1000.desc
-	theme = dragon
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
 	left_portrait = root
 
 	widget = {
@@ -225,14 +171,14 @@ zz_valyria_magic_further_education.1000 = {
 		scope:scheme = {
 			NOT = { has_variable = had_event_consult_valyrian_lore }
 		}
-		culture = { has_cultural_pillar = heritage_valyrian }
+		culture = { has_cultural_pillar = heritage_latin }
 	}
 	immediate = {
 		scope:scheme = {
 			set_variable = {
 				name = had_event_consult_valyrian_lore
 				value = yes
-				years = 3
+				years = 1
 			}
 		}
 	}
@@ -249,7 +195,7 @@ zz_valyria_magic_further_education.1000 = {
 					min = -49
 				}
 				show_as_tooltip = {
-					scope:scheme = { add_scheme_modifier = { type = dragon_bond_oral_folklore_success_modifier } }
+					scope:scheme = { add_scheme_modifier = { type = magic_oral_folklore_success_modifier } }
 				}
 				scope:owner = {
 					set_variable = {
@@ -269,7 +215,7 @@ zz_valyria_magic_further_education.1000 = {
 					min = -49
 				}
 				show_as_tooltip = {
-					scope:scheme = { add_scheme_modifier = { type = dragon_bond_oral_folklore_failure_modifier } }
+					scope:scheme = { add_scheme_modifier = { type = magic_oral_folklore_failure_modifier } }
 				}
 				scope:owner = {
 					set_variable = {
@@ -297,7 +243,7 @@ zz_valyria_magic_further_education.1000 = {
 					min = -49
 				}
 				show_as_tooltip = {
-					scope:scheme = { add_scheme_modifier = { type = dragon_bond_written_lore_success_modifier } }
+					scope:scheme = { add_scheme_modifier = { type = magic_written_lore_success_modifier } }
 				}
 				scope:owner = {
 					set_variable = {
@@ -317,7 +263,7 @@ zz_valyria_magic_further_education.1000 = {
 					min = -49
 				}
 				show_as_tooltip = {
-					scope:scheme = { add_scheme_modifier = { type = dragon_bond_written_lore_failure_modifier } }
+					scope:scheme = { add_scheme_modifier = { type = magic_written_lore_failure_modifier } }
 				}
 				scope:owner = {
 					set_variable = {
@@ -340,10 +286,12 @@ zz_valyria_magic_further_education.1000 = {
 
 zz_valyria_magic_further_education.1001 = {
 	type = character_event
-	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_further_education.1001.t
 	desc = zz_valyria_magic_further_education.1001.desc
-	theme = dragon
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
 	left_portrait = root
 	widget = {
 		gui = "event_window_widget_scheme"
@@ -359,14 +307,14 @@ zz_valyria_magic_further_education.1001 = {
 				limit = {
 					scope:owner = { var:selected_lore ?= flag:folklore }
 				}
-				add_scheme_modifier = { type = dragon_bond_oral_folklore_success_modifier }
+				add_scheme_modifier = { type = magic_oral_folklore_success_modifier }
 				scope:owner = { remove_variable = selected_lore }
 			} 
 			else_if = {
 				limit = {
 					scope:owner = { var:selected_lore ?= flag:tomes }
 				}
-				add_scheme_modifier = { type = dragon_bond_written_lore_success_modifier }
+				add_scheme_modifier = { type = magic_written_lore_success_modifier }
 				scope:owner = { remove_variable = selected_lore }
 				add_scheme_progress = 10
 			}
@@ -376,10 +324,12 @@ zz_valyria_magic_further_education.1001 = {
 
 zz_valyria_magic_further_education.1002 = {
 	type = character_event
-	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_further_education.1002.t
 	desc = zz_valyria_magic_further_education.1002.desc
-	theme = dragon
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
 	left_portrait = root	
 	widget = {
 		gui = "event_window_widget_scheme"
@@ -395,13 +345,14 @@ zz_valyria_magic_further_education.1002 = {
 				limit = {
 					scope:owner = { var:selected_lore ?= flag:folklore }
 				}
-				add_scheme_modifier = { type = dragon_bond_oral_folklore_failure_modifier }
+				add_scheme_modifier = { type = magic_oral_folklore_failure_modifier }
 				scope:owner = { remove_variable = selected_lore }
-			} else_if = {
+			} 
+			else_if = {
 				limit = {
 					scope:owner = { var:selected_lore ?= flag:tomes }
 				}
-				add_scheme_modifier = { type = dragon_bond_written_lore_failure_modifier }
+				add_scheme_modifier = { type = magic_written_lore_failure_modifier }
 				scope:owner = { remove_variable = selected_lore }
 			}
 		}
@@ -414,10 +365,12 @@ zz_valyria_magic_further_education.1002 = {
 # Chant in Valyrian
 zz_valyria_magic_further_education.1010 = {
 	type = character_event
-	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_further_education.1010.t
 	desc = zz_valyria_magic_further_education.1010.desc
-	theme = dragon
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
 	left_portrait = {
 		character = root
 		animation = thinking
@@ -428,15 +381,14 @@ zz_valyria_magic_further_education.1010 = {
 		scope:scheme = {
 			NOT = { has_variable = had_chanting_event }
 		}
-		NOT = { has_trait = mute }
-		knows_language = language_agot_valyrian
+		knows_language = language_latin
 	}
 	immediate = {
 		scope:scheme = {
 			set_variable = {
 				name = had_chanting_event
 				value = yes
-				years = 3
+				years = 1
 			}
 		}
 	}
@@ -454,7 +406,7 @@ zz_valyria_magic_further_education.1010 = {
 				show_as_tooltip = {
 					scope:scheme = {
 						add_scheme_modifier = {
-							type = dragon_bond_good_singing
+							type = magic_good_singing
 						}
 					}
 				}
@@ -474,7 +426,7 @@ zz_valyria_magic_further_education.1010 = {
 				show_as_tooltip = {
 					scope:scheme = {
 						add_scheme_modifier = {
-							type = dragon_bond_bad_singing
+							type = magic_bad_singing
 						}
 					}
 				}
@@ -502,10 +454,12 @@ zz_valyria_magic_further_education.1010 = {
 
 zz_valyria_magic_further_education.1011 = {
 	type = character_event
-	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_further_education.1011.t
 	desc = zz_valyria_magic_further_education.1011.desc
-	theme = dragon
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
 	left_portrait = root
 	widget = {
 		gui = "event_window_widget_scheme"
@@ -517,7 +471,7 @@ zz_valyria_magic_further_education.1011 = {
 	option = {
 		name = zz_valyria_magic_further_education.1011.a
 		scope:scheme = { 
-			add_scheme_modifier = { type = dragon_bond_good_singing } 
+			add_scheme_modifier = { type = magic_good_singing } 
 			add_scheme_progress = 10
 		}
 	}
@@ -525,10 +479,12 @@ zz_valyria_magic_further_education.1011 = {
 
 zz_valyria_magic_further_education.1012 = {
 	type = character_event
-	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_further_education.1012.t
 	desc = zz_valyria_magic_further_education.1012.desc
-	theme = dragon
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
 	left_portrait = root
 	widget = {
 		gui = "event_window_widget_scheme"
@@ -539,7 +495,7 @@ zz_valyria_magic_further_education.1012 = {
 	# Excellent!
 	option = {
 		name = zz_valyria_magic_further_education.1012.a
-		scope:scheme = { add_scheme_modifier = { type = dragon_bond_bad_singing } }
+		scope:scheme = { add_scheme_modifier = { type = magic_bad_singing } }
 		stress_impact = {
 			base = minor_stress_impact_gain
 		}
@@ -549,10 +505,12 @@ zz_valyria_magic_further_education.1012 = {
 # Speak in Valyrian
 zz_valyria_magic_further_education.1020 = {
 	type = character_event
-	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_further_education.1020.t
 	desc = zz_valyria_magic_further_education.1020.desc
-	theme = dragon
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
 	left_portrait = {
 		character = root
 		animation = thinking
@@ -563,14 +521,14 @@ zz_valyria_magic_further_education.1020 = {
 		scope:scheme = {
 			NOT = { has_variable = had_reading_event }
 		}
-		knows_language = language_agot_valyrian
+		knows_language = language_latin
 	}
 	immediate = {
 		scope:scheme = {
 			set_variable = {
 				name = had_reading_event
 				value = yes
-				years = 3
+				years = 1
 			}
 		}
 	}
@@ -587,12 +545,12 @@ zz_valyria_magic_further_education.1020 = {
 				}
 				modifier = {
 					add = 25
-					knows_language = language_agot_valyrian
+					knows_language = language_latin
 				}
 				show_as_tooltip = {
 					scope:scheme = {
 						add_scheme_modifier = {
-							type = dragon_bond_good_speaking
+							type = magic_good_speaking
 						}
 					}
 				}
@@ -611,12 +569,12 @@ zz_valyria_magic_further_education.1020 = {
 				}
 				modifier = {
 					add = -50
-					NOT = { knows_language = language_agot_valyrian }
+					NOT = { knows_language = language_latin }
 				}
 				show_as_tooltip = {
 					scope:scheme = {
 						add_scheme_modifier = {
-							type = dragon_bond_bad_speaking
+							type = magic_bad_speaking
 						}
 					}
 				}
@@ -644,10 +602,12 @@ zz_valyria_magic_further_education.1020 = {
 
 zz_valyria_magic_further_education.1021 = {
 	type = character_event
-	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_further_education.1021.t
 	desc = zz_valyria_magic_further_education.1021.desc
-	theme = dragon
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
 	left_portrait = root
 	widget = {
 		gui = "event_window_widget_scheme"
@@ -659,7 +619,7 @@ zz_valyria_magic_further_education.1021 = {
 	option = {
 		name = zz_valyria_magic_further_education.1021.a
 		scope:scheme = { 
-			add_scheme_modifier = { type = dragon_bond_good_speaking } 
+			add_scheme_modifier = { type = magic_good_speaking } 
 			add_scheme_progress = 10
 		}
 	}
@@ -667,10 +627,12 @@ zz_valyria_magic_further_education.1021 = {
 
 zz_valyria_magic_further_education.1022 = {
 	type = character_event
-	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_further_education.1022.t
 	desc = zz_valyria_magic_further_education.1022.desc
-	theme = dragon
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
 	left_portrait = root
 	widget = {
 		gui = "event_window_widget_scheme"
@@ -680,7 +642,725 @@ zz_valyria_magic_further_education.1022 = {
 
 	option = {
 		name = zz_valyria_magic_further_education.1022.a
-		scope:scheme = { add_scheme_modifier = { type = dragon_bond_bad_speaking } }
+		scope:scheme = { add_scheme_modifier = { type = magic_bad_speaking } }
+		stress_impact = {
+			base = minor_stress_impact_gain
+		}
+	}
+}
+
+zz_valyria_magic_further_education.1030 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1030.t
+	desc = zz_valyria_magic_further_education.1030.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+	right_portrait = {
+	}
+	trigger = {
+		scope:scheme = {
+			NOT = { has_variable = had_reading_event }
+		}
+		knows_language = language_latin
+	}
+	immediate = {
+		scope:scheme = {
+			set_variable = {
+				name = had_reading_event
+				value = yes
+				years = 1
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_further_education.1030.a
+		duel = {
+			skills = { learning diplomacy }
+			value = high_skill_rating
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2.5
+					min = -49
+				}
+				modifier = {
+					add = 25
+					knows_language = language_latin
+				}
+				show_as_tooltip = {
+					scope:scheme = {
+						add_scheme_modifier = {
+							type = magic_good_speaking
+						}
+					}
+				}
+				hidden_effect = {
+					trigger_event = {
+						id = zz_valyria_magic_further_education.1031
+						days = 2
+					}
+				}
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2.5
+					min = -49
+				}
+				modifier = {
+					add = -50
+					NOT = { knows_language = language_latin }
+				}
+				show_as_tooltip = {
+					scope:scheme = {
+						add_scheme_modifier = {
+							type = magic_bad_speaking
+						}
+					}
+				}
+				hidden_effect = {
+					trigger_event = {
+						id = zz_valyria_magic_further_education.1032
+						days = 2
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_sociability = 1
+				ai_compassion = 1
+			}
+		}
+	}
+	# No, never mind...
+	option = {
+		name = zz_valyria_magic_further_education.1030.b
+	}
+}
+
+zz_valyria_magic_further_education.1031 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1031.t
+	desc = zz_valyria_magic_further_education.1031.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = root
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = { exists = scope:scheme }
+
+	# Excellent!
+	option = {
+		name = zz_valyria_magic_further_education.1031.a
+		scope:scheme = { 
+			add_scheme_modifier = { type = magic_good_speaking } 
+			add_scheme_progress = 10
+		}
+	}
+}
+
+zz_valyria_magic_further_education.1032 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1032.t
+	desc = zz_valyria_magic_further_education.1032.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = root
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = { exists = scope:scheme }
+
+	option = {
+		name = zz_valyria_magic_further_education.1032.a
+		scope:scheme = { add_scheme_modifier = { type = magic_bad_speaking } }
+		stress_impact = {
+			base = minor_stress_impact_gain
+		}
+	}
+}
+
+
+zz_valyria_magic_further_education.1040 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1040.t
+	desc = zz_valyria_magic_further_education.1040.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+	right_portrait = {
+	}
+	trigger = {
+		scope:scheme = {
+			NOT = { has_variable = had_reading_event }
+		}
+		knows_language = language_latin
+	}
+	immediate = {
+		scope:scheme = {
+			set_variable = {
+				name = had_reading_event
+				value = yes
+				years = 1
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_further_education.1040.a
+		duel = {
+			skills = { learning diplomacy }
+			value = high_skill_rating
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2.5
+					min = -49
+				}
+				modifier = {
+					add = 25
+					knows_language = language_latin
+				}
+				show_as_tooltip = {
+					scope:scheme = {
+						add_scheme_modifier = {
+							type = magic_good_speaking
+						}
+					}
+				}
+				hidden_effect = {
+					trigger_event = {
+						id = zz_valyria_magic_further_education.1041
+						days = 2
+					}
+				}
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2.5
+					min = -49
+				}
+				modifier = {
+					add = -50
+					NOT = { knows_language = language_latin }
+				}
+				show_as_tooltip = {
+					scope:scheme = {
+						add_scheme_modifier = {
+							type = magic_bad_speaking
+						}
+					}
+				}
+				hidden_effect = {
+					trigger_event = {
+						id = zz_valyria_magic_further_education.1042
+						days = 2
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_sociability = 1
+				ai_compassion = 1
+			}
+		}
+	}
+	# No, never mind...
+	option = {
+		name = zz_valyria_magic_further_education.1040.b
+	}
+}
+
+zz_valyria_magic_further_education.1041 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1041.t
+	desc = zz_valyria_magic_further_education.1041.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = root
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = { exists = scope:scheme }
+
+	# Excellent!
+	option = {
+		name = zz_valyria_magic_further_education.1041.a
+		scope:scheme = { 
+			add_scheme_modifier = { type = magic_good_speaking } 
+			add_scheme_progress = 10
+		}
+	}
+}
+
+zz_valyria_magic_further_education.1042 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1042.t
+	desc = zz_valyria_magic_further_education.1042.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = root
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = { exists = scope:scheme }
+
+	option = {
+		name = zz_valyria_magic_further_education.1042.a
+		scope:scheme = { add_scheme_modifier = { type = magic_bad_speaking } }
+		stress_impact = {
+			base = minor_stress_impact_gain
+		}
+	}
+}
+
+zz_valyria_magic_further_education.1050 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1050.t
+	desc = zz_valyria_magic_further_education.1050.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+	right_portrait = {
+	}
+	trigger = {
+		scope:scheme = {
+			NOT = { has_variable = had_reading_event }
+		}
+		knows_language = language_latin
+	}
+	immediate = {
+		scope:scheme = {
+			set_variable = {
+				name = had_reading_event
+				value = yes
+				years = 1
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_further_education.1050.a
+		duel = {
+			skills = { learning diplomacy }
+			value = high_skill_rating
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2.5
+					min = -49
+				}
+				modifier = {
+					add = 25
+					knows_language = language_latin
+				}
+				show_as_tooltip = {
+					scope:scheme = {
+						add_scheme_modifier = {
+							type = magic_good_speaking
+						}
+					}
+				}
+				hidden_effect = {
+					trigger_event = {
+						id = zz_valyria_magic_further_education.1051
+						days = 2
+					}
+				}
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2.5
+					min = -49
+				}
+				modifier = {
+					add = -50
+					NOT = { knows_language = language_latin }
+				}
+				show_as_tooltip = {
+					scope:scheme = {
+						add_scheme_modifier = {
+							type = magic_bad_speaking
+						}
+					}
+				}
+				hidden_effect = {
+					trigger_event = {
+						id = zz_valyria_magic_further_education.1052
+						days = 2
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+			ai_value_modifier = {
+				ai_sociability = 1
+				ai_compassion = 1
+			}
+		}
+	}
+	# No, never mind...
+	option = {
+		name = zz_valyria_magic_further_education.1050.b
+	}
+}
+
+zz_valyria_magic_further_education.1051 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1051.t
+	desc = zz_valyria_magic_further_education.1051.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = root
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = { exists = scope:scheme }
+
+	# Excellent!
+	option = {
+		name = zz_valyria_magic_further_education.1051.a
+		scope:scheme = { 
+			add_scheme_modifier = { type = magic_good_speaking } 
+			add_scheme_progress = 10
+		}
+	}
+}
+
+zz_valyria_magic_further_education.1052 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1052.t
+	desc = zz_valyria_magic_further_education.1052.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = root
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = { exists = scope:scheme }
+
+	option = {
+		name = zz_valyria_magic_further_education.1052.a
+		scope:scheme = { add_scheme_modifier = { type = magic_bad_speaking } }
+		stress_impact = {
+			base = minor_stress_impact_gain
+		}
+	}
+}
+zz_valyria_magic_further_education.1060 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1060.t
+	desc = zz_valyria_magic_further_education.1060.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = {
+		character = root
+		animation = contemplation
+	}
+	right_portrait = {
+	}
+	trigger = {
+		scope:scheme = {
+			NOT = { has_variable = had_fire_event }
+		}
+	}
+	immediate = {
+		scope:scheme = {
+			set_variable = {
+				name = had_fire_event
+				value = yes
+				years = 1
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_further_education.1060.a
+		duel = {
+			skills = { learning prowess }
+			value = high_skill_rating
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2.5
+					min = -49
+				}
+				modifier = {
+					add = 20
+					has_trait = lifestyle_mystic
+				}
+				show_as_tooltip = {
+					scope:scheme = {
+						add_scheme_modifier = {
+							type = magic_good_speaking
+						}
+					}
+				}
+				hidden_effect = {
+					trigger_event = {
+						id = zz_valyria_magic_further_education.1061
+						days = 2
+					}
+				}
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2.5
+					min = -49
+				}
+				modifier = {
+					add = -40
+				}
+				show_as_tooltip = {
+					scope:scheme = {
+						add_scheme_modifier = {
+							type = magic_bad_speaking
+						}
+					}
+				}
+				hidden_effect = {
+					trigger_event = {
+						id = zz_valyria_magic_further_education.1062
+						days = 2
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = zz_valyria_magic_further_education.1060.b
+	}
+}
+
+zz_valyria_magic_further_education.1061 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1061.t
+	desc = zz_valyria_magic_further_education.1061.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = root
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = { exists = scope:scheme }
+
+	option = {
+		name = zz_valyria_magic_further_education.1061.a
+		scope:scheme = {
+			add_scheme_modifier = { type = magic_good_speaking }
+			add_scheme_progress = 10
+		}
+	}
+}
+
+zz_valyria_magic_further_education.1062 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1062.t
+	desc = zz_valyria_magic_further_education.1062.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = root
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = { exists = scope:scheme }
+
+	option = {
+		name = zz_valyria_magic_further_education.1062.a
+		scope:scheme = {
+			add_scheme_modifier = { type = magic_bad_speaking }
+		}
+		stress_impact = {
+			base = minor_stress_impact_gain
+		}
+	}
+}
+
+zz_valyria_magic_further_education.1070 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1070.t
+	desc = zz_valyria_magic_further_education.1070.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = {
+		character = root
+		animation = discussion
+	}
+	right_portrait = {
+	}
+	trigger = {
+		scope:scheme = {
+			NOT = { has_variable = had_debate_event }
+		}
+	}
+	immediate = {
+		scope:scheme = {
+			set_variable = {
+				name = had_debate_event
+				value = yes
+				years = 1
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_further_education.1070.a
+		duel = {
+			skills = { learning diplomacy intrigue }
+			value = high_skill_rating
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 2.5
+					min = -49
+				}
+				modifier = {
+					add = 20
+					has_trait = gregarious
+				}
+				show_as_tooltip = {
+					scope:scheme = {
+						add_scheme_modifier = {
+							type = magic_good_speaking
+						}
+					}
+				}
+				hidden_effect = {
+					trigger_event = {
+						id = zz_valyria_magic_further_education.1071
+						days = 2
+					}
+				}
+			}
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -2.5
+					min = -49
+				}
+				modifier = {
+					add = -40
+				}
+				show_as_tooltip = {
+					scope:scheme = {
+						add_scheme_modifier = {
+							type = magic_bad_speaking
+						}
+					}
+				}
+				hidden_effect = {
+					trigger_event = {
+						id = zz_valyria_magic_further_education.1072
+						days = 2
+					}
+				}
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = zz_valyria_magic_further_education.1070.b
+	}
+}
+
+zz_valyria_magic_further_education.1071 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1071.t
+	desc = zz_valyria_magic_further_education.1071.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = root
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = { exists = scope:scheme }
+
+	option = {
+		name = zz_valyria_magic_further_education.1071.a
+		scope:scheme = {
+			add_scheme_modifier = { type = magic_good_speaking }
+			add_scheme_progress = 10
+		}
+	}
+}
+
+zz_valyria_magic_further_education.1072 = {
+	type = character_event
+	title = zz_valyria_magic_further_education.1072.t
+	desc = zz_valyria_magic_further_education.1072.desc
+	theme = university
+	override_background = {
+		reference = zz_magical_eduction
+	}
+	left_portrait = root
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+	trigger = { exists = scope:scheme }
+
+	option = {
+		name = zz_valyria_magic_further_education.1072.a
+		scope:scheme = {
+			add_scheme_modifier = { type = magic_bad_speaking }
+		}
 		stress_impact = {
 			base = minor_stress_impact_gain
 		}

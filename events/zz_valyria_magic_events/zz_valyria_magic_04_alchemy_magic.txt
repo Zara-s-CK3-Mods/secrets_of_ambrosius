@@ -34,7 +34,7 @@ zz_valyria_magic_alchemy_magic.001 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_01
+				SPELL = 001
 			}
 		}
 	}
@@ -76,7 +76,7 @@ zz_valyria_magic_alchemy_magic.002 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_02
+				SPELL = 002
 			}
 		}
 	}
@@ -104,7 +104,7 @@ zz_valyria_magic_alchemy_magic.003 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_03
+				SPELL = 003
 			}
 		}
 	}
@@ -132,7 +132,7 @@ zz_valyria_magic_alchemy_magic.004 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_04
+				SPELL = 004
 			}
 		}
 	}
@@ -159,26 +159,9 @@ zz_valyria_magic_alchemy_magic.005 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.005.opt.a
 		hidden_effect = {
-			save_scope_value_as = {
-				name = option_01
-				value = yes
-			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_05
-			}
-		}
-	}
-	option = {
-		name = zz_valyria_magic_alchemy_magic.005.opt.b
-		hidden_effect = {
-			save_scope_value_as = {
-				name = option_02
-				value = yes
-			}
-			zz_valyria_magic_cast_effect = { 
-				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_05
+				SPELL = 005
 			}
 		}
 	}
@@ -203,14 +186,23 @@ zz_valyria_magic_alchemy_magic.006 = {
 
 	immediate = {
 		zz_valyria_artifact_list = yes
+		zz_valyria_alchemy_magic_enchantment_list = yes 
 	}
-
-	widget = {
-		is_shown = {
-			is_ai = no
+	widgets = {
+		widget = {
+			is_shown = {
+				is_ai = no
+			}
+			gui = "event_window_artifact_selection_tall"
+			container = "custom_widgets_container"
 		}
-		gui = "event_window_artifact_selection_tall"
-		container = "custom_widgets_container"
+		widget = {
+			is_shown = {
+				is_ai = no
+			}
+			gui = "event_window_flag_selection"
+			container = "custom_widgets_container"
+		}
 	}
 	option = {
 		name = zz_valyria_magic_alchemy_magic.006.opt.a
@@ -220,7 +212,13 @@ zz_valyria_magic_alchemy_magic.006 = {
 			var:zz_valyria_selected_artifact?= { 
 				save_scope_as = target
 			}
-			trigger_event = zz_valyria_magic_alchemy_magic.00601
+			var:selected_flag ?= { 
+				save_scope_as = modifier
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = alchemy_magic
+				SPELL = 006
+			}
 		}
 
 	}
@@ -229,175 +227,6 @@ zz_valyria_magic_alchemy_magic.006 = {
 		name = zz_valyria_magic_alchemy_magic.006.opt.z
 	}
 }
-zz_valyria_magic_alchemy_magic.00601 = {
-	type = character_event
-	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_alchemy_magic.006.t
-	desc = zz_valyria_magic_alchemy_magic.006.desc
-	theme = university 
-	override_background = {
-		reference = zz_alchemy_magic
-	}
-	lower_left_portrait = root
-	lower_right_portrait = {
-		character = scope:secondary_recipient
-	}
-	lower_center_portrait = scope:recipient
-
-	immediate = {
-		remove_variable = selected_flag
-		clear_variable_list = possible_flags
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_none
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_01
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_02
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_03
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_04
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_05
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_06
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_07
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_08
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_09
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_10
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_12
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_13
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_14
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_15
-			}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_16
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_17
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_18
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_19
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_20
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_21
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_22
-		}
-		set_variable = {
-			name = selected_flag
-			value = flag:item_modifier_none
-		}
-		if = { 
-			limit = {
-				scope:secondary_recipient = {
-					or = {
-						var:casttype ?= flag:potion 
-						var:casttype ?= flag:scroll
-						zz_valyria_has_mana_to_cast = {
-							MANACOST = zz_valyria_magic_alchemy_magic_06_02_cost
-						}
-					}
-					
-				}
-			}
-			add_to_variable_list = {
-				name = possible_flags
-				target = flag:item_modifier_11
-			}
-		}
-		if = {
-			limit = {
-				scope:secondary_recipient = {
-					or = {
-						var:casttype ?= flag:potion 
-						var:casttype ?= flag:scroll
-						zz_valyria_has_mana_to_cast = {
-							MANACOST = zz_valyria_magic_alchemy_magic_06_02_cost
-						}
-					}
-				}
-			}
-			add_to_variable_list = {
-				name = possible_flags
-				target = flag:item_modifier_22
-			}
-		}
-		
-	}
-
-	widget = {
-		is_shown = {
-			is_ai = no
-		}
-		gui = "event_window_flag_selection"
-		container = "custom_widgets_container"
-	}
-	option = {
-		name = zz_valyria_magic_alchemy_magic.006.opt.a
-		hidden_effect = {
-			var:selected_flag ?= { 
-				save_scope_as = modifier
-			}
-			zz_valyria_magic_cast_effect = { 
-				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_06
-			}
-		}
-	}
-}
-
 zz_valyria_magic_alchemy_magic.007 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -419,7 +248,7 @@ zz_valyria_magic_alchemy_magic.007 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_07
+				SPELL = 007
 			}
 		}
 	}
@@ -444,7 +273,7 @@ zz_valyria_magic_alchemy_magic.008 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_08
+				SPELL = 008
 			}
 		}
 	}
@@ -472,7 +301,7 @@ zz_valyria_magic_alchemy_magic.009 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_09
+				SPELL = 009
 			}
 		}
 	}
@@ -480,8 +309,6 @@ zz_valyria_magic_alchemy_magic.009 = {
 		name = zz_valyria_magic_alchemy_magic.009.opt.z
 	}
 }
-
-
 zz_valyria_magic_alchemy_magic.010 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -506,7 +333,7 @@ zz_valyria_magic_alchemy_magic.010 = {
 			} 
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_10
+				SPELL = 010
 			}
 		}
 	}
@@ -515,7 +342,7 @@ zz_valyria_magic_alchemy_magic.010 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_10
+				SPELL = 010
 			}
 		}
 	}
@@ -523,7 +350,6 @@ zz_valyria_magic_alchemy_magic.010 = {
 		name = zz_valyria_magic_alchemy_magic.010.opt.z
 	}
 }
-
 zz_valyria_magic_alchemy_magic.011 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -548,7 +374,7 @@ zz_valyria_magic_alchemy_magic.011 = {
 			} 
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_11
+				SPELL = 011
 			}
 		}
 	}
@@ -557,7 +383,7 @@ zz_valyria_magic_alchemy_magic.011 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_11
+				SPELL = 011
 			}
 		}
 	
@@ -566,7 +392,6 @@ zz_valyria_magic_alchemy_magic.011 = {
 		name = zz_valyria_magic_alchemy_magic.011.opt.z
 	}
 }
-
 zz_valyria_magic_alchemy_magic.012 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -588,7 +413,7 @@ zz_valyria_magic_alchemy_magic.012 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_12
+				SPELL = 012
 			}
 		}
 	}
@@ -616,7 +441,7 @@ zz_valyria_magic_alchemy_magic.013 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_13
+				SPELL = 013
 			}
 		}
 	}
@@ -644,7 +469,7 @@ zz_valyria_magic_alchemy_magic.014 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_14
+				SPELL = 014
 			}
 		}
 	}
@@ -673,7 +498,7 @@ zz_valyria_magic_alchemy_magic.015 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_15
+				SPELL = 015
 			}
 		}
 	}
@@ -681,7 +506,6 @@ zz_valyria_magic_alchemy_magic.015 = {
 		name = zz_valyria_magic_alchemy_magic.015.opt.z
 	}
 }
-
 zz_valyria_magic_alchemy_magic.016 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -702,7 +526,7 @@ zz_valyria_magic_alchemy_magic.016 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_16
+				SPELL = 016
 			}
 		}
 		
@@ -711,7 +535,6 @@ zz_valyria_magic_alchemy_magic.016 = {
 		name = zz_valyria_magic_alchemy_magic.016.opt.z
 	}
 }
-
 zz_valyria_magic_alchemy_magic.017 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -736,7 +559,7 @@ zz_valyria_magic_alchemy_magic.017 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_17
+				SPELL = 017
 			}
 		}
 	}
@@ -749,12 +572,163 @@ zz_valyria_magic_alchemy_magic.017 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = alchemy_magic
-				SPELL  = zz_valyria_magic_alchemy_magic_17
+				SPELL = 017
 			}
 		}
 	}
 
 	option = {
 		name = zz_valyria_magic_alchemy_magic.017.opt.z
+	}
+}
+zz_valyria_magic_alchemy_magic.018 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.018.t
+	desc = zz_valyria_magic_alchemy_magic.018.desc
+	theme = university 
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_alchemy_magic.018.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_effect = { 
+				SKILL = alchemy_magic
+				SPELL = 018
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.018.opt.z
+	}
+}
+zz_valyria_magic_alchemy_magic.019 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.019.t
+	desc = zz_valyria_magic_alchemy_magic.019.desc
+	theme = university 
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_alchemy_magic.019.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_effect = { 
+				SKILL = alchemy_magic
+				SPELL = 019
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.019.opt.z
+	}
+}
+
+zz_valyria_magic_alchemy_magic.020 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.020.t
+	desc = zz_valyria_magic_alchemy_magic.020.desc
+	theme = university 
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_alchemy_magic.020.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_effect = { 
+				SKILL = alchemy_magic
+				SPELL = 020
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.020.opt.z
+	}
+}
+
+
+zz_valyria_magic_alchemy_magic.021 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.021.t
+	desc = zz_valyria_magic_alchemy_magic.021.desc
+	theme = university 
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_valyria_stored_dna_list = yes
+		zz_valyria_alchemy_magic_clone_sex_list_magic_list = yes
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+				root = {
+					any_in_list = {
+						variable = zz_valyria_possible_characters
+						count > 0
+					}
+				}
+			}
+			gui = "event_window_character_selection"
+			container = "custom_widgets_container"
+		}
+
+		
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_flag_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	
+	option = {
+		name = zz_valyria_magic_alchemy_magic.021.opt.a
+		trigger = {
+		}
+		hidden_effect = {
+			var:zz_valyria_selected_character ?= { 
+				save_scope_as = target_char
+			}
+			var:selected_flag ?= { 
+				save_scope_as = option
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = alchemy_magic
+				SPELL = 021
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.021.opt.z
+	}
+	after = {
 	}
 }

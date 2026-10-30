@@ -32,6 +32,8 @@
  tradition_zz_cultural_polygamy_four_wives_desc:0 "$go_four_concubines_desc$"
  tradition_zz_cultural_polygamy_five_wives_desc:0 "$go_five_concubines_desc$"
  tradition_zz_cultural_polygamy_nine_wives_desc:0 "$go_nine_concubines_desc$"
+ tradition_zz_cultural_polygamy_fifteen_wives_desc:0 "$go_nine_concubines_desc$"
+
 
 
  manage_grant_culture_trait_decision:0 "Uphold Ancient Traditions"

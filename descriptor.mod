@@ -4,5 +4,5 @@ tags={
 	"Character Interactions"
 }
 name="Secrets of Ambrosius"
-supported_version="1.18.1.1"
+supported_version="1.20.1.2"
 remote_file_id="3611795747"

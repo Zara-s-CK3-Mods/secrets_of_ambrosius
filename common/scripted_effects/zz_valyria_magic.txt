@@ -405,6 +405,8 @@
 	}
 }
 
+
+
 zz_mage_contract_travel_or_progress_effect = {
 	if = {
 		limit = { location != $DESTINATION$ }
@@ -724,11 +726,35 @@ magic_contract_visions_of_the_doom_effect = {
 		}
 
 		random_list = {
-			1 = {
+			8 = {
 				create_task_contract = {
 					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
 					task_contract_tier = 4
-					location = province:4415
+					location = province:496
+					save_scope_as = contract
+				}
+			}
+			8 = {
+				create_task_contract = {
+					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
+					task_contract_tier = 4
+					location = province:2575
+					save_scope_as = contract
+				}
+			}
+			4 = {
+				create_task_contract = {
+					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
+					task_contract_tier = 4
+					location = province:3158
+					save_scope_as = contract
+				}
+			}
+			2 = {
+				create_task_contract = {
+					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
+					task_contract_tier = 4
+					location = province:2333
 					save_scope_as = contract
 				}
 			}
@@ -736,7 +762,7 @@ magic_contract_visions_of_the_doom_effect = {
 				create_task_contract = {
 					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
 					task_contract_tier = 4
-					location = province:3499
+					location = province:2482
 					save_scope_as = contract
 				}
 			}
@@ -744,7 +770,7 @@ magic_contract_visions_of_the_doom_effect = {
 				create_task_contract = {
 					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
 					task_contract_tier = 4
-					location = province:7708
+					location = province:2945
 					save_scope_as = contract
 				}
 			}
@@ -752,31 +778,7 @@ magic_contract_visions_of_the_doom_effect = {
 				create_task_contract = {
 					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
 					task_contract_tier = 4
-					location = province:7713
-					save_scope_as = contract
-				}
-			}
-			1 = {
-				create_task_contract = {
-					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
-					task_contract_tier = 4
-					location = province:7559
-					save_scope_as = contract
-				}
-			}
-			1 = {
-				create_task_contract = {
-					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
-					task_contract_tier = 4
-					location = province:7388
-					save_scope_as = contract
-				}
-			}
-			1 = {
-				create_task_contract = {
-					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
-					task_contract_tier = 4
-					location = province:8066
+					location = province:2357
 					save_scope_as = contract
 				}
 			}
@@ -795,241 +797,241 @@ magic_contract_visions_of_the_doom_effect = {
 
 zz_spawn_magic_quest_contracts_effect = { 
 	random_list = { 
-		#Dragonstone
-		1 = {
+		#Constantinople
+		8 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_4415
+					has_character_flag = zz_valyria_magic_scroll_496
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:4415
+				location = province:496
 				save_scope_as = contract
 			}
 		}
-		#Citadel
-		1 = {
+		#Rome
+		8 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_3499
+					has_character_flag = zz_valyria_magic_scroll_2575
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:3499
+				location = province:2575
 				save_scope_as = contract
 			}
 		}
-		#Winterfall
+		#Canterbury
 		1 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_77
+					has_character_flag = zz_valyria_magic_scroll_1503
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:77
+				location = province:1503
 				save_scope_as = contract
 			}
 		}
-		#Castle black
+		#Oxford
 		1 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_5
+					has_character_flag = zz_valyria_magic_scroll_1558
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:5
+				location = province:1558
 				save_scope_as = contract
 			}
 		}
-		#Harrenhal
-		1 = {
+		#Paris
+		2 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_1934
+					has_character_flag = zz_valyria_magic_scroll_2333
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:1934
+				location = province:2333
 				save_scope_as = contract
 			}
 		}
-		#Water Gardens
+		#Cambridge
 		1 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_4939
+					has_character_flag = zz_valyria_magic_scroll_1534
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:4939
+				location = province:1534
 				save_scope_as = contract
 			}
 		}
-		#Pentos
+		#Reims
 		1 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_7708
+					has_character_flag = zz_valyria_magic_scroll_2390
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:7708
+				location = province:2390
 				save_scope_as = contract
 			}
 		}
-		#Temple of Rhllor
+		#Vatican
 		1 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_7713
+					has_character_flag = zz_valyria_magic_scroll_2577
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:7713
+				location = province:2577
 				save_scope_as = contract
 			}
 		}
-		#Myr
+		#Milan
 		1 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_7559
+					has_character_flag = zz_valyria_magic_scroll_2482
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:7559
+				location = province:2482
 				save_scope_as = contract
 			}
 		}
-		#Zobti Bastion
+		#Jerusalem
 		1 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_7351
+					has_character_flag = zz_valyria_magic_scroll_5965
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:7351
+				location = province:5965
 				save_scope_as = contract
 			}
 		}
-		#Temple of Trade
+		#Lyon
 		1 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_7389
+					has_character_flag = zz_valyria_magic_scroll_2065
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:7389
+				location = province:2065
 				save_scope_as = contract
 			}
 		}
-		#Lys
+		#Munich
 		1 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_7388
+					has_character_flag = zz_valyria_magic_scroll_2945
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:7388
+				location = province:2945
 				save_scope_as = contract
 			}
 		}
-		#The Sealord's Palace
-		1 = {
+		#Berlin
+		4 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_8062
+					has_character_flag = zz_valyria_magic_scroll_3158
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:8062
+				location = province:3158
 				save_scope_as = contract
 			}
 		}
-		#The Arsenal
+		#Toledo
 		1 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_8063
+					has_character_flag = zz_valyria_magic_scroll_1919
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:8063
+				location = province:1919
 				save_scope_as = contract
 			}
 		}
-		#The Purple Harbour
+		#Antioch
 		1 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_8064
+					has_character_flag = zz_valyria_magic_scroll_5910
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:8064
+				location = province:5910
 				save_scope_as = contract
 			}
 		}
-		#Court of Smiles
+		#Durham
 		1 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_8065
+					has_character_flag = zz_valyria_magic_scroll_1606
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:8065
+				location = province:1606
 				save_scope_as = contract
 			}
 		}
-		#Isle of the Gods
+		#Saint-Denis
 		1 = {
 			trigger = {
 				not = { 
-					has_character_flag = zz_valyria_magic_scroll_8066
+					has_character_flag = zz_valyria_magic_scroll_2357
 				}
 			}
 			create_task_contract = {
 				task_contract_type = zz_valyria_magic_visit_library_dragonstone
 				task_contract_tier = 4
-				location = province:8066
+				location = province:2357
 				save_scope_as = contract
 			}
 		}
@@ -1038,6 +1040,209 @@ zz_spawn_magic_quest_contracts_effect = {
 		set_variable = {
 			name = retain_despite_distance
 			value = yes
+		}
+	}
+}
+
+
+zz_spawn_magic_quest_contracts_spell_effect = { 
+	random_list = { 
+		#Constantinople
+		8 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:496
+				save_scope_as = contract
+			}
+		}
+		#Rome
+		8 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:2575
+				save_scope_as = contract
+			}
+		}
+		#Canterbury
+		1 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:1503
+				save_scope_as = contract
+			}
+		}
+		#Oxford
+		1 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:1558
+				save_scope_as = contract
+			}
+		}
+		#Paris
+		2 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:2333
+				save_scope_as = contract
+			}
+		}
+		#Cambridge
+		1 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:1534
+				save_scope_as = contract
+			}
+		}
+		#Reims
+		1 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:2390
+				save_scope_as = contract
+			}
+		}
+		#Vatican
+		1 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:2577
+				save_scope_as = contract
+			}
+		}
+		#Milan
+		1 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:2482
+				save_scope_as = contract
+			}
+		}
+		#Jerusalem
+		1 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:5965
+				save_scope_as = contract
+			}
+		}
+		#Lyon
+		1 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:2065
+				save_scope_as = contract
+			}
+		}
+		#Munich
+		1 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:2945
+				save_scope_as = contract
+			}
+		}
+		#Berlin
+		4 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:3158
+				save_scope_as = contract
+			}
+		}
+		#Toledo
+		1 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:1919
+				save_scope_as = contract
+			}
+		}
+		#Antioch
+		1 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:5910
+				save_scope_as = contract
+			}
+		}
+		#Durham
+		1 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:1606
+				save_scope_as = contract
+			}
+		}
+		#Saint-Denis
+		1 = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:2357
+				save_scope_as = contract
+			}
+		}
+	}
+	scope:contract ?= {
+		set_variable = {
+			name = retain_despite_distance
+			value = yes
+		}
+	}
+}
+
+zz_valyria_magic_prophecy_spawn = {
+	if = {
+		limit = { exists = scope:toggle_distance_ignore }
+		every_character_task_contract = { add_to_list = pre_existing_contracts_list }
+	}
+	# Now populate.
+	random_ruler = {
+		save_scope_as = ruler_location
+	}
+	create_task_contract = {
+		task_contract_type = $PROPHECY$
+		location = scope:ruler_location.capital_province
+		task_contract_employer = scope:ruler_location
+		task_contract_tier = 4
+		save_scope_as = new_contract
+		target = scope:secondary_recipient 
+	}
+	scope:new_contract = {
+		set_variable = {
+			name = zz_prophet
+			value = scope:secondary_recipient
+		}
+	}
+	# Then flag our new contracts (again, if necessary).
+	if = {
+		limit = { exists = scope:toggle_distance_ignore }
+		every_character_task_contract = {
+			limit = {
+				NOT = { is_in_list = pre_existing_contracts_list }
+			}
+			set_variable = {
+				name = retain_despite_distance
+				value = yes
+			}
 		}
 	}
 }

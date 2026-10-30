@@ -39,7 +39,7 @@ zz_valyria_magic_is_not_player_court_mage = {
 }
 zz_valyria_ai_spell_cast_knows_spell_has_mana = {
 	any_memory = {
-		has_memory_type = $SPELL$
+		var:spell_name ?= flag:$SPELL$
 	}
 	zz_valyria_has_mana_to_cast = {
 		MANACOST = $SPELL$_cost
@@ -90,12 +90,7 @@ zz_valyria_magic_healing_target = {
 		has_character_modifier = chronic_headaches_modifier 
 		has_character_modifier = infected_wound_modifier
 		has_character_modifier = gangrene_modifier
-		has_character_modifier = reduced_sex_drive_modifier
-		has_character_modifier = compromised_fertility_modifier
-		has_character_modifier = no_longer_fecund_modifier
-		has_character_modifier = no_more_children_modifier
 		has_trait = wounded
-		has_trait = burned
 		has_trait = ill
 		has_trait = sickly
 		has_trait = disfigured
@@ -160,7 +155,6 @@ zz_valyria_magic_genetic_restore_target = {
 
 zz_valyria_magic_longevity_target = {
 	age >= 80
-	is_human = yes 
 	NOT = {
 		has_trait = immortal
 	}
@@ -171,5 +165,4 @@ zz_valyria_magic_longevity_target = {
 
 zz_valyria_magic_health_boost_target = {
 	health <= poor_health
-	is_human = yes 
 }

@@ -1,6 +1,4 @@
-﻿
-
-zz_valyria_create_vs_sword_effect = {
+﻿zz_valyria_create_vs_sword_effect = {
 	$OWNER$ = {
 		save_scope_as = owner
 	}
@@ -13,18 +11,16 @@ zz_valyria_create_vs_sword_effect = {
 			scope:zz_sword_selection_sword = flag:item_sword_01
 		}
 		create_artifact = {
-			name = vs_valyrian_armingsword_silver_name
-			visuals = vs_valyrian_armingsword_silver_visuals
-			description = vs_valyrian_armingsword_silver_description
+			name = easteregg_artifact_jason_sword
+			description = easteregg_artifact_jason_sword_description
 			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_valyrian_template
-			modifier = vs_generic_valyrian_modifier
+			visuals = sword
+			modifier = artifact_personal_scheme_phase_duration_add_10_modifier
 			save_scope_as = newly_created_artifact
-			decaying = no
 		}
+
 		scope:newly_created_artifact ?= {
+			add_artifact_modifier = artifact_owned_personal_scheme_success_chance_add_5_modifier
 			equip_artifact_to_owner_replace = yes
 			set_variable = {
 				name = valyrian_steel
@@ -49,1622 +45,36 @@ zz_valyria_create_vs_sword_effect = {
 			scope:zz_sword_selection_sword = flag:item_sword_02
 		}
 		create_artifact = {
-			name = vs_valyrian_armingsword_gold_name
-			visuals = vs_valyrian_armingsword_gold_visuals
-			description = vs_valyrian_armingsword_gold_description
+			name = easteregg_artifact_jason_sword
+			description = easteregg_artifact_jason_sword_description
 			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_valyrian_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_armingsword_gold_artifact
-				value = yes
-			}
-			save_scope_value_as = {
-				name = valyrian_steel
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_03
-		}
-		create_artifact = {
-			name = vs_valyrian_longsword_gold_name
-			visuals = vs_valyrian_longsword_gold_visuals
-			description = vs_valyrian_longsword_gold_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_valyrian_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_longsword_gold_artifact
-				value = yes
-			}
-			save_scope_value_as = {
-				name = valyrian_steel
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_04
-		}
-		create_artifact = {
-			name = vs_valyrian_longsword_silver_name
-			visuals = vs_valyrian_longsword_silver_visuals
-			description = vs_valyrian_longsword_silver_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_valyrian_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_longsword_silver_artifact
-				value = yes
-			}
-			save_scope_value_as = {
-				name = valyrian_steel
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_05
-		}
-		create_artifact = {
-			name = vs_blackfyre_name
-			visuals = vs_blackfyre_visuals
-			description = vs_blackfyre_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_blackfyre_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_06
-		}
-		create_artifact = {
-			name = vs_dark_sister_name
-			visuals = vs_dark_sister_visuals
-			description = vs_dark_sister_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_dark_sister_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_07
-		}
-		create_artifact = {
-			name = vs_brightroar_name
-			visuals = vs_brightroar_visuals
-			description = vs_brightroar_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_brightroar_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_08
-		}
-		create_artifact = {
-			name = vs_dawn_name
-			visuals = vs_dawn_visuals
-			description = vs_dawn_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_valyrian_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_09
-		}
-		create_artifact = {
-			name = vs_cloudbreak_name
-			visuals = vs_cloudbreak_visuals
-			description = vs_cloudbreak_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_cloudbreak_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_10
-		}
-		create_artifact = {
-			name = vs_adders_fang_name
-			visuals = vs_adders_fang_visuals
-			description = vs_adders_fang_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_adders_fang_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_11
-		}
-		create_artifact = {
-			name = vs_dancer_name
-			visuals = vs_dancer_visuals
-			description = vs_dancer_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_dancer_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_12
-		}
-		create_artifact = {
-			name = vs_dark_moon_name
-			visuals = vs_dark_moon_visuals
-			description = vs_dark_moon_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_dark_moon_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_13
-		}
-		create_artifact = {
-			name = vs_darktalon_name
-			visuals = vs_darktalon_visuals
-			description = vs_darktalon_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_darktalon_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_14
-		}
-		create_artifact = {
-			name = vs_disputant_name
-			visuals = vs_disputant_visuals
-			description = vs_disputant_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_disputant_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_15
-		}
-		create_artifact = {
-			name = vs_defiance_name
-			visuals = vs_defiance_visuals
-			description = vs_defiance_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_defiance_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_16
-		}
-		create_artifact = {
-			name = vs_iron_will_name
-			visuals = vs_iron_will_visuals
-			description = vs_iron_will_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_iron_will_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_17
-		}
-		create_artifact = {
-			name = vs_heartsbane_name
-			visuals = vs_heartsbane_visuals
-			description = vs_heartsbane_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_heartsbane_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_18
-		}
-		create_artifact = {
-			name = vs_ice_name
-			visuals = vs_ice_visuals
-			description = vs_ice_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_ice_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_19
-		}
-		create_artifact = {
-			name = vs_lady_forlorn_name
-			visuals = vs_lady_forlorn_visuals
-			description = vs_lady_forlorn_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_lady_forlorn_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_20
-		}
-		create_artifact = {
-			name = vs_lamentation_name
-			visuals = vs_lamentation_visuals
-			description = vs_lamentation_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_lamentation_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_21
-		}
-		create_artifact = {
-			name = vs_longclaw_name
-			visuals = vs_longclaw_visuals
-			description = vs_longclaw_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_longclaw_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_22
-		}
-		create_artifact = {
-			name = vs_nightfall_name
-			visuals = vs_nightfall_visuals
-			description = vs_nightfall_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_nightfall_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_23
-		}
-		create_artifact = {
-			name = vs_orphan_maker_name
-			visuals = vs_orphan_maker_visuals
-			description = vs_orphan_maker_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_orphan_maker_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_24
-		}
-		create_artifact = {
-			name = vs_pincer_name
-			visuals = vs_pincer_visuals
-			description = vs_pincer_description
-			type = axe
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_pincer_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_25
-		}
-		create_artifact = {
-			name = vs_pride_name
-			visuals = vs_pride_visuals
-			description = vs_pride_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_pride_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_26
-		}
-		create_artifact = {
-			name = vs_red_rain_name
-			visuals = vs_red_rain_visuals
-			description = vs_red_rain_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_red_rain_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_27
-		}
-		create_artifact = {
-			name = vs_remige_name
-			visuals = vs_remige_visuals
-			description = vs_remige_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_remige_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_28
-		}
-		create_artifact = {
-			name = vs_seafoam_name
-			visuals = vs_seafoam_visuals
-			description = vs_seafoam_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_seafoam_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_29
-		}
-		create_artifact = {
-			name = vs_skinpeeler_name
-			visuals = vs_skinpeeler_visuals
-			description = vs_skinpeeler_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_skinpeeler_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_30
-		}
-		create_artifact = {
-			name = vs_skullcleaver_name
-			visuals = vs_skullcleaver_visuals
-			description = vs_skullcleaver_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_skullcleaver_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_31
-		}
-		create_artifact = {
-			name = vs_stalwart_name
-			visuals = vs_stalwart_visuals
-			description = vs_stalwart_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_stalwart_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_32
-		}
-		create_artifact = {
-			name = vs_supremacy_name
-			visuals = vs_supremacy_visuals
-			description = vs_supremacy_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_supremacy_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_33
-		}
-		create_artifact = {
-			name = vs_swordfish_name
-			visuals = vs_swordfish_visuals
-			description = vs_swordfish_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_swordfish_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_34
-		}
-		create_artifact = {
-			name = vs_tranquility_name
-			visuals = vs_tranquility_visuals
-			description = vs_tranquility_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_tranquility_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_35
-		}
-		create_artifact = {
-			name = vs_vigilance_name
-			visuals = vs_vigilance_visuals
-			description = vs_vigilance_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_vigilance_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_36
-		}
-		create_artifact = {
-			name = vs_widestripe_name
-			visuals = vs_widestripe_visuals
-			description = vs_widestripe_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_widestripe_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_37
-		}
-		create_artifact = {
-			name = vs_widows_wail_name
-			visuals = vs_widows_wail_visuals
-			description = vs_widows_wail_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_widows_wail_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_38
-		}
-		create_artifact = {
-			name = vs_wyrmfang_name
-			visuals = vs_wyrmfang_visuals
-			description = vs_wyrmfang_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_wyrmfang_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_39
-		}
-		create_artifact = {
-			name = vs_evergold_name
-			visuals = vs_evergold_visuals
-			description = vs_evergold_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_evergold_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_40
-		}
-		create_artifact = {
-			name = vs_truth_name
-			visuals = vs_truth_visuals
-			description = vs_truth_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_truth_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_41
-		}
-		create_artifact = {
-			name = kingsguard_sword_name
-			description = kingsguard_sword_description
 			visuals = longsword
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_nightfall_template
-			modifier = vs_generic_valyrian_modifier
+			modifier = artifact_personal_scheme_phase_duration_add_10_modifier
 			save_scope_as = newly_created_artifact
-			decaying = no
 		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_42
-		}
-		create_artifact = {
-			name = vs_black_death_name
-			visuals = vs_black_death_visuals
-			description = vs_black_death_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_black_death_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_43
-		}
-		create_artifact = {
-			name = vs_mothers_grief_name
-			visuals = vs_mothers_grief_visuals
-			description = vs_mothers_grief_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_mothers_grief_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_44
-		}
-		create_artifact = {
-			name = vs_talon_name
-			visuals = vs_talon_visuals
-			description = vs_talon_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_talon_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_45
-		}
-		create_artifact = {
-			name = vs_glory_name
-			visuals = vs_glory_visuals
-			description = vs_glory_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_glory_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_46
-		}
-		create_artifact = {
-			name = vs_stormy_nights_name
-			visuals = vs_stormy_nights_visuals
-			description = vs_stormy_nights_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_stormy_nights_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_47
-		}
-		create_artifact = {
-			name = vs_strangers_touch_name
-			visuals = vs_strangers_touch_visuals
-			description = vs_strangers_touch_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_strangers_touch_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_48
-		}
-		create_artifact = {
-			name = vs_dragonbane_name
-			visuals = vs_dragonbane_visuals
-			description = vs_dragonbane_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_dragonbane_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_49
-		}
-		create_artifact = {
-			name = vs_andal_armingsword_gold_name
-			visuals = vs_andal_armingsword_gold_visuals
-			description = vs_andal_armingsword_gold_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_andal_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_50
-		}
-		create_artifact = {
-			name = vs_andal_armingsword_silver_name
-			visuals = vs_andal_armingsword_silver_visuals
-			description = vs_andal_armingsword_silver_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_andal_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_51
-		}
-		create_artifact = {
-			name = vs_andal_longsword_gold_name
-			visuals = vs_andal_longsword_gold_visuals
-			description = vs_andal_longsword_gold_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_andal_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_52
-		}
-		create_artifact = {
-			name = vs_andal_longsword_silver_name
-			visuals = vs_andal_longsword_silver_visuals
-			description = vs_andal_longsword_silver_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_andal_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_53
-		}
-		create_artifact = {
-			name = vs_firstman_armingsword_gold_name
-			visuals = vs_firstman_armingsword_gold_visuals
-			description = vs_firstman_armingsword_gold_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_firstman_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_54
-		}
-		create_artifact = {
-			name = vs_firstman_armingsword_silver_name
-			visuals = vs_firstman_armingsword_silver_visuals
-			description = vs_firstman_armingsword_silver_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_firstman_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_55
-		}
-		create_artifact = {
-			name = vs_firstman_armingsword_bronze_name
-			visuals = vs_firstman_armingsword_bronze_visuals
-			description = vs_firstman_armingsword_bronze_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_firstman_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_56
-		}
-		create_artifact = {
-			name = vs_firstman_longsword_gold_name
-			visuals = vs_firstman_longsword_gold_visuals
-			description = vs_firstman_longsword_gold_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_firstman_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_57
-		}
-		create_artifact = {
-			name = vs_firstman_longsword_silver_name
-			visuals = vs_firstman_longsword_silver_visuals
-			description = vs_firstman_longsword_silver_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_firstman_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
-	else_if = { 
-		limit = { 
-			scope:zz_sword_selection_sword = flag:item_sword_58
-		}
-		create_artifact = {
-			name = vs_firstman_longsword_bronze_name
-			visuals = vs_firstman_longsword_bronze_visuals
-			description = vs_firstman_longsword_bronze_description
-			type = sword
-			wealth = scope:wealth
-			quality = scope:quality
-			template = vs_generic_firstman_template
-			modifier = vs_generic_valyrian_modifier
-			save_scope_as = newly_created_artifact
-			decaying = no
-		}
-		scope:newly_created_artifact ?= {
-			equip_artifact_to_owner_replace = yes
-			set_variable = {
-				name = valyrian_steel
-				value = yes
-			}
-			set_variable = {
-				name = valyrian_steel_generic
-				value = yes
-			}
-		}
-	}
 
+		scope:newly_created_artifact ?= {
+			add_artifact_modifier = artifact_owned_personal_scheme_success_chance_add_5_modifier
+			equip_artifact_to_owner_replace = yes
+			set_variable = {
+				name = valyrian_steel
+				value = yes
+			}
+			set_variable = {
+				name = valyrian_steel_generic
+				value = yes
+			}
+			set_variable = {
+				name = valyrian_armingsword_silver_artifact
+				value = yes
+			}
+			save_scope_value_as = {
+				name = valyrian_steel
+				value = yes
+			}
+		}
+	}
+	
 	hidden_effect_new_object = {
 		scope:newly_created_artifact = {
 			add_artifact_history = { 
@@ -1683,8 +93,7 @@ zz_valyria_create_vs_sword_effect = {
 	zz_craft_item_apply_item_effect = {
 		MODIFIER = zz_valyria_magic_vs_base_modifier_01_stacking
 	}
-	
-	
+	#zz_apply_item_magic_modifiers_effect = yes 
 	trigger_event = zz_valyria_item_crafting_rename.2
 }
 
@@ -1835,109 +244,6 @@ zz_valyria_create_magic_ring_effect = {
 	trigger_event = zz_valyria_item_crafting_rename.2
 }
 
-zz_valyria_create_magic_crown_effect = {
-	# Get the character the artifact is being made for.
-	$OWNER$ = { save_scope_as = owner }
-
-	set_artifact_rarity_illustrious = yes
-
-	# Create the artifact
-	create_artifact = {
-		name = item_crown
-		description = jaehaerys_crown_description
-		type = helmet
-		visuals = jaehaerys_crown_visuals
-		wealth = scope:wealth
-		quality = scope:quality
-		template = zz_valyria_mages_crown_artifact_template
-		modifier = jaehaerys_crown_modifier
-		save_scope_as = newly_created_artifact
-		decaying = no
-	}
-	set_variable = {
-		name = newly_created_artifact
-		value = scope:newly_created_artifact
-	}
-	scope:newly_created_artifact ?= {
-		set_variable = { name = crown_jaehaerys_artifact value = yes }
-		equip_artifact_to_owner_replace = yes
-	}
-	zz_craft_item_apply_item_effect = {
-		MODIFIER = item_modifier_01
-	}
-	
-}
-
-
-zz_valyria_create_magic_rod_effect = {
-	$OWNER$ = { save_scope_as = owner }
-	set_artifact_rarity_illustrious = yes
-
-	create_artifact = {
-		name = item_rod
-		description = agot_artifact_archmaester_rod_desc
-		visuals = archmaester_rod
-		type = archmaester_rod
-		template = zz_valyria_mages_rod_artifact_template
-		modifier = artifact_placeholder_modifier
-		history = {
-			type = created_before_history
-		}
-		save_scope_as = newly_created_artifact
-		wealth = scope:wealth
-		quality = scope:quality
-		decaying = no
-	}
-	set_variable = {
-		name = newly_created_artifact
-		value = scope:newly_created_artifact
-	}
-	scope:newly_created_artifact = {
-		clear_artifact_modifiers = yes
-
-		set_variable = {
-			name = maesterwork
-			value = yes
-		}
-		add_artifact_history = {
-			type = given
-			recipient = scope:owner
-		}
-		equip_artifact_to_owner_replace = yes
-	}
-	zz_craft_item_apply_item_effect = {
-		MODIFIER = item_modifier_01
-	}
-	zz_craft_item_apply_item_effect = {
-		MODIFIER = item_modifier_01
-	}
-	zz_craft_item_apply_item_effect = {
-		MODIFIER = item_modifier_01
-	}
-	zz_craft_item_apply_item_effect = {
-		MODIFIER = item_modifier_01
-	}
-	zz_craft_item_apply_item_effect = {
-		MODIFIER = item_modifier_01
-	}
-	zz_craft_item_apply_item_effect = {
-		MODIFIER = item_modifier_01
-	}
-	zz_craft_item_apply_item_effect = {
-		MODIFIER = item_modifier_01
-	}
-	zz_craft_item_apply_item_effect = {
-		MODIFIER = item_modifier_01
-	}
-	zz_craft_item_apply_item_effect = {
-		MODIFIER = item_modifier_01
-	}
-	zz_craft_item_apply_item_effect = {
-		MODIFIER = item_modifier_01
-	}
-}
-
-
 zz_craft_item_apply_item_effect = {
 	set_variable = { 
 		name = zz_item_effect 
@@ -2053,16 +359,24 @@ zz_item_craft_item_sword = {
 	
 }
 zz_item_craft_item_bow = {
-	agot_create_artifact_dragonbone_longbow_effect = { OWNER = ROOT }
+	create_artifact_bow_effect = { 
+		OWNER = root
+		CREATOR = root
+		SET_BOW_TYPE = flag:artifact_bow_type_composite 
+	}
 	set_variable = {
 		name = newly_created_artifact
 		value = scope:newly_created_artifact
 	}
-	zz_apply_item_magic_modifiers_effect = yes zz_apply_item_magic_modifiers_effect = yes 
+	zz_apply_item_magic_modifiers_effect = yes 
 }
 
 zz_item_craft_item_armour = {
-	agot_create_artifact_valyrian_steel_armor_effect = { OWNER = ROOT }
+	create_artifact_armor_effect = {
+		OWNER = root
+		CREATOR = root
+		SET_ARMOR_TYPE = flag:no
+	}
 	set_variable = {
 		name = newly_created_artifact
 		value = scope:newly_created_artifact
@@ -2137,32 +451,76 @@ zz_item_craft_item_ring = {
 	zz_apply_item_magic_modifiers_effect = yes 
 	
 }
-zz_item_craft_item_dragon_horn = {
-	agot_create_artifact_dragon_horn_effect = { OWNER = root DRAGON = root }
-	zz_apply_item_magic_modifiers_effect = yes 
+
+zz_valyria_create_magic_crown_effect = {
+	# Get the character the artifact is being made for.
+	$OWNER$ = { save_scope_as = owner }
+
+	set_artifact_rarity_illustrious = yes
+
+	# Create the artifact using the base game crown visuals
+	create_artifact = {
+		name = item_crown
+		description = zz_valyria_mages_crown_desc
+		type = helmet
+		visuals = crown
+		wealth = scope:wealth
+		quality = scope:quality
+		template = zz_valyria_mages_crown_artifact_template
+		modifier = artifact_placeholder_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	set_variable = {
+		name = newly_created_artifact
+		value = scope:newly_created_artifact
+	}
+	scope:newly_created_artifact ?= {
+		clear_artifact_modifiers = yes
+		equip_artifact_to_owner_replace = yes
+	}
 }
 
-zz_item_craft_item_glass_candle = {
-	agot_create_random_glass_candle_effect = { OWNER =  root  }
-	zz_apply_item_magic_modifiers_effect = yes 
+zz_valyria_create_magic_staff_effect = {
+	# Get the character the artifact is being made for.
+	$OWNER$ = { save_scope_as = owner }
+
+	set_artifact_rarity_illustrious = yes
+
+	# Create the artifact using the base game regalia (sceptre) visuals
+	create_artifact = {
+		name = item_staff
+		description = zz_valyria_mages_staff_desc
+		type = regalia
+		visuals = regalia
+		wealth = scope:wealth
+		quality = scope:quality
+		template = zz_valyria_mages_staff_artifact_template
+		modifier = artifact_placeholder_modifier
+		save_scope_as = newly_created_artifact
+		decaying = no
+	}
+	set_variable = {
+		name = newly_created_artifact
+		value = scope:newly_created_artifact
+	}
+	scope:newly_created_artifact ?= {
+		clear_artifact_modifiers = yes
+		equip_artifact_to_owner_replace = yes
+	}
 }
 
 zz_item_craft_item_crown = {
 	debug_log = "craft crown"
-	zz_valyria_create_magic_crown_effect = { OWNER =  root  }
-	zz_apply_item_magic_modifiers_effect = yes 
+	zz_valyria_create_magic_crown_effect = { OWNER = root }
+	zz_apply_item_magic_modifiers_effect = yes
 }
 
-zz_item_craft_item_rod = {
-	debug_log = "craft rod"
-	zz_valyria_create_magic_rod_effect = { OWNER =  root  }
-	zz_apply_item_magic_modifiers_effect = yes 
+zz_item_craft_item_staff = {
+	debug_log = "craft staff"
+	zz_valyria_create_magic_staff_effect = { OWNER = root }
+	zz_apply_item_magic_modifiers_effect = yes
 }
-
-
-
-
-
 zz_craft_item_effect = {
 	if = {
 		limit = {
@@ -2226,13 +584,13 @@ zz_craft_item_apply_modifier_effect = {
 						}
 						change_variable = {
 							name = item_mana_gain_mult
-							add = 0.01
+							add = 1
 						}
 					}
 					else = {
 						set_variable = {
 							name = item_mana_gain_mult
-							value = 0.01
+							value = 1
 						}
 					}
 				}
@@ -2291,20 +649,12 @@ zz_valyria_crafting_calculate_crafting_cost_item_effect = {
 		COST = zz_item_vs_ring_cost
 	}	
 	zz_item_calculate_cost_effect = {
-		ITEM = item_glass_candle
-		COST = zz_item_glass_candle_cost
-	}
-	zz_item_calculate_cost_effect = {
-		ITEM = item_dragon_horn
-		COST = zz_item_dragon_horn_cost
-	}
-	zz_item_calculate_cost_effect = {
 		ITEM = item_crown
 		COST = zz_item_crown_cost
 	}
 	zz_item_calculate_cost_effect = {
-		ITEM = item_rod
-		COST = zz_item_rod_cost
+		ITEM = item_staff
+		COST = zz_item_staff_cost
 	}
 }
 
@@ -2448,29 +798,11 @@ zz_valyria_crafting_item_construct_effect = {
 	}
 	else_if = {
 		limit = {
-			var:zz_selected_item = flag:item_rod
+			var:zz_selected_item = flag:item_staff
 		}
 		zz_craft_item_effect = {
-			ITEM = item_rod
+			ITEM = item_staff
 		}
-	}
-	else_if = {
-		limit = {
-			var:zz_selected_item = flag:item_glass_candle
-		}
-		zz_craft_item_effect = {
-			ITEM = item_glass_candle
-		}
-		zz_apply_item_magic_modifiers_effect = yes 
-	}
-	else_if = {
-		limit = {
-			var:zz_selected_item = flag:item_dragon_horn
-		}
-		zz_craft_item_effect = {
-			ITEM = item_dragon_horn
-		}
-		zz_apply_item_magic_modifiers_effect = yes 
 	}
 
 	scope:newly_created_artifact ?= { 

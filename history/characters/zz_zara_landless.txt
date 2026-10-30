@@ -1,5 +1,5 @@
 ﻿Merlin_01 = {
-	name = Merlinus # Canon, AKA: Zaret The Mage, a lord
+	name = Merlinus
 	dynasty = dynn_Ambrosius
 	dna = Merlin_01
 	sexuality = heterosexual
@@ -18,7 +18,6 @@
 	trait = education_republican_knowledge_4
 	trait = patient
 	trait = diligent
-	trait = inquisitive
 	trait = calm
 	trait = curious
 	trait = zz_magister
@@ -26,7 +25,7 @@
 	trait = born_beneath_the_comet
 	trait = magic_blood_good_3
 	trait = lifespan_good_3
-	trait = lifestyle_mystic_3_history
+	trait = lifestyle_mystic
 	trait = zz_valyrian_longevity 
 	trait = disease_resistance_alchemical
 	trait = immortal 
@@ -34,9 +33,8 @@
 	trait = knight_errant
 	trait = journaller
 	trait = shrewd
-	trait = poet
+	trait = lifestyle_poet
 	trait = governor 
-	trait = lifestyle_merchant
 	trait = adventurer
 	trait = lifestyle_scholar
 	portrait_override = {	
@@ -53,10 +51,6 @@
 		effect = {
 			add_trait_xp = {
 				trait = knight_errant 
-				value = 100
-			}
-			add_trait_xp = {
-				trait = lifestyle_merchant  
 				value = 100
 			}
 			add_trait_xp = {
@@ -199,7 +193,7 @@
 
 
 Dummy_Merlin_01 = {
-	name = Zaret
+	name = Marcus
 	dna = Merlin_01
 	religion = "hellenic_pagan"
 	culture = "roman"
@@ -211,7 +205,7 @@ Dummy_Merlin_01 = {
 }
 
 Dummy_Merlin_02 = {
-	name = Rhaegar
+	name = Lucius
 	dna = Merlin_02
 	religion = "hellenic_pagan"
 	culture = "roman"
@@ -223,7 +217,7 @@ Dummy_Merlin_02 = {
 }
 
 Dummy_Merlin_03 = {
-	name = Melko
+	name = Gaius
 	dna = Merlin_03
 	religion = "hellenic_pagan"
 	culture = "roman"
@@ -234,7 +228,7 @@ Dummy_Merlin_03 = {
 	20.1.2 = { death = "20.1.2" }
 }
 Dummy_Merlin_04 = {
-	name = Aerion
+	name = Titus
 	dna = Merlin_04
 	religion = "hellenic_pagan"
 	culture = "roman"
@@ -245,7 +239,7 @@ Dummy_Merlin_04 = {
 	20.1.2 = { death = "20.1.2" }
 }
 Dummy_Merlin_05 = {
-	name = Jaehaerys
+	name = Quintus
 	dna = Merlin_05
 	religion = "hellenic_pagan"
 	culture = "roman"
@@ -256,7 +250,7 @@ Dummy_Merlin_05 = {
 	20.1.2 = { death = "20.1.2" }
 }
 Dummy_Merlin_06 = {
-	name = Aemon
+	name = Decimus
 	dna = Merlin_06
 	religion = "hellenic_pagan"
 	culture = "roman"
@@ -267,7 +261,7 @@ Dummy_Merlin_06 = {
 	20.1.2 = { death = "20.1.2" }
 }
 Dummy_Merlin_07 = {
-	name = Viserys
+	name = Sextus
 	dna = Merlin_07
 	religion = "hellenic_pagan"
 	culture = "roman"
@@ -280,7 +274,7 @@ Dummy_Merlin_07 = {
 
 
 Nimue_01 = {
-	name = Nimue # Canon, AKA: Zaret The Mage, a lord
+	name = Nimue
 	dynasty = dynn_Ambrosius
 	dna = Nimue_01
 	sexuality = heterosexual
@@ -300,13 +294,12 @@ Nimue_01 = {
 	trait = education_learning_5
 	trait = patient
 	trait = diligent
-	trait = inquisitive
 	trait = calm
 	trait = curious
 	trait = immortal
 	trait = magic_blood_good_3
 	trait = lifespan_good_3
-	trait = lifestyle_mystic_3_history
+	trait = lifestyle_mystic
 	trait = disease_resistance_alchemical
 	trait = intellect_good_3
 	trait = beauty_good_3
@@ -329,7 +322,7 @@ Nimue_01 = {
 
 }
 Isolde_01 = {
-	name = Isolde # Canon, AKA: Zaret The Mage, a lord
+	name = Isolde
 	dynasty = dynn_Ambrosius
 	dna = Isolde_01
 	sexuality = heterosexual
@@ -349,13 +342,12 @@ Isolde_01 = {
 	trait = education_diplomacy_5
 	trait = patient
 	trait = diligent
-	trait = inquisitive
 	trait = calm
 	trait = curious
 	trait = immortal
 	trait = magic_blood_good_3
 	trait = lifespan_good_3
-	trait = lifestyle_mystic_3_history
+	trait = lifestyle_mystic
 	trait = disease_resistance_alchemical
 	trait = intellect_good_3
 	trait = beauty_good_3
@@ -379,7 +371,7 @@ Isolde_01 = {
 }
 
 Joccasta_01 = {
-	name = Joccasta # Canon, AKA: Zaret The Mage, a lord
+	name = Joccasta
 	dynasty = dynn_Ambrosius
 	dna = Joccasta_01
 	sexuality = heterosexual
@@ -399,13 +391,12 @@ Joccasta_01 = {
 	trait = education_stewardship_5
 	trait = patient
 	trait = diligent
-	trait = inquisitive
 	trait = calm
 	trait = curious
 	trait = immortal
 	trait = magic_blood_good_3
 	trait = lifespan_good_3
-	trait = lifestyle_mystic_3_history
+	trait = lifestyle_mystic
 	trait = disease_resistance_alchemical
 	trait = intellect_good_3
 	trait = beauty_good_3
@@ -429,7 +420,7 @@ Joccasta_01 = {
 }
 
 Elenore_01 = {
-	name = Elenore # Canon, AKA: Zaret The Mage, a lord
+	name = Elenore
 	dynasty = dynn_Ambrosius
 	dna = Elenore_01
 	sexuality = heterosexual
@@ -449,13 +440,12 @@ Elenore_01 = {
 	trait = education_stewardship_5
 	trait = patient
 	trait = diligent
-	trait = inquisitive
 	trait = calm
 	trait = curious
 	trait = immortal
 	trait = magic_blood_good_3
 	trait = lifespan_good_3
-	trait = lifestyle_mystic_3_history
+	trait = lifestyle_mystic
 	trait = disease_resistance_alchemical
 	trait = intellect_good_3
 	trait = beauty_good_3

@@ -1,7 +1,7 @@
 widget = {
 	name = "outliner_window"
 	parentanchor = top|right
-	position = { -35 50 }
+	position = { -76 55 }
 	alwaystransparent = no
 	filter_mouse = all
 	layer = windows_layer
@@ -81,7 +81,7 @@ widget = {
 			autoresizescrollarea = yes
 			scrollbarpolicy_horizontal = always_off
 			maximumsize = { -1 500 }
-			size = { 300 0 }
+			size = { 350 0 }
 
 			scrollbar_vertical = {
 				using = Scrollbar_Vertical
@@ -90,7 +90,7 @@ widget = {
 			scrollwidget = {
 				vbox = {
 					set_parent_size_to_minimum = yes
-					min_width = 300
+					min_width = 350
 					margin = { 10 0 }
 					margin_right = 15
 					spacing = 2
@@ -120,19 +120,20 @@ widget = {
 
 					outliner_domicile_header = {}
 					outliner_domicile_info = {}
-
-#					outliner_pinned_holdings_header = {
-#						shortcut = tab_4
-#					}
-#					outliner_pinned_holdings_info = {
-#						blockoverride "context" {
-#							datacontext = "[OutlinerHoldingItem.GetTitle]"
-#							datacontext = "[OutlinerHoldingItem.GetTitle.GetProvince.GetHolding]"
-#						}
-#					}
-#					outliner_pinned_titles_header = {
-#						shortcut = tab_5
-#					}
+					
+					outliner_pinned_holdings_header = {
+						shortcut = tab_4
+					}
+					outliner_pinned_holdings_info = {
+						blockoverride "context" {
+							datacontext = "[OutlinerHoldingItem.GetTitle]"
+							datacontext = "[OutlinerHoldingItem.GetTitle.GetProvince.GetHolding]"
+						}
+					}
+					
+					outliner_pinned_titles_header = {
+						shortcut = tab_5
+					}
 					outliner_pinned_titles_info = {}
 
 					expand = {}
@@ -148,7 +149,7 @@ types Outliner {
 
 		block "oh_button" {}
 
-		blockoverride "icon_visible"
+		blockoverride "icon_visible" 
 		{
 			visible = no
 		}
@@ -246,7 +247,7 @@ types Outliner {
 			autoresize = no
 			layoutpolicy_horizontal = expanding
 		}
-
+		
 
 		item = {
 			hbox = {
@@ -279,38 +280,38 @@ types Outliner {
 					}
 
 					hbox = {
-						margin = { 10 2 }
+						margin = { 5 0 }
 
 						vbox = {
 							layoutpolicy_horizontal = expanding
-
+							
 							hbox = {
 								layoutpolicy_horizontal = expanding
 								margin_top = -4
-
+								
 								# Realm CoA
 								coa_realm_tiny_crown = {
 									datacontext = "[Character]"
 									visible = "[Character.HasLandedTitles]"
 								}
-
+								
 								# Unlanded
 								icon = {
 									visible = "[Not( Character.HasLandedTitles )]"
 									size = { 32 38 }
 									texture = "gfx/interface/icons/unlanded_realm_flag.dds"
 								}
-
+								
 								spacer = { size = { 3 } }
-
+								
 								vbox = {
 									layoutpolicy_horizontal = expanding
 									spacing = 2
-
+									
 									# First row
 									hbox = {
 										layoutpolicy_horizontal = expanding
-
+										
 										# Name
 										text_single = {
 											layoutpolicy_horizontal = expanding
@@ -338,9 +339,9 @@ types Outliner {
 											using = tooltip_ws
 											texture = "gfx/interface/icons/character_status/icon_health.dds"
 										}
-
+										
 										spacing = 5
-
+										
 										# Opinion
 										text_single = {
 											text = "[Character.GetOpinionOf( GetPlayer )|=]"
@@ -365,11 +366,11 @@ types Outliner {
 											}
 										}
 									}
-
+									
 									# Second row
 									hbox = {
 										layoutpolicy_horizontal = expanding
-
+										
 										# At war
 										icon = {
 											visible = "[Character.IsAtWar]"
@@ -379,7 +380,7 @@ types Outliner {
 											tooltip = "OUTLINER_PINNED_CHARACTER_IS_AT_WAR"
 											using = tooltip_ws
 										}
-
+										
 										# Factions
 										icon = {
 											visible = "[Character.IsInFactionTargetingPlayer]"
@@ -398,7 +399,7 @@ types Outliner {
 											tooltip = "[Character.GetPowerfulVassalTooltip]"
 											using = tooltip_ws
 										}
-
+										
 										# Relation string
 										text_single = {
 											layoutpolicy_horizontal = expanding
@@ -409,7 +410,7 @@ types Outliner {
 											align = nobaseline
 											alwaystransparent = yes
 										}
-
+										
 										# Army strength
 										icon = {
 											name = "outliner_char_combat_strength"
@@ -424,25 +425,24 @@ types Outliner {
 											align = nobaseline
 											default_format = "#high"
 										}
-
-
+										
+										
 									}
 								}
-
+								
 								# Unpin button
 								hbox = {
 									margin_left = 3
-
+									
 									button_round = {
 										name = "button_unpin"
 										size = { 30 30 }
 										onclick = "[Character.ToggleCharacterPinned]"
 										tooltip = "PIN_TT"
 										inherit_visual_state = no
-										shortcut = pin
 
 										alpha = 0.6
-
+										
 										state = {
 											name = button_unpin_show
 											alpha = 1
@@ -450,7 +450,7 @@ types Outliner {
 											using = Animation_Curve_Default
 											size = { 30 30 }
 										}
-
+										
 										state = {
 											name = button_unpin_hide
 											trigger_on_create = yes
@@ -481,10 +481,9 @@ types Outliner {
 											inherit_visual_state = no
 										}
 									}
+									zz_magic_cast_button_outliner = {}
 								}
 							}
-						}
-						zz_magic_cast_button_outliner = {
 						}
 					}
 				}
@@ -685,31 +684,31 @@ types Outliner {
 				background = {
 					using = Background_Area
 				}
-
+				
 				vbox = {
 					layoutpolicy_horizontal = expanding
 					margin = { 5 0 }
-
+					
 					# First row
 					hbox = {
 						layoutpolicy_horizontal = expanding
-
+						
 						# No commander
 						icon = {
 							datacontext = "[Army.GetCommander]"
 							visible = "[Not( Character.IsValid )]"
 							texture = "gfx/interface/icons/icon_commander.dds"
 							size = { 28 28 }
-
+							
 							icon = {
 								texture = "gfx/interface/icons/map_icons/provision_travel_warning_exclamation_mark.dds"
 								size = { 12 26 }
 							}
-
+							
 							tooltip = "ARMY_TOOLTIP_NO_COMMANDER"
 							using = tooltip_ws
 						}
-
+						
 						# Commander
 						icon = {
 							datacontext = "[Army.GetCommander]"
@@ -720,7 +719,7 @@ types Outliner {
 							tooltip = "OUTLINER_ARMY_COMMANDER_TOOLTIP"
 							using = tooltip_ws
 						}
-
+						
 						# Commanded by ruler
 						icon = {
 							datacontext = "[Army.GetCommander]"
@@ -731,7 +730,7 @@ types Outliner {
 							tooltip = "COMMANDER_IS_LEADER_TOOLTIP"
 							using = tooltip_ws
 						}
-
+						
 						# Army name
 						text_single = {
 							layoutpolicy_horizontal = expanding
@@ -741,12 +740,12 @@ types Outliner {
 							align = nobaseline
 						}
 					}
-
+					
 					# Second row
 					hbox = {
 						layoutpolicy_horizontal = expanding
 						margin_top = -5
-
+						
 						# Army automation
 						icon = {
 							visible = "[Army.IsControlledByCompanionAI]"
@@ -758,7 +757,7 @@ types Outliner {
 								position = { 5 5 }
 							}
 						}
-
+						
 						# Status icon
 						icon = {
 							visible = "[Not( Army.IsControlledByCompanionAI )]"
@@ -768,9 +767,9 @@ types Outliner {
 							tooltip = "[Army.GetArmyStatusTooltip]"
 							using = tooltip_ws
 						}
-
+						
 						spacer = { size = { 5 } }
-
+						
 						# Army size (bar and number)
 						progressbar_standard = {
 							name = "soldiers_max"
@@ -784,7 +783,7 @@ types Outliner {
 							min = 0
 							max = "[IntToFloat(ArmyComposition.GetMaxNumberOfSoldiers)]"
 							value = "[IntToFloat(ArmyComposition.GetCurrentNumberOfSoldiers)]"
-
+							
 							text_single = {
 								layoutpolicy_horizontal = expanding
 								text = "[Army.GetSoldierCountString]"
@@ -793,37 +792,37 @@ types Outliner {
 								parentanchor = center
 							}
 						}
-
+						
 						spacer = { size = { 5 } }
-
+						
 						icon_unit_quality = {}
-
+						
 						expand = {}
-
+						
 						# Attrition
 						icon = {
 							visible = "[Army.IsArmySufferingFromAttrition]"
 							texture = "gfx/interface/icons/map_icons/attrition_icon.dds"
 							size = { 28 28 }
 						}
-
+						
 						spacer = { size = { 4 } }
-
+						
 						container_supply_icon = {
 							size = { 35 28 }
-
+							
 							blockoverride "supply_icon" {
 								framesize = { 25 25 }
 								size = { 24 24 }
 							}
 						}
 					}
-
+					
 					using = tooltip_ws
-
+					
 					tooltipwidget = {
 						using = unit_icon_item_tooltip
-
+						
 						blockoverride "extra_unit_info"
 						{
 							vbox = {
@@ -939,45 +938,41 @@ types Outliner {
 				}
 
 				hbox = {
-					vbox = {
-						layoutpolicy_vertical = expanding
-						zz_magic_cast_holding_button_outliner = {}
-						spacer = { size = { 0 5 } }
-						widget = {
-							size = { 40 28 }
+					zz_magic_cast_holding_button_outliner = {}
+					widget = {
+						size = { 40 28 }
 
-							coa_title_tiny = {
-								name = "claim"
-								datacontext = "[Holding.GetProvince.GetTitle]"
-								parentanchor = center
-								tooltip_visible = no
-								position = { 0 5 }
-							}
+						coa_title_tiny = {
+							name = "claim"
+							datacontext = "[Holding.GetProvince.GetTitle]"
+							parentanchor = center
+							tooltip_visible = no
+							position = { 0 5 }
+						}
 
-							# Conditional status indicators
-							# Raid indicator
-							button = {
-								datacontext = "[Holding.GetProvince.GetRaid]"
-								visible = "[Holding.GetProvince.HasActiveRaid]"
-								onclick = "[DefaultOnRaidClick( Raid.Self )]"
-								texture = "gfx/interface/icons/map_icons/onmap_raid_icon.dds"
-								size = { 28 28 }
-								position = { -7 3 }
-								tooltip = "MAP_RAID_TOOLTIP"
-								using = tooltip_ws
-							}
+						# Conditional status indicators
+						# Raid indicator
+						button = {
+							datacontext = "[Holding.GetProvince.GetRaid]"
+							visible = "[Holding.GetProvince.HasActiveRaid]"
+							onclick = "[DefaultOnRaidClick( Raid.Self )]"
+							texture = "gfx/interface/icons/map_icons/onmap_raid_icon.dds"
+							size = { 28 28 }
+							position = { -7 3 }
+							tooltip = "MAP_RAID_TOOLTIP"
+							using = tooltip_ws
+						}
 
-							# Siege indicator
-							button = {
-								datacontext = "[Holding.GetProvince.GetSiege]"
-								visible = "[Holding.GetProvince.HasSiege]"
-								onclick = "[DefaultOnSiegeClick(Siege.GetID)]"
-								texture = "gfx/interface/icons/map_icons/onmap_siege_icon.dds"
-								size = { 28 28 }
-								position = { -7 3 }
-								tooltip = "[Holding.GetProvince.GetSiege.GetSiegeDescription]"
-								using = tooltip_ws
-							}
+						# Siege indicator
+						button = {
+							datacontext = "[Holding.GetProvince.GetSiege]"
+							visible = "[Holding.GetProvince.HasSiege]"
+							onclick = "[DefaultOnSiegeClick(Siege.GetID)]"
+							texture = "gfx/interface/icons/map_icons/onmap_siege_icon.dds"
+							size = { 28 28 }
+							position = { -7 3 }
+							tooltip = "[Holding.GetProvince.GetSiege.GetSiegeDescription]"
+							using = tooltip_ws
 						}
 					}
 
@@ -1102,9 +1097,9 @@ types Outliner {
 		name = "domiciles"
 		datacontext = "[GetPlayer.GetDomicile]"
 		visible = "[And( And( GetPlayer.IsValid, GetPlayer.GetDomicile.IsValid ), Outliner.IsCategoryShown('domicile') )]"
-
+		
 		layoutpolicy_horizontal = expanding
-
+		
 		background = {
 			visible = "[And( GetPlayer.IsValid, GetPlayer.GetDomicile.IsValid )]"
 			fittype = centercrop
@@ -1116,12 +1111,12 @@ types Outliner {
 				blend_mode = overlay
 			}
 		}
-
+		
 		button_standard_clean = {
 			layoutpolicy_horizontal = expanding
 			size = { 0 155 }
 			visible = "[And( GetPlayer.IsValid, GetPlayer.GetDomicile.IsValid )]"
-
+			
 			tooltip = "[Domicile.GetMapPinTooltip( GetPlayer.Self )]"
 
 			onclick = "[ToggleGameViewData( 'domicile', Domicile.Self )]"
@@ -1146,7 +1141,7 @@ types Outliner {
 					hbox = {
 						name = "domicile_header"
 						layoutpolicy_horizontal = expanding
-
+						
 						background = {
 							margin_top = 0
 							margin_bottom = 5
@@ -1163,7 +1158,7 @@ types Outliner {
 							max_width = 255
 						}
 					}
-
+					
 					hbox = {
 						layoutpolicy_horizontal = expanding
 						margin_left = 5
@@ -1264,7 +1259,7 @@ types Outliner {
 
 						expand = {}
 					}
-
+					
 					hbox = {
 						layoutpolicy_horizontal = expanding
 						margin_left = 5
@@ -1376,7 +1371,7 @@ types Outliner {
 							visible = "[Domicile.IsConstructing]"
 							tooltip = "[Domicile.GetBuildingUnderConstruction.GetConstructionTooltip( GetPlayer.Self )]"
 							using = tooltip_ws
-
+							
 							spacing = 5
 
 							hbox = {
@@ -1392,7 +1387,7 @@ types Outliner {
 									spriteborder = { 40 8 }
 									texture_density = 2
 								}
-
+								
 								text_multi = {
 									text = "[Domicile.GetConstructionStatusText]"
 									align = nobaseline
@@ -1431,91 +1426,88 @@ types Outliner {
 			}
 		}
 	}
+	
+	type outliner_pinned_holdings_header = button_outliner_header {
+		name = "pinned_holdings_header"
+		layoutpolicy_horizontal = expanding
+		visible = "[GetPlayer.IsValid]"
 
-# TODO_GDP: Fix after building rework
-#	type outliner_pinned_holdings_header = button_outliner_header {
-#		name = "pinned_holdings_header"
-#		layoutpolicy_horizontal = expanding
-#		visible = "[GetPlayer.IsValid]"
-#
-#		blockoverride "button_expand_frame"
-#		{
-#			frame = "[BoolTo1And2(Outliner.IsCategoryShown('pinned_holdings'))]"
-#		}
-#
-#		blockoverride "oh_button"
-#		{
-#
-#			onclick = "[Outliner.ToggleCategory('pinned_holdings')]"
-#			tooltip = "[SelectLocalization( Outliner.IsCategoryShown('pinned_holdings'), 'OUTLINER_COLLAPSE', 'OUTLINER_EXPAND' )]"
-#		}
-#
-#		blockoverride "oh_name"
-#		{
-#			text = "OUTLINER_PINNED_HOLDINGS"
-#		}
-#
-#		blockoverride "oh_count"
-#		{
-#			text = "[Outliner.GetCategoryItemsCount('pinned_holdings')|V]"
-#		}
-#
-#		blockoverride "expanded"
-#		{
-#			frame = "[BoolTo1And2(Outliner.IsCategoryShown('pinned_holdings'))]"
-#		}
-#	}
+		blockoverride "button_expand_frame"
+		{
+			frame = "[BoolTo1And2(Outliner.IsCategoryShown('pinned_holdings'))]"
+		}
 
-# TODO_GDP: Fix after building rework
-#	# it will use outliner_holdings_info
-#	type outliner_pinned_holdings_info = outliner_holdings_info {
-#		# visible = "[Outliner.IsCategoryShown('pinned_holdings')]" #TODO code
-#
-#		blockoverride "model" {
-#			# datamodel = "[Outliner.GetPinnedProvinces]" #TODO code
-#		}
-#	}
+		blockoverride "oh_button"
+		{
 
-# TODO_GDP: Fix after building rework
-#	type outliner_pinned_titles_header = button_outliner_header {
-#		name = "pinned_titles_header"
-#		layoutpolicy_horizontal = expanding
-#		visible = "[GetPlayer.IsValid]"
-#
-#		blockoverride "button_expand_frame"
-#		{
-#			frame = "[BoolTo1And2(Outliner.IsCategoryShown('pinned_titles'))]"
-#		}
-#
-#		blockoverride "oh_button"
-#		{
-#
-#			onclick = "[Outliner.ToggleCategory('pinned_titles')]"
-#			tooltip = "[SelectLocalization( Outliner.IsCategoryShown('pinned_titles'), 'OUTLINER_COLLAPSE', 'OUTLINER_EXPAND' )]"
-#		}
-#
-#		blockoverride "oh_name"
-#		{
-#			text = "OUTLINER_PINNED_TITLES"
-#		}
-#
-#		blockoverride "oh_count"
-#		{
-#			text = "[Outliner.GetCategoryItemsCount('pinned_titles')|V]"
-#		}
-#
-#		blockoverride "expanded"
-#		{
-#			frame = "[BoolTo1And2(Outliner.IsCategoryShown('pinned_titles'))]"
-#		}
-#	}
+			onclick = "[Outliner.ToggleCategory('pinned_holdings')]"
+			tooltip = "[SelectLocalization( Outliner.IsCategoryShown('pinned_holdings'), 'OUTLINER_COLLAPSE', 'OUTLINER_EXPAND' )]"
+		}
 
+		blockoverride "oh_name"
+		{
+			text = "OUTLINER_PINNED_HOLDINGS"
+		}
+
+		blockoverride "oh_count"
+		{
+			text = "[Outliner.GetCategoryItemsCount('pinned_holdings')|V]"
+		}
+
+		blockoverride "expanded"
+		{
+			frame = "[BoolTo1And2(Outliner.IsCategoryShown('pinned_holdings'))]"
+		}
+	}
+	
+	# it will use outliner_holdings_info
+	type outliner_pinned_holdings_info = outliner_holdings_info {
+		visible = "[Outliner.IsCategoryShown('pinned_holdings')]"
+
+		blockoverride "model" {
+			datamodel = "[Outliner.GetPinnedProvinces]"
+		}
+	}
+	
+	type outliner_pinned_titles_header = button_outliner_header {
+		name = "pinned_titles_header"
+		layoutpolicy_horizontal = expanding
+		visible = "[GetPlayer.IsValid]"
+
+		blockoverride "button_expand_frame"
+		{
+			frame = "[BoolTo1And2(Outliner.IsCategoryShown('pinned_titles'))]"
+		}
+
+		blockoverride "oh_button"
+		{
+
+			onclick = "[Outliner.ToggleCategory('pinned_titles')]"
+			tooltip = "[SelectLocalization( Outliner.IsCategoryShown('pinned_titles'), 'OUTLINER_COLLAPSE', 'OUTLINER_EXPAND' )]"
+		}
+
+		blockoverride "oh_name"
+		{
+			text = "OUTLINER_PINNED_TITLES"
+		}
+
+		blockoverride "oh_count"
+		{
+			text = "[Outliner.GetCategoryItemsCount('pinned_titles')|V]"
+		}
+
+		blockoverride "expanded"
+		{
+			frame = "[BoolTo1And2(Outliner.IsCategoryShown('pinned_titles'))]"
+		}
+	}
+	
 	type outliner_pinned_titles_info = vbox {
 		visible = "[Outliner.IsCategoryShown('pinned_titles')]"
 		layoutpolicy_horizontal = expanding
 		margin = { 8 5 }
-		margin_bottom = 4
-
+		margin_bottom = 4		
+		
 		datamodel = "[Outliner.GetPinnedTitles]"
 
 		item = {
@@ -1534,7 +1526,7 @@ types Outliner {
 				# 	size = { 100% 100% }
 				# 	margin = { 0 2 }
 				# 	margin_left = 40
-				#
+				# 
 				# 	progressbar_standard_transparent = {
 				# 		name = "progress_bar"
 				# 		size = { 100% 100% }
@@ -1569,7 +1561,7 @@ types Outliner {
 						}
 
 						expand = {}
-
+						
 						# counties you own / counties needed to create or usurp
 						# triggers from the Title window, for creating and usurping
 						datacontext = "[Title.GetHolder]"
@@ -1582,9 +1574,9 @@ types Outliner {
 								# or we don't hold it and we can usurp it
 								hbox = {
 									visible = "[Or( And( Not( Title.HasHolder ), Not( Title.IsNobleFamilyTitle )), And( Not(Character.IsLocalPlayer), Title.ShowUsurp ))]"
-
+									
 									# raw_tooltip = "#D Amount of counties you hold / minimum to create or usurp"
-									#
+									# 
 									# text_single = {
 									# 	raw_text = "#D 5"  #TODO code
 									# 	# text = "[Title.GetOwnedDeJureCounties( GetPlayer )]"
@@ -1593,20 +1585,20 @@ types Outliner {
 									# 	align = nobaseline|right
 									# 	default_format = "#high"
 									# }
-									#
+									# 
 									# text_single = {
 									# 	raw_text = "#D /10"  #TODO code
 									# 	# text = "[Title.GetMinimumDeJureCounties( GetPlayer )]"
 									# 	alpha = 0.7
 									# 	align = nobaseline
 									# }
-								}
+								}						
 							}
 						}
 					}
 				}
 			}
-		}
+		}		
 	}
 }
 

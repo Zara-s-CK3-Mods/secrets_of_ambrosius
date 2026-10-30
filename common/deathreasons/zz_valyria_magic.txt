@@ -1,38 +1,38 @@
 ﻿death_fire_magic = {
 	public_knowledge = yes
-	icon = "death_dragon.dds"
+	icon = "death_murder.dds"
 }
 death_water_magic = {
 	public_knowledge = yes
-	icon = "death_dragon.dds"
+	icon = "death_murder.dds"
 }
 death_air_magic = {
 	public_knowledge = yes
-	icon = "death_dragon.dds"
+	icon = "death_murder.dds"
 }
 death_blood_magic = {
 	public_knowledge = yes
-	icon = "death_dragon.dds"
+	icon = "death_murder.dds"
 }
 death_shadow_magic = {
 	public_knowledge = yes
-	icon = "death_dragon.dds"
+	icon = "death_murder.dds"
 }
 death_dream_magic = {
 	public_knowledge = yes
-	icon = "death_dragon.dds"
+	icon = "death_murder.dds"
 }
 death_transmutation_magic = {
 	public_knowledge = yes
-	icon = "death_dragon.dds"
+	icon = "death_murder.dds"
 }
 
 death_miscast_magic = {
 	public_knowledge = yes
-	icon = "death_dragon.dds"
+	icon = "death_murder.dds"
 }
 
 death_ascension_magic = {
 	public_knowledge = yes
-	icon = "death_dragon.dds"
+	icon = "death_natural.dds"
 }

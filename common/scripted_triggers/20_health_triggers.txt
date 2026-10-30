@@ -29,7 +29,22 @@ age_ranked_health_vulnerability_threshold_trigger = {
 		has_trait = infirm
 		# Otherwise, we check health crossed against age.
 		## Characters that are this old are vulnerable regardless of health.
-		age >= 80
+		OR = {
+			AND = {
+				age >= 200
+				has_trait = lifespan_good_3
+			}
+			AND = {
+				age >= 150
+				has_trait = lifespan_good_2
+			}
+			AND = {
+				age >= 100
+				has_trait = lifespan_good_1
+			}
+			age >= 80
+		}
+		
 		## Else, the higher your health is, the older you need to be to suffer age-related health problems.
 		AND = {
 			health <= good_health
@@ -52,41 +67,18 @@ age_ranked_health_vulnerability_threshold_trigger = {
 			age >= 30
 		}
 	}
-	NOT = { has_trait = immortal }
-	NOT = { has_trait = zz_valyrian_longevity }
-	trigger_if = {
-		limit = {
-			has_trait = lifespan_good_3
-		}
-		age >= 180
-	}
-	trigger_else_if = {
-		limit = {
-			has_trait = lifespan_good_2
-		}
-		age >= 130
-	}
-	trigger_else_if = {
-		limit = {
-			has_trait = lifespan_good_1
-		}
-		age >= 90
+	NOT = { has_trait_with_flag = is_immortal }
+	NOT = {
+		has_character_modifier = zz_valyria_magic_blood_magic_011_modifier
 	}
 	NOT = {
-		has_character_modifier = zz_valyria_magic_blood_magic_11_modifier
-	}
-	NOT = {
-		has_character_modifier = zz_valyria_magic_blood_magic_12_modifier
+		has_character_modifier = zz_valyria_magic_blood_magic_012_modifier
 	}
 	
 }
 
 # Might this character succumb to a stroke, aneurysm, or other blood pressure-related injury?
 potential_victim_of_apoplexy_trigger = {
-	#AGOT Added - check for humans only to not give non-humans health issues
-	is_human = yes
-	NOT = { has_character_flag = keep_imprisoned } # Duskendale
-	#
 	OR = {
 		has_trait = wrathful
 		# Impatient/irritable characters tend towards this when pushed out of their comfort zone.
@@ -274,6 +266,10 @@ has_disfiguring_physical_attribute_trigger = {
 
 #Takes argument disease
 can_contract_disease_trigger = {
+	can_contract_disease_trait_scope_trigger = { DISEASE = trait:$DISEASE$ }
+}
+
+can_contract_disease_trait_scope_trigger = {
 	save_temporary_scope_as = sick_character_check
 
 	# Is not immune to disease
@@ -282,120 +278,103 @@ can_contract_disease_trigger = {
 	#Doesn't already have the trait
 	NOT = { has_trait = $DISEASE$ }
 
+	## SOTHM added
+	NOR = {
+		has_trait = zz_valyrian_longevity
+		has_trait = disease_resistance_alchemical
+	}
+
 	#Only get measles once
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:measles }
+		limit = { $DISEASE$ = trait:measles }
+		NOT = { has_character_flag = disease_immunity_measles }
+		## SOTHM added
 		NOT = { has_character_flag = measles_immunity }
+		NOT = { has_trait = disease_resistance_measles }
 	}
 
 	#Only get bubonic plague once
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:bubonic_plague }
+		limit = { $DISEASE$ = trait:bubonic_plague }
+		NOT = { has_character_flag = disease_immunity_bubonic_plague }
+		## SOTHM added
 		NOT = { has_character_flag = bubonic_immunity }
+		NOT = { has_trait = disease_resistance_bubonic_plague }
 	}
 
 
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:pneumonic }
+		limit = { $DISEASE$ = trait:pneumonic }
 		NOT = { has_character_flag = pneumonic_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
+		NOT = { has_trait = disease_resistance_pneumonic }
 	}
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:ill }
+		limit = { $DISEASE$ = trait:ill }
 		NOT = { has_character_flag = ill_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
+		NOT = { has_trait = disease_resistance_ill }
 	}
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:gout_ridden }
+		limit = { $DISEASE$ = trait:gout_ridden }
 		NOT = { has_character_flag = gout_ridden_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
+		NOT = { has_trait = disease_resistance_gout_ridden }
 	}
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:consumption }
+		limit = { $DISEASE$ = trait:consumption }
 		NOT = { has_character_flag = consumption_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
+		NOT = { has_trait = disease_resistance_consumption }
 	}
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:cancer }
+		limit = { $DISEASE$ = trait:cancer }
 		NOT = { has_character_flag = cancer_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
+		NOT = { has_trait = disease_resistance_cancer }
 	}
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:typhus }
+		limit = { $DISEASE$ = trait:typhus }
 		NOT = { has_character_flag = typhus_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
+		NOT = { has_trait = disease_resistance_typhus }
 	}
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:smallpox }
+		limit = { $DISEASE$ = trait:smallpox }
 		NOT = { has_character_flag = small_pox_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
+		NOT = { has_trait = disease_resistance_smallpox }
 	}
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:dysentery }
+		limit = { $DISEASE$ = trait:dysentery }
 		NOT = { has_character_flag = dysentery_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
+		NOT = { has_trait = disease_resistance_dysentery }
 	}
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:ergotism }
+		limit = { $DISEASE$ = trait:ergotism }
 		NOT = { has_character_flag = ergotism_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
+		NOT = { has_trait = disease_resistance_ergotism }
 	}
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:leper }
+		limit = { $DISEASE$ = trait:leper }
 		NOT = { has_character_flag = leper_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
+		NOT = { has_trait = disease_resistance_leper }
 	}
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:lovers_pox }
+		limit = { $DISEASE$ = trait:lovers_pox }
 		NOT = { has_character_flag = lovers_pox_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
+		NOT = { has_trait = disease_resistance_lovers_pox }
 	}
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:great_pox }
+		limit = { $DISEASE$ = trait:great_pox }
 		NOT = { has_character_flag = great_pox_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
+		NOT = { has_trait = disease_resistance_great_pox }
 	}
 	
 
 	#Young characters do not get gout
 	trigger_if = {
-		limit = { trait:$DISEASE$ = trait:gout_ridden }
+		limit = { $DISEASE$ = trait:gout_ridden }
 		current_weight >= 50
 		is_young_character = no
 	}
 
-	save_temporary_scope_value_as = {
-		name = disease_type_for_trigger
-		value = flag:$DISEASE$
-	}
-	
 	trigger_if = { #Lover's pox can only be contracted if you are sexually active
 		limit = {
-			scope:disease_type_for_trigger = flag:lovers_pox
+			$DISEASE$ = trait:lovers_pox
 			is_imprisoned = yes
 		}
 		imprisoner = {
@@ -439,7 +418,7 @@ can_contract_disease_trigger = {
 	# Check to see that there is someone for you to have sex with if you are traveling
 	trigger_if = {
 		limit = {
-			scope:disease_type_for_trigger = flag:lovers_pox
+			$DISEASE$ = trait:lovers_pox
 			is_travelling = yes
 			# Do not block Goliardic Shenanigans!
 			involved_activity ?= {
@@ -461,69 +440,26 @@ can_contract_disease_trigger = {
 	#Secondary requirements (mutually exclusive diseases or immunity)
 	OR = {
 		NOR = { #No secondary requirement
-			scope:disease_type_for_trigger = flag:ill
-			scope:disease_type_for_trigger = flag:smallpox
-			scope:disease_type_for_trigger = flag:bubonic_plague
+			$DISEASE$ = trait:ill
+			$DISEASE$ = trait:smallpox
+			$DISEASE$ = trait:measles
+			$DISEASE$ = trait:bubonic_plague
 		}
 		AND = {
-			scope:disease_type_for_trigger = flag:ill
+			$DISEASE$ = trait:ill
 			NOT = { has_trait = pneumonic }
 		}
 		AND = {
-			scope:disease_type_for_trigger = flag:smallpox
+			$DISEASE$ = trait:smallpox
 			NOT = { has_character_flag = disease_immunity_smallpox }
 		}
 		AND = {
-			scope:disease_type_for_trigger = flag:measles
+			$DISEASE$ = trait:measles
 			NOT = { has_character_flag = disease_immunity_measles }
 		}
 		AND = {
-			scope:disease_type_for_trigger = flag:bubonic_plague
+			$DISEASE$ = trait:bubonic_plague
 			NOT = { has_character_flag = disease_immunity_bubonic_plague }
-		}
-		AND = {
-			scope:disease_type_for_trigger = flag:pneumonic
-			NOT = { has_character_flag = disease_immunity_pneumonic }
-		}
-		AND = {
-			scope:disease_type_for_trigger = flag:ill
-			NOT = { has_character_flag = disease_immunity_ill }
-		}
-		AND = {
-			scope:disease_type_for_trigger = flag:gout_ridden
-			NOT = { has_character_flag = disease_immunity_gout }
-		}
-		AND = {
-			scope:disease_type_for_trigger = flag:consumption
-			NOT = { has_character_flag = disease_immunity_consumption }
-		}
-		AND = {
-			scope:disease_type_for_trigger = flag:cancer
-			NOT = { has_character_flag = disease_immunity_cancer }
-		}
-		AND = {
-			scope:disease_type_for_trigger = flag:typhus
-			NOT = { has_character_flag = disease_immunity_typhus }
-		}
-		AND = {
-			scope:disease_type_for_trigger = flag:dysentery
-			NOT = { has_character_flag = disease_immunity_dysentery }
-		}
-		AND = {
-			scope:disease_type_for_trigger = flag:ergotism
-			NOT = { has_character_flag = disease_immunity_ergotism }
-		}
-		AND = {
-			scope:disease_type_for_trigger = flag:leper
-			NOT = { has_character_flag = disease_immunity_leper }
-		}
-		AND = {
-			scope:disease_type_for_trigger = flag:lovers_pox
-			NOT = { has_character_flag = disease_immunity_lovers_pox }
-		}
-		AND = {
-			scope:disease_type_for_trigger = flag:great_pox
-			NOT = { has_character_flag = disease_immunity_great_pox }
 		}
 	}
 
@@ -531,11 +467,11 @@ can_contract_disease_trigger = {
 	OR = {
 		can_get_non_epidemic_disease_trigger = yes
 		OR = {
-			scope:disease_type_for_trigger = flag:bubonic_plague
-			scope:disease_type_for_trigger = flag:smallpox
+			$DISEASE$ = trait:bubonic_plague
+			$DISEASE$ = trait:smallpox
 		}
 		AND = {
-			scope:disease_type_for_trigger = flag:pneumonic
+			$DISEASE$ = trait:pneumonic
 			has_trait = ill
 		}	
 	}
@@ -549,35 +485,35 @@ can_contract_disease_trigger = {
 		#Lover's pox and leper because you never recover
 		AND = {
 			has_character_flag = contraction_cooldown_pneumonic
-			scope:disease_type_for_trigger = flag:pneumonic
+			$DISEASE$ = trait:pneumonic
 		}
 		AND = {
 			has_character_flag = contraction_cooldown_gout_ridden
-			scope:disease_type_for_trigger = flag:gout_ridden
+			$DISEASE$ = trait:gout_ridden
 		}
 		AND = {
 			has_character_flag = contraction_cooldown_typhus
-			scope:disease_type_for_trigger = flag:typhus
+			$DISEASE$ = trait:typhus
 		}
 		AND = {
 			has_character_flag = contraction_cooldown_consumption
-			scope:disease_type_for_trigger = flag:consumption
+			$DISEASE$ = trait:consumption
 		}
 		AND = {
 			has_character_flag = contraction_cooldown_cancer
-			scope:disease_type_for_trigger = flag:cancer
+			$DISEASE$ = trait:cancer
 		}
 		AND = {
 			has_character_flag = contraction_cooldown_great_pox
-			scope:disease_type_for_trigger = flag:great_pox
+			$DISEASE$ = trait:great_pox
 		}
 		AND = {
 			has_character_flag = contraction_cooldown_dysentery
-			scope:disease_type_for_trigger = flag:dysentery
+			$DISEASE$ = trait:dysentery
 		}
 		AND = {
 			has_character_flag = contraction_cooldown_ergotism
-			scope:disease_type_for_trigger = flag:ergotism
+			$DISEASE$ = trait:ergotism
 		}
 	}
 }
@@ -683,7 +619,7 @@ can_be_court_physician_of = {
 	is_courtier_of = $EMPLOYER$
 	is_adult = yes
 	basic_is_available_ai = yes
-	NOT = { has_trait = incapable }
+	is_incapable = no
 }
 
 can_punish_court_physician = {
@@ -853,7 +789,10 @@ has_high_health_penalty_disease_type_trigger = { # >= 3.5
 		### CONSUMPTION
 		AND = {
 			scope:disease_type = flag:consumption #2 + 1 + 2
-			is_old_character = yes
+			OR = {
+				is_adult = no
+				is_old_character = yes
+			}
 		}
 		### CANCER
 		AND = {
@@ -863,7 +802,7 @@ has_high_health_penalty_disease_type_trigger = { # >= 3.5
 		### MEASLES
 		AND = {
 			scope:disease_type = flag:measles #3 + 3
-			is_old_character = yes
+			is_adult = no
 		}
 		### PNEUMONIA
 		AND = {
@@ -886,6 +825,7 @@ has_low_health_penalty_disease_type_trigger = { # < 3.5
 		### CONSUMPTION
 		AND = {
 			scope:disease_type = flag:consumption #2 + 1 + 2
+			is_adult = yes
 			is_old_character = no
 		}
 		### CANCER
@@ -896,7 +836,7 @@ has_low_health_penalty_disease_type_trigger = { # < 3.5
 		### MEASLES
 		AND = {
 			scope:disease_type = flag:measles #3 + 3
-			is_old_character = no
+			is_adult = yes
 		}
 		### PNEUMONIA
 		AND = {
@@ -1046,7 +986,7 @@ native_trepanning_trigger = {
 				has_cultural_pillar = heritage_indo_aryan
 			}
 		}
-		root.faith = faith:armenian_apostolic
+		root.rite = rite:armenian_rite
 		root.culture = culture:armenian
 		has_title = title:k_hungary
 		has_title = title:k_cuman

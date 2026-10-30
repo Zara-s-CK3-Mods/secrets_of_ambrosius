@@ -163,10 +163,6 @@
   zz_valyria_magic_practical_magic_experiments_water_magic_desc:0 "The fall of Valyria did untold damage to the knowledge of the Higher Mysteries. To recover fully these secrets of the mystical arts it is necessary to explore the limits of magic. Such experiments require a freedom to explore without risks of upsetting the local population or collateral damage. It is time to go into the wilderness and explore your knowledge of $water_magic$."
   zz_valyria_magic_practical_magic_experiments_water_magic_desc_title:0 "With dedication expand your mastery of the $water_magic$!"
 
-  zz_valyria_magic_practical_magic_experiments_dragon_magic_request:0 "Solve the situation potentially using your [learning|E]"
-  zz_valyria_magic_practical_magic_experiments_dragon_magic_contract:0 "Magical Experiments: $dragon_magic$"
-  zz_valyria_magic_practical_magic_experiments_dragon_magic_desc:0 "The fall of Valyria did untold damage to the knowledge of the Higher Mysteries. To recover fully these secrets of the mystical arts it is necessary to explore the limits of magic. Such experiments require a freedom to explore without risks of upsetting the local population or collateral damage. It is time to go into the wilderness and explore your knowledge of $dragon_magic$."
-  zz_valyria_magic_practical_magic_experiments_dragon_magic_desc_title:0 "With dedication expand your mastery of the $dragon_magic$!"
 
 
   zz_valyria_magic_study_magic_mystery_request:0 "Solve the situation potentially using your [learning|E]"
@@ -184,7 +180,6 @@
   zz_valyria_magic_contracts.00101.desc.experiments_type.air_magic:0 "\n\nYour current ambition is to refine your command of $air_magic$. This volatile art grants dominion over the winds and the breath of the sky itself, calling forth gales and tempests, or stilling the air to silence with but a whispered incantation. Such experiments demand wide and open spaces far from settled lands, for even a minor miscalculation in the channelling of these energies could unleash devastation upon the surrounding countryside. Here, amidst the wilds, the skies themselves shall serve as your proving ground."
   zz_valyria_magic_contracts.00101.desc.experiments_type.fire_magic:0 "\n\nYour current design is to advance your mastery of $fire_magic$. This most fearsome and destructive of the Valyrian arts commands the primal force of flame — that same force which the Freehold once wielded to forge an empire and bend the very stone of the earth to its will. The casting of such magics is not without considerable peril, for fire is a merciless tutor that suffers no lapse in concentration. These remote lands offer the necessary distance from civilisation, where the inevitable scorching of the earth will trouble no one of consequence."
   zz_valyria_magic_contracts.00101.desc.experiments_type.water_magic:0 "\n\nYour current endeavour is to deepen your knowledge of $water_magic$. This patient and deceptive art governs the tides, the rains, and the very moisture within the blood of living things. Where fire consumes and air scatters, water endures and erodes, reshaping the world with a quiet persistence that belies its terrible power. In this province, far from prying eyes, you may draw upon the rivers and rains without fear of discovery, though the unnatural flooding and strange mists that accompany such experiments would surely unsettle the common folk."
-  zz_valyria_magic_contracts.00101.desc.experiments_type.dragon_magic:0 "\n\nYour experiments in the applications of magics to dragons like the old Freehold have begun to bear fruit in your understanding of $dragon_magic$. This most sacred and jealously guarded of all Valyrian arts concerns the binding, shaping, and commanding of dragonkind through sorcerous means. It was by these very mysteries that the Dragonlords of old raised their beasts from hatchlings to world-conquering terrors. Such workings demand not merely skill but an iron will, for the magical resonance between mage and dragon is a bond that, once forged carelessly, may consume the practioner as readily as it empowers them."
 
   zz_valyria_magic_contracts.00101.a:0 "Leverage my knowledge for my experiments"
   zz_valyria_magic_contracts.00101.b:0 "With careful diligence, I cast this mystery..."
@@ -238,9 +233,23 @@
   zz_valyria_magic_contracts.00197.t:0 "$zz_valyria_magic_contracts.00091.t$: $water_magic$"
   zz_valyria_magic_contracts.00197.desc:0 "The mysteries of $water_magic$ lie before you. This patient art governs the tides, the rains, and the very moisture within living things, reshaping the world with quiet persistence. Select a mystery to learn or to deepen your existing command."
   zz_valyria_magic_contracts.00197.a:0 "Knowledge is power!"
-  zz_valyria_magic_contracts.00198.t:0 "$zz_valyria_magic_contracts.00091.t$: $dragon_magic$"
-  zz_valyria_magic_contracts.00198.desc:0 "The mysteries of $dragon_magic$ lie before you. This most sacred of Valyrian arts concerns the binding and commanding of dragonkind through sorcerous means. Select a mystery to learn or to deepen your existing command."
-  zz_valyria_magic_contracts.00198.a:0 "Knowledge is power!"
+
+
+  zz_valyria_magic_contracts.00501.t:0 "Dragonsteel Forging"
+  zz_valyria_magic_contracts.00501.desc:0 "Here in the province of [task_contract_location.GetTitle.GetBaseNameNoTier], where the fires of the earth rage beneath the crust, there is an unparalleled opportunity to forge a Valyrian steel ingot. Only through the combination of magical insight and dragonfire can the molten metal be tempered to perfection."
+  zz_valyria_magic_contracts.00501.desc.experiments_type.dragon_steel:0 "\n\nYour current endeavor is to craft a Valyrian steel ingot using the flames of dragons themselves. The metal must be folded, tempered, and infused with mystical energies to achieve its legendary properties. Success will yield a masterpiece worthy of legend; failure may leave nothing but molten slag and scorched earth."
+  zz_valyria_magic_contracts.00501.a:0 "Call upon my knowledge and dragonfire!"
+  zz_valyria_magic_contracts.00501.b:0 "I shall attempt the forging ritual with utmost care."
+
+  zz_valyria_magic_contracts.00502.t:0 "$zz_valyria_magic_contracts.00501.t$: Success"
+  zz_valyria_magic_contracts.00502.desc.resolution_type.dragon_steel:0 "Through focus, skill, and the searing heat of dragonfire, the ingot has been perfectly forged. It gleams with a deep, almost mystical luster, and the arcane energies woven into its fibers hum with power. My mastery over the forge and the flame has been proven."
+  zz_valyria_magic_contracts.00502.desc.outro:0 "\n\nThe ingot is now mine to shape into whatever legendary weapon I desire. Such an achievement shall be remembered for generations."
+  zz_valyria_magic_contracts.00502.a:0 "The forge has favored me!"
+
+  zz_valyria_magic_contracts.00503.t:0 "$zz_valyria_magic_contracts.00501.t$: Failure"
+  zz_valyria_magic_contracts.00503.desc.resolution_type.dragon_steel:0 "Despite my most careful work, the dragonfire proved too wild, and the molten steel resisted my every effort. The ingot warped and cracked, and the forge itself bears the scars of this failed endeavor. Even my learning could not command the flames this day."
+  zz_valyria_magic_contracts.00503.desc.outro:0 "\n\nI must retreat and recover my strength before attempting this legendary craft again. The secrets of Valyria are stubborn and demand patience, skill, and a measure of daring beyond most mortals."
+  zz_valyria_magic_contracts.00503.a:0 "I will try again another day."
   
 
   higher_mysteries:0 "[higher_mysteries|E]"
@@ -251,7 +260,6 @@
   air_magic:0 "[air_magic|E]"
   fire_magic:0 "[fire_magic|E]"
   water_magic:0 "[water_magic|E]"
-  dragon_magic:0 "[dragon_magic|E]"
   higher_mysteries_skill:0 "Improve $higher_mysteries$"
   blood_magic_skill:0 "Improve $blood_magic$"
   dream_magic_skill:0 "Improve $dream_magic$"
@@ -260,4 +268,3 @@
   air_magic_skill:0 "Improve $air_magic$"
   fire_magic_skill:0 "Improve $fire_magic$"
   water_magic_skill:0 "Improve $water_magic$"
-  dragon_magic_skill:0 "Improve $dragon_magic$"

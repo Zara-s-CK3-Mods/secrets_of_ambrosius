@@ -114,7 +114,7 @@
   single_combat.0001.magic_assault_shadow_03:0 "Rip asunder the fabric of reality, casting [my_foe.GetFirstNameNoTooltip] into the Abyss."
 
   single_combat.0001.desc.my_feedback.magic_potency_shadow_01:0 "I am a Shadowbinder, and I call forth the darkness. I weave the shadows around me, giving them a tangible form to clutch and terrify my foe."
-  single_combat.0001.desc.opponent_response.magic_potency_shadow_01:0 "[my_foe.GetFirstNameNoTooltip] learned from a famed Shadowbinder from Asshai. I feel a deathly chill as the shadows themselves seem to leap from their hands, grasping at me with unnatural strength."
+  single_combat.0001.desc.opponent_response.magic_potency_shadow_01:0 "[my_foe.GetFirstNameNoTooltip] learned from a famed Shadowbinder from Babylon. I feel a deathly chill as the shadows themselves seem to leap from their hands, grasping at me with unnatural strength."
 
   single_combat.0031.desc.sc_defender.magic_potency_shadow_01:0 "My attempts at defending against the encroaching darkness are failing, as I struggle against shadows that have taken on a life of their own."
   single_combat.0031.desc.opponent_response.magic_potency_shadow_01:0 "[sc_victor.GetFirstNameNoTooltip] would be a terrifying sight, were [sc_victor.GetSheHe] not commanding the very shadows to assail me, their touch chilling me to the bone."
@@ -189,37 +189,43 @@
   single_combat.0041.desc.sc_attacker.magic_potency_alchemy_01:0 "I hurl my jars of wildfire with practiced aim, forcing my opponent to dodge the clinging, green flames. A splash of fire here, another there to cut off their escape."
   single_combat.0041.desc.sc_attacker.magic_potency_alchemy_01.injury:0 "There is a terrible art to pyromancy, and I am its greatest master.\n\nOnly when [sc_loser.GetFirstNameNoTooltip] has been reduced to a panicked, cornered wreck, do I deliver the final blow, disarming [sc_loser.GetHerHim] by shattering a jar at their feet that sends the [sc_loser.GetWomanMan]'s [sc_loser.Custom('signature_weapon')] flying.\n\nI prepare myself, mentally to fully engulf them in flame, pausing perfectly the second my opponent yields."
   single_combat.0041.desc.sc_attacker.magic_potency_alchemy_01.fatality:0 "With each shattered jar, my creation of burning hell takes shape around [sc_loser.GetFirstNamePossessiveNoTooltip] every nerve, drawing screams like choir song punctuated with the roar of green flame and the hiss of melting steel.\n\nWhen my inspiration begins to run dry, I draw back, allowing my foe to collapse to [sc_loser.GetHerHis] knees. Their armor is fused to their blistered skin, so much so that [sc_loser.GetFirstNameNoTooltip] can barely muster the energy to look up at me.\n\nI do [sc_loser.GetHerHim] the courtesy of returning [sc_loser.GetHerHis] gaze, then ready my final jar for the masterpiece's finishing touch."
+
+
+  # -----------------------------------------------------------------------------
+  # Dream
+  # -----------------------------------------------------------------------------
+
   single_combat.0001.magic_assault_dream_01:0 "Strike with a bolt of manifested dream"
   single_combat.0001.magic_assault_dream_02:0 "Unleash a torrent of prismatic energies"
   single_combat.0001.magic_assault_dream_03:0 "Conjure forth a nightmarish void"
 
-  single_combat.0001.desc.my_feedback.magic_potency_dream_01:0 ""
+  single_combat.0001.desc.my_feedback.magic_potency_dream_01:0 "I am the master of dreams, a bender of reality, and the one who twists the minds of those before me. My power will bend the very world itself to my whims, and make my enemy die according to my whims."
 
-  single_combat.0001.desc.opponent_response.magic_potency_dream_01:0 ""
+  single_combat.0001.desc.opponent_response.magic_potency_dream_01:0 "[my_foe.GetFirstNameNoTooltip] is a master of the magics of dreams. But dreams transcend the immaterial, they are the substance that binds imagination to sensation, to manifestation, and as such I can no longer trust anything in front of me."
 
 
-  single_combat.0031.desc.sc_defender.magic_potency_dream_01:0 ""
-  single_combat.0031.desc.opponent_response.magic_potency_dream_01:0 ""
-  single_combat.0031.desc.opponent_response.magic_potency_dream_01.injury:0 ""
+  single_combat.0031.desc.sc_defender.magic_potency_dream_01:0 "My world is begining to shatter, being rendered into nothing more than the clinging fantasy of [my_foe.GetFirstNameNoTooltip]. And yet I must try to keep my standing before this foe."
+  single_combat.0031.desc.opponent_response.magic_potency_dream_01:0 "[sc_victor.GetFirstNameNoTooltip] has unleashed the horrors of a mirror world against me. Wth prismatic purple energies flashing [sc_victor.GetHerHis] power is unmaking me, rendering me into a dream."
+  single_combat.0031.desc.opponent_response.magic_potency_dream_01.injury:0 "My [sc_loser.Custom('signature_weapon')] seems to vanish as it was never there, as a bone in my leg has given way, leaving me truly at the mercy of [sc_victor.GetFirstNameNoTooltip] as they prepare to render my entire existance into nothing."
 
-  single_combat.0031.desc.opponent_response.magic_potency_dream_01.fatality:0 ""
+  single_combat.0031.desc.opponent_response.magic_potency_dream_01.fatality:0 "my body has began to slip into nonreality, my fore[sc_loser.Custom('ArmArms')] and upper chest losing their substance, my armor fading to nothing and my skin turning transluscent .\n\nIt becomes clear that [sc_victor.GetHerHim] has rendered me into little more than a dream as [sc_victor.GetSheHe] watches me fading away with glee.\n\nAs I vanish, My last thoughts are that my mind has lingered longer than my body, as at last my eyes themselves cease to be, condemning me to an utter blackness.\n\n[sc_victor.GetFirstNameNoTooltip]'s name is the last thing my mind recalls as the dark and total abyss consumes me. returns my gaze with clinical curiosity."
 
-  single_combat.0031.desc.sc_attacker.magic_potency_dream_01:0 ""
+  single_combat.0031.desc.sc_attacker.magic_potency_dream_01:0 "I call forth the power of dreams, the one who twists reali- #EMP shit#!, ow, shit, my hand, [sc_victor.GetSheHe] hit me #EMP right#! in my hand, that's not supposed to happen!\n\n"
 
-  single_combat.0031.desc.sc_attacker.magic_potency_dream_01.injury:0 ""
+  single_combat.0031.desc.sc_attacker.magic_potency_dream_01.injury:0 "I have to focus, I have to recover, I can win, I just need to, I just, I- I'm facing a decidedly-smug [sc_victor.GetFirstNameNoTooltip], who [sc_victor.Custom('SignatureWeaponActionThirdPerson')] the [sc_victor.Custom('signature_weapon')] still #EMP very much#! in [sc_victor.GetHerHis] [sc_victor.Custom('HandHands')] with an air of deliberate menace."
 
-  single_combat.0031.desc.sc_attacker.magic_potency_dream_01.fatality:0 ""
+  single_combat.0031.desc.sc_attacker.magic_potency_dream_01.fatality:0 "What does this impudent twerp think [sc_victor.GetSheHe]'s up to, I-\n\nI have [sc_victor.Custom('SignatureWeaponArticle')] [sc_victor.Custom('signature_weapon')] lodged in my chest. How did. Where did. But I'm... I'm a master of reality..."
 
-  single_combat.0041.desc.sc_defender.magic_potency_dream_01:0 ""
+  single_combat.0041.desc.sc_defender.magic_potency_dream_01:0 "I draw upon the boundless force of dream, where thought becomes substance and terror becomes law."
 
-  single_combat.0041.desc.opponent_response.magic_potency_dream_01:0 ""
+  single_combat.0041.desc.opponent_response.magic_potency_dream_01:0 "[sc_loser.GetFirstNameNoTooltip] may claim mastery over waking illusion, but [sc_loser.GetSheHe] has become too enamored of [sc_loser.GetHerHis] own fantasies.\n\nOne sudden strike from my [sc_victor.Custom('signature_weapon')] tears [sc_loser.GetHerHim] back toward harsh reality, shattering [sc_loser.GetHerHis] concentration,"
 
-  single_combat.0041.desc.opponent_response.magic_potency_dream_01.injury:0 ""
+  single_combat.0041.desc.opponent_response.magic_potency_dream_01.injury:0 "and the mirror-lights around us flicker into harmless mist.\n\nMaster dreamer or not, panic spreads across [sc_loser.GetFirstNamePossessiveNoTooltip] features when [sc_loser.GetSheHe] realizes [sc_loser.GetHerHis] conjurations cannot hold me at bay.\n\nGranting my foe a moment to understand defeat, I merely pose with my [sc_victor.Custom('signature_weapon')]. The surrender that follows is choked out in stunned disbelief."
 
-  single_combat.0041.desc.opponent_response.magic_potency_dream_01.fatality:0 ""
+  single_combat.0041.desc.opponent_response.magic_potency_dream_01.fatality:0 "while I am already moving through the fading veil.\n\nOutrage twists across [sc_loser.GetFirstNameNoTooltip]'s face, no doubt at the collapse of [sc_loser.GetHerHis] imagined dominion, but I grant no second chance.\n\nMy [sc_victor.Custom('signature_weapon')] [sc_victor.Custom('SignatureWeaponWoundVerb1ThirdPersonPresent')] deep into the dreamer's chest, ending illusion with cold steel."
 
-  single_combat.0041.desc.sc_attacker.magic_potency_dream_01:0 ""
+  single_combat.0041.desc.sc_attacker.magic_potency_dream_01:0 "I weave prismatic unreality around my foe, forcing [sc_loser.GetHerHim] to stagger through shifting landscapes and impossible geometries. Every step [sc_loser.GetSheHe] takes is one I have already dreamt."
 
-  single_combat.0041.desc.sc_attacker.magic_potency_dream_01.injury:0 ""
+  single_combat.0041.desc.sc_attacker.magic_potency_dream_01.injury:0 "There is exquisite art in dream sorcery, and I am its supreme hand.\n\nOnly when [sc_loser.GetFirstNameNoTooltip] has been reduced to a trembling creature, striking at phantoms and shadows, do I close the snare—causing [sc_loser.GetHerHis] [sc_loser.Custom('signature_weapon')] to dissolve from [sc_loser.GetHerHis] grasp as despair overwhelms [sc_loser.GetHerHim].\n\nI gather the final surge of power, pausing only when my broken foe yields."
 
-  single_combat.0041.desc.sc_attacker.magic_potency_dream_01.fatality:0 ""
+  single_combat.0041.desc.sc_attacker.magic_potency_dream_01.fatality:0 "With each pulse of violet radiance, I unmake another certainty within [sc_loser.GetFirstNamePossessiveNoTooltip] mind and flesh alike. Screams echo through landscapes that exist only because I will them to.\n\nWhen my masterpiece nears completion, I allow my foe to collapse to [sc_loser.GetHerHis] knees. [sc_loser.GetSheHe] can scarcely distinguish body from shadow, memory from nightmare.\n\nI meet [sc_loser.GetHerHis] fading gaze with serene satisfaction, then call forth one final void to swallow what remains."

@@ -97,7 +97,7 @@ window = {
 				### Default Header
 				widget_my_realm_header = {
 					datacontext = "[GetPlayer]"
-					visible = "[Not( IsLandlessAdventurerOrMerchant( Character ) )]"
+					visible = "[Not( IsLandlessAdventurer( Character ) )]"
 
 					blockoverride "show_overlord"
 					{
@@ -120,30 +120,6 @@ window = {
 							text_single = {
 								name = "realm_type_adv"
 								text = "you_are_an_adventurer_tt"
-								align = nobaseline
-							}
-
-							text_single = {
-								text = "MY_REALM_WINDOW_DOMICILE_LOCATION"
-								align = nobaseline
-							}
-						}
-					}
-				}
-
-				### Merchant Header
-				widget_my_realm_header = {
-					datacontext = "[GetPlayer]"
-					visible = "[IsLandlessMerchant( Character )]"
-
-					blockoverride "header_subtitle"
-					{
-						vbox = {
-							spacing = 2
-
-							text_single = {
-								name = "realm_type_adv"
-								text = "you_are_a_merchant_tt"
 								align = nobaseline
 							}
 
@@ -182,7 +158,12 @@ window = {
 
 						blockoverride "tab_label"
 						{
+							layoutpolicy_horizontal = expanding
+							autoresize = no
 							text = "MY_REALM_WINDOW_HEADER"
+						}
+						blockoverride "tab_align" {
+							align = center|nobaseline
 						}
 
 						tooltip = "MY_REALM_WINDOW_BOOKMARK_DOMAIN_TT"
@@ -193,7 +174,7 @@ window = {
 					button_tab = {
 						onclick = "[MyRealmWindow.ResetMapMode]"
 						shortcut = "tab_2"
-						visible = "[Not( Or( IsLandlessAdventurerOrMerchant( GetPlayer ), IsPatrician(GetPlayer) ) )]"
+						visible = "[Not( IsLandlessAdventurer( GetPlayer ) )]"
 
 						onclick = "[GetVariableSystem.Set( 'bookmark', 'subjects' )]"
 						onclick = "[MyRealmWindow.SetActiveTab( 'bookmark_subjects' )]"
@@ -209,7 +190,12 @@ window = {
 
 						blockoverride "tab_label"
 						{
+							layoutpolicy_horizontal = expanding
+							autoresize = no
 							text = "MY_REALM_WINDOW_BODY_TITLE_SUBJECTS"
+						}
+						blockoverride "tab_align" {
+							align = center|nobaseline
 						}
 
 						tooltip = "MY_REALM_WINDOW_BOOKMARK_SUBJECTS_TT"
@@ -235,7 +221,12 @@ window = {
 
 						blockoverride "tab_label"
 						{
+							layoutpolicy_horizontal = expanding
+							autoresize = no
 							text = "MY_REALM_WINDOW_BODY_TITLE_LAWS"
+						}
+						blockoverride "tab_align" {
+							align = center|nobaseline
 						}
 
 						tooltip = "MY_REALM_WINDOW_BOOKMARK_LAWS_TT"
@@ -261,7 +252,12 @@ window = {
 
 						blockoverride "tab_label"
 						{
+							layoutpolicy_horizontal = expanding
+							autoresize = no
 							text = "MY_REALM_WINDOW_BODY_TITLE_SUCCESSION"
+						}
+						blockoverride "tab_align" {
+							align = center|nobaseline
 						}
 
 						tooltip = "MY_REALM_WINDOW_BOOKMARK_SUCCESSION_TT"
@@ -328,20 +324,6 @@ window = {
 						}
 					}
 
-					background = {
-						visible = "[IsLandlessMerchant( GetPlayer )]"
-						texture = "gfx/interface/illustrations/event_scenes/gdp_merchant_domicile.dds"
-						fittype = end
-						alpha = 0.5
-
-						using = Mask_Rough_Edges
-
-						modify_texture = {
-							texture = "gfx/interface/component_masks/mask_fade_corner.dds"
-							blend_mode = alphamultiply
-						}
-					}
-
 					blockoverride "scrollbox_margins" {
 						margin = { 0 5 }
 						margin_left = 10
@@ -376,7 +358,7 @@ window = {
 			}
 		}
 	}
-	
+
 	window_mass_directives = {}
 }
 
@@ -605,14 +587,15 @@ types MyRealmWindow
 
 									text_single = {
 										visible = "[Diarchy.IsValid]"
+										max_width = 350
 
 										text = "DIARCHY_WINDOW_STATUS_ACTIVE_DIARCHY"
 										align = nobaseline
-										max_width = 400
 									}
 
 									text_single = {
 										visible = "[Not( Diarchy.IsValid )]"
+										max_width = 350
 
 										text = "DIARCHY_WINDOW_STATUS_INACTIVE_DIARCHY"
 										align = nobaseline
@@ -621,17 +604,8 @@ types MyRealmWindow
 								}
 
 								expand = {}
-							}
 
-							## TERM LIMIT (a.k.a. In power at least until..)
-							hbox = {
-								visible = "[GetPlayer.HasRealmTermEndDate]"
-								text_single = {
-									text = "MY_REALM_WINDOW_TERM_END_DATE"
-									default_format = "#D"
-								}
 							}
-
 						}
 					}
 				}
@@ -1347,26 +1321,21 @@ types MyRealmWindow
 				}
 
 				text_label_center = {
-					visible = "[And( Not( IsLandlessAdventurerOrMerchant( Character ) ), And( Not( GuiLawGroup.GetLawGroup.HasFlag( 'republican_type_law' ) ), GuiLawGroup.GetLawGroup.HasFlag( 'realm_law_no_number' ) ) )]"
+					visible = "[And(GuiLawGroup.GetLawGroup.HasFlag( 'realm_law_no_number' ), Not(IsLandlessAdventurer( Character )) )]"
 					datacontext = "[GuiLawGroup.GetCurrentLevel.GetLaw]"
 					text = "MY_REALM_WINDOW_LAW_NAME"
 				}
 
 				text_label_center = {
-					visible = "[And( Not( IsLandlessAdventurerOrMerchant( Character ) ), And( Not( GuiLawGroup.GetLawGroup.HasFlag( 'republican_type_law' ) ), Not( GuiLawGroup.GetLawGroup.HasFlag( 'realm_law_no_number' ) ) ) )]"
+					visible = "[And(Not( GuiLawGroup.GetLawGroup.HasFlag( 'realm_law_no_number' )), Not(IsLandlessAdventurer( Character )) )]"
 					datacontext = "[GuiLawGroup.GetCurrentLevel.GetLaw]"
 					text = "MY_REALM_WINDOW_LAW_NAME_AND_LEVEL"
-				}
-				
-				text_label_center = {
-					visible = "[GuiLawGroup.GetLawGroup.HasFlag( 'republican_type_law' )]"
-					text = "[GetLawGroup('republic_type').GetName]"
 				}
 
 				### REGULAR LAW ITEMS
 				fixedgridbox = {
 					name = "regular_law_items"
-					visible = "[And( Not( IsLandlessAdventurer( Character ) ), And( Or( Not( IsNomad( Character ) ), Not( GuiLawGroup.GetLawGroup.HasFlag( 'dominance_law' ) ) ), And( Not( GuiLawGroup.GetLawGroup.HasFlag( 'republican_type_law' ) ), Not( IsLandlessMerchant( Character ) ) ) ) )]"
+					visible = "[And( Not( IsLandlessAdventurer( Character ) ), Or(Not( IsNomad( Character ) ), Not( GuiLawGroup.GetLawGroup.HasFlag( 'dominance_law' ) ) ) )]"
 
 					addcolumn = 55
 					addrow = 55
@@ -1418,107 +1387,8 @@ types MyRealmWindow
 					}
 				}
 
-				### REPUBLIC LAW ITEM
-				button_standard_clean = {
-					datacontext = "[GuiLawGroup.GetLawGroup]"
-					datacontext = "[GuiLawGroup.GetCurrentLevel.GetLaw]"
-					visible = "[LawGroup.HasFlag( 'republican_type_law' )]"
-					enabled = "[LawGroup.CanRulerChange(GetPlayer)]"
-					tooltip_when_disabled = "[GuiLawGroup.GetCanChangeTooltip]"
-					size = { 480 160 }
-
-					onclick = "[OpenLawChangeWindow( GuiLawGroup.Self )]"
-					
-					background = {
-						using = Background_Area
-					}
-					
-					icon = {
-						parentanchor = center
-						size = { 160 160 }
-						texture = "[Law.GetIcon]"
-					}
-					
-					widget = {
-						parentanchor = bottom
-						size = { 100% 30 }
-					
-						background = {
-							using = Background_Area_Dark
-						}
-					
-						text_single = {
-							parentanchor = center
-							position = { 3 -2 }
-					
-							text = "[Law.GetNameNoTooltip]"
-							default_format = "#high;EMP"
-							max_width = 150
-					
-							margin = { 5 0 }
-						}
-					}
-					
-					tooltipwidget = {
-						general_law_tooltip = {}
-					}
-				}
-
-				### MERCHANT LAW ITEMS
-				vbox = { # Company Size
-					visible = "[And( IsLandlessMerchant( Character ), GuiLawGroup.GetLawGroup.HasFlag( 'company_size' ) )]"
-
-					text_label_center = {
-						visible = "[IsLandlessMerchant( Character )]"
-						text = "[company_size|E]"
-					}
-
-					fixedgridbox = {
-						name = "company_size_levels"
-
-						addcolumn = 78
-						addrow = 80
-						setitemsizefromcell = yes
-						datamodel_wrap = 5
-						flipdirection = yes
-						layoutanchor = bottomleft
-
-						datamodel = "[GuiLawGroup.GetLaws]"
-
-						item = {
-							button_realm_law_merchant_size = {
-								datacontext = "[GuiLawGroup.GetLevelByIndex( PdxGuiWidget.GetIndexInDataModel ).GetLaw]"
-							}
-						}
-					}
-				}
-
-				vbox = { # Company Purpose
-					visible = "[And( IsLandlessMerchant( Character ), GuiLawGroup.GetLawGroup.HasFlag( 'company_purpose' ) )]"
-
-					text_label_center = {
-						visible = "[IsLandlessMerchant( Character )]"
-						text = "[company_purpose|E]"
-					}
-
-					fixedgridbox = {
-						name = "company_purpose_items"
-
-						addcolumn = 170
-						addrow = 170
-						datamodel_wrap = 3
-						flipdirection = yes
-
-						datamodel = "[GuiLawGroup.GetLaws]"
-
-						item = {
-							widget_realm_law_company_purpose = {}
-						}
-					}
-				}
-
 				spacer = {
-					visible = "[Or( IsNomad( Character ), LawGroup.HasFlag( 'republican_type_law' ) )]"
+					visible = "[IsNomad( Character )]"
 					size = { 0 5 }
 				}
 
@@ -1537,7 +1407,7 @@ types MyRealmWindow
 		texture = "[Law.GetIcon]"
 
 		modify_texture = {
-			visible = "[And( And( Not( IsNomad( Character ) ), Not( IsLandlessMerchant( Character ) ) ), Not( IsLandlessAdventurer( Character ) ) )]"
+			visible = "[And( Not( IsNomad( Character ) ), Not( IsLandlessAdventurer( Character ) ) )]"
 			texture = "gfx/interface/colors/colors_textured.dds"
 			blend_mode = add
 			framesize = { 96 96 }
@@ -1559,6 +1429,7 @@ types MyRealmWindow
 			pass_law_tooltip = {}
 		}
 		using = tooltip_sw
+		tooltip_offset = { 40 0 }
 
 		icon_button_decorative = {
 			size = { 54 54 }
@@ -1968,205 +1839,6 @@ types MyRealmWindow
 		}
 	}
 
-	type button_realm_law_merchant_size = button {
-		size = { 100 100 }
-		allow_outside = yes
-
-		down = "[GuiLaw.IsEnacted]"
-		onclick = "[GuiLaw.Enact]"
-		enabled = "[Or( GuiLaw.CanEnact, GuiLaw.IsEnacted )]"
-
-		tooltipwidget = {
-			pass_law_tooltip = {}
-		}
-
-		using = tooltip_ws
-
-		icon = {
-			visible = "[GuiLaw.IsEnacted]"
-			parentanchor = center
-			size = { 72 72 }
-
-			texture = "gfx/interface/icons/flat_icons/circle.dds"
-
-			using = Animation_Glow_Pulse
-
-			glow = {
-				glow_radius = 13
-				using = Glow_Standard
-				using = Color_Bright_Yellow
-			}
-		}
-
-		icon_round_button_base = {
-			parentanchor = center
-			size = { 72 72 }
-		}
-
-		highlight_icon = {
-			visible = "[GuiLaw.IsEnacted]"
-			parentanchor = center
-			size = { 84 84 }
-
-			texture = "gfx/interface/window_realm/merchant_frame_active.dds"
-		}
-
-		highlight_icon = {
-			parentanchor = center
-			size = { 72 72 }
-			texture = "[Law.GetIcon]"
-		}
-
-		widget = {
-			parentanchor = hcenter|bottom
-			position = { 0 3 }
-			size = { 68 16 }
-			allow_outside = yes
-
-			flowcontainer = {
-				parentanchor = vcenter
-				position = { 8 0 }
-				spacing = 4
-				allow_outside = yes
-				visible = "[GuiLawGroup.GetLawGroup.HasFlag( 'company_size' )]"
-
-				widget = {
-					size = { 10 10 }
-
-					merchant_pip = {
-						parentanchor = center
-					}
-
-					merchant_pip_on = {
-						visible = "[GreaterThanOrEqualTo_int32( Law.GetIndexInLawGroup, '(int32)0')]"
-						parentanchor = center
-					}
-				}
-
-				widget = {
-					size = { 10 10 }
-
-					merchant_pip = {
-						parentanchor = center
-					}
-
-					merchant_pip_on = {
-						visible = "[GreaterThanOrEqualTo_int32( Law.GetIndexInLawGroup, '(int32)1')]"
-						parentanchor = center
-					}
-				}
-
-				widget = {
-					size = { 10 10 }
-
-					merchant_pip = {
-						parentanchor = center
-					}
-
-					merchant_pip_on = {
-						visible = "[GreaterThanOrEqualTo_int32( Law.GetIndexInLawGroup, '(int32)2')]"
-						parentanchor = center
-					}
-				}
-
-				widget = {
-					size = { 10 10 }
-
-					merchant_pip = {
-						parentanchor = center
-					}
-
-					merchant_pip_on = {
-						visible = "[GreaterThanOrEqualTo_int32( Law.GetIndexInLawGroup, '(int32)3')]"
-						parentanchor = center
-					}
-				}
-			}
-
-			icon = {
-				size = { 68 16 }
-				texture = "gfx/interface/window_realm/merchant_bar_frame.dds"
-			}
-		}
-	}
-
-	type widget_realm_law_company_purpose = widget {
-		datacontext = "[GuiLaw.GetLaw]"
-		size = { 160 160 }
-
-		tooltipwidget = {
-			pass_law_tooltip = {
-				blockoverride "concept_link" {
-					text = "[company_purpose|E]"
-				}
-			}
-		}
-
-		# easier to mouse around the grid
-		tooltip_offset = { 0 40 }
-
-		using = tooltip_ws
-
-		button_standard_clean = {
-			name = "company_purpose_button"
-			size = { 160 160 }
-			alwaystransparent = "[GuiLaw.IsEnacted]"
-
-			enabled = "[Or(GuiLaw.CanEnact, GuiLaw.IsEnacted)]"
-			down = "[GuiLaw.IsEnacted]"
-			onclick = "[GuiLaw.Enact]"
-
-			background = {
-				texture = "gfx/interface/component_tiles/tile_vignette_3px.dds"
-				spriteType = Corneredtiled
-				spriteborder = { 5 5 }
-				margin = { -2 -2 }
-			}
-
-			icon = {
-				size = { 160 160 }
-				texture = "[Law.GetIcon]"
-			}
-
-			widget = {
-				parentanchor = bottom
-				size = { 100% 30 }
-
-				background = {
-					using = Background_Area_Dark
-				}
-
-				text_single = {
-					visible = "[Not(GuiLaw.IsEnacted)]"
-					parentanchor = center
-					position = { 3 -2 }
-
-					text = "PASS_LAW_TOOLTIP_TITLE"
-					default_format = "#weak"
-					max_width = 150
-
-					margin = { 5 0 }
-				}
-
-				text_single = {
-					visible = "[GuiLaw.IsEnacted]"
-					parentanchor = center
-					position = { 3 -2 }
-
-					text = "COMPANY_LAW_SELECTED"
-					default_format = "#high;EMP"
-					max_width = 150
-
-					margin = { 5 0 }
-				}
-			}
-
-			selection_glow = {
-				visible = "[GuiLaw.IsEnacted]"
-			}
-		}
-	}
-
 	type vbox_kurultai_inherited_titles_group_foldout = vbox {
 		layoutpolicy_horizontal = expanding
 		margin = { 10 0 }
@@ -2495,7 +2167,7 @@ types MyRealmWindow
 						text = "MY_REALM_WINDOW_DESIGNATE_HEIR"
 
 						enabled = "[MyRealmWindow.CanDesignateHeir]"
-						onclick = "[OpenDesignateHeirWindow]"
+						onclick = "[OpenGameView( 'designate_heir' )]"
 
 						tooltip = "MRW_DESIGNATE_HEIR_TT"
 					}
@@ -3021,7 +2693,7 @@ types MyRealmWindow
 									layoutpolicy_horizontal = expanding
 									autoresize = no
 
-									text = "[Title.GetNameNoTooltip]"
+									text = "TITLE_NAME_NO_TOOLTIP"
 								}
 
 								hbox = {
@@ -3138,7 +2810,7 @@ types MyRealmWindow
 
 							text_single = {
 								name = "vassal_stances_that_prefer"
-								visible = "[And( And( Not( IsLandlessAdventurer( GetPlayer ) ), Not( StringIsEmpty( MyRealmWindow.GetCharacter.GetVassalStancesThatPrefer( Character.Self ) ) ) ), Not( IsLandlessMerchant( GetPlayer ) ) )]"
+								visible = "[And( Not( IsLandlessAdventurer( GetPlayer ) ), Not( StringIsEmpty( MyRealmWindow.GetCharacter.GetVassalStancesThatPrefer( Character.Self ) ) ) )]"
 								layoutpolicy_horizontal = expanding
 
 								text = "MRW_HEIR_PREFERRED"
@@ -3247,6 +2919,7 @@ types MyRealmWindow
 			spacing = 10
 
 			text_label_center = {
+				max_width = 500
 				text = "[Character.GetDomicile.GetYourDomicileText]"
 				default_format = "#low"
 				using = Font_Size_Medium
@@ -3326,18 +2999,18 @@ types MyRealmWindow
 
 								text_single = {
 									layoutpolicy_horizontal = expanding
-									text = "[Title.GetNameNoTooltip]"
+									text = "TITLE_NAME_NO_TOOLTIP"
 									max_width = 180
 								}
 
 								expand = {}
 
 								text_single = {
-									text = "[prosperity|E]: [County.GetProsperityLevel|V]"
+									text = "[development|E]: [County.GetDevelopmentLevel|V]"
 									max_width = 140
 
 									tooltipwidget = {
-										county_prosperity_tooltip_container = {}
+										county_development_tooltip_container = {}
 									}
 								}
 
@@ -3507,7 +3180,7 @@ types MyRealmWindow
 													}
 
 													text_single = {
-														visible = "[HoldingItem.GetHolding.CanConstructAnyDistrict(GetPlayer)]"
+														visible = "[HoldingItem.GetHolding.CanConstructAnyBuilding(GetPlayer)]"
 														layoutpolicy_horizontal = expanding
 
 														text = "MY_REALM_WINDOW_CONSTRUCT_BUILDING"
@@ -3668,7 +3341,7 @@ types MyRealmWindow
 														margin_top = 2
 
 														text_label_right = {
-															visible = "[HoldingItem.GetHolding.CanConstructAnyDistrict(GetPlayer)]"
+															visible = "[HoldingItem.GetHolding.CanConstructAnyBuilding(GetPlayer)]"
 															layoutpolicy_vertical = fixed
 															text = "MY_REALM_WINDOW_CONSTRUCT_HOLDING"
 															default_format = "#P"
@@ -3806,33 +3479,33 @@ types MyRealmWindow
 			layoutpolicy_horizontal = expanding
 			spacing = 10
 			margin = { 10 0 }
-			
+
 			button_standard = {
 				size = { 50 30 }
 				onclick = "[GetVariableSystem.Toggle('mass_directives_window')]"
 				onclick = "[GetVariableSystem.Set('compact_vassal_list_realm', 'yes')]"
-				
+
 				shortcut = "mass_directives"
 				tooltip = "MY_REALM_MASS_DIRECTIVES"
 				down = "[GetVariableSystem.Exists('mass_directives_window')]"
-				
+
 				button_give_directive = {
 					# mirror = horizontal
 					parentanchor = center
 					size = { 30 30 }
 					alwaystransparent = yes
 				}
-			}		
-			
+			}
+
 			button_menu = {
 				onclick = "[GetVariableSystem.Toggle('compact_vassal_list_realm')]"
 				onclick = "[GetVariableSystem.Clear('mass_directives_window')]"
 				tooltip = "MY_REALM_COMPACT_SUBJECT_LIST"
 				shortcut = "compact_subject_list_realm"
 			}
-			
+
 			expand = {}
-			
+
 			blockoverride "dropdown_size"
 			{
 				size = { 210 32 }
@@ -3840,7 +3513,7 @@ types MyRealmWindow
 			blockoverride "dropdown_list_maxsize"
 			{
 				maximumsize = { 202 250 }
-			}	
+			}
 
 			dropdown_menu_standard = {
 				name = "government_filters_dropdown"
@@ -3910,47 +3583,46 @@ types MyRealmWindow
 		margin = { 0 10 }
 
 		using = Animation_Tab_Switch
-		
+
 		vbox = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
-			
+
 			visible = "[Not(GetVariableSystem.Exists('compact_vassal_list_realm'))]"
-			
+
 			fixedgridbox = {
 				datacontext = "[MyRealmWindow.GetPowerfulVassals]"
 				datamodel = "[CharacterSelectionList.GetList]"
 				visible = "[And( Not( CharacterSelectionList.IsBuildingList ), Not( IsDataModelEmpty( CharacterSelectionList.GetList ) ) )]"
 				layoutpolicy_horizontal = expanding
-				layoutpolicy_vertical = expanding
-				
+
 				addcolumn = 538
 				addrow = 176
 				setitemsizefromcell = yes
-				
+
 				item = {
 					widget_vassal_list_item = {
 						datacontext = "[CharacterListItem.GetCharacter]"
 						datacontext = "[MyRealmWindow.GetVassalInfo( Character.Self )]"
 						datacontext = "[MyRealmWindowVassalItem.GetContract]"
-						
+
 						background = {
 							using = Background_Frame
 						}
 					}
 				}
 			}
-			
+
 			fixedgridbox = {
 				datacontext = "[MyRealmWindow.GetTributaries]"
 				datamodel = "[CharacterSelectionList.GetList]"
 				visible = "[And( Not( CharacterSelectionList.IsBuildingList ), Not( IsDataModelEmpty( CharacterSelectionList.GetList ) ) )]"
 				layoutpolicy_horizontal = expanding
-				
+
 				addcolumn = 538
 				addrow = 176
 				setitemsizefromcell = yes
-				
+
 				item = {
 					widget_vassal_list_item = {
 						name = tutorial_highlight_vassal
@@ -3960,17 +3632,17 @@ types MyRealmWindow
 					}
 				}
 			}
-			
+
 			fixedgridbox = {
 				datacontext = "[MyRealmWindow.GetRegularVassals]"
 				datamodel = "[CharacterSelectionList.GetList]"
 				visible = "[And( Not( CharacterSelectionList.IsBuildingList ), Not( IsDataModelEmpty( CharacterSelectionList.GetList ) ) )]"
 				layoutpolicy_horizontal = expanding
-				
+
 				addcolumn = 538
 				addrow = 185
 				setitemsizefromcell = yes
-				
+
 				item = {
 					widget_vassal_list_item = {
 						name = tutorial_highlight_vassal
@@ -3980,16 +3652,16 @@ types MyRealmWindow
 					}
 				}
 			}
-			
+
 			expand = {}
 		}
-		
+
 		vbox = {
 			layoutpolicy_horizontal = expanding
 			layoutpolicy_vertical = expanding
-			
+
 			visible = "[GetVariableSystem.Exists('compact_vassal_list_realm')]"
-			
+
 			vbox_compact_subjects = {
 				datacontext = "[MyRealmWindow.GetPowerfulVassals]"
 				blockoverride "text" {
@@ -4011,7 +3683,7 @@ types MyRealmWindow
 					max_width = 510
 				}
 			}
-						
+
 			expand = {}
 		}
 
@@ -4025,33 +3697,33 @@ types MyRealmWindow
 
 		expand = {}
 	}
-	
+
 	type vbox_compact_subjects = vbox {
 		layoutpolicy_horizontal = expanding
 		visible = "[DataModelHasItems(CharacterSelectionList.GetList)]"
-		
+
 		oncreate = "[BindFoldOutContext]"
 		oncreate = "[PdxGuiFoldOut.Unfold]"
 
 		button_expandable_toggle_field = {}
-		
+
 		blockoverride "show_portrait_status_icons" {
 			visible = "[Not(GetVariableSystem.Exists('mass_directives_window'))]"
 		}
-		
+
 		vbox = {
 			margin_left = 5
 			layoutpolicy_horizontal = expanding
 			visible = "[PdxGuiFoldOut.IsUnfolded]"
-			
+
 			fixedgridbox_compact_subjects = {}
-		}		
+		}
 	}
-	
+
 	type fixedgridbox_compact_subjects = fixedgridbox {
 		datamodel = "[CharacterSelectionList.GetList]"
 		visible = "[And( Not( CharacterSelectionList.IsBuildingList ), Not( IsDataModelEmpty( CharacterSelectionList.GetList ) ) )]"
-		
+
 		block "gridbox_size" {
 			layoutpolicy_horizontal = expanding
 			addcolumn = 90
@@ -4059,11 +3731,11 @@ types MyRealmWindow
 		}
 		datamodel_wrap = 6
 		flipdirection = yes
-		
+
 		item = {
 			widget_compact_vassal_list_item = {
 				datacontext = "[CharacterListItem.GetCharacter]"
-				
+
 				widget = {
 					size = { 40 40 }
 					parentanchor = bottom|right
@@ -4071,19 +3743,19 @@ types MyRealmWindow
 					block "directive_button" {
 						visible = "[GetVariableSystem.Exists('mass_directives_window')]"
 					}
-					
+
 					widget = {
 						visible = "[Character.IsPlayerInteractionShown('give_vassal_directive_interaction')]"
 						size = { 100% 100% }
-						
+
 						button_round = {
 							size = { 100% 100% }
 							enabled = "[Character.IsPlayerInteractionValid('give_vassal_directive_interaction')]"
 							onclick = "[Character.OpenPlayerInteraction('give_vassal_directive_interaction')]"
-							
+
 							tooltip = "[Character.GetPlayerInteractionTooltip('give_vassal_directive_interaction')]"
 							using = tooltip_se
-							
+
 							text_single = {
 								parentanchor = center
 								text = "[Character.Custom('vassal_directive_icon')]"
@@ -4091,8 +3763,8 @@ types MyRealmWindow
 								using = Font_Size_Tiny
 								alwaystransparent = yes
 								alpha = "[Select_float( Character.IsPlayerInteractionValid('give_vassal_directive_interaction') , '(float)1.0', '(float)0.25' )]"
-								
-								
+
+
 								tooltip = "VASSAL_DIRECTIVE_ICON_TOOLTIP"
 								using = tooltip_se
 							}
@@ -4162,7 +3834,7 @@ types MyRealmWindow
 				text_single = {
 					name = "vassal_stances_that_prefer"
 					datacontext = "[MyRealmWindow.GetCharacter.GetPlayerHeir]"
-					visible = "[And( And( Not( IsLandlessAdventurer( GetPlayer ) ), Not( IsLandlessMerchant( GetPlayer ) ) ), And( MyRealmWindow.HasHeir, Not( StringIsEmpty( MyRealmWindow.GetCharacter.GetVassalStancesThatPrefer( Character.Self ) ) ) ) )]"
+					visible = "[And( Not( IsLandlessAdventurer( GetPlayer ) ), And( MyRealmWindow.HasHeir, Not( StringIsEmpty( MyRealmWindow.GetCharacter.GetVassalStancesThatPrefer( Character.Self ) ) ) ) )]"
 					layoutpolicy_horizontal = expanding
 					autoresize = no
 
@@ -4197,7 +3869,7 @@ types MyRealmWindow
 						text = "MY_REALM_WINDOW_SUCCESSION_DESIGNATE_HEIR"
 
 						enabled = "[MyRealmWindow.CanDesignateHeir]"
-						onclick = "[OpenDesignateHeirWindow]"
+						onclick = "[OpenGameView( 'designate_heir' )]"
 
 						tooltip = "MRW_DESIGNATE_HEIR_TT"
 					}
@@ -4294,7 +3966,7 @@ types MyRealmWindow
 				button_change = {
 					size = { 24 24 }
 					parentanchor = center
-					onclick = "[OpenLawChangeWindow( GuiLawGroup.Self )]"
+					onclick = "[OpenGameViewData( 'succession_law_change', GuiLawGroup.Self )]"
 				}
 			}
 		}
@@ -4373,7 +4045,7 @@ types MyRealmWindow
 				button_election_vote = {
 					parentanchor = center
 
-					onclick = "[OpenSuccessionElectionWindowForTitle(Title.Self)]"
+					onclick = "[OpenGameViewData( 'title_election', Title.Self )]"
 					tooltip = "MY_REALM_WINDOW_VOTE_TOOLTIP"
 				}
 			}
@@ -4497,7 +4169,7 @@ types MyRealmWindow
 
 				blockoverride "show_law"
 				{
-					visible = "[And( GuiLawGroup.IsAvailable, Or( GuiLawGroup.GetLawGroup.HasFlag( 'succession_order_laws' ), Or( GuiLawGroup.GetLawGroup.HasFlag( 'succession_gender_laws' ), GuiLawGroup.GetLawGroup.HasFlag( 'imperial_policy' ) ) ) )]"
+					visible = "[And( GuiLawGroup.IsAvailable, Or4( GuiLawGroup.GetLawGroup.HasFlag( 'succession_order_laws' ), GuiLawGroup.GetLawGroup.HasFlag( 'succession_gender_laws' ), GuiLawGroup.GetLawGroup.HasFlag( 'imperial_policy' ), GuiLawGroup.GetLawGroup.HasFlag( 'church_policy' ) ) )]"
 				}
 			}
 
@@ -4516,8 +4188,7 @@ types MyRealmWindow
 						visible = "[ObjectsEqual( Title.Self, Character.GetPrimaryTitle.Self )]"
 						text = "MY_REALM_WINDOW_VOTE"
 
-						onclick = "[OpenSuccessionElectionWindowForTitle(Title.Self)]"
-
+						onclick = "[OpenGameViewData( 'title_election', Title.Self )]"
 						tooltip = "MY_REALM_WINDOW_VOTE_TOOLTIP"
 					}
 				}
@@ -4578,7 +4249,7 @@ types MyRealmWindow
 			### TREASURY BUDGET LAWS
 			vbox_law_item = {
 				datacontext = "[GetPlayer]"
-				visible = "[And( Character.IsIndependentRuler, Character.HasTreasury )]"
+				visible = "[And( Character.HasTreasury, MyRealmWindow.HasBudgetLaws )]"
 
 				blockoverride "item_title"
 				{
@@ -4596,7 +4267,7 @@ types MyRealmWindow
 			}
 
 			button_standard = {
-				visible = "[And( Character.IsIndependentRuler, Character.HasTreasury )]"
+				visible = "[And3( Character.IsIndependentRuler, Character.HasTreasury, Not( Character.GetGovernment.HasGovernmentFlag( 'government_is_ecclesiastical' ) ) )]"
 				size = { 320 44 }
 
 				onclick = "[OpenGameViewData( 'treasury_budget_change', GetPlayer.Self )]"
@@ -4767,85 +4438,75 @@ types MyRealmWindow
 		}
 	}
 
-	type merchant_pip = icon_flat_standard_black {
-		size = { 10 10 }
-		texture = "gfx/interface/window_realm/merchant_bar_fill.dds"
-	}
-
-	type merchant_pip_on = icon_flat_standard_gold {
-		size = { 10 10 }
-		texture = "gfx/interface/window_realm/merchant_bar_fill.dds"
-	}
-	
 	type window_mass_directives = window {
 		size = { 500 900 }
-		
+
 		parentanchor = right|vcenter
 		position = { -630 0 }
-		
+
 		using = Window_Background_Subwindow
-		
+
 		# visible = "[GetVariableSystem.Exists('mass_directives_window')]"
 		visible = no
-		
+
 		state = {
 			name = _show
 			using = Animation_FadeIn_Quick
-		
+
 			position = { -630 0 }
 		}
-		
+
 		state = {
 			name = _hide
 			using = Animation_FadeOut_Quick
-		
+
 			position_x = -620
 		}
-		
+
 		vbox = {
 			layoutpolicy_horizontal = expanding
 			margin = { 4 4 }
-			
+
 			header_pattern = {
 				layoutpolicy_horizontal = expanding
-				
+
 				blockoverride "header_text"
 				{
 					text = "MASS_DIRECTIVES_TITLE"
 					margin = { 30 0 }
 				}
-				
+
 				blockoverride "button_close"
 				{
 					onclick = "[GetVariableSystem.Clear('mass_directives_window')]"
 				}
 			}
-			
+
 			vbox = {
 				layoutpolicy_horizontal = expanding
 				margin = { 15 0 }
 				margin_top = 5
 				spacing = 10
-				
+
 				hbox = {
 					layoutpolicy_horizontal = expanding
-					
+
 					text_single = {
 						layoutpolicy_horizontal = expanding
 						autoresize = no
 						multiline = yes
-						
+
 						text = "MASS_DIRECTIVES_TIP"
 						align = nobaseline|center
 					}
 				}
-				
+
 				vbox = {
 					layoutpolicy_horizontal = expanding
 					spacing = 10
 					# all the filters can be left for the future
 					# visible = no
-					
+
 					button_standard_list = {
 						enabled = no
 						size = { 0 40 }
@@ -4854,11 +4515,11 @@ types MyRealmWindow
 						using = Font_Type_Flavor
 						using = Font_Size_Medium
 					}
-					
-					
+
+
 					hbox = {
 						layoutpolicy_horizontal = expanding
-						
+
 						blockoverride "dropdown_size"
 						{
 							size = { 230 32 }
@@ -4866,67 +4527,67 @@ types MyRealmWindow
 						blockoverride "dropdown_list_maxsize"
 						{
 							maximumsize = { 222 250 }
-						}							
-						
+						}
+
 						# TODO Faith filter
-						dropdown_menu_standard = {			
+						dropdown_menu_standard = {
 							blockoverride "dropdown_properties"
 							{
 								datamodel = "[MyRealmWindow.GetGovernmentTypeFilters]"
-			
+
 								onselectionchanged = "[MyRealmWindow.SelectActiveGovernmentTypeFilter]"
 								selectedindex = "[MyRealmWindow.GetActiveGovernmentTypeFilterIndex]"
 							}
-			
+
 							blockoverride "dropdown_active_item_properties"
 							{
 								text = "MRW_GOVERNMENT_FILTER"
-			
+
 								tooltip = "MRW_GOVERNMENT_FILTER_DROPDOWN_TT"
 							}
-			
+
 							blockoverride "dropdown_item_properties"
 							{
 								text = "MRW_GOVERNMENT_FILTER"
-			
+
 								tooltip = "MRW_GOVERNMENT_FILTER_TT"
 							}
 						}
-						
+
 						expand = {}
-						
+
 						# TODO Culture filter
 						dropdown_menu_standard = {
 							blockoverride "dropdown_properties"
 							{
 								datamodel = "[MyRealmWindow.GetGovernmentTypeFilters]"
-			
+
 								onselectionchanged = "[MyRealmWindow.SelectActiveGovernmentTypeFilter]"
 								selectedindex = "[MyRealmWindow.GetActiveGovernmentTypeFilterIndex]"
 							}
-			
+
 							blockoverride "dropdown_active_item_properties"
 							{
 								text = "MRW_GOVERNMENT_FILTER"
-			
+
 								tooltip = "MRW_GOVERNMENT_FILTER_DROPDOWN_TT"
 							}
-			
+
 							blockoverride "dropdown_item_properties"
 							{
 								text = "MRW_GOVERNMENT_FILTER"
-			
+
 								tooltip = "MRW_GOVERNMENT_FILTER_TT"
 							}
 						}
 					}
-					
+
 					hbox = {
 						layoutpolicy_horizontal = expanding
 						visible = "[GetPlayer.IsValid]"
 						margin_left = 3
 						spacing = 5
-					
+
 						button_checkbox_label = {
 							background = { using = Background_Area_Border }
 							layoutpolicy_horizontal = expanding
@@ -4941,7 +4602,7 @@ types MyRealmWindow
 								min_width = 190
 							}
 						}
-						
+
 						button_checkbox_label = {
 							layoutpolicy_horizontal = expanding
 							background = { using = Background_Area_Border }
@@ -4957,29 +4618,29 @@ types MyRealmWindow
 							}
 						}
 					}
-					
+
 					hbox = {
 						layoutpolicy_horizontal = expanding
 						# visible = has admin vassals
 						# datamodel = "[GetAllAdministrativeObligations]"
 						datamodel = "[GetNullCharacterDataModel( '(int32)6')]"
-						spacing = 5	
-						
+						spacing = 5
+
 						item = {
 							button_standard_list = {
 								layoutpolicy_horizontal = expanding
 								size = { 0 30 }
-								
+
 								hbox = {
 									layoutpolicy_horizontal = expanding
 									margin = { 5 0 }
-									
+
 									text_single = {
 										raw_text = "@naval_administration!"
 										align = nobaseline
 										alwaystransparent = yes
 									}
-									
+
 									text_single = {
 										layoutpolicy_horizontal = expanding
 										autoresize = no
@@ -4990,52 +4651,52 @@ types MyRealmWindow
 								}
 							}
 						}
-											
+
 						expand = {}
 					}
-					
+
 					hbox = {
 						layoutpolicy_horizontal = expanding
-						
+
 						margin_left = 10
-						
+
 						text_label_left = {
 							layoutpolicy_horizontal = expanding
 							autoresize = no
 							margin = { 0 5 }
 							align = nobaseline
-							
-							text = "ACTIVE_DIRECTIVES_HEADER"	
+
+							text = "ACTIVE_DIRECTIVES_HEADER"
 						}
 					}
-					
+
 					hbox = {
 						layoutpolicy_horizontal = expanding
 						margin_left = 5
-										
+
 						dynamicgridbox = {
 							datamodel = "[GetNullCharacterDataModel( '(int32)10')]"
 							flipdirection = yes
 							datamodel_wrap = 7
 							layoutpolicy_horizontal = expanding
-							
+
 							item = {
 								widget = {
 									size = { 65 35 }
 									button_standard_list = {
 										size = { 60 30 }
-										
+
 										hbox = {
 											layoutpolicy_horizontal = expanding
 											margin = { 5 0 }
-											
+
 											text_single = {
 												raw_text = "@task_develop_county!"
 												align = nobaseline
 												alwaystransparent = yes
 												using = Font_Size_Tiny
 											}
-											
+
 											text_single = {
 												layoutpolicy_horizontal = expanding
 												autoresize = no
@@ -5049,33 +4710,33 @@ types MyRealmWindow
 							}
 						}
 					}
-					
+
 				}
 				hbox = {
 					layoutpolicy_horizontal = expanding
 					margin = { 10 5 }
-					
+
 					background = {
 						using = Background_Area_Dark
 						alpha = 0.7
 						margin_left = 16
 						margin_right = 10
-						
+
 						modify_texture = {
 							texture = "gfx/interface/component_masks/mask_fade_horizontal_extended.dds"
 							blend_mode = alphamultiply
 						}
 					}
-					
+
 					text_single = {
 						layoutpolicy_horizontal = expanding
 						autoresize = no
 						margin = { 0 5 }
 						align = nobaseline
-						
+
 						text = "ISSUE_DIRECTIVES_HEADER"
 					}
-					
+
 					text_single = {
 						layoutpolicy_horizontal = expanding
 						autoresize = no
@@ -5088,33 +4749,33 @@ types MyRealmWindow
 			scrollbox = {
 				layoutpolicy_horizontal = expanding
 				layoutpolicy_vertical = expanding
-				
+
 				blockoverride "scrollbox_content" {
 					vbox = {
 						layoutpolicy_horizontal = expanding
 						datamodel = "[GetNullCharacterDataModel('(int32)10')]"
 						# datamodel = "all directives that can be applied to selected vassals, including No Directive"
 						spacing = 1
-						
+
 						item = {
 							button_standard = {
 								layoutpolicy_horizontal = expanding
 								size = { 0 38 }
 								# onclick = " apply this directive to selected vassals"
-								
+
 								hbox = {
 									layoutpolicy_horizontal = expanding
-								
+
 									margin = { 10 0 }
 									margin_right = 15
 									spacing = 5
-									
+
 									text_single = {
 										raw_text = "@task_develop_county!"
 										align = nobaseline
 										using = Font_Size_Tiny
 									}
-									
+
 									text_single = {
 										layoutpolicy_horizontal = expanding
 										autoresize = no
@@ -5122,9 +4783,9 @@ types MyRealmWindow
 										raw_text = "Directive name"
 										alwaystransparent = yes
 									}
-									
+
 									expand = {}
-									
+
 									text_single = {
 										autoresize = no
 										size = { 35 20 }

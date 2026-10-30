@@ -262,7 +262,6 @@ scripted_effect select_special_tier_move_effect = {
 							NOR = {
 								has_trait = peasant_leader
 								government_has_flag = government_is_republic
-								government_has_flag = government_is_merchant
 							}
 						}
 					}
@@ -273,7 +272,6 @@ scripted_effect select_special_tier_move_effect = {
 							NOR = {
 								has_trait = peasant_leader
 								government_has_flag = government_is_republic
-								government_has_flag = government_is_merchant
 							}
 						}
 					}
@@ -652,11 +650,11 @@ scripted_effect select_special_tier_move_effect = {
 				NOR = {
 					AND = {
 						this = scope:sc_defender
-						scope:sc_attacker = { has_title = title:e_byzantium }
+						scope:sc_attacker = { is_roman_emperor_trigger = yes }
 					}
 					AND = {
 						this = scope:sc_attacker
-						scope:sc_defender = { has_title = title:e_byzantium }
+						scope:sc_defender = { is_roman_emperor_trigger = yes }
 					}
 				}
 				# Block special moves twice in a row.
@@ -2005,10 +2003,10 @@ scripted_effect work_out_wounds_or_death_effect = {
 						
 						scope:recipient = {
 							show_as_tooltip = {
-								agot_increase_wounds_effect = { REASON = dream_magic RANK = 1}
+								increase_wounds_effect = { REASON = dream_magic }
 								add_stress = massive_stress_gain
 							}
-							agot_increase_wounds_effect = { REASON = dream_magic RANK = 1}
+							increase_wounds_effect = { REASON = dream_magic }
 							add_stress = massive_stress_gain
 							scope:actor = {
 								if = {
@@ -2031,10 +2029,10 @@ scripted_effect work_out_wounds_or_death_effect = {
 						
 						scope:recipient = {
 							show_as_tooltip = {
-								agot_increase_wounds_effect = { REASON = blood_magic RANK = 1}
+								increase_wounds_effect = { REASON = blood_magic }
 								add_stress = massive_stress_gain
 							}
-							agot_increase_wounds_effect = { REASON = blood_magic RANK = 1}
+							increase_wounds_effect = { REASON = blood_magic }
 							add_stress = massive_stress_gain
 							scope:actor = {
 								if = {
@@ -2057,10 +2055,10 @@ scripted_effect work_out_wounds_or_death_effect = {
 						
 						scope:recipient = {
 							show_as_tooltip = {
-								agot_increase_wounds_effect = { REASON = transmutation_magic RANK = 1}
+								increase_wounds_effect = { REASON = transmutation_magic }
 								add_stress = massive_stress_gain
 							}
-							agot_increase_wounds_effect = { REASON = transmutation_magic RANK = 1}
+							increase_wounds_effect = { REASON = transmutation_magic }
 							add_stress = massive_stress_gain
 							scope:actor = {
 								if = {
@@ -2082,10 +2080,10 @@ scripted_effect work_out_wounds_or_death_effect = {
 						add_dread = medium_dread_gain
 						scope:recipient = {
 							show_as_tooltip = {
-								agot_increase_wounds_effect = { REASON = shadow_magic RANK = 1 }
+								increase_wounds_effect = { REASON = shadow_magic }
 								add_stress = massive_stress_gain
 							}
-							agot_increase_wounds_effect = { REASON = shadow_magic RANK = 1 }
+							increase_wounds_effect = { REASON = shadow_magic }
 							scope:actor = {
 								if = {
 									limit = {
@@ -2098,7 +2096,7 @@ scripted_effect work_out_wounds_or_death_effect = {
 									random_list = {
 										50 = {
 											modifier = {
-												add = zz_valyria_magic_shadow_magic_09_value
+												add = zz_valyria_magic_shadow_magic_009_value
 											}
 										}
 										50 = { 
@@ -2116,20 +2114,12 @@ scripted_effect work_out_wounds_or_death_effect = {
 						add_dread = medium_dread_gain
 						scope:recipient = {
 							show_as_tooltip = {
-								agot_increase_wounds_effect = { REASON = fire_magic RANK = 1 }
-								add_trait = burned
-								add_trait_xp = {
-									trait = burned
-									value = { 5 200 }
-								}
+								increase_wounds_effect = { REASON = fire_magic }
+								add_trait = disfigured
 								add_stress = massive_stress_gain
 							}
-							agot_increase_wounds_effect = { REASON = fire_magic RANK = 1}
-							add_trait = burned
-							add_trait_xp = {
-								trait = burned
-								value = { 5 200 }
-							}
+							increase_wounds_effect = { REASON = fire_magic }
+							add_trait = disfigured
 							add_stress = massive_stress_gain
 							scope:actor = {
 								if = {
@@ -2151,10 +2141,10 @@ scripted_effect work_out_wounds_or_death_effect = {
 						add_dread = medium_dread_gain
 						scope:recipient = {
 							show_as_tooltip = {
-								agot_increase_wounds_effect = { REASON = water_magic RANK = 1}
+								increase_wounds_effect = { REASON = water_magic }
 								add_stress = massive_stress_gain
 							}
-							agot_increase_wounds_effect = { REASON = water_magic RANK = 1}
+							increase_wounds_effect = { REASON = water_magic }
 							add_stress = massive_stress_gain
 							scope:actor = {
 								if = {
@@ -2177,10 +2167,10 @@ scripted_effect work_out_wounds_or_death_effect = {
 						
 						scope:recipient = {
 							show_as_tooltip = {
-								agot_increase_wounds_effect = { REASON = air_magic RANK = 1}
+								increase_wounds_effect = { REASON = air_magic }
 								add_stress = massive_stress_gain
 							}
-							agot_increase_wounds_effect = { REASON = air_magic RANK = 1}
+							increase_wounds_effect = { REASON = air_magic }
 							add_stress = massive_stress_gain
 							scope:actor = {
 								if = {
@@ -2290,7 +2280,7 @@ scripted_effect work_out_wounds_or_death_effect = {
 						target = scope:recipient
 						75 = {
 							modifier = {
-								add = zz_valyria_magic_dream_magic_08_value
+								add = zz_valyria_magic_dream_magic_008_value
 							}
 							
 							scope:secondary_recipient = {
@@ -2382,12 +2372,12 @@ scripted_effect work_out_wounds_or_death_effect = {
 						target = scope:recipient
 						75 = {
 							modifier = {
-								add = zz_valyria_magic_blood_magic_17_value
+								add = zz_valyria_magic_blood_magic_017_value
 							}
 							
 							scope:secondary_recipient = {
 								add_character_modifier = {
-									modifier = zz_valyria_magic_blood_magic_17_modifier 
+									modifier = zz_valyria_magic_blood_magic_017_modifier 
 									years = -1
 								}
 							}
@@ -2485,7 +2475,7 @@ scripted_effect work_out_wounds_or_death_effect = {
 						random_list = { 
 							50 = {
 								modifier = {
-									add = zz_valyria_magic_shadow_magic_09_value
+									add = zz_valyria_magic_shadow_magic_009_value
 								}
 							}
 							50 = { 
@@ -2624,10 +2614,6 @@ scripted_effect work_out_wounds_or_death_effect = {
 					execute_opinion_effect = { VICTIM = scope:recipient EXECUTIONER = scope:secondary_recipient }
 				}
 				scope:recipient = {
-					add_trait_xp = {
-						trait = burned
-						value = { 5 200 }
-					}
 					death = {
 						death_reason = death_fire_magic
 						killer = scope:secondary_recipient
@@ -2798,23 +2784,21 @@ scripted_effect work_out_wounds_or_death_effect = {
 		limit = { scope:fatality = flag:default }
 		if = {
 			limit = { fatality_default_will_die_trigger = yes }
-			scope:sc_loser = {
-				death = {
-					killer = scope:sc_victor
-					death_reason = death_duel
-				}
-			}
 			if = {
 				limit = {
 					scope:sc_victor = {
-						faith = {
-							has_tenet = tenet_cranial_trophies
-						}
+						tgp_cranial_trophies_collection_trigger = yes
 					}
 				}
 				tgp_cranial_trophies_beheading_effect = {
 					KILLER = scope:sc_victor
 					DEAD = scope:sc_loser
+				}
+			}
+			scope:sc_loser = {
+				death = {
+					killer = scope:sc_victor
+					death_reason = death_duel
 				}
 			}
 		}
@@ -2836,23 +2820,21 @@ scripted_effect work_out_wounds_or_death_effect = {
 				add_kinslayer_trait_or_nothing_effect = { VICTIM = scope:sc_loser }
 			}
 		}
-		scope:sc_loser = {
-			death = {
-				killer = scope:sc_victor
-				death_reason = death_duel
-			}
-		}
 		if = {
 			limit = {
 				scope:sc_victor = {
-					faith = {
-						has_tenet = tenet_cranial_trophies
-					}
+					tgp_cranial_trophies_collection_trigger = yes
 				}
 			}
 			tgp_cranial_trophies_beheading_effect = {
 				KILLER = scope:sc_victor
 				DEAD = scope:sc_loser
+			}
+		}
+		scope:sc_loser = {
+			death = {
+				killer = scope:sc_victor
+				death_reason = death_duel
 			}
 		}
 	}
@@ -3155,15 +3137,21 @@ scripted_effect finalise_combat_results_effect = {
 					# Specific to Germanic pagans.
 					religion = religion:germanic_religion
 					# And they gotta be warlike.
-					faith = {
-						OR = {
-							has_doctrine_parameter = warmonger
-							has_doctrine_parameter = conquest_cb_enabled
-							has_doctrine_parameter = invasion_cb_enabled
-							has_doctrine_parameter = great_holy_wars_active_if_reformed
-							has_doctrine_parameter = clergy_can_fight
-							has_doctrine_parameter = cheaper_holy_wars_active
-							has_doctrine_parameter = great_holy_wars_active
+					OR = {
+						faith = {
+							OR = {
+								has_doctrine_parameter = conquest_cb_enabled
+								has_doctrine_parameter = invasion_cb_enabled
+								has_doctrine_parameter = great_holy_wars_active_if_reformed
+								has_doctrine_parameter = cheaper_holy_wars_active
+								has_doctrine_parameter = great_holy_wars_active
+							}
+						}
+						rite = {
+							OR = {
+								rite_has_parameter = warmonger
+								rite_has_parameter = clergy_can_fight
+							}
 						}
 					}
 				}
@@ -6134,7 +6122,7 @@ scripted_effect may_damage_artifact_effect = {
 #	Standard combat event.
 single_combat.0001 = {
 	type = character_event
-	window = duel_event
+	window = zz_valyria_duel_event
 	title = {
 		first_valid = {
 			triggered_desc = {
@@ -7365,28 +7353,6 @@ single_combat.0001 = {
 	}
 
 	immediate = {
-		#AGOT Added
-		if = {
-			limit = {
-				OR = {
-					has_character_modifier = dragon_battle_prowess_modifier_1
-					has_character_modifier = dragon_battle_prowess_modifier_2
-					has_character_modifier = dragon_battle_prowess_modifier_3
-					has_character_modifier = dragon_battle_prowess_modifier_4
-					has_character_modifier = dragon_battle_prowess_modifier_5
-				}
-			}
-			add_character_flag = {
-				flag = agot_recalculate_dragon_battle_prowess_after_combat
-				days = 3
-			}
-			remove_character_modifier = dragon_battle_prowess_modifier_1
-			remove_character_modifier = dragon_battle_prowess_modifier_2
-			remove_character_modifier = dragon_battle_prowess_modifier_3
-			remove_character_modifier = dragon_battle_prowess_modifier_4
-			remove_character_modifier = dragon_battle_prowess_modifier_5
-		}
-		# End AGOT Added
 		play_music_cue = "mx_cue_combat_stinger"
 		# Generate combat options.
 		select_combat_options_from_pool_effect = yes
@@ -8197,68 +8163,68 @@ single_combat.0001 = {
 		# magic Enchants, ticking buffs 
 		if = { 
 			limit = {
-				has_character_modifier = zz_valyria_magic_shadow_magic_12_modifier
+				has_character_modifier = zz_valyria_magic_shadow_magic_012_modifier
 			}
 			increment_combat_buffs_effect = { BUFF_INCREMENT = 1 }
-			remove_character_modifier = zz_valyria_magic_shadow_magic_12_modifier
+			remove_character_modifier = zz_valyria_magic_shadow_magic_012_modifier
 			
 		}
 		if = {
 			limit = {
-				has_character_modifier = zz_valyria_magic_shadow_magic_13_modifier
+				has_character_modifier = zz_valyria_magic_shadow_magic_013_modifier
 			}
-			remove_character_modifier = zz_valyria_magic_shadow_magic_13_modifier
+			remove_character_modifier = zz_valyria_magic_shadow_magic_013_modifier
 			scope:my_foe = {
 				increment_combat_debuffs_effect = { DEBUFF_INCREMENT = 4 }
 			}
 		}
 		if = { 
 			limit = {
-				has_character_modifier = zz_valyria_magic_air_magic_12_modifier
+				has_character_modifier = zz_valyria_magic_air_magic_012_modifier
 			}
-			remove_character_modifier = zz_valyria_magic_air_magic_12_modifier
+			remove_character_modifier = zz_valyria_magic_air_magic_012_modifier
 			increment_combat_buffs_effect = { BUFF_INCREMENT = 3 }
 			
 		}
 		if = {
 			limit = {
-				has_character_modifier = zz_valyria_magic_air_magic_13_modifier
+				has_character_modifier = zz_valyria_magic_air_magic_013_modifier
 			}
-			remove_character_modifier = zz_valyria_magic_air_magic_13_modifier
+			remove_character_modifier = zz_valyria_magic_air_magic_013_modifier
 			scope:my_foe = {
 				increment_combat_debuffs_effect = { DEBUFF_INCREMENT = 1 }
 			}
 		}
 		if = { 
 			limit = {
-				has_character_modifier = zz_valyria_magic_fire_magic_12_modifier
+				has_character_modifier = zz_valyria_magic_fire_magic_012_modifier
 			}
-			remove_character_modifier = zz_valyria_magic_fire_magic_12_modifier
+			remove_character_modifier = zz_valyria_magic_fire_magic_012_modifier
 			increment_combat_buffs_effect = { BUFF_INCREMENT = 2 }
 			
 		}
 		if = {
 			limit = {
-				has_character_modifier = zz_valyria_magic_fire_magic_13_modifier
+				has_character_modifier = zz_valyria_magic_fire_magic_013_modifier
 			}
-			remove_character_modifier = zz_valyria_magic_fire_magic_13_modifier
+			remove_character_modifier = zz_valyria_magic_fire_magic_013_modifier
 			scope:my_foe = {
 				increment_combat_debuffs_effect = { DEBUFF_INCREMENT = 2 }
 			}
 		}
 		if = { 
 			limit = {
-				has_character_modifier = zz_valyria_magic_water_magic_12_modifier
+				has_character_modifier = zz_valyria_magic_water_magic_012_modifier
 			}
-			remove_character_modifier = zz_valyria_magic_water_magic_12_modifier
+			remove_character_modifier = zz_valyria_magic_water_magic_012_modifier
 			increment_combat_buffs_effect = { BUFF_INCREMENT = 1 }
 			
 		}
 		if = {
 			limit = {
-				has_character_modifier = zz_valyria_magic_water_magic_13_modifier
+				has_character_modifier = zz_valyria_magic_water_magic_013_modifier
 			}
-			remove_character_modifier = zz_valyria_magic_water_magic_13_modifier
+			remove_character_modifier = zz_valyria_magic_water_magic_013_modifier
 			scope:my_foe = {
 				increment_combat_debuffs_effect = { DEBUFF_INCREMENT = 3 }
 			}
@@ -9378,7 +9344,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_butchery_effect = yes }
 		}
 
-		stress_and_fulfillment_impact = {
+		stress_impact = {
 			callous = minor_stress_impact_loss
 			sadistic = minor_stress_impact_loss
 			compassionate = minor_stress_impact_gain
@@ -9390,46 +9356,46 @@ single_combat.0001 = {
 	}
 
 	#Stoic Veteran
-	#option = {
-	# 	name = {
-	# 		trigger = {
-	# 			NOT = {
-	# 				scope:my_foe = { has_trait = varangian }
-	# 			}
-	# 		}
-	# 		text = single_combat.0001.stoic_veteran.general
-	# 	}
-	# 	name = {
-	# 		trigger = {
-	# 			scope:my_foe = { has_trait = varangian }
-	# 		}
-	# 		text = single_combat.0001.stoic_veteran.other_varangian
-	# 	}
-	# 	trigger = { exists = local_var:combat_move_stoic_veteran_flag }
+	option = {
+		name = {
+			trigger = {
+				NOT = {
+					scope:my_foe = { has_trait = varangian }
+				}
+			}
+			text = single_combat.0001.stoic_veteran.general
+		}
+		name = {
+			trigger = {
+				scope:my_foe = { has_trait = varangian }
+			}
+			text = single_combat.0001.stoic_veteran.other_varangian
+		}
+		trigger = { exists = local_var:combat_move_stoic_veteran_flag }
 
-	# 	#Move clarification
-	# 	custom_tooltip = single_combat.0001.tt.stoic_veteran
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.stoic_veteran
 
-	# 	#Spawn Info
-	# 	trait = varangian
+		#Spawn Info
+		trait = varangian
 
-	# 	#Move effects
-	# 	## First, we show the move's effects with no guff.
-	# 	show_as_tooltip = { combat_move_stoic_veteran_effect = yes }
-	# 	## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
-	# 	if = {
-	# 		limit = {
-	# 			scope:my_foe = { is_alive = yes }
-	# 		}
-	# 		hidden_effect = { combat_move_stoic_veteran_effect = yes }
-	# 	}
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { combat_move_stoic_veteran_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { combat_move_stoic_veteran_effect = yes }
+		}
 
-	# 	# Loc here implies stoic professionalism, so doesn't seem fair to apply stress over that.
-	# 	ai_chance = {
-	# 		base = 100
-	# 		sce_preferred_shrewd_fighter_scripted_modifier = yes
-	# 	}
-	# }
+		# Loc here implies stoic professionalism, so doesn't seem fair to apply stress over that.
+		ai_chance = {
+			base = 100
+			sce_preferred_shrewd_fighter_scripted_modifier = yes
+		}
+	}
 
 	#Blade Dance
 	option = {
@@ -9628,7 +9594,11 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_mage_potency_02_effect = yes }
 		}
 
-		# No appropriate stress loss for blade dance; arguably arrogant, as we portray them as haughty in the loc, but it's a bit mean to both hit the player verbally and mechanically for something that's up for interpretation.
+		stress_and_fulfillment_impact = {
+			callous = minor_stress_impact_loss
+			sadistic = minor_stress_impact_loss
+			compassionate = minor_stress_impact_gain
+		}
 		ai_chance = {
 			base = 100
 			sce_preferred_shrewd_fighter_scripted_modifier = yes
@@ -10205,7 +10175,7 @@ scripted_effect sce_victor_end_result_tooltip_effect = {
 #	scope:sc_loser's confirmation event.
 single_combat.0031 = {
 	type = character_event
-	window = duel_event
+	window = zz_valyria_duel_event
 	title = single_combat.0031.t
 	desc = {
 		first_valid = {
@@ -11961,9 +11931,9 @@ single_combat.0031 = {
 			limit = { is_ai = no }
 			if = { #check for variables set up in set_temporary_signature_weapon
 				limit = {
-					OR = {
-						has_variable = og_signature_weapon
-						has_variable = temporary_signature_weapon
+					has_variable = {
+						name = og_signature_weapon
+						name = temporary_signature_weapon
 					}
 				}
 				if = { #remove the signature_weapon variable if the character didn't have anything before
@@ -11989,7 +11959,7 @@ single_combat.0031 = {
 #	scope:sc_victor's confirmation event.
 single_combat.0041 = {
 	type = character_event
-	window = duel_event
+	window = zz_valyria_duel_event
 	title = single_combat.0041.t
 	desc = {
 		first_valid = {
@@ -13483,7 +13453,7 @@ single_combat.0041 = {
 			}
 			if = {
 				limit = {
-					scope:sc_victor.faith = { has_tenet = tenet_cranial_trophies }
+					scope:sc_victor = { tgp_cranial_trophies_collection_trigger = yes }
 				}
 				show_as_tooltip = {
 					tgp_cranial_trophies_beheading_effect = {
@@ -13696,9 +13666,9 @@ single_combat.0041 = {
 			limit = { is_ai = no }
 			if = { #check for variables set up in set_temporary_signature_weapon
 				limit = {
-					OR = {
-						has_variable = og_signature_weapon
-						has_variable = temporary_signature_weapon
+					has_variable = {
+						name = og_signature_weapon
+						name = temporary_signature_weapon
 					}
 				}
 				if = { #remove the signature_weapon variable if the character didn't have anything before
@@ -13894,7 +13864,7 @@ single_combat.1003 = {
 #	Debug event to duel a character.
 single_combat.1004 = {
 	type = character_event
-	window = duel_event
+	window = zz_valyria_duel_event
 	title = single_combat.1004.t
 	desc = single_combat.1004.desc
 	left_portrait = {

@@ -88,14 +88,35 @@ zz_valyria_magic_contracts.0002 = {
 				zz_valyria_magic_practical_magic_experiments_water_magic = {
 					scope:contract_taker = { trigger_event = zz_valyria_magic_contracts.00101 }
 				}
-				zz_valyria_magic_practical_magic_experiments_dragon_magic = {
-					scope:contract_taker = { trigger_event = zz_valyria_magic_contracts.00101 }
-				}
 				zz_valyria_magic_secrets_of_the_dooom = {
 					scope:contract_taker = { trigger_event = zz_valyria_magic_contracts.00031 }
 				}
 				zz_valyria_magic_study_magic_mystery = {
 					scope:contract_taker = { trigger_event = zz_valyria_magic_contracts.00091 }
+				}
+				zz_valyria_magic_dream_magic_066 = {
+					scope:contract_taker = { trigger_event = zz_valyria_magic_dream_magic_prophecy_task.0002 }
+				}
+				zz_valyria_magic_dream_magic_067 = {
+					scope:contract_taker = { trigger_event = zz_valyria_magic_dream_magic_prophecy_task.0006 }
+				}
+				zz_valyria_magic_dream_magic_068 = {
+					scope:contract_taker = { trigger_event = zz_valyria_magic_dream_magic_prophecy_task.0010 }
+				}
+				zz_valyria_magic_dream_magic_069 = {
+					scope:contract_taker = { trigger_event = zz_valyria_magic_dream_magic_prophecy_task.0014 }
+				}
+				zz_valyria_magic_dream_magic_070 = {
+					scope:contract_taker = { trigger_event = zz_valyria_magic_dream_magic_prophecy_task.0018 }
+				}
+				zz_valyria_magic_dream_magic_071 = {
+					scope:contract_taker = { trigger_event = zz_valyria_magic_dream_magic_prophecy_task.0022 }
+				}
+				zz_valyria_magic_dream_magic_072 = {
+					scope:contract_taker = { trigger_event = zz_valyria_magic_dream_magic_prophecy_task.0026 }
+				}
+				zz_valyria_magic_dream_magic_072 = {
+					scope:contract_taker = { trigger_event = zz_valyria_magic_dream_magic_prophecy_task.0030 }
 				}
 			}
 		}
@@ -1513,9 +1534,6 @@ zz_valyria_magic_contracts.00190 = {
 			flag:water_magic = { 
 				trigger_event = zz_valyria_magic_contracts.00197
 			}
-			flag:dragon_magic = {
-				trigger_event = zz_valyria_magic_contracts.00198
-			}
 		}
 		
 	}
@@ -1541,7 +1559,7 @@ zz_valyria_magic_contracts.00191 = {
 
 
 	immediate = {
-		zz_valyria_magic_learn_list = {MAGIC_SCHOOL = blood_magic}
+		zz_valyria_magic_education_magic_list = {MAGIC_SCHOOL = blood_magic}
 	}
 
 	widget = {
@@ -1553,7 +1571,14 @@ zz_valyria_magic_contracts.00191 = {
 	}
 	option = {
 		name = zz_valyria_magic_contracts.00191.a
-		zz_valyria_magic_learn_effect = {MAGIC_SCHOOL = blood_magic}
+		var:selected_flag = {
+			save_scope_as = random_spell
+		}
+		save_scope_value_as = {
+			name = spell 
+			value = yes
+		}
+		zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
 	}
 	option = {
 		name = zz_valyria_magic_contracts.00190.b
@@ -1583,7 +1608,7 @@ zz_valyria_magic_contracts.00192 = {
 
 
 	immediate = {
-		zz_valyria_magic_learn_list_49 = {MAGIC_SCHOOL = dream_magic}
+		zz_valyria_magic_education_magic_list = {MAGIC_SCHOOL = dream_magic}
 	}
 
 	widget = {
@@ -1597,7 +1622,14 @@ zz_valyria_magic_contracts.00192 = {
 		name = zz_valyria_magic_contracts.00192.a
 		trigger = {
 		}
-		zz_valyria_magic_learn_effect_49 = {MAGIC_SCHOOL = dream_magic}
+		var:selected_flag = {
+			save_scope_as = random_spell
+		}
+		save_scope_value_as = {
+			name = spell 
+			value = yes
+		}
+		zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
 	}
 	option = {
 		name = zz_valyria_magic_contracts.00190.b
@@ -1626,7 +1658,7 @@ zz_valyria_magic_contracts.00193 = {
 
 
 	immediate = {
-		zz_valyria_magic_learn_list_17 = {MAGIC_SCHOOL = alchemy_magic}
+		zz_valyria_magic_education_magic_list = {MAGIC_SCHOOL = alchemy_magic}
 	}
 
 	widget = {
@@ -1640,7 +1672,14 @@ zz_valyria_magic_contracts.00193 = {
 		name = zz_valyria_magic_contracts.00193.a
 		trigger = {
 		}
-		zz_valyria_magic_learn_effect_17 = {MAGIC_SCHOOL = alchemy_magic }
+		var:selected_flag = {
+			save_scope_as = random_spell
+		}
+		save_scope_value_as = {
+			name = spell 
+			value = yes
+		}
+		zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
 	}
 	option = {
 		name = zz_valyria_magic_contracts.00190.b
@@ -1668,7 +1707,7 @@ zz_valyria_magic_contracts.00194 = {
 
 
 	immediate = {
-		zz_valyria_magic_learn_list_17 = {MAGIC_SCHOOL = shadow_magic}
+		zz_valyria_magic_education_magic_list = {MAGIC_SCHOOL = shadow_magic}
 	}
 
 	widget = {
@@ -1682,7 +1721,14 @@ zz_valyria_magic_contracts.00194 = {
 		name = zz_valyria_magic_contracts.00194.a
 		trigger = {
 		}
-		zz_valyria_magic_learn_effect_17 = {MAGIC_SCHOOL = shadow_magic}
+		var:selected_flag = {
+			save_scope_as = random_spell
+		}
+		save_scope_value_as = {
+			name = spell 
+			value = yes
+		}
+		zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
 	}
 	option = {
 		name = zz_valyria_magic_contracts.00190.b
@@ -1710,7 +1756,7 @@ zz_valyria_magic_contracts.00195 = {
 
 
 	immediate = {
-		zz_valyria_magic_learn_list_17 = {MAGIC_SCHOOL = air_magic}
+		zz_valyria_magic_education_magic_list = {MAGIC_SCHOOL = air_magic}
 	}
 
 	widget = {
@@ -1724,7 +1770,14 @@ zz_valyria_magic_contracts.00195 = {
 		name = zz_valyria_magic_contracts.00195.a
 		trigger = {
 		}
-		zz_valyria_magic_learn_effect_17 = {MAGIC_SCHOOL = air_magic }
+		var:selected_flag = {
+			save_scope_as = random_spell
+		}
+		save_scope_value_as = {
+			name = spell 
+			value = yes
+		}
+		zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
 	}
 	option = {
 		name = zz_valyria_magic_contracts.00190.b
@@ -1752,7 +1805,7 @@ zz_valyria_magic_contracts.00196 = {
 
 
 	immediate = {
-		zz_valyria_magic_learn_list_17 = {MAGIC_SCHOOL = fire_magic}
+		zz_valyria_magic_education_magic_list = {MAGIC_SCHOOL = fire_magic}
 	}
 
 	widget = {
@@ -1766,7 +1819,14 @@ zz_valyria_magic_contracts.00196 = {
 		name = zz_valyria_magic_contracts.00196.a
 		trigger = {
 		}
-		zz_valyria_magic_learn_effect_17 = {MAGIC_SCHOOL = fire_magic }
+		var:selected_flag = {
+			save_scope_as = random_spell
+		}
+		save_scope_value_as = {
+			name = spell 
+			value = yes
+		}
+		zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
 	}
 	option = {
 		name = zz_valyria_magic_contracts.00190.b
@@ -1796,7 +1856,7 @@ zz_valyria_magic_contracts.00197 = {
 
 
 	immediate = {
-		zz_valyria_magic_learn_list_17 = {MAGIC_SCHOOL = water_magic}
+		zz_valyria_magic_education_magic_list = {MAGIC_SCHOOL = water_magic}
 	}
 
 	widget = {
@@ -1810,7 +1870,14 @@ zz_valyria_magic_contracts.00197 = {
 		name = zz_valyria_magic_contracts.00197.a
 		trigger = {
 		}
-		zz_valyria_magic_learn_effect_17 = {MAGIC_SCHOOL = water_magic }
+		var:selected_flag = {
+			save_scope_as = random_spell
+		}
+		save_scope_value_as = {
+			name = spell 
+			value = yes
+		}
+		zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
 	}
 	option = {
 		name = zz_valyria_magic_contracts.00190.b
@@ -1818,44 +1885,285 @@ zz_valyria_magic_contracts.00197 = {
 	}
 }
 
-# Dragon Magic Education - All Mysteries
-zz_valyria_magic_contracts.00198 = {
-	type = character_event
-	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_contracts.00198.t
-	desc = {
-		desc = zz_valyria_magic_contracts.00198.desc
+
+
+
+### Magical Experiments
+
+
+#	Roll our first event.
+zz_valyria_magic_contracts.00500 = {
+	hidden = yes
+
+	immediate = {
+		zz_mage_contract_travel_or_progress_effect = {
+			DESTINATION = scope:task_contract_location
+			ARRIVAL_EVENT = zz_valyria_magic_contracts.00501 
+		}
 	}
-	theme = university
-	override_background = {
-		reference = zz_magical_eduction
+}
+
+#	Debate over ancient map.
+zz_valyria_magic_contracts.00501 = {
+	type = character_event
+	title = zz_valyria_magic_contracts.00501.t
+	desc = {
+		desc = zz_valyria_magic_contracts.00501.desc
+		triggered_desc = {
+			trigger = { }
+			desc = zz_valyria_magic_contracts.00501.desc.experiments_type.dragon_steel
+		}
+		
 	}
 
-	center_portrait = {
+	
+	theme = learning
+	left_portrait = {
 		character = root
 		animation = thinking
 	}
-
+	right_portrait = {
+		character = scope:employer
+		animation = stress
+	}
+	lower_left_portrait = scope:officer
+	lower_center_portrait = scope:sacrifice
+	override_background = { reference = location_study }
 
 	immediate = {
-		zz_valyria_magic_learn_list_7 = {MAGIC_SCHOOL = dragon_magic}
+		hidden_effect = {
+			current_travel_plan ?= { pause_travel_plan = yes }
+		}
 	}
 
-	widget = {
-		is_shown = {
-			is_ai = no
-		}
-		gui = "event_window_flag_selection"
-		container = "custom_widgets_container"
-	}
+	# Stewardship auto-win.
+
+	# Learning auto-win.
 	option = {
-		name = zz_valyria_magic_contracts.00198.a
-		trigger = {
+		name = zz_valyria_magic_contracts.00501.a
+		trigger = { learning >= laamp_base_contract_schemes_2661_other_skill_threshold_value }
+		skill = learning
+
+		save_scope_value_as = {
+			name = resolution_type
+			value = flag:learning
 		}
-		zz_valyria_magic_learn_effect_7 = {MAGIC_SCHOOL = dragon_magic }
+		#show_as_tooltip = { laamp_base_contract_schemes_2681_standard_duel_win_effect = yes }
+		scope:task_contract = {
+			increment_variable_effect = {
+				VAR = score_tally
+				VAL = 1
+			}
+		}
+
+		stress_impact = {
+			diligent = minor_stress_loss
+			lazy = medium_stress_gain
+		}
+		ai_chance = {
+			# If you can auto-win, do it.
+			base = 10000
+		}
 	}
+	# Learning duel.
 	option = {
-		name = zz_valyria_magic_contracts.00190.b
-		trigger_event = zz_valyria_magic_contracts.00190
+		name = zz_valyria_magic_contracts.00501.b
+		trigger = { stewardship < laamp_base_contract_schemes_2661_other_skill_threshold_value }
+
+		save_scope_value_as = {
+			name = resolution_type
+			value = flag:learning
+		}
+		duel = {
+			skill = learning
+			value = high_skill_rating
+			# Victory!
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = 3.5
+					min = -49
+				}
+				min = 5
+				desc = laamp_base_contract_schemes.2681.b.tt.success
+				#show_as_tooltip = { laamp_base_contract_schemes_2681_standard_duel_win_effect = yes }
+				scope:task_contract = {
+					increment_variable_effect = {
+						VAR = score_tally
+						VAL = 1
+					}
+				}
+			}
+			# Defeat.
+			50 = {
+				compare_modifier = {
+					value = scope:duel_value
+					multiplier = -3.5
+					min = -49
+				}
+				min = 5
+				desc = laamp_base_contract_schemes.2681.b.tt.failure
+				#show_as_tooltip = { laamp_base_contract_schemes_2681_standard_duel_loss_effect = yes }
+				scope:task_contract = {
+					increment_variable_effect = {
+						VAR = score_tally
+						VAL = -1
+					}
+				}
+			}
+		}
+
+		stress_impact = {
+			diligent = minor_stress_loss
+			lazy = medium_stress_gain
+		}
+		ai_chance = {
+			base = 1
+			ai_value_modifier = { ai_energy = 2 }
+		}
+	}
+	after = {
+		scope:task_contract = {
+			increment_variable_effect = {
+				VAR = magic_experiments_left
+				VAL = -1
+			}
+		}
+		if = {
+			limit = { scope:task_contract.var:magic_experiments_left > 0 }
+			trigger_event = {
+				id = zz_valyria_magic_contracts.00501
+				days = { 2 5 }
+			}
+		}
+		else = {
+			if = {
+				limit = { scope:task_contract.var:score_tally >= scope:task_contract.var:win_t3_threshold }
+				save_scope_as = success_critical
+			}
+			else_if = {
+				limit = { scope:task_contract.var:score_tally >= scope:task_contract.var:win_t2_threshold }
+				save_scope_as = success_standard
+			}
+			else_if = {
+				limit = { scope:task_contract.var:score_tally >= scope:task_contract.var:win_t1_threshold }
+				save_scope_as = success_qualified
+			}
+			else = { save_scope_as = failure_standard }
+			if = {
+				limit = {
+					not = {
+						exists = scope:failure_standard 
+					}
+				}
+				trigger_event = {
+					id = zz_valyria_magic_contracts.00502
+					days = { 2 5 }
+				}
+				
+			}
+			else = {
+				trigger_event = {
+					id = zz_valyria_magic_contracts.00503
+					days = { 2 5 }
+				}
+			}
+			
+		}
+	}
+}
+
+#	Victory event.
+zz_valyria_magic_contracts.00502 = {
+	type = character_event
+	title = zz_valyria_magic_contracts.00502.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:resolution_type = flag:secondary_skill }
+				desc = zz_valyria_magic_contracts.00502.desc.resolution_type.dragon_steel
+			}
+		}
+		triggered_desc = {
+			desc = zz_valyria_magic_contracts.00502.desc.outro
+		}
+	}
+	theme = learning
+	left_portrait = {
+		character = root
+		animation = debating
+	}
+	right_portrait = {
+		character = scope:employer
+		animation = admiration
+	}
+	override_background = { reference = location_study }
+
+	immediate = {
+		
+	}
+
+	# Congratulations!
+	option = {
+		name = zz_valyria_magic_contracts.00502.a
+		scope:task_contract = {
+			if = {
+				limit = { exists = scope:success_critical }
+				complete_task_contract = success_critical
+			}
+			else_if = {
+				limit = { exists = scope:success_standard }
+				complete_task_contract = success_standard
+			}
+			else_if = {
+				limit = { exists = scope:success_qualified }
+				complete_task_contract = success_qualified
+			}
+		}
+		return_home = yes
+
+		# No stress here.
+		# Single option, so no AI chance.
+	}
+}
+
+#	Defeat event.
+zz_valyria_magic_contracts.00503 = {
+	type = character_event
+	title = zz_valyria_magic_contracts.00503.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:resolution_type = flag:secondary_skill }
+				desc = zz_valyria_magic_contracts.00103.desc.resolution_type.learning
+			}
+			
+		}
+		desc = zz_valyria_magic_contracts.00103.desc.outro
+	}
+	theme = learning
+	left_portrait = {
+		character = root
+		animation = shock
+	}
+	right_portrait = {
+		character = scope:employer
+		animation = anger
+	}
+	override_background = { reference = alley_night }
+
+	immediate = {
+		#laamp_base_contract_schemes_2681_standard_duel_loss_effect = yes
+		scope:task_contract = { complete_task_contract = failure_standard }
+	}
+
+	# RIP.
+	option = {
+		name = zz_valyria_magic_contracts.00503.a
+
+		return_home = yes
+
+		# No stress here.
+		# Single option, so no AI chance.
 	}
 }

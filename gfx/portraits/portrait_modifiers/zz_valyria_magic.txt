@@ -1,0 +1,25 @@
+﻿special_prophet = {
+
+	usage = game
+	selection_behavior = weighted_random
+	priority = 50
+
+	zz_blood_magic_unaging = {
+		dna_modifiers = {
+			morph = {
+				mode = replace
+				gene = gene_age
+				template = no_aging
+				value = 1.0
+			}
+		}
+		weight = {
+			base = 0
+			modifier = {
+				add = 999
+				exists = this
+				has_character_modifier = zz_valyria_magic_blood_magic_011_modifier
+			}
+		}
+	}
+}

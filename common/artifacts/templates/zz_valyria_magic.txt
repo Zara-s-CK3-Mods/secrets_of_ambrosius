@@ -1,10 +1,6 @@
 ﻿zz_valyria_mages_ring_artifact_template = {
 	can_benefit = {
 		has_trait = zz_magister
-		custom_tooltip = {
-			text = agot_glass_candle_lit.tt
-			NOT = { global_var:magic_level = 0 }
-		}
 	}
 	fallback = {
 		learning = 1
@@ -19,54 +15,24 @@ zz_valyria_mages_crown_artifact_template = {
 	can_equip = {
 		has_trait = zz_magister
 	}
-	# can this character benefit from the full modifiers of the artifact?
 	can_benefit = {
 		always = yes
-	}
-	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
-	fallback = {
-		#always = yes
 	}
 	unique = yes
 	ai_score = {
 		value = 100
-		if = {
-			limit = {
-				NOT = {
-					culture = {
-						has_cultural_pillar = heritage_valyrian
-					}
-				}
-			}
-			add = -10000
-		}
-	}
-}
-zz_valyria_mages_rod_artifact_template = {
-	can_equip = {
-		has_trait = zz_magister
-	}
-	# can this character benefit from the full modifiers of the artifact?
-	can_benefit = {
-		always = yes
-	}
-	# if a given character does not pass the "can_benefit" trigger then this modifier will be applied instead.
-	fallback = {
-		#always = yes
-	}
-	unique = yes
-	ai_score = {
-		value = 100
-		if = {
-			limit = {
-				NOT = {
-					culture = {
-						has_cultural_pillar = heritage_valyrian
-					}
-				}
-			}
-			add = -10000
-		}
 	}
 }
 
+zz_valyria_mages_staff_artifact_template = {
+	can_equip = {
+		has_trait = zz_magister
+	}
+	can_benefit = {
+		always = yes
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}

@@ -1,0 +1,272 @@
+﻿l_english:  
+
+  task_contract_prophecy_desc_title:0 "It shall be as I dreamed!"  
+  task_contract_prophecy_desc_request:0 "Solve the situation potentially using your [learning|E] or [stewardship|E]"
+
+
+  
+  
+  zz_valyria_magic_dream_magic_066_contract:0 "Prophecy: [gold|E]"
+  zz_valyria_magic_dream_magic_066_desc:0 "Visions of wealth hidden in lost places have come to you, brough about by the use of magic. Search the location for the rewards of [gold|E]."
+  zz_valyria_magic_dream_magic_066_desc_title:0 "$task_contract_prophecy_desc_title$"
+  zz_valyria_magic_dream_magic_066_request:0 "$task_contract_prophecy_desc_request$"
+
+
+  zz_valyria_magic_dream_magic_prophecy_task.0002.t:0 "The Hidden Hoard of House [employer.GetHouse.GetBaseNameNoTooltip]"
+  zz_valyria_magic_dream_magic_prophecy_task.0002.desc:0 "Our arrival in [employer.GetPrimaryTitle.GetBaseNameNoTier] is met with little fanfare — yet the words of prophecy still burn within my thoughts. Somewhere in these lands lies a cache of gold long concealed, awaiting the one fated to uncover it.\n\nWithout swift action, rival claimants or suspicious locals may deprive us of the treasure before it is found.$zz_valyria_magic_dream_magic_prophecy_task.0002.desc.outro$"
+  zz_valyria_magic_dream_magic_prophecy_task.0002.desc.outro:0 "\n\n[employer.GetTitledFirstName|U] watches our efforts closely, eager that their domain should not be disturbed without reward."
+  zz_valyria_magic_dream_magic_prophecy_task.0002.a:0 "Let us utilise our administrative mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0002.b:0 "Let us utilise our administrative skill"
+  zz_valyria_magic_dream_magic_prophecy_task.0002.c:0 "Let us utilise our learning mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0002.d:0 "Let us utilise our learning skill"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0003.t:0 "$zz_valyria_magic_contracts.0002.t$: Success!"
+  zz_valyria_magic_dream_magic_prophecy_task.0003.desc.resolution_type.stewardship:0 "Thankfully, I possess manifold abilities to manage administrative records, and this skill has proven transferable to navigating the archives of House [employer.GetHouse.GetBaseNameNoTooltip]. Thus I rapidly find a true jewel among these records, a scroll from lost Valyria."
+  zz_valyria_magic_dream_magic_prophecy_task.0003.desc.resolution_type.secondary_skill:0 "Thankfully, my capacities as a scholar allows me to rapidly find my way through the records stored for the centuries by House [employer.GetHouse.GetBaseNameNoTooltip]. Thus I rapidly find a true jewel among these records, a scroll from lost Valyria."
+  zz_valyria_magic_dream_magic_prophecy_task.0003.desc.outro:0 "\n\nWith the scroll in hand, I make my exit before the local authorities can find a reason to 'confiscate' my findings."
+  zz_valyria_magic_dream_magic_prophecy_task.0003.a:0 "Eureka!"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0003.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0002.t$: Success!"
+  zz_valyria_magic_dream_magic_prophecy_task.0003.desc.resolution_type.stewardship:0 "Thankfully, I possess manifold talents in matters of ledgers, rents, and concealed revenues. By tracing forgotten accounts and long-abandoned claims, I uncover the resting place of a hidden cache of gold jealously buried by House [employer.GetHouse.GetBaseNameNoTooltip]."
+  zz_valyria_magic_dream_magic_prophecy_task.0003.desc.resolution_type.secondary_skill:0 "Thankfully, my scholarly abilities allow me to interpret faded maps, ancient symbols, and contradictory chronicles. Through such learning I discover the resting place of a hidden cache of gold long concealed by House [employer.GetHouse.GetBaseNameNoTooltip]."
+  zz_valyria_magic_dream_magic_prophecy_task.0003.desc.outro:0 "\n\nWith glittering coin now in hand, I depart before too many eyes begin to wonder where the treasure has gone."
+  zz_valyria_magic_dream_magic_prophecy_task.0003.a:0 "Fortune is mine!"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0004.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0002.t$: Failure!"
+  zz_valyria_magic_dream_magic_prophecy_task.0004.desc.resolution_type.stewardship:0 "My skills navigating the intricacies of governance have sadly availed me little in this matter. Ledgers, claims, and inventories reveal no sign of the promised hoard, and I have not found what I sought."
+  zz_valyria_magic_dream_magic_prophecy_task.0004.desc.resolution_type.secondary_skill:0 "My vaunted scholarly abilities have sadly yielded no clearer answer. Maps contradict chronicles, symbols mislead, and the promised treasure remains beyond my grasp."
+  zz_valyria_magic_dream_magic_prophecy_task.0004.desc.stewardship:0 "Despite my talent for balancing ledgers and managing estates, the records are a chaotic morass of false claims, missing pages, and generations of deceit. If gold was ever hidden here, it has eluded every careful calculation I can make."
+  zz_valyria_magic_dream_magic_prophecy_task.0004.desc.outro:0 "\n\nI must leave [employer.GetPrimaryTitle.GetBaseNameNoTier] empty-handed, much to the visible amusement of those who doubted the prophecy."
+  zz_valyria_magic_dream_magic_prophecy_task.0004.a:0 "Damnations!"
+
+
+  zz_valyria_magic_dream_magic_067_contract:0 "Prophecy: [piety|E]"
+  zz_valyria_magic_dream_magic_067_desc:0 "Visions of icons of religious significance, hidden in lost places have come to you, brough about by the use of magic. Search the location for the rewards of [piety|E]."
+  zz_valyria_magic_dream_magic_067_desc_title:0 "$task_contract_prophecy_desc_title$"
+  zz_valyria_magic_dream_magic_067_request:0 "$task_contract_prophecy_desc_request$"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0006.t:0 "The Sacred Reliquary of House [employer.GetHouse.GetBaseNameNoTooltip]"
+  zz_valyria_magic_dream_magic_prophecy_task.0006.desc:0 "Our arrival in [employer.GetPrimaryTitle.GetBaseNameNoTier] is met with little fanfare — yet the prophecy speaks clearly that within these lands lies an icon of profound religious significance, long hidden from mortal sight.\n\nUnless we complete our search swiftly, local resentment and jealous custodians may bar our path before the holy treasure is revealed.$zz_valyria_magic_dream_magic_prophecy_task.0006.desc.outro$"
+  zz_valyria_magic_dream_magic_prophecy_task.0006.desc.outro:0 "\n\n[employer.GetTitledFirstName|U] reminds us pointedly that patience for our intrusion into sacred matters is not without limit."
+  zz_valyria_magic_dream_magic_prophecy_task.0006.a:0 "Let us utilise our administrative mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0006.b:0 "Let us utilise our administrative skill"
+  zz_valyria_magic_dream_magic_prophecy_task.0006.c:0 "Let us utilise our learning mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0006.d:0 "Let us utilise our learning skill"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0007.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0006.t$: Success!"
+  zz_valyria_magic_dream_magic_prophecy_task.0007.desc.resolution_type.stewardship:0 "Thankfully, I possess manifold abilities in the keeping of inventories, vaults, and sealed records. By tracing forgotten donations and ancient accounts, I uncover the resting place of a revered holy icon hidden for generations by House [employer.GetHouse.GetBaseNameNoTooltip]."
+  zz_valyria_magic_dream_magic_prophecy_task.0007.desc.resolution_type.secondary_skill:0 "Thankfully, my scholarly capacities allow me to decipher hymns, marginalia, and half-forgotten chronicles. Through such learning I uncover a sacred icon of immense spiritual worth long concealed by House [employer.GetHouse.GetBaseNameNoTooltip]."
+  zz_valyria_magic_dream_magic_prophecy_task.0007.desc.outro:0 "\n\nBearing the holy relic into the light, I depart amid awe and reverence, my soul uplifted by the discovery."
+  zz_valyria_magic_dream_magic_prophecy_task.0007.a:0 "A blessed revelation!"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0008.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0006.t$: Failure!"
+  zz_valyria_magic_dream_magic_prophecy_task.0008.desc.resolution_type.stewardship:0 "My talents in governance and record-keeping have sadly yielded nothing of worth. Donations, ledgers, and inventories reveal no trace of the promised holy icon."
+  zz_valyria_magic_dream_magic_prophecy_task.0008.desc.resolution_type.secondary_skill:0 "My vaunted learning has brought little clarity. Legends contradict one another, chronicles mislead, and the sacred treasure remains hidden from me."
+  zz_valyria_magic_dream_magic_prophecy_task.0008.desc.stewardship:0 "Despite my talent for balancing ledgers and managing estates, these archives are a chaos of worm-eaten parchment, false inventories, and careless omissions. If a sacred relic was ever recorded here, it is lost beneath layers of neglect."
+  zz_valyria_magic_dream_magic_prophecy_task.0008.desc.outro:0 "\n\nI must leave [employer.GetPrimaryTitle.GetBaseNameNoTier] empty-handed, while the custodians look upon my efforts with thinly veiled satisfaction."
+  zz_valyria_magic_dream_magic_prophecy_task.0008.a:0 "The heavens are silent."
+
+
+  zz_valyria_magic_dream_magic_068_contract:0 "Prophecy: [prestige|E]"
+  zz_valyria_magic_dream_magic_068_desc:0 "Visions of a legendary item hidden in lost places have come to you, brought about by the use of magic. Search the location for the rewards of prestige."
+  zz_valyria_magic_dream_magic_068_desc_title:0 "$task_contract_prophecy_desc_title$"
+  zz_valyria_magic_dream_magic_068_request:0 "$task_contract_prophecy_desc_request$"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0010.t:0 "The chronicles of House [employer.GetHouse.GetBaseNameNoTooltip]"
+  zz_valyria_magic_dream_magic_prophecy_task.0010.desc:0 "My prophetic visions speak of forgotten deeds and ancient triumphs, hidden within the records of [employer.GetHouse.GetBaseNameNoTooltip]. If I can uncover the tale foreseen in dream, my own name may be raised alongside the great and glorious.\n\nOur arrival in [employer.GetPrimaryTitle.GetBaseNameNoTier] is met with little fanfare, and the locals show scant patience for our intrusion. Without swift progress, their temper may soon sour.$zz_valyria_magic_dream_magic_prophecy_task.0010.desc.outro$"
+  zz_valyria_magic_dream_magic_prophecy_task.0010.desc.outro:0 "\n\n[employer.GetTitledFirstName|U] makes plain that their indulgence of our search shall not last forever."
+  zz_valyria_magic_dream_magic_prophecy_task.0010.a:0 "Let us utilise our administrative mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0010.b:0 "Let us utilise our administrative skill"
+  zz_valyria_magic_dream_magic_prophecy_task.0010.c:0 "Let us utilise our learning mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0010.d:0 "Let us utilise our learning skill"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0011.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0010.t$: Success!"
+  zz_valyria_magic_dream_magic_prophecy_task.0011.desc.resolution_type.stewardship:0 "Thankfully, my mastery of ledgers, archives, and the machinery of rule proves invaluable in navigating the vast records of House [employer.GetHouse.GetBaseNameNoTooltip]. There I uncover a long-forgotten account of noble victories and heroic lineage that confirms the truth of my prophecy."
+  zz_valyria_magic_dream_magic_prophecy_task.0011.desc.resolution_type.secondary_skill:0 "Thankfully, my scholarly discipline allows me to sift swiftly through the records preserved by House [employer.GetHouse.GetBaseNameNoTooltip]. There I uncover an ancient chronicle of noble victories and heroic lineage that confirms the truth of my prophecy."
+  zz_valyria_magic_dream_magic_prophecy_task.0011.desc.outro:0 "\n\nArmed with these glorious revelations, I depart before jealous hands can suppress what I have found. My name shall now be tied to this rediscovered greatness."
+  zz_valyria_magic_dream_magic_prophecy_task.0011.a:0 "Glory is mine!"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0012.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0010.t$: Failure!"
+  zz_valyria_magic_dream_magic_prophecy_task.0012.desc.resolution_type.stewardship:0 "My skill in governance and administration has availed me little within the records of House [employer.GetHouse.GetBaseNameNoTooltip]. Though I searched diligently, I found no tale worthy of fulfilling the prophecy."
+  zz_valyria_magic_dream_magic_prophecy_task.0012.desc.resolution_type.secondary_skill:0 "My vaunted learning has failed to yield sense from the dusty records of House [employer.GetHouse.GetBaseNameNoTooltip]. Though I searched tirelessly, I found no revelation worthy of the dream."
+  zz_valyria_magic_dream_magic_prophecy_task.0012.desc.stewardship:0 "Though I set their archives in admirable order and restored some semblance of reason to their filing, the glorious secret I sought remained hidden. Mundane records abound, but greatness eludes me."
+  zz_valyria_magic_dream_magic_prophecy_task.0012.desc.outro:0 "\n\nI leave [employer.GetPrimaryTitle.GetBaseNameNoTier] with no triumph to proclaim, while the locals seem heartily pleased to see me gone."
+  zz_valyria_magic_dream_magic_prophecy_task.0012.a:0 "The dream was false..."
+
+
+  zz_valyria_magic_dream_magic_069_contract:0 "Prophecy: [dynasty_prestige|E]"
+  zz_valyria_magic_dream_magic_069_desc:0 "Visions of legends hidden in lost places have come to you, brough about by the use of magic. Search the location for proof that ties your house to these legends and claim a large reward of [dynasty_prestige|E]."
+  zz_valyria_magic_dream_magic_069_desc_title:0 "$task_contract_prophecy_desc_title$"
+  zz_valyria_magic_dream_magic_069_request:0 "$task_contract_prophecy_desc_request$"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0014.t:0 "The genealogies of House [employer.GetHouse.GetBaseNameNoTooltip]"
+  zz_valyria_magic_dream_magic_prophecy_task.0014.desc:0 "In dream I beheld my bloodline crowned in glory, the name of my House spoken with awe in courts yet unborn. The vision led me here, where hidden genealogies, ancient compacts, and forgotten triumphs lie buried within the records of House [employer.GetHouse.GetBaseNameNoTooltip]. If I uncover what was shown to me, the [dynasty_prestige|E] of my dynasty may swell beyond measure.\n\nOur arrival in [employer.GetPrimaryTitle.GetBaseNameNoTier] is met with little fanfare, and the locals are plainly displeased by our desire to access the records stored in this place. Without swift progress, their patience may soon be exhausted.$zz_valyria_magic_dream_magic_prophecy_task.0014.desc.outro$"
+  zz_valyria_magic_dream_magic_prophecy_task.0014.desc.outro:0 "\n\n[employer.GetTitledFirstName|U] makes clear that their tolerance for our intrusion into these archives has strict limits."
+  zz_valyria_magic_dream_magic_prophecy_task.0014.a:0 "Let us utilise our administrative mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0014.b:0 "Let us utilise our administrative skill"
+  zz_valyria_magic_dream_magic_prophecy_task.0014.c:0 "Let us utilise our learning mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0014.d:0 "Let us utilise our learning skill"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0015.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0014.t$: Success!"
+  zz_valyria_magic_dream_magic_prophecy_task.0015.desc.resolution_type.stewardship:0 "Thankfully, my mastery of administration proves as useful in dusty archives as in halls of rule. By carefully ordering the tangled records of House [employer.GetHouse.GetBaseNameNoTooltip], I uncover a magnificent chain of bloodlines, marriages, and heroic deeds that binds my House to ancient greatness."
+  zz_valyria_magic_dream_magic_prophecy_task.0015.desc.resolution_type.secondary_skill:0 "Thankfully, my scholarly discipline allows me to navigate the records preserved for centuries by House [employer.GetHouse.GetBaseNameNoTooltip]. There I discover forgotten chronicles and genealogies that bind my House to legends long thought lost."
+  zz_valyria_magic_dream_magic_prophecy_task.0015.desc.outro:0 "\n\nWith these revelations secured, I depart before jealous custodians can suppress the truth. When these findings are proclaimed, the name of my dynasty shall ring across the world with newfound splendor."
+  zz_valyria_magic_dream_magic_prophecy_task.0015.a:0 "Our House shall be exalted!"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0016.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0014.t$: Failure!"
+  zz_valyria_magic_dream_magic_prophecy_task.0016.desc.resolution_type.stewardship:0 "My talents for governance have availed me little within the records of House [employer.GetHouse.GetBaseNameNoTooltip]. Though I sorted charters, debts, and censuses with admirable precision, no proof of destined greatness was found."
+  zz_valyria_magic_dream_magic_prophecy_task.0016.desc.resolution_type.secondary_skill:0 "My vaunted learning has failed me amidst the archives of House [employer.GetHouse.GetBaseNameNoTooltip]. I found fragments, contradictions, and dust—but no revelation worthy of raising my House above all others."
+  zz_valyria_magic_dream_magic_prophecy_task.0016.desc.stewardship:0 "Though I restored order to their chaotic ledgers and reorganized generations of neglected records, the glorious secret I sought remained buried or perhaps never existed at all. Mundane accountings abound, but no greatness waits within them."
+  zz_valyria_magic_dream_magic_prophecy_task.0016.desc.outro:0 "\n\nI leave [employer.GetPrimaryTitle.GetBaseNameNoTier] empty-handed, while the local custodians seem relieved that my search has come to nothing."
+  zz_valyria_magic_dream_magic_prophecy_task.0016.a:0 "The glory escapes us..."
+
+  zz_valyria_magic_dream_magic_070_contract:0 "Prophecy: Influence"
+  zz_valyria_magic_dream_magic_070_desc:0 "Visions of secrets hidden in the realm are revealed to you, brought about by the use of magic. Search the location for the rewards of [influence|E]."
+  zz_valyria_magic_dream_magic_070_desc_title:0 "$task_contract_prophecy_desc_title$"
+  zz_valyria_magic_dream_magic_070_request:0 "$task_contract_prophecy_desc_request$"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0018.t:0 "The ledgers of House [employer.GetHouse.GetBaseNameNoTooltip]"
+  zz_valyria_magic_dream_magic_prophecy_task.0018.desc:0 "In dream I saw rulers bowing their heads, councils bending to my word, and favors flowing toward me like rivers to the sea. The vision has led me here, where hidden ledgers, sealed correspondences, and forgotten obligations lie buried within the records of House [employer.GetHouse.GetBaseNameNoTooltip]. If I uncover what was shown to me, I may gather a vast reserve of [influence|E].\n\nOur arrival in [employer.GetPrimaryTitle.GetBaseNameNoTier] is met with little fanfare, and the locals are plainly irritated by our desire to access the records stored in this place. Without swift progress, their patience may soon fail.$zz_valyria_magic_dream_magic_prophecy_task.0018.desc.outro$"
+  zz_valyria_magic_dream_magic_prophecy_task.0018.desc.outro:0 "\n\n[employer.GetTitledFirstName|U] makes clear that their tolerance for our intrusion into these archives has strict limits."
+  zz_valyria_magic_dream_magic_prophecy_task.0018.a:0 "Let us utilise our administrative mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0018.b:0 "Let us utilise our administrative skill"
+  zz_valyria_magic_dream_magic_prophecy_task.0018.c:0 "Let us utilise our learning mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0018.d:0 "Let us utilise our learning skill"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0019.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0018.t$: Success!"
+  zz_valyria_magic_dream_magic_prophecy_task.0019.desc.resolution_type.stewardship:0 "Thankfully, my mastery of administration proves ideal for untangling the ledgers and obligations of House [employer.GetHouse.GetBaseNameNoTooltip]. I swiftly uncover dormant contracts, unpaid favors, and forgotten rights that may now be called upon in my name."
+  zz_valyria_magic_dream_magic_prophecy_task.0019.desc.resolution_type.secondary_skill:0 "Thankfully, my scholarly discipline allows me to decipher the records preserved for centuries by House [employer.GetHouse.GetBaseNameNoTooltip]. There I uncover sealed correspondences, hidden patronage networks, and long-neglected obligations that can be turned to my advantage."
+  zz_valyria_magic_dream_magic_prophecy_task.0019.desc.outro:0 "\n\nWith these secrets secured, I depart before suspicious hands can reclaim them. Soon enough, doors once barred shall open at my approach, and my store of [influence|E] shall grow immensely."
+  zz_valyria_magic_dream_magic_prophecy_task.0019.a:0 "Power gathers to me!"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0020.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0018.t$: Failure!"
+  zz_valyria_magic_dream_magic_prophecy_task.0020.desc.resolution_type.stewardship:0 "My talents for governance have availed me little within the records of House [employer.GetHouse.GetBaseNameNoTooltip]. Though I sorted ledgers and obligations with care, no hidden leverage or forgotten favor was found."
+  zz_valyria_magic_dream_magic_prophecy_task.0020.desc.resolution_type.secondary_skill:0 "My vaunted learning has failed me amidst the archives of House [employer.GetHouse.GetBaseNameNoTooltip]. I found dust, contradictions, and trivial accounts—but nothing that might increase my [influence|E]."
+  zz_valyria_magic_dream_magic_prophecy_task.0020.desc.stewardship:0 "Though I restored admirable order to their chaotic accounts and reorganized stacks of neglected records, every trail led only to settled debts and worthless promises. The power I sought remained beyond my grasp."
+  zz_valyria_magic_dream_magic_prophecy_task.0020.desc.outro:0 "\n\nI leave [employer.GetPrimaryTitle.GetBaseNameNoTier] empty-handed, while the keepers of these records seem relieved that my search has come to nothing."
+  zz_valyria_magic_dream_magic_prophecy_task.0020.a:0 "The currents of power evade me..."
+
+  zz_valyria_magic_dream_magic_071_contract:0 "Prophecy: [drops_of_power|E]"
+  zz_valyria_magic_dream_magic_071_desc:0 "Visions of an intersection of leylines hidden in lost places have come to you, brought about by the use of magic. Search the location for a surge of [drops_of_power|E]."
+  zz_valyria_magic_dream_magic_071_desc_title:0 "$task_contract_prophecy_desc_title$"
+  zz_valyria_magic_dream_magic_071_request:0 "$task_contract_prophecy_desc_request$"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0022.t:0 "A Quest for [drops_of_power|E]"
+  zz_valyria_magic_dream_magic_prophecy_task.0022.desc:0 "In dream I beheld radiant lines of power crossing the earth beneath [employer.GetPrimaryTitle.GetBaseNameNoTier], converging like rivers of light beneath stone and soil. Ancient records kept here may reveal where these hidden leylines may be touched and drawn upon. If I decipher the signs shown to me, I may claim a great infusion of [drops_of_power|E].\n\nOur arrival in [employer.GetPrimaryTitle.GetBaseNameNoTier] is met with little fanfare, and the locals are plainly displeased by our desire to access the records stored in this place. Without swift progress, their patience may soon fail.$zz_valyria_magic_dream_magic_prophecy_task.0022.desc.outro$"
+  zz_valyria_magic_dream_magic_prophecy_task.0022.desc.outro:0 "\n\n[employer.GetTitledFirstName|U] makes clear that their tolerance for our intrusion into these archives has strict limits."
+  zz_valyria_magic_dream_magic_prophecy_task.0022.a:0 "Let us utilise our administrative mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0022.b:0 "Let us utilise our administrative skill"
+  zz_valyria_magic_dream_magic_prophecy_task.0022.c:0 "Let us utilise our learning mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0022.d:0 "Let us utilise our learning skill"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0023.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0022.t$: Success!"
+  zz_valyria_magic_dream_magic_prophecy_task.0023.desc.resolution_type.stewardship:0 "Thankfully, my mastery of administration proves useful even here. By sorting surveys, land grants, and boundary records of House [employer.GetHouse.GetBaseNameNoTooltip], I uncover precise markers long mistaken for mundane notations—signs pointing directly to a nexus of hidden leylines."
+  zz_valyria_magic_dream_magic_prophecy_task.0023.desc.resolution_type.secondary_skill:0 "Thankfully, my scholarly discipline allows me to decipher the records preserved for centuries by House [employer.GetHouse.GetBaseNameNoTooltip]. Among them I uncover forgotten diagrams, celestial calculations, and occult annotations that reveal the meeting place of potent leylines."
+  zz_valyria_magic_dream_magic_prophecy_task.0023.desc.outro:0 "\n\nWith this knowledge secured, I depart before suspicious eyes can hinder me. Soon I shall stand where the currents of magic gather, and draw into myself a mighty bounty of [drops_of_power|E]."
+  zz_valyria_magic_dream_magic_prophecy_task.0023.a:0 "The currents are mine!"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0024.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0022.t$: Failure!"
+  zz_valyria_magic_dream_magic_prophecy_task.0024.desc.resolution_type.stewardship:0 "My talents for governance have availed me little within the records of House [employer.GetHouse.GetBaseNameNoTooltip]. Though I sorted maps, charters, and boundaries with care, no sign of hidden leylines could be found."
+  zz_valyria_magic_dream_magic_prophecy_task.0024.desc.resolution_type.secondary_skill:0 "My vaunted learning has failed me amidst the archives of House [employer.GetHouse.GetBaseNameNoTooltip]. I found fragments, superstition, and contradictory diagrams—but no path to the promised currents of power."
+  zz_valyria_magic_dream_magic_prophecy_task.0024.desc.stewardship:0 "Though I restored admirable order to their chaotic surveys and reorganized stacks of neglected records, every trail ended in mundane boundary disputes and forgotten taxes. The leylines of my dream remain hidden from me."
+  zz_valyria_magic_dream_magic_prophecy_task.0024.desc.outro:0 "\n\nI leave [employer.GetPrimaryTitle.GetBaseNameNoTier] empty-handed, while the keepers of these records seem relieved that my search has come to nothing."
+  zz_valyria_magic_dream_magic_prophecy_task.0024.a:0 "The currents elude me..."
+
+  zz_valyria_magic_dream_magic_072_contract:0 "Prophecy: Provisions"
+  zz_valyria_magic_dream_magic_072_desc:0 "Visions of food and stores hidden in lost places have come to you, brought about by the use of magic. Search the location for a cache of [provisions|E]."
+  zz_valyria_magic_dream_magic_072_desc_title:0 "$task_contract_prophecy_desc_title$"
+  zz_valyria_magic_dream_magic_072_request:0 "$task_contract_prophecy_desc_request$"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0026.t:0 "The storehouses of House [employer.GetHouse.GetBaseNameNoTooltip]"
+  zz_valyria_magic_dream_magic_prophecy_task.0026.desc:0 "In dream I beheld sealed granaries, hidden salt-cellars, and long-forgotten wagons laden with preserved meats and grain, all concealed somewhere within the lands of [employer.GetPrimaryTitle.GetBaseNameNoTier]. The vision has led me here, where records of storehouses, tithes, and wartime caches may yet survive. If I uncover what was shown to me, I may claim a sizeable bounty of [provisions|E].\n\nOur arrival in [employer.GetPrimaryTitle.GetBaseNameNoTier] is met with little fanfare, and the locals are plainly displeased by our desire to access the records stored in this place. Without swift progress, their patience may soon fail.$zz_valyria_magic_dream_magic_prophecy_task.0026.desc.outro$"
+  zz_valyria_magic_dream_magic_prophecy_task.0026.desc.outro:0 "\n\n[employer.GetTitledFirstName|U] makes clear that their tolerance for our intrusion into these archives has strict limits."
+  zz_valyria_magic_dream_magic_prophecy_task.0026.a:0 "Let us utilise our administrative mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0026.b:0 "Let us utilise our administrative skill"
+  zz_valyria_magic_dream_magic_prophecy_task.0026.c:0 "Let us utilise our learning mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0026.d:0 "Let us utilise our learning skill"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0027.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0026.t$: Success!"
+  zz_valyria_magic_dream_magic_prophecy_task.0027.desc.resolution_type.stewardship:0 "Thankfully, my mastery of administration proves ideal for sorting inventories, tax ledgers, and wartime requisitions of House [employer.GetHouse.GetBaseNameNoTooltip]. I swiftly uncover records of a forgotten emergency cache, sealed and untouched for years."
+  zz_valyria_magic_dream_magic_prophecy_task.0027.desc.resolution_type.secondary_skill:0 "Thankfully, my scholarly discipline allows me to decipher the records preserved for centuries by House [employer.GetHouse.GetBaseNameNoTooltip]. Among them I uncover maps, tally marks, and coded references pointing to a hidden reserve of grain, salted meat, and fodder."
+  zz_valyria_magic_dream_magic_prophecy_task.0027.desc.outro:0 "\n\nWith this knowledge secured, I depart before suspicious hands can interfere. Soon enough, wagons heavy with reclaimed stores shall swell my reserves with a great bounty of [provisions|E]."
+  zz_valyria_magic_dream_magic_prophecy_task.0027.a:0 "Our stores overflow!"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0028.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0026.t$: Failure!"
+  zz_valyria_magic_dream_magic_prophecy_task.0028.desc.resolution_type.stewardship:0 "My talents for governance have availed me little within the records of House [employer.GetHouse.GetBaseNameNoTooltip]. Though I sorted inventories and supply accounts with care, no hidden cache or forgotten reserve was found."
+  zz_valyria_magic_dream_magic_prophecy_task.0028.desc.resolution_type.secondary_skill:0 "My vaunted learning has failed me amidst the archives of House [employer.GetHouse.GetBaseNameNoTooltip]. I found spoiled accounts, contradictory maps, and mundane tallies—but no path to the promised bounty."
+  zz_valyria_magic_dream_magic_prophecy_task.0028.desc.stewardship:0 "Though I restored admirable order to their chaotic ledgers and reorganized neglected store records, every trail led only to consumed rations and empty barns. The abundance of my dream remains beyond reach."
+  zz_valyria_magic_dream_magic_prophecy_task.0028.desc.outro:0 "\n\nI leave [employer.GetPrimaryTitle.GetBaseNameNoTier] empty-handed, while the keepers of these records seem relieved that my search has come to nothing."
+  zz_valyria_magic_dream_magic_prophecy_task.0028.a:0 "The larders stay bare..."
+
+  zz_valyria_magic_dream_magic_073_contract:0 "Prophecy: Treasury"
+  zz_valyria_magic_dream_magic_073_desc:0 "Visions of wealth hidden in lost places have come to you, brough about by the use of magic. Search the location for the rewards of gold."
+  zz_valyria_magic_dream_magic_073_desc_title:0 "$task_contract_prophecy_desc_title$"
+  zz_valyria_magic_dream_magic_073_request:0 "$task_contract_prophecy_desc_request$"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0030.t:0 "The Buried Treasury of an Imperial Province"
+  zz_valyria_magic_dream_magic_prophecy_task.0030.desc:0 "A vision has come to me in restless sleep: shattered milestones, forgotten granaries, and beneath them all the sealed vaults of an ancient imperial province. Somewhere within [employer.GetPrimaryTitle.GetBaseNameNoTier], wealth once gathered for emperors still lies untouched.\n\nYet dreams are fickle guides, and unless we swiftly interpret their symbols and follow their hidden path, the trail may be lost.$zz_valyria_magic_dream_magic_prophecy_task.0030.desc.outro$"
+  zz_valyria_magic_dream_magic_prophecy_task.0030.desc.outro:0 "\n\n[employer.GetTitledFirstName|U] watches our efforts closely, making plain that patience for costly excavations and scholarly disruptions is not without limit."
+  zz_valyria_magic_dream_magic_prophecy_task.0030.a:0 "Let us utilise our administrative mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0030.b:0 "Let us utilise our administrative skill"
+  zz_valyria_magic_dream_magic_prophecy_task.0030.c:0 "Let us utilise our learning mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0030.d:0 "Let us utilise our learning skill"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0031.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0030.t$: Success!"
+  zz_valyria_magic_dream_magic_prophecy_task.0031.desc.resolution_type.stewardship:0 "My command of ledgers, storehouses, and provincial accounts proves invaluable. By comparing ruined tax tallies with the signs shown in dream, I identify the hidden reserve chambers of the old province and claim the treasury sealed within."
+  zz_valyria_magic_dream_magic_prophecy_task.0031.desc.resolution_type.secondary_skill:0 "My scholarly arts allow me to decipher the symbols granted in vision and match them to ancient imperial records. Guided by forgotten maps and prophetic insight alike, I uncover the long-lost treasury of the province."
+  zz_valyria_magic_dream_magic_prophecy_task.0031.desc.outro:0 "\n\nCoffers heavy with ancient wealth are borne away before jealous hands can interfere. The dream has spoken true."
+  zz_valyria_magic_dream_magic_prophecy_task.0031.a:0 "The province pays tribute once more!"
+
+  zz_valyria_magic_dream_magic_prophecy_task.0032.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0030.t$: Failure!"
+  zz_valyria_magic_dream_magic_prophecy_task.0032.desc.resolution_type.stewardship:0 "Though I traced accounts, tariffs, and old provincial rolls with care, none led to treasure. The vaults of empire remain hidden, or were emptied long ago."
+  zz_valyria_magic_dream_magic_prophecy_task.0032.desc.resolution_type.secondary_skill:0 "Despite all my learning, the dream's symbols refuse to yield their meaning. Every ruin we search offers only dust, and no treasury answers my efforts."
+  zz_valyria_magic_dream_magic_prophecy_task.0032.desc.stewardship:0 "I reorganized records, surveyed roads, and inspected abandoned depots, yet every clue unraveled into dead ends and collapsed chambers. If wealth once lay here, it is beyond my reach now."
+  zz_valyria_magic_dream_magic_prophecy_task.0032.desc.outro:0 "\n\nI depart [employer.GetPrimaryTitle.GetBaseNameNoTier] empty-handed, while murmurs spread that dreams make poor accountants."
+  zz_valyria_magic_dream_magic_prophecy_task.0032.a:0 "Even visions may lie."
+
+
+  
+  # 0034–0036
+  zz_valyria_magic_dream_magic_prophecy_task.0034.t:0 "The archives of House [employer.GetHouse.GetBaseNameNoTooltip]"
+  zz_valyria_magic_dream_magic_prophecy_task.0034.desc:0 "Our arrival in [employer.GetPrimaryTitle.GetBaseNameNoTier] is met with little fanfare — the locals are in some measure of frustration of our desires to accesss the records stored in this location.\n\nWithout our rapid completion of our examinations the local population may become antagonised by our presence.$zz_valyria_magic_dream_magic_prophecy_task.0034.desc.outro$"
+  zz_valyria_magic_dream_magic_prophecy_task.0034.desc.outro:0 "\n\n[employer.GetTitledFirstName|U] is at pains to let us know that their tolerance of our intrusion into their archives has its limits."
+  zz_valyria_magic_dream_magic_prophecy_task.0034.a:0 "Let us utilise our administrative mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0034.b:0 "Let us utilise our administrative skill"
+  zz_valyria_magic_dream_magic_prophecy_task.0034.c:0 "Let us utilise our learning mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0034.d:0 "Let us utilise our learning skill"
+  
+  zz_valyria_magic_dream_magic_prophecy_task.0035.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0034.t$: Success!"
+  zz_valyria_magic_dream_magic_prophecy_task.0035.desc.resolution_type.stewardship:0 "Thankfully, I possess manifold abilities to manage administrative records, and this skill has proven transferable to navigating the archives of House [employer.GetHouse.GetBaseNameNoTooltip]. Thus I rapidly find a true jewel among these records, a scroll from lost Valyria."
+  zz_valyria_magic_dream_magic_prophecy_task.0035.desc.resolution_type.secondary_skill:0 "Thankfully, my capacities as a scholar allows me to rapidly find my way through the records stored for the centuries by House [employer.GetHouse.GetBaseNameNoTooltip]. Thus I rapidly find a true jewel among these records, a scroll from lost Valyria."
+  zz_valyria_magic_dream_magic_prophecy_task.0035.desc.outro:0 "\n\nWith the scroll in hand, I make my exit before the local authorities can find a reason to 'confiscate' my findings."
+  zz_valyria_magic_dream_magic_prophecy_task.0035.a:0 "Eureka!"
+  
+  zz_valyria_magic_dream_magic_prophecy_task.0036.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0034.t$: Failure!"
+  zz_valyria_magic_dream_magic_prophecy_task.0036.desc.resolution_type.stewardship:0 "My skills navigating the intricacies of governance sadly have not led me to make any sense of the archives of house [employer.GetHouse.GetBaseNameNoTooltip]. Thus, alas, with regrets I have not found what I was looking for."
+  zz_valyria_magic_dream_magic_prophecy_task.0036.desc.resolution_type.secondary_skill:0 "My vaunted scholarly abilities sadly have not led me to make any sense of the archives of house [employer.GetHouse.GetBaseNameNoTooltip]. Thus, alas, with regrets I have not found what I was looking for."
+  zz_valyria_magic_dream_magic_prophecy_task.0036.desc.stewardship:0 "Despite my talent for balancing ledgers and managing estates, these archives are a chaotic mess of decaying parchment and illegible scribbles. I have spent days reorganizing their tax records, yet the magical secrets I seek remain buried under mountains of mundane bureaucracy."
+  zz_valyria_magic_dream_magic_prophecy_task.0036.desc.outro:0 "\n\nI must leave [employer.GetPrimaryTitle.GetBaseNameNoTier] empty-handed, much to the visible relief of the local librarians."
+  zz_valyria_magic_dream_magic_prophecy_task.0036.a:0 "Damnations!"
+  
+  
+  # 0038–0040
+  zz_valyria_magic_dream_magic_prophecy_task.0038.t:0 "The archives of House [employer.GetHouse.GetBaseNameNoTooltip]"
+  zz_valyria_magic_dream_magic_prophecy_task.0038.desc:0 "Our arrival in [employer.GetPrimaryTitle.GetBaseNameNoTier] is met with little fanfare — the locals are in some measure of frustration of our desires to accesss the records stored in this location.\n\nWithout our rapid completion of our examinations the local population may become antagonised by our presence.$zz_valyria_magic_dream_magic_prophecy_task.0038.desc.outro$"
+  zz_valyria_magic_dream_magic_prophecy_task.0038.desc.outro:0 "\n\n[employer.GetTitledFirstName|U] is at pains to let us know that their tolerance of our intrusion into their archives has its limits."
+  zz_valyria_magic_dream_magic_prophecy_task.0038.a:0 "Let us utilise our administrative mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0038.b:0 "Let us utilise our administrative skill"
+  zz_valyria_magic_dream_magic_prophecy_task.0038.c:0 "Let us utilise our learning mastery"
+  zz_valyria_magic_dream_magic_prophecy_task.0038.d:0 "Let us utilise our learning skill"
+  
+  zz_valyria_magic_dream_magic_prophecy_task.0039.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0038.t$: Success!"
+  zz_valyria_magic_dream_magic_prophecy_task.0039.desc.resolution_type.stewardship:0 "Thankfully, I possess manifold abilities to manage administrative records, and this skill has proven transferable to navigating the archives of House [employer.GetHouse.GetBaseNameNoTooltip]. Thus I rapidly find a true jewel among these records, a scroll from lost Valyria."
+  zz_valyria_magic_dream_magic_prophecy_task.0039.desc.resolution_type.secondary_skill:0 "Thankfully, my capacities as a scholar allows me to rapidly find my way through the records stored for the centuries by House [employer.GetHouse.GetBaseNameNoTooltip]. Thus I rapidly find a true jewel among these records, a scroll from lost Valyria."
+  zz_valyria_magic_dream_magic_prophecy_task.0039.desc.outro:0 "\n\nWith the scroll in hand, I make my exit before the local authorities can find a reason to 'confiscate' my findings."
+  zz_valyria_magic_dream_magic_prophecy_task.0039.a:0 "Eureka!"
+  
+  zz_valyria_magic_dream_magic_prophecy_task.0040.t:0 "$zz_valyria_magic_dream_magic_prophecy_task.0038.t$: Failure!"
+  zz_valyria_magic_dream_magic_prophecy_task.0040.desc.resolution_type.stewardship:0 "My skills navigating the intricacies of governance sadly have not led me to make any sense of the archives of house [employer.GetHouse.GetBaseNameNoTooltip]. Thus, alas, with regrets I have not found what I was looking for."
+  zz_valyria_magic_dream_magic_prophecy_task.0040.desc.resolution_type.secondary_skill:0 "My vaunted scholarly abilities sadly have not led me to make any sense of the archives of house [employer.GetHouse.GetBaseNameNoTooltip]. Thus, alas, with regrets I have not found what I was looking for."
+  zz_valyria_magic_dream_magic_prophecy_task.0040.desc.stewardship:0 "Despite my talent for balancing ledgers and managing estates, these archives are a chaotic mess of decaying parchment and illegible scribbles. I have spent days reorganizing their tax records, yet the magical secrets I seek remain buried under mountains of mundane bureaucracy."
+  zz_valyria_magic_dream_magic_prophecy_task.0040.desc.outro:0 "\n\nI must leave [employer.GetPrimaryTitle.GetBaseNameNoTier] empty-handed, much to the visible relief of the local librarians."
+  zz_valyria_magic_dream_magic_prophecy_task.0040.a:0 "Damnations!"

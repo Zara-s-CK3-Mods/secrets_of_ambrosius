@@ -1,4 +1,6 @@
-﻿zz_valyria_mages_fatigue = {
+﻿
+
+zz_valyria_mages_fatigue = {
 	type = character
 
 	text = {

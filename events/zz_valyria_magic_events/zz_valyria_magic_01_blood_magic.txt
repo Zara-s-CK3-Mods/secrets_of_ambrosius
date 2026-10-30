@@ -12,8 +12,8 @@ zz_valyria_magic_blood_magic.00502 = {
 	override_background = {
 		reference = zz_blood_magic
 	}
-	left_portrait = root
-	right_portrait = {
+	lower_left_portrait = root
+	lower_center_portrait = {
 		character = scope:character_clone
 	}
 
@@ -55,7 +55,7 @@ zz_valyria_magic_blood_magic.001 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_01
+				SPELL = 001
 			}
 		}
 		
@@ -79,265 +79,9 @@ zz_valyria_magic_blood_magic.002 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
-	immediate = {
-		clear_variable_list = possible_traits
-		remove_variable = selected_trait
-		trait:intellect_good_3 = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = selected_trait }
-					}
-					set_variable = { name = selected_trait value = prev }
-				}
-			}
-		}
-		trait:physique_good_3 = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:beauty_good_3 = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:magic_blood_good_3 = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:lifespan_good_3 = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
 
-		trait:pure_blooded = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:fecund = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:strong = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:shrewd = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:disease_resistance_alchemical = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:dull = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:intellect_bad_3 = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:physique_bad_3 = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:beauty_bad_3 = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:magic_blood_bad_3 = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:lifespan_bad_3 = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:infertile = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:weak = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:dwarf = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:giant = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:inbred = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:impotent = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:spindly = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:scaly = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:albino = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:wheezing = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:bleeder = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:hunchbacked = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:clubfooted = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:lisping = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		trait:stuttering = {
-			root = {
-				add_to_variable_list = {
-					name = possible_traits
-					target = prev
-				}
-			}
-		}
-		
+	immediate = {
+		zz_valyria_genetic_trait_list = yes
 	}
 
 	widget = {
@@ -357,7 +101,7 @@ zz_valyria_magic_blood_magic.002 = {
 	
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_02
+				SPELL = 002
 			}
 		}
 	}
@@ -433,7 +177,7 @@ zz_valyria_magic_blood_magic.003 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_03
+				SPELL = 003
 			}
 		}
 
@@ -451,17 +195,31 @@ zz_valyria_magic_blood_magic.004 = {
 	override_background = {
 		reference = zz_blood_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = {
-		character = scope:recipient
-	}
+	lower_center_portrait = scope:recipient
 
 	immediate = {
-		zz_valyria_dead_dragon_egg_list = yes
-
+		clear_variable_list = possible_armies
+		remove_variable = selected_army
+		scope:recipient = {
+			every_army = {
+				root = {
+					add_to_variable_list = {
+						name = possible_armies
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_army }
+						}
+						set_variable = { name = selected_army value = prev }
+					}
+				}
+			}
+		}
 	}
 	widget = {
 		is_shown = {
@@ -485,7 +243,7 @@ zz_valyria_magic_blood_magic.004 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_04
+				SPELL = 004
 			}
 		}
 		
@@ -511,160 +269,71 @@ zz_valyria_magic_blood_magic.005 = {
 	lower_center_portrait = scope:recipient
 
 	immediate = {
-		clear_variable_list = zz_valyria_possible_artifacts
-		remove_variable = zz_valyria_selected_artifact
-		every_character_artifact = {
-			limit = {
-				has_variable = dragon_egg
-				has_variable = dud_egg
-				NOT = { has_variable = cradled_egg }
-				#NOT = { has_variable = dud_egg }
-				NOT = { has_variable = pitted_egg }
-			}
-			root = {
-				add_to_variable_list = {
-					name = zz_valyria_possible_artifacts
-					target = prev
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = zz_valyria_selected_artifact}
+		set_variable = {
+			name = zz_valyria_spell_counter_selection 
+			value = flag:zz_valyria_magic_blood_magic_005
+		}
+		zz_valyria_family_member_even_if_dead_list = yes
+		zz_valyria_blood_magic_age_list_magic_list = yes
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+				root = {
+					any_in_list = {
+						variable = zz_valyria_possible_characters
+						count > 0
 					}
-					set_variable = { name = zz_valyria_selected_artifact value = prev }
 				}
 			}
+			gui = "event_window_character_selection"
+			container = "custom_widgets_container"
 		}
-	}
 
-	widget = {
-		is_shown = {
-			is_ai = no
-		}
-		gui = "event_window_artifact_selection_tall"
-		container = "custom_widgets_container"
-	}
-
-	option = {
-		name = zz_valyria_magic_blood_magic.005.opt.a
-		hidden_effect = {
-			var:zz_valyria_selected_artifact?= { 
-				save_scope_as = target
+		
+		widget = {
+			is_shown = {
 			}
-			trigger_event = zz_valyria_magic_blood_magic.00501
+			gui = "event_window_flag_selection"
+			container = "custom_widgets_container"
 		}
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+
 		
 	}
-	option = {
-		name = zz_valyria_magic_blood_magic.005.opt.z
-	}
-}
-
-zz_valyria_magic_blood_magic.00501 = {
-	type = character_event
-	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic.005.t
-	desc = zz_valyria_magic_blood_magic.005.desc
-	theme = university 
-	override_background = {
-		reference = zz_blood_magic
-	}
-	lower_left_portrait = root
-	lower_right_portrait = {
-		character = scope:secondary_recipient
-	}
-	lower_center_portrait = scope:recipient
-	immediate = {
-		zz_valyria_family_member_even_if_dead_list = yes
-	}
-	widget = {
-		is_shown = {
-			root = {
-				any_in_list = {
-					variable = zz_valyria_possible_characters
-					count > 0
-				}
-			}
-		}
-		gui = "event_window_character_selection_five_options"
-		container = "custom_widgets_container"
-	}
+	
 	
 
 	option = {
 		name = zz_valyria_magic_blood_magic.005.opt.a
 		trigger = {
-			scope:recipient = {
-				NOT = {
-					has_trait = dragon
-				}
-			}
 		}
 		hidden_effect = {
 			var:zz_valyria_selected_character ?= { 
 				save_scope_as = target_char
 			}
-			save_scope_value_as = {
-				name = option_01
-				value = yes 
-			} 
+			var:selected_flag ?= { 
+				save_scope_as = option
+			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_05
+				SPELL = 005
 			}
 		}
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.005.opt.b
-		trigger = {
-			scope:recipient = {
-				NOT = {
-					has_trait = dragon
-				}
-			}
-		}
-		hidden_effect = {
-			var:zz_valyria_selected_character ?= { 
-				save_scope_as = target_char
-			}
-			
-			save_scope_value_as = {
-				name = option_02
-				value = yes 
-			} 
-			zz_valyria_magic_cast_effect = { 
-				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_05
-			}
-		}
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.005.opt.c
-		trigger = {
-			scope:recipient = {
-				NOT = {
-					has_trait = dragon
-				}
-			}
-		}
-		hidden_effect = {
-			var:zz_valyria_selected_character ?= { 
-				save_scope_as = target_char
-			}
-			save_scope_value_as = {
-				name = option_03
-				value = yes 
-			} 
-			zz_valyria_magic_cast_effect = { 
-				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_05
-			}
-		}
-		
 	}
 	option = {
 		name = zz_valyria_magic_blood_magic.005.opt.z
 	}
+	after = {
+		remove_variable = zz_valyria_spell_counter_selection
+	}
 }
+
 zz_valyria_magic_blood_magic.006 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -693,7 +362,7 @@ zz_valyria_magic_blood_magic.006 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_06
+				SPELL = 006
 			}
 		}
 	}
@@ -718,17 +387,10 @@ zz_valyria_magic_blood_magic.007 = {
 
 	option = {
 		name = zz_valyria_magic_blood_magic.007.opt.a
-		trigger = {
-			scope:recipient = {
-				NOT = {
-					has_trait = dragon
-				}
-			}
-		}
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_07
+				SPELL = 007
 			}
 		}
 	}
@@ -761,7 +423,7 @@ zz_valyria_magic_blood_magic.008 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_08
+				SPELL = 008
 			}
 		}
 	}
@@ -793,7 +455,7 @@ zz_valyria_magic_blood_magic.009 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_09
+				SPELL = 009
 			}
 		}
 	}
@@ -825,7 +487,7 @@ zz_valyria_magic_blood_magic.010 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_10
+				SPELL = 010
 			}
 		}
 	}
@@ -854,7 +516,7 @@ zz_valyria_magic_blood_magic.011 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_11
+				SPELL = 011
 			}
 		}
 	}
@@ -882,7 +544,7 @@ zz_valyria_magic_blood_magic.012 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_12
+				SPELL = 012
 			}
 		}
 	}
@@ -910,7 +572,7 @@ zz_valyria_magic_blood_magic.013 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_13
+				SPELL = 013
 			}
 		}
 		
@@ -939,7 +601,7 @@ zz_valyria_magic_blood_magic.014 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_14
+				SPELL = 014
 			}
 		}
 	}
@@ -967,7 +629,7 @@ zz_valyria_magic_blood_magic.015 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_15
+				SPELL = 015
 			}
 		}
 		
@@ -1028,7 +690,7 @@ zz_valyria_magic_blood_magic.016 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_16
+				SPELL = 016
 			}
 		}
 	}
@@ -1060,7 +722,7 @@ zz_valyria_magic_blood_magic.017 = {
 			} 
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_17
+				SPELL = 017
 			}
 		}
 	}
@@ -1073,7 +735,7 @@ zz_valyria_magic_blood_magic.017 = {
 			} 
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_17
+				SPELL = 017
 			}
 		}
 		
@@ -1109,7 +771,7 @@ zz_valyria_magic_blood_magic.018 = {
 	
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_18
+				SPELL = 018
 			}
 		}
 	}
@@ -1141,7 +803,7 @@ zz_valyria_magic_blood_magic.019 = {
 			} 
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_19
+				SPELL = 019
 			}
 		}		
 	}
@@ -1154,7 +816,7 @@ zz_valyria_magic_blood_magic.019 = {
 			} 
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_19
+				SPELL = 019
 			}
 		}
 		
@@ -1185,7 +847,7 @@ zz_valyria_magic_blood_magic.020 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_20
+				SPELL = 020
 			}
 		}
 	}
@@ -1214,7 +876,7 @@ zz_valyria_magic_blood_magic.021 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_21
+				SPELL = 021
 			}
 		}
 		
@@ -1240,287 +902,138 @@ zz_valyria_magic_blood_magic.022 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_immortality_ritual_list = yes
+		zz_valyria_immortality_ritual_list_count = yes
 	}
-	widget = {
-		is_shown = {
-			root = {
-				any_in_list = {
-					variable = zz_valyria_possible_characters
-					count > 0
+	widgets = {
+		widget = {
+			is_shown = {
+				root = {
+					any_in_list = {
+						variable = zz_valyria_possible_characters_count
+						count > 0
+					}
 				}
 			}
+			gui = "event_window_character_selection_popup_01"
+			container = "custom_widgets_container"
 		}
-		gui = "event_window_character_selection_five_options"
-		container = "custom_widgets_container"
+		widget = {
+			is_shown = {
+				root = {
+					any_in_list = {
+						variable = zz_valyria_possible_characters_count
+						count > 0
+					}
+				}
+			}
+			gui = "event_window_character_selection_popup_02"
+			container = "custom_widgets_container"
+		}
+		widget = {
+			is_shown = {
+				root = {
+					any_in_list = {
+						variable = zz_valyria_possible_characters_count
+						count > 0
+					}
+				}
+			}
+			gui = "event_window_character_selection_popup_03"
+			container = "custom_widgets_container"
+		}
+		widget = {
+			is_shown = {
+				root = {
+					any_in_list = {
+						variable = zz_valyria_possible_characters_count
+						count > 0
+					}
+				}
+			}
+			gui = "event_window_character_selection_popup_04"
+			container = "custom_widgets_container"
+		}
+		widget = {
+			is_shown = {
+				root = {
+					any_in_list = {
+						variable = zz_valyria_possible_characters_count
+						count > 0
+					}
+				}
+			}
+			gui = "event_window_character_selection_popup_05"
+			container = "custom_widgets_container_01"
+		}
+		widget = {
+			is_shown = {
+				root = {
+					any_in_list = {
+						variable = zz_valyria_possible_characters_count
+						count > 0
+					}
+				}
+			}
+			gui = "event_window_character_selection_popup_06"
+			container = "custom_widgets_container_01"
+		}
+		widget = {
+			is_shown = {
+				root = {
+					any_in_list = {
+						variable = zz_valyria_possible_characters_count
+						count > 0
+					}
+				}
+			}
+			gui = "event_window_character_selection_popup_07"
+			container = "custom_widgets_container_01"
+		}
+
 	}
 	option = {
 		name = zz_valyria_magic_blood_magic.022.opt.a
+		trigger = {
+			exists = var:zz_valyria_selected_character_01
+			exists = var:zz_valyria_selected_character_02
+			exists = var:zz_valyria_selected_character_03
+			exists = var:zz_valyria_selected_character_04
+			exists = var:zz_valyria_selected_character_05
+			exists = var:zz_valyria_selected_character_06
+			exists = var:zz_valyria_selected_character_07
+		}
 		hidden_effect = {
-			var:zz_valyria_selected_character = {
+			var:zz_valyria_selected_character_01 = {
 				save_scope_as = target_char_01
+				add_to_temporary_list = immorality_ritual_victim_list
 			}
-			trigger_event = zz_valyria_magic_blood_magic.02201
-		}
-		
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.022.opt.z
-	}
-}
-zz_valyria_magic_blood_magic.02201 = {
-	type = character_event
-	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic.022.t
-	desc = zz_valyria_magic_blood_magic.022.desc
-	theme = university 
-	override_background = {
-		reference = zz_blood_magic
-	}
-	lower_left_portrait = root
-	lower_right_portrait = {
-		character = scope:secondary_recipient
-	}
-	lower_center_portrait = scope:recipient
-	immediate = {
-		zz_valyria_immortality_ritual_list = yes
-	}
-	widget = {
-		is_shown = {
-			root = {
-				any_in_list = {
-					variable = zz_valyria_possible_characters
-					count > 0
-				}
-			}
-		}
-		gui = "event_window_character_selection_five_options"
-		container = "custom_widgets_container"
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.022.opt.a
-		hidden_effect = {
-			var:zz_valyria_selected_character = {
+			var:zz_valyria_selected_character_02 = {
 				save_scope_as = target_char_02
+				add_to_temporary_list = immorality_ritual_victim_list
 			}
-			trigger_event = zz_valyria_magic_blood_magic.02202
-		}
-		
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.022.opt.z
-	}
-}
-zz_valyria_magic_blood_magic.02202 = {
-	type = character_event
-	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic.022.t
-	desc = zz_valyria_magic_blood_magic.022.desc
-	theme = university 
-	override_background = {
-		reference = zz_blood_magic
-	}
-	lower_left_portrait = root
-	lower_right_portrait = {
-		character = scope:secondary_recipient
-	}
-	lower_center_portrait = scope:recipient
-	immediate = {
-		zz_valyria_immortality_ritual_list = yes
-	}
-	widget = {
-		is_shown = {
-			root = {
-				any_in_list = {
-					variable = zz_valyria_possible_characters
-					count > 0
-				}
-			}
-		}
-		gui = "event_window_character_selection_five_options"
-		container = "custom_widgets_container"
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.022.opt.a
-		hidden_effect = {
-			var:zz_valyria_selected_character = {
+			var:zz_valyria_selected_character_03 = {
 				save_scope_as = target_char_03
+				add_to_temporary_list = immorality_ritual_victim_list
 			}
-			trigger_event = zz_valyria_magic_blood_magic.02203
-		}
-		
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.022.opt.z
-	}
-}
-zz_valyria_magic_blood_magic.02203 = {
-	type = character_event
-	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic.022.t
-	desc = zz_valyria_magic_blood_magic.022.desc
-	theme = university 
-	override_background = {
-		reference = zz_blood_magic
-	}
-	lower_left_portrait = root
-	lower_right_portrait = {
-		character = scope:secondary_recipient
-	}
-	lower_center_portrait = scope:recipient
-	immediate = {
-		zz_valyria_immortality_ritual_list = yes
-	}
-	widget = {
-		is_shown = {
-			root = {
-				any_in_list = {
-					variable = zz_valyria_possible_characters
-					count > 0
-				}
-			}
-		}
-		gui = "event_window_character_selection_five_options"
-		container = "custom_widgets_container"
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.022.opt.a
-		hidden_effect = {
-			var:zz_valyria_selected_character = {
+			var:zz_valyria_selected_character_04 = {
 				save_scope_as = target_char_04
+				add_to_temporary_list = immorality_ritual_victim_list
 			}
-			trigger_event = zz_valyria_magic_blood_magic.02204
-		}
-		
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.022.opt.z
-	}
-}
-zz_valyria_magic_blood_magic.02204 = {
-	type = character_event
-	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic.022.t
-	desc = zz_valyria_magic_blood_magic.022.desc
-	theme = university 
-	override_background = {
-		reference = zz_blood_magic
-	}
-	lower_left_portrait = root
-	lower_right_portrait = {
-		character = scope:secondary_recipient
-	}
-	lower_center_portrait = scope:recipient
-	immediate = {
-		zz_valyria_immortality_ritual_list = yes
-	}
-	widget = {
-		is_shown = {
-			root = {
-				any_in_list = {
-					variable = zz_valyria_possible_characters
-					count > 0
-				}
-			}
-		}
-		gui = "event_window_character_selection_five_options"
-		container = "custom_widgets_container"
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.022.opt.a
-		hidden_effect = {
-			var:zz_valyria_selected_character = {
+			var:zz_valyria_selected_character_05 = {
 				save_scope_as = target_char_05
+				add_to_temporary_list = immorality_ritual_victim_list
 			}
-			trigger_event = zz_valyria_magic_blood_magic.02205
-		}
-		
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.022.opt.z
-	}
-}
-zz_valyria_magic_blood_magic.02205 = {
-	type = character_event
-	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic.022.t
-	desc = zz_valyria_magic_blood_magic.022.desc
-	theme = university 
-	override_background = {
-		reference = zz_blood_magic
-	}
-	lower_left_portrait = root
-	lower_right_portrait = {
-		character = scope:secondary_recipient
-	}
-	lower_center_portrait = scope:recipient
-	immediate = {
-		zz_valyria_immortality_ritual_list = yes
-	}
-	widget = {
-		is_shown = {
-			root = {
-				any_in_list = {
-					variable = zz_valyria_possible_characters
-					count > 0
-				}
-			}
-		}
-		gui = "event_window_character_selection_five_options"
-		container = "custom_widgets_container"
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.022.opt.a
-		hidden_effect = {
-			var:zz_valyria_selected_character = {
+			var:zz_valyria_selected_character_06 = {
 				save_scope_as = target_char_06
+				add_to_temporary_list = immorality_ritual_victim_list
 			}
-			trigger_event = zz_valyria_magic_blood_magic.02206
-		}
-		
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.022.opt.z
-	}
-}
-zz_valyria_magic_blood_magic.02206 = {
-	type = character_event
-	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_blood_magic.022.t
-	desc = zz_valyria_magic_blood_magic.022.desc
-	theme = university 
-	override_background = {
-		reference = zz_blood_magic
-	}
-	lower_left_portrait = root
-	lower_right_portrait = {
-		character = scope:secondary_recipient
-	}
-	lower_center_portrait = scope:recipient
-	immediate = {
-		zz_valyria_immortality_ritual_list = yes
-	}
-	widget = {
-		is_shown = {
-			root = {
-				any_in_list = {
-					variable = zz_valyria_possible_characters
-					count > 0
-				}
-			}
-		}
-		gui = "event_window_character_selection_five_options"
-		container = "custom_widgets_container"
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.022.opt.a
-		hidden_effect = {
-			var:zz_valyria_selected_character = {
+			var:zz_valyria_selected_character_07 = {
 				save_scope_as = target_char_07
+				add_to_temporary_list = immorality_ritual_victim_list
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_22
+				SPELL = 022
 			}
 		}
 		
@@ -1550,7 +1063,7 @@ zz_valyria_magic_blood_magic.023 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_23
+				SPELL = 023
 			}
 		}
 		
@@ -1559,7 +1072,6 @@ zz_valyria_magic_blood_magic.023 = {
 		name = zz_valyria_magic_blood_magic.023.opt.z
 	}
 }
-
 
 zz_valyria_magic_blood_magic.024 = {
 	type = character_event
@@ -1578,17 +1090,10 @@ zz_valyria_magic_blood_magic.024 = {
 
 	option = {
 		name = zz_valyria_magic_blood_magic.024.opt.a
-		trigger = {
-			scope:recipient = {
-				NOT = {
-					has_trait = dragon
-				}
-			}
-		}
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_24
+				SPELL = 024
 			}
 		}
 	}
@@ -1614,17 +1119,10 @@ zz_valyria_magic_blood_magic.025 = {
 
 	option = {
 		name = zz_valyria_magic_blood_magic.025.opt.a
-		trigger = {
-			scope:recipient = {
-				NOT = {
-					has_trait = dragon
-				}
-			}
-		}
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_25
+				SPELL = 025
 			}
 		}
 	}
@@ -1650,17 +1148,10 @@ zz_valyria_magic_blood_magic.026 = {
 
 	option = {
 		name = zz_valyria_magic_blood_magic.026.opt.a
-		trigger = {
-			scope:recipient = {
-				NOT = {
-					has_trait = dragon
-				}
-			}
-		}
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_26
+				SPELL = 026
 			}
 		}
 	}
@@ -1686,17 +1177,10 @@ zz_valyria_magic_blood_magic.027 = {
 
 	option = {
 		name = zz_valyria_magic_blood_magic.027.opt.a
-		trigger = {
-			scope:recipient = {
-				NOT = {
-					has_trait = dragon
-				}
-			}
-		}
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_27
+				SPELL = 027
 			}
 		}
 	}
@@ -1722,17 +1206,10 @@ zz_valyria_magic_blood_magic.028 = {
 
 	option = {
 		name = zz_valyria_magic_blood_magic.028.opt.a
-		trigger = {
-			scope:recipient = {
-				NOT = {
-					has_trait = dragon
-				}
-			}
-		}
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_28
+				SPELL = 028
 			}
 		}
 	}
@@ -1758,17 +1235,85 @@ zz_valyria_magic_blood_magic.029 = {
 
 	option = {
 		name = zz_valyria_magic_blood_magic.029.opt.a
-		trigger = {
-			scope:recipient = {
-				NOT = {
-					has_trait = dragon
-				}
-			}
-		}
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = blood_magic
-				SPELL = zz_valyria_magic_blood_magic_29
+				SPELL = 029
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_blood_magic.001.opt.z
+	}
+}
+
+zz_valyria_magic_blood_magic.030 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_blood_magic.030.t
+	desc = zz_valyria_magic_blood_magic.030.desc
+	theme = university 
+	override_background = {
+		reference = zz_blood_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_blood_magic.030.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_effect = { 
+				SKILL = blood_magic
+				SPELL = 030
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_blood_magic.001.opt.z
+	}
+}
+
+zz_valyria_magic_blood_magic.031 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_blood_magic.031.t
+	desc = zz_valyria_magic_blood_magic.031.desc
+	theme = university 
+	override_background = {
+		reference = zz_blood_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_valyria_stored_dna_list = yes 
+	}
+	widget = {
+		is_shown = {
+			root = {
+				any_in_list = {
+					variable = zz_valyria_possible_characters
+					count > 0
+				}
+			}
+		}
+		gui = "event_window_character_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_blood_magic.031.opt.a
+		hidden_effect = {
+			var:zz_valyria_selected_character ?= { 
+				save_scope_as = target_char
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = blood_magic
+				SPELL = 031
 			}
 		}
 	}

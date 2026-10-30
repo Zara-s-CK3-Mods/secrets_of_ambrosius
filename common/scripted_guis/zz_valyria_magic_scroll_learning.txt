@@ -341,9 +341,6 @@ zz_valyria_magic_learning_type_apprentice_master = {
 			NOT = {
 				any_relation = { type = zz_magic_master this = scope:zz_magic_master }
 			}
-			NOT = { 
-				any_relation = { type = zz_magic_apprentice this = scope:zz_magic_master }
-			}
 		}
 	}
 	is_shown = {
@@ -366,8 +363,8 @@ zz_valyria_magic_learning_type_apprentice_learner = {
 	is_valid = {
 
 		scope:zz_valyria_magic_learner ?= {
-			NOT = { 
-				any_relation = { type = zz_magic_master this = scope:zz_valyria_magic_learner }
+			NOT = {
+				any_relation = { type = zz_magic_master this = scope:zz_magic_master }
 			}
 		}
 	}
@@ -388,13 +385,23 @@ zz_valyria_magic_learning_type_apprentice_learn = {
 	is_valid = {
 		var:zz_magic_master = {
 			has_trait = zz_magister
-			NOT = { 
-				any_relation = { type = zz_magic_apprentice  }
+			has_trait_xp = {
+				trait = zz_magister
+				track = secrets_of_the_higher_mysteries
+				value >= 100
 			}
+			num_of_relation_zz_magic_apprentice < zz_mages_apprentices_limit_value
 		}
 		var:zz_valyria_magic_learner = { 
-			NOT = {
-				has_trait = zz_magister
+			OR = {
+				has_trait_xp = {
+					trait = zz_magister
+					track = secrets_of_the_higher_mysteries
+					value < 50
+				}
+				NOT = {
+					has_trait = zz_magister
+				}
 			}
 		}
 		NOT = {
@@ -415,23 +422,35 @@ zz_valyria_magic_learning_type_apprentice_learn = {
 			save_scope_as = zz_valyria_magic_learner
 			save_scope_as = recipient
 		}
-		scope:zz_valyria_magic_learner = {
-			zz_random_gain_magic_spell = yes
-		}
-
-		scope:zz_valyria_magic_learner = {
-			every_relation = {
-				type = zz_magic_master
-				remove_relation_zz_magic_apprentice = scope:zz_valyria_magic_learner
-			}
-		}
 		var:zz_magic_master = {
 			set_relation_zz_magic_apprentice  = scope:zz_valyria_magic_learner
 		}
-		trigger_event = {
-			years = 3
-			id = zz_valyria_magic.2
+		scope:zz_magic_master ?= {
+			random_memory = {
+				limit = {
+					has_variable = spell_name
+					save_temporary_scope_as = current_spell
+					NOT = {
+						scope:zz_valyria_magic_learner = {
+							any_memory = {
+								var:spell_name ?= scope:current_spell.var:spell_name
+							}
+						}
+					}
+				}
+				scope:zz_valyria_magic_learner = {
+					PREV.var:spell_name = {
+						save_scope_as = random_spell
+					}
+					save_scope_value_as = {
+						name = spell 
+						value = yes
+					}
+					zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
+				}
+			}
 		}
+		
 
 		zz_valyria_make_magic_master_list = {MAGIC_USER = zz_magic_user}
 		zz_valyria_make_magic_learner_list = {MAGIC_USER = zz_magic_user}
@@ -490,17 +509,19 @@ zz_valyria_magic_learning_type_mystery_mystery = {
 		var:zz_valyria_teach_mystery ?= scope:zz_valyria_teach_mystery
 	}
 	is_valid = {
-		zz_magic_list_trigger_check_trigger = {
-			TRIGGER_TO_CHECK = zz_valyria_learn_spell_gui_trigger
+		exists = var:zz_valyria_mystery_magic_learner
+		var:zz_valyria_mystery_magic_learner = { 
+			NOT = {
+				any_memory = {
+					var:spell_name ?= scope:zz_valyria_teach_mystery.var:spell_name
+				}	
+			}
 		}
 	}
 	effect = {
 		set_variable = {
 			name = zz_valyria_teach_mystery
 			value = scope:zz_valyria_teach_mystery
-		}
-		zz_magic_list_effect = { 
-			MAGIC_EFFECT = zz_valyria_magic_learning_gui_tooltip_effect
 		}
 	}
 }
@@ -524,8 +545,13 @@ zz_valyria_magic_learning_type_mystery_teach = {
 	scope = character
 	is_valid = {
 		gold >= 1000
-		zz_magic_list_trigger_check_trigger = {
-			TRIGGER_TO_CHECK = zz_valyria_learn_spell_click_block_trigger
+		exists = var:zz_valyria_mystery_magic_learner
+		var:zz_valyria_mystery_magic_learner ?= {
+			NOT = {
+				any_memory = {
+					var:spell_name ?= scope:zz_valyria_teach_mystery.var:spell_name
+				}
+			}
 		}
 	}
 	effect = {
@@ -544,9 +570,23 @@ zz_valyria_magic_learning_type_mystery_teach = {
 			save_scope_as = zz_valyria_mystery_magic_learner
 		}
 		add_piety = massive_piety_loss 
-		zz_magic_list_effect = { 
-			MAGIC_EFFECT = zz_valyria_magic_learning_gui_effect
+		custom_tooltip = {
+			text = learn_spell 
+			scope:zz_valyria_mystery_magic_learner = {
+				scope:zz_magic_learner = {
+					scope:zz_valyria_teach_mystery.var:spell_name = {
+						save_scope_as = random_spell
+					}
+					save_scope_value_as = {
+						name = spell 
+						value = yes
+					}
+					zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
+				}
+				
+			}
 		}
+		
 		
 
 		var:zz_magic_mystery_master = {
@@ -654,20 +694,22 @@ zz_valyria_magic_scroll_learning_seroll = {
 		var:zz_valyria_scroll ?= scope:zz_valyria_scroll
 	}
 	is_valid = {
-		zz_magic_list_trigger_check_trigger = {
-			TRIGGER_TO_CHECK = zz_valyria_scroll_learn_trigger
+		exists = var:zz_valyria_scroll_learner
+		var:zz_valyria_scroll_learner ?= {
+			NOT = {
+				any_memory = {
+					var:spell_name ?= scope:zz_valyria_scroll.var:spell_name
+				}
+			}
 		}
-		
 
+		#zz_valyria_scroll_learn_trigger
 	}
 		
 	effect = {
 		set_variable = {
 			name = zz_valyria_scroll
 			value = scope:zz_valyria_scroll
-		}
-		zz_magic_list_effect = { 
-			MAGIC_EFFECT = zz_valyria_magic_casting_scroll_gui_tooltip_effect
 		}
 	}
 }
@@ -709,8 +751,21 @@ zz_valyria_magic_scroll_learn = {
 		var:zz_valyria_scroll ?= {
 			save_scope_as = zz_valyria_scroll
 		}
-		zz_magic_list_effect = { 
-			MAGIC_EFFECT = zz_valyria_magic_learning_scroll_gui_effect
+		custom_tooltip = {
+			text = zz_valyria_scroll_learn_spell 
+			scope:zz_valyria_scroll_learner = {
+				scope:zz_valyria_scroll.var:spell_name = {
+					save_scope_as = random_spell
+				}
+				save_scope_value_as = {
+					name = spell 
+					value = yes
+				}
+				zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
+			}
+		}
+		scope:zz_valyria_scroll ?= {
+			destroy_artifact = this
 		}
 		if = { 
 			limit = {
@@ -941,32 +996,6 @@ zz_valyria_magic_school_selection_water_magic = {
 	}
 }
 
-zz_valyria_magic_school_selection_dragon_magic = {
-	scope = character
-	saved_scopes = {
-	}
-	is_valid = {
-		not = {
-			var:zz_magic_caster.var:current_school_of_magic ?= flag:dragon_magic
-		}
-	}
-	is_shown = {
-		var:zz_magic_caster.var:current_school_of_magic ?= flag:dragon_magic
-	}
-	effect = {
-		save_scope_as = zz_magic_user 
-		var:zz_magic_caster = {
-			set_variable = {
-				name = current_school_of_magic 
-				value = flag:dragon_magic
-			}
-			random_scheme = {
-				type = further_magical_education_scheme
-				end_scheme = yes
-			}
-		}
-	}
-}
 
 zz_valyria_magic_school_study_magic = {
 	scope = character
@@ -1168,8 +1197,12 @@ zz_valyria_scroll_make = {
 				multiply = 0.5
 			}
 		}
-		zz_magic_list_effect = { 
-			MAGIC_EFFECT = zz_valyria_scroll_making_gui_effect
+		scope:zz_valyria_mystery.var:spell_name = {
+			save_scope_as = random_spell
+		}
+		custom_tooltip = {
+			text = make_scroll 
+			zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
 		}
 	}
 }

@@ -1,0 +1,34 @@
+widget = {
+	allow_outside = yes
+	name = "event_window_maa_selection_02"
+	size = { 350 250 } # Size of the insert inside the event window; needs to fit under the text box since a margin will only push the content and not the widget
+	
+	vbox = {
+		#text_single = {block "header" { text = "This is a Header" } }
+		container = {
+			allow_outside = yes
+			layoutpolicy_horizontal = expanding
+			layoutpolicy_vertical = expanding
+			datacontext = "[GetPlayer.MakeScope]"
+			scrollbox = {
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				minimumsize = { 350 250 }
+				blockoverride "scrollbox_content" {
+					zz_maa_box = {
+						blockoverride "datamodel" {
+							datamodel = "[GetPlayer.MakeScope.GetList('zz_valyria_regiment_selecting_02')]"
+						}
+						item = {
+							zz_maa_box_item = {
+								blockoverride "datacontext" {
+									datacontext = "[GetScriptedGui('zz_valyria_regiment_selecting_02')]"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

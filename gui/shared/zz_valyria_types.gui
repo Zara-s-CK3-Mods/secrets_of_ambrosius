@@ -1,0 +1,609 @@
+types CharacterWindow
+{
+	type zz_secondary_spouse_bar = window {
+		name = "zz_secondary_spouse_bar"
+		visible = "[GetVariableSystem.Exists( 'zz_secondary_spouse_bar' )]"
+		size = { 0 0 }
+		movable = no
+
+		state = {
+			name = _show
+			# should be width of window_character - 10
+			position = { 640 5 }
+			using = Animation_FadeIn_Quick
+		}
+		state = {
+			name = _hide
+			position = { 540 5 }
+			using = Animation_FadeOut_Quick
+		}
+		using = Window_Background_Subwindow
+
+		using = Animation_Character_Window_Refresh_Short
+		vbox = {
+			set_parent_size_to_minimum = yes
+			margin = { 0 5 }
+			vbox = {
+				zz_special_window_portrait = {
+					visible = "[CharacterWindow.GetCharacter.GetPrimarySpouseOrBetrothed.IsValid]"
+					datacontext = "[CharacterWindow.GetCharacter.GetPrimarySpouseOrBetrothed]"
+					blockoverride "social_relation_label" {
+						text = "[spouse|E]"
+					}
+				}
+				vbox = {
+					visible = "[Or( And( CharacterWindow.GetCharacter.GetPrimarySpouse.IsValid, CharacterWindow.GetCharacter.IsPlayerInteractionShown( 'marry_off_interaction' ) ), GreaterThanOrEqualTo_int32( GetDataModelSize( CharacterWindow.GetSecondarySpouses ), '(int32)1' ) )]"
+					margin_bottom = 5
+
+					container = {
+						visible = "[CharacterWindow.GetCharacter.IsPlayerInteractionShown( 'marry_off_interaction' )]"
+						
+						portrait_head = {
+							visible = "[And( Not( ObjectsEqual( CharacterWindow.GetCharacter, GetPlayer ) ), Not( Character.IsConcubine ) )]"
+							datacontext = "[GetNullCharacter]"
+							blockoverride "onclick" {
+								onclick = "[CharacterWindow.GetCharacter.OpenPlayerInteraction( 'marry_off_interaction' )]"
+
+								button_icon_highlight = {
+									parentanchor = center
+									position = { -5 10 }
+									size = { 50 50 }
+									texture = "gfx/interface/icons/faith_doctrine_groups/doctrine_marriage_type.dds"
+									alpha = 0.5
+								}
+							}
+							widget = {
+								size = { 100% 100% }
+								datacontext = "[CharacterWindow.GetCharacter]"
+								tooltip = "CHARACTER_WINDOW_FIND_SPOUSE"
+							}
+						}
+
+						portrait_head = {
+							visible = "[ObjectsEqual( CharacterWindow.GetCharacter, GetPlayer )]"
+							datacontext = "[GetNullCharacter]"
+							blockoverride "onclick" {
+								onclick = "[CharacterWindow.GetCharacter.OpenPlayerInteraction( 'marry_off_interaction' )]"
+
+								button_icon_highlight = {
+									parentanchor = center
+									position = { -5 10 }
+									size = { 50 50 }
+									texture = "gfx/interface/icons/faith_doctrine_groups/doctrine_marriage_type.dds"
+									alpha = 0.5
+								}
+							}
+							tooltip = "CHARACTER_WINDOW_FIND_SPOUSE_SELF"
+						}
+					}
+
+					scrollbox = {
+						layoutpolicy_vertical = expanding
+						layoutpolicy_horizontal = expanding
+						size = { 134 430 }
+						blockoverride "scrollbox_content"
+						{
+							fixedgridbox = {
+								addcolumn = 120
+								addrow = 130
+								block "datamodel" {
+									datamodel = "[CharacterWindow.GetSecondarySpouses]"
+								}
+								item = {
+									portrait_head = {
+										blockoverride "portrait_transformation" {
+											portrait_scale = { -1 1 }
+											portrait_offset = { 1 0 }
+										}
+	
+										blockoverride "portrait_button" {
+											using = tooltip_ne
+										}
+										blockoverride "glow_visible" {
+											visible = no
+										}
+	
+										blockoverride "opinion_box" {}
+										blockoverride "status_icons" {}
+	
+										flowcontainer = {
+											parentanchor = top|left
+											position = { 5 5 }
+											spacing = -3
+											direction = vertical
+											ignoreinvisible = yes
+	
+											background = {
+												using = Background_Area_Dark
+												margin = { 1 1 }
+											}
+	
+											text_single = {
+												text = CHARACTER_VIEW_AGE
+												tooltip = CHARACTER_VIEW_AGE_TT
+	
+												parentanchor = hcenter
+												fontsize = 16
+												align = nobaseline
+	
+											}
+										}
+	
+										flowcontainer = {
+											parentanchor = bottom|right
+											position = { 0 -1 }
+											direction = vertical
+	
+											portrait_status_icons_small = {
+												parentanchor = right
+											}
+											portrait_opinion = {
+												parentanchor = right
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					text_single = {
+						max_width = 120
+
+						text = "SECONDARY_SPOUSES"
+
+						background = {
+							margin = { 20 2 }
+
+							texture = "gfx/interface/component_tiles/tile_title_bg_01.dds"
+							spriteType = Corneredtiled
+							spriteborder = { 40 8 }
+							texture_density = 2
+
+							modify_texture = {
+								name = "mask"
+								texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick.dds"
+								spriteType = Corneredstretched
+								spriteborder = { 0 0 }
+								blend_mode = alphamultiply
+							}
+						}
+					}
+				}
+				vbox = {
+					visible = "[CharacterWindow.GetCharacter.IsPlayerInteractionShown( 'find_concubine' )]"
+					margin_bottom = 5
+
+					container = {
+						visible = "[CharacterWindow.GetCharacter.IsPlayerInteractionShown( 'find_concubine' )]"
+						
+						portrait_head = {
+							visible = "[Not( ObjectsEqual( CharacterWindow.GetCharacter, GetPlayer ) ) ]"
+							datacontext = "[GetNullCharacter]"
+							blockoverride "onclick" {
+								onclick = "[CharacterWindow.GetCharacter.OpenPlayerInteraction( '' )]"
+
+								button_icon_highlight = {
+									parentanchor = center
+									position = { -5 10 }
+									size = { 50 50 }
+									texture = "gfx/interface/icons/faith_doctrine_groups/doctrine_marriage_type.dds"
+									alpha = 0.5
+								}
+							}
+							widget = {
+								size = { 100% 100% }
+								datacontext = "[CharacterWindow.GetCharacter]"
+								tooltip = "CHARACTER_WINDOW_FIND_SPOUSE"
+							}
+						}
+
+						portrait_head = {
+							visible = "[ObjectsEqual( CharacterWindow.GetCharacter, GetPlayer )]"
+							datacontext = "[GetNullCharacter]"
+							blockoverride "onclick" {
+								onclick = "[CharacterWindow.GetCharacter.OpenPlayerInteraction( 'find_concubine' )]"
+
+								button_icon_highlight = {
+									parentanchor = center
+									position = { -5 10 }
+									size = { 50 50 }
+									texture = "gfx/interface/icons/faith_doctrine_groups/doctrine_marriage_type.dds"
+									alpha = 0.5
+								}
+							}
+							tooltip = "CHARACTER_WINDOW_FIND_SPOUSE_SELF"
+						}
+					}
+
+					scrollbox = {
+						layoutpolicy_vertical = expanding
+						layoutpolicy_horizontal = expanding
+						size = { 134 430 }
+						blockoverride "scrollbox_content"
+						{
+							fixedgridbox = {
+								addcolumn = 120
+								addrow = 130
+								block "datamodel" {
+									datamodel = "[CharacterWindow.GetConcubines]"
+								}
+								item = {
+									portrait_head = {
+										blockoverride "portrait_transformation" {
+											portrait_scale = { -1 1 }
+											portrait_offset = { 1 0 }
+										}
+	
+										blockoverride "portrait_button" {
+											using = tooltip_ne
+										}
+										blockoverride "glow_visible" {
+											visible = no
+										}
+	
+										blockoverride "opinion_box" {}
+										blockoverride "status_icons" {}
+	
+										flowcontainer = {
+											parentanchor = top|left
+											position = { 5 5 }
+											spacing = -3
+											direction = vertical
+											ignoreinvisible = yes
+	
+											background = {
+												using = Background_Area_Dark
+												margin = { 1 1 }
+											}
+	
+											text_single = {
+												text = CHARACTER_VIEW_AGE
+												tooltip = CHARACTER_VIEW_AGE_TT
+	
+												parentanchor = hcenter
+												fontsize = 16
+												align = nobaseline
+	
+											}
+										}
+	
+										flowcontainer = {
+											parentanchor = bottom|right
+											position = { 0 -1 }
+											direction = vertical
+	
+											portrait_status_icons_small = {
+												parentanchor = right
+											}
+											portrait_opinion = {
+												parentanchor = right
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					text_single = {
+						max_width = 120
+
+						text = "CONCUBINES"
+
+						background = {
+							margin = { 20 2 }
+
+							texture = "gfx/interface/component_tiles/tile_title_bg_01.dds"
+							spriteType = Corneredtiled
+							spriteborder = { 40 8 }
+							texture_density = 2
+
+							modify_texture = {
+								name = "mask"
+								texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick.dds"
+								spriteType = Corneredstretched
+								spriteborder = { 0 0 }
+								blend_mode = alphamultiply
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	type zz_special_window_portrait = widget {
+		size = { 134 145 }
+
+		block "portrait" {
+			portrait_head = {
+				parentanchor = top|hcenter
+
+				using = Animation_Character_Window_Refresh
+
+				blockoverride "portrait_transformation" {
+					portrait_scale = { -1 1 }
+					portrait_offset = { 1 0 }
+				}
+
+				blockoverride "opinion_box" {}
+				blockoverride "status_icons" {}
+
+				flowcontainer = {
+					parentanchor = top|left
+					position = { 5 5 }
+					spacing = -3
+					direction = vertical
+					ignoreinvisible = yes
+
+					background = {
+						using = Background_Area_Dark
+						margin = { 1 1 }
+					}
+
+					text_single = {
+						text = CHARACTER_VIEW_AGE
+						tooltip = CHARACTER_VIEW_AGE_TT
+
+						parentanchor = hcenter
+						fontsize = 16
+						align = nobaseline
+
+					}
+				}
+			}
+		}
+
+		block "status_and_opinion" {
+			flowcontainer = {
+				parentanchor = bottom|right
+				layoutpolicy_vertical = expanding
+				position = { -10 -29 }
+				direction = vertical
+
+				portrait_status_icons_small = {
+					parentanchor = right
+				}
+
+				block "liege_and_host_opinion" {}
+
+				portrait_opinion = {
+					parentanchor = right
+				}
+			}
+		}
+
+		block "social_relation_icon" {}
+
+		flowcontainer = {
+			parentanchor = top|hcenter
+			position = { 0 115 }
+			direction = horizontal
+			ignoreinvisible = yes
+
+			block "additional_label" {}
+
+			text_single = {
+				block "social_relation_label_1_visible" {}
+				max_width = 120
+
+				background = {
+					margin = { 20 2 }
+
+					texture = "gfx/interface/component_tiles/tile_title_bg_01.dds"
+					spriteType = Corneredtiled
+					spriteborder = { 40 8 }
+					texture_density = 2
+
+					modify_texture = {
+						name = "mask"
+						texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 0 0 }
+						blend_mode = alphamultiply
+					}
+				}
+
+				block "social_relation_label" {
+					text = ""
+				}
+			}
+
+			text_single = {
+				block "social_relation_label_2_visible" {
+					visible = no
+				}
+				max_width = 120
+
+				background = {
+					margin = { 20 2 }
+
+					texture = "gfx/interface/component_tiles/tile_title_bg_01.dds"
+					spriteType = Corneredtiled
+					spriteborder = { 40 8 }
+					texture_density = 2
+
+					modify_texture = {
+						name = "mask"
+						texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick.dds"
+						spriteType = Corneredstretched
+						spriteborder = { 0 0 }
+						blend_mode = alphamultiply
+					}
+				}
+
+				block "social_relation_label_2" {
+					text = ""
+				}
+			}
+
+			block "additional_label_right" {}
+		}
+	}
+}
+				
+types zz_widgets { 
+	type zz_slider = scrollbar_value_slider {
+		min = -100
+		max = 100
+
+		onvaluechanged = "[RulerDesignerWindow.OnAgeChange( PdxGuiWidget.Self )]"
+		value = "[GetPlayer.MakeScope.Var( 'child_examination_success_chance' ).GetValue]"
+	}
+	type zz_character_box = fixedgridbox  {
+		addcolumn = 300
+		addrow = 70
+		block "datamodel" {
+			datamodel = "[GetPlayer.MakeScope.GetList('zz_valyria_possible_characters_01')]"
+		}
+		item = {
+			zz_character_list_item = {
+				blockoverride "datacontext" {
+					block "datacontext" {
+						datacontext = "[GetScriptedGui('zz_valyria_character_selecting_01')]"
+					}
+				}
+			}
+		}
+	}
+	type zz_character_list_item = button_standard  {
+		name = "background_button"
+		size = { 300 65 } # Size of the button frame borders; needs to fit within the widget size
+		using = tooltip_ws
+		layoutpolicy_vertical = expanding
+		datacontext = "[Scope.GetCharacter]"
+		block "datacontext" {
+			datacontext = "[GetScriptedGui('zz_valyria_character_selecting_01')]"
+		}
+		onclick = "[ScriptedGui.Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('zz_valyria_selected_character', Character.MakeScope).End)]"
+		down = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('zz_valyria_selected_character', Character.MakeScope).End)]"
+		enabled = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('zz_valyria_selected_character', Character.MakeScope).End)]"
+		
+
+		tooltipwidget = {
+			cooltip_type = {
+				blockoverride "interaction_info" {
+					text = "CHARACTER_TOOLTIP_INSTRUCTION"
+				}
+			}
+		}
+		tooltip_offset = { 0 0 }
+		tooltip_verticalbehavior = slide
+		tooltip_horizontalbehavior = mirror
+
+		portrait_head_small = {
+			scale = 0.7
+			tooltip_visible = no
+		}
+		text_single = {	
+			name = "character_name"
+			text = "[Character.GetShortUINameNotMeNoTooltip]"
+			using = Font_Size_Small
+			parentanchor = center
+			align = center|nobaseline
+			max_width = 200 # Position where the text begins to resize; needs to fit within the button size, taking into account anything this text shares the button with
+		}
+		expand = {}
+	}
+
+	type zz_maa_box = fixedgridbox {
+		addcolumn = 300
+		addrow = 50
+		datamodel = "[Scope.GetList('possible_regiments_01')]"
+		
+		item = {
+			zz_maa_box_item = {
+				blockoverride "datacontext" {
+					datacontext = "[GetScriptedGui('zz_valyria_regiment_selecting_01')]"
+				}
+			}
+		}
+			
+	}
+	type zz_maa_box_item = button_standard {
+		size = { 300 45 }
+		datacontext = "[Scope.Regiment]"
+		block "datacontext" {
+			datacontext = "[GetScriptedGui('zz_valyria_regiment_selecting_01')]"
+		}
+		down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_regiment', Regiment.MakeScope ).End )]"
+		onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_regiment', Regiment.MakeScope ).End )]"
+
+		text_single = {
+			text = "[Regiment.GetName]"
+			max_width = 280
+			parentanchor = center
+			align = center|nobaseline
+			#default_format = "#high"
+			using = Font_Size_Medium
+		}
+		text_single = {
+			text = "[Regiment.BuildCurrentRegimentCountString|V]"
+			default_format = "#high"
+		}
+	}
+	type zz_character_selection_popup_view = window {
+		name = "character_selection_popup_view"
+		allow_outside = yes
+		movable = no
+		layer = top
+		parentanchor = top|left
+		position = { -100 0 }
+		
+		size = { 380 100% }
+		#oncreate = "[PdxGuiWidget.StackTop]"
+		using = Animation_ShowHide_Quick
+		state = {
+			name = _show
+			on_start = "[PdxGuiWidget.StackTop]"
+			block "close_other_windows" {}
+		}
+		using = Window_Background_Subwindow
+		block "visible" {
+			visible = "[GetVariableSystem.Exists( 'zz_character_selection_popup_view' )]"
+		}
+		
+		vbox = {
+			#set_parent_size_to_minimum = yes
+			margin = { 4 4 }
+			margin_bottom = 15
+			margin_top = 15
+			header_pattern = {
+				layoutpolicy_horizontal = expanding
+
+				blockoverride "header_text"
+				{
+					raw_text = "Select Character"
+				}
+
+				blockoverride "button_close"
+				{	
+					block "button_window_close" {
+						onclick = "[GetVariableSystem.Clear( 'zz_character_selection_popup_view' )]"
+					}
+				}
+			}
+			expand = {}
+			scrollbox = {
+				layoutpolicy_vertical = expanding
+				layoutpolicy_horizontal = expanding
+				size = { 350 90%}
+				blockoverride "scrollbox_content"
+				{
+					zz_character_box = {
+						blockoverride "datamodel" {
+							block "datamodel" {
+								datamodel = "[GetPlayer.MakeScope.GetList('zz_valyria_possible_characters_count')]"
+							}	
+						}
+						blockoverride "datacontext" {
+							block "datacontext" {
+								datacontext = "[GetScriptedGui('zz_valyria_character_selecting_01')]"
+							}
+						}
+					}
+				}
+
+			}
+			expand = {}
+		}
+	}
+}

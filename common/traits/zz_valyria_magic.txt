@@ -19,7 +19,7 @@ zz_magister = {
 					has_trait_xp = {
 						trait = zz_magister
 						track = secrets_of_the_higher_mysteries
-						value < 25
+						value < 19
 					}
 				}
 				desc = magic_acolyte
@@ -29,7 +29,7 @@ zz_magister = {
 					has_trait_xp = {
 						trait = zz_magister
 						track = secrets_of_the_higher_mysteries
-						value < 50
+						value < 39
 					}
 				}
 				desc = magic_apprentice
@@ -39,7 +39,17 @@ zz_magister = {
 					has_trait_xp = {
 						trait = zz_magister
 						track = secrets_of_the_higher_mysteries
-						value < 75
+						value < 59
+					}
+				}
+				desc = magic_mage
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = zz_magister
+						track = secrets_of_the_higher_mysteries
+						value < 79
 					}
 				}
 				desc = magic_scholar
@@ -49,7 +59,7 @@ zz_magister = {
 					has_trait_xp = {
 						trait = zz_magister
 						track = secrets_of_the_higher_mysteries
-						value < 100
+						value < 99
 					}
 				}
 				desc = magic_master
@@ -70,14 +80,14 @@ zz_magister = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = zz_mage_01.dds
+				desc = zz_archmage_00.dds
 			}
 			triggered_desc = {
 				trigger = {
 					has_trait_xp = {
 						trait = zz_magister
 						track = secrets_of_the_higher_mysteries
-						value < 25
+						value < 19
 					}
 				}
 				desc = zz_mage_01.dds
@@ -87,7 +97,7 @@ zz_magister = {
 					has_trait_xp = {
 						trait = zz_magister
 						track = secrets_of_the_higher_mysteries
-						value < 50
+						value < 39
 					}
 				}
 				desc = zz_mage_02.dds
@@ -97,7 +107,7 @@ zz_magister = {
 					has_trait_xp = {
 						trait = zz_magister
 						track = secrets_of_the_higher_mysteries
-						value < 75
+						value < 59
 					}
 				}
 				desc = zz_mage_03.dds
@@ -107,7 +117,7 @@ zz_magister = {
 					has_trait_xp = {
 						trait = zz_magister
 						track = secrets_of_the_higher_mysteries
-						value < 100
+						value < 79
 					}
 				}
 				desc = zz_mage_04.dds
@@ -117,15 +127,16 @@ zz_magister = {
 					has_trait_xp = {
 						trait = zz_magister
 						track = secrets_of_the_higher_mysteries
-						value >= 100
+						value < 99
 					}
 				}
-				desc = zz_mage_05.dds
+				desc = zz_mage_00.dds
 			}
-			desc = zz_mage_05.dds
+			desc = zz_archmage_00.dds
 		}
 	}
 	category = lifestyle
+	flag = zz_magister
 	shown_in_ruler_designer = no
 	opposite_opinion = -50
 	learning = 2
@@ -140,12 +151,6 @@ zz_magister = {
 		domain_limit = 4
 		vassal_limit = 10
 		vassal_opinion = 10
-		trade_post_limit_add = 10
-		max_trade_routes = 10
-		trade_capacity_mult = 10
-		trade_range_mult = 1
-		max_trade_goods_on_route = 5
-		max_trade_markets_on_route = 5
 	}
 	culture_modifier = {
 		parameter = sorceror_lords
@@ -162,7 +167,7 @@ zz_magister = {
 	ai_energy = 20
 	tracks = {
 		secrets_of_the_higher_mysteries = {
-			25 = {
+			20 = {
 				monthly_influence = 0.5
 				learning = 2
 				culture_modifier = {
@@ -170,7 +175,7 @@ zz_magister = {
 					learning = 2
 				}
 			}
-			50 = {
+			40 = {
 				monthly_influence = 1
 				learning = 2
 				culture_modifier = {
@@ -178,7 +183,15 @@ zz_magister = {
 					learning = 2
 				}
 			}
-			75 = {
+			60 = {
+				monthly_influence = 1.5
+				learning = 3
+				culture_modifier = {
+					parameter = mage_scholars
+					learning = 3
+				}
+			}
+			80 = {
 				monthly_influence = 1.5
 				learning = 3
 				culture_modifier = {
@@ -421,17 +434,7 @@ starwalker = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = zz_heavens_chosen_01.dds
-			}
-			triggered_desc = {
-				trigger = {
-					has_trait_xp = {
-						trait = starwalker
-						track = chosen_of_the_heavens
-						value < 50
-					}
-				}
-				desc = zz_heavens_chosen_02.dds
+				desc = zz_heavens_chosen_00.dds
 			}
 			triggered_desc = {
 				trigger = {
@@ -441,17 +444,7 @@ starwalker = {
 						value < 100
 					}
 				}
-				desc = zz_heavens_chosen_03.dds
-			}
-			triggered_desc = {
-				trigger = {
-					has_trait_xp = {
-						trait = starwalker
-						track = chosen_of_the_heavens
-						value >= 100
-					}
-				}
-				desc = zz_heavens_chosen_04.dds
+				desc = zz_heavens_chosen_00.dds
 			}
 			desc = zz_heavens_chosen_00.dds
 		}
@@ -480,7 +473,7 @@ starwalker = {
 	ai_energy = 20
 	tracks = {
 		chosen_of_the_heavens = {
-			25 = {
+			20 = {
 				zz_drops_of_power_holding_construction_piety_cost = 0.25
 				trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.50
 				trait_track_blood_magic_xp_gain_mult = 0.50
@@ -491,7 +484,7 @@ starwalker = {
 				trait_track_air_magic_xp_gain_mult = 0.50
 				trait_track_water_magic_xp_gain_mult = 0.50
 			}
-			50 = {
+			40 = {
 				zz_drops_of_power_holding_construction_piety_cost = 0.25
 				trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.50
 				trait_track_blood_magic_xp_gain_mult = 0.50
@@ -502,7 +495,18 @@ starwalker = {
 				trait_track_air_magic_xp_gain_mult = 0.50
 				trait_track_water_magic_xp_gain_mult = 0.50
 			}
-			75 = {
+			60 = {
+				zz_drops_of_power_holding_construction_piety_cost = 0.25
+				trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.50
+				trait_track_blood_magic_xp_gain_mult = 0.50
+				trait_track_shadow_magic_xp_gain_mult = 0.50
+				trait_track_dream_magic_xp_gain_mult = 0.50
+				trait_track_alchemy_magic_xp_gain_mult = 0.50
+				trait_track_fire_magic_xp_gain_mult = 0.50
+				trait_track_air_magic_xp_gain_mult = 0.50
+				trait_track_water_magic_xp_gain_mult = 0.50
+			}
+			80 = {
 				zz_drops_of_power_holding_construction_piety_cost = 0.25
 				trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.50
 				trait_track_blood_magic_xp_gain_mult = 0.50
@@ -534,26 +538,6 @@ starwalker = {
 
 
 
-zz_draconic_longevity = {
-	icon = "immortal.dds"
-	# This is definitely a very clever allusion to the 10k immortals and not just landing arbitrarily on a certain number of zeros.
-	ruler_designer_cost = 10000
-
-	opposites = { incapable }
-
-	shown_in_ruler_designer = no
-	
-	desc = trait_zz_draconic_longevity_desc
-
-	immortal = yes
-	# Dummy flags — just here for loc really.
-	flag = is_immortal
-	flag = immortal_visuals
-	flag = immortal_fertility
-	flag = immortal_incapability
-	long_reign_bonus_mult = -1000
-	no_prowess_loss_from_age = yes
-}
 
 zz_valyrian_longevity = {
 	icon = "immortal.dds"
@@ -643,7 +627,6 @@ disease_resistance_alchemical = {
 	flag = disease_immunity_lovers_pox
 	flag = great_pox_immunity
 	flag = disease_immunity_great_pox
-	group = disease_resistance
 	
 	
 	ai_rationality = dominant_positive_ai_value
@@ -683,11 +666,7 @@ disease_resistance_pneumonic = {
 	epidemic_resistance = 1
 	flag = pneumonic_immunity
 	flag = disease_immunity_pneumonic
-	group = disease_resistance
-	
 
-	
-	
 	ai_rationality = dominant_positive_ai_value
 	
 	genetic = yes
@@ -725,9 +704,6 @@ disease_resistance_ill = {
 	epidemic_resistance = 1
 	flag = ill_immunity
 	flag = disease_immunity_ill
-	group = disease_resistance
-	
-
 
 	
 	ai_rationality = dominant_positive_ai_value
@@ -767,10 +743,6 @@ disease_resistance_measles = {
 	epidemic_resistance = 1
 	flag = measles_immunity
 	flag = disease_immunity_measles
-	group = disease_resistance
-	
-
-
 	
 	ai_rationality = dominant_positive_ai_value
 	
@@ -807,8 +779,6 @@ disease_resistance_bubonic_plague = {
 	epidemic_resistance = 1
 	flag = bubonic_immunity
 	flag = disease_immunity_bubonic_plague
-	group = disease_resistance
-	
 
 	
 	ai_rationality = dominant_positive_ai_value
@@ -846,8 +816,6 @@ disease_resistance_gout_ridden = {
 	epidemic_resistance = 1
 	flag = gout_ridden_immunity
 	flag = disease_immunity_gout
-	group = disease_resistance
-	
 
 	
 	ai_rationality = dominant_positive_ai_value
@@ -885,8 +853,7 @@ disease_resistance_consumption = {
 	epidemic_resistance = 1
 	flag = consumption_immunity
 	flag = disease_immunity_consumption
-	group = disease_resistance
-	
+
 	
 	ai_rationality = dominant_positive_ai_value
 	
@@ -923,8 +890,7 @@ disease_resistance_cancer = {
 	epidemic_resistance = 1
 	flag = cancer_immunity
 	flag = disease_immunity_cancer
-	group = disease_resistance
-	
+
 	
 	ai_rationality = dominant_positive_ai_value
 	
@@ -961,7 +927,6 @@ disease_resistance_typhus = {
 	epidemic_resistance = 1
 	flag = typhus_immunity
 	flag = disease_immunity_typhus
-	group = disease_resistance
 	
 	ai_rationality = dominant_positive_ai_value
 	
@@ -998,7 +963,6 @@ disease_resistance_smallpox = {
 	epidemic_resistance = 1
 	flag = small_pox_immunity
 	flag = disease_immunity_smallpox
-	group = disease_resistance
 	
 	
 	ai_rationality = dominant_positive_ai_value
@@ -1036,8 +1000,7 @@ disease_resistance_dysentery = {
 	epidemic_resistance = 1
 	flag = dysentery_immunity
 	flag = disease_immunity_dysentery
-	group = disease_resistance
-	
+
 	ai_rationality = dominant_positive_ai_value
 	
 	genetic = yes
@@ -1073,8 +1036,6 @@ disease_resistance_ergotism = {
 	epidemic_resistance = 1
 	flag = ergotism_immunity
 	flag = disease_immunity_ergotism
-	group = disease_resistance
-
 	
 	ai_rationality = dominant_positive_ai_value
 	
@@ -1111,8 +1072,6 @@ disease_resistance_leper = {
 	epidemic_resistance = 1
 	flag = leper_immunity
 	flag = disease_immunity_leper
-	group = disease_resistance
-
 	
 	ai_rationality = dominant_positive_ai_value
 	
@@ -1149,8 +1108,7 @@ disease_resistance_lovers_pox = {
 	epidemic_resistance = 1
 	flag = lovers_pox_immunity
 	flag = disease_immunity_lovers_pox
-	group = disease_resistance
-	
+
 	ai_rationality = dominant_positive_ai_value
 	
 	genetic = yes
@@ -1186,7 +1144,7 @@ disease_resistance_great_pox = {
 	epidemic_resistance = 1
 	flag = great_pox_immunity
 	flag = disease_immunity_great_pox
-	group = disease_resistance
+
 
 	
 	ai_rationality = dominant_positive_ai_value
@@ -1524,7 +1482,7 @@ magic_blood_bad_1 = {
 	trait_track_fire_magic_xp_gain_mult = -0.05
 	trait_track_air_magic_xp_gain_mult = -0.05
 	trait_track_water_magic_xp_gain_mult = -0.05
-	trait_track_drops_of_power_mult_xp_gain_mult = -0.25
+	zz_drops_of_power_holding_construction_piety_cost = -0.25
 	
 	tracks = {
 
@@ -1582,7 +1540,7 @@ magic_blood_bad_2 = {
 	trait_track_fire_magic_xp_gain_mult = -0.15
 	trait_track_air_magic_xp_gain_mult = -0.15
 	trait_track_water_magic_xp_gain_mult = -0.15
-	trait_track_drops_of_power_mult_xp_gain_mult = -0.5
+	zz_drops_of_power_holding_construction_piety_cost = -0.5
 	
 	tracks = {
 
@@ -1640,7 +1598,7 @@ magic_blood_bad_3 = {
 	trait_track_fire_magic_xp_gain_mult = -0.25
 	trait_track_air_magic_xp_gain_mult = -0.25
 	trait_track_water_magic_xp_gain_mult = -0.25
-	trait_track_drops_of_power_mult_xp_gain_mult = -0.75
+	zz_drops_of_power_holding_construction_piety_cost = -0.75
 	
 	tracks = {
 
@@ -1875,7 +1833,6 @@ born_beneath_the_comet = {
 	
 	zz_drops_of_power_advantage = 500
 	zz_drops_of_power_holding_construction_piety_cost = 0.25
-	trait_track_drops_of_power_mult_xp_gain_mult = 0.25
 
 }
 

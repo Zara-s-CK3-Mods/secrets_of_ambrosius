@@ -121,8 +121,6 @@ zz_gift_artifact_interaction = {
 		}
 
 		#AGOT Added, no non-human interactions
-		scope:actor = { is_human = yes }
-		scope:recipient = { is_human = yes }
 	}
 
 	is_valid_showing_failures_only = {
@@ -144,9 +142,6 @@ zz_gift_artifact_interaction = {
 				}
 			}
 			#AGOT Added
-			trigger_else = {
-				any_character_artifact = { agot_valid_ai_gift = yes }
-			}
 		}
 		trigger_if = {
 			limit = {
@@ -160,9 +155,6 @@ zz_gift_artifact_interaction = {
 		}
 
 		#AGOT Added, cannot interact with unavailable people
-		scope:recipient = {
-			agot_is_available_for_anything = yes
-		}
 	}
 
 	on_accept = {
@@ -845,7 +837,7 @@ zz_gift_artifact_interaction = {
 			scope:recipient = {
 				#AGOT Modified, true indepedence required
 				#is_independent_ruler = yes
-				agot_is_independent_ruler = yes
+				is_independent_ruler = yes
 				any_character_struggle = {
 					involvement = involved
 				}
@@ -880,12 +872,6 @@ zz_gift_artifact_interaction = {
 			VALUE = 100
 		}
 		#AGOT Added
-		modifier = {
-			add = 300
-			exists = scope:recipient.dynasty
-			scope:target.var:traditional_house_owner ?= scope:recipient.dynasty.dynasty_founder.house
-			desc = traditional_house_artifact_modifier_desc
-		}
 	}
 	
 	ai_potential = {
@@ -1180,7 +1166,7 @@ zz_gift_artifact_interaction = {
 			scope:recipient = {
 				#AGOT Modified, true indepedence required
 				#is_independent_ruler = yes
-				agot_is_independent_ruler = yes
+				is_independent_ruler = yes
 			}
 			scope:actor = {
 				any_character_struggle = {
@@ -1461,28 +1447,15 @@ zz_valyria_dream_magic_menal_manipulation.interaction = {
 					scope:commit_suicide = yes
 				}
 				
-				if = {
-					limit = {
-						agot_can_visit_house_of_baw = yes
-					}
+				show_as_tooltip = {
+					committed_suicide_effect = yes
+				}
+				custom_tooltip = commit_suicide_decision_effect_tooltip
+				trigger_event = {
+					on_action = commit_suicide
+				}
+			
 
-					custom_tooltip = agot_visit_house_of_baw_decision_effect
-					show_as_tooltip = {
-						agot_visit_house_of_baw_effect = yes
-					}
-					trigger_event = {
-						on_action = agot_visit_house_of_baw
-					}
-				}
-				else = {
-					show_as_tooltip = {
-						committed_suicide_effect = yes
-					}
-					custom_tooltip = commit_suicide_decision_effect_tooltip
-					trigger_event = {
-						on_action = commit_suicide
-					}
-				}
 			}
 			if = {
 				limit = {
@@ -1507,6 +1480,16 @@ zz_valyria_dream_magic_menal_manipulation.interaction = {
 					scope:set_homosexual = yes
 				}
 				set_sexuality = homosexual
+			}
+			if ={ 
+				limit = {
+					scope:call_to_war = yes
+				} 
+				open_interaction_window = {
+					interaction = frontier_influence_war_interaction
+					actor = scope:actor
+					recipient = scope:recipient
+				}
 			}
 		}
 	}
@@ -1604,21 +1587,26 @@ zz_valyria_dream_magic_menal_manipulation.interaction = {
 		flag = set_homosexual
 		localization = set_homosexual
 	}
+	send_option = {
+		flag = call_to_war
+		localization = call_to_war
+	}
 	
 }
 
-zz_valyria_magic_change_face.interaction = {
+zz_valyria_magic_grant_drops_of_power.interaction = {
 
-	desc = zz_valyria_magic_change_face.interaction.desc
+	desc = zz_valyria_magic_grant_drops_of_power.interaction.desc
 
 	common_interaction = yes
 	interface_priority = 40000
 	category = interaction_category_religion
 
 	is_shown = {
+		has_game_rule = debug_mode_on
 		scope:actor = {
 			is_ai = no
-			this = character:Setenon_01
+			has_trait = zz_magister
 			scope:recipient = this 
 		}
 	}
@@ -1643,62 +1631,84 @@ zz_valyria_magic_change_face.interaction = {
 		scope:actor = {
 		}
 		scope:recipient = {
-			if = {
-				limit = {
-					scope:take_face_01 = yes
-				}
-				copy_inheritable_appearance_from = character:Dummy_Setenon_01
-			}
-			if = {
-				limit = {
-					scope:take_face_02 = yes
-				}
-				copy_inheritable_appearance_from = character:Dummy_Setenon_02
-			}
-			if = {
-				limit = {
-					scope:take_face_03 = yes
-				}
-				copy_inheritable_appearance_from = character:Dummy_Setenon_03
-			}
-			if = {
-				limit = {
-					scope:take_face_04 = yes
-				}
-				copy_inheritable_appearance_from = character:Dummy_Setenon_04
-			}
-			if = {
-				limit = {
-					scope:take_face_05 = yes
-				}
-				copy_inheritable_appearance_from = character:Dummy_Setenon_05
-			}
-			if = {
-				limit = {
-					scope:take_face_06 = yes
-				}
-				copy_inheritable_appearance_from = character:Dummy_Setenon_06
-			}
-			if = {
-				limit = {
-					scope:take_face_07 = yes
-				}
-				copy_inheritable_appearance_from = character:Dummy_Setenon_07
-			}
-			if = {
-				limit = {
-					scope:take_face_08 = yes
-				}
-				copy_inheritable_appearance_from = character:Dummy_Setenon_08
-			}
-			if = {
-				limit = {
-					scope:take_face_09 = yes
-				}
-				copy_inheritable_appearance_from = character:Dummy_Setenon_09
+			zz_valyria_mana_gain = {
+				MANAGAIN = 1000
 			}
 
 		}
+	}
+	auto_accept = yes
+
+	ai_frequency = 0
+
+	ai_will_do = {
+		base = 0
+
+	}
+}
+
+
+zz_valyria_magic_designate_speciaL_magic_target.interaction = {
+
+	desc = zz_valyria_magic_designate_speciaL_magic_target.desc
+
+	common_interaction = yes
+	interface_priority = 40000
+	category = interaction_category_religion
+
+	is_shown = {
+		scope:actor = {
+			is_ai = no
+			
+			is_imprisoned = no
+			zz_valyria_is_mage = yes 
+		}
+		scope:recipient = {
+		}	
+	}
+	is_valid_showing_failures_only = {
+		scope:actor = {
+			zz_valyria_is_mage = yes 
+		}
+	}
+	
+
+	cooldown_against_recipient = { days = 0 } 
+	cooldown = { days = 0 } 
+	ignores_pending_interaction_block = yes
+	use_diplomatic_range = yes
+	on_send = {
+		scope:actor = {
+		}
+
+		scope:recipient = {
+		}
+	}
+	on_accept = {
+		scope:actor = {
+			if = {
+				limit = {
+					is_target_in_variable_list = {
+						name = special_magic_target
+						target = scope:recipient
+					}
+				}
+				scope:recipient = {
+					remove_from_list = special_magic_target
+				}
+			}
+			else = {
+				scope:actor = {
+					#scope:convert_culture = yes
+					add_to_variable_list = {
+						name = special_magic_target 
+						target = scope:recipient
+					}
+				}
+			}
+		}
+		
+
 	}
 	auto_accept = yes
 	ai_targets = {
@@ -1711,42 +1721,13 @@ zz_valyria_magic_change_face.interaction = {
 		base = 0
 
 	}
-	send_option = {
-		flag = take_face_01
-		localization = take_face_01
-	}
-	send_option = {
-		flag = take_face_02
-		localization = take_face_02
-	}
-	send_option = {
-		flag = take_face_03
-		localization = take_face_03
-	}
-	send_option = {
-		flag = take_face_04
-		localization = take_face_04
-	}
-	send_option = {
-		flag = take_face_05
-		localization = take_face_05
-	}
-	send_option = {
-		flag = take_face_06
-		localization = take_face_06
-	}
-	send_option = {
-		flag = take_face_07
-		localization = take_face_07
-	}
-	send_option = {
-		flag = take_face_08
-		localization = take_face_08
-	}
-	send_option = {
-		flag = take_face_09
-		localization = take_face_09
-	}
-	
-	
+	#send_option = {
+	#	flag = convert_culture
+	#	localization = zz_convert_culture
+	#	is_valid = {
+	#		NOT = {
+	#			scope:recipient.culture = scope:actor.culture
+	#		}
+	#	}
+	#}
 }

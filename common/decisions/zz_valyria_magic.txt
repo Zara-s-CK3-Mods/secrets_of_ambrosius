@@ -26,25 +26,20 @@
 	}
 }
 
-manage_dragon_rider_lifestyle_training_decision = {
+zz_take_face_decision = {
 	picture = {
 		reference = "gfx/interface/illustrations/decisions/ep3_cerimonial_decision.dds"
 	}
 	decision_group_type = zz_valyria_magic
-	desc = manage_dragon_rider_lifestyle_training_decision_desc
+	desc = manage_grant_nickname_decision_desc
 
 	ai_check_interval = 0 # Set to 0 instead of 72 since the AI will never use this anyway (removed the is_ai checks below)
 
 	is_shown = {
+		this = character:Merlin_01
 		#has_game_rule = debug_mode_on
 		has_ep3_dlc_trigger = yes # Moved the DLC check here instead of is_valid since the player without the DLC won't be able to use the decision anyway
 		has_trait = zz_magister
-		OR = {
-			has_trait = dragonrider
-			any_courtier_or_guest = {
-				has_trait = dragonrider
-			}
-		}
 	}
 	
 	is_valid_showing_failures_only = {
@@ -55,10 +50,11 @@ manage_dragon_rider_lifestyle_training_decision = {
 	}
 
 	effect = {
-		custom_tooltip = manage_dragon_rider_lifestyle_training_decision_effect_tooltip
-		trigger_event = zz_valyria_magic_management.002
+		custom_tooltip = manage_grant_nickname_decision_effect_tooltip
+		trigger_event = zz_valyria_magic_management.004
 	}
 }
+
 
 manage_grant_culture_trait_decision = {
 	picture = {
@@ -71,7 +67,6 @@ manage_grant_culture_trait_decision = {
 
 	is_shown = {
 		has_game_rule = debug_mode_on
-		has_ep3_dlc_trigger = yes # Moved the DLC check here instead of is_valid since the player without the DLC won't be able to use the decision anyway
 		has_trait = zz_magister
 	}
 	
@@ -241,6 +236,20 @@ manage_grant_culture_trait_decision = {
 				value = 10
 			}
 		}
+		item = { # Administrative
+			value = go_cultural_fifteen_concubines
+			is_shown = {
+			}
+			is_valid = {
+
+			}
+			current_description = go_nine_concubines_desc
+			localization = go_nine_concubines_desc
+			icon = "gfx/interface/icons/government_types/administrative_government.dds"
+			ai_chance = {
+				value = 10
+			}
+		}
 	}
 
 	effect = {
@@ -290,6 +299,7 @@ manage_grant_culture_trait_decision = {
 				remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
 				remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
 				remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
+				remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
 			}
 		}
 		else_if = {
@@ -300,6 +310,7 @@ manage_grant_culture_trait_decision = {
 				remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
 				remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
 				remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
+				remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
 			}
 		}
 		else_if = {
@@ -310,6 +321,7 @@ manage_grant_culture_trait_decision = {
 				remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
 				remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
 				remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
+				remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
 			}
 		}
 		else_if = {
@@ -320,6 +332,7 @@ manage_grant_culture_trait_decision = {
 				remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
 				remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
 				remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
+				remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
 			}
 		}
 		else_if = {
@@ -330,6 +343,18 @@ manage_grant_culture_trait_decision = {
 				remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
 				remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
 				remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
+				remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
+			}
+		}
+		else_if = {
+			limit = { scope:go_cultural_fifteen_concubines = yes }
+			culture = {
+				add_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
+				remove_culture_tradition = tradition_zz_cultural_polygamy_two_wives
+				remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
+				remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
+				remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
+				remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
 			}
 		}
 		
@@ -348,7 +373,6 @@ zz_valyria_search_for_magic_decision = {
 	ai_check_interval = 0 # Set to 0 instead of 72 since the AI will never use this anyway (removed the is_ai checks below)
 
 	is_shown = {
-		has_ep3_dlc_trigger = yes # Moved the DLC check here instead of is_valid since the player without the DLC won't be able to use the decision anyway
 		or = {
 			has_trait = zz_magister
 			has_character_flag = zz_valyria_magic_search_enable
@@ -487,7 +511,7 @@ zz_valyria_search_for_magic_decision = {
 		create_task_contract = {
 			task_contract_type = zz_valyria_magic_visit_library_dragonstone
 			task_contract_tier = 5
-			location = province:4415
+			location = province:496
 			save_scope_as = contract
 		}
 		scope:contract ?= {
@@ -509,7 +533,6 @@ zz_valyria_stop_search_for_magic_decision = {
 	ai_check_interval = 0 # Set to 0 instead of 72 since the AI will never use this anyway (removed the is_ai checks below)
 
 	is_shown = {
-		has_ep3_dlc_trigger = yes # Moved the DLC check here instead of is_valid since the player without the DLC won't be able to use the decision anyway
 		or = {
 			has_trait = zz_magister
 			has_character_flag = zz_valyria_magic_search_enable
@@ -550,7 +573,6 @@ zz_valyria_magic_research_decision = {
 	ai_check_interval = 0 # Set to 0 instead of 72 since the AI will never use this anyway (removed the is_ai checks below)
 
 	is_shown = {
-		has_ep3_dlc_trigger = yes # Moved the DLC check here instead of is_valid since the player without the DLC won't be able to use the decision anyway
 		or = {
 			has_trait = zz_magister
 		}
@@ -693,52 +715,7 @@ zz_valyria_magic_research_decision = {
 	}
 }
 
-adopt_mages_succession_lord_decision = {
-	picture = {
-		reference = "gfx/interface/illustrations/decisions/ep3_cerimonial_decision.dds"
-	}
-	decision_group_type = major
-	desc = convert_to_administrative_decision_desc
-
-	ai_check_interval = 36
-
-	confirm_text = convert_to_freehold_decision_confirm
-
-	is_shown = {
-		has_trait = zz_magister
-	}
-
-	is_valid = {
-		has_ep3_dlc_trigger = yes
-		is_ai = no
-	}
-	
-	is_valid_showing_failures_only = {
-		is_at_war = no
-	}
-
-	cost = {
-		prestige = {
-			value = 1000
-		}
-	}
 
 
-	effect = {
-		save_scope_as = actor
-		every_held_title = {
-			limit = {
-				or = {
-					is_noble_family_title = yes
-					government_has_flag = government_is_merchant
-				}
-				
-			}
-			add_title_law_effects = mage_lord_family_succession_law
-		}
-	}
 
-	ai_potential = {
-		always = no 
-	}
-}
+

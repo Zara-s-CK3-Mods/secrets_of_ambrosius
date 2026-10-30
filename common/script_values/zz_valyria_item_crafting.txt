@@ -78,21 +78,9 @@ zz_item_vs_ring_cost= {
 	value = 900
 }
 
-zz_item_glass_candle_cost = {
-	value = 4500
-}
 
-zz_item_dragon_horn_cost = {
-	value = 4500
-}
 
-zz_item_crown_cost = {
-	value = 6000
-}
 
-zz_item_rod_cost = {
-	value = 7500
-}
 
 
 zz_valyria_scroll_cost = {
@@ -198,12 +186,6 @@ zz_valyria_resources_current_spend = {
 		}
 		if = {
 			limit = {
-				var:zz_current_magic_reagent ?= flag:dragonfire
-			}
-			add = 50
-		}
-		if = {
-			limit = {
 				var:zz_current_magic_reagent ?= flag:mages_power
 			}
 			var:zz_item_crafter = {
@@ -220,4 +202,12 @@ zz_valyria_resources_current_spend = {
 			value = gold
 		}
 	}
+}
+
+zz_item_crown_cost = {
+	value = 6000
+}
+
+zz_item_staff_cost = {
+	value = 7500
 }

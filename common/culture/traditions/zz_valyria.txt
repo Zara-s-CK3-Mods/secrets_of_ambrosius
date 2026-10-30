@@ -156,6 +156,7 @@ tradition_zz_valyrian_incest = {
 
 	is_shown = {
 		always = no
+		has_game_rule = debug_mode_on
 	}
 
 	can_pick = {
@@ -184,6 +185,7 @@ tradition_zz_valyrian_sibling_incest = {
 
 	is_shown = {
 		always = no
+		has_game_rule = debug_mode_on
 	}
 
 	can_pick = {
@@ -212,6 +214,7 @@ tradition_zz_cultural_polygamy_two_wives = {
 
 	is_shown = {
 		always = no
+		has_game_rule = debug_mode_on
 	}
 
 	can_pick = {
@@ -240,6 +243,7 @@ tradition_zz_cultural_polygamy_three_wives = {
 
 	is_shown = {
 		always = no
+		has_game_rule = debug_mode_on
 	}
 
 	can_pick = {
@@ -268,6 +272,7 @@ tradition_zz_cultural_polygamy_four_wives = {
 
 	is_shown = {
 		always = no
+		has_game_rule = debug_mode_on
 	}
 
 	can_pick = {
@@ -296,6 +301,7 @@ tradition_zz_cultural_polygamy_five_wives = {
 
 	is_shown = {
 		always = no
+		has_game_rule = debug_mode_on
 	}
 
 	can_pick = {
@@ -324,6 +330,7 @@ tradition_zz_cultural_polygamy_nine_wives = {
 
 	is_shown = {
 		always = no
+		has_game_rule = debug_mode_on
 	}
 
 	can_pick = {

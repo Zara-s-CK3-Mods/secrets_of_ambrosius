@@ -2,8 +2,6 @@
 
 ## Traits
 
-  trait_zz_draconic_longevity:0 "Draconic Longevity"
-  trait_zz_draconic_longevity_desc:0 "Nourished by the magical energies of the Volcanoes of Valyria, this Dragon shall not weaken with time, but instead only ever grow in power and size."
   trait_zz_valyrian_longevity:0 "Valyrian Longevity"
   trait_zz_valyrian_longevity_desc:0 "From an unspeakable act of magic, it has been possible to enfuse [ROOT.GetCharacter.GetFirstNameNoTooltip] with crackling magics, that ensure they stand unmoved, be it by time or by disease, for they are truly enduring."
 
@@ -43,8 +41,9 @@
   trait_zz_magister_desc:0 "This character is a practictioner of magic. The power to change, hurt, and control is at their fingertips."
   trait_zz_magister_character_desc:0 "[ROOT.GetCharacter.GetFirstNameNoTooltip] is a practictioner of magic. The power to change, hurt, and control is at [ROOT.Char.GetHerHis] fingertips... \n\nCurrent [passive_drops_of_power|E]: [ROOT.ScriptValue('zz_valyria_drops_power_passive_gain')].\nCurrent [max_drops_of_power|E]: [ROOT.ScriptValue('zz_valyria_mana_cap')|0].\nCurrent [drops_of_power|E]: [ROOT.ScriptValue('zz_valyria_drops_of_power_stat_gui')|0]. "
   magic_acolyte:0 "Acolyte"
-  magic_apprentice:0 "Magic Apprentice"
-  magic_scholar:0 "Magic Scholar"
+  magic_apprentice:0 "Apprentice"
+  magic_mage:0 "Mage"
+  magic_scholar:0 "Scholar"
   magic_master:0 "Master"
   magic_archmage:0 "Archmage"
 
@@ -123,10 +122,7 @@
 
   trait_track_water_magic_xp_gain_mult:0 "[GetTrait('zz_magister').GetTraitTrackByKey( 'water_magic' ).GetName] [trait_level_track_xp|E] Gain"
 
-  trait_track_dragon_magic:0 "Secrets of [dragon_magic|E]"
-  trait_track_dragon_magic_desc:0 "The most ancient and hidden art of lost Valyria. The magics to spawn, to raise, to enhance, and to bind the mightiest weapons of war, the dragons. This magical art promises great power, if you can afford the costs..."
 
-  trait_track_dragon_magic_xp_gain_mult:0 "[GetTrait('zz_magister').GetTraitTrackByKey( 'dragon_magic' ).GetName] [trait_level_track_xp|E] Gain"
 
   trait_track_drops_of_power:0 "[drops_of_power|E]"
   trait_track_drops_of_power_desc:0 "The [drops_of_power|E] of this character."

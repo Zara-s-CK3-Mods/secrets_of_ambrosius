@@ -26,7 +26,7 @@ zz_valyria_magic_water_magic.001 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_01
+				SPELL = 001
 			}
 		}
 	}
@@ -39,7 +39,7 @@ zz_valyria_magic_water_magic.001 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_01
+				SPELL = 001
 			}
 		}
 	}
@@ -48,7 +48,6 @@ zz_valyria_magic_water_magic.001 = {
 		name = zz_valyria_magic_water_magic.001.opt.z
 	}
 }
-
 zz_valyria_magic_water_magic.002 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -100,7 +99,7 @@ zz_valyria_magic_water_magic.002 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_02
+				SPELL = 002
 			}
 		}
 	}
@@ -108,7 +107,6 @@ zz_valyria_magic_water_magic.002 = {
 		name = zz_valyria_magic_water_magic.002.opt.z
 	}
 }
-
 zz_valyria_magic_water_magic.003 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -160,7 +158,7 @@ zz_valyria_magic_water_magic.003 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_03
+				SPELL = 003
 			}
 		}
 	}
@@ -168,8 +166,6 @@ zz_valyria_magic_water_magic.003 = {
 		name = zz_valyria_magic_water_magic.003.opt.z
 	}
 }
-
-
 zz_valyria_magic_water_magic.004 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -186,150 +182,60 @@ zz_valyria_magic_water_magic.004 = {
 	lower_center_portrait = scope:recipient
 
 	immediate = {
-		clear_variable_list = possible_epidemics
-		remove_variable = selected_epidemic
-		every_epidemic_type = {
-			root = {
-				add_to_variable_list = {
-					name = possible_epidemics
-					target = prev
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = selected_epidemic }
-					}
-					set_variable = { name = selected_epidemic value = prev }
-				}
-			}
-		}
+		zz_valyria_water_magic_epidemic_list = yes
+		zz_targeted_character_province_selection_list_effect = yes 
+		zz_valyria_water_magic_intensity_list = yes
 	}
-
-	widget = {
-		is_shown = {
-			is_ai = no
+	widgets = {
+		widget = {
+			is_shown = {
+				is_ai = no
+			}
+			gui = "event_window_epidemic_selection"
+			container = "custom_widgets_container"
 		}
-		gui = "event_window_epidemic_selection"
-		container = "custom_widgets_container"
+		widget = {
+			is_shown = {
+				is_ai = no
+			}
+			gui = "event_window_province_selection"
+			container = "custom_widgets_container"
+		}
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_flag_selection"
+			container = "custom_widgets_container"
+		}
 	}
 	option = {
 		name = zz_valyria_magic_water_magic.004.opt.e
+		trigger = {
+			OR = {
+				var:selected_flag = flag:water_magic_intensity_01
+				var:selected_flag = flag:water_magic_intensity_02
+				var:selected_flag = flag:water_magic_intensity_03
+			}
+		}
 		hidden_effect = {			
 			var:selected_epidemic ?= { 
 				save_scope_as = epidemic
 			}
-			trigger_event = zz_valyria_magic_water_magic.00401
+			var:selected_province ?= { 
+				save_scope_as = target
+			}
+			var:selected_flag = {
+				save_scope_as = flag
+			}
+				
+			zz_valyria_magic_cast_effect = { 
+				SKILL = water_magic
+				SPELL = 004
+			}	
 		}
 	}
-
-
-	
 	option = {
 		name = zz_valyria_magic_water_magic.004.opt.z
-	}
-}
-
-
-zz_valyria_magic_water_magic.00401 = {
-	type = character_event
-	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_water_magic.004.t
-	desc = zz_valyria_magic_water_magic.004.desc
-	theme = university 
-	override_background = {
-		reference = zz_water_magic
-	}
-	lower_left_portrait = root
-	lower_right_portrait = {
-		character = scope:secondary_recipient
-	}
-	lower_center_portrait = scope:recipient
-
-	immediate = {
-		zz_targeted_character_province_selection_list_effect = yes
-	}
-
-	widget = {
-		is_shown = {
-			is_ai = no
-		}
-		gui = "event_window_province_selection"
-		container = "custom_widgets_container"
-	}
-
-	option = {
-		name = zz_valyria_magic_water_magic.004.opt.a
-		trigger = {
-			scope:recipient = {			
-			}
-			scope:secondary_recipient = {
-				zz_valyria_has_mana_to_cast = {
-					MANACOST = zz_valyria_magic_water_magic_04_cost
-				}
-			}
-		}
-		hidden_effect = {
-			save_scope_value_as = {
-				name = option_01
-				value = yes
-			}
-			var:selected_province ?= { 
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = { 
-				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_04
-			}	
-		}
-	}
-	option = {
-		name = zz_valyria_magic_water_magic.004.opt.b
-		trigger = {
-			scope:recipient = {			
-			}
-			scope:secondary_recipient = {
-				zz_valyria_has_mana_to_cast = {
-					MANACOST = zz_valyria_magic_water_magic_04_02_cost
-				}
-			}
-		}
-		hidden_effect = {
-			save_scope_value_as = {
-				name = option_02
-				value = yes
-			}
-			var:selected_province ?= { 
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = { 
-				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_04
-			}	
-		}
-	}
-	option = {
-		name = zz_valyria_magic_water_magic.004.opt.c
-		trigger = {
-			scope:recipient = {			
-			}
-			scope:secondary_recipient = {
-				zz_valyria_has_mana_to_cast = {
-					MANACOST = zz_valyria_magic_water_magic_04_03_cost
-				}
-			}
-		}
-		hidden_effect = {
-			save_scope_value_as = {
-				name = option_03
-				value = yes
-			}
-			var:selected_province ?= { 
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = { 
-				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_04
-			}	
-		}
 	}
 }
 
@@ -353,7 +259,7 @@ zz_valyria_magic_water_magic.005 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_05
+				SPELL = 005
 			}
 		}
 	}
@@ -361,8 +267,6 @@ zz_valyria_magic_water_magic.005 = {
 		name = zz_valyria_magic_water_magic.005.opt.z
 	}
 }
-
-
 zz_valyria_magic_water_magic.006 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -397,7 +301,7 @@ zz_valyria_magic_water_magic.006 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_06
+				SPELL = 006
 			}
 		}
 	}
@@ -405,7 +309,6 @@ zz_valyria_magic_water_magic.006 = {
 		name = zz_valyria_magic_water_magic.006.opt.z
 	}
 }
-
 zz_valyria_magic_water_magic.007 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -440,7 +343,7 @@ zz_valyria_magic_water_magic.007 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_07
+				SPELL = 007
 			}
 		}
 	}
@@ -448,7 +351,6 @@ zz_valyria_magic_water_magic.007 = {
 		name = zz_valyria_magic_water_magic.007.opt.z
 	}
 }
-
 zz_valyria_magic_water_magic.008 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -469,7 +371,7 @@ zz_valyria_magic_water_magic.008 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_08
+				SPELL = 008
 			}
 		}
 	}
@@ -477,8 +379,6 @@ zz_valyria_magic_water_magic.008 = {
 		name = zz_valyria_magic_water_magic.008.opt.z
 	}
 }
-
-
 zz_valyria_magic_water_magic.009 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -499,7 +399,7 @@ zz_valyria_magic_water_magic.009 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_09
+				SPELL = 009
 			}
 		}
 	}
@@ -507,7 +407,6 @@ zz_valyria_magic_water_magic.009 = {
 		name = zz_valyria_magic_water_magic.009.opt.z
 	}
 }
-
 zz_valyria_magic_water_magic.010 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -528,7 +427,7 @@ zz_valyria_magic_water_magic.010 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_10
+				SPELL = 010
 			}
 		}
 	}
@@ -536,7 +435,6 @@ zz_valyria_magic_water_magic.010 = {
 		name = zz_valyria_magic_water_magic.010.opt.z
 	}
 }
-
 zz_valyria_magic_water_magic.011 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -557,7 +455,7 @@ zz_valyria_magic_water_magic.011 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_11
+				SPELL = 011
 			}
 		}
 	}
@@ -565,8 +463,6 @@ zz_valyria_magic_water_magic.011 = {
 		name = zz_valyria_magic_water_magic.011.opt.z
 	}
 }
-
-
 zz_valyria_magic_water_magic.012 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -587,7 +483,7 @@ zz_valyria_magic_water_magic.012 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_12
+				SPELL = 012
 			}
 		}
 	}
@@ -595,7 +491,6 @@ zz_valyria_magic_water_magic.012 = {
 		name = zz_valyria_magic_water_magic.012.opt.z
 	}
 }
-
 zz_valyria_magic_water_magic.013 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -616,7 +511,7 @@ zz_valyria_magic_water_magic.013 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_13
+				SPELL = 013
 			}
 		}
 	}
@@ -644,7 +539,7 @@ zz_valyria_magic_water_magic.014 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_14
+				SPELL = 014
 			}
 		}
 	}
@@ -672,7 +567,7 @@ zz_valyria_magic_water_magic.015 = {
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_15
+				SPELL = 015
 			}
 		}
 	}
@@ -680,10 +575,6 @@ zz_valyria_magic_water_magic.015 = {
 		name = zz_valyria_magic_water_magic.015.opt.z
 	}
 }
-
-
-
-
 zz_valyria_magic_water_magic.016 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -718,7 +609,7 @@ zz_valyria_magic_water_magic.016 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_16
+				SPELL = 016
 			}
 		}
 	}
@@ -726,7 +617,6 @@ zz_valyria_magic_water_magic.016 = {
 		name = zz_valyria_magic_water_magic.016.opt.z
 	}
 }
-
 zz_valyria_magic_water_magic.017 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -761,7 +651,7 @@ zz_valyria_magic_water_magic.017 = {
 			}
 			zz_valyria_magic_cast_effect = { 
 				SKILL = water_magic
-				SPELL  = zz_valyria_magic_water_magic_17
+				SPELL = 017
 			}
 		}
 	}
