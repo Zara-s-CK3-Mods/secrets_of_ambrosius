@@ -31,3 +31,6 @@
  zz_valyria_mages_staff_desc:0 "A staff of office for a master of the Higher Mysteries, through which the forces of magic may be channelled and commanded."
  c_merchant_ambrosius:0 "$dynn_Ambrosius$ $c_merchant_suffix$"
  c_merchant_ambrosius_article:0 "$DEFAULT_TITLE_NAME_ARTICLE$"
+ zz_take_face_decision:0 "Take a New Face"
+ zz_take_face_decision_tooltip:0 "Reshape your features into those of another"
+ zz_take_face_decision_confirm:0 "Take the face"

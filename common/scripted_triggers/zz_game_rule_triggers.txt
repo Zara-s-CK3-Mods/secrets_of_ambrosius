@@ -1,21 +1,20 @@
-harm_game_rule_enablement_trigger = {
+﻿harm_game_rule_enablement_trigger = {
 	# Disable entirely if harm_safe.
-	trigger_if = {
-		limit = { has_game_rule = harm_safe }
-		always = no
+	switch = {
+		trigger = has_game_rule
+		harm_safe = {
+			always = no
+		}
+		harm_target_player_only = {
+			is_ai = no
+		}
+		harm_target_ai_only = {
+			is_ai = yes
+		}
+		fallback = {
+			always = yes
+		}
 	}
-	# harm_target_player_only
-	trigger_else_if = {
-		limit = { has_game_rule = harm_target_player_only }
-		is_ai = no
-	}
-	# harm_target_ai_only
-	trigger_else_if = {
-		limit = { has_game_rule = harm_target_ai_only }
-		is_ai = yes
-	}
-	# harm_target_all
-	trigger_else = { always = yes }
 	# Never just kill the player if it'd utterly game-over them.
 	trigger_if = {
 		limit = { is_ai = no }
@@ -26,10 +25,9 @@ harm_game_rule_enablement_trigger = {
 	}
 	# Immortals do not receive harm events, as they would be inevitably killed by them over a long enough period of time.
 	NOT = { has_trait_with_flag = is_immortal }
-	NOT = {
-		has_character_modifier = zz_valyria_magic_blood_magic_011_modifier
-	}
-	NOT = {
-		has_character_modifier = zz_valyria_magic_blood_magic_012_modifier
-	}
+	## SOTHM added
+	NOT = { has_trait = immortal }
+	NOT = { has_trait = zz_valyrian_longevity }
+	NOT = { has_character_modifier = zz_valyria_magic_blood_magic_011_modifier }
+	NOT = { has_character_modifier = zz_valyria_magic_blood_magic_012_modifier }
 }

@@ -544,9 +544,6 @@ zz_valyria_stop_search_for_magic_decision = {
 	is_valid_showing_failures_only = {
 		is_at_war = no
 	}
-	widget = {
-		
-	}
 
 	cost = {
 	}
