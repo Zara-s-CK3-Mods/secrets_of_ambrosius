@@ -142,7 +142,7 @@
 						}
 						## Big RIP, scope:unlucky_guest.
 						scope:activity = {
-							every_attending_character ?= {
+							every_attending_character = {
 								zz_valyria_mana_gain = {
 									MANAGAIN = zz_blood_sacrifice_amount
 								}

@@ -10,7 +10,7 @@ zz_mages_education = {
 		save_scope_as = child
 		court_owner ?= {
 			save_scope_as = court_owner
-			every_court_position_holder ?= {
+			every_court_position_holder = {
 				type = zz_valyria_court_mages_court_position
 				if = {
 					limit = { has_variable = court_tutor_teach_kids }
