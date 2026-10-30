@@ -354,7 +354,7 @@ zz_magister = {
 
 	same_opinion_if_same_faith = 100
 	same_opinion = 20
-	faith_modifier = {
+	rite_modifier = {
 		parameter = witchcraft_illegal
 		religious_head_opinion = -30
 		same_faith_opinion = -30
@@ -364,7 +364,7 @@ zz_magister = {
 		domain_tax_same_faith_mult = -0.2
 		popular_opinion_add = -10
 	}
-	faith_modifier = {
+	rite_modifier = {
 		parameter = witchcraft_shunned
 		religious_head_opinion = -15
 		same_faith_opinion = -15

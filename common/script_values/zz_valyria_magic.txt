@@ -159,7 +159,7 @@ zz_valyria_mana_gain_mult = {
 	}
 	add = {
 		value = 0
-		every_court_position_holder ?= {
+		every_court_position_holder = {
 			type = zz_valyria_court_mages_court_position
 			switch = {
 				trigger = aptitude:zz_valyria_court_mages_court_position
@@ -197,7 +197,7 @@ zz_valyria_mana_gain_mult = {
 	add = {
 		value = 0 
 		employer ?= {
-			every_court_position_holder ?= {
+			every_court_position_holder = {
 				type = zz_valyria_court_mages_court_position
 				switch = {
 					trigger = aptitude:zz_valyria_court_mages_court_position

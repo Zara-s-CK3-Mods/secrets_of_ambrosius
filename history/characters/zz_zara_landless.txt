@@ -56,6 +56,17 @@
 			}
 			add_trait_xp = {
 				trait = lifestyle_merchant
+				track = caravaneer
+				value = 100
+			}
+			add_trait_xp = {
+				trait = lifestyle_merchant
+				track = artisan
+				value = 100
+			}
+			add_trait_xp = {
+				trait = lifestyle_merchant
+				track = creditor
 				value = 100
 			}
 			add_trait_xp = {
@@ -92,102 +103,38 @@
 				XPGAIN = 100 
 				XPTRACK = blood_magic
 			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_blood_magic_01
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_blood_magic_02
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_blood_magic_05
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_blood_magic_07
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_blood_magic_08
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_blood_magic_09
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_blood_magic_10
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_blood_magic_11
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_blood_magic_18
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_blood_magic_19
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_blood_magic_20
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_blood_magic_21
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_blood_magic_22
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_01
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_02
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_03
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_05
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_06
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_09
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_10
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_11
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_12
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_13
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_14
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_15
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_47
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_48
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_dream_magic_49
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_alchemy_magic_03
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_fire_magic_01
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_air_magic_04
-			}
-			zz_add_spell = { 
-				SPELL = zz_valyria_magic_water_magic_04
-			}
+			zz_add_spell = { SPELLSCHOOL = blood NUMBER = 001 }
+			zz_add_spell = { SPELLSCHOOL = blood NUMBER = 002 }
+			zz_add_spell = { SPELLSCHOOL = blood NUMBER = 005 }
+			zz_add_spell = { SPELLSCHOOL = blood NUMBER = 007 }
+			zz_add_spell = { SPELLSCHOOL = blood NUMBER = 008 }
+			zz_add_spell = { SPELLSCHOOL = blood NUMBER = 009 }
+			zz_add_spell = { SPELLSCHOOL = blood NUMBER = 010 }
+			zz_add_spell = { SPELLSCHOOL = blood NUMBER = 011 }
+			zz_add_spell = { SPELLSCHOOL = blood NUMBER = 018 }
+			zz_add_spell = { SPELLSCHOOL = blood NUMBER = 019 }
+			zz_add_spell = { SPELLSCHOOL = blood NUMBER = 020 }
+			zz_add_spell = { SPELLSCHOOL = blood NUMBER = 021 }
+			zz_add_spell = { SPELLSCHOOL = blood NUMBER = 022 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 001 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 002 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 003 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 005 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 006 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 009 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 010 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 011 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 012 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 013 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 014 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 015 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 047 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 048 }
+			zz_add_spell = { SPELLSCHOOL = dream NUMBER = 049 }
+			zz_add_spell = { SPELLSCHOOL = alchemy NUMBER = 003 }
+			zz_add_spell = { SPELLSCHOOL = fire NUMBER = 001 }
+			zz_add_spell = { SPELLSCHOOL = air NUMBER = 004 }
+			zz_add_spell = { SPELLSCHOOL = water NUMBER = 004 }
 		}
 	}
 
