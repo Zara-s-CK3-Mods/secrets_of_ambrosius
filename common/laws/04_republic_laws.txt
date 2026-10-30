@@ -1,0 +1,1310 @@
+﻿#################
+# REPUBLIC LAWS #
+#################
+### Republic Types
+
+@republic_type_prestige_cost = 2000
+@republic_type_treasury_cost = 1000
+
+# Realm size penalty is X% of base cost per county
+@republic_type_realm_size_prestige_cost = @[republic_type_prestige_cost * 0.01]
+@republic_type_realm_size_treasury_cost = @[republic_type_treasury_cost * 0.01]
+@republic_type_realm_size_popular_prestige_cost = @[republic_type_prestige_cost * 0.1]
+@republic_type_realm_size_popular_treasury_cost = @[republic_type_treasury_cost * 0.1]
+
+republic_type = {
+	default = republic_type_communal
+	flag = realm_law
+	flag = republican_type_law
+	
+	republic_type_communal = {
+		pass_phrase =  republic_type_pass_phrase
+		confirmation_title = republic_type_pass_phrase
+		confirmation_button_text = republic_type_confirmation_button_text
+
+		modifier = {
+			character_capital_county_monthly_prosperity_growth_add = 0.2
+		}
+
+		flag = uses_republic_type
+		flag = can_change_succession_laws
+
+		can_keep = { landed_republican_trigger = yes }
+
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @republic_type_prestige_cost
+					desc = BASE
+				}
+				if = {
+					limit = { sub_realm_size > 1 }
+					add = {
+						value = @republic_type_realm_size_prestige_cost
+						multiply = sub_realm_size # Per county within the (sub)realm
+						desc = realm_size
+					}
+				}
+			}
+			treasury = {
+				add = {
+					value = @republic_type_treasury_cost
+					desc = BASE
+				}
+				if = {
+					limit = { sub_realm_size > 1 }
+					add = {
+						value = @republic_type_realm_size_treasury_cost
+						multiply = sub_realm_size # Per county within the (sub)realm
+						desc = realm_size
+					}
+				}
+			}
+		}
+		
+		on_pass = {
+			# Remove modifiers.
+			remove_law_related_modifiers_effect = yes
+		}
+		
+		requires_approve = { always = no }
+
+		ai_will_do = { # TODO - Add AI logic
+			value = 0
+		}
+	}
+	
+	republic_type_maritime = {
+		pass_phrase =  republic_type_pass_phrase
+		confirmation_title = republic_type_pass_phrase
+		confirmation_button_text = republic_type_confirmation_button_text
+		
+		modifier = {
+			embarkation_cost_mult = -0.5
+			sea_travel_danger = low_sea_danger_reduction
+			coastal_sea_travel_danger = low_sea_danger_reduction
+			trade_range_mult = 0.5
+		}
+
+		flag = uses_camp_purpose
+		flag = can_change_succession_laws
+		flag = can_change_purpose_for_free
+		
+		can_keep = { landed_republican_trigger = yes }
+		
+		can_pass = {
+			custom_tooltip = {
+				text = you_have_no_coastal_counties_desc
+				any_sub_realm_county ?= {
+					count >= 1
+					is_coastal_county = yes
+				}
+			}
+		}
+		
+		should_start_with = {
+			government_has_flag = government_is_republic
+			highest_held_title_tier >= tier_duchy
+			capital_county ?= {
+				is_coastal_county = yes
+			}
+		}
+
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @republic_type_prestige_cost
+					desc = BASE
+				}
+				if = {
+					limit = { sub_realm_size > 1 }
+					add = {
+						value = @republic_type_realm_size_prestige_cost
+						multiply = sub_realm_size # Per county within the (sub)realm
+						desc = realm_size
+					}
+				}
+				if = {
+					limit = {
+						capital_county ?= {
+							is_coastal_county = yes
+						}
+					}
+					subtract = {
+						value = @republic_type_prestige_cost
+						multiply = 0.25
+						desc = capital_county_is_coastal_desc
+					}
+				}
+			}
+			treasury = {
+				add = {
+					value = @republic_type_treasury_cost
+					desc = BASE
+				}
+				if = {
+					limit = { sub_realm_size > 1 }
+					add = {
+						value = @republic_type_realm_size_treasury_cost
+						multiply = sub_realm_size # Per county within the (sub)realm
+						desc = realm_size
+					}
+				}
+				if = {
+					limit = {
+						capital_county ?= {
+							is_coastal_county = yes
+						}
+					}
+					subtract = {
+						value = @republic_type_treasury_cost
+						multiply = 0.25
+						desc = capital_county_is_coastal_desc
+					}
+				}
+			}
+		}
+		
+		on_pass = {
+			# Remove modifiers.
+			remove_law_related_modifiers_effect = yes
+		}
+		
+		requires_approve = { always = no }
+
+		ai_will_do = { # TODO - Add AI logic
+			value = 0
+		}
+	}
+	
+	republic_type_civic = {
+		pass_phrase =  republic_type_pass_phrase
+		confirmation_title = republic_type_pass_phrase
+		confirmation_button_text = republic_type_confirmation_button_text
+		
+		modifier = {
+			character_travel_speed_mult = 0.15
+			prosperity_growth = 0.1
+			max_trade_goods_on_route = 2
+		}
+
+		flag = uses_republic_type
+		flag = can_change_succession_laws
+
+		can_keep = { landed_republican_trigger = yes }
+		
+		should_start_with = {
+			government_has_flag = government_is_republic
+			capital_county ?= {
+				is_coastal_county = no
+			}
+			culture ?= {
+				has_cultural_pillar = heritage_latin
+			}
+		}
+
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @republic_type_prestige_cost
+					desc = BASE
+				}
+				if = {
+					limit = { sub_realm_size > 1 }
+					add = {
+						value = @republic_type_realm_size_prestige_cost
+						multiply = sub_realm_size # Per county within the (sub)realm
+						desc = realm_size
+					}
+				}
+				if = {
+					limit = {
+						capital_county ?= {
+							is_coastal_county = no
+						}
+					}
+					subtract = {
+						value = @republic_type_prestige_cost
+						multiply = 0.25
+						desc = capital_county_is_inland_desc
+					}
+				}
+			}
+			treasury = {
+				add = {
+					value = @republic_type_treasury_cost
+					desc = BASE
+				}
+				if = {
+					limit = { sub_realm_size > 1 }
+					add = {
+						value = @republic_type_realm_size_treasury_cost
+						multiply = sub_realm_size # Per county within the (sub)realm
+						desc = realm_size
+					}
+				}
+				if = {
+					limit = {
+						capital_county ?= {
+							is_coastal_county = no
+						}
+					}
+					subtract = {
+						value = @republic_type_treasury_cost
+						multiply = 0.25
+						desc = capital_county_is_inland_desc
+					}
+				}
+			}
+		}
+		
+		on_pass = {
+			# Remove modifiers.
+			remove_law_related_modifiers_effect = yes
+		}
+		
+		requires_approve = { always = no }
+
+		ai_will_do = { # TODO - Add AI logic
+			value = 0
+		}
+	}
+	
+	republic_type_noble = {
+		pass_phrase =  republic_type_pass_phrase
+		confirmation_title = republic_type_pass_phrase
+		confirmation_button_text = republic_type_confirmation_button_text
+		
+		modifier = {
+			monthly_prestige_gain_mult = 0.15
+			knight_limit = 2
+			feudal_government_tax_contribution_mult = 0.25
+			clan_government_tax_contribution_mult = 0.25
+		}
+
+		flag = uses_republic_type
+		flag = can_change_succession_laws
+
+		can_keep = { landed_republican_trigger = yes }
+		
+		should_start_with = {
+			government_has_flag = government_is_republic
+			capital_county ?= {
+				is_coastal_county = no
+			}
+			culture ?= {
+				NOT = {
+					has_cultural_pillar = heritage_latin
+				}
+			}
+		}
+
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @republic_type_prestige_cost
+					desc = BASE
+				}
+				if = {
+					limit = { sub_realm_size > 1 }
+					add = {
+						value = @republic_type_realm_size_prestige_cost
+						multiply = sub_realm_size # Per county within the (sub)realm
+						desc = realm_size
+					}
+				}
+				if = {
+					limit = {
+						culture ?= { has_cultural_tradition = tradition_ruling_caste }
+					}
+					subtract = {
+						value = @republic_type_prestige_cost
+						multiply = 0.1
+						desc = culture_has_ruling_caste_desc
+					}
+				}
+			}
+			treasury = {
+				add = {
+					value = @republic_type_treasury_cost
+					desc = BASE
+				}
+				if = {
+					limit = { sub_realm_size > 1 }
+					add = {
+						value = @republic_type_realm_size_treasury_cost
+						multiply = sub_realm_size # Per county within the (sub)realm
+						desc = realm_size
+					}
+				}
+				if = {
+					limit = {
+						culture ?= { has_cultural_tradition = tradition_ruling_caste }
+					}
+					subtract = {
+						value = @republic_type_treasury_cost
+						multiply = 0.1
+						desc = culture_has_ruling_caste_desc
+					}
+				}
+			}
+		}
+		
+		on_pass = {
+			# Remove modifiers.
+			remove_law_related_modifiers_effect = yes
+		}
+		
+		requires_approve = { always = no }
+
+		ai_will_do = { # TODO - Add AI logic
+			value = 0
+		}
+	}
+	
+	republic_type_popular = {
+		pass_phrase =  republic_type_pass_phrase
+		confirmation_title = republic_type_pass_phrase
+		confirmation_button_text = republic_type_confirmation_button_text
+		
+		modifier = {
+			popular_opinion_add = 20
+			trade_capacity_mult = 0.25
+			same_heritage_county_advantage_add = 8
+		}
+
+		flag = uses_republic_type
+		flag = can_change_succession_laws
+
+		can_keep = { landed_republican_trigger = yes }
+
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @republic_type_prestige_cost
+					desc = BASE
+				}
+				if = {
+					limit = { sub_realm_size > 1 }
+					add = {
+						value = @republic_type_realm_size_popular_prestige_cost
+						multiply = sub_realm_size # Per county within the (sub)realm
+						desc = realm_size
+					}
+				}
+				# Popular opinion - add/subtract 0.5% of base cost per opinion
+				if = {
+					limit = {
+						capital_county ?= { popular_opinion > 0 }
+					}
+					subtract = {
+						value = @republic_type_prestige_cost
+						multiply = {
+							value = capital_county.popular_opinion
+							divide = 200
+						}
+						desc = popular_opinion_concept_desc
+					}
+				}
+				else_if = {
+					limit = {
+						capital_county ?= { popular_opinion < 0 }
+					}
+					add = {
+						value = @republic_type_prestige_cost
+						multiply = {
+							value = capital_county.popular_opinion
+							divide = 200
+						}
+						desc = popular_opinion_concept_desc
+					}
+				}
+				# Title tier
+				if = {
+					limit = {
+						highest_held_title_tier >= tier_kingdom
+					}
+					add = {
+						value = @republic_type_prestige_cost
+						switch = {
+							trigger = primary_title.tier
+							tier_hegemony = { multiply = 7 }
+							tier_empire = { multiply = 3 }
+						}
+						desc = title_tier_desc
+					}
+				}
+				else_if = {
+					limit = {
+						highest_held_title_tier = tier_county
+					}
+					subtract = {
+						value = @republic_type_prestige_cost
+						divide = 2
+						desc = title_tier_desc
+					}
+				}
+			}
+			treasury = {
+				add = {
+					value = @republic_type_treasury_cost
+					desc = BASE
+				}
+				if = {
+					limit = { sub_realm_size > 1 }
+					add = {
+						value = @republic_type_realm_size_popular_treasury_cost
+						multiply = sub_realm_size # Per county within the (sub)realm
+						desc = realm_size
+					}
+				}
+				# Popular opinion - add/subtract 0.5% of base cost per opinion
+				if = {
+					limit = {
+						capital_county ?= { popular_opinion > 0 }
+					}
+					subtract = {
+						value = @republic_type_treasury_cost
+						multiply = {
+							value = capital_county.popular_opinion
+							divide = 200
+						}
+						desc = popular_opinion_concept_desc
+					}
+				}
+				else_if = {
+					limit = {
+						capital_county ?= { popular_opinion < 0 }
+					}
+					add = {
+						value = @republic_type_treasury_cost
+						multiply = {
+							value = capital_county.popular_opinion
+							divide = 200
+						}
+						desc = popular_opinion_concept_desc
+					}
+				}
+				# Title tier
+				if = {
+					limit = {
+						highest_held_title_tier >= tier_kingdom
+					}
+					add = {
+						value = @republic_type_treasury_cost
+						switch = {
+							trigger = primary_title.tier
+							tier_hegemony = { multiply = 7 }
+							tier_empire = { multiply = 3 }
+						}
+						desc = title_tier_desc
+					}
+				}
+				else_if = {
+					limit = {
+						highest_held_title_tier = tier_county
+					}
+					subtract = {
+						value = @republic_type_treasury_cost
+						divide = 2
+						desc = title_tier_desc
+					}
+				}
+			}
+		}
+		
+		on_pass = {
+			# Remove modifiers.
+			remove_law_related_modifiers_effect = yes
+		}
+		
+		requires_approve = { always = no }
+
+		ai_will_do = { # TODO - Add AI logic
+			value = 0
+		}
+	}
+	
+	#republic_type_free_city = {
+	#	pass_phrase =  republic_type_pass_phrase
+	#	confirmation_title = republic_type_pass_phrase
+	#	confirmation_button_text = republic_type_confirmation_button_text
+	#	
+	#	modifier = {
+	#		monthly_county_control_growth_factor = 0.1
+	#	}
+	#
+	#	flag = uses_republic_type
+	#	flag = can_change_succession_laws
+	#	
+	#	potential = {
+	#		this != top_liege
+	#		top_liege = {
+	#			NOT = { government_has_flag = government_is_republic }
+	#			has_title = title:e_hre
+	#		}
+	#	}
+	#
+	#	can_keep = { government_has_flag = government_is_republic }
+	#	
+	#	can_pass = {
+	#		custom_tooltip = {
+	#			text = no_free_city_status
+	#			#always = no
+	#		}
+	#		liege = {
+	#			NOT = { government_has_flag = government_is_republic }
+	#		}
+	#	}
+	#
+	#	pass_cost = {
+	#		prestige = {
+	#			add = {
+	#				value = @republic_type_prestige_cost
+	#				desc = BASE
+	#			}
+	#		}
+	#		treasury = {
+	#			add = {
+	#				value = @republic_type_treasury_cost
+	#				desc = BASE
+	#			}
+	#		}
+	#	}
+	#	
+	#	on_pass = {
+	#		# Remove modifiers.
+	#		remove_law_related_modifiers_effect = yes
+	#	}
+	#
+	#	ai_will_do = { # TODO - Add AI logic
+	#		value = 0
+	#	}
+	#}
+}
+
+### Free City Status law
+republic_free_city_status = {
+	default = republic_free_city_status_1_limited
+	flag = imperial_policy
+	flag = republican_law
+	
+	can_change_law_group = {
+		custom_tooltip = {
+			text = have_free_city_status
+			#always = no
+		}
+	}
+	
+	republic_free_city_status_1_limited = {
+		potential = {
+			this != top_liege
+			top_liege = {
+				#NOT = { government_has_flag = government_is_republic }
+				has_title = title:e_hre
+			}
+		}
+		
+		can_keep = {
+			landed_republican_trigger = yes
+			this != top_liege
+		}
+		
+		can_pass = {
+			custom_tooltip = {
+				text = have_free_city_status
+				always = no
+			}
+		}
+		
+		pass_cost = {
+		}
+		
+		on_pass = {
+		}
+		
+		ai_will_do = {
+			value = 0
+		}
+	}
+	republic_free_city_status_2_granted = {
+		flag = title_revocation_allowed
+		
+		potential = {
+			this != top_liege
+			top_liege = {
+				#NOT = { government_has_flag = government_is_republic }
+				has_title = title:e_hre
+			}
+		}
+		
+		can_keep = {
+			landed_republican_trigger = yes
+			this != top_liege
+		}
+		
+		can_pass = {
+			custom_tooltip = {
+				text = no_free_city_status
+				always = no
+			}
+		}
+		
+		pass_cost = {
+		}
+		
+		on_pass = {
+		}
+		
+		ai_will_do = {
+			value = 1
+		}
+	}
+}
+
+### Base Laws
+
+@base_republic_prestige_cost = 100
+@base_republic_treasury_cost = 50
+
+# Title Revocation
+republic_title_revocation = {
+	default = republic_title_revocation_2_allowed
+	flag = imperial_policy
+	flag = republican_law
+
+	can_propose = { gdp_can_propose_law_changes_trigger = yes }
+
+	republic_title_revocation_1_disallowed = {
+		can_keep = {
+			landed_republican_trigger = yes
+		}
+		
+		can_pass = {
+			gdp_can_pass_republic_law_trigger = yes
+		}
+		
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @base_republic_prestige_cost
+					desc = BASE
+				}
+			}
+			treasury_or_gold = {
+				add = {
+					value = @base_republic_treasury_cost
+					desc = BASE
+				}
+			}
+		}
+		
+		on_pass = {
+		}
+		
+		requires_approve = { gdp_requires_assembly_approval_trigger = yes }
+		
+		ai_approval = {
+			value = ai_law_approval_title_revocation_1_value
+			add = ai_law_approval_republic_base_value
+		}
+		
+		ai_will_do = {
+			value = 0
+		}
+	}
+	republic_title_revocation_2_allowed = {
+		flag = title_revocation_allowed
+		
+		can_keep = {
+			landed_republican_trigger = yes
+		}
+		
+		can_pass = {
+			gdp_can_pass_republic_law_trigger = yes
+		}
+		
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @base_republic_prestige_cost
+					desc = BASE
+				}
+			}
+			treasury_or_gold = {
+				add = {
+					value = @base_republic_treasury_cost
+					desc = BASE
+				}
+			}
+		}
+		
+		on_pass = {
+		}
+		
+		requires_approve = { gdp_requires_assembly_approval_trigger = yes }
+		
+		ai_approval = {
+			value = ai_law_approval_title_revocation_2_value
+			add = ai_law_approval_republic_base_value
+		}
+		
+		ai_will_do = {
+			value = 1
+		}
+	}
+}
+
+# Vassal Retraction
+republic_retract_vassal = {
+	default = republic_retract_vassal_1_disallowed
+	flag = imperial_policy
+	flag = republican_law
+
+	can_propose = { gdp_can_propose_law_changes_trigger = yes }
+	
+	republic_retract_vassal_1_disallowed = {
+		can_keep = {
+			landed_republican_trigger = yes
+		}
+		
+		can_pass = {
+			gdp_can_pass_republic_law_trigger = yes
+		}
+		
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @base_republic_prestige_cost
+					desc = BASE
+				}
+			}
+			treasury_or_gold = {
+				add = {
+					value = @base_republic_treasury_cost
+					desc = BASE
+				}
+			}
+		}
+		
+		on_pass = {
+		}
+		
+		requires_approve = { gdp_requires_assembly_approval_trigger = yes }
+		
+		ai_approval = {
+			value = ai_law_approval_retract_vassal_1_value
+			add = ai_law_approval_republic_base_value
+		}
+		
+		ai_will_do = {
+			value = 0
+		}
+	}
+	
+	republic_retract_vassal_2_allowed = {
+		flag = vassal_retraction_allowed
+		
+		can_keep = {
+			landed_republican_trigger = yes
+		}
+		
+		can_pass = {
+			gdp_can_pass_republic_law_trigger = yes
+			capital_county ?= {
+				popular_opinion >= 50
+			}
+		}
+		
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @base_republic_prestige_cost
+					desc = BASE
+				}
+			}
+			treasury_or_gold = {
+				add = {
+					value = @base_republic_treasury_cost
+					desc = BASE
+				}
+			}
+		}
+		
+		on_pass = {
+		}
+		
+		requires_approve = { gdp_requires_assembly_approval_trigger = yes }
+		
+		ai_approval = {
+			value = ai_law_approval_retract_vassal_2_value
+			add = ai_law_approval_republic_base_value
+		}
+		
+		ai_will_do = {
+			value = 1
+		}
+	}
+}
+
+# Refusal is Treason
+republic_vassal_refusal = {
+	default = republic_vassal_refusal_1_allowed
+	flag = imperial_policy
+	flag = republican_law
+
+	can_propose = { gdp_can_propose_law_changes_trigger = yes }
+	
+	republic_vassal_refusal_1_allowed = {
+		can_keep = {
+			landed_republican_trigger = yes
+		}
+		
+		can_pass = {
+			gdp_can_pass_republic_law_trigger = yes
+		}
+
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @base_republic_prestige_cost
+					desc = BASE
+				}
+			}
+			treasury_or_gold = {
+				add = {
+					value = @base_republic_treasury_cost
+					desc = BASE
+				}
+			}
+		}
+		
+		on_pass = {
+		}
+
+		requires_approve = { gdp_requires_assembly_approval_trigger = yes }
+		
+		ai_approval = {
+			value = ai_law_approval_vassal_refusal_1_value
+			add = ai_law_approval_republic_base_value
+		}
+		
+		ai_will_do = {
+			value = 1
+		}
+	}
+	
+	republic_vassal_refusal_2_treason = {
+		flag = vassal_refusal_is_treason
+		
+		can_keep = {
+			landed_republican_trigger = yes
+		}
+		
+		can_pass = {
+			gdp_can_pass_republic_law_trigger = yes
+			capital_county ?= {
+				popular_opinion >= 90
+			}
+		}
+
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @base_republic_prestige_cost
+					desc = BASE
+				}
+			}
+			treasury_or_gold = {
+				add = {
+					value = @base_republic_treasury_cost
+					desc = BASE
+				}
+			}
+		}
+		
+		on_pass = {
+		}
+		
+		requires_approve = { gdp_requires_assembly_approval_trigger = yes }
+		
+		ai_approval = {
+			value = ai_law_approval_vassal_refusal_2_value
+			add = ai_law_approval_republic_base_value
+		}
+		
+		ai_will_do = {
+			value = 0
+		}
+	}
+}
+
+## Assembly Composition Laws
+#
+# Note: Realms with a government type that use assembly will expect to have this law group.
+#
+republic_assembly_composition_laws = {
+	default = republic_assembly_composition_patrician
+	flag = republican_law
+	flag = imperial_policy
+
+	can_change_law_group = {
+		OR = {
+			this = top_liege
+			liege ?= {
+				NOT = { government_has_flag = government_is_republic }
+			}
+		}
+	}
+
+	# Assembly consists of liege + family heads
+	republic_assembly_composition_patrician = {
+		can_keep = {
+			government_has_flag = government_is_republic
+		}
+
+		can_have = {
+			government_has_flag = government_is_republic
+		}
+
+		can_pass = {
+			government_has_flag = government_is_republic
+			gdp_can_pass_republic_law_trigger = yes
+		}
+		
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @base_republic_prestige_cost
+					desc = BASE
+				}
+			}
+		}
+
+		assembly = {
+			major = {
+				sources = { vassals }
+				limit = {
+					government_has_flag = government_is_republic
+					any_held_title = { is_noble_family_title = yes }
+				}
+			}
+		}
+		
+		on_after_pass = {
+			top_liege = {
+				update_assembly = yes
+			}
+		}
+		
+		requires_approve = { always = yes }
+		
+		ai_approval = {
+			value = ai_law_approval_assembly_composition_patrician_value
+			add = ai_law_approval_republic_base_value
+		}
+		
+		ai_will_do = {
+			value = 0 # TODO - Add proper AI values and weights
+		}
+	}
+
+	# Assembly consists of liege + councillors
+	republic_assembly_composition_council = {
+		can_keep = {
+			landed_republican_trigger = yes
+		}
+
+		can_have = {
+			landed_republican_trigger = yes
+		}
+
+		can_pass = {
+			landed_republican_trigger = yes
+			gdp_can_pass_republic_law_trigger = yes
+		}
+		
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @base_republic_prestige_cost
+					desc = BASE
+				}
+			}
+		}
+
+		assembly = {
+			major = {
+				sources = { vassals }
+				limit = {
+					is_councillor_of = top_liege
+				}
+			}
+		}
+
+		on_after_pass = {
+			top_liege = {
+				update_assembly = yes
+			}
+		}
+		
+		requires_approve = { always = yes }
+		
+		ai_approval = {
+			value = ai_law_approval_assembly_composition_council_value
+			add = ai_law_approval_republic_base_value
+		}
+		
+		ai_will_do = {
+			value = 0 # TODO - Add proper AI values and weights
+		}
+	}
+
+	# Assembly consists of patricians and city holders
+	republic_assembly_composition_general = {
+		can_keep = {
+			landed_republican_trigger = yes
+		}
+
+		can_have = {
+			landed_republican_trigger = yes
+		}
+
+		can_pass = {
+			landed_republican_trigger = yes
+			gdp_can_pass_republic_law_trigger = yes
+		}
+		
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @base_republic_prestige_cost
+					desc = BASE
+				}
+			}
+		}
+
+		on_after_pass = {
+			top_liege = {
+				update_assembly = yes
+			}
+		}
+
+		assembly = {
+			major = {
+				sources = { vassals }
+				limit = {
+					government_has_flag = government_is_republic
+					any_held_title = { is_noble_family_title = yes }
+				}
+			}
+			minor = {
+				sources = { baronies }
+				limit = {
+					highest_held_title_tier = tier_barony
+					any_directly_owned_province = {
+						has_holding_type = city_holding
+					}
+				}
+			}
+		}
+
+		requires_approve = { always = yes }
+
+		ai_approval = {
+			value = ai_law_approval_assembly_composition_general_value
+			add = ai_law_approval_republic_base_value
+		}
+
+		ai_will_do = {
+			value = 0 # TODO_GDP_CD - Add proper AI values and weights
+		}
+	}
+
+	# Assembly consists of all vassal title holders
+	republic_assembly_composition_parliament = {
+		can_keep = {
+			landed_republican_trigger = yes
+		}
+
+		can_have = {
+			landed_republican_trigger = yes
+		}
+
+		can_pass = {
+			landed_republican_trigger = yes
+			gdp_can_pass_republic_law_trigger = yes
+		}
+		
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @base_republic_prestige_cost
+					desc = BASE
+				}
+			}
+		}
+
+		on_after_pass = {
+			top_liege = {
+				update_assembly = yes
+			}
+		}
+
+		assembly = {
+			major = {
+				sources = { vassals }
+				limit = {
+					highest_held_title_tier >= tier_county
+				}
+			}
+			minor = {
+				sources = { baronies }
+				limit = {
+					highest_held_title_tier = tier_barony
+				}
+			}
+		}
+
+		requires_approve = { always = yes }
+
+		ai_approval = {
+			value = ai_law_approval_assembly_composition_parliament_value
+			add = ai_law_approval_republic_base_value
+		}
+
+		ai_will_do = {
+			value = 0 # TODO_GDP_CD - Add proper AI values and weights
+		}
+	}
+}
+
+## Assembly Authority
+#
+# Note: Realms with a government type that use assembly will expect to have this law group.
+#
+republic_assembly_authority_laws = {
+	default = republic_assembly_authority_constitutional
+	flag = republican_law
+	flag = imperial_policy
+
+	can_change_law_group = {
+		OR = {
+			this = top_liege
+			liege ?= {
+				NOT = { government_has_flag = government_is_republic }
+			}
+		}
+	}
+
+	# Votes on succession, laws, and decrees
+	republic_assembly_authority_constitutional = {
+		can_keep = {
+			landed_republican_trigger = yes
+		}
+
+		can_have = {
+			landed_republican_trigger = yes
+		}
+
+		can_pass = {
+			landed_republican_trigger = yes
+			gdp_can_pass_republic_law_trigger = yes
+		}
+
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @base_republic_prestige_cost
+					desc = BASE
+				}
+			}
+		}
+
+		requires_approve = { always = yes }
+		voting_session = { always = yes }
+
+		ai_approval = {
+			value = ai_law_approval_assembly_authority_constitutional_value
+			add = ai_law_approval_republic_base_value
+		}
+
+		ai_will_do = {
+			value = 10 # TODO - Add proper AI values and weights
+		}
+	}
+
+	# Votes on succession and laws
+	republic_assembly_authority_legislative = {
+		can_keep = {
+			landed_republican_trigger = yes
+		}
+
+		can_have = {
+			landed_republican_trigger = yes
+		}
+
+		can_pass = {
+			landed_republican_trigger = yes
+			gdp_can_pass_republic_law_trigger = yes
+		}
+
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @base_republic_prestige_cost
+					desc = BASE
+				}
+			}
+		}
+
+		requires_approve = { always = yes }
+		voting_session = { always = yes }
+
+		ai_approval = {
+			value = ai_law_approval_assembly_authority_legislative_value
+			add = ai_law_approval_republic_base_value
+		}
+
+		ai_will_do = {
+			value = 0 # TODO - Add proper AI values and weights
+		}
+	}
+
+	# Votes on succession
+	republic_assembly_authority_ceremonial = {
+		can_keep = {
+			landed_republican_trigger = yes
+		}
+
+		can_have = {
+			landed_republican_trigger = yes
+		}
+
+		can_pass = {
+			landed_republican_trigger = yes
+			gdp_can_pass_republic_law_trigger = yes
+		}
+
+		pass_cost = {
+			prestige = {
+				add = {
+					value = @base_republic_prestige_cost
+					desc = BASE
+				}
+			}
+		}
+
+		requires_approve = { always = yes }
+		voting_session = { always = no }
+
+		ai_approval = {
+			value = ai_law_approval_assembly_authority_ceremonial_value
+			add = ai_law_approval_republic_base_value
+		}
+
+		ai_will_do = {
+			value = 0 # TODO - Add proper AI values and weights
+		}
+	}
+}	

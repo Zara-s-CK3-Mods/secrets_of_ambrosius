@@ -102,9 +102,36 @@ zz_valyria_magic_blood_magic_01_effect = {
 					remove_character_modifier = gangrene_modifier
 				}
 			}
+			if = { 
+				limit = {
+					has_character_modifier = reduced_sex_drive_modifier
+				}
+				remove_character_modifier = reduced_sex_drive_modifier
+			}
+			if = { 
+				limit = {
+					has_character_modifier = compromised_fertility_modifier
+				}
+				remove_character_modifier = compromised_fertility_modifier
+			}
+			if = { 
+				limit = {
+					has_character_modifier = no_longer_fecund_modifier
+				}
+				remove_character_modifier = no_longer_fecund_modifier
+			}
+			if = { 
+				limit = {
+					has_character_modifier = no_more_children_modifier
+				}
+				remove_character_modifier = no_more_children_modifier
+			}
 			else = { 
 				switch = { 
 					trigger = has_trait 
+					burned = {
+						remove_trait = burned
+					}
 					wounded_1 = {
 						remove_trait = wounded_1
 					}
@@ -752,6 +779,8 @@ zz_valyria_magic_blood_magic_05_effect = {
 						change_first_name = { template_character = scope:target_char }
 						set_father = scope:target_char.father
 						set_mother = scope:target_char.mother
+						remove_trait = dragonrider
+						remove_trait = nightswatch
 						remove_trait = pregnant
 						remove_trait = infertile
 					}
@@ -792,6 +821,8 @@ zz_valyria_magic_blood_magic_05_effect = {
 						change_first_name = { template_character = scope:target_char }
 						set_father = scope:target_char.father
 						set_mother = scope:target_char.mother
+						remove_trait = dragonrider
+						remove_trait = nightswatch
 						remove_trait = pregnant
 						remove_trait = infertile
 					}
@@ -825,6 +856,8 @@ zz_valyria_magic_blood_magic_05_effect = {
 						change_first_name = { template_character = scope:target_char }
 						set_father = scope:target_char.father
 						set_mother = scope:target_char.mother
+						remove_trait = dragonrider
+						remove_trait = nightswatch
 						remove_trait = pregnant
 						remove_trait = infertile
 					}
@@ -844,7 +877,7 @@ zz_valyria_magic_blood_magic_05_effect = {
 			}
 			
 			
-			trigger_event = zz_valyria_magic_blood_magic.0003 
+			trigger_event = zz_valyria_magic_blood_magic.00502 
 		}
 		25 = {
 			send_interface_message = {
@@ -1596,7 +1629,7 @@ zz_valyria_magic_blood_magic_22_effect = {
 	random_list = { 
 		50 = {
 			modifier = { 
-				add = zz_valyria_magic_blood_magic_06_value 
+				add = zz_valyria_magic_blood_magic_22_value 
 			}
 			send_interface_message = {
 				type = send_interface_message_as_feed_spell_outcome
@@ -1605,8 +1638,6 @@ zz_valyria_magic_blood_magic_22_effect = {
 				left_icon = scope:secondary_recipient
 				right_icon = scope:recipient
 				custom_tooltip = zz_valyria_magic_blood_magic_22.toast.tt
-			}
-			scope:target = {
 			}
 			scope:recipient = {		
 				add_trait_force_tooltip = zz_valyrian_longevity
@@ -2027,6 +2058,9 @@ zz_valyria_magic_blood_magic_22_effect = {
 			}
 		}
 		25 = {
+			scope:target = {
+				agot_dudify_egg = yes
+			}
 			send_interface_message = {
 				type = send_interface_message_as_toast_spell_failure
 				title = zz_valyria_magic_blood_magic_22_f.toast.t
@@ -2536,8 +2570,8 @@ zz_valyria_magic_blood_magic_23_effect = {
 	scope:recipient = {
 		zz_valyria_magic_apply_character_modifier_effect = { 
 			MODIFIER = zz_valyria_magic_blood_magic_23_modifier
-			DURATION = zz_valyria_magic_blood_magic_23_value
-			BOOSTED_DURATION = zz_valyria_magic_blood_magic_23_value_2
+			DURATION = zz_valyria_magic_blood_magic_23_value_01
+			BOOSTED_DURATION = zz_valyria_magic_blood_magic_23_value_02
 		}
 	}	
 	scope:recipient = {		

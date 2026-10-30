@@ -19,12 +19,42 @@ zz_magister = {
 					has_trait_xp = {
 						trait = zz_magister
 						track = secrets_of_the_higher_mysteries
-						value < 100
+						value < 25
 					}
 				}
 				desc = magic_acolyte
 			}
-			desc = magic_master
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = zz_magister
+						track = secrets_of_the_higher_mysteries
+						value < 50
+					}
+				}
+				desc = magic_apprentice
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = zz_magister
+						track = secrets_of_the_higher_mysteries
+						value < 75
+					}
+				}
+				desc = magic_scholar
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = zz_magister
+						track = secrets_of_the_higher_mysteries
+						value < 100
+					}
+				}
+				desc = magic_master
+			}
+			desc = magic_archmage
 		}
 	}
 	desc = {
@@ -40,7 +70,37 @@ zz_magister = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = higher_mysteries_01.dds
+				desc = zz_mage_01.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = zz_magister
+						track = secrets_of_the_higher_mysteries
+						value < 25
+					}
+				}
+				desc = zz_mage_01.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = zz_magister
+						track = secrets_of_the_higher_mysteries
+						value < 50
+					}
+				}
+				desc = zz_mage_02.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = zz_magister
+						track = secrets_of_the_higher_mysteries
+						value < 75
+					}
+				}
+				desc = zz_mage_03.dds
 			}
 			triggered_desc = {
 				trigger = {
@@ -50,13 +110,23 @@ zz_magister = {
 						value < 100
 					}
 				}
-				desc = higher_mysteries_01.dds
+				desc = zz_mage_04.dds
 			}
-			desc = higher_mysteries_02.dds
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = zz_magister
+						track = secrets_of_the_higher_mysteries
+						value >= 100
+					}
+				}
+				desc = zz_mage_05.dds
+			}
+			desc = zz_mage_05.dds
 		}
 	}
 	category = lifestyle
-
+	shown_in_ruler_designer = no
 	opposite_opinion = -50
 	learning = 2
 	intrigue = 2
@@ -70,6 +140,12 @@ zz_magister = {
 		domain_limit = 4
 		vassal_limit = 10
 		vassal_opinion = 10
+		trade_post_limit_add = 10
+		max_trade_routes = 10
+		trade_capacity_mult = 10
+		trade_range_mult = 1
+		max_trade_goods_on_route = 5
+		max_trade_markets_on_route = 5
 	}
 	culture_modifier = {
 		parameter = sorceror_lords
@@ -137,20 +213,6 @@ zz_magister = {
 				hard_casualty_modifier = -0.01
 			}
 		}
-		shadow_magic = {
-			25 = {
-				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
-			}
-			50 = {
-				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
-			}
-			75 = {
-				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
-			}
-			100 = {
-				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
-			}
-		}
 		dream_magic = {
 			25 = {
 				enemy_hostile_scheme_phase_duration_add = minor_scheme_phase_duration_malus_value
@@ -177,6 +239,20 @@ zz_magister = {
 			}
 			100 = {
 				monthly_income = 5
+			}
+		}
+		shadow_magic = {
+			25 = {
+				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+			}
+			50 = {
+				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+			}
+			75 = {
+				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
+			}
+			100 = {
+				hostile_scheme_phase_duration_add = minor_scheme_phase_duration_bonus_value
 			}
 		}
 		fire_magic = {
@@ -262,6 +338,51 @@ zz_magister = {
 		lifestyle_mystic = 10
 		possessed_genetic = 30
 	}
+
+	same_opinion_if_same_faith = 100
+	same_opinion = 20
+	faith_modifier = {
+		parameter = witchcraft_illegal
+		religious_head_opinion = -30
+		same_faith_opinion = -30
+		clergy_opinion = -30
+		religious_vassal_opinion = -30
+		monthly_county_control_decline_add = -0.4
+		domain_tax_same_faith_mult = -0.2
+		popular_opinion_add = -10
+	}
+	faith_modifier = {
+		parameter = witchcraft_shunned
+		religious_head_opinion = -15
+		same_faith_opinion = -15
+		clergy_opinion = -15
+		religious_vassal_opinion = -15
+		monthly_county_control_decline_add = -0.2
+		domain_tax_same_faith_mult = -0.1
+		popular_opinion_add = -5
+	}
+	triggered_opinion = {
+		parameter = witchcraft_illegal
+		opinion_modifier = zz_magic_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = witchcraft_shunned
+		opinion_modifier = zz_magic_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = execute_prisoner_to_improve_artifact
+		opinion_modifier = zz_mage_valyrian_steel
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = witchcraft_accepted
+		opinion_modifier = zz_magic_accepted
+		ignore_opinion_value_if_same_trait = yes
+	}
+
+	
 	opposites = {
 	}
 }
@@ -271,7 +392,17 @@ starwalker = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = starwalker
+				desc = star_touched_I
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = starwalker
+						track = chosen_of_the_heavens
+						value < 50
+					}
+				}
+				desc = star_touched_I
 			}
 			triggered_desc = {
 				trigger = {
@@ -281,16 +412,26 @@ starwalker = {
 						value < 100
 					}
 				}
-				desc = starwalker
+				desc = star_touched_II
 			}
-			desc = he_who_walks_between_worlds
+			desc = star_touched_III
 		}
 	}
 	icon = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = heavens_chosen_01.dds
+				desc = zz_heavens_chosen_01.dds
+			}
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = starwalker
+						track = chosen_of_the_heavens
+						value < 50
+					}
+				}
+				desc = zz_heavens_chosen_02.dds
 			}
 			triggered_desc = {
 				trigger = {
@@ -300,20 +441,33 @@ starwalker = {
 						value < 100
 					}
 				}
-				desc = heavens_chosen_01.dds
+				desc = zz_heavens_chosen_03.dds
 			}
-			desc = heavens_chosen_02.dds
+			triggered_desc = {
+				trigger = {
+					has_trait_xp = {
+						trait = starwalker
+						track = chosen_of_the_heavens
+						value >= 100
+					}
+				}
+				desc = zz_heavens_chosen_04.dds
+			}
+			desc = zz_heavens_chosen_00.dds
 		}
 	}
 	category = lifestyle
 	opposite_opinion = -50
-	learning = 1
-	intrigue = 1
+	learning = 5
+	intrigue = 5
 	monthly_prestige = 0.5
-	trait_track_drops_of_power_mult_xp_gain_mult = 0.25
-	trait_track_drops_of_power_gain_xp_gain_mult = 1
+	zz_drops_of_power_advantage = 1000
+	zz_drops_of_power_holding_construction_piety_cost = 0.25
+	zz_drops_of_power_holding_construction_gold_cost = 1 
 	culture_modifier = {
-		parameter = starwalker
+		parameter = mage_scholars
+		learning = 5
+		intrigue = 5
 		direct_vassal_opinion = 10
 		monthly_prestige = 0.5
 		monthly_dynasty_prestige = 1
@@ -327,6 +481,7 @@ starwalker = {
 	tracks = {
 		chosen_of_the_heavens = {
 			25 = {
+				zz_drops_of_power_holding_construction_piety_cost = 0.25
 				trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.50
 				trait_track_blood_magic_xp_gain_mult = 0.50
 				trait_track_shadow_magic_xp_gain_mult = 0.50
@@ -337,6 +492,7 @@ starwalker = {
 				trait_track_water_magic_xp_gain_mult = 0.50
 			}
 			50 = {
+				zz_drops_of_power_holding_construction_piety_cost = 0.25
 				trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.50
 				trait_track_blood_magic_xp_gain_mult = 0.50
 				trait_track_shadow_magic_xp_gain_mult = 0.50
@@ -345,9 +501,9 @@ starwalker = {
 				trait_track_fire_magic_xp_gain_mult = 0.50
 				trait_track_air_magic_xp_gain_mult = 0.50
 				trait_track_water_magic_xp_gain_mult = 0.50
-				trait_track_drops_of_power_mult_xp_gain_mult = 0.25
 			}
 			75 = {
+				zz_drops_of_power_holding_construction_piety_cost = 0.25
 				trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.50
 				trait_track_blood_magic_xp_gain_mult = 0.50
 				trait_track_shadow_magic_xp_gain_mult = 0.50
@@ -356,9 +512,10 @@ starwalker = {
 				trait_track_fire_magic_xp_gain_mult = 0.50
 				trait_track_air_magic_xp_gain_mult = 0.50
 				trait_track_water_magic_xp_gain_mult = 0.50
-				trait_track_drops_of_power_mult_xp_gain_mult = 0.25
 			}
 			100 = {
+				zz_drops_of_power_advantage = 100000
+				zz_drops_of_power_holding_construction_piety_cost = 0.25
 				trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.50
 				trait_track_blood_magic_xp_gain_mult = 0.50
 				trait_track_shadow_magic_xp_gain_mult = 0.50
@@ -367,9 +524,11 @@ starwalker = {
 				trait_track_fire_magic_xp_gain_mult = 0.50
 				trait_track_air_magic_xp_gain_mult = 0.50
 				trait_track_water_magic_xp_gain_mult = 0.50
-				trait_track_drops_of_power_mult_xp_gain_mult = 0.25
 			}
 		}
+	}
+	compatibility = {
+		zz_magister = 30
 	}
 }
 
@@ -484,6 +643,7 @@ disease_resistance_alchemical = {
 	flag = disease_immunity_lovers_pox
 	flag = great_pox_immunity
 	flag = disease_immunity_great_pox
+	group = disease_resistance
 	
 	
 	ai_rationality = dominant_positive_ai_value
@@ -523,6 +683,7 @@ disease_resistance_pneumonic = {
 	epidemic_resistance = 1
 	flag = pneumonic_immunity
 	flag = disease_immunity_pneumonic
+	group = disease_resistance
 	
 
 	
@@ -564,6 +725,7 @@ disease_resistance_ill = {
 	epidemic_resistance = 1
 	flag = ill_immunity
 	flag = disease_immunity_ill
+	group = disease_resistance
 	
 
 
@@ -605,6 +767,7 @@ disease_resistance_measles = {
 	epidemic_resistance = 1
 	flag = measles_immunity
 	flag = disease_immunity_measles
+	group = disease_resistance
 	
 
 
@@ -644,6 +807,7 @@ disease_resistance_bubonic_plague = {
 	epidemic_resistance = 1
 	flag = bubonic_immunity
 	flag = disease_immunity_bubonic_plague
+	group = disease_resistance
 	
 
 	
@@ -682,6 +846,7 @@ disease_resistance_gout_ridden = {
 	epidemic_resistance = 1
 	flag = gout_ridden_immunity
 	flag = disease_immunity_gout
+	group = disease_resistance
 	
 
 	
@@ -720,6 +885,7 @@ disease_resistance_consumption = {
 	epidemic_resistance = 1
 	flag = consumption_immunity
 	flag = disease_immunity_consumption
+	group = disease_resistance
 	
 	
 	ai_rationality = dominant_positive_ai_value
@@ -757,6 +923,7 @@ disease_resistance_cancer = {
 	epidemic_resistance = 1
 	flag = cancer_immunity
 	flag = disease_immunity_cancer
+	group = disease_resistance
 	
 	
 	ai_rationality = dominant_positive_ai_value
@@ -794,8 +961,7 @@ disease_resistance_typhus = {
 	epidemic_resistance = 1
 	flag = typhus_immunity
 	flag = disease_immunity_typhus
-	
-
+	group = disease_resistance
 	
 	ai_rationality = dominant_positive_ai_value
 	
@@ -832,6 +998,7 @@ disease_resistance_smallpox = {
 	epidemic_resistance = 1
 	flag = small_pox_immunity
 	flag = disease_immunity_smallpox
+	group = disease_resistance
 	
 	
 	ai_rationality = dominant_positive_ai_value
@@ -869,6 +1036,7 @@ disease_resistance_dysentery = {
 	epidemic_resistance = 1
 	flag = dysentery_immunity
 	flag = disease_immunity_dysentery
+	group = disease_resistance
 	
 	ai_rationality = dominant_positive_ai_value
 	
@@ -905,6 +1073,7 @@ disease_resistance_ergotism = {
 	epidemic_resistance = 1
 	flag = ergotism_immunity
 	flag = disease_immunity_ergotism
+	group = disease_resistance
 
 	
 	ai_rationality = dominant_positive_ai_value
@@ -942,6 +1111,7 @@ disease_resistance_leper = {
 	epidemic_resistance = 1
 	flag = leper_immunity
 	flag = disease_immunity_leper
+	group = disease_resistance
 
 	
 	ai_rationality = dominant_positive_ai_value
@@ -979,7 +1149,7 @@ disease_resistance_lovers_pox = {
 	epidemic_resistance = 1
 	flag = lovers_pox_immunity
 	flag = disease_immunity_lovers_pox
-
+	group = disease_resistance
 	
 	ai_rationality = dominant_positive_ai_value
 	
@@ -1016,6 +1186,7 @@ disease_resistance_great_pox = {
 	epidemic_resistance = 1
 	flag = great_pox_immunity
 	flag = disease_immunity_great_pox
+	group = disease_resistance
 
 	
 	ai_rationality = dominant_positive_ai_value
@@ -1044,6 +1215,9 @@ disease_resistance_great_pox = {
 }
 
 lifespan_bad_1  = {
+	icon = {
+		desc = zz_lifespan_bad_01.dds
+	} 
 	opposites = {
 		lifespan_good
 		lifespan_bad_3 #To prevent multiple tiers of the same congenital trait
@@ -1087,6 +1261,9 @@ lifespan_bad_1  = {
 	}
 }
 lifespan_bad_2 = {
+	icon = {
+		desc = zz_lifespan_bad_02.dds
+	} 
 	opposites = {
 		lifespan_good
 		lifespan_bad_3 #To prevent multiple tiers of the same congenital trait
@@ -1130,6 +1307,9 @@ lifespan_bad_2 = {
 	}
 }
 lifespan_bad_3 = {
+	icon = {
+		desc = zz_lifespan_bad_03.dds
+	} 
 	opposites = {
 		lifespan_good
 		lifespan_bad_2 #To prevent multiple tiers of the same congenital trait
@@ -1174,6 +1354,9 @@ lifespan_bad_3 = {
 }
 
 lifespan_good_1 = {
+	icon = {
+		desc = zz_lifespan_good_01.dds
+	} 
 	opposites = {
 		lifespan_bad
 		lifespan_good_3 #To prevent multiple tiers of the same congenital trait
@@ -1219,6 +1402,9 @@ lifespan_good_1 = {
 	}
 }
 lifespan_good_2 = {
+	icon = {
+		desc = zz_lifespan_good_02.dds
+	} 
 	opposites = {
 		lifespan_bad
 		lifespan_good_3 #To prevent multiple tiers of the same congenital trait
@@ -1264,6 +1450,9 @@ lifespan_good_2 = {
 	}
 }
 lifespan_good_3 = {
+	icon = {
+		desc = zz_lifespan_good_03.dds
+	} 
 	opposites = {
 		lifespan_bad
 		lifespan_good_2 #To prevent multiple tiers of the same congenital trait
@@ -1314,6 +1503,9 @@ lifespan_good_3 = {
 
 
 magic_blood_bad_1 = {
+	icon = {
+		desc = zz_magic_blood_bad_01.dds
+	} 
 	opposites = {
 		magic_blood_good
 		magic_blood_bad_3 #To prevent multiple tiers of the same congenital trait
@@ -1322,6 +1514,8 @@ magic_blood_bad_1 = {
 	
 	birth = 0.00
 	random_creation = 0.00
+	zz_drops_of_power_advantage = -25
+	zz_drops_of_power_holding_construction_piety_cost = -0.25
 	trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = -0.05
 	trait_track_blood_magic_xp_gain_mult = -0.05
 	trait_track_shadow_magic_xp_gain_mult = -0.05
@@ -1331,7 +1525,6 @@ magic_blood_bad_1 = {
 	trait_track_air_magic_xp_gain_mult = -0.05
 	trait_track_water_magic_xp_gain_mult = -0.05
 	trait_track_drops_of_power_mult_xp_gain_mult = -0.25
-
 	
 	tracks = {
 
@@ -1368,6 +1561,9 @@ magic_blood_bad_1 = {
 	}
 }
 magic_blood_bad_2 = {
+	icon = {
+		desc = zz_magic_blood_bad_02.dds
+	} 
 	opposites = {
 		magic_blood_good
 		magic_blood_bad_3 #To prevent multiple tiers of the same congenital trait
@@ -1376,6 +1572,8 @@ magic_blood_bad_2 = {
 	
 	birth = 0.00
 	random_creation = 0.00
+	zz_drops_of_power_advantage = -50
+	zz_drops_of_power_holding_construction_piety_cost = -0.50
 	trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = -0.15
 	trait_track_blood_magic_xp_gain_mult = -0.15
 	trait_track_shadow_magic_xp_gain_mult = -0.15
@@ -1421,6 +1619,9 @@ magic_blood_bad_2 = {
 	}
 }
 magic_blood_bad_3 = {
+	icon = {
+		desc = zz_magic_blood_bad_03.dds
+	} 
 	opposites = {
 		magic_blood_good
 		magic_blood_bad_2 #To prevent multiple tiers of the same congenital trait
@@ -1429,6 +1630,8 @@ magic_blood_bad_3 = {
 	
 	birth = 0.00
 	random_creation = 0.00
+	zz_drops_of_power_advantage = -75
+	zz_drops_of_power_holding_construction_piety_cost = -0.75
 	trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = -0.25
 	trait_track_blood_magic_xp_gain_mult = -0.25
 	trait_track_shadow_magic_xp_gain_mult = -0.25
@@ -1474,6 +1677,9 @@ magic_blood_bad_3 = {
 	}
 }
 magic_blood_good_1 = {
+	icon = {
+		desc = zz_magic_blood_good_01.dds
+	} 
 	opposites = {
 		magic_blood_bad
 		magic_blood_good_3 #To prevent multiple tiers of the same congenital trait
@@ -1482,6 +1688,8 @@ magic_blood_good_1 = {
 	
 	birth = 0.00
 	random_creation = 0.00
+	zz_drops_of_power_advantage = 50
+	zz_drops_of_power_holding_construction_piety_cost = 0.25
 	trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.05
 	trait_track_blood_magic_xp_gain_mult = 0.05
 	trait_track_shadow_magic_xp_gain_mult = 0.05
@@ -1490,7 +1698,6 @@ magic_blood_good_1 = {
 	trait_track_fire_magic_xp_gain_mult = 0.05
 	trait_track_air_magic_xp_gain_mult = 0.05
 	trait_track_water_magic_xp_gain_mult = 0.05
-	trait_track_drops_of_power_mult_xp_gain_mult = 0.25
 	
 	tracks = {
 
@@ -1528,6 +1735,9 @@ magic_blood_good_1 = {
 	}
 }
 magic_blood_good_2 = {
+	icon = {
+		desc = zz_magic_blood_good_02.dds
+	} 
 	opposites = {
 		magic_blood_bad
 		magic_blood_good_3 #To prevent multiple tiers of the same congenital trait
@@ -1536,6 +1746,8 @@ magic_blood_good_2 = {
 	
 	birth = 0.00
 	random_creation = 0.00
+	zz_drops_of_power_advantage = 150
+	zz_drops_of_power_holding_construction_piety_cost = 0.50
 	trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.1
 	trait_track_blood_magic_xp_gain_mult = 0.1
 	trait_track_shadow_magic_xp_gain_mult = 0.1
@@ -1544,10 +1756,8 @@ magic_blood_good_2 = {
 	trait_track_fire_magic_xp_gain_mult = 0.1
 	trait_track_air_magic_xp_gain_mult = 0.1
 	trait_track_water_magic_xp_gain_mult = 0.1
-	trait_track_drops_of_power_mult_xp_gain_mult = 0.50
 	
 	tracks = {
-		
 	}
 	group = magic_blood_good
 	level = 2
@@ -1582,6 +1792,9 @@ magic_blood_good_2 = {
 	}
 }
 magic_blood_good_3 = {
+	icon = {
+		desc = zz_magic_blood_good_03.dds
+	} 
 	opposites = {
 		magic_blood_bad
 		magic_blood_good_2 #To prevent multiple tiers of the same congenital trait
@@ -1590,6 +1803,8 @@ magic_blood_good_3 = {
 	
 	birth = 0.00
 	random_creation = 0.00
+	zz_drops_of_power_advantage = 500
+	zz_drops_of_power_holding_construction_piety_cost = 1
 	trait_track_secrets_of_the_higher_mysteries_xp_gain_mult = 0.1
 	trait_track_blood_magic_xp_gain_mult = 0.1
 	trait_track_shadow_magic_xp_gain_mult = 0.1
@@ -1598,7 +1813,6 @@ magic_blood_good_3 = {
 	trait_track_fire_magic_xp_gain_mult = 0.1
 	trait_track_air_magic_xp_gain_mult = 0.1
 	trait_track_water_magic_xp_gain_mult = 0.1
-	trait_track_drops_of_power_mult_xp_gain_mult = 1
 
 	
 	tracks = {
@@ -1637,6 +1851,9 @@ magic_blood_good_3 = {
 }
 
 born_beneath_the_comet = {
+	icon = {
+		desc = zz_born_beneath_the_comet_00.dds
+	} 
 	desc = {
 		first_valid = {
 			triggered_desc = {
@@ -1656,6 +1873,8 @@ born_beneath_the_comet = {
 	# ai_boldness = 20
 	# ai_energy = 20
 	
+	zz_drops_of_power_advantage = 500
+	zz_drops_of_power_holding_construction_piety_cost = 0.25
 	trait_track_drops_of_power_mult_xp_gain_mult = 0.25
 
 }
@@ -1687,12 +1906,3 @@ zz_loyal_functionary = {
 		}
 	}
 }
-
-
-
-
-
-
-# trait_track_drops_of_power_cap_xp_gain_mult
-# trait_track_drops_of_power_gain_xp_gain_mult
-# trait_track_drops_of_power_mult_xp_gain_mult

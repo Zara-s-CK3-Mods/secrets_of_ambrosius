@@ -9,11 +9,11 @@ zz_valyria_magic_dream_magic.001 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_dream_magic.001.opt.a
@@ -55,11 +55,11 @@ zz_valyria_magic_dream_magic.002 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_traits
 		remove_variable = selected_trait
@@ -133,7 +133,15 @@ zz_valyria_magic_dream_magic.002 = {
 				}
 			}
 		}
-		trait:confucian_education = {
+		trait:born_beneath_the_comet = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:governor = {
 			root = {
 				add_to_variable_list = {
 					name = possible_traits
@@ -177,11 +185,11 @@ zz_valyria_magic_dream_magic.003 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		remove_variable = selected_flag
@@ -307,11 +315,11 @@ zz_valyria_magic_dream_magic.004 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_dream_magic.004.opt.a
@@ -336,15 +344,34 @@ zz_valyria_magic_dream_magic.005 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_traits
 		remove_variable = selected_trait
 		every_trait_in_category = {
+			limit = { 
+				NOR = {
+					this = trait:dragon_aggressive 
+					this = trait:dragon_friendly 
+					this = trait:dragon_solitary 
+					this = trait:dragon_cooperative 
+					this = trait:dragon_imperious 
+					this = trait:dragon_supporting 
+					this = trait:dragon_impulsive 
+					this = trait:dragon_calculating 
+					this = trait:dragon_voracious 
+					this = trait:dragon_restrained 
+					this = trait:dragon_defiant 
+					this = trait:dragon_accepting
+					this = trait:dragon_bloodthirsty
+					this = trait:dragon_skittish
+					this = trait:dragon_skittish
+				}
+			}
 			category = personality
 			root = {
 				add_to_variable_list = {
@@ -633,11 +660,11 @@ zz_valyria_magic_dream_magic.006 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_traits
 		remove_variable = selected_trait
@@ -739,11 +766,11 @@ zz_valyria_magic_dream_magic.007 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_dream_magic.007.opt.a
@@ -751,6 +778,56 @@ zz_valyria_magic_dream_magic.007 = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = dream_magic
 				SPELL  = zz_valyria_magic_dream_magic_07
+			}	
+		}
+
+		
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.007.opt.b
+		hidden_effect = {
+			trigger_event = zz_valyria_magic_dream_magic.0071
+		}
+
+		
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.007.opt.z
+	}
+}
+zz_valyria_magic_dream_magic.0071 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic.007.t
+	desc = zz_valyria_magic_dream_magic.007.desc
+	theme = university 
+	override_background = {
+		reference = zz_dream_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_valyria_every_cultural_tradition_list = yes
+	}
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_culture_tradition_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.007.opt.a
+		var:selected_culture_tradition = {
+				save_scope_as = culturetraditon
+			}
+		hidden_effect = {
+			zz_valyria_magic_cast_effect = { 
+				SKILL = dream_magic
+				SPELL  = zz_valyria_magic_dream_magic_071
 			}	
 		}
 
@@ -769,11 +846,11 @@ zz_valyria_magic_dream_magic.008 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_dream_magic.008.opt.a
@@ -816,18 +893,18 @@ zz_valyria_magic_dream_magic.009 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_dream_magic.009.opt.a
 		hidden_effect = {
 			zz_valyria_magic_cast_effect = { 
 				SKILL = dream_magic
-				SPELL  = zz_valyria_magic_dream_magic_04
+				SPELL  = zz_valyria_magic_dream_magic_09
 			}	
 		}
 	}
@@ -844,11 +921,11 @@ zz_valyria_magic_dream_magic.010 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_dream_magic.010.opt.a
@@ -872,11 +949,11 @@ zz_valyria_magic_dream_magic.011 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -933,11 +1010,11 @@ zz_valyria_magic_dream_magic.012 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -993,11 +1070,11 @@ zz_valyria_magic_dream_magic.013 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_secret
 		remove_variable = selected_secret
@@ -1052,11 +1129,11 @@ zz_valyria_magic_dream_magic.014 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_secret
 		remove_variable = selected_secret
@@ -1112,11 +1189,11 @@ zz_valyria_magic_dream_magic.015 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_secret
 		remove_variable = selected_secret
@@ -1171,11 +1248,11 @@ zz_valyria_magic_dream_magic.016 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_secret
 		remove_variable = selected_secret
@@ -1227,11 +1304,11 @@ zz_valyria_magic_dream_magic.01601 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		zz_valyria_every_secret_knower_list = yes
 	}
@@ -1274,11 +1351,11 @@ zz_valyria_magic_dream_magic.017 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_secret
 		remove_variable = selected_secret
@@ -1330,11 +1407,11 @@ zz_valyria_magic_dream_magic.01701 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list ?= zz_valyria_possible_characters
 		remove_variable = zz_valyria_selected_character
@@ -1394,11 +1471,11 @@ zz_valyria_magic_dream_magic.018 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_secret
 		remove_variable = selected_secret
@@ -1450,11 +1527,11 @@ zz_valyria_magic_dream_magic.01801 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list ?= zz_valyria_possible_characters
 		remove_variable = zz_valyria_selected_character
@@ -1514,11 +1591,11 @@ zz_valyria_magic_dream_magic.019 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -1574,11 +1651,11 @@ zz_valyria_magic_dream_magic.020 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -1634,11 +1711,11 @@ zz_valyria_magic_dream_magic.021 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -1694,11 +1771,11 @@ zz_valyria_magic_dream_magic.022 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -1754,11 +1831,11 @@ zz_valyria_magic_dream_magic.023 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -1812,11 +1889,11 @@ zz_valyria_magic_dream_magic.02301 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list ?= zz_valyria_possible_characters
 		remove_variable = zz_valyria_selected_character
@@ -1890,11 +1967,11 @@ zz_valyria_magic_dream_magic.024 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -1947,11 +2024,11 @@ zz_valyria_magic_dream_magic.02401 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list ?= zz_valyria_possible_characters
 		remove_variable = zz_valyria_selected_character
@@ -2025,16 +2102,23 @@ zz_valyria_magic_dream_magic.025 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
 		scope:recipient = {
 			every_targeting_scheme = {
+				limit = {
+					any_scheme_agent_character = {
+						NOT = {
+							is_agent_exposed_in_scheme = scope:scheme
+						}
+					}
+				}
 				root = {
 					add_to_variable_list = {
 						name = possible_schemes
@@ -2082,11 +2166,11 @@ zz_valyria_magic_dream_magic.02501 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list ?= zz_valyria_possible_characters
 		remove_variable = zz_valyria_selected_character
@@ -2106,6 +2190,11 @@ zz_valyria_magic_dream_magic.02501 = {
 				}
 			}
 			every_scheme_agent_character = {
+				limit = {
+					NOT = {
+						is_agent_exposed_in_scheme = scope:scheme
+					}
+				}
 				root = {
 					add_to_variable_list = {
 						name = zz_valyria_possible_characters
@@ -2160,16 +2249,23 @@ zz_valyria_magic_dream_magic.026 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
 		scope:recipient = {
 			every_scheme = {
+				limit = {
+					any_scheme_agent_character = {
+						NOT = {
+							is_agent_exposed_in_scheme = scope:scheme
+						}
+					}
+				}
 				root = {
 					add_to_variable_list = {
 						name = possible_schemes
@@ -2217,11 +2313,11 @@ zz_valyria_magic_dream_magic.02601 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list ?= zz_valyria_possible_characters
 		remove_variable = zz_valyria_selected_character
@@ -2241,6 +2337,11 @@ zz_valyria_magic_dream_magic.02601 = {
 				}
 			}
 			every_scheme_agent_character = {
+				limit = {
+					NOT = {
+						is_agent_exposed_in_scheme = scope:scheme
+					}
+				}
 				root = {
 					add_to_variable_list = {
 						name = zz_valyria_possible_characters
@@ -2295,11 +2396,11 @@ zz_valyria_magic_dream_magic.027 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -2355,11 +2456,11 @@ zz_valyria_magic_dream_magic.028 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -2415,11 +2516,11 @@ zz_valyria_magic_dream_magic.029 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -2475,11 +2576,11 @@ zz_valyria_magic_dream_magic.030 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -2535,11 +2636,11 @@ zz_valyria_magic_dream_magic.031 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -2595,11 +2696,11 @@ zz_valyria_magic_dream_magic.032 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_schemes
 		remove_variable = selected_scheme
@@ -2656,11 +2757,11 @@ zz_valyria_magic_dream_magic.033 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 
 	}
@@ -2733,11 +2834,11 @@ zz_valyria_magic_dream_magic.034 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_culture
 		remove_variable = selected_culture
@@ -2808,11 +2909,11 @@ zz_valyria_magic_dream_magic.035 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_religions
 		remove_variable = selected_religion
@@ -2896,11 +2997,11 @@ zz_valyria_magic_dream_magic.036 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_culture
 		remove_variable = selected_culture
@@ -2970,11 +3071,11 @@ zz_valyria_magic_dream_magic.03601 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_targeted_character_county_selection_list_effect = yes
@@ -3011,11 +3112,11 @@ zz_valyria_magic_dream_magic.037 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_religions
 		remove_variable = selected_religion
@@ -3087,11 +3188,11 @@ zz_valyria_magic_dream_magic.03701 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_targeted_character_county_selection_list_effect = yes
@@ -3129,11 +3230,11 @@ zz_valyria_magic_dream_magic.038 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_targeted_character_county_selection_list_effect = yes
@@ -3172,11 +3273,11 @@ zz_valyria_magic_dream_magic.039 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_targeted_character_county_selection_list_effect = yes
@@ -3215,11 +3316,11 @@ zz_valyria_magic_dream_magic.040 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_secret
 		remove_variable = selected_secret
@@ -3274,11 +3375,11 @@ zz_valyria_magic_dream_magic.041 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_secret
 		remove_variable = selected_secret
@@ -3334,11 +3435,11 @@ zz_valyria_magic_dream_magic.042 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 	immediate = {
 		clear_variable_list = possible_secret
 		remove_variable = selected_secret
@@ -3393,11 +3494,11 @@ zz_valyria_magic_dream_magic.043 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_targeted_character_county_selection_list_effect = yes
@@ -3435,11 +3536,11 @@ zz_valyria_magic_dream_magic.044 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_targeted_character_county_selection_list_effect = yes
@@ -3477,11 +3578,11 @@ zz_valyria_magic_dream_magic.045 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_targeted_character_county_selection_list_effect = yes
@@ -3519,11 +3620,11 @@ zz_valyria_magic_dream_magic.046 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_targeted_character_county_selection_list_effect = yes
@@ -3562,11 +3663,11 @@ zz_valyria_magic_dream_magic.047 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		clear_variable_list = possible_armies
@@ -3622,11 +3723,11 @@ zz_valyria_magic_dream_magic.048 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_dream_magic.048.opt.a
@@ -3652,11 +3753,11 @@ zz_valyria_magic_dream_magic.049 = {
 	override_background = {
 		reference = zz_dream_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_dream_magic.049.opt.a

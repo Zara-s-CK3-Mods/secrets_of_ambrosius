@@ -1,19 +1,62 @@
-﻿zz_valyria_cast_click = {
+﻿
+
+zz_valyria_cast_click = {
 	scope = character
 	is_shown = {
-		zz_valyria_is_mage = yes 
+		zz_open_mage_window = yes
 	}
 	is_valid = {
 
 	}
 	effect = {
 		save_scope_as = actor 
+		scope:actor = {
+			if = {
+				limit = {
+					NOT = { exists = var:zz_miscast_count }
+				}
+				set_variable = {
+					name = zz_miscast_count
+					value = 0
+				}
+			}
+		}
 		scope:opened_character = {
 			save_scope_as = recipient
 		}
 		zz_ui_setup_effect = yes 
 	}
 }
+
+zz_valyria_province_cast_click = {
+	scope = character
+	is_shown = {
+		zz_open_mage_window = yes
+	}
+	is_valid = {
+
+	}
+	effect = {
+		save_scope_as = actor 
+
+		set_variable = {
+			name = zz_selected_mystery_province 
+			value = scope:selected_province
+		}
+		set_variable = {
+			name = zz_selected_mystery_county 
+			value = scope:selected_province.county
+		}
+		scope:selected_province = {
+			province_owner = {
+				save_scope_as = recipient
+			}
+		}
+		zz_ui_setup_effect = yes 
+	}
+}
+
+
 
 zz_valyria_magic_open = {
 	scope = character
@@ -129,6 +172,44 @@ zz_valyria_magic_caster = {
 			name = zz_magic_caster
 			value = scope:zz_magic_caster
 		}
+		if = {
+			limit = { NOT = { exists = scope:zz_magic_user.var:zz_miscast_count } }
+			scope:zz_magic_user ?= {
+				set_variable = {
+					name = zz_miscast_count
+					value = 0
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { exists = scope:zz_magic_caster.var:zz_miscast_count } }
+			scope:zz_magic_caster ?= {
+				set_variable = {
+					name = zz_miscast_count
+					value = 0
+				}
+			}
+		}
+		if = {
+			limit = { NOT = { exists = scope:zz_magic_user.var:zz_miscast_count } }
+			scope:zz_magic_user ?= {
+				set_variable = {
+					name = zz_miscast_count
+					value = 0
+				}
+			}
+		}
+		if = {
+			limit = {
+				exists = scope:zz_magic_user.var:zz_magic_target
+			}
+			scope:zz_magic_caster ?= {
+				set_variable = {
+					name = zz_magic_target
+					value = scope:zz_magic_user.var:zz_magic_target
+				}
+			}
+		}
 		zz_valyria_make_spell_list = {MAGIC_USER = zz_magic_user MAGIC_CASTER = zz_magic_caster}
 	}
 }
@@ -155,7 +236,7 @@ zz_valyria_magic_item_caster = {
 
 
 
-zz_valyria_blood_magic_01 = {
+zz_valyria_cast_magic = {
 	scope = character
 	saved_scopes = {
 		zz_valyria_mystery
@@ -176,7 +257,7 @@ zz_valyria_blood_magic_01 = {
 		}
 		set_variable = {
 			name = zz_valyria_mystery_cost
-			value = var:zz_valyria_mystery.var:manacost
+			value = var:zz_valyria_mystery.mystery_cost
 		}
 		zz_magic_list_effect = { 
 			MAGIC_EFFECT = zz_valyria_magic_casting_gui_tooltip_effect
@@ -231,7 +312,7 @@ zz_valyria_magic_cast = {
 		exists = var:zz_valyria_mystery
 		var:zz_magic_caster = {
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = root.var:zz_valyria_mystery.var:manacost
+				MANACOST = root.var:zz_valyria_mystery.mystery_cost
 			}
 		}
 		
@@ -314,3 +395,5 @@ zz_valyria_magic_cast_ui = {
 		zz_valyria_magic_cast_ui_effect = yes
 	}
 }
+
+

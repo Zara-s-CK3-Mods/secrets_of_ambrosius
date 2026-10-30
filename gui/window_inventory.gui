@@ -78,6 +78,7 @@ window = {
 						align = center|nobaseline
 						text = "INVENTORY_EQUIPPED_ARTIFACTS_HEADER"
 						margin = { 0 2 }
+						max_width = 300
 					}
 				}
 
@@ -106,7 +107,7 @@ window = {
 									size = { 30 30 }
 
 									texture = "gfx/interface/icons/flat_icons/plus.dds"
-								}	
+								}
 							}
 
 							blockoverride "portrait_button_no_character_text"
@@ -116,7 +117,8 @@ window = {
 						}
 
 						text_single = {
-							text = "ANTIQUARIAN"
+							text = "[GetCourtPositionType( 'antiquarian_court_position' ).GetName]"
+							max_width = 120
 						}
 					}
 				}
@@ -207,6 +209,7 @@ window = {
 								text = "INVENTORY_TAB_COURT_ARTIFACTS"
 
 								tooltip = "[SelectLocalization( Inventory.HasAnyCourtArtifact, 'INVENTORY_TAB_COURT_ARTIFACTS_TOOLTIP', 'NO_COURT_ARTIFACTS' )]"
+								using = tooltip_se
 
 								onclick = "[VariableSystem.Toggle( 'court_artifacts' )]"
 								onclick = "[VariableSystem.Clear( 'claims' )]"
@@ -229,11 +232,11 @@ window = {
 								text = "ROYAL_COURT"
 
 								tooltip = "INVENTORY_COURT_ARTIFACTS_BUTTON_TOOLTIP"
+								using = tooltip_se
 
 								onclick = "[VariableSystem.Set( 'artifacts_tab', 'artifacts' )]"
 								onclick = "[Character.OpenRoyalCourtView( 'artifacts' )]"
 
-								onclick = "[InventoryView.Close]"
 								onclick = "[LocalPlayerNewArtifacts.ClearNewArtifactsOfCategory( 'court' )]"
 
 								button_round = {
@@ -250,9 +253,21 @@ window = {
 								text = "INVENTORY_TAB_CLAIMS_HIS_HER_MY"
 								enabled = "[And( DataModelHasItems( ArtifactClaimsList.GetClaims ), Not( InventoryView.HasSelectedSlot ) )]"
 								tooltip = "[SelectLocalization( DataModelHasItems( ArtifactClaimsList.GetClaims ), 'INVENTORY_TAB_CLAIMS_TOOLTIP', 'NO_ARTIFACT_CLAIMS' )]"
+								using = tooltip_se
 								onclick = "[VariableSystem.Toggle( 'claims' )]"
 								onclick = "[VariableSystem.Clear( 'court_artifacts' )]"
 								down = "[VariableSystem.Exists( 'claims' )]"
+
+								text_single = {
+									min_width = 30
+									margin_right = 10
+									parentanchor = vcenter|right
+
+									autoresize = no
+									align = center|nobaseline
+									text = "[GetDataModelSize(ArtifactClaimsList.GetClaims)]"
+									default_format = "#clickable"
+								}
 							}
 						}
 
@@ -329,6 +344,7 @@ window = {
 									visible = "[Decision.IsPossibleForPlayer]"
 									text = "[Decision.GetTitleForPlayer]"
 									layoutpolicy_horizontal = growing
+									autoresize = no
 
 									align = nobaseline
 									default_format = "#clickable"
@@ -338,6 +354,7 @@ window = {
 									name = "title2"
 									visible = "[Not(Decision.IsPossibleForPlayer)]"
 									layoutpolicy_horizontal = growing
+									autoresize = no
 									text = "[Decision.GetTitleForPlayer]"
 
 									align = nobaseline
@@ -393,6 +410,7 @@ window = {
 
 						button_tab = { # Show all artifacts tab
 							size = { 110 42 }
+							shortcut = "all_artifacts"
 
 							onclick = "[InventoryView.ClearSelectedSlot]"
 							down = "[Not( InventoryView.HasSelectedSlot )]"
@@ -400,25 +418,29 @@ window = {
 							tooltip = ARTIFACT_SORTING_TAB_ALL_TOOLTIP
 							using = tooltip_above
 
-							hbox = {
-								margin = { 10 0 }
+							blockoverride "icon_visible" 
+							{
+								visible = no
+							}
 
-								text_single = {
-									layoutpolicy_horizontal = expanding
-									align = center
-									text = "ARTIFACT_SORTING_ALL_BUTTON"
-								}
+							blockoverride "tab_label"
+							{
+								text = "ARTIFACT_SORTING_ALL_BUTTON"
+							}
 
+							blockoverride "extra_info"
+							{
 								text_single = {
-									min_width = 30
-									align = center
 									text = "[Inventory.GetNumOfArtifactInCategory( 'inventory' )]"
+									align = nobaseline
+									margin_top = 3
 								}
 							}
 						}
 
 						item = {
 							widget_inventory_slot_tab = {
+								shortcut = "none"
 								name = "artifact_slot_type"
 								datacontext = "[Inventory.GetSlot('crown')]"
 								visible = "[InventorySlotType.IsInventoryType]"
@@ -448,7 +470,7 @@ window = {
 						layoutpolicy_horizontal = expanding
 						text = "CHARACTER_WITHOUT_ROYAL_COURT_COURT_ARTIFACT_TAB"
 						autoresize = yes
-						align = center 
+						align = center
 						default_format = "#weak"
 						max_width = 520
 					}
@@ -459,11 +481,12 @@ window = {
 					visible = "[And( Not( InventoryView.HasSelectedSlot ), VariableSystem.Exists( 'claims' ) )]"
 					layoutpolicy_horizontal = expanding
 
+					margin_top = 10
+
 					text_label_center = {
 						layoutpolicy_horizontal = expanding
-						align = center|nobaseline
+						align = center
 						text = "[artifact_claims|E]"
-						margin = { 0 2 }
 						max_width = 440
 					}
 				}
@@ -721,79 +744,12 @@ types InventoryViewTypes
 {
 	type widget_inventory_slot = widget
 	{
+		datacontext = "[AccessLocalPlayerCachedData.AccessNewArtifacts]"
 		size = { 150 140 }
 
-
-		datacontext = "[AccessLocalPlayerCachedData.AccessNewArtifacts]"
-
-		icon = { # Glow Effect
-			#	visible = "[And(RoyalCourtWindow.IsSelectedSlot( InventorySlot.Self ), InventorySlot.IsEmpty)]"
+		# Glow animation when selecting an item slot
+		glow_effect = {
 			visible = "[InventoryView.IsSelectedSlot( InventorySlot.Self )]"
-			size = { 120% 120% }
-			texture = "gfx/interface/colors/white.dds"
-			using = Color_Bright_Yellow
-			alpha = 0.7
-			parentanchor=center
-
-			state = {
-				name = _show
-				using = Animation_Curve_Default
-				duration = 0.3
-				alpha = 0.7
-			}
-
-			state = {
-				name = _hide
-				using = Animation_Curve_Default
-				duration = 0.6
-				alpha = 0
-			}
-
-			state = {
-				name = "a"
-				next = "b"
-				trigger_on_create = yes
-				alpha = 0.7
-
-				modify_texture = {
-					name = "glow_1"
-					rotate_uv = 0
-				}
-
-				modify_texture = {
-					name = "glow_2"
-					rotate_uv = 0
-				}
-			}
-
-			state = {
-				name = "b"
-				next = "a"
-				duration = 7
-
-				modify_texture = {
-					name = "glow_1"
-					rotate_uv = 360
-				}
-
-				modify_texture = {
-					name = "glow_2"
-					rotate_uv = 360
-				}
-			}
-
-			modify_texture = {
-				name = "glow_1"
-				texture = "gfx/interface/component_masks/mask_glow.dds"
-				blend_mode = alphamultiply
-			}
-
-			modify_texture = {
-				name = "glow_2"
-				texture = "gfx/interface/component_masks/mask_glow.dds"
-				blend_mode = alphamultiply
-				mirror = horizontal
-			}
 		}
 
 		widget = {
@@ -805,6 +761,7 @@ types InventoryViewTypes
 			parentanchor = top|hcenter
 			text = "[InventorySlot.GetName]"
 			position = { 0 -6 }
+			max_width = 100
 		}
 
 		button_artifact = {
@@ -956,12 +913,13 @@ types InventoryViewTypes
 		}
 	}
 
-	type widget_inventory_slot_tab = button_tab
+	type widget_inventory_slot_tab = button_tab_icon_only
 	{
 		size = { 85 42 }
 		datacontext = "[AccessLocalPlayerCachedData.AccessNewArtifacts]"
 		down = "[InventoryView.SelectedSlotHasType( InventorySlotType.Self )]"
 		onclick = "[InventoryView.OnClickSlotTypeTab( InventorySlotType.Self )]"
+		using = TabShortcut
 
 		tooltip = ARTIFACT_SORTING_TAB_TOOLTIP
 		using = tooltip_above
@@ -972,6 +930,7 @@ types InventoryViewTypes
 			size = { 30 30 }
 			texture = "[InventorySlotType.GetIcon]"
 			alwaystransparent = yes
+			down = "[InventoryView.SelectedSlotHasType( InventorySlotType.Self )]"
 		}
 
 		button_round = {
@@ -1061,22 +1020,23 @@ types InventoryViewTypes
 			spriteborder = { 10 10 }
 
 			icon =  {
+				parentanchor = hcenter
+				size = { 99% 15% }
 				texture = "[Illustration.GetTexture( Artifact.GetCulture.MakeScope )]"
 				spriteType = Corneredtiled
-				size = { 100% 15% }
 				color = "[Artifact.GetRarityColor]"
 				alpha = 0.2
 				alwaystransparent = yes
 			}
 
 			icon =  {
+				parentanchor = bottom|hcenter
+				size = { 99% 15% }
 				texture = "[Illustration.GetTexture( Artifact.GetCulture.MakeScope )]"
 				spriteType = Corneredtiled
-				size = { 100% 15% }
 				color = "[Artifact.GetRarityColor]"
 				alpha = 0.2
 				alwaystransparent = yes
-				parentanchor = bottom
 			}
 
 			icon = {

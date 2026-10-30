@@ -3,14 +3,13 @@
 	duel = {
 		skill = $SKILL$
 		value = high_skill_rating
-
 		50 = {
 			compare_modifier = {
 				value = scope:duel_value
 				multiplier = 1
 				min = -49
-			}			
-			random_list = { 
+			}
+			random_list = {
 				5 = {
 					modifier = {
 						scope:duel_value > 49
@@ -98,9 +97,7 @@
 						base = minor_stress_impact_loss
 					}
 				}
-
 			}
-
 		}
 		50 = {
 			compare_modifier = {
@@ -113,13 +110,11 @@
 				left_icon = root
 				custom_tooltip = zz_valyria_magic_education_tt_negative
 				zz_valyria_magic_education_reward_failure = yes
-
 			}
 			stress_impact = {
 				base = medium_stress_impact_gain
 			}
 		}
-
 	}
 	remove_character_flag = $ZZ_EVENT_OPTION_NAME$
 }
@@ -135,93 +130,129 @@ zz_valyria_extra_reward_calculation_effect = {
 		limit = {
 			exists = var:skill_points
 		}
-		zz_valyria_magic_education_reward_skill_point_reward = { NUMBER = var:skill_points }
+		zz_valyria_magic_education_reward_skill_point_reward = {
+			NUMBER = var:skill_points
+		}
 	}
 }
-
 
 zz_valyria_magic_education_reward_massive = {
 	scope:activity = {
 		add_activity_log_entry = {
 			key = sic_et_non_log
 			score = 40
-			tags = { good learning activity }
+			tags = {
+				good
+				learning
+				activity
+			}
 			character = root
-
 			#Effect
 			#custom_tooltip = zz_valyria_magic_education_tt_positive_massive
-			scope:activity = { activity_special_type_progression_massive = yes }
+			scope:activity = {
+				activity_special_type_progression_massive = yes
+			}
 		}
 	}
 }
+
 zz_valyria_magic_education_reward_major = {
 	scope:activity = {
 		add_activity_log_entry = {
 			key = sic_et_non_log
 			score = 10
-			tags = { good learning activity }
+			tags = {
+				good
+				learning
+				activity
+			}
 			character = root
-
 			#Effect
 			#custom_tooltip = zz_valyria_magic_education_tt_positive_major
-			scope:activity = { activity_special_type_progression_major = yes }
+			scope:activity = {
+				activity_special_type_progression_major = yes
+			}
 		}
 	}
 }
+
 zz_valyria_magic_education_reward_medium = {
 	scope:activity = {
 		add_activity_log_entry = {
 			key = sic_et_non_log
 			score = 5
-			tags = { good learning activity }
+			tags = {
+				good
+				learning
+				activity
+			}
 			character = root
-
 			#Effect
 			#custom_tooltip = zz_valyria_magic_education_tt_positive_medium
-			scope:activity = { activity_special_type_progression_medium = yes }
+			scope:activity = {
+				activity_special_type_progression_medium = yes
+			}
 		}
 	}
 }
+
 zz_valyria_magic_education_reward_minor = {
 	scope:activity = {
 		add_activity_log_entry = {
 			key = sic_et_non_log
 			score = 1
-			tags = { good learning activity }
+			tags = {
+				good
+				learning
+				activity
+			}
 			character = root
-
 			#Effect
 			#custom_tooltip = zz_valyria_magic_education_tt_positive_tiny	
-			scope:activity = { activity_special_type_progression_tiny  = yes }
+			scope:activity = {
+				activity_special_type_progression_tiny = yes
+			}
 		}
 	}
 }
+
 zz_valyria_magic_education_reward_failure = {
 	scope:activity = {
 		add_activity_log_entry = {
 			key = sic_et_non_log
 			score = -5
-			tags = { good learning activity }
+			tags = {
+				good
+				learning
+				activity
+			}
 			character = root
-
 			#Effect
 			#custom_tooltip = zz_valyria_magic_education_tt_failure	
-			scope:activity = { activity_special_type_progression_negative  = yes }
+			scope:activity = {
+				activity_special_type_progression_negative = yes
+			}
 		}
 	}
 }
+
 zz_valyria_magic_education_reward_random_spell_effect = {
 	scope:activity = {
 		add_activity_log_entry = {
 			key = sic_et_non_log
 			score = 25
-			tags = { good learning activity }
+			tags = {
+				good
+				learning
+				activity
+			}
 			character = root
-
 			#Effect
 			#custom_tooltip = zz_valyria_magic_education_tt_positive_random_spell.tt
 			hidden_effect = {
-				scope:host = { zz_random_gain_magic_spell = yes }
+				scope:host = {
+					zz_random_gain_magic_spell = yes
+				}
 			}
 		}
 	}
@@ -232,7 +263,11 @@ zz_valyria_magic_education_reward_skill_point_reward = {
 		add_activity_log_entry = {
 			key = sic_et_non_log
 			score = 25
-			tags = { good learning activity }
+			tags = {
+				good
+				learning
+				activity
+			}
 			character = root
 			#Effect
 			#custom_tooltip =zz_valyria_magic_education_tt_positive_skill_increase.$NUMBER$.tt
@@ -240,21 +275,21 @@ zz_valyria_magic_education_reward_skill_point_reward = {
 				zz_magic_education_increase_skill_effect = {
 					NUMBER = $NUMBER$
 				}
-			}		
+			}
 		}
 	}
 }
 
-zz_magic_education_increase_skill_effect = { 
+zz_magic_education_increase_skill_effect = {
 	switch = {
 		trigger = has_activity_intent
-		study_valyrian_secrets = { 
+		study_valyrian_secrets = {
 			zz_valyria_gain_spell_experience = {
-				XPGAIN = $NUMBER$ 
+				XPGAIN = $NUMBER$
 				XPTRACK = secrets_of_the_higher_mysteries
 			}
 		}
-		study_blood_magic = { 
+		study_blood_magic = {
 			zz_valyria_gain_spell_experience = {
 				XPGAIN = $NUMBER$
 				XPTRACK = blood_magic
@@ -278,7 +313,7 @@ zz_magic_education_increase_skill_effect = {
 				XPTRACK = alchemy_magic
 			}
 		}
-		study_fire_magic ={
+		study_fire_magic = {
 			zz_valyria_gain_spell_experience = {
 				XPGAIN = $NUMBER$
 				XPTRACK = fire_magic
@@ -299,88 +334,120 @@ zz_magic_education_increase_skill_effect = {
 	}
 }
 
-
 zz_valyria_magical_education_reward_massive = {
 	scope:activity = {
 		add_activity_log_entry = {
 			key = sic_et_non_log
 			score = 40
-			tags = { good learning activity }
+			tags = {
+				good
+				learning
+				activity
+			}
 			character = root
-
 			#Effect
 			#custom_tooltip = zz_valyria_magic_education_tt_positive_massive
-			scope:activity = { activity_special_type_progression_massive = yes }
+			scope:activity = {
+				activity_special_type_progression_massive = yes
+			}
 		}
 	}
 }
+
 zz_valyria_magical_education_reward_major = {
 	scope:activity = {
 		add_activity_log_entry = {
 			key = sic_et_non_log
 			score = 10
-			tags = { good learning activity }
+			tags = {
+				good
+				learning
+				activity
+			}
 			character = root
-
 			#Effect
 			#custom_tooltip = zz_valyria_magic_education_tt_positive_major
-			scope:activity = { activity_special_type_progression_major = yes }
+			scope:activity = {
+				activity_special_type_progression_major = yes
+			}
 		}
 	}
 }
+
 zz_valyria_magical_education_reward_medium = {
 	scope:activity = {
 		add_activity_log_entry = {
 			key = sic_et_non_log
 			score = 5
-			tags = { good learning activity }
+			tags = {
+				good
+				learning
+				activity
+			}
 			character = root
-
 			#Effect
 			#custom_tooltip = zz_valyria_magic_education_tt_positive_medium
-			scope:activity = { activity_special_type_progression_medium = yes }
+			scope:activity = {
+				activity_special_type_progression_medium = yes
+			}
 		}
 	}
 }
+
 zz_valyria_magical_education_reward_minor = {
 	scope:activity = {
 		add_activity_log_entry = {
 			key = sic_et_non_log
 			score = 1
-			tags = { good learning activity }
+			tags = {
+				good
+				learning
+				activity
+			}
 			character = root
-
 			#Effect
 			#custom_tooltip = zz_valyria_magic_education_tt_positive_tiny	
-			scope:activity = { activity_special_type_progression_tiny  = yes }
+			scope:activity = {
+				activity_special_type_progression_tiny = yes
+			}
 		}
 	}
 }
+
 zz_valyria_magical_education_reward_failure = {
 	scope:activity = {
 		add_activity_log_entry = {
 			key = sic_et_non_log
 			score = -5
-			tags = { good learning activity }
+			tags = {
+				good
+				learning
+				activity
+			}
 			character = root
-
 			#Effect
 			#custom_tooltip = zz_valyria_magic_education_tt_negative	
-			scope:activity = { activity_special_type_progression_negative  = yes }
+			scope:activity = {
+				activity_special_type_progression_negative = yes
+			}
 		}
 	}
 }
 
 ### Learn Spell Effect conclusion event 
 zz_magic_education_learn_spell_effect = {
-	zz_add_spell = { 
+	zz_add_spell = {
 		SPELL = $SPELL$
 	}
 	scope:activity ?= {
 		add_activity_log_entry = {
 			key = zz_valyria_magic_learn_spell
 			score = 25
-			tags = { good learning activity }
+			tags = {
+				good
+				learning
+				activity
+			}
 			character = root
 			#Effect
 			custom_tooltip = zz_valyria_magic_learn_spell_desc
@@ -388,62 +455,64 @@ zz_magic_education_learn_spell_effect = {
 	}
 }
 
-zz_magic_education_determine_intent = { 
-	if = { 
-		limit = { 
+zz_magic_education_determine_intent = {
+	if = {
+		limit = {
 			has_activity_intent = study_valyrian_secrets
 		}
-		add_character_flag = study_valyrian_secrets 
+		add_character_flag = study_valyrian_secrets
 	}
-	else_if = { 
-		limit = { 
+	else_if = {
+		limit = {
 			has_activity_intent = study_blood_magic
 		}
-		add_character_flag = study_blood_magic 
+		add_character_flag = study_blood_magic
 	}
-	else_if = { 
-		limit = { 
+	else_if = {
+		limit = {
 			has_activity_intent = study_shadow_magic
 		}
-		add_character_flag = study_shadow_magic 
+		add_character_flag = study_shadow_magic
 	}
-	else_if = { 
-		limit = { 
+	else_if = {
+		limit = {
 			has_activity_intent = study_dream_magic
 		}
-		add_character_flag = study_dream_magic 
+		add_character_flag = study_dream_magic
 	}
-	else_if = { 
-		limit = { 
+	else_if = {
+		limit = {
 			has_activity_intent = study_alchemy_magic
 		}
-		add_character_flag = study_alchemy_magic 
+		add_character_flag = study_alchemy_magic
 	}
-	else_if = { 
-		limit = { 
+	else_if = {
+		limit = {
 			has_activity_intent = study_fire_magic
 		}
-		add_character_flag = study_fire_magic 
+		add_character_flag = study_fire_magic
 	}
-	else_if = { 
-		limit = { 
+	else_if = {
+		limit = {
 			has_activity_intent = study_air_magic
 		}
-		add_character_flag = study_air_magic 
+		add_character_flag = study_air_magic
 	}
-	else_if = { 
-		limit = { 
+	else_if = {
+		limit = {
 			has_activity_intent = study_water_magic
 		}
-		add_character_flag = study_water_magic 
+		add_character_flag = study_water_magic
 	}
 }
+
 resolve_magic_education_success_reward_effect = {
-	
 	involved_activity ?= {
 		#Perfect studies - 75-100
 		if = {
-			limit = { var:activity_special_type_progression >= 75 }
+			limit = {
+				var:activity_special_type_progression >= 75
+			}
 			scope:host = {
 				add_character_flag = perfect_studies_reward
 				add_character_flag = perfect_reward
@@ -451,10 +520,10 @@ resolve_magic_education_success_reward_effect = {
 		}
 		#High-end studies - 50-75
 		else_if = {
-			limit = { 
+			limit = {
 				var:activity_special_type_progression < 75
 				var:activity_special_type_progression >= 50
-			} 
+			}
 			scope:host = {
 				add_character_flag = high_studies_reward
 				add_character_flag = high_reward
@@ -480,14 +549,13 @@ resolve_magic_education_success_reward_effect = {
 	}
 }
 
-
-
 magic_education_completed_log_entry_effect = {
-	
 	involved_activity = {
 		add_activity_log_entry = {
 			key = magic_education_studies_completed_log
-			tags = { completed }
+			tags = {
+				completed
+			}
 			score = 100
 			show_in_conclusion = yes
 			character = root
@@ -499,8 +567,6 @@ magic_education_completed_log_entry_effect = {
 	}
 }
 
-
-
 disburse_magic_education_reward_effect = {
 	if = {
 		limit = {
@@ -508,11 +574,11 @@ disburse_magic_education_reward_effect = {
 		}
 		random = {
 			chance = 25
-			if = { 
-				limit = { 
+			if = {
+				limit = {
 					has_trait = starwalker
 				}
-				add_trait_xp = { 
+				add_trait_xp = {
 					trait = starwalker
 					track = chosen_of_the_heavens
 					value = 5
@@ -549,7 +615,9 @@ disburse_magic_education_reward_effect = {
 				}
 			}
 			has_dlc_feature = royal_court
-			scope:host = { has_royal_court = yes }
+			scope:host = {
+				has_royal_court = yes
+			}
 		}
 		#custom_tooltip = adult_education_books_good_reward
 		hidden_effect = {
@@ -572,7 +640,7 @@ disburse_magic_education_reward_effect = {
 					}
 					50 = {
 						scope:newly_created_artifact = {
-							add_artifact_modifier = item_modifier_11
+							add_artifact_modifier = item_modifier_01
 						}
 					}
 				}
@@ -628,7 +696,7 @@ disburse_magic_education_reward_effect = {
 					}
 					50 = {
 						scope:newly_created_artifact = {
-							add_artifact_modifier = item_modifier_11
+							add_artifact_modifier = item_modifier_01
 						}
 					}
 				}
@@ -652,5 +720,1986 @@ disburse_magic_education_reward_effect = {
 			}
 		}
 		add_learning_skill = 1
+	}
+}
+
+zz_valyria_magic_contract_options_list = {
+	remove_variable = selected_flag
+	clear_variable_list = possible_flags
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:higher_mysteries
+	}
+	set_variable = {
+		name = selected_flag
+		value = flag:higher_mysteries
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:blood_magic
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:dream_magic
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:alchemy_magic
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:shadow_magic
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:air_magic
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:fire_magic
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:water_magic
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:dragon_magic
+	}
+}
+
+zz_valyria_magic_learn_list = {
+	remove_variable = selected_flag
+	clear_variable_list = possible_flags
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:$MAGIC_SCHOOL$_skill
+	}
+	set_variable = {
+		name = selected_flag
+		value = flag:$MAGIC_SCHOOL$_skill
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_01
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_01
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_02
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_02
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_03
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_03
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_04
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_04
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_05
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_05
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_06
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_06
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_07
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_07
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_08
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_08
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_09
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_09
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_10
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_10
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_11
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_11
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_12
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_12
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_13
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_13
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_14
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_14
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_15
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_15
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_16
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_16
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_17
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_17
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_18
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_18
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_19
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_19
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_20
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_20
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_21
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_21
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_22
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_22
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_23
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_23
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_24
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_24
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_25
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_25
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_26
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_26
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_27
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_27
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_28
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_28
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_29
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_29
+		}
+	}
+}
+
+zz_valyria_magic_learn_effect = {
+	switch = {
+		trigger = var:selected_flag
+		flag:$MAGIC_SCHOOL$_skill = {
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 3
+				XPTRACK = $MAGIC_SCHOOL$
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_01 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_01
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_02 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_02
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_03 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_03
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_04 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_04
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_05 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_05
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_06 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_06
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_07 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_07
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_08 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_08
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_09 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_09
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_10 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_10
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_11 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_11
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_12 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_12
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_13 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_13
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_14 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_14
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_15 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_15
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_16 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_16
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_17 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_17
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_18 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_18
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_19 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_19
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_20 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_20
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_21 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_21
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_22 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_22
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_23 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_23
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_24 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_24
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_25 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_25
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_26 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_26
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_27 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_27
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_28 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_28
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_29 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_29
+			}
+		}
+	}
+}
+
+zz_valyria_magic_learn_list_7 = {
+	remove_variable = selected_flag
+	clear_variable_list = possible_flags
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:$MAGIC_SCHOOL$_skill
+	}
+	set_variable = {
+		name = selected_flag
+		value = flag:$MAGIC_SCHOOL$_skill
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_01
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_01
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_02
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_02
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_03
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_03
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_04
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_04
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_05
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_05
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_06
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_06
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_07
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_07
+		}
+	}
+}
+
+zz_valyria_magic_learn_effect_7 = {
+	switch = {
+		trigger = var:selected_flag
+		flag:$MAGIC_SCHOOL$_skill = {
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 3
+				XPTRACK = $MAGIC_SCHOOL$
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_01 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_01
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_02 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_02
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_03 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_03
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_04 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_04
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_05 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_05
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_06 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_06
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_07 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_07
+			}
+		}
+	}
+}
+
+zz_valyria_magic_learn_list_17 = {
+	remove_variable = selected_flag
+	clear_variable_list = possible_flags
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:$MAGIC_SCHOOL$_skill
+	}
+	set_variable = {
+		name = selected_flag
+		value = flag:$MAGIC_SCHOOL$_skill
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_01
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_01
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_02
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_02
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_03
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_03
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_04
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_04
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_05
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_05
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_06
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_06
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_07
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_07
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_08
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_08
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_09
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_09
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_10
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_10
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_11
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_11
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_12
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_12
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_13
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_13
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_14
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_14
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_15
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_15
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_16
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_16
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_17
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_17
+		}
+	}
+}
+
+zz_valyria_magic_learn_effect_17 = {
+	switch = {
+		trigger = var:selected_flag
+		flag:$MAGIC_SCHOOL$_skill = {
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 3
+				XPTRACK = $MAGIC_SCHOOL$
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_01 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_01
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_02 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_02
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_03 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_03
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_04 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_04
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_05 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_05
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_06 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_06
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_07 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_07
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_08 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_08
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_09 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_09
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_10 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_10
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_11 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_11
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_12 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_12
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_13 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_13
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_14 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_14
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_15 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_15
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_16 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_16
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_17 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_17
+			}
+		}
+	}
+}
+
+zz_valyria_magic_learn_list_49 = {
+	remove_variable = selected_flag
+	clear_variable_list = possible_flags
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:$MAGIC_SCHOOL$_skill
+	}
+	set_variable = {
+		name = selected_flag
+		value = flag:$MAGIC_SCHOOL$_skill
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_01
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_01
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_02
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_02
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_03
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_03
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_04
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_04
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_05
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_05
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_06
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_06
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_07
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_07
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_08
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_08
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_09
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_09
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_10
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_10
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_11
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_11
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_12
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_12
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_13
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_13
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_14
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_14
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_15
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_15
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_16
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_16
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_17
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_17
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_18
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_18
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_19
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_19
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_20
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_20
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_21
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_21
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_22
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_22
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_23
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_23
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_24
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_24
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_25
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_25
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_26
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_26
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_27
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_27
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_28
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_28
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_29
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_29
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_30
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_30
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_31
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_31
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_32
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_32
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_33
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_33
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_34
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_34
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_35
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_35
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_36
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_36
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_37
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_37
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_38
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_38
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_39
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_39
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_40
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_40
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_41
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_41
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_42
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_42
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_43
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_43
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_44
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_44
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_45
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_45
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_46
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_46
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_47
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_47
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_48
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_48
+		}
+	}
+	if = {
+		limit = {
+			NOT = {
+				zz_valyria_knows_spell = {
+					SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_49
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:zz_valyria_magic_$MAGIC_SCHOOL$_49
+		}
+	}
+}
+
+zz_valyria_magic_learn_effect_49 = {
+	switch = {
+		trigger = var:selected_flag
+		flag:$MAGIC_SCHOOL$_skill = {
+			zz_valyria_gain_spell_experience = {
+				XPGAIN = 3
+				XPTRACK = $MAGIC_SCHOOL$
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_01 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_01
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_02 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_02
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_03 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_03
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_04 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_04
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_05 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_05
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_06 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_06
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_07 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_07
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_08 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_08
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_09 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_09
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_10 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_10
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_11 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_11
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_12 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_12
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_13 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_13
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_14 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_14
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_15 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_15
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_16 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_16
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_17 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_17
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_18 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_18
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_19 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_19
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_20 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_20
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_21 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_21
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_22 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_22
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_23 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_23
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_24 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_24
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_25 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_25
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_26 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_26
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_27 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_27
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_28 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_28
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_29 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_29
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_30 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_30
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_31 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_31
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_32 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_32
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_33 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_33
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_34 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_34
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_35 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_35
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_36 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_36
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_37 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_37
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_38 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_38
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_39 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_39
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_40 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_40
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_41 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_41
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_42 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_42
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_43 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_43
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_44 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_44
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_45 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_45
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_46 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_46
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_47 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_47
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_48 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_48
+			}
+		}
+		flag:zz_valyria_magic_$MAGIC_SCHOOL$_49 = {
+			zz_magic_education_learn_spell_effect = {
+				SPELL = zz_valyria_magic_$MAGIC_SCHOOL$_49
+			}
+		}
 	}
 }

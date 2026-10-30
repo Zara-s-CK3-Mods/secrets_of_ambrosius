@@ -262,6 +262,7 @@ scripted_effect select_special_tier_move_effect = {
 							NOR = {
 								has_trait = peasant_leader
 								government_has_flag = government_is_republic
+								government_has_flag = government_is_merchant
 							}
 						}
 					}
@@ -272,6 +273,7 @@ scripted_effect select_special_tier_move_effect = {
 							NOR = {
 								has_trait = peasant_leader
 								government_has_flag = government_is_republic
+								government_has_flag = government_is_merchant
 							}
 						}
 					}
@@ -1047,7 +1049,6 @@ scripted_effect select_tier_1_move_effect = {
 			}
 		}
 	}
-
 }
 
 # Select a single tier 2 combat move from the list.
@@ -1292,7 +1293,6 @@ scripted_effect select_tier_2_move_effect = {
 			}
 		}
 	}
-	
 }
 
 # Select a single tier 3 combat move from the list.
@@ -2005,10 +2005,10 @@ scripted_effect work_out_wounds_or_death_effect = {
 						
 						scope:recipient = {
 							show_as_tooltip = {
-								increase_wounds_effect = { REASON = dream_magic }
+								agot_increase_wounds_effect = { REASON = dream_magic RANK = 1}
 								add_stress = massive_stress_gain
 							}
-							increase_wounds_effect = { REASON = dream_magic }
+							agot_increase_wounds_effect = { REASON = dream_magic RANK = 1}
 							add_stress = massive_stress_gain
 							scope:actor = {
 								if = {
@@ -2031,10 +2031,10 @@ scripted_effect work_out_wounds_or_death_effect = {
 						
 						scope:recipient = {
 							show_as_tooltip = {
-								increase_wounds_effect = { REASON = blood_magic }
+								agot_increase_wounds_effect = { REASON = blood_magic RANK = 1}
 								add_stress = massive_stress_gain
 							}
-							increase_wounds_effect = { REASON = blood_magic }
+							agot_increase_wounds_effect = { REASON = blood_magic RANK = 1}
 							add_stress = massive_stress_gain
 							scope:actor = {
 								if = {
@@ -2057,10 +2057,10 @@ scripted_effect work_out_wounds_or_death_effect = {
 						
 						scope:recipient = {
 							show_as_tooltip = {
-								increase_wounds_effect = { REASON = transmutation_magic }
+								agot_increase_wounds_effect = { REASON = transmutation_magic RANK = 1}
 								add_stress = massive_stress_gain
 							}
-							increase_wounds_effect = { REASON = transmutation_magic }
+							agot_increase_wounds_effect = { REASON = transmutation_magic RANK = 1}
 							add_stress = massive_stress_gain
 							scope:actor = {
 								if = {
@@ -2082,10 +2082,10 @@ scripted_effect work_out_wounds_or_death_effect = {
 						add_dread = medium_dread_gain
 						scope:recipient = {
 							show_as_tooltip = {
-								increase_wounds_effect = { REASON = shadow_magic }
+								agot_increase_wounds_effect = { REASON = shadow_magic RANK = 1 }
 								add_stress = massive_stress_gain
 							}
-							increase_wounds_effect = { REASON = shadow_magic }
+							agot_increase_wounds_effect = { REASON = shadow_magic RANK = 1 }
 							scope:actor = {
 								if = {
 									limit = {
@@ -2116,11 +2116,20 @@ scripted_effect work_out_wounds_or_death_effect = {
 						add_dread = medium_dread_gain
 						scope:recipient = {
 							show_as_tooltip = {
-								increase_wounds_effect = { REASON = fire_magic }
+								agot_increase_wounds_effect = { REASON = fire_magic RANK = 1 }
+								add_trait = burned
+								add_trait_xp = {
+									trait = burned
+									value = { 5 200 }
+								}
 								add_stress = massive_stress_gain
 							}
-							increase_wounds_effect = { REASON = fire_magic }
-
+							agot_increase_wounds_effect = { REASON = fire_magic RANK = 1}
+							add_trait = burned
+							add_trait_xp = {
+								trait = burned
+								value = { 5 200 }
+							}
 							add_stress = massive_stress_gain
 							scope:actor = {
 								if = {
@@ -2142,10 +2151,10 @@ scripted_effect work_out_wounds_or_death_effect = {
 						add_dread = medium_dread_gain
 						scope:recipient = {
 							show_as_tooltip = {
-								increase_wounds_effect = { REASON = water_magic }
+								agot_increase_wounds_effect = { REASON = water_magic RANK = 1}
 								add_stress = massive_stress_gain
 							}
-							increase_wounds_effect = { REASON = water_magic }
+							agot_increase_wounds_effect = { REASON = water_magic RANK = 1}
 							add_stress = massive_stress_gain
 							scope:actor = {
 								if = {
@@ -2168,10 +2177,10 @@ scripted_effect work_out_wounds_or_death_effect = {
 						
 						scope:recipient = {
 							show_as_tooltip = {
-								increase_wounds_effect = { REASON = air_magic }
+								agot_increase_wounds_effect = { REASON = air_magic RANK = 1}
 								add_stress = massive_stress_gain
 							}
-							increase_wounds_effect = { REASON = air_magic }
+							agot_increase_wounds_effect = { REASON = air_magic RANK = 1}
 							add_stress = massive_stress_gain
 							scope:actor = {
 								if = {
@@ -2615,6 +2624,10 @@ scripted_effect work_out_wounds_or_death_effect = {
 					execute_opinion_effect = { VICTIM = scope:recipient EXECUTIONER = scope:secondary_recipient }
 				}
 				scope:recipient = {
+					add_trait_xp = {
+						trait = burned
+						value = { 5 200 }
+					}
 					death = {
 						death_reason = death_fire_magic
 						killer = scope:secondary_recipient
@@ -2795,7 +2808,7 @@ scripted_effect work_out_wounds_or_death_effect = {
 				limit = {
 					scope:sc_victor = {
 						faith = {
-							has_doctrine = tenet_cranial_trophies
+							has_tenet = tenet_cranial_trophies
 						}
 					}
 				}
@@ -2833,7 +2846,7 @@ scripted_effect work_out_wounds_or_death_effect = {
 			limit = {
 				scope:sc_victor = {
 					faith = {
-						has_doctrine = tenet_cranial_trophies
+						has_tenet = tenet_cranial_trophies
 					}
 				}
 			}
@@ -3227,6 +3240,7 @@ scripted_effect finalise_combat_results_effect = {
 				}
 				has_dlc_feature = legends
 				NOT = { has_game_rule = historical_legends_only }
+				is_ruler = yes
 			}
 			create_legend_seed = {
 				type = heroic
@@ -3244,7 +3258,7 @@ scripted_effect finalise_combat_results_effect = {
 	scope:sc_victor = {
 		if = {
 			limit = {
-				accolade ?= { is_accolade_active = yes }
+				is_acclaimed = yes
 			}
 			# Glory is relative to the prowess difference between two characters. Beating someone equally matched or better is worth more.
 			## Massively outclassed.
@@ -7351,6 +7365,28 @@ single_combat.0001 = {
 	}
 
 	immediate = {
+		#AGOT Added
+		if = {
+			limit = {
+				OR = {
+					has_character_modifier = dragon_battle_prowess_modifier_1
+					has_character_modifier = dragon_battle_prowess_modifier_2
+					has_character_modifier = dragon_battle_prowess_modifier_3
+					has_character_modifier = dragon_battle_prowess_modifier_4
+					has_character_modifier = dragon_battle_prowess_modifier_5
+				}
+			}
+			add_character_flag = {
+				flag = agot_recalculate_dragon_battle_prowess_after_combat
+				days = 3
+			}
+			remove_character_modifier = dragon_battle_prowess_modifier_1
+			remove_character_modifier = dragon_battle_prowess_modifier_2
+			remove_character_modifier = dragon_battle_prowess_modifier_3
+			remove_character_modifier = dragon_battle_prowess_modifier_4
+			remove_character_modifier = dragon_battle_prowess_modifier_5
+		}
+		# End AGOT Added
 		play_music_cue = "mx_cue_combat_stinger"
 		# Generate combat options.
 		select_combat_options_from_pool_effect = yes
@@ -8250,7 +8286,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_wait_and_hope_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			patient = miniscule_stress_impact_loss
 			calm = miniscule_stress_impact_loss
 			impatient = miniscule_stress_impact_gain
@@ -8335,7 +8371,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_enthusiastic_onslaught_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			impatient = miniscule_stress_impact_loss
 			wrathful = miniscule_stress_impact_loss
 			patient = miniscule_stress_impact_gain
@@ -8366,7 +8402,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_hail_mary_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			impatient = miniscule_stress_impact_loss
 			brave = minor_stress_impact_loss
 			patient = miniscule_stress_impact_gain
@@ -8397,7 +8433,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_pocket_sand_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			deceitful = miniscule_stress_impact_loss
 			arbitrary = miniscule_stress_impact_loss
 			honest = miniscule_stress_impact_gain
@@ -8428,7 +8464,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_nut_em_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			deceitful = miniscule_stress_impact_loss
 			arbitrary = miniscule_stress_impact_loss
 			honest = miniscule_stress_impact_gain
@@ -8459,7 +8495,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_guard_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			patient = miniscule_stress_impact_loss
 			calm = miniscule_stress_impact_loss
 			impatient = miniscule_stress_impact_gain
@@ -8516,7 +8552,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_onslaught_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			impatient = miniscule_stress_impact_loss
 			wrathful = miniscule_stress_impact_loss
 			patient = miniscule_stress_impact_gain
@@ -8573,7 +8609,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_taunt_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			callous = miniscule_stress_impact_loss
 			sadistic = miniscule_stress_impact_loss
 			compassionate = miniscule_stress_impact_gain
@@ -8603,7 +8639,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_put_the_boot_in_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			impatient = miniscule_stress_impact_loss
 			brave = minor_stress_impact_loss
 			patient = miniscule_stress_impact_gain
@@ -8634,7 +8670,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_strict_guard_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			patient = miniscule_stress_impact_loss
 			calm = miniscule_stress_impact_loss
 			impatient = miniscule_stress_impact_gain
@@ -8691,7 +8727,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_expert_onslaught_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			impatient = miniscule_stress_impact_loss
 			wrathful = miniscule_stress_impact_loss
 			patient = miniscule_stress_impact_gain
@@ -8722,7 +8758,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_attempt_disarm_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			patient = miniscule_stress_impact_loss
 			calm = miniscule_stress_impact_loss
 			impatient = miniscule_stress_impact_gain
@@ -8753,7 +8789,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_lightning_assault_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			impatient = miniscule_stress_impact_loss
 			diligent = miniscule_stress_impact_loss
 			patient = miniscule_stress_impact_gain
@@ -8784,7 +8820,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_tire_opponent_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			diligent = miniscule_stress_impact_loss
 			calm = miniscule_stress_impact_loss
 			lazy = miniscule_stress_impact_gain
@@ -8818,7 +8854,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_reason_you_suck_speech_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			callous = miniscule_stress_impact_loss
 			sadistic = miniscule_stress_impact_loss
 			gregarious = miniscule_stress_impact_loss
@@ -8853,7 +8889,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_technique_from_legend_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			brave = minor_stress_impact_loss
 			trusting = minor_stress_impact_loss	# A trusting character *totally* believes the legends are both true and accurate!
 			craven = minor_stress_impact_gain
@@ -8862,10 +8898,10 @@ single_combat.0001 = {
 		ai_chance = {
 			base = 100
 			sce_shrewd_fighter_scripted_modifier = yes
-			# Weight up relevant traits: scholar
+			# Weight up relevant traits: erudite
 			modifier = {
 				add = sce_ai_mod_trait_weight_medium
-				has_trait = scholar
+				has_trait = erudite
 			}
 			# Weight up relevant traits: theologian
 			modifier = {
@@ -8897,7 +8933,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_like_a_viper_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			deceitful = minor_stress_impact_loss
 			arbitrary = minor_stress_impact_loss
 			honest = minor_stress_impact_gain
@@ -8941,7 +8977,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_pocket_silver_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			deceitful = miniscule_stress_impact_loss
 			arbitrary = miniscule_stress_impact_loss
 			generous = miniscule_stress_impact_loss
@@ -8982,7 +9018,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_martial_voice_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			callous = miniscule_stress_impact_loss
 			sadistic = miniscule_stress_impact_loss
 			gregarious = miniscule_stress_impact_loss
@@ -9019,7 +9055,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_mocking_boast_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			callous = miniscule_stress_impact_loss
 			sadistic = miniscule_stress_impact_loss
 			arrogant = miniscule_stress_impact_loss
@@ -9080,7 +9116,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_desert_warrior_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			diligent = miniscule_stress_impact_loss
 			calm = miniscule_stress_impact_loss
 			lazy = miniscule_stress_impact_gain
@@ -9114,7 +9150,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_jungle_stalker_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			diligent = miniscule_stress_impact_loss
 			calm = miniscule_stress_impact_loss
 			lazy = miniscule_stress_impact_gain
@@ -9148,7 +9184,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_open_terrain_expert_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			diligent = miniscule_stress_impact_loss
 			calm = miniscule_stress_impact_loss
 			lazy = miniscule_stress_impact_gain
@@ -9182,7 +9218,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_rough_terrain_expert_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			diligent = miniscule_stress_impact_loss
 			calm = miniscule_stress_impact_loss
 			lazy = miniscule_stress_impact_gain
@@ -9216,7 +9252,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_forest_fighter_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			diligent = miniscule_stress_impact_loss
 			calm = miniscule_stress_impact_loss
 			lazy = miniscule_stress_impact_gain
@@ -9308,7 +9344,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_feint_and_stab_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			deceitful = minor_stress_impact_loss
 			arbitrary = minor_stress_impact_loss
 			honest = minor_stress_impact_gain
@@ -9342,7 +9378,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_butchery_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			callous = minor_stress_impact_loss
 			sadistic = minor_stress_impact_loss
 			compassionate = minor_stress_impact_gain
@@ -9354,14 +9390,74 @@ single_combat.0001 = {
 	}
 
 	#Stoic Veteran
+	#option = {
+	# 	name = {
+	# 		trigger = {
+	# 			NOT = {
+	# 				scope:my_foe = { has_trait = varangian }
+	# 			}
+	# 		}
+	# 		text = single_combat.0001.stoic_veteran.general
+	# 	}
+	# 	name = {
+	# 		trigger = {
+	# 			scope:my_foe = { has_trait = varangian }
+	# 		}
+	# 		text = single_combat.0001.stoic_veteran.other_varangian
+	# 	}
+	# 	trigger = { exists = local_var:combat_move_stoic_veteran_flag }
+
+	# 	#Move clarification
+	# 	custom_tooltip = single_combat.0001.tt.stoic_veteran
+
+	# 	#Spawn Info
+	# 	trait = varangian
+
+	# 	#Move effects
+	# 	## First, we show the move's effects with no guff.
+	# 	show_as_tooltip = { combat_move_stoic_veteran_effect = yes }
+	# 	## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+	# 	if = {
+	# 		limit = {
+	# 			scope:my_foe = { is_alive = yes }
+	# 		}
+	# 		hidden_effect = { combat_move_stoic_veteran_effect = yes }
+	# 	}
+
+	# 	# Loc here implies stoic professionalism, so doesn't seem fair to apply stress over that.
+	# 	ai_chance = {
+	# 		base = 100
+	# 		sce_preferred_shrewd_fighter_scripted_modifier = yes
+	# 	}
+	# }
+
+	#Blade Dance
 	option = {
 		name = {
-			trigger = {
-				NOT = {
-					scope:my_foe = { has_trait = varangian }
-				}
+			text = single_combat.0001.blade_dance
+			trigger = { is_landed = yes }
+		}
+		name = {
+			text = single_combat.0001.blade_dance_unlanded
+			trigger = { is_landed = no }
+		}
+		trigger = { exists = local_var:combat_move_blade_dance_flag }
+
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.blade_dance
+
+		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
+		trait = lifestyle_blademaster
+
+		#Move effects
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { combat_move_blade_dance_effect = yes }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
 			}
-			text = single_combat.0001.stoic_veteran.general
+			hidden_effect = { combat_move_blade_dance_effect = yes }
 		}
 
 		# No appropriate stress loss for blade dance; arguably arrogant, as we portray them as haughty in the loc, but it's a bit mean to both hit the player verbally and mechanically for something that's up for interpretation.
@@ -9457,6 +9553,7 @@ single_combat.0001 = {
 		trait = zz_magister
 
 		#Move effects
+
 		## First, we show the move's effects with no guff.
 		show_as_tooltip = { combat_move_mage_potency_01_effect = yes }
 		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
@@ -9624,7 +9721,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_wrath_of_highgod_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			# Takes a bold human to stop fighting entirely and pray, however loudly, in the middle of a duel.
 			craven = miniscule_stress_impact_loss
 			brave = miniscule_stress_impact_gain
@@ -9709,7 +9806,7 @@ single_combat.0001 = {
 			hidden_effect = { combat_move_something_to_hide_effect = yes }
 		}
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			deceitful = miniscule_stress_impact_loss
 			arbitrary = miniscule_stress_impact_loss
 			honest = miniscule_stress_impact_gain
@@ -11799,7 +11896,7 @@ single_combat.0031 = {
 		# Consolation prize for being a sore loser to a rival.
 		else = { add_stress = minor_stress_loss }
 
-		stress_impact = {
+		stress_and_fulfillment_impact = {
 			arrogant = minor_stress_impact_loss
 			vengeful = medium_stress_impact_loss
 			humble = minor_stress_impact_gain
@@ -13386,7 +13483,7 @@ single_combat.0041 = {
 			}
 			if = {
 				limit = {
-					scope:sc_victor.faith = { has_doctrine = tenet_cranial_trophies }
+					scope:sc_victor.faith = { has_tenet = tenet_cranial_trophies }
 				}
 				show_as_tooltip = {
 					tgp_cranial_trophies_beheading_effect = {
@@ -13513,6 +13610,16 @@ single_combat.0041 = {
 				}
 			}
 		}
+		#Lose some stress if you kill your rival
+		if = {
+			limit = {
+				 has_relation_rival = scope:sc_loser 
+			}
+			stress_and_fulfillment_impact = {
+				base = major_stress_impact_loss
+			}
+		}
+		
 
 		# Damage equipped artifacts
 		may_damage_artifact_effect = {

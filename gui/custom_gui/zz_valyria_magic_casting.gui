@@ -9,12 +9,10 @@
 		size = { 100% 100% }
 		
 		visible = "[And( Not( IsPauseMenuShown ), And(Or(Not(IsObserver), GetPlayer.IsValid), IsDefaultGUIMode))]"
-		
 		zz_magic_window = {}
 		zz_valyria_magic_scroll_learning = {}
 		zz_valyria_magic_crafting = {}
 	}
-	
 	type zz_magic_window = window {
 		name = "zz_magic_window"
 		layer = windows_layer
@@ -24,6 +22,7 @@
 		size = { 900 100% }
 		datacontext = "[GetScriptedGui('zz_valyria_magic_casting')]"
 		visible = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End)]"
+		#visible = "[IsGameViewOpen('character')]"
 		using = Window_Background
 		using = Window_Decoration
 		movable = no
@@ -265,11 +264,25 @@
 											raw_text = "Water Magic - [Scope.Char.MakeScope.Var('zz_magic_caster').ScriptValue('zz_valyria_water_magic_stat_gui')|0]"
 										}
 									}
+									spacer = { size = { 00 5 } }
+									flowcontainer = {
+										text_single = {
+											align = left
+											raw_text = "Dragon Magic - [Scope.Char.MakeScope.Var('zz_magic_caster').ScriptValue('zz_valyria_dragon_magic_stat_gui')|0]"
+										}
+									}
 									spacer = { size = { 00 15 } }
 									flowcontainer = {
 										text_single = {
 											align = left
 											raw_text = "Drops of Power - [Scope.Char.MakeScope.Var('zz_magic_caster').ScriptValue('zz_valyria_drops_of_power_stat')|0]"
+										}
+									}	
+									spacer = { size = { 00 5 } }
+									flowcontainer = {
+										text_single = {
+											align = left
+											raw_text = "Casting Fatigue - [Scope.Char.MakeScope.Var('zz_magic_caster').Char.Custom('zz_valyria_mages_fatigue')]"
 										}
 									}	
 									expand = {}	
@@ -370,6 +383,15 @@
 										}
 										onclick = "[GetVariableSystem.Set( 'magic_page','water_magic' ) ]"
 									}
+									button_normal = {
+										size = { 30 30}
+										icon = {
+											name = "icon_dragon_magic"
+											texture = "gfx/interface/icons/trait_level_tracks/dragon_magic.dds"
+											size = { 100% 100% }
+										}
+										onclick = "[GetVariableSystem.Set( 'magic_page','dragon_magic' ) ]"
+									}
 									expand = {}
 								}
 							}
@@ -409,11 +431,13 @@
 													layoutpolicy_horizontal = expanding
 													text = "[CharacterMemory.MakeScope.ScriptValue('mystery_cost')|0]"
 												}
-												datacontext = "[GetScriptedGui('zz_valyria_blood_magic_01')]"
+												tooltip = "[Localize(Concatenate(CharacterMemory.MakeScope.Var('spell_name').GetFlagKey,'.tooltip.desc' ))]"
+
+												datacontext = "[GetScriptedGui('zz_valyria_cast_magic')]"
 												onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
-												tooltip = "[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
+												#tooltip = "[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 											}	
 										}
 									}
@@ -455,7 +479,7 @@
 													layoutpolicy_horizontal = expanding
 													text = "[CharacterMemory.MakeScope.ScriptValue('mystery_cost')|0]"
 												}
-												datacontext = "[GetScriptedGui('zz_valyria_blood_magic_01')]"
+												datacontext = "[GetScriptedGui('zz_valyria_cast_magic')]"
 												onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
@@ -501,7 +525,7 @@
 													layoutpolicy_horizontal = expanding
 													text = "[CharacterMemory.MakeScope.ScriptValue('mystery_cost')|0]"
 												}
-												datacontext = "[GetScriptedGui('zz_valyria_blood_magic_01')]"
+												datacontext = "[GetScriptedGui('zz_valyria_cast_magic')]"
 												onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
@@ -547,7 +571,7 @@
 													layoutpolicy_horizontal = expanding
 													text = "[CharacterMemory.MakeScope.ScriptValue('mystery_cost')|0]"
 												}
-												datacontext = "[GetScriptedGui('zz_valyria_blood_magic_01')]"
+												datacontext = "[GetScriptedGui('zz_valyria_cast_magic')]"
 												onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
@@ -593,7 +617,7 @@
 													layoutpolicy_horizontal = expanding
 													text = "[CharacterMemory.MakeScope.ScriptValue('mystery_cost')|0]"
 												}
-												datacontext = "[GetScriptedGui('zz_valyria_blood_magic_01')]"
+												datacontext = "[GetScriptedGui('zz_valyria_cast_magic')]"
 												onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
@@ -639,7 +663,7 @@
 													layoutpolicy_horizontal = expanding
 													text = "[CharacterMemory.MakeScope.ScriptValue('mystery_cost')|0]"
 												}
-												datacontext = "[GetScriptedGui('zz_valyria_blood_magic_01')]"
+												datacontext = "[GetScriptedGui('zz_valyria_cast_magic')]"
 												onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
@@ -685,7 +709,7 @@
 													layoutpolicy_horizontal = expanding
 													text = "[CharacterMemory.MakeScope.ScriptValue('mystery_cost')|0]"
 												}
-												datacontext = "[GetScriptedGui('zz_valyria_blood_magic_01')]"
+												datacontext = "[GetScriptedGui('zz_valyria_cast_magic')]"
 												onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
@@ -731,7 +755,53 @@
 													layoutpolicy_horizontal = expanding
 													text = "[CharacterMemory.MakeScope.ScriptValue('mystery_cost')|0]"
 												}
-												datacontext = "[GetScriptedGui('zz_valyria_blood_magic_01')]"
+												datacontext = "[GetScriptedGui('zz_valyria_cast_magic')]"
+												onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
+												down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
+												enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
+												tooltip = "[ScriptedGui.BuildTooltip( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
+											}	
+										}
+									}
+									expand = {}
+								}
+							}
+							scrollbox = {
+								name = "spell_dragon_scrollarea"
+								visible = "[GetVariableSystem.HasValue( 'magic_page','dragon_magic')]"
+								layoutpolicy_vertical = expanding
+								layoutpolicy_horizontal = expanding
+								max_width = 550
+								#max_height = 500
+								blockoverride "scrollbox_content"
+								{
+									fixedgridbox = {
+										addcolumn = 500
+										addrow =55
+										datacontext = "[GetPlayer.MakeScope]"
+										datamodel = "[Scope.GetList('zz_valyria_spell_dragon_list')]"
+										
+										item = {
+											button_standard = {
+												parentanchor = top|left
+												datacontext = "[Scope.CharacterMemory]"
+												minimumsize = { 500 38 }
+												text_single = {
+													minimumsize = { 100 38 }
+													margin = { 15 15 }
+													text = "[CharacterMemory.GetName|U]"
+													alwaystransparent = yes
+													resizeparent = yes
+													align = center|nobaseline
+													default_format = "#low"
+												}
+												text_label_center = {
+													parentanchor = top|right
+													margin_right = 30
+													layoutpolicy_horizontal = expanding
+													text = "[CharacterMemory.MakeScope.ScriptValue('mystery_cost')|0]"
+												}
+												datacontext = "[GetScriptedGui('zz_valyria_cast_magic')]"
 												onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												down = "[ScriptedGui.IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
 												enabled = "[ScriptedGui.IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery', CharacterMemory.MakeScope ).End)]"
@@ -901,6 +971,13 @@
 											raw_text = "Drops of Power - [Scope.Char.MakeScope.Var('zz_item_caster').ScriptValue('zz_valyria_drops_of_power_stat')|0]"
 										}
 									}
+									spacer = { size = { 00 5 } }
+									flowcontainer = {
+										text_single = {
+											align = left
+											raw_text = "Casting Fatigue - [Scope.Char.MakeScope.Var('zz_magic_caster').Char.Custom('zz_valyria_mages_fatigue')]"
+										}
+									}	
 									expand = {}
 								}
 								
@@ -1167,31 +1244,241 @@
 		}
 	}
 	
-	type zz_magic_cast_button = button_zz_cast_magic
+	type zz_magic_cast_button = widget
 	{
-		name = "knight_tree_button"
-		visible = "[GetScriptedGui('zz_valyria_cast_click').IsShown(GetPlayer.MakeScope)]"
-		size = { 25 25 }
-		
-		#onclick = "[GetVariableSystem.Toggle('knight_tree_visible')]"
-		onclick = "[CloseGameView( 'my_realm' )]"
-		onclick = "[CloseGameView( 'military' )]"
-		onclick = "[CloseGameView( 'council_window' )]"
-		onclick = "[CloseGameView( 'court_window' )]"
-		onclick = "[CloseGameView( 'intrigue_window' )]"
-		onclick = "[CloseGameView( 'factions_window' )]"
-		onclick = "[CloseGameView( 'decisions' )]"
-		onclick = "[CloseGameView( 'activity_list_window' )]"
-		onclick = "[CloseGameView( 'manage_tax_slots' )]"
-		onclick = "[CloseGameView( 'government_administration' )]"
-		onclick = "[CloseGameView( 'government_administration' )]"		
-		
-		onclick = "[GetScriptedGui('zz_valyria_magic_crafting_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-		onclick = "[GetScriptedGui('zz_valyria_magic_scroll_learning_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+		size = { 35 35 }
+		button_round = {
+			name = "knight_tree_button"
+			visible = "[GetScriptedGui('zz_valyria_cast_click').IsShown(GetPlayer.MakeScope)]"
+			size = { 35 35 }
+			
+			#onclick = "[GetVariableSystem.Toggle('knight_tree_visible')]"
+			onclick = "[CloseGameView( 'my_realm' )]"
+			onclick = "[CloseGameView( 'military' )]"
+			onclick = "[CloseGameView( 'council_window' )]"
+			onclick = "[CloseGameView( 'court_window' )]"
+			onclick = "[CloseGameView( 'intrigue_window' )]"
+			onclick = "[CloseGameView( 'factions_window' )]"
+			onclick = "[CloseGameView( 'decisions' )]"
+			onclick = "[CloseGameView( 'activity_list_window' )]"
+			onclick = "[CloseGameView( 'manage_tax_slots' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"	
+			#shortcut = "shift_c"	
+			
+			onclick = "[GetScriptedGui('zz_valyria_magic_crafting_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			onclick = "[GetScriptedGui('zz_valyria_magic_scroll_learning_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 
-		onclick = "[GetScriptedGui('zz_valyria_cast_click').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('opened_character', Character.MakeScope).End)]"
-		using = tooltip_ne
-		tooltip = "ZZ_CAST_MYSTERY_TT"
+			onclick = "[GetScriptedGui('zz_valyria_cast_click').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('opened_character', Character.MakeScope).End)]"
+			using = tooltip_ne
+			tooltip = "ZZ_CAST_MYSTERY_TT"
+			button_icon = {
+				texture = "gfx/interface/icons/zz_magic_casting.dds"
+				parentanchor = center
+				alwaystransparent = yes
+				size = { 25 25 }
+			}
+		}
+	}
+	type zz_magic_cast_button_outliner = widget
+	{
+		size = { 30 30 }
+		button_round = {
+			name = "knight_tree_button"
+			visible = "[GetScriptedGui('zz_valyria_cast_click').IsShown(GetPlayer.MakeScope)]"
+			size = { 30 30 }
+			
+			#onclick = "[GetVariableSystem.Toggle('knight_tree_visible')]"
+			onclick = "[CloseGameView( 'my_realm' )]"
+			onclick = "[CloseGameView( 'military' )]"
+			onclick = "[CloseGameView( 'council_window' )]"
+			onclick = "[CloseGameView( 'court_window' )]"
+			onclick = "[CloseGameView( 'intrigue_window' )]"
+			onclick = "[CloseGameView( 'factions_window' )]"
+			onclick = "[CloseGameView( 'decisions' )]"
+			onclick = "[CloseGameView( 'activity_list_window' )]"
+			onclick = "[CloseGameView( 'manage_tax_slots' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"	
+			#shortcut = "shift_c"	
+			
+			onclick = "[GetScriptedGui('zz_valyria_magic_crafting_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			onclick = "[GetScriptedGui('zz_valyria_magic_scroll_learning_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+
+			onclick = "[GetScriptedGui('zz_valyria_cast_click').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('opened_character', Character.MakeScope).End)]"
+			using = tooltip_ne
+			tooltip = "ZZ_CAST_MYSTERY_TT"
+			button_icon = {
+				texture = "gfx/interface/icons/zz_magic_casting.dds"
+				parentanchor = center
+				alwaystransparent = yes
+				size = { 20 20 }
+			}
+		}
+	}
+	type zz_magic_cast_button_interaction = widget
+	{
+		size = { 25 25 }
+		button_icon = {
+			name = "knight_tree_button"
+			visible = "[GetScriptedGui('zz_valyria_cast_click').IsShown(GetPlayer.MakeScope)]"
+			size = { 25 25 }
+			texture = "gfx/interface/icons/zz_magic_casting.dds"
+
+			#onclick = "[GetVariableSystem.Toggle('knight_tree_visible')]"
+			onclick = "[CloseGameView( 'my_realm' )]"
+			onclick = "[CloseGameView( 'military' )]"
+			onclick = "[CloseGameView( 'council_window' )]"
+			onclick = "[CloseGameView( 'court_window' )]"
+			onclick = "[CloseGameView( 'intrigue_window' )]"
+			onclick = "[CloseGameView( 'factions_window' )]"
+			onclick = "[CloseGameView( 'decisions' )]"
+			onclick = "[CloseGameView( 'activity_list_window' )]"
+			onclick = "[CloseGameView( 'manage_tax_slots' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"	
+			#shortcut = "shift_c"	
+			
+			onclick = "[GetScriptedGui('zz_valyria_magic_crafting_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			onclick = "[GetScriptedGui('zz_valyria_magic_scroll_learning_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+
+			onclick = "[GetScriptedGui('zz_valyria_cast_click').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('opened_character', Character.MakeScope).End)]"
+			using = tooltip_ne
+			tooltip = "ZZ_CAST_MYSTERY_TT"
+		}
+	}
+
+	type zz_dragon_visit_button = widget
+	{
+		size = { 32 32 }
+		button_round = {
+			name = "VIST_ON_DRAGON"
+			datacontext = "[GetScriptedGui( 'zz_valyria_dragon_visit' )]"
+			visible = "[GetScriptedGui('zz_valyria_dragon_visit').IsShown( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).AddScope('actor', GetPlayer.MakeScope ).End)]"
+			enabled = "[GetScriptedGui('zz_valyria_dragon_visit').IsValid( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).AddScope('actor', GetPlayer.MakeScope ).End)]"
+			tooltip = "VIST_ON_DRAGON_TT"
+			onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( HoldingView.GetProvince.MakeScope ).AddScope('actor', GetPlayer.MakeScope ).End)]"
+			position = { 0 0 }
+			parentanchor = center
+			size = { 35 35 }
+			button_icon_highlight = {
+				texture = "gfx/interface/icons/point_of_interest_types/agot_poi_dragonlore.dds"
+				parentanchor = center
+				alwaystransparent = yes
+				size = { 25 25 }
+			}
+		}
+	}
+	type zz_magic_cast_province_button = widget
+	{
+		size = { 50 50 }
+		button_round = {
+			name = "button_zz_cast_magic"
+			visible = "[GetScriptedGui('zz_valyria_province_cast_click').IsShown(GetPlayer.MakeScope)]"
+			#onclick = "[GetVariableSystem.Toggle('knight_tree_visible')]"
+			onclick = "[CloseGameView( 'my_realm' )]"
+			onclick = "[CloseGameView( 'military' )]"
+			onclick = "[CloseGameView( 'council_window' )]"
+			onclick = "[CloseGameView( 'court_window' )]"
+			onclick = "[CloseGameView( 'intrigue_window' )]"
+			onclick = "[CloseGameView( 'factions_window' )]"
+			onclick = "[CloseGameView( 'decisions' )]"
+			onclick = "[CloseGameView( 'activity_list_window' )]"
+			onclick = "[CloseGameView( 'manage_tax_slots' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"
+			
+			onclick = "[GetScriptedGui('zz_valyria_magic_crafting_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			onclick = "[GetScriptedGui('zz_valyria_magic_scroll_learning_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			
+			onclick = "[GetScriptedGui('zz_valyria_province_cast_click').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_province', HoldingView.GetProvince.MakeScope).End)]"
+			using = tooltip_ne
+			tooltip = "ZZ_CAST_MYSTERY_TT"
+			position = { 0 0 }
+			parentanchor = center
+			size = { 50 50 }
+			button_icon = {
+				texture = "gfx/interface/icons/zz_magic_casting.dds"
+				parentanchor = center
+				alwaystransparent = yes
+				size = { 45 45 }
+			}
+		}
+	}
+	type zz_magic_cast_holding_button = widget
+	{
+		size = { 35 35 }
+		button_round = {
+			name = "button_zz_cast_magic"
+			visible = "[GetScriptedGui('zz_valyria_province_cast_click').IsShown(GetPlayer.MakeScope)]"
+			#onclick = "[GetVariableSystem.Toggle('knight_tree_visible')]"
+			onclick = "[CloseGameView( 'my_realm' )]"
+			onclick = "[CloseGameView( 'military' )]"
+			onclick = "[CloseGameView( 'council_window' )]"
+			onclick = "[CloseGameView( 'court_window' )]"
+			onclick = "[CloseGameView( 'intrigue_window' )]"
+			onclick = "[CloseGameView( 'factions_window' )]"
+			onclick = "[CloseGameView( 'decisions' )]"
+			onclick = "[CloseGameView( 'activity_list_window' )]"
+			onclick = "[CloseGameView( 'manage_tax_slots' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"
+			
+			onclick = "[GetScriptedGui('zz_valyria_magic_crafting_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			onclick = "[GetScriptedGui('zz_valyria_magic_scroll_learning_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			
+			onclick = "[GetScriptedGui('zz_valyria_province_cast_click').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_province', Holding.GetProvince.MakeScope).End)]"
+			using = tooltip_ne
+			tooltip = "ZZ_CAST_MYSTERY_TT"
+			position = { 0 0 }
+			parentanchor = center
+			size = { 35 35 }
+			button_icon = {
+				texture = "gfx/interface/icons/zz_magic_casting.dds"
+				parentanchor = center
+				alwaystransparent = yes
+				size = { 30 30 }
+			}
+		}
+	}
+	type zz_magic_cast_holding_button_outliner = widget
+	{
+		size = { 30 30 }
+		button_round = {
+			name = "button_zz_cast_magic"
+			visible = "[GetScriptedGui('zz_valyria_province_cast_click').IsShown(GetPlayer.MakeScope)]"
+			#onclick = "[GetVariableSystem.Toggle('knight_tree_visible')]"
+			onclick = "[CloseGameView( 'my_realm' )]"
+			onclick = "[CloseGameView( 'military' )]"
+			onclick = "[CloseGameView( 'council_window' )]"
+			onclick = "[CloseGameView( 'court_window' )]"
+			onclick = "[CloseGameView( 'intrigue_window' )]"
+			onclick = "[CloseGameView( 'factions_window' )]"
+			onclick = "[CloseGameView( 'decisions' )]"
+			onclick = "[CloseGameView( 'activity_list_window' )]"
+			onclick = "[CloseGameView( 'manage_tax_slots' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"
+			onclick = "[CloseGameView( 'government_administration' )]"
+			
+			onclick = "[GetScriptedGui('zz_valyria_magic_crafting_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			onclick = "[GetScriptedGui('zz_valyria_magic_scroll_learning_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+			
+			onclick = "[GetScriptedGui('zz_valyria_province_cast_click').Execute(GuiScope.SetRoot(GetPlayer.MakeScope).AddScope('selected_province', Holding.GetProvince.MakeScope).End)]"
+			using = tooltip_ne
+			tooltip = "ZZ_CAST_MYSTERY_TT"
+			position = { 0 0 }
+			parentanchor = center
+			size = { 30 30 }
+			button_icon_highlight = {
+				texture = "gfx/interface/icons/zz_magic_casting.dds"
+				parentanchor = center
+				alwaystransparent = yes
+				size = { 20 20 }
+			}
+		}
 	}
 }
 magic_casting_window_open = {}

@@ -13,7 +13,30 @@
  tradition_zz_valyrian_practices_name:0 "Valyrian Practices"
  tradition_zz_valyrian_practices_desc:0 "The Freehold famously did not care for the individual particulars of a culture. But instead embraced any and all who would add to its power."
 
+ go_incest_name:0 "Mingled Bloodlines"
+ go_incest_desc:0 "To keep the essence of the dragon pure, we must ensure our bloodlines remain concentrated within the high nobility, shielding our heritage from the dilution of 'lesser' men."
 
+ tradition_zz_valyrian_incest_desc:0 "$go_incest_desc$"
+
+ go_sibling_incest_desc:0 "The bond between brother and sister is the most sacred of all. By wedding within the immediate family, we ensure the dragon’s flame burns as bright as it did in Old Valyria."
+ tradition_zz_valyrian_sibling_incest_desc:0 "$go_sibling_incest_desc$"
+
+ go_two_concubines_desc:0 "A lord of Valyrian descent may keep two companions to ensure his line is numerous and his house secure."
+ go_three_concubines_desc:0 "The triad of companions represents the three heads of the dragon, providing a stable foundation for a powerful dynasty."
+ go_four_concubines_desc:0 "With four consorts, a ruler displays a level of prestige that commands respect from every corner of the realm."
+ go_five_concubines_desc:0 "Five companions represent the peak of noble excess, ensuring that the blood of the magisters is spread far and wide."
+ go_nine_concubines_desc:0 "In the style of the Great Archons of old, nine companions serve to demonstrate that the ruler’s virility and power are truly beyond compare."
+
+ tradition_zz_cultural_polygamy_two_wives_desc:0 "$go_two_concubines_desc$"
+ tradition_zz_cultural_polygamy_three_wives_desc:0 "$go_three_concubines_desc$"
+ tradition_zz_cultural_polygamy_four_wives_desc:0 "$go_four_concubines_desc$"
+ tradition_zz_cultural_polygamy_five_wives_desc:0 "$go_five_concubines_desc$"
+ tradition_zz_cultural_polygamy_nine_wives_desc:0 "$go_nine_concubines_desc$"
+
+
+ manage_grant_culture_trait_decision:0 "Uphold Ancient Traditions"
+ manage_grant_culture_trait_decision_tooltip:0 "As a scion of an ancient lineage, you may refine the customs and social laws of your culture to better reflect the glory of the Freehold."
+ manage_grant_culture_trait_decision_confirm:0 "By Fire and Blood, let it be so."
 
  culture_parameter_magister_lords_of_valyria:0 "The $zz_magister$ [trait|E] grants bonuses to loyalty and realm stability"
 

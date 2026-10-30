@@ -1,28 +1,29 @@
-﻿MagesCouncilName = {
+﻿zz_valyria_mages_fatigue = {
 	type = character
 
 	text = {
 		trigger = {
-			top_liege = {
-				is_male = yes
+			OR = {
+				NOT = {
+					exists = var:zz_miscast_count
+				}
+				var:zz_miscast_count < zz_valyria_miscast_warning_1
+				
 			}
+			
 		}
-		localization_key = kingsguard_name
+		localization_key = zz_valyria_magic_miscast_0
 	}
-
 	text = {
 		trigger = {
-			top_liege = {
-				is_female = yes
-			}
+			var:zz_miscast_count == zz_valyria_miscast_warning_1
 		}
-		localization_key = queensguard_name
+		localization_key = zz_valyria_magic_miscast_1
 	}
-
 	text = {
 		trigger = {
+			var:zz_miscast_count == zz_valyria_miscast_warning_2
 		}
-		fallback = yes
-		localization_key = kingsguard_name
+		localization_key = zz_valyria_magic_miscast_2
 	}
 }

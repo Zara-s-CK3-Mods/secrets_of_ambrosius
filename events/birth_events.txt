@@ -585,12 +585,22 @@ birth.0001 = {
 					any_living_mage = { 
 						has_trait = starwalker
 					}
+					any_in_global_list = {
+						variable = living_dragons
+						exists = yes 
+					}
 				}
 			}
 			scope:child = {
 				random = { 
 					chance = 10 
 					add_trait_force_tooltip = born_beneath_the_comet
+				}
+				random = {
+					chance = 5 
+					add_trait = starwalker
+					make_trait_inactive = starwalker
+					
 				}
 			}
 		}
@@ -1537,10 +1547,8 @@ birth.1003 = {
 					NOT = {
 						any_known_secret = {
 							secret_owner = scope:mother
-							AND = {
-								secret_type = secret_disputed_heritage
-								secret_target = scope:child
-							}
+							secret_type = secret_disputed_heritage
+							secret_target = scope:child
 						}
 					}
 				}
@@ -3365,12 +3373,18 @@ birth.8011 = {
 				liege_has_co_emperorship_trigger = yes
 				liege = {
 					is_roman_emperor_trigger = yes
-					capital_county = title:c_byzantion	#Must rule from the Bucoleon Palace.
+					OR = {
+						capital_county = title:c_byzantion	#Must rule from the Bucoleon Palace.
+						capital_county = title:c_roma # ... or from Rome itself.
+					}
 				}
 			}
 			trigger_else = {
 				is_roman_emperor_trigger = yes
-				capital_county = title:c_byzantion	#Must rule from the Bucoleon Palace.
+					OR = {
+						capital_county = title:c_byzantion	#Must rule from the Bucoleon Palace.
+						capital_county = title:c_roma # ... or from Rome itself.
+					}
 			}
 		}
 		mother = {
@@ -3380,6 +3394,7 @@ birth.8011 = {
 					exists = location # Security check
 					OR = {
 						location = title:c_byzantion.title_province
+						location = title:c_roma.title_province
 						# Be a bit more lenient with co-emperors.
 						AND = {
 							is_diarch = yes
@@ -3390,7 +3405,6 @@ birth.8011 = {
 							liege_has_co_emperorship_trigger = yes
 						}
 					}
-
 				}
 				AND = {	#Landed rulers can be assumed to make the journey, unless they have some extremely pressing reason not to.
 					is_ruler = yes

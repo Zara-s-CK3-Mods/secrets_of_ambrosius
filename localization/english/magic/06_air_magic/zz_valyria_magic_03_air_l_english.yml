@@ -173,7 +173,7 @@ l_english:
   zz_valyria_magic_air_magic_13.toast.tt:0 "$zz_valyria_magic_air_magic_13.toast.desc$"
 
 ## Interaction
-  zz_valyria_magic_air_magic_14.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThrough the secret arts of [air_magic|E] it is possible to use the winds to improve the ability of a character's army to screen itself."
+  zz_valyria_magic_air_magic_14.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hcm$\n\nThrough the secret arts of [air_magic|E] it is possible to use the winds to improve the ability of a character's army to screen itself."
   ##event
   zz_valyria_magic_air_magic.014.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic_14_name$"
   zz_valyria_magic_air_magic.014.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Asshai the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. You can improve the screening ability of the troops that are commanded by [recipient.GetFirstName]. This will make them less likely to take damage from flanking attacks."
@@ -185,7 +185,7 @@ l_english:
   zz_valyria_magic_air_magic_14.toast.tt:0 "$zz_valyria_magic_air_magic_14.toast.desc$"
 
 ## Interaction
-  zz_valyria_magic_air_magic_15.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThrough the secret arts of [air_magic|E] it is possible to use the winds to improve the ability of a character's army to screen itself."
+  zz_valyria_magic_air_magic_15.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_pcm$\n\nThrough the secret arts of [air_magic|E] it is possible to use the winds to improve the ability of a character's army to screen itself."
   ##event
   zz_valyria_magic_air_magic.015.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic_15_name$"
   zz_valyria_magic_air_magic.015.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Asshai the aeromancers make their trade. but the manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. You can improve the screening ability of the troops that are commanded by [recipient.GetFirstName]. This will make them less likely to take damage from flanking attacks."

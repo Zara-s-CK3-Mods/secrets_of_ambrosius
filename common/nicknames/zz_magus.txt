@@ -1,4 +1,4 @@
-﻿nick_the_archmage = {}
+﻿nick_the_archmage = { is_prefix = yes }
 nick_the_necromancer = {}
 nick_the_magus = {}
 nick_the_alchemist = {}

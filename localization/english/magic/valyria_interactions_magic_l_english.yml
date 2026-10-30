@@ -1,0 +1,6 @@
+﻿l_english:
+  EXECUTION_BLOOD_SACRIFICE:0 "Sacrifice in a Blood Magic Ritual"
+  zz_valyria_magic_blood_sacrifice.0001.t:0 "Blood Magic: Ritual Sacrifice"
+  zz_valyria_magic_blood_sacrifice.0001.desc:0 "The needs of the realm ensure that it is necessary for many to die in the name of justice. But in a realm powered by magic, even death can serve. While [recipient.GetFirstName] must die, even in death they may yet serve."
+  zz_valyria_magic_blood_sacrifice.0002.desc:0 "The energies of the arcane writh in the air, unleashed the moment that blood first dripped upon the arcane circle. You must now choose one of your mages to step forth and receive the arcane blessings of this sacrament of the blood."
+  zz_valyria_magic_blood_sacrifice.0002.a:0 "Blood is power!"

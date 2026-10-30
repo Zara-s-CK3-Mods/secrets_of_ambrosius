@@ -18,7 +18,9 @@
 	can_pick_for_hybridization = {
 		always = yes
 	}
-
+	character_modifier = {
+		zz_drops_of_power_advantage = 250
+	}
 	parameters = {
 		magister_lords_of_valyria = yes 
 	}
@@ -49,7 +51,9 @@ tradition_zz_sorcerous_studies = {
 	can_pick = {
 		always = yes
 	}
-	
+	character_modifier = {
+		zz_drops_of_power_holding_construction_piety_cost = 0.5
+	}
 	can_pick_for_hybridization = {
 		always = yes
 	}
@@ -91,7 +95,7 @@ tradition_zz_magic_studies = {
 		always = yes
 	}
 	character_modifier = {
-		zz_drops_of_power_development_growth_factor = 0.5
+		zz_drops_of_power_holding_construction_piety_cost = 0.5
 	}
 	parameters = {
 		mage_scholars = yes 
@@ -143,4 +147,198 @@ tradition_zz_valyrian_practices = {
 	}
 }
 
+tradition_zz_valyrian_incest = {
+	category = societal
 
+	layers = {
+		0 = diplo
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	can_pick = {
+		always = no
+	}
+
+	can_pick_for_hybridization = {
+		always = no
+	}
+
+	cost = {
+		prestige = 1000
+	}
+
+	ai_will_do = {
+		value = -1
+	}
+}
+
+tradition_zz_valyrian_sibling_incest = {
+	category = societal
+
+	layers = {
+		0 = diplo
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	can_pick = {
+		always = no
+	}
+
+	can_pick_for_hybridization = {
+		always = no
+	}
+
+	cost = {
+		prestige = 1000
+	}
+
+	ai_will_do = {
+		value = -1
+	}
+}
+
+tradition_zz_cultural_polygamy_two_wives = {
+	category = societal
+
+	layers = {
+		0 = diplo
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	can_pick = {
+		always = no
+	}
+
+	can_pick_for_hybridization = {
+		always = no
+	}
+
+	cost = {
+		prestige = 1000
+	}
+
+	ai_will_do = {
+		value = -1
+	}
+}
+
+tradition_zz_cultural_polygamy_three_wives = {
+	category = societal
+
+	layers = {
+		0 = diplo
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	can_pick = {
+		always = no
+	}
+
+	can_pick_for_hybridization = {
+		always = no
+	}
+
+	cost = {
+		prestige = 1000
+	}
+
+	ai_will_do = {
+		value = -1
+	}
+}
+
+tradition_zz_cultural_polygamy_four_wives = {
+	category = societal
+
+	layers = {
+		0 = diplo
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	can_pick = {
+		always = no
+	}
+
+	can_pick_for_hybridization = {
+		always = no
+	}
+
+	cost = {
+		prestige = 1000
+	}
+
+	ai_will_do = {
+		value = -1
+	}
+}
+
+tradition_zz_cultural_polygamy_five_wives = {
+	category = societal
+
+	layers = {
+		0 = diplo
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	can_pick = {
+		always = no
+	}
+
+	can_pick_for_hybridization = {
+		always = no
+	}
+
+	cost = {
+		prestige = 1000
+	}
+
+	ai_will_do = {
+		value = -1
+	}
+}
+
+tradition_zz_cultural_polygamy_nine_wives = {
+	category = societal
+
+	layers = {
+		0 = diplo
+	}
+
+	is_shown = {
+		always = no
+	}
+
+	can_pick = {
+		always = no
+	}
+
+	can_pick_for_hybridization = {
+		always = no
+	}
+
+	cost = {
+		prestige = 1000
+	}
+
+	ai_will_do = {
+		value = -1
+	}
+}

@@ -28,7 +28,7 @@
     type tooltip_widget_sanctum_list_drops_of_power = widget {
         name = "tooltip_widget_sanctum_list_drops_of_power"
         alwaystransparent = no
-        size = { 500 800 }
+        size = { 600 800 }
         using = DefaultTooltipBackground
         
         
@@ -36,7 +36,7 @@
             name = "tooltip_container"
             layoutpolicy_vertical = expanding
             layoutpolicy_horizontal = expanding
-            size = { 500 800 }
+            size = { 600 800 }
             filter_mouse = all
             background = {}
             vbox = {
@@ -73,14 +73,14 @@
                     {   
                         spacing = 10
                         fixedgridbox = {
-                            addcolumn = 475
+                            addcolumn = 575
                             addrow = 30
                             datamodel = "[GetPlayer.MakeScope.GetList('mage_list')]"
                             
                             item = {
                                 widget = {
                                     visible = "[GetScriptedGui('zz_valyria_magic_management').IsShown(GetPlayer.MakeScope)]"
-                                    size = { 475 30 }
+                                    size = { 575 30 }
                                     datacontext = "[Scope.GetCharacter]"
                                     hbox = {
                                         
@@ -117,11 +117,11 @@
                                                 widget_drop_value_breakdown_tooltip = {}
                                             }
                                         }
-                                        spacer = {
+                                         spacer = {
                                             size = {10 0}
                                         }
                                         text_single = {
-                                            text = "[Character.MakeScope.ScriptValue('zz_valyria_mana_gain_mult')|0|+=]"
+                                            raw_text = "[Character.MakeScope.ScriptValue('zz_valyria_mana_gain_mult_percentage')]%"
                                             min_width = 75
                                             max_width = 75
                                             align = right
@@ -180,7 +180,7 @@
                     icon = {
                         name = "drops_icon"
                         size = { 30 30 }
-                        texture = "gfx/interface/icons/trait_level_tracks/drops_of_power.dds"
+                        texture = "gfx/interface/icons/zz_drops_of_power.dds"
                     }
                 }
                 flowcontainer = {

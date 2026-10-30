@@ -1,0 +1,225 @@
+﻿zz_valyria_water_magic_stat_gui = {
+
+	if = {
+		limit = {
+			exists = this 
+		}
+		value = "has_trait_xp(zz_magister|water_magic)" 
+	}
+	if = {
+		limit = {
+			has_variable = water_magic_overcap 
+		}
+		add = this.var:water_magic_overcap
+	}
+}
+### Water Magic 
+zz_valyria_magic_water_magic_base_value = { 
+	scope:secondary_recipient = { 
+		if = {
+			limit = {
+				exists = var:casttype
+			}
+			if = {
+				limit = { 
+					var:casttype ?= flag:potion 
+				}
+				value =  var:cast_potency
+			}
+			else_if = {
+				limit = {
+					var:casttype ?= flag:scroll
+				}
+				value =  var:cast_potency
+			}
+			else = { 
+				value = "has_trait_xp(zz_magister|water_magic)" 
+				if = {
+					limit = {
+						has_variable = water_magic_overcap 
+					}
+					add = this.var:water_magic_overcap
+				}
+			}
+		}
+		else = { 
+			value = "has_trait_xp(zz_magister|water_magic)" 
+			if = {
+				limit = {
+					has_variable = water_magic_overcap 
+				}
+				add = this.var:water_magic_overcap
+			}
+		}
+		switch = {
+			trigger = global_var:magic_level
+			0 = {
+				multiply = 0.1 
+			}
+			1 = {
+				multiply = 0.5
+			}
+			2 = {
+				multiply = 1
+			}
+		}
+	}
+}
+zz_valyria_magic_water_magic_01_value = { 
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_02_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = zz_valyria_low_damage_army
+			min = 0.01
+		}
+	}
+}
+zz_valyria_magic_water_magic_03_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			min = 5
+		}
+	}
+}
+zz_valyria_magic_water_magic_05_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}	
+}
+zz_valyria_magic_water_magic_06_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}	
+}
+zz_valyria_magic_water_magic_07_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}	
+}
+zz_valyria_magic_water_magic_08_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}	
+}
+zz_valyria_magic_water_magic_09_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}	
+}
+zz_valyria_magic_water_magic_10_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}	
+}
+zz_valyria_magic_water_magic_11_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 33
+			min = 1
+		}
+	}	
+}
+zz_valyria_magic_water_magic_12_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 7
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_13_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 7
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_14_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 20
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_15_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 25
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_16_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_17_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}

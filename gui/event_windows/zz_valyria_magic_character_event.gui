@@ -93,7 +93,11 @@ window = {
 		{}
 	}
 
-
+	vbox = { # Event shaders (behind character portraits)
+		name = "agot_shader_event_background"
+		margin = { 30 15 }
+		layoutpolicy_horizontal = expanding
+	}
 
 	#Background VFX
 	margin_widget = {
@@ -157,6 +161,52 @@ window = {
 
 			allow_outside = yes
 
+			### DRAGON ###
+			### RIGHT CHARACTER ###
+			portrait_event = {
+				name = "portrait_right_dragon"
+				datacontext = "[EventWindowData.GetPortraitCharacter('right_portrait')]"
+				using = right_portrait_magic_dragon
+
+				parentanchor = bottom|right
+				position = { 620 70 }
+				size = { 100% 100% }
+
+				blockoverride "portrait_button"
+				{
+					portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('right_portrait', 'camera_event_right', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+					alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('right_portrait'))]"
+					tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('right_portrait')]"
+				}
+
+				blockoverride "highlight_visible"
+				{
+					visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('right_portrait') ))]"
+					position = { 70 0 }
+				}
+
+				blockoverride "grayscale" {}
+
+				highlight_icon = {
+					name = "prison_bars"
+					visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('right_portrait')))]"
+					visible_at_creation = no
+					size = { 285 500 }
+					position = { -30 0 }
+					parentanchor = bottom|right
+					effectname = "NoHighlight"
+					spriteType = corneredTiled
+					texture_density = 1.5
+					texture = "gfx/portraits/portrait_prison_body.dds"
+
+					modify_texture = {
+						name = "mask"
+						texture =  "gfx/portraits/portrait_mask_event.dds"
+						spriteType = Corneredstretched
+						blend_mode = alphamultiply
+					}
+				}
+			}
 
 			### NO DRAGON ###
 			portrait_event = {
@@ -217,7 +267,57 @@ window = {
 
 			allow_outside = no
 
-			
+			### DRAGON ###
+			### LEFT CHARACTER ###
+			portrait_event = { #DRAGON
+				name = "portrait_left_dragon"
+				datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
+				using = left_portrait_magic_dragon
+				parentanchor = bottom|left
+				position = { -70 0 }
+				size = { 100% 100% }
+
+				blockoverride "portrait_button"
+				{
+					portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_dragon_event_left', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+					alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
+					tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
+				}
+
+				blockoverride "portrait_transformation"
+				{
+					portrait_scale = { 1.0 1.0 }
+					portrait_offset = { 0.0 0.25 }
+				}
+
+				blockoverride "highlight_visible"
+				{
+					visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('left_portrait') ))]"
+					position = { -40 0 }
+				}
+
+				blockoverride "grayscale" {}
+
+				highlight_icon = {
+					name = "prison_bars"
+					visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('left_portrait')))]"
+					visible_at_creation = no
+					size = { 280 500 }
+					position = { 70 0 }
+					parentanchor = bottom|left
+					effectname = "NoHighlight"
+					spriteType = corneredTiled
+					texture_density = 1.5
+					texture = "gfx/portraits/portrait_prison_body.dds"
+
+					modify_texture = {
+						name = "mask"
+						texture =  "gfx/portraits/portrait_mask_event.dds"
+						spriteType = Corneredstretched
+						blend_mode = alphamultiply
+					}
+				}
+			}
 
 			### NO DRAGON ###
 			portrait_event = {
@@ -270,8 +370,54 @@ window = {
 			}
 		}
 
+		### DRAGON
+		### Use this for single character
+		portrait_event = {
+			name = "portrait_center_dragon"
+			using = center_portrait_magic_dragon
+			datacontext = "[EventWindowData.GetPortraitCharacter('left_portrait')]"
+			size = { 100% 112% }
+			position = { -60 -2 }
+			parentanchor = bottom|left
 
+			blockoverride "portrait_button"
+			{
+				portrait_texture = "[EventWindowData.GetAnimatedEventPortraitTexture('left_portrait', 'camera_event_center', PdxGetWidgetScreenSize(PdxGuiWidget.Self))]"
+				alwaystransparent = "[Not(EventWindowData.ShouldShowPortraitInfo('left_portrait'))]"
+				tooltip_visible = "[EventWindowData.ShouldShowPortraitInfo('left_portrait')]"
+				using = tooltip_below
+				tooltip_offset = { 550 -580 }
+			}
 
+			blockoverride "highlight_visible"
+			{
+				visible = "[Or(Character.IsHovered, EventWindowData.IsCharacterHighlighted( EventWindowData.GetPortraitCharacter('left_portrait') ))]"
+			}
+
+			blockoverride "grayscale" {}
+
+			highlight_icon = {
+				name = "prison_bars"
+				visible = "[And(Character.IsImprisoned, Not(EventWindowData.ShouldHideImprisonment('left_portrait')))]"
+				visible_at_creation = no
+				size = { 300 500 }
+				position = { -60 0 }
+				parentanchor = bottom|hcenter
+				effectname = "NoHighlight"
+				spriteType = corneredTiled
+				texture_density = 1.5
+				texture = "gfx/portraits/portrait_prison_body.dds"
+
+				modify_texture = {
+					name = "mask"
+					texture =  "gfx/portraits/portrait_mask_event.dds"
+					spriteType = Corneredstretched
+					blend_mode = alphamultiply
+				}
+			}
+		}
+
+		### NO DRAGON
 		### Use this for single character
 		portrait_event = {
 			name = "portrait_center"
@@ -404,37 +550,11 @@ window = {
 							layoutpolicy_horizontal = expanding
 							layoutpolicy_vertical = expanding
 							margin_bottom = 10
-							margin_top = 85
+							margin_top = 79
 
-							scrollarea = {
-								name = "description_scrollarea"
-								layoutpolicy_horizontal = expanding
-								layoutpolicy_vertical = expanding
-								minimumsize = { 490 -1 }
-								maximumsize = { 490 -1 }
-
-								scrollbarpolicy_horizontal = always_off
-
-								scrollbar_vertical = {
-									using = Scrollbar_Vertical
-
-									blockoverride "alpha"{
-										alpha = 0.6
-									}
-								}
-
-								scrollwidget = {
-									text_multi = {
-										name = "description"
-										minimumsize = { 480 -1 }
-										maximumsize = { 480 -1 }
-										autoresize = yes
-										margin = { 20 4 }
-										text = "[EventWindowData.GetDescription]"
-										fontsize = 16
-									}
-								}
-							}
+							agot_dragon_event_standard_text = {}
+							agot_dragon_event_dark_text = {}
+							agot_dragon_event_light_text = {}
 
 							expand = {}
 						}
@@ -720,6 +840,7 @@ window = {
 							parentanchor = bottom|hcenter
 							position = { 20 -5 }
 							alwaystransparent = yes
+							raw_text = "#high [Character.Custom('AGOTCustomGetTitledFirstName')]#!"
 							visible = "[EventWindowData.ShouldShowPortraitInfo('lower_left_portrait')]"
 							max_width = 115
 							align = center
@@ -788,6 +909,7 @@ window = {
 							parentanchor = bottom|hcenter
 							position = { 20 -5 }
 							alwaystransparent = yes
+							raw_text = "#high [Character.Custom('AGOTCustomGetTitledFirstName')]#!"
 							visible = "[EventWindowData.ShouldShowPortraitInfo('lower_center_portrait')]"
 							max_width = 115
 							align = center
@@ -867,6 +989,7 @@ window = {
 							parentanchor = bottom|hcenter
 							position = { 20 -5 }
 							alwaystransparent = yes
+							raw_text = "#high [Character.Custom('AGOTCustomGetTitledFirstName')]#!"
 							visible = "[EventWindowData.ShouldShowPortraitInfo('lower_right_portrait')]"
 							max_width = 115
 							align = center
@@ -1039,6 +1162,11 @@ window = {
 		using = Event_Window_Debug_Info
 	}
 
+	vbox = { # Event shaders (in front of character portraits)
+		name = "agot_shader_event_foreground"
+		margin = { 30 15 }
+		layoutpolicy_horizontal = expanding
+	}
 }
 
 ######################################################
@@ -1578,15 +1706,25 @@ types Events
 }
 
 template left_portrait_magic_no_dragon {
-	visible = "[And(EventWindowData.HasPortraitCharacter('left_portrait'), EventWindowData.HasPortraitCharacter('right_portrait'))]"
+	visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), EventWindowData.HasPortraitCharacter('right_portrait')), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
+}
+
+template left_portrait_magic_dragon {
+    visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), EventWindowData.HasPortraitCharacter('right_portrait')), Character.HasTrait(GetTrait('dragon').Self))]"
 }
 
 template right_portrait_magic_no_dragon {
-   visible = "[EventWindowData.HasPortraitCharacter('right_portrait')]"
+   visible = "[And(EventWindowData.HasPortraitCharacter('right_portrait'), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
+}
+
+template right_portrait_magic_dragon {
+    visible = "[And(EventWindowData.HasPortraitCharacter('right_portrait'), Character.HasTrait(GetTrait('dragon').Self))]"
 }
 
 template center_portrait_magic_no_dragon {
-    visible = "[And(EventWindowData.HasPortraitCharacter('left_portrait'), Not(EventWindowData.HasPortraitCharacter('right_portrait')))]"
+    visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), Not(EventWindowData.HasPortraitCharacter('right_portrait'))), Not(Character.HasTrait(GetTrait('dragon').Self)))]"
 }
 
-
+template center_portrait_magic_dragon {
+    visible = "[And(And(EventWindowData.HasPortraitCharacter('left_portrait'), Not(EventWindowData.HasPortraitCharacter('right_portrait'))), Character.HasTrait(GetTrait('dragon').Self))]"
+}

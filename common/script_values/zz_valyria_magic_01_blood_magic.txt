@@ -1,0 +1,431 @@
+﻿zz_valyria_blood_magic_stat_gui = {
+	if = {
+		limit = {
+			exists = this 
+		}
+		value = "has_trait_xp(zz_magister|blood_magic)" 
+	}
+	if = {
+		limit = {
+			has_variable = blood_magic_overcap 
+		}
+		add = this.var:blood_magic_overcap
+	}
+}
+### Blood Magic
+zz_valyria_magic_blood_magic_base_value = { 
+	scope:secondary_recipient = { 
+		if = {
+			limit = {
+				exists = var:casttype
+			}
+			if = {
+				limit = { 
+					var:casttype ?= flag:potion 
+				}
+				value = scope:actor.var:cast_potency
+			}
+			else_if = {
+				limit = {
+					var:casttype ?= flag:scroll
+				}
+				value =  scope:actor.var:cast_potency
+			}
+			else = { 
+				value = "has_trait_xp(zz_magister|blood_magic)" 
+				if = {
+					limit = {
+						has_variable = blood_magic_overcap 
+					}
+					add = this.var:blood_magic_overcap
+				}
+			}
+		}
+		else = { 
+			value = "has_trait_xp(zz_magister|blood_magic)" 
+			if = {
+				limit = {
+					has_variable = blood_magic_overcap 
+				}
+				add = this.var:blood_magic_overcap
+			}
+		}
+		switch = {
+			trigger = global_var:magic_level
+			0 = {
+				multiply = 0.1 
+			}
+			1 = {
+				multiply = 0.5
+			}
+			2 = {
+				multiply = 1
+			}
+		}
+	}
+}
+zz_valyria_magic_blood_magic_01_value = { 
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 20
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_02_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 25
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_03_value = {
+	value = 0 
+	add = {
+		scope:secondary_recipient = { 
+			value = zz_valyria_supreme_healing_regiment
+			multiply = zz_valyria_magic_blood_magic_base_value
+			min = zz_valyria_supreme_healing_regiment
+		}
+	}
+}
+zz_valyria_magic_blood_magic_04_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_low_healing_regiment
+			multiply = zz_valyria_magic_blood_magic_base_value
+			min = zz_valyria_low_healing_regiment
+		}
+	}
+}
+zz_valyria_magic_blood_magic_05_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_06_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_07_value = { 
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 2
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_08_value = { 
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_08_value_01 = { 
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_08_value_02 = { 
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 2
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_09_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_09_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_09_value_02 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 20
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_10_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_10_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_10_value_02 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_11_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 2
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_12_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_13_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_14_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_15_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_16_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = zz_valyria_moderate_damage_army
+			min = 0.01
+		}
+	}
+}
+zz_valyria_magic_blood_magic_16_value_02 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			multiply = zz_valyria_very_low_damage_regiment
+		}
+	}
+}
+zz_valyria_magic_blood_magic_17_value = { 
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value  = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+} 
+zz_valyria_magic_blood_magic_18_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_18_value_02 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_19_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_20_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_21_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_22_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_23_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 2
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_23_value_02 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_24_value = { 
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 2
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_25_value = { 
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 2
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_26_value = { 
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 2
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_27_value = { 
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 2
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_28_value = { 
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 2
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_29_value = { 
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 2
+			min = 1
+		}
+	}
+}

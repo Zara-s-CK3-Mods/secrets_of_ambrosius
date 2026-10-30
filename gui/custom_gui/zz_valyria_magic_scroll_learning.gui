@@ -168,23 +168,23 @@ types magic_scroll_learning {
 								#down = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 								#onclick = "[GetScriptedGui('zz_valyria_magic_learning_type_apprentice_click').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 							}
-							button_tab = { 
-								name = "magic_circle_tab"
-								layoutpolicy_horizontal = expanding 
-								layoutpolicy_vertical = expanding
-								align = center
-								minimumsize = { 100 38 }
-								vbox = {
-									layoutpolicy_horizontal = expanding
-									layoutpolicy_vertical = expanding
-									spacing = 5
-									margin = { 5 5 }
-									text_single = {
-										raw_text = "Magic Circles"
-										alwaystransparent = yes
-									}
-									
-								}
+							#button_tab = { 
+							#	name = "magic_circle_tab"
+							#	layoutpolicy_horizontal = expanding 
+							#	layoutpolicy_vertical = expanding
+							#	align = center
+							#	minimumsize = { 100 38 }
+							#	vbox = {
+							#		layoutpolicy_horizontal = expanding
+							#		layoutpolicy_vertical = expanding
+							#		spacing = 5
+							#		margin = { 5 5 }
+							#		text_single = {
+							#			raw_text = "Magic Circles"
+							#			alwaystransparent = yes
+							#		}
+							#		
+							#	}
 								
 								#datacontext = "[GetScriptedGui('zz_valyria_magic_learning_type_mystery')]"
 								#onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
@@ -192,7 +192,7 @@ types magic_scroll_learning {
 								#enabled = "[ScriptedGui.IsShown(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 								#down = "[ScriptedGui.IsValid(GuiScope.SetRoot(GetPlayer.MakeScope).End)]"
 								#onclick = "[GetScriptedGui('zz_valyria_magic_learning_type_mystery_click').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-							}
+							#}
 							expand = {}
 						}
 						hbox = { 
@@ -485,6 +485,30 @@ types magic_scroll_learning {
 												}	
 											}
 										}
+										hbox = {
+											layoutpolicy_horizontal = expanding 
+											layoutpolicy_vertical = expanding
+											widget = {
+												size = { 100 30 }
+												text_single = {
+													raw_text = "Dragon Magic"
+													align = right
+												}
+											}
+											expand = {}
+											button_standard = {
+												size = { 100 30 }
+												enabled= "[GetScriptedGui('zz_valyria_magic_school_selection_dragon_magic').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												down = "[GetScriptedGui('zz_valyria_magic_school_selection_dragon_magic').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												onclick = "[GetScriptedGui('zz_valyria_magic_school_selection_dragon_magic').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												text_single = {
+													margin = { 5 5 }
+													raw_text = "Selected"
+													align = center
+													alwaystransparent = yes
+												}	
+											}
+										}
 										expand = {}
 									}
 								}
@@ -523,7 +547,11 @@ types magic_scroll_learning {
 											size = { 300 50 }
 											enabled= "[GetScriptedGui('zz_valyria_magic_school_study_magic').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
 											down = "[GetScriptedGui('zz_valyria_magic_school_study_magic').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
-											onclick = "[GetScriptedGui('zz_valyria_magic_school_study_magic').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											#onclick = "[GetScriptedGui('zz_valyria_magic_school_study_magic').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											click_modifiers = {
+												ondefault = "[GetScriptedGui('zz_valyria_magic_school_study_magic').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+												onshift = "[GetScriptedGui('zz_valyria_magic_school_shift_study_magic').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+											}
 											text_single = {
 												margin = { 5 5 }
 												raw_text = "Undertake Magical Studies"
@@ -613,6 +641,12 @@ types magic_scroll_learning {
 									text_single = {
 										align = left
 										raw_text = "Water Magic - [Scope.Char.MakeScope.Var('zz_magic_caster').ScriptValue('zz_valyria_water_magic_stat_gui')|0]"
+									}
+								}
+								flowcontainer = {
+									text_single = {
+										align = left
+										raw_text = "Dragon Magic - [Scope.Char.MakeScope.Var('zz_magic_caster').ScriptValue('zz_valyria_dragon_magic_stat_gui')|0]"
 									}
 								}
 								spacer = { size = { 00 15 } }

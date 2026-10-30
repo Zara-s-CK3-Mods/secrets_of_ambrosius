@@ -34,24 +34,84 @@ zz_valyria_on_game_start_after_lobby = {
 				}
 				death = {
 					death_reason = death_ascension_magic
-					killer = character:Merlin_01 
+					killer = character:Setenon_01 
 				}
 				destroy_laamp_effect = { ADVENTURER = THIS }
 			}
-		}
-		dynasty:dynn_Ambrosius = { 
-			add_dynasty_modifier = incest_heritage_dynasty_modifier
-			add_dynasty_prestige = 20000
-			add_dynasty_perk = kin_legacy_1
-			add_dynasty_perk = kin_legacy_2
-			add_dynasty_perk = kin_legacy_3
-			add_dynasty_perk = kin_legacy_4
-			add_dynasty_perk = kin_legacy_5
-			add_dynasty_perk = fp2_urbanism_legacy_1
-			add_dynasty_perk = fp2_coterie_legacy_1
-			add_dynasty_perk = ep3_administrative_legacy_1
+			
+			culture = {
+				join_era = culture_era_late_medieval
+			}
 		}
 		
+		character:Nimue_01 = {
+			if = { 
+				limit = {
+					NOT = {
+						has_game_rule = debug_mode_on
+					}
+				}
+				death = {
+					death_reason = death_ascension_magic
+					killer = character:Nimue_01  
+				}
+			}
+		}
+		character:Isolde_01 = {
+			if = { 
+				limit = {
+					NOT = {
+						has_game_rule = debug_mode_on
+					}
+				}
+				death = {
+					death_reason = death_ascension_magic
+					killer = THIS 
+				}
+			}
+		}
+		character:Joccasta_01 = {
+			if = { 
+				limit = {
+					NOT = {
+						has_game_rule = debug_mode_on
+					}
+				}
+				death = {
+					death_reason = death_ascension_magic
+					killer = THIS 
+				}
+			}
+		}
+		character:Elenore_01 = {
+			if = { 
+				limit = {
+					NOT = {
+						has_game_rule = debug_mode_on
+					}
+				}
+				death = {
+					death_reason = death_ascension_magic
+					killer = THIS 
+				}
+			}
+		}
+		dynasty:dynn_Ambrosius = { set_variable = agot_allow_adelphogamous_incest }
+		dynasty:dynn_Ambrosius = {
+			add_dynasty_prestige = 40000
+			add_dynasty_perk = { PERK = erudition_legacy_1 }
+			add_dynasty_perk = { PERK = erudition_legacy_2 }
+			add_dynasty_perk = { PERK = erudition_legacy_3 }
+			add_dynasty_perk = { PERK = erudition_legacy_4 }
+			add_dynasty_perk = { PERK = erudition_legacy_5 }
+			add_dynasty_perk = { PERK = kin_legacy_1 }
+			add_dynasty_perk = { PERK = kin_legacy_2 }
+			add_dynasty_perk = { PERK = kin_legacy_3 }
+			add_dynasty_perk = { PERK = kin_legacy_4 }
+			add_dynasty_perk = { PERK = kin_legacy_5 }
+			add_dynasty_perk = { PERK = fp2_urbanism_legacy_1 }
+			add_dynasty_perk = { PERK = fp2_coterie_legacy_1 }
+		}
 	}
 	events = {
 	}
@@ -62,48 +122,205 @@ zz_valyria_on_game_start_after_lobby = {
 quarterly_playable_pulse = {
 	on_actions = {
 		zz_valyria_mana_gain_on_actions
+		zz_valyria_magic_ai_cast_on_actions
 	}
+	
 }
+
+
 
 
 random_yearly_everyone_pulse = {
 	on_actions = {
+		#zz_valyria_magic_dragon_life_extension
+		#zz_valyria_magic_dragon_life_extension_lost 
 		zz_valyria_mana_gain_on_actions
 		zz_valyria_dynn_setenon_scroll_generation
+		zz_valyria_mage_contracts
 	}
 }
 
 zz_valyria_mana_gain_on_actions = {
+	trigger = { 
+		has_trait = zz_magister
+	}
+	on_actions = {
+	}
 	effect = {
 		zz_valyria_mana_gain_passive = yes
 	}
 }
 
-
-
-
-
-on_building_completed = {
-	on_actions = {
-		zz_valyria_on_building_completed
-	}
-}
-
-zz_valyria_on_building_completed = { 
-	effect = { 
-		if = { 
-			limit = {  
-				has_building_with_flag = { flag = travel_point_of_interest_magic }
-				NOT = { has_travel_point_of_interest = poi_valyria_magic }
-			}
-			add_travel_point_of_interest = poi_valyria_magic
+zz_valyria_magic_dragon_life_extension = { 
+	trigger = {
+		has_trait = dragon 
+	
+		liege_or_court_owner ?= { 
+			has_trait = zz_magister
+		}
+		
+		NOR = { 
+			has_trait = zz_draconic_longevity 
+			has_trait = immortal
 		}
 	}
+	effect = { 
+		add_trait_force_tooltip = zz_draconic_longevity 
+	}
 }
+zz_valyria_magic_dragon_life_extension_lost = {
+	trigger = {
+		has_trait = dragon 
+		has_trait = zz_draconic_longevity 
+		NOT = { 
+			liege_or_court_owner ?= { 
+				has_trait = zz_magister
+			}
+		}
+	}
+	effect = { 
+		remove_trait  = zz_draconic_longevity 
+	}
+}
+
+zz_valyria_mage_contracts = {
+	trigger = {
+		zz_valyria_is_mage = yes 
+		is_ai = no
+	}
+	effect = {
+		if = {
+			limit = {
+				zz_valyria_is_mage = yes 
+				is_ai = no
+				trigger_if = {
+					limit = { has_variable = magic_contract_passive_spawn_tally }
+					var:magic_contract_passive_spawn_tally < 5
+				}
+			}
+			random_list = {
+				1 = {
+					magic_contract_passive_spawn_effect = {
+						SPAWN_CONTRACTS = 3
+					}
+				}
+				2 = {
+					magic_contract_passive_spawn_effect = {
+						SPAWN_CONTRACTS = 2
+					}
+				}
+				3 = {
+					magic_contract_passive_spawn_effect = {
+						SPAWN_CONTRACTS = 1
+					}
+				}			
+			}
+			
+		}
+		if = {
+			limit = {
+				zz_valyria_is_mage = yes 
+				is_ai = no
+				trigger_if = {
+					limit = { has_variable = magic_contract_xp_passive_spawn_tally }
+					var:magic_contract_xp_passive_spawn_tally < 5
+				}
+			}
+			random_list = {
+				1 = {
+					magic_contract_xp_passive_spawn_effect = {
+						SPAWN_CONTRACTS = 3
+					}
+				}
+				2 = {
+					magic_contract_xp_passive_spawn_effect = {
+						SPAWN_CONTRACTS = 2
+					}
+				}
+				3 = {
+					magic_contract_xp_passive_spawn_effect = {
+						SPAWN_CONTRACTS = 1
+					}
+				}			
+			}
+		}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					zz_valyria_is_mage = yes 
+					is_ai = no
+					trigger_if = {
+						limit = { has_variable = magic_contract_learn_mystery_passive_spawn_tally }
+						var:magic_contract_learn_mystery_passive_spawn_tally < 3
+					}
+				}
+				magic_contract_learn_mystery_passive_spawn_effect = {
+					SPAWN_CONTRACTS = 1
+				}
+			}
+		}
+		random = {
+			chance = 50
+			if = {
+				limit = {
+					zz_valyria_is_mage = yes 
+					is_ai = no
+					trigger_if = {
+						limit = { has_variable = magic_quest_contract_passive_spawn_tally }
+						var:magic_quest_contract_passive_spawn_tally < 3
+					}
+				}
+				magic_contract_quest_passive_spawn_effect = {
+					SPAWN_CONTRACTS = 1
+				}
+			}
+		}
+		random = {
+			chance = 25
+			set_variable = {
+				name = magic_contract_passive_spawn_tally
+				value = 0
+			}
+		}
+		random = {
+			chance = 25
+			set_variable = {
+				name = magic_contract_xp_passive_spawn_tally
+				value = 0
+			}
+		}
+
+		random = {
+			chance = 25
+			set_variable = {
+				name = magic_quest_contract_passive_spawn_tally
+				value = 0
+			}
+		}
+		random = {
+			chance = 25
+			set_variable = {
+				name = magic_contract_learn_mystery_passive_spawn_tally
+				value = 0
+			}
+		}
+		
+		
+		magic_contract_visions_of_the_doom_effect = yes 
+	}
+}
+
+
+
+
+
+
 
 zz_valyria_dynn_setenon_scroll_generation = {
 	trigger = {
-		root.dynasty =dynasty:dynn_Ambrosius
+		root.dynasty = dynasty:dynn_Ambrosius
+		has_trait = zz_magister
 	}
 	effect = { 
 		random = {
@@ -124,5 +341,110 @@ valryia_study_magic_ongoing = {
 		100 = zz_valyria_magic_further_education.1000 # consult written lore
 		100 = zz_valyria_magic_further_education.1010 # practice encantations
 		100 = zz_valyria_magic_further_education.1020 # study the valyrian language
+	}
+}
+
+zz_valyria_magic_ai_cast_on_actions = {
+	random_on_actions = {
+		100 = 0
+		25 = zz_valyria_magic_blood_magic_cast
+	}
+}
+
+zz_valyria_magic_blood_magic_cast = {
+	trigger = {
+		is_ruler = yes 
+		zz_valyria_is_mage_ai = yes
+		is_ai = yes 
+	}
+	random_on_actions = {	
+		100 = 0
+		20 = zz_valyria_magic_blood_magic_01
+		20 = zz_valyria_magic_blood_magic_02
+		10 = zz_valyria_magic_blood_magic_11 
+		20 = zz_valyria_magic_blood_magic_12
+	}
+	
+}
+
+zz_valyria_magic_blood_magic_01 = {
+	trigger = {
+		zz_valyria_mage_has_mana_knows_spell = { SPELL = zz_valyria_magic_blood_magic_01 }
+		OR = {
+			zz_valyria_magic_healing_target = yes 
+			any_spouse = {
+				zz_valyria_magic_healing_target = yes 
+			}
+			any_close_family_member = {
+				zz_valyria_magic_healing_target = yes 
+			}
+		}
+		
+	}
+	effect = {
+		zz_valyria_magic_event_target ={ TRIGGER = zz_valyria_magic_healing_target }
+		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = zz_valyria_magic_blood_magic_01 SPELLSCHOOL = blood_magic }
+	}
+}
+
+zz_valyria_magic_blood_magic_02 = {
+	trigger = {
+		zz_valyria_mage_has_mana_knows_spell = { SPELL = zz_valyria_magic_blood_magic_02 }
+		OR = {
+			zz_valyria_magic_genetic_restore_target = yes 
+			any_spouse = {
+				zz_valyria_magic_genetic_restore_target = yes 
+			}
+			any_close_family_member = {
+				zz_valyria_magic_genetic_restore_target = yes 
+			}
+		}
+		
+	}
+	effect = {
+		zz_valyria_magic_blood_magic_transmog_restore = yes 
+		zz_valyria_magic_event_target ={ TRIGGER = zz_valyria_magic_genetic_restore_target }
+		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = zz_valyria_magic_blood_magic_02 SPELLSCHOOL = blood_magic }
+	}
+}
+
+
+zz_valyria_magic_blood_magic_11 = {
+	trigger = {
+		zz_valyria_mage_has_mana_knows_spell = { SPELL = zz_valyria_magic_blood_magic_11 }
+		OR = {
+			zz_valyria_magic_longevity_target = yes 
+			any_spouse = {
+				zz_valyria_magic_longevity_target = yes 
+			}
+			any_close_family_member = {
+				zz_valyria_magic_longevity_target = yes 
+			}
+		}
+		
+	}
+	effect = {
+		zz_valyria_magic_event_target ={ TRIGGER = zz_valyria_magic_longevity_target }
+		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = zz_valyria_magic_blood_magic_11 SPELLSCHOOL = blood_magic }
+	}
+}
+
+zz_valyria_magic_blood_magic_12 = {
+	trigger = {
+		zz_valyria_mage_has_mana_knows_spell = { SPELL = zz_valyria_magic_blood_magic_12 }
+		OR = {
+			zz_valyria_magic_health_boost_target = yes 
+			any_spouse = {
+				zz_valyria_magic_health_boost_target = yes 
+			}
+			any_close_family_member = {
+				zz_valyria_magic_health_boost_target = yes 
+			}
+		}
+		
+	}
+	effect = {
+		zz_valyria_magic_event_target ={ TRIGGER = zz_valyria_magic_health_boost_target }
+		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = zz_valyria_magic_blood_magic_12 SPELLSCHOOL = blood_magic }
 	}
 }

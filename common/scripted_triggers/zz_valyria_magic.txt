@@ -6,17 +6,11 @@
 		barony ?= title:b_oxford #5
 		barony ?= title:b_paris #1934
 		barony ?= title:b_cambridge # 4939
-		barony ?= title:b_reims #7708
-		barony ?= title:b_vaticano #7713
-		barony ?= title:b_milano # 7559
-		barony ?= title:b_jerusalem # 7351
-		barony ?= title:b_lyon # 7389
-		barony ?= title:b_munchen # 7388
-		barony ?= title:b_berlin # 8062
-		barony ?= title:b_toledo # 8063
-		barony ?= title:b_antiocheia # 8064
-		barony ?= title:b_durham # 8065
-		barony ?= title:b_saint_denis # 8066
+		barony ?= title:b_vaticano #7708
+		barony ?= title:b_munchen #7713
+		barony ?= title:b_lyon # 7559
+		barony ?= title:b_berlin # 7351
+		barony ?= title:b_jerusalem # 7389
 	}
 }
 
@@ -24,12 +18,44 @@ zz_valyria_doom_sites = {
 	OR = {
 		barony ?= title:b_roma
 		barony ?= title:b_constantinople
-		barony ?= title:b_vaticano #7713
-		barony ?= title:b_jerusalem # 7351
 	}
 }
+zz_magic_blood = {
+	OR = {
+		has_trait = zz_magister
+		has_trait = starwalker
+		has_trait = zz_valyrian_longevity
+		has_trait = immortal
+		has_trait = disease_resistance_alchemical
+		has_trait = disease_resistance_pneumonic
+		has_trait = disease_resistance_ill
+		has_trait = disease_resistance_measles
+		has_trait = disease_resistance_bubonic_plague
+		has_trait = disease_resistance_gout_ridden
+		has_trait = disease_resistance_consumption
+		has_trait = disease_resistance_cancer
+		has_trait = disease_resistance_typhus
+		has_trait = disease_resistance_smallpox
+		has_trait = disease_resistance_dysentery
+		has_trait = disease_resistance_ergotism
+		has_trait = disease_resistance_leper
+		has_trait = disease_resistance_lovers_pox
+		has_trait = disease_resistance_great_pox
+		has_trait = lifespan_good
+		has_trait = magic_blood_good
+		has_trait = born_beneath_the_comet
+	}
+}
+zz_valyria_miscast_warning_0_gui ={
+	var:zz_miscast_count < zz_valyria_miscast_warning_2
+}
+zz_valyria_miscast_warning_1_gui ={
+	var:zz_miscast_count = zz_valyria_miscast_warning_1
+}
 
-
+zz_valyria_miscast_warning_2_gui ={
+	var:zz_miscast_count = zz_valyria_miscast_warning_2
+}
 
 zz_valyria_has_artifact = {
 	
@@ -63,223 +89,77 @@ zz_valyria_has_mana_to_cast = {
 	}
 }
 
-zz_valyria_can_gain_mana = {
-	OR = {
-		AND = {
-			has_trait = zz_magister
-			has_trait_xp = {
-				trait = zz_magister
-				track = drops_of_power
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = magic_blood_good_2
-			has_trait_xp = {
-				trait = magic_blood_good_2
-				track = stores_of_power_01
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = magic_blood_good_2
-			has_trait_xp = {
-				trait = magic_blood_good_2
-				track = stores_of_power_02
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = magic_blood_good_3
-			has_trait_xp = {
-				trait = magic_blood_good_3
-				track = stores_of_power_01
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = magic_blood_good_3
-			has_trait_xp = {
-				trait = magic_blood_good_3
-				track = stores_of_power_02
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = magic_blood_good_3
-			has_trait_xp = {
-				trait = magic_blood_good_3
-				track = stores_of_power_03
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = magic_blood_good_3
-			has_trait_xp = {
-				trait = magic_blood_good_3
-				track = stores_of_power_04
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = starwalker
-			has_trait_xp = {
-				trait = starwalker
-				track = stores_of_power_01
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = starwalker
-			has_trait_xp = {
-				trait = starwalker
-				track = stores_of_power_02
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = starwalker
-			has_trait_xp = {
-				trait = starwalker
-				track = stores_of_power_03
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = starwalker
-			has_trait_xp = {
-				trait = starwalker
-				track = stores_of_power_04
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = starwalker
-			has_trait_xp = {
-				trait = starwalker
-				track = stores_of_power_05
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = starwalker
-			has_trait_xp = {
-				trait = starwalker
-				track = stores_of_power_06
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = starwalker
-			has_trait_xp = {
-				trait = starwalker
-				track = stores_of_power_07
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = starwalker
-			has_trait_xp = {
-				trait = starwalker
-				track = stores_of_power_08
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = starwalker
-			has_trait_xp = {
-				trait = starwalker
-				track = stores_of_power_09
-				value < 100
-			}
-		}
-		AND = {
-			has_trait = zz_magister
-			has_trait = starwalker
-			has_trait_xp = {
-				trait = starwalker
-				track = stores_of_power_10
-				value < 100
-			}
-		}
-		NAND = {
-			has_trait = zz_magister
-			has_character_modifier = zz_valyria_magic_drops_power
-		}
-	}
-}
 
-zz_valyria_is_mage_activities = {
-	OR = { 
-		has_trait = zz_magister
-		any_living_mage = {
-			liege_or_court_owner ?= PREV 
-		}
-	}
-}
+
+
 
 zz_valyria_is_mage = {
 	OR = { 
 		has_trait = zz_magister
-		any_living_mage = {
-			liege_or_court_owner ?= PREV
+		any_spouse = {
+			has_trait = zz_magister 
+		}
+		house ?= { 
+			any_house_mage = {
+				exists = this 
+			}
+		}
+		any_court_mage = {
+			exists = this 
+		}
+		any_realm_mage = {
+			exists = this 
 		}
 	}
 }
+
+
 
 zz_valyria_can_become_apprentice = {
 	OR = {
 		not = {
 			has_trait = zz_magister 
+			has_trait = dragon 
 		}
 		
 		
 		any_spouse = {
 			not = {
 				has_trait = zz_magister
+				has_trait = dragon 
 			}
 		}
 		any_close_or_extended_family_member = {
 			not = { 
 				has_trait = zz_magister
+				has_trait = dragon 
 			}
 		}
 		house ?= { 
 			any_house_member = {
 				not = { 
 					has_trait = zz_magister
+					has_trait = dragon 
 				}
 			}
 		}
 		any_courtier_or_guest = { 
 			not = { 
 				has_trait = zz_magister
+				has_trait = dragon 
 			}
 		}
 		any_vassal_or_below = { 
 			not = { 
 				has_trait = zz_magister
+				has_trait = dragon 
 			}
 		}
 	}
 }
 
 zz_open_mage_window = {
+	is_ai = no
 	OR = {
 		zz_valyria_is_mage = yes 
 		zz_valyria_is_scroll_holder = yes
@@ -306,12 +186,31 @@ zz_valyria_is_mage_can_teach = {
 				has_character_flag = zz_valyria_magic_taught_magic 
 			}
 		}
-		any_living_mage = {
-			AND = {
-				liege_or_court_owner ?= PREV
+	
+		any_spouse = {
+			has_trait = zz_magister 
+			NOT = { 
+				has_character_flag = zz_valyria_magic_taught_magic 
+			}
+		}
+		house ?= { 
+			any_house_mage = {
+				exists = this 
 				NOT = { 
 					has_character_flag = zz_valyria_magic_taught_magic 
 				}
+			}
+		}
+		any_court_mage = {
+			exists = this 
+			NOT = { 
+				has_character_flag = zz_valyria_magic_taught_magic 
+			}
+		}
+		any_realm_mage = {
+			exists = this 
+			NOT = { 
+				has_character_flag = zz_valyria_magic_taught_magic 
 			}
 		}
 	}
@@ -355,8 +254,28 @@ zz_valyria_valid_caster_court = {
 			SPELL = $SPELL$
 			MANACOST = $MANACOST$
 		}
-		any_living_mage = {
-			liege_or_court_owner ?= scope:actor 
+		any_spouse = {
+			has_trait = zz_magister 
+			zz_valyria_valid_caster = {
+				SPELL = $SPELL$
+				MANACOST = $MANACOST$
+			}
+		}
+		house ?= { 
+			any_house_mage = {
+				zz_valyria_valid_caster = {
+					SPELL = $SPELL$
+					MANACOST = $MANACOST$
+				}
+			}
+		}
+		any_court_mage = {
+			zz_valyria_valid_caster = {
+				SPELL = $SPELL$
+				MANACOST = $MANACOST$
+			}
+		}
+		any_realm_mage = {
 			zz_valyria_valid_caster = {
 				SPELL = $SPELL$
 				MANACOST = $MANACOST$
@@ -374,7 +293,7 @@ zz_valyria_mystery_unlimited_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 	}
@@ -388,7 +307,7 @@ zz_valyria_mystery_cannot_cast_on_caster_cannot_cast_on_self_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
@@ -414,11 +333,16 @@ zz_valyria_mystery_human_only_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
-			
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -431,10 +355,16 @@ zz_valyria_mystery_human_only_is_landed_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			is_landed = yes
 		}
 	}
@@ -448,12 +378,13 @@ zz_valyria_mystery_human_only_cannot_cast_on_caster_cannot_cast_on_self_trigger 
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
 			NOR = {
 				custom_tooltip = {
+					has_trait = dragon
 					text = zz_valyria_magic_cannot_cast_on_self
 					this = root.var:zz_magic_user
 				}
@@ -474,11 +405,17 @@ zz_valyria_mystery_human_only_is_pregnant_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
 			is_pregnant = yes
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -491,11 +428,18 @@ zz_valyria_mystery_human_not_dragonblood_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
-			
+			is_human = yes
+			zz_agot_has_dragonblood_heritage = no
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -508,10 +452,16 @@ zz_valyria_mystery_human_only_mage_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			has_trait = zz_magister
 		}
 	}
@@ -525,11 +475,16 @@ zz_valyria_mystery_human_only_scheme_owner_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
-			
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_scheme = {
 				exists = this
 			}
@@ -545,14 +500,53 @@ zz_valyria_mystery_human_only_scheme_owner_has_agents_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
-			
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_scheme = {
 				exists = this
 				scheme_number_of_filled_agent_slots >= 1
+				any_scheme_agent_character = {
+					NOT = {
+						is_agent_exposed_in_scheme = PREV
+					}
+				}
+			}
+		}
+	}
+}
+zz_valyria_mystery_human_only_scheme_owner_has_agents_exposed_trigger = {
+	trigger_if  = { 
+		limit  = {
+			scope:zz_valyria_mystery = {
+				has_memory_type = $SPELL$
+			}
+		}
+		var:zz_magic_caster = { 
+			zz_valyria_has_mana_to_cast = {
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
+			}
+		}
+		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
+			any_scheme = {
+				exists = this
+				scheme_number_of_filled_agent_slots >= 1
+				any_scheme_agent_character = {
+					is_agent_exposed_in_scheme = PREV
+				}
 			}
 		}
 	}
@@ -566,10 +560,16 @@ zz_valyria_mystery_human_only_scheme_target_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_targeting_scheme = {
 				exists = this
 			}
@@ -585,13 +585,53 @@ zz_valyria_mystery_human_only_scheme_target_has_agents_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_targeting_scheme = {
 				exists = this
 				scheme_number_of_filled_agent_slots >= 1
+				any_scheme_agent_character = {
+					NOT = {
+						is_agent_exposed_in_scheme = PREV
+					}
+				}
+			}
+		}
+	}
+}
+zz_valyria_mystery_human_only_scheme_target_has_agents_exposed_trigger = {
+	trigger_if  = { 
+		limit  = {
+			scope:zz_valyria_mystery = {
+				has_memory_type = $SPELL$
+			}
+		}
+		var:zz_magic_caster = { 
+			zz_valyria_has_mana_to_cast = {
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
+			}
+		}
+		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
+			any_targeting_scheme = {
+				exists = this
+				scheme_number_of_filled_agent_slots >= 1
+				any_scheme_agent_character = {
+					is_agent_exposed_in_scheme = PREV
+				}
 			}
 		}
 	}
@@ -605,10 +645,16 @@ zz_valyria_mystery_human_only_secret_owner_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_secret = {
 				exists = this
 			}
@@ -624,10 +670,16 @@ zz_valyria_mystery_human_only_secret_target_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_targeting_secret = {
 				exists = this
 			}
@@ -643,10 +695,16 @@ zz_valyria_mystery_human_only_secret_knower_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_known_secret = {
 				exists = this
 			}
@@ -662,10 +720,14 @@ zz_valyria_mystery_dragon_only_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = { 
+			custom_tooltip = {
+				text = zz_valyria_magic_cannot_cast_on_human
+				has_trait = dragon
+			}
 		}
 		
 	}
@@ -679,10 +741,14 @@ zz_valyria_mystery_dragon_female_only_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
+			custom_tooltip = {
+				text = zz_valyria_magic_cannot_cast_on_human
+				has_trait = dragon
+			}
 			is_female = yes
 			NOT = { 
 				has_character_flag = zz_valyria_magic_blood_magic_08_effect_flag
@@ -699,11 +765,17 @@ zz_valyria_mystery_has_maa_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
 			number_of_maa_regiments > 0
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -716,13 +788,19 @@ zz_valyria_mystery_maa_damaged_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
 			number_of_maa_regiments > 0
 			any_maa_regiment = {
 				maa_current_troops_count < maa_max_troops_count
+			}
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
 			}
 		}
 	}
@@ -736,11 +814,17 @@ zz_valyria_mystery_armies_raised_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_target = {
 			has_raised_armies = yes
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -753,18 +837,25 @@ zz_valyria_mystery_has_dead_dragon_egg_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_user = {
+			
+		}
+		var:zz_magic_target = {
 			any_character_artifact = {
 				has_variable = dragon_egg
 				has_variable = dud_egg 
 				NOT = { has_variable = cradled_egg }
 				NOT = { has_variable = pitted_egg }
 			}
-		}
-		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -777,7 +868,7 @@ zz_valyria_mystery_has_dragon_egg_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_user = {
@@ -789,6 +880,45 @@ zz_valyria_mystery_has_dragon_egg_trigger = {
 			}
 		}
 		var:zz_magic_target = {
+			
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
+		}
+	}
+}
+zz_valyria_mystery_has_dragon_egg_cradled_or_pitted_trigger = {
+	trigger_if  = { 
+		limit  = {
+			scope:zz_valyria_mystery = {
+				has_memory_type = $SPELL$
+			}
+		}
+		var:zz_magic_caster = { 
+			zz_valyria_has_mana_to_cast = {
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
+			}
+		}
+		var:zz_magic_user = {
+			
+		}
+		var:zz_magic_target = {
+			any_character_artifact = {
+				has_variable = dragon_egg
+				OR = {
+					has_variable = cradled_egg
+					has_variable = pitted_egg
+				}
+			}
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -802,16 +932,25 @@ zz_valyria_mystery_has_dragon_egg_has_seven_dragonbloods_trigger = {
 		}
 		var:zz_magic_caster = { 
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = scope:zz_valyria_mystery.var:manacost
+				MANACOST = scope:zz_valyria_mystery.mystery_cost
 			}
 		}
 		var:zz_magic_user = {
 			any_courtier = {
-				has_trait = magic_blood_good_3
 				count >= 7
+				OR = {
+					zz_magic_blood = yes
+				}
 			}
 		}
 		var:zz_magic_target = {
+			
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -895,6 +1034,12 @@ zz_valyria_scroll_human_only_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -908,6 +1053,12 @@ zz_valyria_scroll_human_only_is_landed_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			is_landed = yes
 		}
 	}
@@ -924,6 +1075,7 @@ zz_valyria_scroll_human_only_cannot_cast_on_caster_cannot_cast_on_self_trigger =
 		var:zz_magic_target = {
 			NOR = {
 				custom_tooltip = {
+					has_trait = dragon
 					text = zz_valyria_magic_cannot_cast_on_self
 					this = root.var:zz_magic_user
 				}
@@ -946,6 +1098,12 @@ zz_valyria_scroll_human_only_is_pregnant_trigger = {
 		}
 		var:zz_magic_target = {
 			is_pregnant = yes
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -959,6 +1117,14 @@ zz_valyria_scroll_human_not_dragonblood_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_target = {
+			is_human = yes
+			zz_agot_has_dragonblood_heritage = no
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -972,6 +1138,12 @@ zz_valyria_scroll_human_only_mage_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			has_trait = zz_magister
 		}
 	}
@@ -986,6 +1158,12 @@ zz_valyria_scroll_human_only_scheme_owner_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_scheme = {
 				exists = this
 			}
@@ -1002,9 +1180,46 @@ zz_valyria_scroll_human_only_scheme_owner_has_agents_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_scheme = {
 				exists = this
 				scheme_number_of_filled_agent_slots >= 1
+				any_scheme_agent_character = {
+					NOT = {
+						is_agent_exposed_in_scheme = PREV
+					}
+				}
+			}
+		}
+	}
+}
+zz_valyria_scroll_human_only_scheme_owner_has_agents_exposed_trigger = {
+	trigger_if  = { 
+		limit  = {
+			scope:zz_valyria_scroll = {
+				var:spell ?= flag:$SPELL$
+			}
+		}
+		var:zz_item_caster = { 
+		}
+		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
+			any_scheme = {
+				exists = this
+				scheme_number_of_filled_agent_slots >= 1
+				any_scheme_agent_character = {
+					is_agent_exposed_in_scheme = PREV
+				}
 			}
 		}
 	}
@@ -1019,6 +1234,12 @@ zz_valyria_scroll_human_only_scheme_target_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_targeting_scheme = {
 				exists = this
 			}
@@ -1035,9 +1256,46 @@ zz_valyria_scroll_human_only_scheme_target_has_agents_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_targeting_scheme = {
 				exists = this
 				scheme_number_of_filled_agent_slots >= 1
+				any_scheme_agent_character = {
+					NOT = {
+						is_agent_exposed_in_scheme = PREV
+					}
+				}
+			}
+		}
+	}
+}
+zz_valyria_scroll_human_only_scheme_target_has_agents_exposed_trigger = {
+	trigger_if  = { 
+		limit  = {
+			scope:zz_valyria_scroll = {
+				var:spell ?= flag:$SPELL$
+			}
+		}
+		var:zz_item_caster = { 
+		}
+		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
+			any_targeting_scheme = {
+				exists = this
+				scheme_number_of_filled_agent_slots >= 1
+				any_scheme_agent_character = {
+					is_agent_exposed_in_scheme = PREV
+				}
 			}
 		}
 	}
@@ -1052,6 +1310,12 @@ zz_valyria_scroll_human_only_secret_owner_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_secret = {
 				exists = this
 			}
@@ -1068,6 +1332,12 @@ zz_valyria_scroll_human_only_secret_target_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_targeting_secret = {
 				exists = this
 			}
@@ -1084,6 +1354,12 @@ zz_valyria_scroll_human_only_secret_knower_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_target = {
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 			any_known_secret = {
 				exists = this
 			}
@@ -1100,6 +1376,10 @@ zz_valyria_scroll_dragon_only_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_target = { 
+			custom_tooltip = {
+				text = zz_valyria_magic_cannot_cast_on_human
+				has_trait = dragon
+			}
 		}
 	}
 }
@@ -1113,6 +1393,10 @@ zz_valyria_scroll_dragon_female_only_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_target = {
+			custom_tooltip = {
+				text = zz_valyria_magic_cannot_cast_on_human
+				has_trait = dragon
+			}
 			is_female = yes
 			NOT = { 
 				has_character_flag = zz_valyria_magic_blood_magic_08_effect_flag
@@ -1131,6 +1415,12 @@ zz_valyria_scroll_has_maa_trigger = {
 		}
 		var:zz_magic_target = {
 			number_of_maa_regiments > 0
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -1148,6 +1438,12 @@ zz_valyria_scroll_maa_damaged_trigger = {
 			any_maa_regiment = {
 				maa_current_troops_count < maa_max_troops_count
 			}
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -1162,7 +1458,12 @@ zz_valyria_scroll_armies_raised_trigger = {
 		}
 		var:zz_magic_target = {
 			has_raised_armies = yes
-			
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -1176,15 +1477,21 @@ zz_valyria_scroll_has_dead_dragon_egg_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_user = {
+			
+		}
+		var:zz_magic_target = {
 			any_character_artifact = {
 				has_variable = dragon_egg
 				has_variable = dud_egg 
 				NOT = { has_variable = cradled_egg }
 				NOT = { has_variable = pitted_egg }
 			}
-		}
-		var:zz_magic_target = {
-			
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -1206,6 +1513,43 @@ zz_valyria_scroll_has_dragon_egg_trigger = {
 			}
 		}
 		var:zz_magic_target = {
+			
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
+		}
+	}
+}
+zz_valyria_scroll_has_dragon_egg_cradled_or_pitted_trigger = {
+	trigger_if  = { 
+		limit  = {
+			scope:zz_valyria_scroll = {
+				var:spell ?= flag:$SPELL$
+			}
+		}
+		var:zz_item_caster = { 
+		}
+		var:zz_magic_user = {
+			
+		}
+		var:zz_magic_target = {
+			any_character_artifact = {
+				has_variable = dragon_egg
+				NOT =  {has_variable = dud_egg }
+				OR = {
+					has_variable = cradled_egg
+					has_variable = pitted_egg
+				}
+			}
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -1219,17 +1563,21 @@ zz_valyria_scroll_has_dragon_egg_has_seven_dragonbloods_trigger = {
 		var:zz_item_caster = { 
 		}
 		var:zz_magic_user = {
-			any_character_artifact = {
-				has_variable = dragon_egg
-				NOT =  {has_variable = dud_egg }
-				NOT = { has_variable = cradled_egg }
-				NOT = { has_variable = pitted_egg }
-			}
 			any_courtier = {
 				count >= 7
+				OR = {
+					zz_magic_blood = yes
+				}
 			}
 		}
 		var:zz_magic_target = {
+			
+			NOT = {
+				custom_tooltip = {
+					text = zz_valyria_magic_cannot_cast_on_dragon
+					has_trait = dragon
+				}
+			}
 		}
 	}
 }
@@ -1335,6 +1683,10 @@ zz_magic_list_trigger_check_trigger = {
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_shadow_magic_11 }
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_shadow_magic_12 }
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_shadow_magic_13 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_shadow_magic_14 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_shadow_magic_15 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_shadow_magic_16 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_shadow_magic_17 }
 	
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_dream_magic_01 }
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_dream_magic_02 }
@@ -1422,6 +1774,10 @@ zz_magic_list_trigger_check_trigger = {
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_fire_magic_11 }
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_fire_magic_12 }
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_fire_magic_13 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_fire_magic_14 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_fire_magic_15 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_fire_magic_16 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_fire_magic_17 }
 	
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_air_magic_01 }
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_air_magic_02 }
@@ -1436,6 +1792,10 @@ zz_magic_list_trigger_check_trigger = {
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_air_magic_11 }
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_air_magic_12 }
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_air_magic_13 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_air_magic_14 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_air_magic_15 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_air_magic_16 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_air_magic_17 }
 	
 	
 	
@@ -1453,6 +1813,10 @@ zz_magic_list_trigger_check_trigger = {
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_water_magic_11 }
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_water_magic_12 }
 	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_water_magic_13 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_water_magic_14 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_water_magic_15 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_water_magic_16 }
+	$TRIGGER_TO_CHECK$ = { SPELL = zz_valyria_magic_water_magic_17 }
 } 
 
 zz_magic_list_trigger = {
@@ -1465,7 +1829,7 @@ zz_magic_list_trigger = {
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_blood_magic_07 }
 	zz_valyria_$TRIGGER_TYPE$_unlimited_trigger = { SPELL = zz_valyria_magic_blood_magic_08 }
 	zz_valyria_$TRIGGER_TYPE$_unlimited_trigger = {SPELL = zz_valyria_magic_blood_magic_09}
-	zz_valyria_$TRIGGER_TYPE$_unlimited_trigger = { SPELL = zz_valyria_magic_blood_magic_10 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_blood_magic_10 }
 	zz_valyria_$TRIGGER_TYPE$_unlimited_trigger = { SPELL = zz_valyria_magic_blood_magic_11 }
 	zz_valyria_$TRIGGER_TYPE$_unlimited_trigger = { SPELL = zz_valyria_magic_blood_magic_12 }
 	zz_valyria_$TRIGGER_TYPE$_unlimited_trigger = { SPELL = zz_valyria_magic_blood_magic_13 }
@@ -1499,6 +1863,10 @@ zz_magic_list_trigger = {
 	zz_valyria_$TRIGGER_TYPE$_has_maa_trigger = { SPELL = zz_valyria_magic_shadow_magic_11 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_shadow_magic_12 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_shadow_magic_13 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_shadow_magic_14 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_shadow_magic_15 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_is_landed_trigger = { SPELL = zz_valyria_magic_shadow_magic_16 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_is_landed_trigger = { SPELL = zz_valyria_magic_shadow_magic_17 }
 	
 	zz_valyria_$TRIGGER_TYPE$_human_only_cannot_cast_on_caster_cannot_cast_on_self_trigger = { SPELL = zz_valyria_magic_dream_magic_01 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_dream_magic_02 }
@@ -1506,7 +1874,7 @@ zz_magic_list_trigger = {
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_dream_magic_04 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_dream_magic_05 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_dream_magic_06 }
-	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_dream_magic_06 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_dream_magic_07 }
 	zz_valyria_$TRIGGER_TYPE$_unlimited_trigger = { SPELL = zz_valyria_magic_dream_magic_08 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_dream_magic_09 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_mage_trigger = { SPELL = zz_valyria_magic_dream_magic_10 }
@@ -1522,8 +1890,8 @@ zz_magic_list_trigger = {
 	zz_valyria_$TRIGGER_TYPE$_human_only_scheme_owner_trigger = { SPELL = zz_valyria_magic_dream_magic_20 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_scheme_target_trigger = { SPELL = zz_valyria_magic_dream_magic_21 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_scheme_owner_trigger = { SPELL = zz_valyria_magic_dream_magic_22 }
-	zz_valyria_$TRIGGER_TYPE$_human_only_scheme_target_has_agents_trigger = { SPELL = zz_valyria_magic_dream_magic_23 }
-	zz_valyria_$TRIGGER_TYPE$_human_only_scheme_owner_has_agents_trigger = { SPELL = zz_valyria_magic_dream_magic_24 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_scheme_target_has_agents_exposed_trigger = { SPELL = zz_valyria_magic_dream_magic_23 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_scheme_owner_has_agents_exposed_trigger = { SPELL = zz_valyria_magic_dream_magic_24 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_scheme_target_has_agents_trigger = { SPELL = zz_valyria_magic_dream_magic_25 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_scheme_owner_has_agents_trigger = { SPELL = zz_valyria_magic_dream_magic_26 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_scheme_target_trigger = { SPELL = zz_valyria_magic_dream_magic_27 }
@@ -1581,6 +1949,10 @@ zz_magic_list_trigger = {
 	zz_valyria_$TRIGGER_TYPE$_has_maa_trigger = { SPELL = zz_valyria_magic_fire_magic_11 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_fire_magic_12 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_fire_magic_13 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_fire_magic_14 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_fire_magic_15 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_is_landed_trigger = { SPELL = zz_valyria_magic_fire_magic_16 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_is_landed_trigger = { SPELL = zz_valyria_magic_fire_magic_17 }
 	
 	zz_valyria_$TRIGGER_TYPE$_cannot_cast_on_caster_cannot_cast_on_self_trigger = { SPELL = zz_valyria_magic_air_magic_01 }
 	zz_valyria_$TRIGGER_TYPE$_has_maa_trigger = { SPELL = zz_valyria_magic_air_magic_02 }
@@ -1595,6 +1967,10 @@ zz_magic_list_trigger = {
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_air_magic_11 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_air_magic_12 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_air_magic_13 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_air_magic_14 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_air_magic_15 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_is_landed_trigger = { SPELL = zz_valyria_magic_air_magic_16 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_is_landed_trigger = { SPELL = zz_valyria_magic_air_magic_17 }
 	
 	zz_valyria_$TRIGGER_TYPE$_cannot_cast_on_caster_cannot_cast_on_self_trigger = { SPELL = zz_valyria_magic_water_magic_01 }
 	zz_valyria_$TRIGGER_TYPE$_armies_raised_trigger = { SPELL = zz_valyria_magic_water_magic_02 }
@@ -1609,4 +1985,8 @@ zz_magic_list_trigger = {
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_water_magic_11 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_water_magic_12 }
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_water_magic_13 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_water_magic_14 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SPELL = zz_valyria_magic_water_magic_15 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_is_landed_trigger = { SPELL = zz_valyria_magic_water_magic_16 }
+	zz_valyria_$TRIGGER_TYPE$_human_only_is_landed_trigger = { SPELL = zz_valyria_magic_water_magic_17 }
 }

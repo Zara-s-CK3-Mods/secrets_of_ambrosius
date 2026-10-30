@@ -53,10 +53,40 @@ age_ranked_health_vulnerability_threshold_trigger = {
 		}
 	}
 	NOT = { has_trait = immortal }
+	NOT = { has_trait = zz_valyrian_longevity }
+	trigger_if = {
+		limit = {
+			has_trait = lifespan_good_3
+		}
+		age >= 180
+	}
+	trigger_else_if = {
+		limit = {
+			has_trait = lifespan_good_2
+		}
+		age >= 130
+	}
+	trigger_else_if = {
+		limit = {
+			has_trait = lifespan_good_1
+		}
+		age >= 90
+	}
+	NOT = {
+		has_character_modifier = zz_valyria_magic_blood_magic_11_modifier
+	}
+	NOT = {
+		has_character_modifier = zz_valyria_magic_blood_magic_12_modifier
+	}
+	
 }
 
 # Might this character succumb to a stroke, aneurysm, or other blood pressure-related injury?
 potential_victim_of_apoplexy_trigger = {
+	#AGOT Added - check for humans only to not give non-humans health issues
+	is_human = yes
+	NOT = { has_character_flag = keep_imprisoned } # Duskendale
+	#
 	OR = {
 		has_trait = wrathful
 		# Impatient/irritable characters tend towards this when pushed out of their comfort zone.
@@ -256,19 +286,12 @@ can_contract_disease_trigger = {
 	trigger_if = {
 		limit = { trait:$DISEASE$ = trait:measles }
 		NOT = { has_character_flag = measles_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
-		
 	}
 
 	#Only get bubonic plague once
 	trigger_if = {
 		limit = { trait:$DISEASE$ = trait:bubonic_plague }
 		NOT = { has_character_flag = bubonic_immunity }
-		NOT = { 
-			zz_disease_immunity = { DISEASE = $DISEASE$} 
-		}
 	}
 
 

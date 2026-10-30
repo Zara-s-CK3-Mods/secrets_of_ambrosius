@@ -179,7 +179,7 @@ l_english:
   zz_valyria_magic_water_magic_13.toast.tt:0 "$zz_valyria_magic_water_magic_13.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_water_magic_14.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hc$\n\nThe arts of [water_magic|E] allows for a power over life and death. By calling forth the power of water to heal and clean it is possible to wash away disease and infection, and provide a lasting immunity to such forces.."
+  zz_valyria_magic_water_magic_14.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hcm$\n\nThe arts of [water_magic|E] allows for a power over life and death. By calling forth the power of water to heal and clean it is possible to wash away disease and infection, and provide a lasting immunity to such forces.."
   ##event
   zz_valyria_magic_water_magic.014.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic_14_name$"
   zz_valyria_magic_water_magic.014.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. It is possible to call forth the purifying properties of water, and to have all disease and infection purged from the body of [recipient.GetFirstName]. Sucha  power will leave a lingering immunity to disease. "
@@ -191,7 +191,7 @@ l_english:
   zz_valyria_magic_water_magic_14.toast.tt:0 "$zz_valyria_magic_water_magic_14.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_water_magic_15.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hc$\n\nThe arts of [water_magic|E] allows for a power over life and death. By calling forth the power of water to heal and clean it is possible to wash away disease and infection, and provide a lasting immunity to such forces.."
+  zz_valyria_magic_water_magic_15.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_pcm$\n\nThe arts of [water_magic|E] allows for a power over life and death. By calling forth the power of water to heal and clean it is possible to wash away disease and infection, and provide a lasting immunity to such forces.."
   ##event
   zz_valyria_magic_water_magic.015.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic_15_name$"
   zz_valyria_magic_water_magic.015.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. It is possible to call forth the purifying properties of water, and to have all disease and infection purged from the body of [recipient.GetFirstName]. Sucha  power will leave a lingering immunity to disease. "

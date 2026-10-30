@@ -1,45 +1,42 @@
 ﻿l_english:
+
+  
   zz_dop:0 "$EFFECT_LIST_BULLET$Uses [drops_of_power|E]"
-  zz_tc:0 "$EFFECT_LIST_BULLET$Target's Character"
-  zz_ta:0 "$EFFECT_LIST_BULLET$Target's Army"
-  zz_tr:0 "$EFFECT_LIST_BULLET$Target's Regiment"
-  zz_tp:0 "$EFFECT_LIST_BULLET$Target's Province"
-  zz_tci:0 "$EFFECT_LIST_BULLET$Target's Character Item"
-  zz_td:0 "$EFFECT_LIST_BULLET$Target's Dragon"
-  zz_tcc:0 "$EFFECT_LIST_BULLET$Target's County"
+  #Targeting 
+  zz_tc:0 "$EFFECT_LIST_BULLET$targets Character"
+  zz_ta:0 "$EFFECT_LIST_BULLET$targets Army"
+  zz_tr:0 "$EFFECT_LIST_BULLET$targets Regiment"
+  zz_tp:0 "$EFFECT_LIST_BULLET$targets Province"
+  zz_tci:0 "$EFFECT_LIST_BULLET$targets Character Item"
+  zz_td:0 "$EFFECT_LIST_BULLET$targets Dragon"
+  zz_tcc:0 "$EFFECT_LIST_BULLET$targets County"
+
+  #Effect
   zz_rs:0 "$EFFECT_LIST_BULLET$Manipulates Secrets"
   zz_esec:0 "$EFFECT_LIST_BULLET$Expose Secrets"
   zz_dsec:0 "$EFFECT_LIST_BULLET$Destroy Secrets"
   zz_rp:0 "$EFFECT_LIST_BULLET$Manipulates Schemes"
   zz_hc:0 "$EFFECT_LIST_BULLET$Heal Character"
-  zz_da:0 "$EFFECT_LIST_BULLET$Damage's Army"
-  zz_sa:0 "$EFFECT_LIST_BULLET$Summon's an Army"
+  zz_da:0 "$EFFECT_LIST_BULLET$Damages Army"
+  zz_sa:0 "$EFFECT_LIST_BULLET$Summons an Army"
   zz_dr:0 "$EFFECT_LIST_BULLET$Damage Regiment"
   zz_hr:0 "$EFFECT_LIST_BULLET$Heal Regiment"
   zz_bca:0 "$EFFECT_LIST_BULLET$Buff Commanded Army"
   zz_dca:0 "$EFFECT_LIST_BULLET$Debuff Commanded Army"
   zz_bcm:0 "$EFFECT_LIST_BULLET$Buff Character Modifier"
   zz_dcm:0 "$EFFECT_LIST_BULLET$Debuff Character Modifier"
-  zz_bsp:0 "$EFFECT_LIST_BULLET$Buff Selected Province"
-  zz_ld:0 "$EFFECT_LIST_BULLET$Low Damage"
-  zz_md:0 "$EFFECT_LIST_BULLET$Moderate Damage"
-  zz_sd:0 "$EFFECT_LIST_BULLET$Serious Damage"
-  zz_cd:0 "$EFFECT_LIST_BULLET$Catastrophic Damage"
-  zz_lh:0 "$EFFECT_LIST_BULLET$Low Healing"
-  zz_mh:0 "$EFFECT_LIST_BULLET$Moderate Healing"
-  zz_sh:0 "$EFFECT_LIST_BULLET$Serious Healing"
-  zz_mash:0 "$EFFECT_LIST_BULLET$Massive Healing"
-  zz_suh:0 "$EFFECT_LIST_BULLET$Surpeme Healing"
+  zz_bsp:0 "$EFFECT_LIST_BULLET$Buff Selected Province
+  zz_dsp:0 "$EFFECT_LIST_BULLET$Debuff Selected Province"
   zz_as:0 "$EFFECT_LIST_BULLET$Add's Supply"
   zz_ve:0 "$EFFECT_LIST_BULLET$Variable Effect"
   zz_se:0 "$EFFECT_LIST_BULLET$Start Epidemic"
-  zz_ccd:0 "$EFFECT_LIST_BULLET$Effect Development"
+  zz_ccd:0 "$EFFECT_LIST_BULLET$Effect Development
+  zz_ccf:0 "$EFFECT_LIST_BULLET$Effect Fortification"
   zz_cccon:0 "$EFFECT_LIST_BULLET$Effect Control"
 
   zz_cca:0 "$EFFECT_LIST_BULLET$Change Character Age"
   zz_cci:0 "$EFFECT_LIST_BULLET$Change Character Item"
   zz_ccc:0 "$EFFECT_LIST_BULLET$Create Character Clone"
-
   zz_ccr:0 "$EFFECT_LIST_BULLET$Change Character Resources"
   zz_ctb:0 "$EFFECT_LIST_BULLET$Chance to Burn"
   zz_cts:0 "$EFFECT_LIST_BULLET$Chance to Stress"
@@ -64,3 +61,20 @@
   zz_cdb:0 "$EFFECT_LIST_BULLET$Sacrifice Dragonbloods"
   zz_cccc:0 "$EFFECT_LIST_BULLET$Create Crafting Resources"
   zz_cwok:0 "$EFFECT_LIST_BULLET$Choice of Wound or Kill"
+  zz_pcm:0 "$EFFECT_LIST_BULLET$Prevent Character Miscast"
+  zz_hcm:0 "$EFFECT_LIST_BULLET$Rejuvenate Character Miscast Capacity"
+
+
+  #Potency 
+  zz_ld:0 "$EFFECT_LIST_BULLET$Low Damage"
+  zz_md:0 "$EFFECT_LIST_BULLET$Moderate Damage"
+  zz_sd:0 "$EFFECT_LIST_BULLET$Serious Damage"
+  zz_cd:0 "$EFFECT_LIST_BULLET$Catastrophic Damage"
+  zz_lh:0 "$EFFECT_LIST_BULLET$Low Healing"
+  zz_mh:0 "$EFFECT_LIST_BULLET$Moderate Healing"
+  zz_sh:0 "$EFFECT_LIST_BULLET$Serious Healing"
+  zz_mash:0 "$EFFECT_LIST_BULLET$Massive Healing"
+  zz_suh:0 "$EFFECT_LIST_BULLET$Supreme Healing"
+
+
+

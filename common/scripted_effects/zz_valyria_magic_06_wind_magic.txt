@@ -284,16 +284,9 @@ zz_valyria_magic_air_magic_09_effect = {
 		custom_tooltip = zz_valyria_magic_air_magic_09.toast.tt
 	}
 	scope:target = {
-		remove_holding = yes 
-		change_county_control = massive_county_control_loss
-		county = {
-			change_development_level = {
-				subtract = development_level
-				multiply = 0.2
-				floor = yes
-			}
+		agot_ruinize_title_effect = {
+			TITLE = barony
 		}
-		
 		every_army_in_location = {
 			limit = { 
 				NOT = {
@@ -473,6 +466,137 @@ zz_valyria_magic_air_magic_13_effect = {
 				target = scope:actor
 				opinion = 70
 			}
+		}
+	}
+}
+
+
+zz_valyria_magic_air_magic_14_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_14.toast.t
+		desc = zz_valyria_magic_air_magic_14.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_air_magic_14.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		if = { 
+			limit = { 
+				has_variable = zz_miscast_count
+			}
+			change_variable = { 
+				name = zz_miscast_count
+				subtract = zz_valyria_magic_air_magic_14_value
+			}
+		}
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_air_magic_15_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_15.toast.t
+		desc = zz_valyria_magic_air_magic_15.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_air_magic_15.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		if = { 
+			limit = { 
+				has_variable = zz_miscast_protection_count
+			}
+			change_variable = { 
+				name = zz_miscast_protection_count
+				add = zz_valyria_magic_air_magic_15_value
+			}
+		}
+		else = { 
+			set_variable = { 
+				name = zz_miscast_protection_count
+				value = zz_valyria_magic_air_magic_15_value
+			}
+		}
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+zz_valyria_magic_air_magic_16_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_16.toast.t
+		desc = zz_valyria_magic_air_magic_16.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:target
+		custom_tooltip = zz_valyria_magic_air_magic_16.toast.tt
+	}
+	scope:target = {
+		zz_valyria_magic_apply_province_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_air_magic_16_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 1
+		}
+	}
+}
+zz_valyria_magic_air_magic_17_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_air_magic_17.toast.t
+		desc = zz_valyria_magic_air_magic_17.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:target
+		custom_tooltip = zz_valyria_magic_air_magic_17.toast.tt
+	}
+	scope:target = {
+		zz_valyria_magic_apply_province_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_air_magic_17_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 1
 		}
 	}
 }

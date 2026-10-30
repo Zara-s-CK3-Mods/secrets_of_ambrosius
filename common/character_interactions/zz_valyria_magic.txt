@@ -1,8 +1,8 @@
 ﻿## Teach Magic Decision 
 
-zz_valyria_magic_01.interaction = {
+zz_valyria_magic_enact_mystery.interaction = {
 
-	desc = zz_valyria_magic_01.interaction.interaction.desc
+	desc = zz_valyria_magic_enact_mystery.interaction.interaction.desc
 	icon = icon_magic
 	#icon = blood_magic
 	#icon = shadow_magic	
@@ -121,6 +121,8 @@ zz_gift_artifact_interaction = {
 		}
 
 		#AGOT Added, no non-human interactions
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
 	}
 
 	is_valid_showing_failures_only = {
@@ -143,6 +145,7 @@ zz_gift_artifact_interaction = {
 			}
 			#AGOT Added
 			trigger_else = {
+				any_character_artifact = { agot_valid_ai_gift = yes }
 			}
 		}
 		trigger_if = {
@@ -1309,9 +1312,9 @@ zz_gift_artifact_interaction = {
 	}
 }
 
-zz_valyria_magic_02.interaction = {
+zz_valyria_dream_magic_menal_manipulation.interaction = {
 
-	desc = zz_valyria_magic_02.interaction.desc
+	desc = zz_valyria_dream_magic_menal_manipulation.interaction.desc
 
 	common_interaction = yes
 	interface_priority = 40000
@@ -1458,13 +1461,52 @@ zz_valyria_magic_02.interaction = {
 					scope:commit_suicide = yes
 				}
 				
-				show_as_tooltip = {
-					committed_suicide_effect = yes
+				if = {
+					limit = {
+						agot_can_visit_house_of_baw = yes
+					}
+
+					custom_tooltip = agot_visit_house_of_baw_decision_effect
+					show_as_tooltip = {
+						agot_visit_house_of_baw_effect = yes
+					}
+					trigger_event = {
+						on_action = agot_visit_house_of_baw
+					}
 				}
-				custom_tooltip = commit_suicide_decision_effect_tooltip
-				trigger_event = {
-					on_action = commit_suicide
+				else = {
+					show_as_tooltip = {
+						committed_suicide_effect = yes
+					}
+					custom_tooltip = commit_suicide_decision_effect_tooltip
+					trigger_event = {
+						on_action = commit_suicide
+					}
 				}
+			}
+			if = {
+				limit = {
+					scope:set_asexual = yes
+				}
+				set_sexuality = asexual
+			}
+			if = {
+				limit = {
+					scope:set_bisexual = yes
+				}
+				set_sexuality = bisexual
+			}
+			if = {
+				limit = {
+					scope:set_heterosexual = yes
+				}
+				set_sexuality = heterosexual
+			}
+			if = {
+				limit = {
+					scope:set_homosexual = yes
+				}
+				set_sexuality = homosexual
 			}
 		}
 	}
@@ -1546,12 +1588,28 @@ zz_valyria_magic_02.interaction = {
 		flag = commit_suicide
 		localization = zz_commit_suicide
 	}
+	send_option = {
+		flag = set_asexual
+		localization = set_asexual
+	}
+	send_option = {
+		flag = set_bisexual
+		localization = set_bisexual
+	}
+	send_option = {
+		flag = set_heterosexual
+		localization = set_heterosexual
+	}
+	send_option = {
+		flag = set_homosexual
+		localization = set_homosexual
+	}
 	
 }
 
-zz_valyria_magic_03.interaction = {
+zz_valyria_magic_change_face.interaction = {
 
-	desc = zz_valyria_magic_03.interaction.desc
+	desc = zz_valyria_magic_change_face.interaction.desc
 
 	common_interaction = yes
 	interface_priority = 40000
@@ -1560,7 +1618,7 @@ zz_valyria_magic_03.interaction = {
 	is_shown = {
 		scope:actor = {
 			is_ai = no
-			this = character:Merlin_01
+			this = character:Setenon_01
 			scope:recipient = this 
 		}
 	}
@@ -1589,55 +1647,55 @@ zz_valyria_magic_03.interaction = {
 				limit = {
 					scope:take_face_01 = yes
 				}
-				copy_inheritable_appearance_from = character:Dummy_Merlin_01
+				copy_inheritable_appearance_from = character:Dummy_Setenon_01
 			}
 			if = {
 				limit = {
 					scope:take_face_02 = yes
 				}
-				copy_inheritable_appearance_from = character:Dummy_Merlin_02
+				copy_inheritable_appearance_from = character:Dummy_Setenon_02
 			}
 			if = {
 				limit = {
 					scope:take_face_03 = yes
 				}
-				copy_inheritable_appearance_from = character:Dummy_Merlin_03
+				copy_inheritable_appearance_from = character:Dummy_Setenon_03
 			}
 			if = {
 				limit = {
 					scope:take_face_04 = yes
 				}
-				copy_inheritable_appearance_from = character:Dummy_Merlin_04
+				copy_inheritable_appearance_from = character:Dummy_Setenon_04
 			}
 			if = {
 				limit = {
 					scope:take_face_05 = yes
 				}
-				copy_inheritable_appearance_from = character:Dummy_Merlin_05
+				copy_inheritable_appearance_from = character:Dummy_Setenon_05
 			}
 			if = {
 				limit = {
 					scope:take_face_06 = yes
 				}
-				copy_inheritable_appearance_from = character:Dummy_Merlin_06
+				copy_inheritable_appearance_from = character:Dummy_Setenon_06
 			}
 			if = {
 				limit = {
 					scope:take_face_07 = yes
 				}
-				copy_inheritable_appearance_from = character:Dummy_Merlin_07
+				copy_inheritable_appearance_from = character:Dummy_Setenon_07
 			}
 			if = {
 				limit = {
 					scope:take_face_08 = yes
 				}
-				copy_inheritable_appearance_from = character:Dummy_Merlin_08
+				copy_inheritable_appearance_from = character:Dummy_Setenon_08
 			}
 			if = {
 				limit = {
 					scope:take_face_09 = yes
 				}
-				copy_inheritable_appearance_from = character:Dummy_Merlin_09
+				copy_inheritable_appearance_from = character:Dummy_Setenon_09
 			}
 
 		}

@@ -11,11 +11,11 @@ zz_valyria_magic_water_magic.001 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_water_magic.001.opt.a
@@ -58,11 +58,11 @@ zz_valyria_magic_water_magic.002 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		clear_variable_list = possible_armies
@@ -118,11 +118,11 @@ zz_valyria_magic_water_magic.003 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		clear_variable_list = possible_armies
@@ -179,11 +179,11 @@ zz_valyria_magic_water_magic.004 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		clear_variable_list = possible_epidemics
@@ -238,11 +238,11 @@ zz_valyria_magic_water_magic.00401 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_targeted_character_province_selection_list_effect = yes
@@ -263,7 +263,7 @@ zz_valyria_magic_water_magic.00401 = {
 			}
 			scope:secondary_recipient = {
 				zz_valyria_has_mana_to_cast = {
-					MANACOST = 25
+					MANACOST = zz_valyria_magic_water_magic_04_cost
 				}
 			}
 		}
@@ -288,7 +288,7 @@ zz_valyria_magic_water_magic.00401 = {
 			}
 			scope:secondary_recipient = {
 				zz_valyria_has_mana_to_cast = {
-					MANACOST = 50
+					MANACOST = zz_valyria_magic_water_magic_04_02_cost
 				}
 			}
 		}
@@ -313,7 +313,7 @@ zz_valyria_magic_water_magic.00401 = {
 			}
 			scope:secondary_recipient = {
 				zz_valyria_has_mana_to_cast = {
-					MANACOST = 100
+					MANACOST = zz_valyria_magic_water_magic_04_03_cost
 				}
 			}
 		}
@@ -342,11 +342,11 @@ zz_valyria_magic_water_magic.005 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_water_magic.005.opt.a	
@@ -372,11 +372,11 @@ zz_valyria_magic_water_magic.006 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_targeted_character_province_selection_list_effect = yes
@@ -415,11 +415,11 @@ zz_valyria_magic_water_magic.007 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_targeted_character_province_selection_list_effect = yes
@@ -458,11 +458,11 @@ zz_valyria_magic_water_magic.008 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_water_magic.008.opt.a	
@@ -488,11 +488,11 @@ zz_valyria_magic_water_magic.009 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_water_magic.009.opt.a	
@@ -517,11 +517,11 @@ zz_valyria_magic_water_magic.010 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_water_magic.010.opt.a	
@@ -546,11 +546,11 @@ zz_valyria_magic_water_magic.011 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_water_magic.011.opt.a	
@@ -576,11 +576,11 @@ zz_valyria_magic_water_magic.012 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_water_magic.012.opt.a	
@@ -605,11 +605,11 @@ zz_valyria_magic_water_magic.013 = {
 	override_background = {
 		reference = zz_water_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_water_magic.013.opt.a	
@@ -622,5 +622,150 @@ zz_valyria_magic_water_magic.013 = {
 	}
 	option = {
 		name = zz_valyria_magic_water_magic.013.opt.z
+	}
+}
+zz_valyria_magic_water_magic.014 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.014.t
+	desc = zz_valyria_magic_water_magic.014.desc
+	theme = university 
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_water_magic.014.opt.a	
+		hidden_effect = {
+			zz_valyria_magic_cast_effect = { 
+				SKILL = water_magic
+				SPELL  = zz_valyria_magic_water_magic_14
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.014.opt.z
+	}
+}
+zz_valyria_magic_water_magic.015 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.015.t
+	desc = zz_valyria_magic_water_magic.015.desc
+	theme = university 
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_water_magic.015.opt.a	
+		hidden_effect = {
+			zz_valyria_magic_cast_effect = { 
+				SKILL = water_magic
+				SPELL  = zz_valyria_magic_water_magic_15
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.015.opt.z
+	}
+}
+
+
+
+
+zz_valyria_magic_water_magic.016 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.016.t
+	desc = zz_valyria_magic_water_magic.016.desc
+	theme = university 
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_province_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_province_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.016.opt.a
+		hidden_effect = {
+			var:selected_province ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = water_magic
+				SPELL  = zz_valyria_magic_water_magic_16
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.016.opt.z
+	}
+}
+
+zz_valyria_magic_water_magic.017 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.017.t
+	desc = zz_valyria_magic_water_magic.017.desc
+	theme = university 
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_province_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_province_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.017.opt.a
+		hidden_effect = {
+			var:selected_province ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_effect = { 
+				SKILL = water_magic
+				SPELL  = zz_valyria_magic_water_magic_17
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.017.opt.z
 	}
 }

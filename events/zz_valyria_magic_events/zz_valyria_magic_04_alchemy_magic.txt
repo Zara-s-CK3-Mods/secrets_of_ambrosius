@@ -9,11 +9,11 @@ zz_valyria_magic_alchemy_magic.001 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_targeted_character_province_selection_list_effect = yes
@@ -51,11 +51,11 @@ zz_valyria_magic_alchemy_magic.002 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_targeted_character_province_selection_list_effect = yes
@@ -93,11 +93,11 @@ zz_valyria_magic_alchemy_magic.003 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_alchemy_magic.003.opt.a
@@ -121,11 +121,11 @@ zz_valyria_magic_alchemy_magic.004 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_alchemy_magic.004.opt.a
@@ -134,7 +134,6 @@ zz_valyria_magic_alchemy_magic.004 = {
 				SKILL = alchemy_magic
 				SPELL  = zz_valyria_magic_alchemy_magic_04
 			}
-			remove_short_term_gold = 5000
 		}
 	}
 
@@ -151,11 +150,11 @@ zz_valyria_magic_alchemy_magic.005 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_alchemy_magic.005.opt.a
@@ -196,11 +195,11 @@ zz_valyria_magic_alchemy_magic.006 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		zz_valyria_artifact_list = yes
@@ -239,11 +238,11 @@ zz_valyria_magic_alchemy_magic.00601 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	immediate = {
 		remove_variable = selected_flag
@@ -332,6 +331,10 @@ zz_valyria_magic_alchemy_magic.00601 = {
 			name = possible_flags
 			target = flag:item_modifier_21
 		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:item_modifier_22
+		}
 		set_variable = {
 			name = selected_flag
 			value = flag:item_modifier_none
@@ -339,14 +342,36 @@ zz_valyria_magic_alchemy_magic.00601 = {
 		if = { 
 			limit = {
 				scope:secondary_recipient = {
-					zz_valyria_has_mana_to_cast = {
-						MANACOST = 400
+					or = {
+						var:casttype ?= flag:potion 
+						var:casttype ?= flag:scroll
+						zz_valyria_has_mana_to_cast = {
+							MANACOST = zz_valyria_magic_alchemy_magic_06_02_cost
+						}
 					}
+					
 				}
 			}
 			add_to_variable_list = {
 				name = possible_flags
 				target = flag:item_modifier_11
+			}
+		}
+		if = {
+			limit = {
+				scope:secondary_recipient = {
+					or = {
+						var:casttype ?= flag:potion 
+						var:casttype ?= flag:scroll
+						zz_valyria_has_mana_to_cast = {
+							MANACOST = zz_valyria_magic_alchemy_magic_06_02_cost
+						}
+					}
+				}
+			}
+			add_to_variable_list = {
+				name = possible_flags
+				target = flag:item_modifier_22
 			}
 		}
 		
@@ -361,21 +386,6 @@ zz_valyria_magic_alchemy_magic.00601 = {
 	}
 	option = {
 		name = zz_valyria_magic_alchemy_magic.006.opt.a
-		trigger = {
-			trigger_if = {
-				limit = {
-					var:selected_flag ?= flag:item_modifier_11
-				}
-				custom_tooltip = {
-					text = zz_mana_gain_extra_cost_400
-					scope:secondary_recipient = {
-						zz_valyria_has_mana_to_cast = {
-							MANACOST = 400
-						}
-					}
-				}
-			}
-		}
 		hidden_effect = {
 			var:selected_flag ?= { 
 				save_scope_as = modifier
@@ -397,11 +407,11 @@ zz_valyria_magic_alchemy_magic.007 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	
 	option = {
@@ -451,11 +461,11 @@ zz_valyria_magic_alchemy_magic.009 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_alchemy_magic.009.opt.a
@@ -481,11 +491,11 @@ zz_valyria_magic_alchemy_magic.010 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_alchemy_magic.010.opt.a
@@ -523,11 +533,11 @@ zz_valyria_magic_alchemy_magic.011 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_alchemy_magic.011.opt.a
@@ -566,11 +576,11 @@ zz_valyria_magic_alchemy_magic.012 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 
 	option = {
@@ -580,7 +590,6 @@ zz_valyria_magic_alchemy_magic.012 = {
 				SKILL = alchemy_magic
 				SPELL  = zz_valyria_magic_alchemy_magic_12
 			}
-			remove_short_term_gold = 7500
 		}
 	}
 	option = {
@@ -596,11 +605,11 @@ zz_valyria_magic_alchemy_magic.013 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_alchemy_magic.013.opt.a
@@ -609,7 +618,6 @@ zz_valyria_magic_alchemy_magic.013 = {
 				SKILL = alchemy_magic
 				SPELL  = zz_valyria_magic_alchemy_magic_13
 			}
-			remove_short_term_gold = 10000
 		}
 	}
 	option = {
@@ -625,11 +633,11 @@ zz_valyria_magic_alchemy_magic.014 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_alchemy_magic.014.opt.a
@@ -638,7 +646,6 @@ zz_valyria_magic_alchemy_magic.014 = {
 				SKILL = alchemy_magic
 				SPELL  = zz_valyria_magic_alchemy_magic_14
 			}
-			remove_short_term_gold = 10000
 		}
 	}
 
@@ -655,11 +662,11 @@ zz_valyria_magic_alchemy_magic.015 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_alchemy_magic.015.opt.a
@@ -668,7 +675,6 @@ zz_valyria_magic_alchemy_magic.015 = {
 				SKILL = alchemy_magic
 				SPELL  = zz_valyria_magic_alchemy_magic_15
 			}
-			remove_short_term_gold = 2500
 		}
 	}
 	option = {
@@ -685,11 +691,11 @@ zz_valyria_magic_alchemy_magic.016 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_alchemy_magic.016.opt.a
@@ -698,7 +704,6 @@ zz_valyria_magic_alchemy_magic.016 = {
 				SKILL = alchemy_magic
 				SPELL  = zz_valyria_magic_alchemy_magic_16
 			}
-			remove_short_term_gold = 10000
 		}
 		
 	}
@@ -716,11 +721,11 @@ zz_valyria_magic_alchemy_magic.017 = {
 	override_background = {
 		reference = zz_alchemy_magic
 	}
-	left_portrait = root
-	lower_center_portrait = {
+	lower_left_portrait = root
+	lower_right_portrait = {
 		character = scope:secondary_recipient
 	}
-	right_portrait = scope:recipient
+	lower_center_portrait = scope:recipient
 
 	option = {
 		name = zz_valyria_magic_alchemy_magic.017.opt.a

@@ -1,9 +1,20 @@
-﻿on_birthday_education_events = {	
+﻿on_birth_child = {
+	on_actions = {
+		zz_birth_effects
+	}
+}
+zz_birth_effects = {
+	on_actions = {
+		zz_valyria_magic_strong_seed = yes
+	}
+}
+on_birthday_education_events = {	
 	on_actions = {
 		zz_mages_education
 	}
 }
-
+on_15th_birthday = {
+}
 zz_mages_education = {
 	effect = {
 		save_scope_as = child

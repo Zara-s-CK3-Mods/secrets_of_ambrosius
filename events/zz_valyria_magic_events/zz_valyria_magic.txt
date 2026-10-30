@@ -1,4 +1,4 @@
-﻿
+﻿@laamp_base_contract_schemes_2661_stewardship_threshold_value = extremely_high_skill_rating
 namespace = zz_valyria_magic
 
 #You read a book of magic. 
@@ -179,6 +179,7 @@ zz_valyria_magic.0010 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_3499
 	}
 
 	trigger = {
@@ -247,26 +248,19 @@ zz_valyria_magic.0011 = {
 
 
 	immediate = {
-		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_blood_magic_06 }
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_dragon_magic_01 }
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll_01
 		}
-		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_blood_magic_08 }
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_dragon_magic_04 }
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll_02
 		}
-		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_blood_magic_09 }
+		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_dragon_magic_06 }
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll_03
 		}
-		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_blood_magic_10 }
-		scope:newly_created_artifact = {
-			save_scope_as = magic_scroll_04
-		}
-		zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_blood_magic_18 }
-		scope:newly_created_artifact = {
-			save_scope_as = magic_scroll_05
-		}
+		add_character_flag = zz_valyria_magic_scroll_4415
 	}
 
 	trigger = {
@@ -312,8 +306,6 @@ zz_valyria_magic.0011 = {
 			destroy_artifact = scope:magic_scroll_01
 			destroy_artifact = scope:magic_scroll_02
 			destroy_artifact = scope:magic_scroll_03
-			destroy_artifact = scope:magic_scroll_04
-			destroy_artifact = scope:magic_scroll_05
 		}
 	}
 	option = {
@@ -326,8 +318,6 @@ zz_valyria_magic.0011 = {
 			destroy_artifact = scope:magic_scroll_01
 			destroy_artifact = scope:magic_scroll_02
 			destroy_artifact = scope:magic_scroll_03
-			destroy_artifact = scope:magic_scroll_04
-			destroy_artifact = scope:magic_scroll_05
 		}
 	}
 }
@@ -349,6 +339,7 @@ zz_valyria_magic.0012 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_77
 	}
 
 	trigger = {
@@ -409,7 +400,7 @@ zz_valyria_magic.0013 = {
 	type = character_event
 	title = zz_valyria_magic.0013.t
 	desc = zz_valyria_magic.0013.desc
-	theme = docks
+	theme = dungeon
 	override_background = {
 		reference = zz_valyria_castle_black
 	}
@@ -422,6 +413,7 @@ zz_valyria_magic.0013 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_5
 	}
 
 	trigger = {
@@ -494,6 +486,7 @@ zz_valyria_magic.0014 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_1934
 	}
 
 	trigger = {
@@ -566,6 +559,7 @@ zz_valyria_magic.0015 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_4939
 	}
 
 	trigger = {
@@ -639,6 +633,7 @@ zz_valyria_magic.0016 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_7708
 	}
 
 	trigger = {
@@ -710,6 +705,7 @@ zz_valyria_magic.0017 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_7713
 	}
 
 	trigger = {
@@ -781,6 +777,7 @@ zz_valyria_magic.0018 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_7559
 	}
 
 	trigger = {
@@ -853,6 +850,7 @@ zz_valyria_magic.0019 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_7351
 	}
 
 	trigger = {
@@ -925,6 +923,7 @@ zz_valyria_magic.0020 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_7389
 	}
 
 	trigger = {
@@ -997,6 +996,7 @@ zz_valyria_magic.0021 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_7388
 	}
 
 	trigger = {
@@ -1069,6 +1069,7 @@ zz_valyria_magic.0022 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_8062
 	}
 
 	trigger = {
@@ -1141,6 +1142,7 @@ zz_valyria_magic.0023 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_8063
 	}
 
 	trigger = {
@@ -1213,6 +1215,7 @@ zz_valyria_magic.0024 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_8064
 	}
 
 	trigger = {
@@ -1284,6 +1287,7 @@ zz_valyria_magic.0025 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_8065
 	}
 
 	trigger = {
@@ -1356,6 +1360,7 @@ zz_valyria_magic.0026 = {
 		scope:newly_created_artifact = {
 			save_scope_as = magic_scroll
 		}
+		add_character_flag = zz_valyria_magic_scroll_8066
 	}
 
 	trigger = {
@@ -1641,14 +1646,12 @@ zz_valyria_the_doom.002 = {
 		trigger = {
 			is_ai = no
 		}
+		zz_random_gain_magic_spell = yes
 		if = {
 			limit = {
-				NOT = {
-					has_trait = starwalker
-				}
+				has_inactive_trait = starwalker
 			}
-			zz_random_gain_magic_spell = yes
-			add_trait_force_tooltip = starwalker
+			make_trait_active_force_tooltip = starwalker
 			add_trait_xp = { 
 				trait = starwalker
 				track = chosen_of_the_heavens
@@ -1659,7 +1662,12 @@ zz_valyria_the_doom.002 = {
 			add_trait_xp = { 
 				trait = starwalker
 				track = chosen_of_the_heavens
-				value = 50
+				value = {
+					integer_range = {
+						min = 45 
+						max = 100
+					}
+				}
 			}
 		}
 	}
@@ -1727,11 +1735,26 @@ zz_valyria_magic_court_mages_ritual.001 = {
 						}
 					}
 				}
-				every_living_mage = {
-					limit = {
-						liege_or_court_owner ?= scope:liege
+				house ?= {
+					every_house_mage = {
+						scope:liege ={
+							add_to_variable_list = {
+								name = mages_in_court_list
+								target = prev
+							}
+						}
 					}
-					scope:liege = {
+				}
+				every_court_mage = {
+					scope:liege ={
+						add_to_variable_list = {
+							name = mages_in_court_list
+							target = prev
+						}
+					}
+				}
+				every_realm_mage = {
+					scope:liege ={
 						add_to_variable_list = {
 							name = mages_in_court_list
 							target = prev
@@ -1756,12 +1779,196 @@ zz_valyria_magic_court_mages_ritual.001 = {
 
 namespace = zz_valyria_magic_management
 
+
+zz_valyria_magic_management.002 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_management.002.t
+	desc = zz_valyria_magic_management.002.desc
+	theme = dragon
+	left_portrait = root
+	right_portrait = scope:recipient
+	immediate = {
+		clear_variable_list ?= zz_valyria_possible_characters
+		if = { 
+			limit = {
+				has_trait = dragonrider
+				OR = {
+					has_trait = lifestyle_blademaster
+					has_trait = lifestyle_reveler
+					has_trait = lifestyle_hunter	
+					has_trait = lifestyle_mystic
+					has_trait = lifestyle_physician
+					has_trait = lifestyle_herbalist
+					has_trait = lifestyle_gardener 
+				}
+			}
+			root = {
+				add_to_variable_list = {
+					name = zz_valyria_possible_characters
+					target = prev
+				}
+			}
+		}
+		every_courtier_or_guest = {
+			limit = {
+				has_trait = dragonrider
+				OR = {
+					has_trait = lifestyle_blademaster
+					has_trait = lifestyle_reveler
+					has_trait = lifestyle_hunter	
+					has_trait = lifestyle_mystic
+					has_trait = lifestyle_physician
+					has_trait = lifestyle_herbalist
+					has_trait = lifestyle_gardener 
+				}
+			}
+			root = {
+				add_to_variable_list = {
+					name = zz_valyria_possible_characters
+					target = prev
+				}
+			}
+		}
+		ordered_in_list = {
+			variable = zz_valyria_possible_characters
+			set_variable = {
+				name = zz_valyria_selected_character
+				value = root
+			}
+			root = {
+				set_variable = {
+					name = zz_valyria_selected_character
+					value = prev
+				}
+			}
+		}
+	}
+	widget = {
+		is_shown = {
+			root = {
+				any_in_list = {
+					variable = zz_valyria_possible_characters
+					count > 0
+				}
+			}
+		}
+		gui = "event_window_character_selection_five_options"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_management.002a
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					has_trait = lifestyle_blademaster
+				}
+			}
+			var:zz_valyria_selected_character = {
+				trigger_event = { 
+					id =  zz_agot_filler_dragon.4
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.002b
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					has_trait = lifestyle_hunter
+				}
+			}
+			var:zz_valyria_selected_character = {
+				trigger_event = { 
+					id =  zz_agot_filler_dragon.6
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.002c
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					has_trait = lifestyle_mystic
+				}
+			}
+			var:zz_valyria_selected_character = {
+				trigger_event = { 
+					id =  zz_agot_filler_dragon.8
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.002d
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					has_trait = lifestyle_physician
+				}
+			}
+			var:zz_valyria_selected_character = {
+				trigger_event = { 
+					id =  zz_agot_filler_dragon.10
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.002e
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					has_trait = lifestyle_herbalist
+				}
+			}
+			var:zz_valyria_selected_character = {
+				trigger_event = { 
+					id =  zz_agot_filler_dragon.12
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.002f
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					has_trait = lifestyle_gardener
+				}
+			}
+			var:zz_valyria_selected_character = {
+				trigger_event = { 
+					id =  zz_agot_filler_dragon.14
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.002g
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					has_trait = lifestyle_reveler
+				}
+			}
+			var:zz_valyria_selected_character = {
+				trigger_event = { 
+					id =  zz_agot_filler_dragon.2
+				}
+			}
+		}
+	}
+}
+
 zz_valyria_magic_management.003 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_management.003.t
 	desc = zz_valyria_magic_management.003.desc
-	theme = witchcraft
+	theme = dragon
 	left_portrait = root
 	right_portrait = scope:recipient
 	immediate = {
@@ -1812,6 +2019,150 @@ zz_valyria_magic_management.003 = {
 			limit = {
 				var:zz_valyria_selected_character = {
 					NOT = {
+						has_nickname = nick_agot_historical_the_necromancer
+					}
+				}
+			}
+			var:zz_valyria_selected_character = {
+				give_nickname = nick_agot_historical_the_necromancer
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.003b
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					NOT = {
+						has_nickname = nick_agot_historical_the_mage
+					}
+				}
+			}
+			var:zz_valyria_selected_character = {
+				give_nickname = nick_agot_historical_the_mage
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.003c
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					NOR = {
+						has_nickname = nick_agot_the_witch
+						has_nickname = nick_agot_the_warlock
+					}
+				}
+			}
+			var:zz_valyria_selected_character = {
+				if  = { 
+					limit = {
+						is_female = yes 
+					}
+					give_nickname = nick_agot_the_witch
+				}
+				else = {
+					give_nickname = nick_agot_the_warlock
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.003d
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					NOT = {
+						has_nickname = nick_agot_the_seer
+					}
+				}
+			}
+			var:zz_valyria_selected_character = {
+				give_nickname = nick_agot_the_seer
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.003e
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					NOT = {
+						has_nickname = nick_agot_the_dreamer
+					}
+				}
+			}
+			var:zz_valyria_selected_character = {
+				give_nickname = nick_agot_the_dreamer
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.003f
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					NOT = {
+						has_nickname = nick_agot_the_poet
+					}
+				}
+			}
+			var:zz_valyria_selected_character = {
+				give_nickname = nick_agot_the_poet
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.003g
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					NOT = {
+						has_nickname = nick_agot_the_bard
+					}
+				}
+			}
+			var:zz_valyria_selected_character = {
+				give_nickname = nick_agot_the_bard
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.003h
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					NOT = {
+						has_nickname = nick_agot_the_singer
+					}
+				}
+			}
+			var:zz_valyria_selected_character = {
+				give_nickname = nick_agot_the_singer
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.003i
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					NOT = {
+						has_nickname = nick_agot_historical_the_dragonknight_historic
+					}
+				}
+			}
+			var:zz_valyria_selected_character = {
+				give_nickname = nick_agot_historical_the_dragonknight_historic
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.003j
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					NOT = {
 						has_nickname = nick_the_archmage
 					}
 				}
@@ -1822,18 +2173,139 @@ zz_valyria_magic_management.003 = {
 		}
 	}
 	option = {
-		name = zz_valyria_magic_management.003b
+		name = zz_valyria_magic_management.003k
 		if = {
 			limit = {
 				var:zz_valyria_selected_character = {
 					NOT = {
-						has_nickname = nick_the_necromancer
+						has_nickname = nick_the_magus
 					}
 				}
 			}
 			var:zz_valyria_selected_character = {
-				give_nickname = nick_the_necromancer
+				give_nickname = nick_the_magus
 			}
 		}
+	}
+	option = {
+		name = zz_valyria_magic_management.003l
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					NOT = {
+						has_nickname = nick_the_alchemist
+					}
+				}
+			}
+			var:zz_valyria_selected_character = {
+				give_nickname = nick_the_alchemist
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_management.003m
+		if = {
+			limit = {
+				var:zz_valyria_selected_character = {
+					NOT = {
+						has_nickname = nick_the_wizard
+					}
+				}
+			}
+			var:zz_valyria_selected_character = {
+				give_nickname = nick_the_wizard
+			}
+		}
+	}
+}
+
+
+namespace = zz_valyria_magic_blood_sacrifice
+
+# Executed!
+zz_valyria_magic_blood_sacrifice.0001 = {
+	type = character_event
+	title = zz_valyria_magic_blood_sacrifice.0001.t
+	desc = zz_valyria_magic_blood_sacrifice.0001.desc
+
+	left_portrait = scope:actor
+	theme = witchcraft
+
+	override_background = {
+		reference = zz_blood_sacrifice
+	}
+
+	immediate = {
+		play_music_cue = mx_cue_stress
+	}
+
+	option = {
+		name = {
+			trigger = {
+				culture = { has_cultural_tradition = tradition_life_is_just_a_joke }
+			}
+			text = char_interaction.0170.life_is_just_a_joke.a
+		}
+		name = char_interaction.0170.a
+		if = {
+			limit = {
+				culture = { has_cultural_tradition = tradition_life_is_just_a_joke }
+			}
+			stress_impact = {
+				base = massive_stress_loss
+			}
+		}
+		show_as_tooltip = {
+			execute_dragon_prisoner_effect = {
+				VICTIM = scope:recipient
+				EXECUTIONER = scope:actor
+				REASON = death_blood_magic
+			}
+		}
+	}
+}
+
+zz_valyria_magic_blood_sacrifice.0002 = {
+	type = character_event
+	title = zz_valyria_magic_blood_sacrifice.0001.t
+	desc = zz_valyria_magic_blood_sacrifice.0002.desc
+
+	left_portrait = scope:actor
+	theme = witchcraft
+
+	override_background = {
+		reference = zz_blood_sacrifice
+	}
+	immediate = {
+		play_music_cue = mx_cue_stress
+		zz_valyria_courter_or_guest_mage_list = yes
+		
+	}
+
+	
+	widget = {
+		is_shown = {
+			root = {
+				any_in_list = {
+					variable = zz_valyria_possible_characters
+					count > 0
+				}
+			}
+		}
+		gui = "event_window_character_selection_five_options"
+		container = "custom_widgets_container"
+	}
+
+	option = {
+		name = zz_valyria_magic_blood_sacrifice.0002.a
+		var:zz_valyria_selected_character = {
+			save_scope_as = target
+		}
+		scope:target = {
+			zz_valyria_mana_gain = {
+				MANAGAIN = 10
+			}
+		}
+
 	}
 }

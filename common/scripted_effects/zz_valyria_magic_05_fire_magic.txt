@@ -121,6 +121,10 @@ zz_removed_magic_effect = {
 						execute_opinion_effect = { VICTIM = scope:recipient EXECUTIONER = scope:secondary_recipient }
 					}
 					scope:recipient = {
+						add_trait_xp = {
+							trait = burned
+							value = { 5 200 }
+						}
 						death = {
 							death_reason = death_fire_magic
 							killer = scope:secondary_recipient
@@ -144,10 +148,20 @@ zz_removed_magic_effect = {
 					add_dread = medium_dread_gain
 					scope:recipient = {
 						show_as_tooltip = {
-							increase_wounds_effect = { REASON = fire_magic }
+							agot_increase_wounds_effect = { REASON = fire_magic RANK = 2 }
+							add_trait = burned
+							add_trait_xp = {
+								trait = burned
+								value = { 5 200 }
+							}
 							add_stress = massive_stress_gain
 						}
-						increase_wounds_effect = { REASON = fire_magic }
+						agot_increase_wounds_effect = { REASON = fire_magic RANK = 2}
+						add_trait = burned
+						add_trait_xp = {
+							trait = burned
+							value = { 5 200 }
+						}
 						add_stress = massive_stress_gain
 						scope:actor = {
 							if = {
@@ -371,7 +385,11 @@ random_list = {
 	}
 	50 = {
 		scope:recipient = {
-
+			add_trait = burned
+			add_trait_xp = {
+				trait = burned
+				value = { 5 200 }
+			}
 		}
 	}
 }
@@ -452,6 +470,7 @@ zz_valyria_magic_fire_magic_06_effect = {
 		}
 	}
 	scope:recipient = { 
+		zz_dragon_dreams = yes
 		random_neighboring_and_across_water_realm_same_rank_owner ={
 			limit = {	
 				has_any_secrets = yes
@@ -606,6 +625,7 @@ zz_valyria_magic_fire_magic_07_effect = {
 		}
 	}
 	scope:recipient = { 
+		zz_dragon_dreams = yes
 		random_neighboring_and_across_water_realm_same_rank_owner ={
 			limit = {	
 				has_owned_scheme = yes
@@ -722,6 +742,7 @@ zz_valyria_magic_fire_magic_07_effect = {
 			}
 		}
 		scope:dreaming_magic_secret_target = {
+			#expose_scheme_to = scope:recipient 
 			expose_scheme = yes
 		}
 	} 
@@ -940,6 +961,138 @@ zz_valyria_magic_fire_magic_13_effect = {
 				target = scope:actor
 				opinion = 70
 			}
+		}
+	}
+}
+
+
+zz_valyria_magic_fire_magic_14_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_fire_magic_14.toast.t
+		desc = zz_valyria_magic_fire_magic_14.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_fire_magic_14.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		if = { 
+			limit = { 
+				has_variable = zz_miscast_count
+			}
+			change_variable = { 
+				name = zz_miscast_count
+				subtract = zz_valyria_magic_fire_magic_14_value
+			}
+		}
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_fire_magic_15_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_fire_magic_15.toast.t
+		desc = zz_valyria_magic_fire_magic_15.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_fire_magic_15.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+
+	scope:recipient = {
+		if = { 
+			limit = { 
+				has_variable = zz_miscast_protection_count
+			}
+			change_variable = { 
+				name = zz_miscast_protection_count
+				add = zz_valyria_magic_fire_magic_15_value
+			}
+		}
+		else = { 
+			set_variable = { 
+				name = zz_miscast_protection_count
+				value = zz_valyria_magic_fire_magic_15_value
+			}
+		}
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier  = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
+
+zz_valyria_magic_fire_magic_16_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_fire_magic_16.toast.t
+		desc = zz_valyria_magic_fire_magic_16.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:target
+		custom_tooltip = zz_valyria_magic_fire_magic_16.toast.tt
+	}
+	scope:target = {
+		zz_valyria_magic_apply_province_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_fire_magic_16_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 1
+		}
+	}
+}
+zz_valyria_magic_fire_magic_17_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_fire_magic_17.toast.t
+		desc = zz_valyria_magic_fire_magic_17.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:target
+		custom_tooltip = zz_valyria_magic_fire_magic_17.toast.tt
+	}
+	scope:target = {
+		zz_valyria_magic_apply_province_modifier_effect = { 
+			MODIFIER = zz_valyria_magic_fire_magic_17_modifier
+			DURATION = 1
+			BOOSTED_DURATION = 1
 		}
 	}
 }

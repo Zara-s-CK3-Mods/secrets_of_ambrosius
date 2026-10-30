@@ -26,7 +26,7 @@
 
 		if = {
 			limit = {
-				knows_language = language_latin # Valyrian Speaker
+				knows_language = language_agot_valyrian # Valyrian Speaker
 			}
 			add = {
 				value = 5
@@ -145,7 +145,6 @@
 
 					employs_court_position = zz_valyria_court_mages_court_position
 					any_court_position_holder = {
-						THIS = scope:employee
 						type = zz_valyria_court_mages_court_position
 						exists = dynasty
 						house = prev.house
@@ -163,7 +162,8 @@
 			if = {
 				limit = {
 					scope:liege = {
-						dynasty ?= { has_dynasty_perk = fp2_coterie_legacy_1 }
+						exists = dynasty
+						dynasty = { has_dynasty_perk = fp2_coterie_legacy_1 }
 
 						employs_court_position = zz_valyria_court_mages_court_position
 						any_court_position_holder = {
@@ -245,46 +245,45 @@
 	# These modifiers are employed based on what level the aptitude reaches (levels are defined as breakpoints)
 	scaling_employer_modifiers = {
 		terrible = {
-			trait_track_drops_of_power_mult_xp_gain_mult = 0.01
+			trait_track_drops_of_power_mult_xp_gain_mult = 0.05
 		}
 		poor = {
 			court_grandeur_baseline_add = 1
-			trait_track_drops_of_power_mult_xp_gain_mult = 0.03
+			trait_track_drops_of_power_mult_xp_gain_mult = 0.1
+
 		}
 		average = {
 			court_grandeur_baseline_add = 1
-			trait_track_drops_of_power_mult_xp_gain_mult = 0.05
-	
+			trait_track_drops_of_power_mult_xp_gain_mult = 0.15
 		}
 		good = {
 			court_grandeur_baseline_add = 2
-			trait_track_drops_of_power_mult_xp_gain_mult = 0.07
+			trait_track_drops_of_power_mult_xp_gain_mult = 0.20
 		}
 		excellent = {
 			court_grandeur_baseline_add = 3
-			trait_track_drops_of_power_mult_xp_gain_mult = 0.1
+			trait_track_drops_of_power_mult_xp_gain_mult = 0.25
 		}
 	}
 	scaling_employer_court_modifiers = {
 		terrible = {
-			trait_track_drops_of_power_mult_xp_gain_mult = 0.01
+			trait_track_drops_of_power_mult_xp_gain_mult = 0.05
 		}
 		poor = {
 			court_grandeur_baseline_add = 1
-			trait_track_drops_of_power_mult_xp_gain_mult = 0.03
+			trait_track_drops_of_power_mult_xp_gain_mult = 0.1
 		}
 		average = {
 			court_grandeur_baseline_add = 1
-			trait_track_drops_of_power_mult_xp_gain_mult = 0.05
+			trait_track_drops_of_power_mult_xp_gain_mult = 0.15
 		}
 		good = {
 			court_grandeur_baseline_add = 2
-			trait_track_drops_of_power_mult_xp_gain_mult = 0.07
-
+			trait_track_drops_of_power_mult_xp_gain_mult = 0.20
 		}
 		excellent = {
 			court_grandeur_baseline_add = 3
-			trait_track_drops_of_power_mult_xp_gain_mult = 0.1
+			trait_track_drops_of_power_mult_xp_gain_mult = 0.25
 		}
 	}
 
@@ -294,18 +293,26 @@
 	modifier = {
 		learning = 2
 		trait_track_drops_of_power_mult_xp_gain_mult = 0.25
+
 	}
 
 	on_court_position_received = {
+		scope:employee = {
+			add_character_flag = zz_court_mage
+		}
+		
 	}
 	on_court_position_revoked = {
+		scope:employee = {
+			remove_character_flag = zz_court_mage
+		}
 	}
 	on_court_position_invalidated = {
 	}
 
 	# Scripted value to determine whether an AI will hire/fire a position or not. Hires over 0, fires under -50. Look in _court_positions.info for more extensive documentation!
 	ai_candidate_score = {
-		value = 150
+		value = -1000
 		add = scope:base_value
 		add = court_position_candidate_score_base_value
 		add = court_position_candidate_aptitude_value

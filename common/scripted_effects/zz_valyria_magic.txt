@@ -404,3 +404,640 @@
 		}
 	}
 }
+
+zz_mage_contract_travel_or_progress_effect = {
+	if = {
+		limit = { location != $DESTINATION$ }
+		start_travel_plan = {
+			destination = $DESTINATION$
+			on_arrival_event = $ARRIVAL_EVENT$
+			on_travel_planner_cancel_event = zz_valyria_magic_contracts.0001
+			on_arrival_destinations = all_but_last
+		}
+	}
+	else = { trigger_event = $ARRIVAL_EVENT$ }
+}
+
+populate_location_with_magic_contracts_effect = {
+	if = {
+		limit = {
+			# The AI have their own system for getting contracts.
+			trigger_if = {
+				zz_valyria_is_mage = yes 
+				is_ai = no
+			}
+			lock_contracts_from_spawning_in_sahara_trigger = yes
+		}
+		# Flag our pre-existing contracts if necessary.
+		if = {
+			limit = { exists = scope:toggle_distance_ignore }
+			every_character_task_contract = { add_to_list = pre_existing_contracts_list }
+		}
+		# Now populate.
+		populate_task_contracts_for_area = {
+			location = $AREA_CHAR$.capital_province
+			amount = $AMOUNT$
+			group = { 
+				zz_valyria_magic_contracts
+			}
+		}
+		# Then flag our new contracts (again, if necessary).
+		if = {
+			limit = { exists = scope:toggle_distance_ignore }
+			every_character_task_contract = {
+				limit = {
+					NOT = { is_in_list = pre_existing_contracts_list }
+				}
+				set_variable = {
+					name = retain_despite_distance
+					value = yes
+				}
+			}
+		}
+	}
+}
+
+populate_location_with_magic_contracts_xp_effect = {
+	if = {
+		limit = {
+			# The AI have their own system for getting contracts.
+			trigger_if = {
+				zz_valyria_is_mage = yes 
+				is_ai = no
+			}
+			lock_contracts_from_spawning_in_sahara_trigger = yes
+		}
+		# Flag our pre-existing contracts if necessary.
+		if = {
+			limit = { exists = scope:toggle_distance_ignore }
+			every_character_task_contract = { add_to_list = pre_existing_contracts_list }
+		}
+		# Now populate.
+		populate_task_contracts_for_area = {
+			location = $AREA_CHAR$.capital_province
+			amount = $AMOUNT$
+			group = { 
+				zz_valyria_magic_contracts_xp
+			}
+		}
+		# Then flag our new contracts (again, if necessary).
+		if = {
+			limit = { exists = scope:toggle_distance_ignore }
+			every_character_task_contract = {
+				limit = {
+					NOT = { is_in_list = pre_existing_contracts_list }
+				}
+				set_variable = {
+					name = retain_despite_distance
+					value = yes
+				}
+			}
+		}
+	}
+}
+
+populate_location_with_magic_contracts_learn_mystery_effect = {
+	if = {
+		limit = {
+			# The AI have their own system for getting contracts.
+			trigger_if = {
+				zz_valyria_is_mage = yes 
+				is_ai = no
+			}
+			lock_contracts_from_spawning_in_sahara_trigger = yes
+		}
+		# Flag our pre-existing contracts if necessary.
+		if = {
+			limit = { exists = scope:toggle_distance_ignore }
+			every_character_task_contract = { add_to_list = pre_existing_contracts_list }
+		}
+		save_scope_value_as = {
+			name = toggle_distance_ignore
+			value = yes
+		}
+		# Now populate.
+		populate_task_contracts_for_area = {
+			location = $AREA_CHAR$.capital_province
+			amount = $AMOUNT$
+			group = { 
+				zz_valyria_magic_contracts_learn_mystery
+			}
+		}
+		# Then flag our new contracts (again, if necessary).
+		if = {
+			limit = { exists = scope:toggle_distance_ignore }
+			every_character_task_contract = {
+				limit = {
+					NOT = { is_in_list = pre_existing_contracts_list }
+				}
+				set_variable = {
+					name = retain_despite_distance
+					value = yes
+				}
+			}
+		}
+	}
+}
+
+
+
+magic_contract_passive_spawn_effect = {
+	#count how many contracts you already have
+	every_character_task_contract = {
+		limit = {
+			has_task_contract_group = zz_valyria_magic_contracts
+		}
+		add_to_list = num_of_magic_contracts_before
+	}
+	# G'is a contract.
+	populate_location_with_magic_contracts_effect = {
+		AREA_CHAR = root
+		AMOUNT = $SPAWN_CONTRACTS$
+	}
+	
+	#count them again to see if the effect above spawned something
+	every_character_task_contract = {
+		limit = {
+			has_task_contract_group = zz_valyria_magic_contracts
+		}
+		add_to_list = num_of_magic_contracts_after
+	}
+	set_local_variable = {
+		name = current_value
+		value = list_size:num_of_magic_contracts_before
+	}
+	# Make sure we don't get too many of them just sitting in one place.
+	while = {
+		limit = {
+			local_var:current_value < list_size:num_of_magic_contracts_after
+		}
+		increment_variable_effect = {
+			VAR = magic_contract_passive_spawn_tally
+			VAL = 1
+		}
+		change_local_variable = {
+			name = current_value
+			add = 1
+		}
+	}
+}
+
+
+magic_contract_xp_passive_spawn_effect = {
+	#count how many contracts you already have
+	every_character_task_contract = {
+		limit = {
+			has_task_contract_group = zz_valyria_magic_contracts_xp
+		}
+		add_to_list = num_of_magic_contracts_before
+	}
+	# G'is a contract.
+	populate_location_with_magic_contracts_xp_effect = {
+		AREA_CHAR = root
+		AMOUNT = $SPAWN_CONTRACTS$
+	}
+	
+	#count them again to see if the effect above spawned something
+	every_character_task_contract = {
+		limit = {
+			has_task_contract_group = zz_valyria_magic_contracts_xp
+		}
+		add_to_list = num_of_magic_contracts_after
+	}
+	set_local_variable = {
+		name = current_value
+		value = list_size:num_of_magic_contracts_before
+	}
+	# Make sure we don't get too many of them just sitting in one place.
+	while = {
+		limit = {
+			local_var:current_value < list_size:num_of_magic_contracts_after
+		}
+		increment_variable_effect = {
+			VAR = magic_contract_xp_passive_spawn_tally
+			VAL = 1
+		}
+		change_local_variable = {
+			name = current_value
+			add = 1
+		}
+	}
+}
+
+
+
+magic_contract_learn_mystery_passive_spawn_effect = {
+	#count how many contracts you already have
+	every_character_task_contract = {
+		limit = {
+			has_task_contract_group = zz_valyria_magic_contracts_learn_mystery
+		}
+		add_to_list = num_of_magic_contracts_before
+	}
+	# G'is a contract.
+	populate_location_with_magic_contracts_learn_mystery_effect = {
+		AREA_CHAR = root
+		AMOUNT = $SPAWN_CONTRACTS$
+	}
+	
+	#count them again to see if the effect above spawned something
+	every_character_task_contract = {
+		limit = {
+			has_task_contract_group = zz_valyria_magic_contracts_learn_mystery
+		}
+		add_to_list = num_of_magic_contracts_after
+	}
+	set_local_variable = {
+		name = current_value
+		value = list_size:num_of_magic_contracts_before
+	}
+	# Make sure we don't get too many of them just sitting in one place.
+	while = {
+		limit = {
+			local_var:current_value < list_size:num_of_magic_contracts_after
+		}
+		increment_variable_effect = {
+			VAR = magic_contract_learn_mystery_passive_spawn_tally
+			VAL = 1
+		}
+		change_local_variable = {
+			name = current_value
+			add = 1
+		}
+	}
+}
+
+magic_contract_quest_passive_spawn_effect = {
+	#count how many contracts you already have
+	every_character_task_contract = {
+		limit = {
+			has_task_contract_group = zz_valyria_magic_contracts_special
+		}
+		add_to_list = num_of_magic_contracts_before
+	}
+	# G'is a contract.
+	while = {
+		count = $SPAWN_CONTRACTS$
+		zz_spawn_magic_quest_contracts_effect = yes 
+	}
+
+	#count them again to see if the effect above spawned something
+	every_character_task_contract = {
+		limit = {
+			has_task_contract_group = zz_valyria_magic_contracts_special
+		}
+		add_to_list = num_of_magic_contracts_after
+	}
+	set_local_variable = {
+		name = current_value
+		value = list_size:num_of_magic_contracts_before
+	}
+	# Make sure we don't get too many of them just sitting in one place.
+	while = {
+		limit = {
+			local_var:current_value < list_size:num_of_magic_contracts_after
+		}
+		increment_variable_effect = {
+			VAR = magic_quest_contract_passive_spawn_tally
+			VAL = 1
+		}
+		change_local_variable = {
+			name = current_value
+			add = 1
+		}
+	}
+}
+
+magic_contract_visions_of_the_doom_effect = {
+
+	if = {
+		limit = {
+			OR = {
+				has_inactive_trait = starwalker
+				has_trait = starwalker
+			}
+			has_trait_xp = {
+				trait = starwalker
+				track = chosen_of_the_heavens
+				value < 100
+			}
+		}
+
+		random_list = {
+			1 = {
+				create_task_contract = {
+					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
+					task_contract_tier = 4
+					location = province:4415
+					save_scope_as = contract
+				}
+			}
+			1 = {
+				create_task_contract = {
+					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
+					task_contract_tier = 4
+					location = province:3499
+					save_scope_as = contract
+				}
+			}
+			1 = {
+				create_task_contract = {
+					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
+					task_contract_tier = 4
+					location = province:7708
+					save_scope_as = contract
+				}
+			}
+			1 = {
+				create_task_contract = {
+					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
+					task_contract_tier = 4
+					location = province:7713
+					save_scope_as = contract
+				}
+			}
+			1 = {
+				create_task_contract = {
+					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
+					task_contract_tier = 4
+					location = province:7559
+					save_scope_as = contract
+				}
+			}
+			1 = {
+				create_task_contract = {
+					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
+					task_contract_tier = 4
+					location = province:7388
+					save_scope_as = contract
+				}
+			}
+			1 = {
+				create_task_contract = {
+					task_contract_type = zz_valyria_magic_secrets_of_the_dooom
+					task_contract_tier = 4
+					location = province:8066
+					save_scope_as = contract
+				}
+			}
+		}
+		scope:contract ?= {
+			set_variable = {
+				name = retain_despite_distance
+				value = yes
+			}
+		}
+		
+	}
+}
+
+
+
+zz_spawn_magic_quest_contracts_effect = { 
+	random_list = { 
+		#Dragonstone
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_4415
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:4415
+				save_scope_as = contract
+			}
+		}
+		#Citadel
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_3499
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:3499
+				save_scope_as = contract
+			}
+		}
+		#Winterfall
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_77
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:77
+				save_scope_as = contract
+			}
+		}
+		#Castle black
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_5
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:5
+				save_scope_as = contract
+			}
+		}
+		#Harrenhal
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_1934
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:1934
+				save_scope_as = contract
+			}
+		}
+		#Water Gardens
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_4939
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:4939
+				save_scope_as = contract
+			}
+		}
+		#Pentos
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_7708
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:7708
+				save_scope_as = contract
+			}
+		}
+		#Temple of Rhllor
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_7713
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:7713
+				save_scope_as = contract
+			}
+		}
+		#Myr
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_7559
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:7559
+				save_scope_as = contract
+			}
+		}
+		#Zobti Bastion
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_7351
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:7351
+				save_scope_as = contract
+			}
+		}
+		#Temple of Trade
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_7389
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:7389
+				save_scope_as = contract
+			}
+		}
+		#Lys
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_7388
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:7388
+				save_scope_as = contract
+			}
+		}
+		#The Sealord's Palace
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_8062
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:8062
+				save_scope_as = contract
+			}
+		}
+		#The Arsenal
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_8063
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:8063
+				save_scope_as = contract
+			}
+		}
+		#The Purple Harbour
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_8064
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:8064
+				save_scope_as = contract
+			}
+		}
+		#Court of Smiles
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_8065
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:8065
+				save_scope_as = contract
+			}
+		}
+		#Isle of the Gods
+		1 = {
+			trigger = {
+				not = { 
+					has_character_flag = zz_valyria_magic_scroll_8066
+				}
+			}
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_visit_library_dragonstone
+				task_contract_tier = 4
+				location = province:8066
+				save_scope_as = contract
+			}
+		}
+	}
+	scope:contract ?= {
+		set_variable = {
+			name = retain_despite_distance
+			value = yes
+		}
+	}
+}

@@ -28,7 +28,9 @@ grant_titles_interaction = {
 				is_pool_guest_of = scope:actor
 				AND = {
 					scope:actor.faith.religious_head = scope:recipient
-					top_liege = this
+					#AGOT Modified, only give HoF land if truly independent
+					#top_liege = this
+					agot_is_independent_ruler = yes
 				}
 			}
 		}
@@ -44,8 +46,38 @@ grant_titles_interaction = {
 			}
 			scope:recipient = { NOT = { government_has_flag = government_is_herder } }
 		}
-	}
 
+		#AGOT Added, no non-human interactions
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
+
+		#AGOT Added, these traits shouldn't hold land
+		NOT = {
+			scope:recipient = { has_trait = kingsguard }
+			scope:recipient = { has_trait = maester }
+			scope:recipient = { has_trait = septon }
+			scope:recipient = { has_trait = silent_sister }
+		}
+
+		#AGOT Added, NW should only grant land to NW, and non-NW shouldn't grant land to NW
+		trigger_if = {
+			limit = {
+				scope:actor = { government_has_flag = government_is_nw }
+			}
+			scope:recipient = {
+				has_trait = nightswatch
+				NOT = {
+					has_title = title:d_nw_landless_first_ranger
+				}
+			}
+		}
+		trigger_else = {
+			NOT = {
+				scope:recipient = { has_trait = nightswatch }
+			}
+		}
+	}
+	
 	is_valid_showing_failures_only = {
 		scope:recipient = {
 			custom_tooltip = {
@@ -112,6 +144,63 @@ grant_titles_interaction = {
 		scope:actor = {
 			any_held_title = {
 				count > 1
+			}
+		}
+
+		#AGOT Added
+		trigger_if = {
+			limit = {
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
+					title_province = { has_holding_type = settlement_holding }
+				}
+			}
+			custom_tooltip = {
+				text = grant_only_one_settlement_at_a_time
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
+					title_province = { has_holding_type = settlement_holding }
+					count < 2
+				}
+			}
+		}
+
+		trigger_if = {
+			limit = {
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
+					title_province = { has_holding_type = settlement_holding }
+				}
+			}
+			custom_tooltip = {
+				text = recipient_at_settlement_limit
+				scope:recipient = { agot_at_settlement_limit = no }
+			}
+		}
+
+		trigger_if = {
+			limit = {
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
+					title_province = { has_holding_type = settlement_holding }
+					save_temporary_scope_as = target_title
+				}
+			}
+			custom_tooltip = {
+				text = recipient_needs_to_border_settlement_county
+				scope:target_title = {
+					any_neighboring_county = {
+						save_temporary_scope_as = county
+						OR = {
+							holder = scope:recipient
+							scope:recipient = { any_vassal_or_below = { scope:county.holder = this } }
+						}
+					}
+				}
 			}
 		}
 	}
@@ -200,14 +289,15 @@ grant_titles_interaction = {
 					current_heir = scope:recipient
 				}
 			}
-			trigger_if = {
-				limit = { scope:target = title:k_fashion }
-				NOT = { scope:target = title:k_fashion }
-			}
-			custom_tooltip = {
-				text = cannot_grant_ceremonial_title
-				NOT = { exists = var:ceremonial_title }
-			}
+			#AGOT Disabled
+			# trigger_if = {
+			# 	limit = { scope:target = title:k_fashion }
+			# 	NOT = { scope:target = title:k_fashion }
+			# }
+			# custom_tooltip = {
+			# 	text = cannot_grant_ceremonial_title
+			# 	NOT = { exists = var:ceremonial_title }
+			# }
 		}
 
 		custom_description = {
@@ -261,6 +351,31 @@ grant_titles_interaction = {
 			NOT = {
 				scope:target = { has_variable = wagered_county }
 			}
+		}
+
+		#AGOT Added
+		custom_description = {
+			text = agot_grant_title_blocked
+			NOT = {
+				scope:target = { has_variable = agot_title_blocked_to_give_away }
+			}
+		}
+
+		#AGOT Added
+		trigger_if = { #Wilderness counties cannot be granted to vassals
+			limit = { scope:target = { exists = title_province } }
+			scope:target = {
+				NOT = {
+					title_province ?= { has_building = wilderness_01 }
+				}
+			}
+		}
+
+
+		#AGOT Added
+		trigger_if = {
+			limit = { scope:target.title_province ?= { has_holding_type = settlement_holding } }
+			scope:recipient = { above_settlement_limit = no }
 		}
 	}
 
@@ -322,13 +437,17 @@ grant_titles_interaction = {
 				if = {
 					# then verify the right struggle phase
 					limit = {
-						is_diff_faith_or_culture_trigger = {
+						#AGOT Modified
+						#is_diff_faith_or_culture_trigger = {
+						is_diff_culture_trigger = {
 							CHAR = scope:actor
 							STATUS = involved
 						}
 						any_character_struggle = {
 							involvement = involved
-							has_struggle_phase_parameter = struggle_grant_titles_diff_faith_culture_to_leads_to_friendship
+							#AGOT Modified, BTW struggle has faith removed
+							#has_struggle_phase_parameter = struggle_grant_titles_diff_faith_culture_to_leads_to_friendship
+							has_struggle_phase_parameter = struggle_grant_titles_diff_culture_to_leads_to_friendship
 						}
 					}
 					progress_towards_friend_effect = {
@@ -453,61 +572,22 @@ grant_titles_interaction = {
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_empire }
-						add = massive_dynasty_prestige_gain
+						add = scope:actor.dynasty.massive_dynasty_prestige_gain
 					}
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_kingdom }
-						add = major_dynasty_prestige_gain
+						add = scope:actor.dynasty.major_dynasty_prestige_gain
 					}
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_duchy }
-						add = medium_dynasty_prestige_gain
+						add = scope:actor.dynasty.medium_dynasty_prestige_gain
 					}
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_county }
-						add = minor_dynasty_prestige_gain
-					}
-				}
-			}
-		}
-		if = {
-			limit = {
-				any_in_list = {
-					list = target_titles
-					tier >= tier_county
-				}
-				exists = scope:actor.house
-				exists = scope:recipient.house
-				scope:actor.house = scope:recipient.house
-				scope:actor = {
-					is_close_family_of = scope:recipient
-				}
-			}
-			scope:actor.dynasty = {
-				add_dynasty_prestige = {
-					value = 0
-					every_in_list = {
-						list = target_titles
-						limit = { tier = tier_empire }
-						add = massive_influence_gain
-					}
-					every_in_list = {
-						list = target_titles
-						limit = { tier = tier_kingdom }
-						add = major_influence_gain
-					}
-					every_in_list = {
-						list = target_titles
-						limit = { tier = tier_duchy }
-						add = medium_influence_gain
-					}
-					every_in_list = {
-						list = target_titles
-						limit = { tier = tier_county }
-						add = minor_influence_gain
+						add = scope:actor.dynasty.minor_dynasty_prestige_gain
 					}
 				}
 			}
@@ -583,6 +663,8 @@ grant_titles_interaction = {
 								}
 							}
 						}
+						#AGOT Added; ESR
+						hidden_effect = { esr_grant_title_recipient_family_opinion = { OPINION = esr_grant_family_county } }
 
 						scope:this_title = { add_to_temporary_list = titles_to_grant }
 					}
@@ -613,6 +695,8 @@ grant_titles_interaction = {
 								}
 							}
 						}
+						#AGOT Added; ESR
+						hidden_effect = { esr_grant_title_recipient_family_opinion = { OPINION = esr_grant_family_duchy } }
 
 						scope:this_title = { add_to_temporary_list = titles_to_grant }
 					}
@@ -643,6 +727,8 @@ grant_titles_interaction = {
 								}
 							}
 						}
+						#AGOT Added; ESR
+						hidden_effect = { esr_grant_title_recipient_family_opinion = { OPINION = esr_grant_family_kingdom } }
 
 						scope:this_title = { add_to_temporary_list = titles_to_grant }
 					}
@@ -667,7 +753,9 @@ grant_titles_interaction = {
 										add_opinion = {
 											target = scope:actor
 											modifier = courtly_lowborn_grant_opinion
-											opinion = -5
+											#AGOT Modified
+											#opinion = -5
+											opinion = -15
 										}
 									}
 								}
@@ -679,6 +767,8 @@ grant_titles_interaction = {
 								add_joined_faction_discontent = -60
 							}
 						}
+						#AGOT Added; ESR
+						hidden_effect = { esr_grant_title_recipient_family_opinion = { OPINION = esr_grant_family_empire } }
 
 						scope:this_title = { add_to_temporary_list = titles_to_grant }
 					}
@@ -787,6 +877,9 @@ grant_titles_interaction = {
 			}
 		}
 
+		#AGOT Added; ESR
+		esr_grant_title_other_relations_opinion = yes
+
 		if = {
 			limit = {
 				any_in_list = {
@@ -859,6 +952,55 @@ grant_titles_interaction = {
 			custom_tooltip = grant_title_modifier_stack_discontent
 		}
 
+		#AGOT Added Dragonpit Warnings
+		if = {
+			limit = {
+				any_in_list = {
+					list = target_titles
+					agot_title_is_an_active_dragonpit = yes
+				}
+			}
+			custom_tooltip = title_is_dragonpit_warning
+		}
+		#AGOT Added Dragonpit Warnings
+		if = {
+			limit = {
+				AND = {
+					any_in_list = {
+						list = target_titles
+						agot_title_is_an_active_dragonpit = yes
+					}
+					scope:recipient = { highest_held_title_tier < tier_kingdom }
+					scope:target.tier < tier_kingdom
+				}
+			}
+			custom_tooltip = title_is_dragonpit_and_ruler_is_not_king_warning
+		}
+		#AGOT Added Personal Dragon leaves Dragonpit
+		if = {
+			limit = {
+				scope:actor = {
+					any_courtier = {
+						has_trait = dragon
+						var:current_rider ?= scope:actor
+						has_character_flag = in_dragonpit
+						var:pitted_dragon_location = scope:target
+					}	
+				}		
+			}
+			scope:actor = {
+				random_courtier = {
+					limit = {
+						has_trait = dragon
+						var:current_rider ?= scope:actor
+						has_character_flag = in_dragonpit
+						var:pitted_dragon_location = scope:target
+					}
+					save_scope_as = dragon
+				}
+				agot_remove_from_dragonpit_effect = { DRAGON = scope:dragon DRAGONPIT_HOLDER = scope:recipient DRAGONPIT_COUNTY = scope:target }
+			}
+		}
 		# Jealousy check
 		if = {
 			limit = {
@@ -1171,13 +1313,17 @@ grant_titles_interaction = {
 						if = {
 							limit = {
 								exists = dynasty
-								is_diff_faith_or_culture_trigger = {
+								#AGOT Modified
+								#is_diff_faith_or_culture_trigger = {
+								is_diff_culture_trigger = {
 									CHAR = scope:recipient
 									STATUS = involved
 								}
 								any_character_struggle = {
 									involvement = involved
-									has_struggle_phase_parameter = struggle_grant_titles_diff_faith_culture_gives_prestige
+									#AGOT Modified, BTW struggle has faith removed
+									#has_struggle_phase_parameter = struggle_grant_titles_diff_faith_culture_gives_prestige
+									has_struggle_phase_parameter = struggle_grant_titles_diff_culture_gives_prestige
 
 								}
 							}
@@ -1296,14 +1442,18 @@ grant_titles_interaction = {
 			if = {
 				limit = {
 					scope:actor = {
-						is_diff_faith_or_culture_trigger = {
+						#AGOT Modified
+						#is_diff_faith_or_culture_trigger = {
+						is_diff_culture_trigger = {
 							CHAR = scope:recipient
 							STATUS = involved
 						}
 						any_character_struggle = {
 							involvement = involved
 							activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-								CATALYST = catalyst_grant_privilege_to_diff_faith_culture_vassal
+								#AGOT Modified, BTW struggle has faith removed
+								#CATALYST = catalyst_grant_privilege_to_diff_faith_culture_vassal
+								CATALYST = catalyst_grant_privilege_to_diff_culture_vassal
 								CHAR = scope:recipient
 							}
 						}
@@ -1314,12 +1464,16 @@ grant_titles_interaction = {
 						involvement = involved
 						limit = {
 							activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-								CATALYST = catalyst_grant_privilege_to_diff_faith_culture_vassal
+								#AGOT Modified, BTW struggle has faith removed
+								#CATALYST = catalyst_grant_privilege_to_diff_faith_culture_vassal
+								CATALYST = catalyst_grant_privilege_to_diff_culture_vassal
 								CHAR = scope:recipient
 							}
 						}
 						activate_struggle_catalyst = {
-							catalyst = catalyst_grant_privilege_to_diff_faith_culture_vassal
+							#AGOT Modified, BTW struggle has faith removed
+							#catalyst = catalyst_grant_privilege_to_diff_faith_culture_vassal
+							catalyst = catalyst_grant_privilege_to_diff_culture_vassal
 							character = scope:actor
 						}
 					}
@@ -1328,19 +1482,85 @@ grant_titles_interaction = {
 		}
 
 		# Achievements.
-		scope:actor = {
-			if = {
-				limit = {
-					has_variable_list = candidate_a_knights_tale_achievement
-					is_target_in_variable_list = {
-						name = candidate_a_knights_tale_achievement
-						target = scope:recipient
+		#AGOT Disabled
+		# scope:actor = {
+		# 	if = {
+		# 		limit = {
+		# 			has_variable_list = candidate_a_knights_tale_achievement
+		# 			is_target_in_variable_list = {
+		# 				name = candidate_a_knights_tale_achievement
+		# 				target = scope:recipient
+		# 			}
+		# 		}
+		# 		set_global_variable = {
+		# 			name = finished_a_knights_tale_achievement
+		# 			value = yes
+		# 		}
+		# 	}
+		# }
+
+		#AGOT Added
+		if = {
+			limit = {
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
+					title_province = { has_holding_type = settlement_holding }
+					count > 1
+				}
+			}
+			custom_tooltip = grant_only_one_settlement_at_a_time
+		}
+		if = {
+			limit = {
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
+					title_province = { has_holding_type = settlement_holding }
+					NOT = {
+						any_neighboring_county = {
+							save_temporary_scope_as = county
+							OR = {
+								holder = scope:recipient
+								scope:recipient = { any_vassal_or_below = { scope:county.holder = this } }
+							}
+						}
 					}
 				}
-				set_global_variable = {
-					name = finished_a_knights_tale_achievement
-					value = yes
+			}
+			custom_tooltip = recipient_needs_to_border_settlement_county
+		}
+		if = {
+			limit = {
+				any_in_list = {
+					list = target_titles
+					tier = tier_county
 				}
+				scope:recipient = { agot_at_settlement_limit = yes }
+				scope:actor.culture = { has_cultural_parameter = grants_to_lowborns_bonuses }
+				scope:recipient = {
+					is_lowborn = yes
+				}
+			}
+			every_in_list = {
+				list = target_titles
+				limit = { tier = tier_county }
+				change_county_control = 30
+			}
+			scope:recipient = {
+				add_trait = peasant_leader
+			}
+		}
+
+		#AGOT Added
+		scope:recipient.house = {
+			change_house_relation_effect = {
+				HOUSE = scope:actor.house
+				VALUE = house_relation_improve_medium_value
+				REASON = grant_title 
+				CHAR = scope:actor
+				TARGET_CHAR = scope:recipient
+				TITLE = scope:dummy_gender
 			}
 		}
 	}
@@ -1401,6 +1621,9 @@ grant_governorship_interaction = {
 				NOT = { any_parent = { is_ai = no } }
 			}
 		}
+		#AGOT Added
+		scope:actor = { is_human = yes }
+		scope:recipient = { is_human = yes }
 	}
 
 	is_valid_showing_failures_only = {
@@ -1485,11 +1708,12 @@ grant_governorship_interaction = {
 				GRANTER = scope:actor
 				GRANTEE = scope:recipient
 			}
-			# Cannot be a minister
-			custom_tooltip = {
-				text = recipient_is_a_minister_desc
-				tgp_is_any_minister = no
-			}
+			# Cannot be a 
+			#AGOT Disabled
+			# custom_tooltip = {
+			# 	text = recipient_is_a_minister_desc
+			# 	tgp_is_any_minister = no
+			# }
 		}
 	}
 
@@ -1530,6 +1754,7 @@ grant_governorship_interaction = {
 							target_is_de_jure_liege_or_above = scope:target
 							# Or is a neighboring county which de jure duchy is not part of your realm
 							AND = {
+								NOT = { tier = tier_barony }
 								any_title_to_title_neighboring_county = { this = scope:target }
 								scope:target = {
 									tier = tier_county
@@ -1690,10 +1915,11 @@ grant_governorship_interaction = {
 				}
 			}
 
-			trigger_if = {
-				limit = { scope:target = title:k_fashion }
-				NOT = { scope:target = title:k_fashion }
-			}
+			#AGOT Disabled
+			#trigger_if = {
+			#	limit = { scope:target = title:k_fashion }
+			#	NOT = { scope:target = title:k_fashion }
+			#}
 		}
 
 		custom_description = {
@@ -1819,12 +2045,12 @@ grant_governorship_interaction = {
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_kingdom }
-						add = major_dynasty_prestige_gain
+						add = scope:actor.dynasty.major_dynasty_prestige_gain
 					}
 					every_in_list = {
 						list = target_titles
 						limit = { tier = tier_duchy }
-						add = medium_dynasty_prestige_gain
+						add = scope:actor.dynasty.medium_dynasty_prestige_gain
 					}
 				}
 			}
@@ -1884,6 +2110,8 @@ grant_governorship_interaction = {
 								}
 							}
 						}
+						#AGOT Added; ESR
+						hidden_effect = { esr_grant_title_recipient_family_opinion = { OPINION = esr_grant_family_duchy } }
 
 						scope:this_title = { add_to_temporary_list = titles_to_grant }
 					}
@@ -1914,6 +2142,8 @@ grant_governorship_interaction = {
 								}
 							}
 						}
+						#AGOT Added; ESR
+						hidden_effect = { esr_grant_title_recipient_family_opinion = { OPINION = esr_grant_family_kingdom } }
 
 						scope:this_title = { add_to_temporary_list = titles_to_grant }
 					}
@@ -2058,6 +2288,8 @@ grant_governorship_interaction = {
 			}
 			custom_tooltip = grant_title_modifier_stack_discontent
 		}
+		#AGOT Added; ESR
+		esr_grant_title_other_relations_opinion = yes
 
 		# Jealousy check
 		if = {
@@ -2234,13 +2466,17 @@ grant_governorship_interaction = {
 						if = {
 							limit = {
 								exists = dynasty
-								is_diff_faith_or_culture_trigger = {
-									CHAR = scope:recipient
+								#AGOT Modified
+								#is_diff_faith_or_culture_trigger = {
+								is_diff_culture_trigger = {
+									CHAR = scope:actor
 									STATUS = involved
 								}
 								any_character_struggle = {
 									involvement = involved
-									has_struggle_phase_parameter = struggle_grant_titles_diff_faith_culture_gives_prestige
+									#AGOT Modified, BTW struggle has faith removed
+									#has_struggle_phase_parameter = struggle_grant_titles_diff_faith_culture_gives_prestige
+									has_struggle_phase_parameter = struggle_grant_titles_diff_culture_gives_prestige
 								}
 							}
 							dynasty = { add_dynasty_prestige = minor_dynasty_prestige_gain }
@@ -2256,14 +2492,18 @@ grant_governorship_interaction = {
 			if = {
 				limit = {
 					scope:actor = {
-						is_diff_faith_or_culture_trigger = {
+						#AGOT Modified
+						#is_diff_faith_or_culture_trigger = {
+						is_diff_culture_trigger = {
 							CHAR = scope:recipient
 							STATUS = involved
 						}
 						any_character_struggle = {
 							involvement = involved
 							activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-								CATALYST = catalyst_grant_privilege_to_diff_faith_culture_vassal
+								#AGOT Modified, BTW struggle has faith removed
+								#CATALYST = catalyst_grant_privilege_to_diff_faith_culture_vassal
+								CATALYST = catalyst_grant_privilege_to_diff_culture_vassal
 								CHAR = scope:recipient
 							}
 						}
@@ -2274,12 +2514,16 @@ grant_governorship_interaction = {
 						involvement = involved
 						limit = {
 							activate_struggle_catalyst_secondary_character_involvement_involved_trigger = {
-								CATALYST = catalyst_grant_privilege_to_diff_faith_culture_vassal
+								#AGOT Modified, BTW struggle has faith removed
+								#CATALYST = catalyst_grant_privilege_to_diff_faith_culture_vassal
+								CATALYST = catalyst_grant_privilege_to_diff_culture_vassal
 								CHAR = scope:recipient
 							}
 						}
 						activate_struggle_catalyst = {
-							catalyst = catalyst_grant_privilege_to_diff_faith_culture_vassal
+							#AGOT Modified, BTW struggle has faith removed
+							#catalyst = catalyst_grant_privilege_to_diff_faith_culture_vassal
+							catalyst = catalyst_grant_privilege_to_diff_culture_vassal
 							character = scope:actor
 						}
 					}
@@ -2288,61 +2532,63 @@ grant_governorship_interaction = {
 		}
 
 		# Achievements.
-		scope:actor = {
-			if = {
-				limit = {
-					has_variable_list = candidate_a_knights_tale_achievement
-					is_target_in_variable_list = {
-						name = candidate_a_knights_tale_achievement
-						target = scope:recipient
-					}
-				}
-				set_global_variable = {
-					name = finished_a_knights_tale_achievement
-					value = yes
-				}
-			}
-		}
+		#AGOT Disabled
+		# scope:actor = {
+		# 	if = {
+		# 		limit = {
+		# 			has_variable_list = candidate_a_knights_tale_achievement
+		# 			is_target_in_variable_list = {
+		# 				name = candidate_a_knights_tale_achievement
+		# 				target = scope:recipient
+		# 			}
+		# 		}
+		# 		set_global_variable = {
+		# 			name = finished_a_knights_tale_achievement
+		# 			value = yes
+		# 		}
+		# 	}
+		# }
 		# TGP Catalyst - triggered in on_title_gain
-		if = {
-			limit = {
-				title:h_china.holder ?= scope:actor
-				any_in_list = {
-					list = target_titles
-					OR = {
-						AND = {
-							tier = tier_empire
-							scope:recipient.merit_level < 7
-						}
-						AND = {
-							tier = tier_kingdom
-							scope:recipient.merit_level < 5
-						}
-						AND = {
-							tier = tier_duchy
-							scope:recipient.merit_level < 3
-						}
-						AND = {
-							tier = tier_county
-							scope:recipient.merit_level < 1
-						}
-					}
-				}
-			}
-			show_as_tooltip = {
-				situation:dynastic_cycle ?= {
-					if = {
-						limit = {
-							situation_top_has_catalyst = catalyst_hegemon_appointing_low_merit_governor
-							title:h_china.holder = scope:actor
-						}
-						trigger_situation_catalyst = {
-							catalyst = catalyst_hegemon_appointing_low_merit_governor
-							character = root
-						}
-					}
-				}
-			}
-		}
+		#AGOT Disabled
+		# if = {
+		# 	limit = {
+		# 		title:h_china.holder ?= scope:actor
+		# 		any_in_list = {
+		# 			list = target_titles
+		# 			OR = {
+		# 				AND = {
+		# 					tier = tier_empire
+		# 					scope:recipient.merit_level < 7
+		# 				}
+		# 				AND = {
+		# 					tier = tier_kingdom
+		# 					scope:recipient.merit_level < 5
+		# 				}
+		# 				AND = {
+		# 					tier = tier_duchy
+		# 					scope:recipient.merit_level < 3
+		# 				}
+		# 				AND = {
+		# 					tier = tier_county
+		# 					scope:recipient.merit_level < 1
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# 	show_as_tooltip = {
+		# 		situation:dynastic_cycle ?= {
+		# 			if = {
+		# 				limit = {
+		# 					situation_top_has_catalyst = catalyst_hegemon_appointing_low_merit_governor
+		# 					title:h_china.holder = scope:actor
+		# 				}
+		# 				trigger_situation_catalyst = {
+		# 					catalyst = catalyst_hegemon_appointing_low_merit_governor
+		# 					character =  scope:recipient
+		# 				}
+		# 			}
+		# 		}
+		# 	}
+		# }
 	}
 }

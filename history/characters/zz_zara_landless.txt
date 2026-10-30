@@ -10,14 +10,15 @@
 	learning = 400
 	prowess = 10
 
-	religion = catholic
+	religion = hellenic_pagan
 	culture = roman
 
 
 	trait = education_learning_5
+	trait = education_republican_knowledge_4
 	trait = patient
 	trait = diligent
-	trait = humble
+	trait = inquisitive
 	trait = calm
 	trait = curious
 	trait = zz_magister
@@ -25,6 +26,7 @@
 	trait = born_beneath_the_comet
 	trait = magic_blood_good_3
 	trait = lifespan_good_3
+	trait = lifestyle_mystic_3_history
 	trait = zz_valyrian_longevity 
 	trait = disease_resistance_alchemical
 	trait = immortal 
@@ -33,6 +35,10 @@
 	trait = journaller
 	trait = shrewd
 	trait = poet
+	trait = governor 
+	trait = lifestyle_merchant
+	trait = adventurer
+	trait = lifestyle_scholar
 	portrait_override = {	
 		portrait_modifier_overrides = {
 			custom_hair=male_hair_northern_01
@@ -45,6 +51,23 @@
 	1.1.1 = {
 		birth = yes
 		effect = {
+			add_trait_xp = {
+				trait = knight_errant 
+				value = 100
+			}
+			add_trait_xp = {
+				trait = lifestyle_merchant  
+				value = 100
+			}
+			add_trait_xp = {
+				trait = lifestyle_scholar  
+				value = 100
+			}
+			
+			add_trait_xp = {
+				trait = governor 
+				value = 100
+			}
 			add_trait_xp = {
 				trait = knight_errant 
 				value = 100
@@ -166,18 +189,6 @@
 			zz_add_spell = { 
 				SPELL = zz_valyria_magic_water_magic_04
 			}
-			dynasty = { 
-				add_dynasty_modifier = incest_heritage_dynasty_modifier
-				add_dynasty_prestige = 20000
-				add_dynasty_perk = kin_legacy_1
-				add_dynasty_perk = kin_legacy_2
-				add_dynasty_perk = kin_legacy_3
-				add_dynasty_perk = kin_legacy_4
-				add_dynasty_perk = kin_legacy_5
-				add_dynasty_perk = fp2_urbanism_legacy_1
-				add_dynasty_perk = fp2_coterie_legacy_1
-				add_dynasty_perk = ep3_administrative_legacy_1
-			}
 		}
 	}
 
@@ -266,40 +277,6 @@ Dummy_Merlin_07 = {
 	}
 	20.1.2 = { death = "20.1.2" }
 }
-Dummy_Merlin_08 = {
-	name = Annatar
-	dna = Merlin_08
-	religion = "hellenic_pagan"
-	culture = "roman"
-	1.1.1 = {
-		birth = "1.1.1"
-		add_character_flag = has_scripted_appearance
-	}
-	20.1.2 = { death = "20.1.2" }
-	portrait_override = {	
-		portrait_modifier_overrides = {
-			custom_hair=m_hair_fp3_iranian_01
-			custom_beards=male_empty
-		}
-	}
-}
-Dummy_Merlin_09 = {
-	name = Geralt
-	dna = Merlin_09
-	religion = "hellenic_pagan"
-	culture = "roman"
-	1.1.1 = {
-		birth = "1.1.1"
-		add_character_flag = has_scripted_appearancer
-	}
-	20.1.2 = { death = "20.1.2" }
-	portrait_override = {	
-		portrait_modifier_overrides = {
-			custom_beards=male_beard_mena_04
-			custom_hair=male_hair_northern_02
-		}
-	}
-}
 
 
 Nimue_01 = {
@@ -318,25 +295,23 @@ Nimue_01 = {
 
 	religion = "hellenic_pagan"
 	culture = "roman"
-	father = Merlin_01
-
 
 
 	trait = education_learning_5
 	trait = patient
 	trait = diligent
-	trait = humble
+	trait = inquisitive
 	trait = calm
 	trait = curious
 	trait = immortal
 	trait = magic_blood_good_3
 	trait = lifespan_good_3
+	trait = lifestyle_mystic_3_history
 	trait = disease_resistance_alchemical
 	trait = intellect_good_3
 	trait = beauty_good_3
 	trait = journaller
 	trait = shrewd
-	trait = zz_magister
 	portrait_override = {	
 		portrait_modifier_overrides = {
 			custom_beards=female_empty
@@ -349,9 +324,6 @@ Nimue_01 = {
 		birth = yes
 		employer = Merlin_01
 		set_immortal_age = 16
-		zz_add_spell = { 
-			SPELL = zz_valyria_magic_blood_magic_01
-		}
 	}
 
 
@@ -372,25 +344,23 @@ Isolde_01 = {
 
 	religion = "hellenic_pagan"
 	culture = "roman"
-	father = Merlin_01
-
 
 
 	trait = education_diplomacy_5
 	trait = patient
 	trait = diligent
-	trait = humble
+	trait = inquisitive
 	trait = calm
 	trait = curious
 	trait = immortal
 	trait = magic_blood_good_3
 	trait = lifespan_good_3
+	trait = lifestyle_mystic_3_history
 	trait = disease_resistance_alchemical
 	trait = intellect_good_3
 	trait = beauty_good_3
 	trait = journaller
 	trait = shrewd
-	trait = zz_magister
 	portrait_override = {	
 		portrait_modifier_overrides = {
 			custom_beards=female_empty
@@ -403,9 +373,6 @@ Isolde_01 = {
 		birth = yes
 		employer = Merlin_01
 		set_immortal_age = 16
-		zz_add_spell = { 
-			SPELL = zz_valyria_magic_blood_magic_01
-		}
 	}
 
 
@@ -427,24 +394,23 @@ Joccasta_01 = {
 
 	religion = "hellenic_pagan"
 	culture = "roman"
-	father = Merlin_01
 
 
 	trait = education_stewardship_5
 	trait = patient
 	trait = diligent
-	trait = humble
+	trait = inquisitive
 	trait = calm
 	trait = curious
 	trait = immortal
 	trait = magic_blood_good_3
 	trait = lifespan_good_3
+	trait = lifestyle_mystic_3_history
 	trait = disease_resistance_alchemical
 	trait = intellect_good_3
 	trait = beauty_good_3
 	trait = journaller
 	trait = shrewd
-	trait = zz_magister
 	portrait_override = {	
 		portrait_modifier_overrides = {
 			custom_hair=female_hair_fp2_iberian_christian_01
@@ -457,9 +423,6 @@ Joccasta_01 = {
 		birth = yes
 		employer = Merlin_01
 		set_immortal_age = 16
-		zz_add_spell = { 
-			SPELL = zz_valyria_magic_blood_magic_01
-		}
 	}
 
 
@@ -471,9 +434,9 @@ Elenore_01 = {
 	dna = Elenore_01
 	sexuality = heterosexual
 	female = yes
-	martial = 35
+	martial = 15
 	diplomacy = 20
-	intrigue = 20
+	intrigue = 40
 	stewardship = 20
 	learning = 20
 	prowess = 10
@@ -481,25 +444,23 @@ Elenore_01 = {
 
 	religion = "hellenic_pagan"
 	culture = "roman"
-	father = Merlin_01
 
 
-
-	trait = education_martial_5
+	trait = education_stewardship_5
 	trait = patient
 	trait = diligent
-	trait = humble
+	trait = inquisitive
 	trait = calm
 	trait = curious
 	trait = immortal
 	trait = magic_blood_good_3
 	trait = lifespan_good_3
+	trait = lifestyle_mystic_3_history
 	trait = disease_resistance_alchemical
 	trait = intellect_good_3
 	trait = beauty_good_3
 	trait = journaller
 	trait = shrewd
-	trait = zz_magister
 	portrait_override = {	
 		portrait_modifier_overrides = {
 			custom_hair=female_hair_fp2_iberian_christian_01
@@ -512,62 +473,6 @@ Elenore_01 = {
 		birth = yes
 		employer = Merlin_01
 		set_immortal_age = 16
-		zz_add_spell = { 
-			SPELL = zz_valyria_magic_blood_magic_01
-		}
-	}
-
-
-}
-
-Arwen_01 = {
-	name = Arwen # Canon, AKA: Zaret The Mage, a lord
-	dynasty = dynn_Ambrosius
-	dna = Arwen_01
-	sexuality = heterosexual
-	female = yes
-	martial = 15
-	diplomacy = 20
-	intrigue = 40
-	stewardship = 20
-	learning = 20
-	prowess = 10
-	father = Merlin_01
-
-	religion = "hellenic_pagan"
-	culture = "roman"
-
-
-	trait = education_intrigue_5
-	trait = patient
-	trait = diligent
-	trait = humble
-	trait = calm
-	trait = curious
-	trait = immortal
-	trait = magic_blood_good_3
-	trait = lifespan_good_3
-	trait = disease_resistance_alchemical
-	trait = intellect_good_3
-	trait = beauty_good_3
-	trait = journaller
-	trait = shrewd
-	trait = zz_magister
-	portrait_override = {	
-		portrait_modifier_overrides = {
-			custom_hair=female_hair_fp2_iberian_christian_01
-			custom_beards=female_empty
-		}
-	}
-	disallow_random_traits = yes
-
-	850.1.1 = {
-		birth = yes
-		employer = Merlin_01
-		set_immortal_age = 16
-		zz_add_spell = { 
-			SPELL = zz_valyria_magic_blood_magic_01
-		}
 	}
 
 

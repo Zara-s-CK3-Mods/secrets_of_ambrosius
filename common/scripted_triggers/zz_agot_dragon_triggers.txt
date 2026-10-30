@@ -1,0 +1,107 @@
+﻿zz_agot_is_dragonblood_character = {
+	NOT = {
+		has_character_flag = dragon_by_horn
+	}
+	OR = {
+		house ?= { has_house_modifier = dragonrider_house_modifier }
+		has_trait = dragonrider
+		has_trait = dragonless_dragonrider
+		has_trait = dragonwidowed
+		has_character_flag = historical_dragonseed
+		any_relation = { type = agot_dragon }
+		AND = {
+			OR = {
+				has_game_rule = dragon_valyrian_2_gen
+				has_game_rule = dragon_valyrian_3_gen
+			}
+			culture = { has_cultural_pillar = heritage_valyrian }
+		}
+	}
+}
+
+zz_agot_has_dragonblood_heritage = {
+	NOT = {
+		has_character_flag = dragon_by_horn
+	}
+	OR = {
+		OR = {
+			has_trait = dragonrider
+			has_trait = dragonless_dragonrider
+			has_trait = dragonwidowed
+			has_character_flag = historical_dragonseed
+			any_relation = { type = agot_dragon }
+			has_character_flag = dragonseed_potential_low
+			has_character_flag = dragonseed_potential_medium
+			AND = {
+				real_father.dynasty ?= dynasty
+				house ?= { has_house_modifier = dragonrider_house_modifier }
+			}
+			AND = {
+				real_mother.dynasty ?= dynasty
+				house ?= { has_house_modifier = dragonrider_house_modifier }
+			}
+		}
+		real_father ?= { #
+			zz_agot_is_dragonblood_character = yes #1 gen
+		}
+		real_father.real_mother ?= {
+			zz_agot_is_dragonblood_character = yes #2 gen
+		}
+		real_father.real_father ?= {
+			zz_agot_is_dragonblood_character = yes #2 gen
+		}
+		AND = {
+			OR = {
+				has_game_rule = dragon_dragonblood_3_gen
+				has_game_rule = dragon_valyrian_3_gen
+			}
+			OR = {
+				real_father.real_mother.real_mother ?= {
+					zz_agot_is_dragonblood_character = yes #3 gen
+				}
+				real_father.real_mother.real_father ?= {
+					zz_agot_is_dragonblood_character = yes #3 gen
+				}
+				real_father.real_father.real_mother ?= {
+					zz_agot_is_dragonblood_character = yes #3 gen
+				}
+				real_father.real_father.real_father  ?= {
+					zz_agot_is_dragonblood_character = yes #3 gen
+				}
+			}
+		}
+
+		real_mother ?= {
+			zz_agot_is_dragonblood_character = yes #1 gen
+		}
+		real_mother.real_mother ?= {
+			zz_agot_is_dragonblood_character = yes #2 gen
+		}
+		real_mother.real_father ?= {
+			zz_agot_is_dragonblood_character = yes #2 gen
+		}
+		AND = {
+			OR = {
+				has_game_rule = dragon_dragonblood_3_gen
+				has_game_rule = dragon_valyrian_3_gen
+			}
+			OR = {
+				real_mother.real_mother.real_mother ?= {
+					zz_agot_is_dragonblood_character = yes #3 gen
+				}
+				real_mother.real_mother.real_father ?= {
+					zz_agot_is_dragonblood_character = yes #3 gen
+				}
+				real_mother.real_father.real_mother ?= {
+					zz_agot_is_dragonblood_character = yes #3 gen
+				}
+				real_mother.real_father.real_father ?= {
+					zz_agot_is_dragonblood_character = yes #3 gen
+				}
+			}
+		}
+		any_sibling = {
+			has_character_flag = historical_dragonseed
+		}
+	}
+}

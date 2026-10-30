@@ -3,6 +3,60 @@
 }
 
 
+zz_make_list_trait_mage_effect = {
+	if = { 
+		limit = {
+			has_trait = zz_magister
+		}
+		scope:$SCOPE$ = {
+			add_to_variable_list = {
+				name = $LIST$
+				target = prev
+			}
+		}
+	}
+	every_spouse_mage = {
+		scope:$SCOPE$ = {
+			add_to_variable_list = {
+				name = $LIST$
+				target = prev
+			}
+		}
+	}
+	every_close_or_extended_family_member_mage = {
+		scope:$SCOPE$ = {
+			add_to_variable_list = {
+				name = $LIST$
+				target = prev
+			}
+		}
+	}
+	every_house_mage = {
+		scope:$SCOPE$ = {
+			add_to_variable_list = {
+				name = $LIST$
+				target = prev
+			}
+		}
+	}
+	every_court_mage = {
+		scope:$SCOPE$ = {
+			add_to_variable_list = {
+				name = $LIST$
+				target = prev
+			}
+		}
+	}
+	every_realm_mage = {
+		scope:$SCOPE$ = {
+			add_to_variable_list = {
+				name = $LIST$
+				target = prev
+			}
+		}
+	}
+}
+
 zz_valyria_make_zz_valyria_make_mages_list = {
 	remove_variable = zz_mage
 	clear_variable_list = mages_list
@@ -28,18 +82,7 @@ zz_valyria_make_zz_valyria_make_mages_list = {
 			}
 		}
 	}
-	every_consort = {
-		limit = {
-			has_trait = zz_magister
-		}
-		scope:$MAGIC_USER$ = {
-			add_to_variable_list = {
-				name = mages_list
-				target = prev
-			}
-		}
-	}
-	every_living_mage = {
+	every_house_mage = {
 		limit = {
 			liege_or_court_owner ?= scope:$MAGIC_USER$
 		}
@@ -66,6 +109,21 @@ zz_valyria_make_zz_valyria_make_mages_list = {
 			add_to_variable_list = {
 				name = mages_list
 				target = prev
+			}
+		}
+	}
+	
+	every_in_list = {
+		variable = mages_list
+		if = {
+			limit = {
+				not = {
+					has_variable = zz_miscast_count
+				}
+			}
+			set_variable = {
+				name = zz_miscast_count
+				value = 0
 			}
 		}
 	}
@@ -116,17 +174,6 @@ zz_valyria_make_realm_mage_list = {
 				}
 			}
 		} 
-		every_consort = {
-			limit = {
-				has_trait = zz_magister
-			}
-			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = mage_list
-					target = prev
-				}
-			}
-		} 
 		house ?= {
 			every_house_mage = {
 				PREVPREV = {
@@ -154,17 +201,6 @@ zz_valyria_make_realm_mage_list = {
 				}
 			}
 		}
-		every_living_mage = {
-			limit = {
-				liege_or_court_owner ?= scope:story_owner 
-			}
-			PREV = {
-				add_to_variable_list = {
-					name = mage_list
-					target = prev
-				}
-			}
-		}
 	}
 }
 zz_valyria_make_mage_list = {
@@ -182,17 +218,6 @@ zz_valyria_make_mage_list = {
 		}
 	}
 	every_spouse = {
-		limit = {
-			has_trait = zz_magister
-		}
-		scope:$MAGIC_USER$ = {
-			add_to_variable_list = {
-				name = mage_list
-				target = prev
-			}
-		}
-	} 
-	every_consort = {
 		limit = {
 			has_trait = zz_magister
 		}
@@ -230,14 +255,17 @@ zz_valyria_make_mage_list = {
 			}
 		}
 	}
-	every_living_mage = {
-		limit = {
-			liege_or_court_owner ?= scope:$MAGIC_USER$
-		}
-		scope:$MAGIC_USER$ = {
-			add_to_variable_list = {
-				name = mage_list
-				target = prev
+	every_in_list = {
+		variable = mages_list
+		if = {
+			limit = {
+				not = {
+					has_variable = zz_miscast_count
+				}
+			}
+			set_variable = {
+				name = zz_miscast_count
+				value = 0
 			}
 		}
 	}
@@ -274,13 +302,9 @@ zz_valyria_make_spell_list = {
 	scope:$MAGIC_CASTER$ = {
 		every_memory = {
 			limit = { 
-				has_memory_category = blood_magic
+				has_memory_category = magic 
 			}
 			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = zz_valyria_spell_blood_list
-					target = prev
-				}
 				add_to_variable_list = {
 					name = zz_valyria_spell_list
 					target = prev
@@ -292,125 +316,66 @@ zz_valyria_make_spell_list = {
 					set_variable = { name = zz_valyria_mystery value = prev }
 				}
 			}
-		}
-		every_memory = {
-			limit = { 
-				has_memory_category = shadow_magic
-			}
-			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = zz_valyria_spell_shadow_list
-					target = prev
-				}
-				add_to_variable_list = {
-					name = zz_valyria_spell_list
-					target = prev
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = zz_valyria_mystery }
+			switch = {
+				trigger = has_memory_category
+
+				blood_magic = {
+					scope:$MAGIC_USER$ = {
+						add_to_variable_list = {
+							name = zz_valyria_spell_blood_list
+							target = prev
+						}
 					}
-					set_variable = { name = zz_valyria_mystery value = prev }
 				}
-			}
-		}
-		every_memory = {
-			limit = { 
-				has_memory_category = dream_magic
-			}
-			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = zz_valyria_spell_dream_list
-					target = prev
-				}
-				add_to_variable_list = {
-					name = zz_valyria_spell_list
-					target = prev
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = zz_valyria_mystery }
+				shadow_magic = {
+					scope:$MAGIC_USER$ = {
+						add_to_variable_list = {
+							name = zz_valyria_spell_shadow_list
+							target = prev
+						}
 					}
-					set_variable = { name = zz_valyria_mystery value = prev }
 				}
-			}
-		}
-		every_memory = {
-			limit = { 
-				has_memory_category = alchemy_magic
-			}
-			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = zz_valyria_spell_alchemy_list
-					target = prev
-				}
-				add_to_variable_list = {
-					name = zz_valyria_spell_list
-					target = prev
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = zz_valyria_mystery }
+				dream_magic = {
+					scope:$MAGIC_USER$ = {
+						add_to_variable_list = {
+							name = zz_valyria_spell_dream_list
+							target = prev
+						}
 					}
-					set_variable = { name = zz_valyria_mystery value = prev }
 				}
-			}
-		}
-		every_memory = {
-			limit = { 
-				has_memory_category = fire_magic
-			}
-			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = zz_valyria_spell_fire_list
-					target = prev
-				}
-				add_to_variable_list = {
-					name = zz_valyria_spell_list
-					target = prev
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = zz_valyria_mystery }
+				alchemy_magic = {
+					scope:$MAGIC_USER$ = {
+						add_to_variable_list = {
+							name = zz_valyria_spell_alchemy_list
+							target = prev
+						}
 					}
-					set_variable = { name = zz_valyria_mystery value = prev }
 				}
-			}
-		}
-		every_memory = {
-			limit = { 
-				has_memory_category = air_magic
-			}
-			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = zz_valyria_spell_air_list
-					target = prev
-				}
-				add_to_variable_list = {
-					name = zz_valyria_spell_list
-					target = prev
-				}
-				if = {
-					limit = {
-						NOT = { has_variable = zz_valyria_mystery }
+				fire_magic = {
+					scope:$MAGIC_USER$ = {
+						add_to_variable_list = {
+							name = zz_valyria_spell_fire_list
+							target = prev
+						}
 					}
-					set_variable = { name = zz_valyria_mystery value = prev }
 				}
-			}
-		}
-		every_memory = {
-			limit = { 
-				has_memory_category = water_magic
-			}
-			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = zz_valyria_spell_water_list
-					target = prev
+				air_magic = {
+					scope:$MAGIC_USER$ = {
+						add_to_variable_list = {
+							name = zz_valyria_spell_air_list
+							target = prev
+						}
+					}
 				}
-				add_to_variable_list = {
-					name = zz_valyria_spell_list
-					target = prev
+				water_magic = {
+					scope:$MAGIC_USER$ = {
+						add_to_variable_list = {
+							name = zz_valyria_spell_water_list
+							target = prev
+						}
+					}
 				}
+
 			}
 		}
 	}
@@ -462,7 +427,7 @@ zz_valyria_make_item_caster_list = {
 			}
 		}
 	}
-	every_consort = {
+	every_courtier_or_guest = {
 		limit = {
 			any_character_artifact = {
 				has_variable = spell
@@ -476,17 +441,17 @@ zz_valyria_make_item_caster_list = {
 			}
 		}
 	}
-	every_courtier_or_guest = {
-		limit = {
-			any_character_artifact = {
-				has_variable = spell
-				var:item_type ?= flag:scroll
+	every_in_list = {
+		variable = item_caster_list
+		if = {
+			limit = {
+				not = {
+					has_variable = zz_miscast_count
+				}
 			}
-		}
-		scope:$MAGIC_USER$ = {
-			add_to_variable_list = {
-				name = item_caster_list
-				target = prev
+			set_variable = {
+				name = zz_miscast_count
+				value = 0
 			}
 		}
 	}
@@ -525,6 +490,11 @@ zz_valyria_make_scroll_learner_list = {
 			target = prev
 		}
 		every_spouse = {
+			limit = {
+				not = {
+					has_trait = dragon
+				}
+			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
 					name = zz_valyria_scroll_learner_list
@@ -532,13 +502,12 @@ zz_valyria_make_scroll_learner_list = {
 				}
 			}
 		}
-		every_consort = {
-			add_to_variable_list = {
-				name = zz_valyria_scroll_learner_list
-				target = prev
-			}
-		}
 		every_close_or_extended_family_member = {
+			limit = {
+				not = {
+					has_trait = dragon
+				}
+			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
 					name = zz_valyria_scroll_learner_list
@@ -548,6 +517,11 @@ zz_valyria_make_scroll_learner_list = {
 		}
 		house ?= {
 			every_house_member = {
+				limit = {
+					not = {
+						has_trait = dragon
+					}
+				}
 				scope:$MAGIC_USER$ = {
 					add_to_variable_list = {
 						name = zz_valyria_scroll_learner_list
@@ -557,6 +531,11 @@ zz_valyria_make_scroll_learner_list = {
 			}
 		}
 		every_courtier_or_guest = {
+			limit = {
+				not = {
+					has_trait = dragon
+				}
+			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
 					name = zz_valyria_scroll_learner_list
@@ -565,6 +544,11 @@ zz_valyria_make_scroll_learner_list = {
 			}
 		}
 		every_vassal_or_below = {
+			limit = {
+				not = {
+					has_trait = dragon
+				}
+			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
 					name = zz_valyria_scroll_learner_list
@@ -619,6 +603,7 @@ zz_valyria_make_scroll_learner_not_mage_list = {
 		every_spouse = {
 			limit = {
 				not = {
+					has_trait = dragon
 					has_trait = zz_magister
 				}
 			}
@@ -629,23 +614,10 @@ zz_valyria_make_scroll_learner_not_mage_list = {
 				}
 			}
 		}
-		every_consort = {
-			limit = {
-				not = {
-					has_trait = zz_magister
-				}
-			}
-			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = zz_valyria_scroll_learner_not_mage_list
-					target = prev
-				}
-			}
-		}
-		
 		every_close_or_extended_family_member = {
 			limit = {
 				not = {
+					has_trait = dragon
 					has_trait = zz_magister
 				}
 			}
@@ -660,6 +632,7 @@ zz_valyria_make_scroll_learner_not_mage_list = {
 			every_house_member = {
 				limit = {
 					not = {
+						has_trait = dragon
 						has_trait = zz_magister
 					}
 				}
@@ -674,6 +647,7 @@ zz_valyria_make_scroll_learner_not_mage_list = {
 		every_courtier_or_guest = {
 			limit = {
 				not = {
+					has_trait = dragon
 					has_trait = zz_magister
 				}
 			}
@@ -687,6 +661,7 @@ zz_valyria_make_scroll_learner_not_mage_list = {
 		every_vassal_or_below = {
 			limit = {
 				not = {
+					has_trait = dragon
 					has_trait = zz_magister
 				}
 			}
@@ -742,17 +717,9 @@ zz_valyria_make_scroll_learner_mage_list = {
 		every_spouse = {
 			limit = {
 				has_trait = zz_magister
-			}
-			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = zz_valyria_scroll_learner_mage_list
-					target = prev
+				not = {
+					has_trait = dragon
 				}
-			}
-		}
-		every_consort = {
-			limit = {
-				has_trait = zz_magister
 			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
@@ -764,6 +731,9 @@ zz_valyria_make_scroll_learner_mage_list = {
 		every_close_or_extended_family_member = {
 			limit = {
 				has_trait = zz_magister
+				not = {
+					has_trait = dragon
+				}
 			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
@@ -776,6 +746,9 @@ zz_valyria_make_scroll_learner_mage_list = {
 			every_house_member = {
 				limit = {
 					has_trait = zz_magister
+					not = {
+						has_trait = dragon
+					}
 				}
 				scope:$MAGIC_USER$ = {
 					add_to_variable_list = {
@@ -788,6 +761,9 @@ zz_valyria_make_scroll_learner_mage_list = {
 		every_courtier_or_guest = {
 			limit = {
 				has_trait = zz_magister
+				not = {
+					has_trait = dragon
+				}
 			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
@@ -799,6 +775,10 @@ zz_valyria_make_scroll_learner_mage_list = {
 		every_vassal_or_below = {
 			limit = {
 				has_trait = zz_magister
+				not = {
+					has_trait = dragon
+					
+				}
 			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
@@ -889,23 +869,6 @@ zz_valyria_make_magic_master_list = {
 			}
 		}
 	}
-	every_consort = {
-		limit = {
-			has_trait = zz_magister
-			NOT = {
-				any_relation = { type = zz_magic_master }
-			}
-			NOT = {
-				any_relation = { type = zz_magic_apprentice  }
-			}
-		}
-		scope:$MAGIC_USER$ = {
-			add_to_variable_list = {
-				name = magic_master_list
-				target = prev
-			}
-		}
-	}
 	house ?= {
 		every_house_mage = {
 			limit = {
@@ -957,23 +920,6 @@ zz_valyria_make_magic_master_list = {
 			}
 		}
 	}
-	every_living_mage = {
-		limit = {
-			liege_or_court_owner ?= scope:$MAGIC_USER$
-			NOT = {
-				any_relation = { type = zz_magic_master }
-			}
-			NOT = {
-				any_relation = { type = zz_magic_apprentice  }
-			}
-		}
-		scope:$MAGIC_USER$ = {
-			add_to_variable_list = {
-				name = magic_master_list
-				target = prev
-			}
-		}
-	}
 	ordered_in_list = {
 		variable = magic_master_list
 		position = 0
@@ -1009,7 +955,9 @@ zz_valyria_make_magic_learner_list = {
 				NOT = {
 					has_trait = zz_magister
 				}
-
+				NOT  = {	
+					has_trait = dragon
+				}
 			}
 			add_to_variable_list = {
 				name = magic_learner_list
@@ -1021,24 +969,8 @@ zz_valyria_make_magic_learner_list = {
 				NOT = {
 					has_trait = zz_magister
 				}
-				NOT = {
-					any_relation = { type = zz_magic_master }
-				}
-				NOT = {
-					any_relation = { type = zz_magic_apprentice  }
-				}
-			}
-			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = magic_learner_list
-					target = prev
-				}
-			}
-		}
-		every_consort = {
-			limit = {
-				NOT = {
-					has_trait = zz_magister
+				NOT  = {	
+					has_trait = dragon
 				}
 				NOT = {
 					any_relation = { type = zz_magic_master }
@@ -1059,6 +991,9 @@ zz_valyria_make_magic_learner_list = {
 				NOT = {
 					has_trait = zz_magister
 				}
+				NOT  = {	
+					has_trait = dragon
+				}
 				NOT = {
 					any_relation = { type = zz_magic_master }
 				}
@@ -1078,6 +1013,9 @@ zz_valyria_make_magic_learner_list = {
 				NOT = {
 					has_trait = zz_magister
 				}
+				NOT  = {	
+					has_trait = dragon
+				}
 				NOT = {
 					any_relation = { type = zz_magic_master }
 				}
@@ -1096,6 +1034,9 @@ zz_valyria_make_magic_learner_list = {
 			limit = {
 				NOT = {
 					has_trait = zz_magister
+				}
+				NOT  = {	
+					has_trait = dragon
 				}
 				NOT = {
 					any_relation = { type = zz_magic_master }
@@ -1162,17 +1103,6 @@ zz_valyria_make_magic_mystery_master_list = {
 			}
 		}
 	}
-	every_consort = {
-		limit = {
-			has_trait = zz_magister
-		}
-		scope:$MAGIC_USER$ = {
-			add_to_variable_list = {
-				name = magic_mystery_master_list
-				target = prev
-			}
-		}
-	}
 	house ?= {
 		every_house_mage = {
 			scope:$MAGIC_USER$ = {
@@ -1200,17 +1130,7 @@ zz_valyria_make_magic_mystery_master_list = {
 			}
 		}
 	}
-	every_living_mage = {
-		limit = {
-			liege_or_court_owner ?= scope:$MAGIC_USER$
-		}
-		scope:$MAGIC_USER$ = {
-			add_to_variable_list = {
-				name = magic_mystery_master_list
-				target = prev
-			}
-		}
-	}
+
 	ordered_in_list = {
 		variable = magic_mystery_master_list
 		position = 0
@@ -1252,19 +1172,23 @@ zz_valyria_make_magic_mystery_learner_list = {
 	clear_variable_list = magic_mystery_learner_list
 	
 	scope:$MAGIC_USER$ = {
-		add_to_variable_list = {
-			name = magic_mystery_learner_list
-			target = prev
-		}
-		every_spouse = {
-			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = magic_mystery_learner_list
-					target = prev
+		if = { 
+			limit = {
+				not = {
+					has_trait = dragon
 				}
 			}
+			add_to_variable_list = {
+				name = magic_mystery_learner_list
+				target = prev
+			}
 		}
-		every_consort = {
+		every_spouse = {
+			limit = {
+				not = {
+					has_trait = dragon
+				}
+			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
 					name = magic_mystery_learner_list
@@ -1273,6 +1197,11 @@ zz_valyria_make_magic_mystery_learner_list = {
 			}
 		}
 		every_close_or_extended_family_member = {
+			limit = {
+				not = {
+					has_trait = dragon
+				}
+			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
 					name = magic_mystery_learner_list
@@ -1281,6 +1210,11 @@ zz_valyria_make_magic_mystery_learner_list = {
 			}
 		}
 		every_courtier_or_guest = {
+			limit = {
+				not = {
+					has_trait = dragon
+				}
+			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
 					name = magic_mystery_learner_list
@@ -1289,6 +1223,11 @@ zz_valyria_make_magic_mystery_learner_list = {
 			}
 		}
 		every_vassal_or_below = {
+			limit = {
+				not = {
+					has_trait = dragon
+				}
+			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
 					name = magic_mystery_learner_list
@@ -1316,6 +1255,7 @@ zz_valyria_make_magic_mystery_learner_not_mage_list = {
 		if = { 
 			limit = {
 				not = {
+					has_trait = dragon
 					has_trait = zz_magister
 				}
 			}
@@ -1327,19 +1267,7 @@ zz_valyria_make_magic_mystery_learner_not_mage_list = {
 		every_spouse = {
 			limit = {
 				not = {
-					has_trait = zz_magister
-				}
-			}
-			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = magic_mystery_learner_not_mage_list
-					target = prev
-				}
-			}
-		}
-		every_consort = {
-			limit = {
-				not = {
+					has_trait = dragon
 					has_trait = zz_magister
 				}
 			}
@@ -1353,6 +1281,7 @@ zz_valyria_make_magic_mystery_learner_not_mage_list = {
 		every_close_or_extended_family_member = {
 			limit = {
 				not = {
+					has_trait = dragon
 					has_trait = zz_magister
 				}
 			}
@@ -1366,6 +1295,7 @@ zz_valyria_make_magic_mystery_learner_not_mage_list = {
 		every_courtier_or_guest = {
 			limit = {
 				not = {
+					has_trait = dragon
 					has_trait = zz_magister
 				}
 			}
@@ -1379,6 +1309,7 @@ zz_valyria_make_magic_mystery_learner_not_mage_list = {
 		every_vassal_or_below = {
 			limit = {
 				not = {
+					has_trait = dragon
 					has_trait = zz_magister
 				}
 			}
@@ -1409,6 +1340,9 @@ zz_valyria_make_magic_mystery_learner_mage_list = {
 		if = { 
 			limit = {
 				has_trait = zz_magister
+				not = {
+					has_trait = dragon
+				}
 			}
 			add_to_variable_list = {
 				name = magic_mystery_learner_mage_list
@@ -1418,17 +1352,9 @@ zz_valyria_make_magic_mystery_learner_mage_list = {
 		every_spouse = {
 			limit = {
 				has_trait = zz_magister
-			}
-			scope:$MAGIC_USER$ = {
-				add_to_variable_list = {
-					name = magic_mystery_learner_mage_list
-					target = prev
+				not = {
+					has_trait = dragon
 				}
-			}
-		}
-		every_consort = {
-			limit = {
-				has_trait = zz_magister
 			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
@@ -1440,6 +1366,9 @@ zz_valyria_make_magic_mystery_learner_mage_list = {
 		every_close_or_extended_family_member = {
 			limit = {
 				has_trait = zz_magister
+				not = {
+					has_trait = dragon
+				}
 			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
@@ -1451,6 +1380,9 @@ zz_valyria_make_magic_mystery_learner_mage_list = {
 		every_courtier_or_guest = {
 			limit = {
 				has_trait = zz_magister
+				not = {
+					has_trait = dragon
+				}
 			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
@@ -1462,6 +1394,10 @@ zz_valyria_make_magic_mystery_learner_mage_list = {
 		every_vassal_or_below = {
 			limit = {
 				has_trait = zz_magister
+				not = {
+					has_trait = dragon
+					
+				}
 			}
 			scope:$MAGIC_USER$ = {
 				add_to_variable_list = {
@@ -1508,17 +1444,6 @@ zz_valyria_make_scroll_maker_list = {
 			}
 		}
 	}
-	every_consort = {
-		limit = {
-			has_trait = zz_magister
-		}
-		scope:$MAGIC_USER$ = {
-			add_to_variable_list = {
-				name = scroll_maker_list
-				target = prev
-			}
-		}
-	}
 	house ?= {
 		every_house_mage = {
 			scope:$MAGIC_USER$ = {
@@ -1538,17 +1463,6 @@ zz_valyria_make_scroll_maker_list = {
 		}
 	}
 	every_realm_mage = {
-		scope:$MAGIC_USER$ = {
-			add_to_variable_list = {
-				name = scroll_maker_list
-				target = prev
-			}
-		}
-	}
-	every_living_mage = {
-		limit = {
-			liege_or_court_owner ?= scope:$MAGIC_USER$
-		}
 		scope:$MAGIC_USER$ = {
 			add_to_variable_list = {
 				name = scroll_maker_list
@@ -2008,7 +1922,7 @@ zz_valyria_spell_failure_effect = {
 				}
 			}
 		} 
-		20 = {		
+		1 = {		
 			modifier = {
 				scope:secondary_recipient  = {
 					has_trait = starwalker
@@ -2016,7 +1930,7 @@ zz_valyria_spell_failure_effect = {
 				add = { 
 					value = {
 						value = "has_trait_xp(starwalker|chosen_of_the_heavens)" 
-						multiply = 16	
+						multiply = 10000	
 					}
 				}
 			}
@@ -2057,10 +1971,10 @@ zz_valyria_spell_failure_effect = {
 				
 			}
 			modifier = {
+				add = -5
 				scope:secondary_recipient  = {
 					has_trait = magic_blood_bad_1
 				}
-				add = -5
 			}
 			modifier = {
 				add = -10
@@ -2089,7 +2003,19 @@ zz_valyria_spell_failure_effect = {
 			}
 		}
 	}
-	
+	if = {
+		limit = {
+			var:zz_miscast_count >= zz_valyria_miscast_warning_1
+		}
+		send_interface_message = {
+			type = send_interface_message_as_popup_spell_miscast
+			title = miscast_warning
+			desc = miscast_warning_desc
+			left_icon = scope:secondary_recipient
+			right_icon = scope:recipient
+			custom_tooltip = miscast_warning
+		}
+	}
 }
 
 zz_valyria_magic_apply_province_modifier_effect = {
@@ -2167,6 +2093,7 @@ zz_valyria_mana_increase = {
 }
 
 
+
 zz_valyria_mana_gain = {
 	if =  {
 		limit = {
@@ -2182,8 +2109,9 @@ zz_valyria_mana_gain = {
 	set_variable = { name = managain value = $MANAGAIN$}
 	change_variable = {
 		name = managain 
-		multiply = zz_valyria_mana_gain_mult
+		multiply = this.zz_valyria_mana_gain_mult
 	}
+	
 	
 	while = {
 		limit = {
@@ -2227,6 +2155,7 @@ zz_valyria_mana_gain_passive = {
 	remove_variable = managain
 }
 
+
 zz_valyria_mana_spend_subtract = {
 	hidden_effect = {
 		add_trait_xp = {
@@ -2255,6 +2184,31 @@ zz_valyria_gain_spell_experience = {
 		track = $XPTRACK$ 
 		value = $XPGAIN$ 
 	}
+	
+	if = {
+		limit = {
+			has_trait_xp = {
+				trait = zz_magister
+				track = $XPTRACK$ 
+				value >= 100
+			}
+		}
+		if = {
+			limit = {
+				has_variable = $XPTRACK$_overcap 
+			}
+			change_variable = {
+				name = $XPTRACK$_overcap 
+				add = $XPGAIN$ 
+			}
+		}
+		else = {
+			set_variable = {
+				name = $XPTRACK$_overcap 
+				value = $XPGAIN$ 
+			}
+		}
+	}
 }
 
 zz_valyria_magic_cast_xp_gain = {
@@ -2268,6 +2222,24 @@ zz_valyria_magic_cast_xp_gain = {
 	}
 }
 
+zz_valyria_mystery_cast_increment = {
+	scope:zz_valyria_mystery ?= {
+		increment_variable_effect = {
+			VAR = cast_counter
+			VAL = 1
+		}
+	}
+}
+
+zz_valyria_cost_rebalance = {
+	scope:zz_valyria_mystery ?= {
+		set_variable = { 
+			name = manacost
+			value = $SPELL$
+		}
+	}
+}
+
 zz_valyria_magic_cast_ui_effect = { 
 	
 	random_list = { 
@@ -2278,7 +2250,26 @@ zz_valyria_magic_cast_ui_effect = {
 			custom_tooltip = zz_spell_succes
 		}
 		60 = { 
+			modifier = {
+				scope:secondary_recipient = { 
+					has_variable = zz_miscast_protection_count
+					var:zz_miscast_protection_count < 1 
+				}
+				add = -1000
+			}
 			zz_valyria_spell_failure_effect = yes
+		}
+	}
+	scope:secondary_recipient = { 
+		if = {
+			limit = {
+				has_variable = zz_miscast_protection_count
+				var:zz_miscast_protection_count < 1 
+			}
+			change_variable = {
+				name = zz_miscast_protection_count
+				subtract = 1
+			}
 		}
 	}
 }	
@@ -2315,6 +2306,8 @@ zz_valyria_magic_cast_effect = {
 			zz_valyria_magic_cast_xp_gain = {
 				SKILL = $SKILL$
 			}
+			zz_valyria_mystery_cast_increment = yes
+			zz_valyria_cost_rebalance = {SPELL = $SPELL$_cost}
 		}
 		random_list = { 
 			40 = { 
@@ -2387,9 +2380,9 @@ zz_ui_setup_effect = {
 	scope:actor = {
 		save_scope_as = zz_magic_user
 		zz_valyria_make_mage_list =  {MAGIC_USER = zz_magic_user}
-		
 		zz_valyria_make_spell_list = {MAGIC_USER = zz_magic_user MAGIC_CASTER = zz_magic_caster}
 		zz_valyria_make_item_caster_list = {MAGIC_USER = zz_magic_user}
+
 		zz_valyria_make_scroll_list = {MAGIC_USER = zz_magic_user ITEM_CASTER = zz_item_caster}
 		
 		remove_variable = cast_type
@@ -2417,12 +2410,14 @@ zz_ui_setup_effect = {
 		}
 		set_variable = {
 			name = zz_valyria_mystery_cost
-			value = var:zz_valyria_mystery.var:manacost
+			value = var:zz_valyria_mystery.mystery_cost
 		}
 	}
 }
 
-
+zz_dragon_dreams = {
+	remove_character_flag = dreamt
+}
 
 
 zz_valyria_set_spell_values = {
@@ -2450,6 +2445,10 @@ zz_valyria_set_spell_values = {
 		set_variable = { 
 			name = targets_maa
 			value = flag:false
+		}
+		set_variable = {
+			name = cast_counter
+			value = 1
 		}
 	}
 }
@@ -2963,6 +2962,31 @@ zz_gain_magic_11_spell = {
 	}
 }
 
+zz_gain_magic_05_spell = { 
+	random_list = {
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_01}}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_01 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_02 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_02 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_03 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_03 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_04 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_04 }
+		}
+		100 = {
+			trigger = {NOT = { zz_valyria_knows_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_05 }}}
+			zz_add_spell  = { SPELL = zz_valyria_magic_$MAGIC$_magic_05 }
+		}
+	}
+}
+
 zz_gain_blood_magic_spell = { 
 	zz_gain_magic_29_spell = {
 		MAGIC = blood
@@ -3006,6 +3030,7 @@ zz_gain_water_magic_spell = {
 		MAGIC = water
 	}
 }
+
 
 zz_random_gain_magic_spell = {
 	random_list = {
@@ -3149,6 +3174,18 @@ zz_random_gain_magic_spell = {
 					zz_valyria_knows_spell  = {
 						SPELL = zz_valyria_magic_shadow_magic_13
 					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_14
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_15
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_16
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_shadow_magic_17
+					}
 				}
 			}
 			modifier = { 
@@ -3180,6 +3217,9 @@ zz_random_gain_magic_spell = {
 					}
 					zz_valyria_knows_spell = {
 						SPELL = zz_valyria_magic_dream_magic_07
+					}
+					zz_valyria_knows_spell = {
+						SPELL = zz_valyria_magic_dream_magic_08
 					}
 					zz_valyria_knows_spell = {
 						SPELL = zz_valyria_magic_dream_magic_09
@@ -3415,6 +3455,18 @@ zz_random_gain_magic_spell = {
 					zz_valyria_knows_spell  = {
 						SPELL = zz_valyria_magic_fire_magic_13
 					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_14
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_15
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_16
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_fire_magic_17
+					}
 				}
 			}
 			modifier = { 
@@ -3465,6 +3517,18 @@ zz_random_gain_magic_spell = {
 					zz_valyria_knows_spell  = {
 						SPELL = zz_valyria_magic_water_magic_13
 					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_water_magic_14
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_water_magic_15
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_water_magic_16
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_water_magic_17
+					}
 					
 				}
 			}
@@ -3514,6 +3578,18 @@ zz_random_gain_magic_spell = {
 					zz_valyria_knows_spell  = {
 						SPELL = zz_valyria_magic_air_magic_13
 					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_14
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_15
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_16
+					}
+					zz_valyria_knows_spell  = {
+						SPELL = zz_valyria_magic_air_magic_17
+					}
 				}
 			}
 			
@@ -3522,7 +3598,7 @@ zz_random_gain_magic_spell = {
 				add = 10000
 			}
 			zz_gain_air_magic_spell = yes
-		}			
+		}		
 	}
 }
 
@@ -3664,7 +3740,7 @@ zz_valyria_scroll_making_gui_effect = {
 				name = cast_potency
 				value = {
 					scope:zz_scroll_maker = {
-						value = zz_valyria_magic_higher_mysteries_base_value
+						value = zz_valyria_higher_mysteries_stat_gui
 					}
 				}
 			}
@@ -3676,14 +3752,14 @@ zz_valyria_scroll_making_gui_effect = {
 zz_valyria_magic_create_artifact_scroll_effect = {
 	$OWNER$ = { save_scope_as = owner }
 	
-	set_artifact_rarity_illustrious = yes
+	set_artifact_rarity_famed = yes
 	
 	create_artifact = {
 		name = agot_artifact_saans_scrolls_name
 		description = agot_artifact_saans_scrolls_desc
 		visuals = scroll
 		type = scroll
-		modifier = religious_head_letter_modifier
+		modifier = saans_scrolls_artifact_modifier
 		save_scope_as = newly_created_artifact
 		wealth = scope:wealth
 		quality = scope:quality
@@ -3827,6 +3903,27 @@ zz_random_scroll_gain_effect = {
 	}
 }
 
+
+zz_scroll_05_effect = {
+	random_list = {
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_01 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_02 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_03 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_04 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_05 }}
+	}
+}
+zz_scroll_07_effect = {
+	random_list = {
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_01 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_02 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_03 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_04 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_05 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_06 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_07 }}
+	}
+}
 zz_scroll_11_effect = {
 	random_list = {
 		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_01 }}
@@ -3842,6 +3939,24 @@ zz_scroll_11_effect = {
 		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_11 }}
 		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_12 }}
 		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_13 }}
+	}
+}
+zz_scroll_15_effect = {
+	random_list = {
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_01 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_02 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_03 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_04 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_05 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_06 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_07 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_08 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_09 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_10 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_11 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_12 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_13 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_14 }}
 	}
 }
 zz_scroll_17_effect = {
@@ -3863,6 +3978,59 @@ zz_scroll_17_effect = {
 		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_15 }}
 		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_16 }}
 		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_17 }}
+	}
+}
+zz_scroll_20_effect = {
+	random_list = {
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_01 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_02 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_03 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_04 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_05 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_06 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_07 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_08 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_09 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_10 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_11 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_12 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_13 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_14 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_15 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_16 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_17 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_18 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_19 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_20 }}
+	}
+}
+zz_scroll_25_effect = {
+	random_list = {
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_01 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_02 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_03 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_04 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_05 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_06 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_07 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_08 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_09 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_10 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_11 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_12 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_13 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_14 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_15 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_16 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_17 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_18 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_19 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_20 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_21 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_22 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_23 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_24 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_25 }}
 	}
 }
 zz_scroll_29_effect = {
@@ -3896,6 +4064,89 @@ zz_scroll_29_effect = {
 		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_27 }}
 		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_28 }}
 		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_29 }}
+	}
+}
+zz_scroll_35_effect = {
+	random_list = {
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_01 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_02 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_03 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_04 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_05 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_06 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_07 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_08 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_09 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_10 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_11 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_12 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_13 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_14 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_15 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_16 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_17 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_18 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_19 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_20 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_21 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_22 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_23 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_24 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_25 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_26 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_27 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_28 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_29 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_30 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_31 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_32 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_33 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_34 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_35 }}
+	}
+}
+zz_scroll_40_effect = {
+	random_list = {
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_01 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_02 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_03 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_04 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_05 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_06 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_07 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_08 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_09 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_10 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_11 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_12 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_13 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_14 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_15 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_16 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_17 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_18 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_19 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_20 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_21 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_22 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_23 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_24 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_25 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_26 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_27 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_28 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_29 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_30 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_31 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_32 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_33 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_34 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_35 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_36 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_37 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_38 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_39 }}
+		100 = { zz_scroll_making_effect = { POTENCY = 50 SPELL = zz_valyria_magic_$MAGIC$_magic_40 }}
 	}
 }
 zz_scroll_49_effect = {
@@ -3959,7 +4210,7 @@ zz_gain_blood_magic_scroll = {
 }
 
 zz_gain_shadow_magic_scroll = { 
-	zz_scroll_11_effect = { 
+	zz_scroll_17_effect = { 
 		MAGIC = shadow
 	}	
 	
@@ -3981,7 +4232,7 @@ zz_gain_alchemy_scroll = {
 
 
 zz_gain_fire_magic_scroll = { 
-	zz_scroll_11_effect = { 
+	zz_scroll_17_effect = { 
 		MAGIC = fire
 	}		
 }
@@ -3989,15 +4240,16 @@ zz_gain_fire_magic_scroll = {
 
 
 zz_gain_air_magic_scroll = { 
-	zz_scroll_11_effect = { 
+	zz_scroll_17_effect = { 
 		MAGIC = air
 	}	
 }
 zz_gain_water_magic_scroll = { 
-	zz_scroll_11_effect = { 
+	zz_scroll_17_effect = { 
 		MAGIC = water
 	}	
 }
+
 
 zz_random_gain_magic_scroll = {
 	random_list = {
@@ -4050,8 +4302,39 @@ zz_random_gain_magic_scroll = {
 				add = 10000
 			}
 			zz_gain_air_magic_scroll = yes
-		}			
+		}		
 	}
+}
+
+
+zz_always_random_gain_magic_scroll = {
+	custom_tooltip = {
+		text = zz_gain_random_scroll
+		random_list = {
+			100 = {
+				zz_gain_blood_magic_scroll = yes 
+			}
+			100 = { 
+				zz_gain_shadow_magic_scroll = yes 
+			}
+			100 = { 
+				zz_gain_dream_magic_scroll = yes 
+			}
+			100 = { 
+				zz_gain_alchemy_scroll = yes 
+			}
+			100 = { 
+				zz_gain_fire_magic_scroll = yes
+			}
+			100 = {
+				zz_gain_water_magic_scroll  = yes 
+			}
+			100 = { 
+				zz_gain_air_magic_scroll = yes
+			}		
+		}
+	}
+	
 }
 
 zz_copy_memories = {
@@ -4093,6 +4376,10 @@ zz_copy_memories = {
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_11 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_12 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_13 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_14 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_15 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_16 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_shadow_magic_17 }
 	
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_01 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_02 }
@@ -4120,7 +4407,7 @@ zz_copy_memories = {
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_24 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_25 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_26 }
-	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_27 }zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_11 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_27 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_28 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_29 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_dream_magic_30 }
@@ -4176,6 +4463,10 @@ zz_copy_memories = {
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_11 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_12 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_13 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_14 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_15 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_16 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_fire_magic_17 }
 	
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_01 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_02 }
@@ -4190,6 +4481,10 @@ zz_copy_memories = {
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_11 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_12 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_13 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_14 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_15 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_16 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_air_magic_17 }
 	
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_01 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_02 }
@@ -4204,6 +4499,10 @@ zz_copy_memories = {
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_11 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_12 }
 	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_13 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_14 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_15 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_16 }
+	zz_valyria_magic_learning_compare_memory = { SPELL = zz_valyria_magic_water_magic_17 }
 }
 
 
@@ -4266,6 +4565,10 @@ zz_magic_list_effect = {
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_11 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_12 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_13 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_14 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_15 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_16 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_17 }
 	
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_01 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_02 }
@@ -4348,6 +4651,10 @@ zz_magic_list_effect = {
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_11 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_12 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_13 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_14 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_15 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_16 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_17 }
 	
 	
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_01 }
@@ -4363,6 +4670,10 @@ zz_magic_list_effect = {
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_11 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_12 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_13 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_14 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_15 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_16 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_17 }
 	
 	
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_01 }
@@ -4378,6 +4689,11 @@ zz_magic_list_effect = {
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_11 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_12 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_13 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_14 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_15 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_16 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_17 }
+
 }
 
 zz_magic_list_cast_effect = {
@@ -4425,6 +4741,10 @@ zz_magic_list_cast_effect = {
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_11 EVENT = zz_valyria_magic_shadow_magic.011 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_12 EVENT = zz_valyria_magic_shadow_magic.012 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_13 EVENT = zz_valyria_magic_shadow_magic.013 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_14 EVENT = zz_valyria_magic_shadow_magic.014 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_15 EVENT = zz_valyria_magic_shadow_magic.015 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_16 EVENT = zz_valyria_magic_shadow_magic.016 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_shadow_magic_17 EVENT = zz_valyria_magic_shadow_magic.017 }
 	
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_01 EVENT = zz_valyria_magic_dream_magic.001 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_dream_magic_02 EVENT = zz_valyria_magic_dream_magic.002 }
@@ -4507,8 +4827,10 @@ zz_magic_list_cast_effect = {
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_11 EVENT = zz_valyria_magic_fire_magic.011 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_12 EVENT = zz_valyria_magic_fire_magic.012 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_13 EVENT = zz_valyria_magic_fire_magic.013 }
-	
-	
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_14 EVENT = zz_valyria_magic_fire_magic.014 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_15 EVENT = zz_valyria_magic_fire_magic.015 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_16 EVENT = zz_valyria_magic_fire_magic.016 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_fire_magic_17 EVENT = zz_valyria_magic_fire_magic.017 }
 	
 	
 	
@@ -4525,6 +4847,10 @@ zz_magic_list_cast_effect = {
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_11 EVENT = zz_valyria_magic_air_magic.011 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_12 EVENT = zz_valyria_magic_air_magic.012 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_13 EVENT = zz_valyria_magic_air_magic.013 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_14 EVENT = zz_valyria_magic_air_magic.014 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_15 EVENT = zz_valyria_magic_air_magic.015 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_16 EVENT = zz_valyria_magic_air_magic.016 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_air_magic_17 EVENT = zz_valyria_magic_air_magic.017 }
 	
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_01 EVENT = zz_valyria_magic_water_magic.001 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_02 EVENT = zz_valyria_magic_water_magic.002 }
@@ -4539,4 +4865,11 @@ zz_magic_list_cast_effect = {
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_11 EVENT = zz_valyria_magic_water_magic.011 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_12 EVENT = zz_valyria_magic_water_magic.012 }
 	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_13 EVENT = zz_valyria_magic_water_magic.013 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_14 EVENT = zz_valyria_magic_water_magic.014 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_15 EVENT = zz_valyria_magic_water_magic.015 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_16 EVENT = zz_valyria_magic_water_magic.016 }
+	$MAGIC_EFFECT$ = { SPELL = zz_valyria_magic_water_magic_17 EVENT = zz_valyria_magic_water_magic.017 }
+
 }
+
+

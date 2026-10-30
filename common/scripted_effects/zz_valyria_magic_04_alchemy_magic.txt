@@ -12,7 +12,11 @@
 			scope:secondary_recipient = {
 				set_variable = {
 					name = zz_manacost 
-					value = 400
+					value = {
+						value = zz_valyria_magic_alchemy_magic_06_01_cost
+						subtract = zz_valyria_magic_alchemy_magic_06_cost
+					}
+					  
 				}
 				zz_valyria_mana_spend = yes
 			}
@@ -20,13 +24,16 @@
 		if = { 
 			limit = { 
 				root = {
-					scope:modifier = flag:item_modifier_01
+					scope:modifier = flag:item_modifier_22
 				}
 			}
 			scope:secondary_recipient = {
 				set_variable = {
 					name = zz_manacost 
-					value = 200
+					value = {
+						value = zz_valyria_magic_alchemy_magic_06_02_cost
+						subtract = zz_valyria_magic_alchemy_magic_06_cost
+					}
 				}
 				zz_valyria_mana_spend = yes
 			}
@@ -75,6 +82,28 @@
 						set_variable = {
 							name = item_mana_gain_mult
 							value = 0.01
+						}
+					}
+				}
+				else_if = { 
+					limit = { 
+						root = {
+							scope:modifier = flag:item_modifier_22
+						}
+					}
+					if = {
+						limit = {
+							exists = var:item_mana_cap_add
+						}
+						change_variable = {
+							name = item_mana_cap_add
+							add = 5
+						}
+					}
+					else = {
+						set_variable = {
+							name = item_mana_cap_add
+							value = 5
 						}
 					}
 				}
@@ -145,8 +174,28 @@ zz_valyria_magic_alchemy_magic_03_effect = {
 		}
 	}
 	scope:recipient = { 
-		add_gold = zz_valyria_magic_alchemy_magic_03_value 
-		domicile ?= { change_provisions = zz_valyria_magic_alchemy_magic_03_value }
+		if = {
+			limit = {
+				has_treasury = no 
+			}
+			add_gold = zz_valyria_magic_alchemy_magic_03_value 
+		}
+		if = {
+			limit = {
+				has_treasury = yes 
+			}
+			add_gold = zz_valyria_magic_alchemy_magic_03_value_02
+			add_treasury = zz_valyria_magic_alchemy_magic_03_value_03 
+		}
+		if = {
+			limit = { 
+				domicile ?= {
+					domicile_uses_provisions = yes 
+				}
+			}
+			domicile ?= { change_provisions = zz_valyria_magic_alchemy_magic_03_value_01 }
+		}
+		
 	}
 	scope:recipient = {
 		if = {
@@ -185,7 +234,7 @@ zz_valyria_magic_alchemy_magic_04_effect = {
 	}
 	scope:recipient = {
 		zz_valyria_magic_apply_character_modifier_effect = { 
-			MODIFIER = zz_valyria_magic_alchemy_magic_04_option_01_modifier
+			MODIFIER = zz_valyria_magic_alchemy_magic_04_modifier
 			DURATION = -1
 			BOOSTED_DURATION = -1
 		}
@@ -311,9 +360,6 @@ zz_valyria_magic_alchemy_magic_06_effect = {
 		MODIFIER = item_modifier_12
 	}
 	zz_enchant_apply_modifier_effect = {
-		MODIFIER = item_modifier_12
-	}
-	zz_enchant_apply_modifier_effect = {
 		MODIFIER = item_modifier_13
 	}
 	zz_enchant_apply_modifier_effect = {
@@ -339,6 +385,9 @@ zz_valyria_magic_alchemy_magic_06_effect = {
 	}
 	zz_enchant_apply_modifier_effect = {
 		MODIFIER = item_modifier_21
+	}
+	zz_enchant_apply_modifier_effect = {
+		MODIFIER = item_modifier_22
 	}
 }
 
@@ -482,8 +531,11 @@ zz_valyria_magic_alchemy_magic_10_effect = {
 		}
 		if = { 
 			limit = {
-				scope:recipient = { 
-					has_trait = immortal 
+				scope:recipient = {
+					OR = {
+						has_trait = immortal 
+						has_trait = zz_valyrian_longevity
+					}		 
 				}
 			}
 			set_variable = {
@@ -509,7 +561,10 @@ zz_valyria_magic_alchemy_magic_10_effect = {
 		if = { 
 			limit = {
 				scope:recipient = { 
-					has_trait = immortal 
+					OR = {
+						has_trait = immortal 
+						has_trait = zz_valyrian_longevity
+					}
 				}
 			}
 			set_variable = {
@@ -575,7 +630,10 @@ zz_valyria_magic_alchemy_magic_11_effect = {
 		if = { 
 			limit = {
 				scope:recipient = { 
-					has_trait = immortal 
+					OR = {
+						has_trait = immortal 
+						has_trait = zz_valyrian_longevity
+					}
 				}
 			}
 			set_variable = {
@@ -601,7 +659,10 @@ zz_valyria_magic_alchemy_magic_11_effect = {
 		if = { 
 			limit = {
 				scope:recipient = { 
-					has_trait = immortal 
+					OR = {
+						has_trait = immortal 
+						has_trait = zz_valyrian_longevity
+					}
 				}
 			}
 			set_variable = {
@@ -662,7 +723,7 @@ zz_valyria_magic_alchemy_magic_12_effect = {
 	}
 	scope:recipient = {
 		zz_valyria_magic_apply_character_modifier_effect = { 
-			MODIFIER = zz_valyria_magic_alchemy_magic_04_option_02_modifier
+			MODIFIER = zz_valyria_magic_alchemy_magic_12_modifier
 			DURATION = -1
 			BOOSTED_DURATION = -1
 		}
@@ -704,7 +765,7 @@ zz_valyria_magic_alchemy_magic_13_effect = {
 	}
 	scope:recipient = {
 		zz_valyria_magic_apply_character_modifier_effect = { 
-			MODIFIER = zz_valyria_magic_alchemy_magic_04_option_03_modifier
+			MODIFIER = zz_valyria_magic_alchemy_magic_13_modifier
 			DURATION = -1
 			BOOSTED_DURATION = -1
 		}
@@ -746,7 +807,7 @@ zz_valyria_magic_alchemy_magic_14_effect = {
 	}
 	scope:recipient = {
 		zz_valyria_magic_apply_character_modifier_effect = { 
-			MODIFIER = zz_valyria_magic_alchemy_magic_04_option_04_modifier
+			MODIFIER = zz_valyria_magic_alchemy_magic_14_modifier
 			DURATION = -1
 			BOOSTED_DURATION = -1
 		}
@@ -789,7 +850,7 @@ zz_valyria_magic_alchemy_magic_15_effect = {
 	}
 	scope:recipient = {
 		zz_valyria_magic_apply_character_modifier_effect = { 
-			MODIFIER = zz_valyria_magic_alchemy_magic_04_option_05_modifier
+			MODIFIER = zz_valyria_magic_alchemy_magic_15_modifier
 			DURATION = -1
 			BOOSTED_DURATION = -1
 		}
@@ -831,7 +892,7 @@ zz_valyria_magic_alchemy_magic_16_effect = {
 	}
 	scope:recipient = {
 		zz_valyria_magic_apply_character_modifier_effect = { 
-			MODIFIER = zz_valyria_magic_alchemy_magic_04_option_06_modifier
+			MODIFIER = zz_valyria_magic_alchemy_magic_16_modifier
 			DURATION = -1
 			BOOSTED_DURATION = -1
 		}

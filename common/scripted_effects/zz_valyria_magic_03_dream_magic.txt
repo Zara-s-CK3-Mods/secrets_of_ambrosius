@@ -224,24 +224,32 @@ zz_valyria_magic_dream_magic_02_effect = {
 			}
 			else = { add_trait = knight_errant }
 		}
+	}		
+	if  = { 
+		limit = {
+			scope:trait ?= trait:born_beneath_the_comet
+		}
+		scope:recipient = {
+
+			add_trait = born_beneath_the_comet 
+
+		}
 	}	
 	if  = { 
 		limit = {
-			scope:trait ?= trait:confucian_education
+			scope:trait ?= trait:governor
 		}
 		scope:recipient = {
 			if = {
-				limit = { has_trait = confucian_education }
+				limit = { has_trait = governor }
 				add_trait_xp = {
-					trait = confucian_education
+					trait = governor
 					value = zz_valyria_magic_dream_magic_02_value
 				}
 			}
-			else = { add_trait = confucian_education }
+			else = { add_trait = governor }
 		}
 	}	
-
-	
 	scope:recipient = {		
 		if = {
 			limit = {
@@ -610,6 +618,45 @@ zz_valyria_magic_dream_magic_07_effect = {
 		}
 	}
 }
+zz_valyria_magic_dream_magic_071_effect = {
+	send_interface_message = {
+		type = send_interface_message_as_feed_spell_outcome
+		title = zz_valyria_magic_dream_magic_07.toast.t
+		desc = zz_valyria_magic_dream_magic_07.toast.desc
+		left_icon = scope:secondary_recipient
+		right_icon = scope:recipient
+		custom_tooltip = zz_valyria_magic_dream_magic_07.toast.tt
+	}
+	if = {
+		limit = {
+			NOT = {
+				scope:actor = scope:recipient
+			}
+		}
+		stress_impact = {
+			compassionate = medium_stress_impact_loss
+			sadistic = minor_stress_gain
+			callous = minor_stress_gain
+		}
+	}
+	scope:recipient = { 
+		culture = {
+			add_culture_tradition = scope:culturetraditon
+		}
+	}			
+	scope:recipient = {		
+		if = {
+			limit = {
+				NOT = { scope:actor = scope:recipient }
+			}
+			add_opinion = {
+				modifier = grateful_opinion
+				target = scope:actor
+				opinion = 70
+			}
+		}
+	}
+}
 
 zz_valyria_magic_dream_magic_08_effect = { 
 	send_interface_message = {
@@ -636,11 +683,11 @@ zz_valyria_magic_dream_magic_08_effect = {
 					add_dread = medium_dread_gain
 					scope:recipient = {
 						show_as_tooltip = {
-							increase_wounds_effect = { REASON = dream_magic }
+							agot_increase_wounds_effect = { REASON = dream_magic RANK = 2 }
 							add_stress = massive_stress_gain
 							add_trait_force_tooltip = incapable
 						}
-						increase_wounds_effect = { REASON = dream_magic }
+						agot_increase_wounds_effect = { REASON = dream_magic RANK = 2 }
 						scope:actor = {
 							if = {
 								limit = {
@@ -776,37 +823,42 @@ zz_valyria_magic_dream_magic_09_effect = {
 			}
 		}
 		scope:recipient = { 
-			random_list = {
-				1= {	
-					add_diplomacy_skill = 1	
-				}
-				1= {	
-					add_martial_skill = 1	
-				}
-				1= {	
-					add_stewardship_skill = 1	
-				}
-				1= {	
-					add_intrigue_skill = 1	
-				}
-				1= {	
-					add_learning_skill = 1	
-				}
-				1= {	
-					add_prowess_skill = 1	
-				}
-				1 = {
-					trigger = {
-						NOT = {
-							has_character_modifier = bp1_1000_focus_on_work_modifier
-						}
+			zz_dragon_dreams = yes
+			while = {
+				count = zz_valyria_magic_dream_magic_09_value 
+				random_list = {
+					1= {	
+						add_diplomacy_skill = 1	
 					}
-					add_character_modifier = {
-						modifier = bp1_1000_focus_on_work_modifier
-						years = 2
+					1= {	
+						add_martial_skill = 1	
+					}
+					1= {	
+						add_stewardship_skill = 1	
+					}
+					1= {	
+						add_intrigue_skill = 1	
+					}
+					1= {	
+						add_learning_skill = 1	
+					}
+					1= {	
+						add_prowess_skill = 1	
+					}
+					1 = {
+						trigger = {
+							NOT = {
+								has_character_modifier = bp1_1000_focus_on_work_modifier
+							}
+						}
+						add_character_modifier = {
+							modifier = bp1_1000_focus_on_work_modifier
+							years = 2
+						}
 					}
 				}
 			}
+			
 		} 
 		scope:recipient = {		
 			if = {
@@ -900,7 +952,8 @@ zz_valyria_magic_dream_magic_11_effect = {
 		}  
 	}			
 	scope:scheme = {
-		expose_scheme = yes 
+		#expose_scheme_to = scope:actor 
+		expose_scheme = yes
 	}
 }
 
@@ -931,6 +984,7 @@ zz_valyria_magic_dream_magic_12_effect = {
 		}  
 	}			
 	scope:scheme = {
+		#expose_scheme_to = scope:actor 
 		expose_scheme = yes
 	}
 }
@@ -1393,6 +1447,7 @@ zz_valyria_magic_dream_magic_27_effect = {
 	}			
 	scope:scheme = {
 		scheme_freeze = {
+			reason = "ZZ_MAGIC"
 			days = 30
 		}
 	}
@@ -1426,6 +1481,7 @@ zz_valyria_magic_dream_magic_28_effect = {
 	}			
 	scope:scheme = {
 		scheme_freeze = {
+			reason = "ZZ_MAGIC"
 			days = 30
 		}
 	}
