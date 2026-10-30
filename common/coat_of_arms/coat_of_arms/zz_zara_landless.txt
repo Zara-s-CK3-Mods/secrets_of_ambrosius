@@ -1,6 +1,6 @@
 
 
-d_laamp_Merlin_A = {
+c_merchant_ambrosius = {
 	pattern = "pattern_solid.dds"
 	color1 = "black" #rgb { 11 11 11}
 	color2 = "purple" #rgb { 50 8 8 }

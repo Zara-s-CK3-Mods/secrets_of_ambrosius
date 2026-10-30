@@ -29,3 +29,5 @@
  item_staff_desc:0 "Craft a Mage's Staff"
  zz_valyria_mages_crown_desc:0 "A crown wrought by a master of the Higher Mysteries, its metal humming faintly with bound power."
  zz_valyria_mages_staff_desc:0 "A staff of office for a master of the Higher Mysteries, through which the forces of magic may be channelled and commanded."
+ c_merchant_ambrosius:0 "$dynn_Ambrosius$ $c_merchant_suffix$"
+ c_merchant_ambrosius_article:0 "$DEFAULT_TITLE_NAME_ARTICLE$"

@@ -48,7 +48,7 @@ zz_valyria_on_game_start_after_lobby = {
 					death_reason = death_ascension_magic
 					killer = THIS
 				}
-				destroy_laamp_effect = { ADVENTURER = THIS }
+				destroy_merchant_effect = { MERCHANT = THIS }
 			}
 			culture = {
 				join_era = culture_era_late_medieval

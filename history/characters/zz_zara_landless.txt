@@ -35,6 +35,7 @@
 	trait = shrewd
 	trait = lifestyle_poet
 	trait = governor 
+	trait = lifestyle_merchant
 	trait = adventurer
 	trait = lifestyle_scholar
 	portrait_override = {	
@@ -51,6 +52,10 @@
 		effect = {
 			add_trait_xp = {
 				trait = knight_errant 
+				value = 100
+			}
+			add_trait_xp = {
+				trait = lifestyle_merchant
 				value = 100
 			}
 			add_trait_xp = {
