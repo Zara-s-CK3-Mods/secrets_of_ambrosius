@@ -146,7 +146,7 @@ zz_removed_magic_effect = {
 								add_tyranny = minor_tyranny_gain
 							}
 						}
-						custom_tooltip = zz_valyria_magic_fire_magic_001.toast.tyranny
+						custom_tooltip = zz_valyria_magic_fire_magic.001.toast.tyranny
 					}
 				}
 				25 = {

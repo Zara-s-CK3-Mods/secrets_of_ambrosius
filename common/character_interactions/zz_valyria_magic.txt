@@ -1596,7 +1596,7 @@ zz_valyria_dream_magic_menal_manipulation.interaction = {
 
 zz_valyria_magic_grant_drops_of_power.interaction = {
 
-	desc = zz_valyria_magic_grant_drops_of_power.interaction.desc
+	desc = zz_valyria_magic_grant_drops_of_power.interaction_desc
 
 	common_interaction = yes
 	interface_priority = 40000

@@ -1011,10 +1011,6 @@ zz_valyria_magic_contracts.00101 = {
 			trigger = { scope:experiments_type = flag:water_magic }
 			desc = zz_valyria_magic_contracts.00101.desc.experiments_type.water_magic
 		}
-		triggered_desc = {
-			trigger = { scope:experiments_type = flag:dragon_magic }
-			desc = zz_valyria_magic_contracts.00101.desc.experiments_type.dragon_magic
-		}
 		
 	}
 
