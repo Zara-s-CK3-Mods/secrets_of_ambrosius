@@ -13,6 +13,7 @@ zz_valyria_on_game_start_after_lobby = {
 			value = yes 
 		}
 		zz_buld_global_list_effect = yes
+		zz_face_list = yes
 		debug_log = sotm_load_game_log
 		set_global_variable = {
 			name = SOTHM_Ver
