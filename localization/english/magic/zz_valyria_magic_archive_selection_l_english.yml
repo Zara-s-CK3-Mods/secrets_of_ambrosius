@@ -1,0 +1,7 @@
+﻿l_english:
+  zz_valyria_archive_select_character_interaction:0 "Choose Character"
+  zz_valyria_archive_select_character_interaction_desc:0 "Search for the character you want among those this list can choose."
+  zz_valyria_archive_select_character_interaction_empty_tt:0 "There is no one to choose from"
+  zz_valyria_archive_select_character_interaction_choose_tt:0 "Choose a character first"
+  zz_archive_search_button:0 "Search..."
+  zz_archive_search_button_tt:0 "Find a character by name, or with the game's filters"

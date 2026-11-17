@@ -1,0 +1,48 @@
+﻿# Scope: the caster. Piety for casting, from the faith's magic tenets.
+# Called from zz_valyria_magic_cast_effect as zz_valyria_tenet_cast_piety_$SKILL$_effect, so every school needs an entry.
+# Only Sacred Flame grants piety on cast; the other school tenets have their own benefits.
+
+zz_valyria_tenet_cast_piety_fire_magic_effect = {
+	if = {
+		limit = {
+			faith = { has_doctrine_parameter = zz_tenet_piety_fire_magic }
+		}
+		add_piety = minor_piety_gain
+	}
+}
+
+zz_valyria_tenet_cast_piety_blood_magic_effect = {}
+zz_valyria_tenet_cast_piety_shadow_magic_effect = {}
+zz_valyria_tenet_cast_piety_dream_magic_effect = {}
+zz_valyria_tenet_cast_piety_alchemy_magic_effect = {}
+zz_valyria_tenet_cast_piety_air_magic_effect = {}
+zz_valyria_tenet_cast_piety_water_magic_effect = {}
+
+# Scope: the target of a spell. Called from zz_valyria_magic_cast_effect.
+# A non-mage who has sorcery worked upon them has a small chance to learn Sorcery Anathema.
+zz_valyria_anathema_discovery_effect = {
+	if = {
+		limit = {
+			is_alive = yes
+			is_playable = yes # add_known_tenet only works on rulers
+			NOT = { has_trait = zz_magister }
+			NOT = { knows_tenet = tenet_zz_sorcery_anathema }
+			NOT = { this = scope:secondary_recipient }
+		}
+		random = {
+			chance = 5
+			modifier = {
+				add = 5
+				has_trait = zealous
+			}
+			add_known_tenet = tenet_zz_sorcery_anathema
+			tenet:tenet_zz_sorcery_anathema = { save_scope_as = zz_found_tenet }
+			send_interface_message = {
+				type = msg_passive_learned_tenet
+				desc = zz_valyria_anathema_learned_desc
+				left_icon = scope:secondary_recipient
+				right_icon = scope:zz_found_tenet
+			}
+		}
+	}
+}

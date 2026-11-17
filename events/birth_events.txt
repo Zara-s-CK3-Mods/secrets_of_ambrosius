@@ -604,7 +604,7 @@ birth.0001 = {
 		## SOTHM added
 		if = {
 			limit = {
-				scope:father = {
+				scope:father ?= {
 					OR = {
 						has_trait = zz_magister
 						has_trait = magic_blood_good
@@ -1583,17 +1583,16 @@ birth.1003 = {
 	lower_center_portrait =  scope:child
 	lower_right_portrait =  scope:child_2
 	trigger = {
-		OR = {
-			scope:father = scope:real_father
-			AND = {
-				scope:father != scope:real_father
-				scope:father = {
-					NOT = {
-						any_known_secret = {
-							secret_owner = scope:mother
-							secret_type = secret_disputed_heritage
-							secret_target = scope:child
-						}
+		trigger_if = {
+			limit = {
+				scope:real_father ?= { this != scope:father }
+			}
+			scope:father = {
+				NOT = {
+					any_known_secret = {
+						secret_owner = scope:mother
+						secret_type = secret_disputed_heritage
+						secret_target = scope:child
 					}
 				}
 			}

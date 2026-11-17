@@ -1,0 +1,5 @@
+﻿l_english:
+  zz_valyria_select_caster_interaction:0 "Choose Caster"
+  zz_valyria_select_caster_interaction_desc:0 "Choose which of your mages will work the mysteries for you."
+  zz_valyria_select_caster_interaction_no_mages_tt:0 "You have no mages to choose from"
+  zz_valyria_select_caster_interaction_choose_tt:0 "Choose a mage first"

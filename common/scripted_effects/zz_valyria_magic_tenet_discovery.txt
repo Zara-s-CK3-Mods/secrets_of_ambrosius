@@ -1,0 +1,58 @@
+﻿# Scope: character (a mage). Picks one magic tenet they don't know yet, weighted towards their strongest schools,
+# and saves it as scope:zz_found_tenet. Guard with zz_valyria_can_discover_magic_tenet_trigger.
+
+zz_valyria_pick_discoverable_magic_tenet_effect = {
+	random_list = {
+		0 = {
+			trigger = { zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_blood_rites SCHOOL = blood_magic } }
+			modifier = { add = zz_valyria_blood_magic_stat_gui }
+			tenet:tenet_zz_blood_rites = { save_scope_as = zz_found_tenet }
+		}
+		0 = {
+			trigger = { zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_faceless_arts SCHOOL = shadow_magic } }
+			modifier = { add = zz_valyria_shadow_magic_stat_gui }
+			tenet:tenet_zz_faceless_arts = { save_scope_as = zz_found_tenet }
+		}
+		0 = {
+			trigger = { zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_greensight SCHOOL = dream_magic } }
+			modifier = { add = zz_valyria_dream_magic_stat_gui }
+			tenet:tenet_zz_greensight = { save_scope_as = zz_found_tenet }
+		}
+		0 = {
+			trigger = { zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_the_undying SCHOOL = alchemy_magic } }
+			modifier = { add = zz_valyria_alchemy_magic_stat_gui }
+			tenet:tenet_zz_the_undying = { save_scope_as = zz_found_tenet }
+		}
+		0 = {
+			trigger = { zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_sacred_flame SCHOOL = fire_magic } }
+			modifier = { add = zz_valyria_fire_magic_stat_gui }
+			tenet:tenet_zz_sacred_flame = { save_scope_as = zz_found_tenet }
+		}
+		0 = {
+			trigger = { zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_stormspeakers SCHOOL = air_magic } }
+			modifier = { add = zz_valyria_air_magic_stat_gui }
+			tenet:tenet_zz_stormspeakers = { save_scope_as = zz_found_tenet }
+		}
+		0 = {
+			trigger = { zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_drowned_mysteries SCHOOL = water_magic } }
+			modifier = { add = zz_valyria_water_magic_stat_gui }
+			tenet:tenet_zz_drowned_mysteries = { save_scope_as = zz_found_tenet }
+		}
+		# General tenets weigh half the overall mastery, so school tenets usually come first
+		0 = {
+			trigger = { zz_valyria_general_tenet_discoverable_trigger = { TENET = tenet_zz_living_wellspring MIN = 40 } }
+			modifier = { add = { value = zz_valyria_higher_mysteries_stat_gui multiply = 0.5 } }
+			tenet:tenet_zz_living_wellspring = { save_scope_as = zz_found_tenet }
+		}
+		0 = {
+			trigger = { zz_valyria_general_tenet_discoverable_trigger = { TENET = tenet_zz_deep_vessel MIN = 60 } }
+			modifier = { add = { value = zz_valyria_higher_mysteries_stat_gui multiply = 0.5 } }
+			tenet:tenet_zz_deep_vessel = { save_scope_as = zz_found_tenet }
+		}
+		0 = {
+			trigger = { zz_valyria_general_tenet_discoverable_trigger = { TENET = tenet_zz_font_of_mysteries MIN = 80 } }
+			modifier = { add = { value = zz_valyria_higher_mysteries_stat_gui multiply = 0.5 } }
+			tenet:tenet_zz_font_of_mysteries = { save_scope_as = zz_found_tenet }
+		}
+	}
+}

@@ -3761,7 +3761,7 @@ types MyRealmWindow
 									layoutpolicy_horizontal = expanding
 									autoresize = no
 
-									text = "[Title.GetNameNoTooltip]"
+									text = "TITLE_NAME_NO_TOOLTIP"
 								}
 
 								hbox = {
@@ -4101,7 +4101,7 @@ types MyRealmWindow
 
 										text_single = {
 											layoutpolicy_horizontal = expanding
-											text = "[Title.GetNameNoTooltip]"
+											text = "TITLE_NAME_NO_TOOLTIP"
 										}
 
 										hbox = {
@@ -4156,7 +4156,7 @@ types MyRealmWindow
 														county_opinion_cooltip = {
 															datacontext = "[CountyDataBreakdowns.AccessOpinion( County.Self )]"
 															datacontext = "[CountyComplexBars.AccessPopularOpinionBar( County.Self )]"
-															# Unlike the other two cooltips county_opinion lacks native usage of HoldingView so we don't need to overide any context and can directly provide it
+															# Unlike the other two cooltips, county_opinion does not use HoldingView, so we provide the context directly without overriding it
 														}
 													}
 												}

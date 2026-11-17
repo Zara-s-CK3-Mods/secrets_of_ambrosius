@@ -3,6 +3,7 @@ namespace = zz_valyria_magic_blood_magic
 
 
 ## Replication
+# Spell: Blood 00502 - (unnamed)
 zz_valyria_magic_blood_magic.00502 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
@@ -35,11 +36,18 @@ zz_valyria_magic_blood_magic.00502 = {
 
 namespace = zz_valyria_magic_blood_magic
 
+# Spell: Blood 001 - Mystery of Restoration
 zz_valyria_magic_blood_magic.001 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.001.t
-	desc = zz_valyria_magic_blood_magic.001.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.001.desc
+			desc = zz_valyria_magic_blood_magic.001.desc_02
+			desc = zz_valyria_magic_blood_magic.001.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -53,7 +61,7 @@ zz_valyria_magic_blood_magic.001 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.001.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 001
 			}
@@ -65,11 +73,18 @@ zz_valyria_magic_blood_magic.001 = {
 	}
 }
 
+# Spell: Blood 002 - Mystery of Transmogrification
 zz_valyria_magic_blood_magic.002 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.002.t
-	desc = zz_valyria_magic_blood_magic.002.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.002.desc
+			desc = zz_valyria_magic_blood_magic.002.desc_02
+			desc = zz_valyria_magic_blood_magic.002.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -99,7 +114,7 @@ zz_valyria_magic_blood_magic.002 = {
 				save_scope_as = trait 
 			}
 	
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 002
 			}
@@ -110,11 +125,18 @@ zz_valyria_magic_blood_magic.002 = {
 	}
 }
 
+# Spell: Blood 003 - Mystery of Regeneration (Regiment)
 zz_valyria_magic_blood_magic.003 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.003.t
-	desc = zz_valyria_magic_blood_magic.003.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.003.desc
+			desc = zz_valyria_magic_blood_magic.003.desc_02
+			desc = zz_valyria_magic_blood_magic.003.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -175,7 +197,7 @@ zz_valyria_magic_blood_magic.003 = {
 			var:selected_regiment ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 003
 			}
@@ -186,11 +208,18 @@ zz_valyria_magic_blood_magic.003 = {
 		name = zz_valyria_magic_blood_magic.003.opt.z
 	}
 }
+# Spell: Blood 004 - Mystery of Renewal (Army)
 zz_valyria_magic_blood_magic.004 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.004.t
-	desc = zz_valyria_magic_blood_magic.004.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.004.desc
+			desc = zz_valyria_magic_blood_magic.004.desc_02
+			desc = zz_valyria_magic_blood_magic.004.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -202,24 +231,7 @@ zz_valyria_magic_blood_magic.004 = {
 	lower_center_portrait = scope:recipient
 
 	immediate = {
-		clear_variable_list = possible_armies
-		remove_variable = selected_army
-		scope:recipient = {
-			every_army = {
-				root = {
-					add_to_variable_list = {
-						name = possible_armies
-						target = prev
-					}
-					if = {
-						limit = {
-							NOT = { has_variable = selected_army }
-						}
-						set_variable = { name = selected_army value = prev }
-					}
-				}
-			}
-		}
+		zz_targed_character_army_selection_list_effect = yes
 	}
 	widget = {
 		is_shown = {
@@ -241,7 +253,7 @@ zz_valyria_magic_blood_magic.004 = {
 			var:selected_army ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 004
 			}
@@ -253,11 +265,18 @@ zz_valyria_magic_blood_magic.004 = {
 	}
 }
 
+# Spell: Blood 005 - Mystery of Replication
 zz_valyria_magic_blood_magic.005 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.005.t
-	desc = zz_valyria_magic_blood_magic.005.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.005.desc
+			desc = zz_valyria_magic_blood_magic.005.desc_02
+			desc = zz_valyria_magic_blood_magic.005.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -286,7 +305,7 @@ zz_valyria_magic_blood_magic.005 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 
@@ -320,7 +339,7 @@ zz_valyria_magic_blood_magic.005 = {
 			var:selected_flag ?= { 
 				save_scope_as = option
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 005
 			}
@@ -334,11 +353,18 @@ zz_valyria_magic_blood_magic.005 = {
 	}
 }
 
+# Spell: Blood 006 - Mystery of Immunity from Pestilence
 zz_valyria_magic_blood_magic.006 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.006.t
-	desc = zz_valyria_magic_blood_magic.006.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.006.desc
+			desc = zz_valyria_magic_blood_magic.006.desc_02
+			desc = zz_valyria_magic_blood_magic.006.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -360,7 +386,7 @@ zz_valyria_magic_blood_magic.006 = {
 			var:zz_valyria_selected_artifact?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 006
 			}
@@ -370,11 +396,18 @@ zz_valyria_magic_blood_magic.006 = {
 		name = zz_valyria_magic_blood_magic.006.opt.z
 	}
 }
+# Spell: Blood 007 - Mystery of Enchanted Blood
 zz_valyria_magic_blood_magic.007 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.007.t
-	desc = zz_valyria_magic_blood_magic.007.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.007.desc
+			desc = zz_valyria_magic_blood_magic.007.desc_02
+			desc = zz_valyria_magic_blood_magic.007.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -388,7 +421,7 @@ zz_valyria_magic_blood_magic.007 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.007.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 007
 			}
@@ -399,11 +432,18 @@ zz_valyria_magic_blood_magic.007 = {
 	}
 }
 
+# Spell: Blood 008 - Mystery of Travel Endurance
 zz_valyria_magic_blood_magic.008 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.008.t
-	desc = zz_valyria_magic_blood_magic.008.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.008.desc
+			desc = zz_valyria_magic_blood_magic.008.desc_02
+			desc = zz_valyria_magic_blood_magic.008.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -421,7 +461,7 @@ zz_valyria_magic_blood_magic.008 = {
 			}
 		}
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 008
 			}
@@ -431,11 +471,18 @@ zz_valyria_magic_blood_magic.008 = {
 		name = zz_valyria_magic_blood_magic.008.opt.z
 	}
 }
+# Spell: Blood 009 - Mystery of Traveling Haste
 zz_valyria_magic_blood_magic.009 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.009.t
-	desc = zz_valyria_magic_blood_magic.009.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.009.desc
+			desc = zz_valyria_magic_blood_magic.009.desc_02
+			desc = zz_valyria_magic_blood_magic.009.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -453,7 +500,7 @@ zz_valyria_magic_blood_magic.009 = {
 			}
 		}
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 009
 			}
@@ -463,11 +510,18 @@ zz_valyria_magic_blood_magic.009 = {
 		name = zz_valyria_magic_blood_magic.009.opt.z
 	}
 }
+# Spell: Blood 010 - Mystery of Travel Efficiency
 zz_valyria_magic_blood_magic.010 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.010.t
-	desc = zz_valyria_magic_blood_magic.010.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.010.desc
+			desc = zz_valyria_magic_blood_magic.010.desc_02
+			desc = zz_valyria_magic_blood_magic.010.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -485,7 +539,7 @@ zz_valyria_magic_blood_magic.010 = {
 			}
 		}
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 010
 			}
@@ -496,11 +550,18 @@ zz_valyria_magic_blood_magic.010 = {
 	}
 }
 
+# Spell: Blood 011 - Mystery of Longevity
 zz_valyria_magic_blood_magic.011 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.011.t
-	desc = zz_valyria_magic_blood_magic.011.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.011.desc
+			desc = zz_valyria_magic_blood_magic.011.desc_02
+			desc = zz_valyria_magic_blood_magic.011.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -514,7 +575,7 @@ zz_valyria_magic_blood_magic.011 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.011.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 011
 			}
@@ -524,11 +585,18 @@ zz_valyria_magic_blood_magic.011 = {
 		name = zz_valyria_magic_blood_magic.011.opt.z
 	}
 }
+# Spell: Blood 012 - Mystery of Vitality
 zz_valyria_magic_blood_magic.012 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.012.t
-	desc = zz_valyria_magic_blood_magic.012.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.012.desc
+			desc = zz_valyria_magic_blood_magic.012.desc_02
+			desc = zz_valyria_magic_blood_magic.012.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -542,7 +610,7 @@ zz_valyria_magic_blood_magic.012 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.012.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 012
 			}
@@ -552,11 +620,18 @@ zz_valyria_magic_blood_magic.012 = {
 		name = zz_valyria_magic_blood_magic.012.opt.z
 	}
 }
+# Spell: Blood 013 - Mystery of Resilience
 zz_valyria_magic_blood_magic.013 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.013.t
-	desc = zz_valyria_magic_blood_magic.013.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.013.desc
+			desc = zz_valyria_magic_blood_magic.013.desc_02
+			desc = zz_valyria_magic_blood_magic.013.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -570,7 +645,7 @@ zz_valyria_magic_blood_magic.013 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.013.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 013
 			}
@@ -581,11 +656,18 @@ zz_valyria_magic_blood_magic.013 = {
 		name = zz_valyria_magic_blood_magic.013.opt.z
 	}
 }
+# Spell: Blood 014 - Mystery of Fortitude
 zz_valyria_magic_blood_magic.014 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.014.t
-	desc = zz_valyria_magic_blood_magic.014.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.014.desc
+			desc = zz_valyria_magic_blood_magic.014.desc_02
+			desc = zz_valyria_magic_blood_magic.014.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -599,7 +681,7 @@ zz_valyria_magic_blood_magic.014 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.014.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 014
 			}
@@ -609,11 +691,18 @@ zz_valyria_magic_blood_magic.014 = {
 		name = zz_valyria_magic_blood_magic.014.opt.z
 	}
 }
+# Spell: Blood 015 - Mystery of Fertility
 zz_valyria_magic_blood_magic.015 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.015.t
-	desc = zz_valyria_magic_blood_magic.015.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.015.desc
+			desc = zz_valyria_magic_blood_magic.015.desc_02
+			desc = zz_valyria_magic_blood_magic.015.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -627,7 +716,7 @@ zz_valyria_magic_blood_magic.015 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.015.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 015
 			}
@@ -638,11 +727,18 @@ zz_valyria_magic_blood_magic.015 = {
 		name = zz_valyria_magic_blood_magic.015.opt.z
 	}
 }
+# Spell: Blood 016 - Mystery of the Boiling Blood
 zz_valyria_magic_blood_magic.016 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.016.t
-	desc = zz_valyria_magic_blood_magic.016.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.016.desc
+			desc = zz_valyria_magic_blood_magic.016.desc_02
+			desc = zz_valyria_magic_blood_magic.016.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -653,24 +749,7 @@ zz_valyria_magic_blood_magic.016 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		clear_variable_list = possible_armies
-		remove_variable = selected_army
-		scope:recipient = {
-			every_army = {
-				root = {
-					add_to_variable_list = {
-						name = possible_armies
-						target = prev
-					}
-					if = {
-						limit = {
-							NOT = { has_variable = selected_army }
-						}
-						set_variable = { name = selected_army value = prev }
-					}
-				}
-			}
-		}
+		zz_targed_character_army_selection_list_effect = yes
 
 	}
 	widget = {
@@ -685,12 +764,15 @@ zz_valyria_magic_blood_magic.016 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.016.opt.a
 		hidden_effect = {
-			var:selected_army = {
-				save_scope_as = target 
-			}
-			zz_valyria_magic_cast_effect = { 
-				SKILL = blood_magic
-				SPELL = 016
+			if = {
+				limit = { exists = var:selected_army }
+				var:selected_army = {
+					save_scope_as = target 
+				}
+				zz_valyria_magic_cast_deferred_effect = { 
+					SKILL = blood_magic
+					SPELL = 016
+				}
 			}
 		}
 	}
@@ -698,11 +780,18 @@ zz_valyria_magic_blood_magic.016 = {
 		name = zz_valyria_magic_blood_magic.016.opt.z
 	}
 }
+# Spell: Blood 017 - Mystery of Vital Consumption
 zz_valyria_magic_blood_magic.017 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.017.t
-	desc = zz_valyria_magic_blood_magic.017.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.017.desc
+			desc = zz_valyria_magic_blood_magic.017.desc_02
+			desc = zz_valyria_magic_blood_magic.017.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -720,7 +809,7 @@ zz_valyria_magic_blood_magic.017 = {
 				name = option_01
 				value = yes 
 			} 
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 017
 			}
@@ -733,7 +822,7 @@ zz_valyria_magic_blood_magic.017 = {
 				name = option_02
 				value = yes 
 			} 
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 017
 			}
@@ -745,11 +834,18 @@ zz_valyria_magic_blood_magic.017 = {
 	}
 }
 
+# Spell: Blood 018 - Mystery of Battle Resilience (Army)
 zz_valyria_magic_blood_magic.018 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.018.t
-	desc = zz_valyria_magic_blood_magic.018.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.018.desc
+			desc = zz_valyria_magic_blood_magic.018.desc_02
+			desc = zz_valyria_magic_blood_magic.018.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -769,7 +865,7 @@ zz_valyria_magic_blood_magic.018 = {
 		}
 		hidden_effect = {
 	
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 018
 			}
@@ -779,11 +875,18 @@ zz_valyria_magic_blood_magic.018 = {
 		name = zz_valyria_magic_blood_magic.018.opt.z
 	}
 }
+# Spell: Blood 019 - Mystery of Sex Selection
 zz_valyria_magic_blood_magic.019 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.019.t
-	desc = zz_valyria_magic_blood_magic.019.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.019.desc
+			desc = zz_valyria_magic_blood_magic.019.desc_02
+			desc = zz_valyria_magic_blood_magic.019.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -794,44 +897,54 @@ zz_valyria_magic_blood_magic.019 = {
 	}
 	lower_center_portrait = scope:recipient
 
+	immediate = {
+		remove_variable = selected_flag
+		clear_variable_list = possible_flags
+		add_to_variable_list = { name = possible_flags target = flag:zz_sex_selection_male }
+		add_to_variable_list = { name = possible_flags target = flag:zz_sex_selection_female }
+		set_variable = { name = selected_flag value = flag:zz_sex_selection_male }
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_flag_selection"
+			container = "custom_widgets_container"
+		}
+	}
 	option = {
 		name = zz_valyria_magic_blood_magic.019.opt.a
 		hidden_effect = {
-			save_scope_value_as = {
-				name = option_01
-				value = yes 
-			} 
-			zz_valyria_magic_cast_effect = { 
-				SKILL = blood_magic
-				SPELL = 019
+			switch = {
+				trigger = var:selected_flag
+				flag:zz_sex_selection_male = {
+					save_scope_value_as = { name = option_01 value = yes }
+				}
+				flag:zz_sex_selection_female = {
+					save_scope_value_as = { name = option_02 value = yes }
+				}
 			}
-		}		
-	}
-	option = {
-		name = zz_valyria_magic_blood_magic.019.opt.b
-		hidden_effect = {
-			save_scope_value_as = {
-				name = option_02
-				value = yes 
-			} 
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = blood_magic
 				SPELL = 019
 			}
 		}
-		
-
-		
 	}
 	option = {
-		name = zz_valyria_magic_blood_magic.015.opt.z
+		name = zz_valyria_magic_blood_magic.019.opt.z
 	}
 }
+# Spell: Blood 020 - Mystery of Maternal Protection
 zz_valyria_magic_blood_magic.020 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.020.t
-	desc = zz_valyria_magic_blood_magic.020.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.020.desc
+			desc = zz_valyria_magic_blood_magic.020.desc_02
+			desc = zz_valyria_magic_blood_magic.020.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -845,7 +958,7 @@ zz_valyria_magic_blood_magic.020 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.020.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 020
 			}
@@ -856,11 +969,18 @@ zz_valyria_magic_blood_magic.020 = {
 	}
 }
 
+# Spell: Blood 021 - Mystery of Infant Protection
 zz_valyria_magic_blood_magic.021 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.021.t
-	desc = zz_valyria_magic_blood_magic.021.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.021.desc
+			desc = zz_valyria_magic_blood_magic.021.desc_02
+			desc = zz_valyria_magic_blood_magic.021.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -874,7 +994,7 @@ zz_valyria_magic_blood_magic.021 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.021.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 021
 			}
@@ -887,11 +1007,18 @@ zz_valyria_magic_blood_magic.021 = {
 	}
 }
 
+# Spell: Blood 022 - Mystery of Eternal Life
 zz_valyria_magic_blood_magic.022 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.022.t
-	desc = zz_valyria_magic_blood_magic.022.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.022.desc
+			desc = zz_valyria_magic_blood_magic.022.desc_02
+			desc = zz_valyria_magic_blood_magic.022.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -951,7 +1078,7 @@ zz_valyria_magic_blood_magic.022 = {
 				}
 			}
 			gui = "event_window_character_selection_popup_04"
-			container = "custom_widgets_container"
+			container = "custom_widgets_container_01"
 		}
 		widget = {
 			is_shown = {
@@ -975,7 +1102,7 @@ zz_valyria_magic_blood_magic.022 = {
 				}
 			}
 			gui = "event_window_character_selection_popup_06"
-			container = "custom_widgets_container_01"
+			container = "custom_widgets_container_02"
 		}
 		widget = {
 			is_shown = {
@@ -987,7 +1114,7 @@ zz_valyria_magic_blood_magic.022 = {
 				}
 			}
 			gui = "event_window_character_selection_popup_07"
-			container = "custom_widgets_container_01"
+			container = "custom_widgets_container_02"
 		}
 
 	}
@@ -1031,7 +1158,7 @@ zz_valyria_magic_blood_magic.022 = {
 				save_scope_as = target_char_07
 				add_to_temporary_list = immorality_ritual_victim_list
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 022
 			}
@@ -1043,11 +1170,18 @@ zz_valyria_magic_blood_magic.022 = {
 	}
 }
 
+# Spell: Blood 023 - Mystery of Ageless Vigour
 zz_valyria_magic_blood_magic.023 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.023.t
-	desc = zz_valyria_magic_blood_magic.023.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.023.desc
+			desc = zz_valyria_magic_blood_magic.023.desc_02
+			desc = zz_valyria_magic_blood_magic.023.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1061,7 +1195,7 @@ zz_valyria_magic_blood_magic.023 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.023.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 023
 			}
@@ -1073,11 +1207,18 @@ zz_valyria_magic_blood_magic.023 = {
 	}
 }
 
+# Spell: Blood 024 - Mystery of Blessing (Learning)
 zz_valyria_magic_blood_magic.024 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.024.t
-	desc = zz_valyria_magic_blood_magic.024.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.024.desc
+			desc = zz_valyria_magic_blood_magic.024.desc_02
+			desc = zz_valyria_magic_blood_magic.024.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1091,7 +1232,7 @@ zz_valyria_magic_blood_magic.024 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.024.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 024
 			}
@@ -1102,11 +1243,18 @@ zz_valyria_magic_blood_magic.024 = {
 	}
 }
 
+# Spell: Blood 025 - Mystery of Blessing (Diplomacy)
 zz_valyria_magic_blood_magic.025 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.025.t
-	desc = zz_valyria_magic_blood_magic.025.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.025.desc
+			desc = zz_valyria_magic_blood_magic.025.desc_02
+			desc = zz_valyria_magic_blood_magic.025.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1120,7 +1268,7 @@ zz_valyria_magic_blood_magic.025 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.025.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 025
 			}
@@ -1131,11 +1279,18 @@ zz_valyria_magic_blood_magic.025 = {
 	}
 }
 
+# Spell: Blood 026 - Mystery of Blessing (Stewardship)
 zz_valyria_magic_blood_magic.026 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.026.t
-	desc = zz_valyria_magic_blood_magic.026.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.026.desc
+			desc = zz_valyria_magic_blood_magic.026.desc_02
+			desc = zz_valyria_magic_blood_magic.026.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1149,7 +1304,7 @@ zz_valyria_magic_blood_magic.026 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.026.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 026
 			}
@@ -1160,11 +1315,18 @@ zz_valyria_magic_blood_magic.026 = {
 	}
 }
 
+# Spell: Blood 027 - Mystery of Blessing (Intrigue)
 zz_valyria_magic_blood_magic.027 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.027.t
-	desc = zz_valyria_magic_blood_magic.027.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.027.desc
+			desc = zz_valyria_magic_blood_magic.027.desc_02
+			desc = zz_valyria_magic_blood_magic.027.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1178,7 +1340,7 @@ zz_valyria_magic_blood_magic.027 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.027.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 027
 			}
@@ -1189,11 +1351,18 @@ zz_valyria_magic_blood_magic.027 = {
 	}
 }
 
+# Spell: Blood 028 - Mystery of Blessing (Martial)
 zz_valyria_magic_blood_magic.028 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.028.t
-	desc = zz_valyria_magic_blood_magic.028.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.028.desc
+			desc = zz_valyria_magic_blood_magic.028.desc_02
+			desc = zz_valyria_magic_blood_magic.028.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1207,7 +1376,7 @@ zz_valyria_magic_blood_magic.028 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.028.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 028
 			}
@@ -1218,11 +1387,18 @@ zz_valyria_magic_blood_magic.028 = {
 	}
 }
 
+# Spell: Blood 029 - Mystery of Blessing (Prowess)
 zz_valyria_magic_blood_magic.029 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.029.t
-	desc = zz_valyria_magic_blood_magic.029.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.029.desc
+			desc = zz_valyria_magic_blood_magic.029.desc_02
+			desc = zz_valyria_magic_blood_magic.029.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1236,7 +1412,7 @@ zz_valyria_magic_blood_magic.029 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.029.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 029
 			}
@@ -1247,11 +1423,18 @@ zz_valyria_magic_blood_magic.029 = {
 	}
 }
 
+# Spell: Blood 030 - Mystery of Blood Memory
 zz_valyria_magic_blood_magic.030 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.030.t
-	desc = zz_valyria_magic_blood_magic.030.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.030.desc
+			desc = zz_valyria_magic_blood_magic.030.desc_02
+			desc = zz_valyria_magic_blood_magic.030.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1265,7 +1448,7 @@ zz_valyria_magic_blood_magic.030 = {
 	option = {
 		name = zz_valyria_magic_blood_magic.030.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 030
 			}
@@ -1276,11 +1459,18 @@ zz_valyria_magic_blood_magic.030 = {
 	}
 }
 
+# Spell: Blood 031 - Mystery of Blood Rewriting
 zz_valyria_magic_blood_magic.031 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_blood_magic.031.t
-	desc = zz_valyria_magic_blood_magic.031.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.031.desc
+			desc = zz_valyria_magic_blood_magic.031.desc_02
+			desc = zz_valyria_magic_blood_magic.031.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_blood_magic
@@ -1302,7 +1492,7 @@ zz_valyria_magic_blood_magic.031 = {
 				}
 			}
 		}
-		gui = "event_window_character_selection"
+		gui = "event_window_character_selection_popup"
 		container = "custom_widgets_container"
 	}
 	option = {
@@ -1311,7 +1501,7 @@ zz_valyria_magic_blood_magic.031 = {
 			var:zz_valyria_selected_character ?= { 
 				save_scope_as = target_char
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = blood_magic
 				SPELL = 031
 			}
@@ -1322,6 +1512,482 @@ zz_valyria_magic_blood_magic.031 = {
 	}
 }
 
+# Spell: Blood 032 - Mystery of Blood Cleansing
+zz_valyria_magic_blood_magic.032 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_blood_magic.032.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.032.desc
+			desc = zz_valyria_magic_blood_magic.032.desc_02
+			desc = zz_valyria_magic_blood_magic.032.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_blood_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
 
+	option = {
+		name = zz_valyria_magic_blood_magic.032.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = blood_magic
+				SPELL = 032
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_blood_magic.032.opt.z
+	}
+}
 
+# Spell: Blood 033 - Mystery of Blood Warding
+zz_valyria_magic_blood_magic.033 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_blood_magic.033.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.033.desc
+			desc = zz_valyria_magic_blood_magic.033.desc_02
+			desc = zz_valyria_magic_blood_magic.033.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_blood_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
 
+	option = {
+		name = zz_valyria_magic_blood_magic.033.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = blood_magic
+				SPELL = 033
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_blood_magic.033.opt.z
+	}
+}
+
+# Spell: Blood 034 - Mystery of Bloodcraft (Diplomacy)
+zz_valyria_magic_blood_magic.034 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_blood_magic.034.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.034.desc
+			desc = zz_valyria_magic_blood_magic.034.desc_02
+			desc = zz_valyria_magic_blood_magic.034.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_blood_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = blood
+			SPELL = 034
+			CURRENT = scope:recipient.diplomacy
+			LOWER = zz_valyria_magic_blood_magic_034_value_01
+			RAISE = zz_valyria_magic_blood_magic_034_value_01
+			START = max
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_blood_magic.034.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = blood_magic
+				SPELL = 034
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_blood_magic.034.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Blood 035 - Mystery of Bloodcraft (Martial)
+zz_valyria_magic_blood_magic.035 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_blood_magic.035.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.035.desc
+			desc = zz_valyria_magic_blood_magic.035.desc_02
+			desc = zz_valyria_magic_blood_magic.035.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_blood_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = blood
+			SPELL = 035
+			CURRENT = scope:recipient.martial
+			LOWER = zz_valyria_magic_blood_magic_035_value_01
+			RAISE = zz_valyria_magic_blood_magic_035_value_01
+			START = max
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_blood_magic.035.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = blood_magic
+				SPELL = 035
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_blood_magic.035.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Blood 036 - Mystery of Bloodcraft (Stewardship)
+zz_valyria_magic_blood_magic.036 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_blood_magic.036.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.036.desc
+			desc = zz_valyria_magic_blood_magic.036.desc_02
+			desc = zz_valyria_magic_blood_magic.036.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_blood_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = blood
+			SPELL = 036
+			CURRENT = scope:recipient.stewardship
+			LOWER = zz_valyria_magic_blood_magic_036_value_01
+			RAISE = zz_valyria_magic_blood_magic_036_value_01
+			START = max
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_blood_magic.036.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = blood_magic
+				SPELL = 036
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_blood_magic.036.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Blood 037 - Mystery of Bloodcraft (Intrigue)
+zz_valyria_magic_blood_magic.037 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_blood_magic.037.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.037.desc
+			desc = zz_valyria_magic_blood_magic.037.desc_02
+			desc = zz_valyria_magic_blood_magic.037.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_blood_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = blood
+			SPELL = 037
+			CURRENT = scope:recipient.intrigue
+			LOWER = zz_valyria_magic_blood_magic_037_value_01
+			RAISE = zz_valyria_magic_blood_magic_037_value_01
+			START = max
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_blood_magic.037.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = blood_magic
+				SPELL = 037
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_blood_magic.037.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Blood 038 - Mystery of Bloodcraft (Learning)
+zz_valyria_magic_blood_magic.038 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_blood_magic.038.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.038.desc
+			desc = zz_valyria_magic_blood_magic.038.desc_02
+			desc = zz_valyria_magic_blood_magic.038.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_blood_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = blood
+			SPELL = 038
+			CURRENT = scope:recipient.learning
+			LOWER = zz_valyria_magic_blood_magic_038_value_01
+			RAISE = zz_valyria_magic_blood_magic_038_value_01
+			START = max
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_blood_magic.038.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = blood_magic
+				SPELL = 038
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_blood_magic.038.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Blood 039 - Mystery of Bloodcraft (Prowess)
+zz_valyria_magic_blood_magic.039 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_blood_magic.039.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.039.desc
+			desc = zz_valyria_magic_blood_magic.039.desc_02
+			desc = zz_valyria_magic_blood_magic.039.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_blood_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = blood
+			SPELL = 039
+			CURRENT = scope:recipient.prowess
+			LOWER = zz_valyria_magic_blood_magic_039_value_01
+			RAISE = zz_valyria_magic_blood_magic_039_value_01
+			START = max
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_blood_magic.039.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = blood_magic
+				SPELL = 039
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_blood_magic.039.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Blood 040 - Mystery of Vital Theft (Drain Health)
+zz_valyria_magic_blood_magic.040 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_blood_magic.040.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_blood_magic.040.desc
+			desc = zz_valyria_magic_blood_magic.040.desc_02
+			desc = zz_valyria_magic_blood_magic.040.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_blood_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_blood_magic.040.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { scope:recipient = scope:secondary_recipient }
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = blood_magic
+					SPELL = 040
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_blood_magic.040.opt.z
+	}
+}
+
+# Spell: Blood 041 - Mystery of the Blood Price (Single Combat). A duel move only: it never appears in the casting menu.
+zz_valyria_magic_blood_magic.041 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_blood_magic.041.t
+	desc = zz_valyria_magic_blood_magic.041.desc
+	theme = university
+	override_background = {
+		reference = zz_blood_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_blood_magic.041.opt.z
+	}
+}

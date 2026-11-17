@@ -56,13 +56,16 @@ zz_valyria_doom_sites = {
 	}
 }
 zz_valyria_miscast_warning_0_gui ={
+	exists = var:zz_miscast_count
 	var:zz_miscast_count < zz_valyria_miscast_warning_2
 }
 zz_valyria_miscast_warning_1_gui ={
+	exists = var:zz_miscast_count
 	var:zz_miscast_count = zz_valyria_miscast_warning_1
 }
 
 zz_valyria_miscast_warning_2_gui ={
+	exists = var:zz_miscast_count
 	var:zz_miscast_count = zz_valyria_miscast_warning_2
 }
 
@@ -148,11 +151,27 @@ zz_valyria_can_become_apprentice = {
 	}
 }
 
+# Interface checks: these read the access stored by zz_valyria_refresh_magic_access instead of searching house, court and realm.
+# Being a mage yourself is still checked directly, so it takes effect at once
 zz_open_mage_window = {
 	is_ai = no
+	zz_valyria_has_magic_access_cached = yes
+}
+
+# Cached zz_valyria_is_mage
+zz_valyria_has_mage_access_cached = {
 	OR = {
-		zz_valyria_is_mage = yes 
-		zz_valyria_is_scroll_holder = yes
+		has_trait = zz_magister
+		has_variable = zz_magic_access_mage
+	}
+}
+
+# Cached zz_valyria_is_mage or zz_valyria_is_scroll_holder
+zz_valyria_has_magic_access_cached = {
+	OR = {
+		has_trait = zz_magister
+		has_variable = zz_magic_access_mage
+		has_variable = zz_magic_access_scroll
 	}
 }
 
@@ -299,6 +318,21 @@ zz_valyria_mystery_has_mana = {
 	}
 }
 
+# The duel spells are used as moves in single combat, never enacted from the mysteries window
+zz_valyria_mystery_duel_move_trigger = {
+	trigger_if = {
+		limit = {
+			scope:$SCOPE$ = {
+				var:target_type ?= flag:duel_move
+			}
+		}
+		custom_tooltip = {
+			text = zz_valyria_magic_duel_move_only
+			always = no
+		}
+	}
+}
+
 zz_valyria_mystery_unlimited_trigger = {
 	trigger_if  = { 
 		limit  = {
@@ -400,12 +434,7 @@ zz_valyria_mystery_human_only_is_pregnant_dream_magic_048_trigger = {
 		}
 		zz_valyria_mystery_has_mana = { SCOPE = $SCOPE$ }
 		var:zz_magic_target = {
-			is_pregnant = yes
-			NOT = {
-				any_owned_story = {
-					story_type = zz_valyria_magic_dream_magic_048_story
-				}
-			}
+			is_female = yes
 			
 		}
 	}
@@ -419,12 +448,7 @@ zz_valyria_mystery_human_only_is_pregnant_dream_magic_049_trigger = {
 		}
 		zz_valyria_mystery_has_mana = { SCOPE = $SCOPE$ }
 		var:zz_magic_target = {
-			is_pregnant = yes
-			NOT = {
-				any_owned_story = {
-					story_type = zz_valyria_magic_dream_magic_049_story
-				}
-			}
+			is_female = yes
 		}
 	}
 }
@@ -666,7 +690,7 @@ zz_valyria_mystery_human_only_has_treasury_trigger = {
 		}
 		zz_valyria_mystery_has_mana = { SCOPE = $SCOPE$ }
 		var:zz_magic_target = {
-			has_treasury = no 
+			has_treasury = yes 
 		}
 	}
 }
@@ -1115,6 +1139,7 @@ zz_random_targeting_scheme = {
 
 zz_magic_list_trigger = {
 	zz_valyria_$TRIGGER_TYPE$_unlimited_trigger = { SCOPE = $SCOPE$ }
+	zz_valyria_$TRIGGER_TYPE$_duel_move_trigger = { SCOPE = $SCOPE$ }
 	zz_valyria_$TRIGGER_TYPE$_cannot_cast_on_caster_cannot_cast_on_self_trigger = { SCOPE = $SCOPE$ }
 	zz_valyria_$TRIGGER_TYPE$_human_only_trigger = { SCOPE = $SCOPE$ }
 	zz_valyria_$TRIGGER_TYPE$_human_only_is_landed_trigger = { SCOPE = $SCOPE$ }
@@ -1133,6 +1158,15 @@ zz_magic_list_trigger = {
 	zz_valyria_$TRIGGER_TYPE$_maa_damaged_trigger = { SCOPE = $SCOPE$ }
 	zz_valyria_$TRIGGER_TYPE$_armies_raised_trigger = { SCOPE = $SCOPE$ }
 	zz_valyria_$TRIGGER_TYPE$_has_dragon_egg_has_seven_dragonbloods_trigger = { SCOPE = $SCOPE$ }
+	zz_valyria_$TRIGGER_TYPE$_human_only_has_trade_routes_trigger = { SCOPE = $SCOPE$ }
+	zz_valyria_$TRIGGER_TYPE$_human_only_is_travelling_trigger = { SCOPE = $SCOPE$ }
+	zz_valyria_$TRIGGER_TYPE$_human_only_is_imprisoned_trigger = { SCOPE = $SCOPE$ }
+	zz_valyria_$TRIGGER_TYPE$_human_only_faction_member_trigger = { SCOPE = $SCOPE$ }
+	zz_valyria_$TRIGGER_TYPE$_human_only_cannot_cast_on_caster_cannot_cast_on_self_trigger = { SCOPE = $SCOPE$ }
+	zz_valyria_$TRIGGER_TYPE$_human_only_has_provisions_trigger = { SCOPE = $SCOPE$ }
+	zz_valyria_$TRIGGER_TYPE$_human_only_has_treasury_trigger = { SCOPE = $SCOPE$ }
+	zz_valyria_$TRIGGER_TYPE$_human_only_is_pregnant_dream_magic_048_trigger = { SCOPE = $SCOPE$ }
+	zz_valyria_$TRIGGER_TYPE$_human_only_is_pregnant_dream_magic_049_trigger = { SCOPE = $SCOPE$ }
 }
 
 
@@ -1152,3 +1186,186 @@ zz_valyria_selected_character_check = {
 	}
 }
 
+zz_valyria_mystery_human_only_is_travelling_trigger = {
+	trigger_if  = {
+		limit  = {
+			scope:$SCOPE$  = {
+				var:target_type ?= flag:human_only_is_travelling
+			}
+		}
+		zz_valyria_mystery_has_mana = { SCOPE = $SCOPE$ }
+		var:zz_magic_target = {
+			is_travelling = yes
+		}
+	}
+}
+
+zz_valyria_mystery_human_only_is_imprisoned_trigger = {
+	trigger_if  = {
+		limit  = {
+			scope:$SCOPE$  = {
+				var:target_type ?= flag:human_only_is_imprisoned
+			}
+		}
+		zz_valyria_mystery_has_mana = { SCOPE = $SCOPE$ }
+		var:zz_magic_target = {
+			is_imprisoned = yes
+		}
+	}
+}
+
+zz_valyria_mystery_human_only_faction_member_trigger = {
+	trigger_if  = {
+		limit  = {
+			scope:$SCOPE$  = {
+				var:target_type ?= flag:human_only_faction_member
+			}
+		}
+		zz_valyria_mystery_has_mana = { SCOPE = $SCOPE$ }
+		var:zz_magic_target = {
+			exists = joined_faction
+		}
+	}
+}
+
+zz_valyria_mystery_human_only_has_trade_routes_trigger = {
+	trigger_if  = {
+		limit  = {
+			scope:$SCOPE$  = {
+				var:target_type ?= flag:human_only_has_trade_routes
+			}
+		}
+		zz_valyria_mystery_has_mana = { SCOPE = $SCOPE$ }
+		var:zz_magic_target = {
+			custom_tooltip = {
+				text = zz_valyria_magic_has_trade_routes_tt
+				num_trade_routes > 0
+			}
+		}
+	}
+}
+
+# Anything the Dream of Health (zz_valyria_magic_dream_magic_058_heal_effect) can heal
+zz_valyria_magic_dream_magic_058_needs_healing_trigger = {
+	OR = {
+		has_character_modifier = chronic_headaches_modifier
+		has_character_modifier = infected_wound_modifier
+		has_character_modifier = gangrene_modifier
+		has_character_modifier = stress_frozen_grief
+		has_character_modifier = stress_stuffed_corpse
+		has_character_modifier = stress_managed_grief
+		has_character_modifier = stress_disturbing_confession
+		has_character_modifier = stress_drinking_binge
+		has_character_modifier = stress_hashish_stupor
+		has_character_modifier = stress_inappetetic_hunger_1
+		has_character_modifier = stress_inappetetic_hunger_2
+		has_character_modifier = stress_inappetetic_hunger_3
+		has_character_modifier = stress_smelling_of_sweat
+		has_trait = infirm
+		has_trait = withering_mind
+		has_trait = clouded_eyes
+		has_trait = fragile_bones
+		has_trait = faltering_heart
+		has_trait = wounded_1
+		has_trait = ill
+		has_trait = sickly
+		has_trait = disfigured
+		has_trait = impotent
+		has_trait = one_legged
+		has_trait = one_eyed
+		has_trait = lunatic_genetic
+		has_trait = lunatic_1
+		has_trait = possessed_genetic
+		has_trait = possessed_1
+		has_trait = depressed_genetic
+		has_trait = depressed_1
+		has_trait = pneumonic
+		has_trait = great_pox
+		has_trait = early_great_pox
+		has_trait = lovers_pox
+		has_trait = leper
+		has_trait = maimed
+		has_trait = incapable
+		has_trait = gout_ridden
+		has_trait = consumption
+		has_trait = cancer
+		has_trait = typhus
+		has_trait = bubonic_plague
+		has_trait = smallpox
+		has_trait = blind
+		has_trait = measles
+		has_trait = dysentery
+		has_trait = ergotism
+		has_trait = scarred
+	}
+}
+
+# Owns a Valyrian steel ingot (from the Forging the Flames contract), needed to craft an item
+zz_valyria_has_vs_ingot_trigger = {
+	any_character_artifact = {
+		has_variable = zz_vs_ingot
+	}
+}
+
+# Soothsaying (Longevity): the character has a vision left to turn aside a natural death
+# Used by has_natural_death_second_chance in common/scripted_rules/00_rules.txt
+zz_valyria_longevity_second_chance_trigger = {
+	any_owned_story = {
+		story_type = zz_valyria_magic_dream_magic_081_story
+		var:mystery_duration > 0
+	}
+}
+
+# Soothsaying (Assassination): the character has a vision left to turn aside death when murder scheme against them succeeds
+zz_valyria_assassination_ward_trigger = {
+	any_owned_story = {
+		story_type = zz_valyria_magic_dream_magic_100_story
+		var:mystery_duration > 0
+	}
+}
+
+# Soothsaying (Battle): the character has a vision left to turn aside death when they would die in battle or single combat
+zz_valyria_battle_ward_trigger = {
+	any_owned_story = {
+		story_type = zz_valyria_magic_dream_magic_101_story
+		var:mystery_duration > 0
+	}
+}
+
+# The duel spells: used as moves in single combat, so kept out of the casting menu (spell and scroll lists)
+zz_valyria_is_duel_spell_memory_trigger = {
+	OR = {
+		has_memory_type = zz_valyria_magic_fire_magic_001
+		has_memory_type = zz_valyria_magic_air_magic_001
+		has_memory_type = zz_valyria_magic_water_magic_001
+		has_memory_type = zz_valyria_magic_blood_magic_017
+		has_memory_type = zz_valyria_magic_shadow_magic_009
+		has_memory_type = zz_valyria_magic_dream_magic_008
+		has_memory_type = zz_valyria_magic_alchemy_magic_017
+		has_memory_type = zz_valyria_magic_fire_magic_033
+		has_memory_type = zz_valyria_magic_air_magic_033
+		has_memory_type = zz_valyria_magic_water_magic_033
+		has_memory_type = zz_valyria_magic_blood_magic_041
+		has_memory_type = zz_valyria_magic_shadow_magic_033
+		has_memory_type = zz_valyria_magic_dream_magic_107
+		has_memory_type = zz_valyria_magic_alchemy_magic_044
+	}
+}
+zz_valyria_is_duel_spell_scroll_trigger = {
+	OR = {
+		var:spell_name ?= flag:zz_valyria_magic_fire_magic_001
+		var:spell_name ?= flag:zz_valyria_magic_air_magic_001
+		var:spell_name ?= flag:zz_valyria_magic_water_magic_001
+		var:spell_name ?= flag:zz_valyria_magic_blood_magic_017
+		var:spell_name ?= flag:zz_valyria_magic_shadow_magic_009
+		var:spell_name ?= flag:zz_valyria_magic_dream_magic_008
+		var:spell_name ?= flag:zz_valyria_magic_alchemy_magic_017
+		var:spell_name ?= flag:zz_valyria_magic_fire_magic_033
+		var:spell_name ?= flag:zz_valyria_magic_air_magic_033
+		var:spell_name ?= flag:zz_valyria_magic_water_magic_033
+		var:spell_name ?= flag:zz_valyria_magic_blood_magic_041
+		var:spell_name ?= flag:zz_valyria_magic_shadow_magic_033
+		var:spell_name ?= flag:zz_valyria_magic_dream_magic_107
+		var:spell_name ?= flag:zz_valyria_magic_alchemy_magic_044
+	}
+}

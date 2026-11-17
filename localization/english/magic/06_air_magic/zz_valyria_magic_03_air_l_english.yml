@@ -4,17 +4,19 @@ l_english:
 ## Air Magic
 
   ## Interaction
-  zz_valyria_magic_air_magic_001.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_cwok$\n\nThrough the arts of [air_magic|E], it is possible to conjure forth a slicing blade of wind. This invisible blade gouges and slices, crippling and harming your chosen target."
+  zz_valyria_magic_air_magic_001.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_duel_move$\n$zz_duel_skill$\n\nThe use of the arcane forces of [air_magic|E] to strike a chosen subject with an invisible blade of wind.\n\nAir is the subtlest of the elements, and its first weapon is the subtlest of all: a blade made of nothing but moving air, so thin and so swift that its victim feels only a sudden chill before the blood begins to flow.\n\nThe sky-sorcerers of the Freehold favoured this working for its precision. There is no flame to give it away, no thunderclap to announce it, only a whisper of wind and a wound that should not exist.\n\nIn the instant of the strike, the caster may choose whether to cripple or to kill."
   ##Spell Options
   ##event
   zz_valyria_magic_air_magic.001.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.001.name$"
-  zz_valyria_magic_air_magic.001.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. With [recipient.GetFirstName]' before you, it would be possible to send a blade of the air, invisible to the eye and remove his head from its shoulders. But surely such a strike would be an affront to honour?"
-  zz_valyria_magic_air_magic.001.opt.a:0 "Yes, slice them with the blade of air!"
-  zz_valyria_magic_air_magic.001.opt.b:0 "Yes, show them the fury of the winds!"
+  zz_valyria_magic_air_magic.001.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe air in the chamber grows very still. Candle flames stand perfectly upright, and dust hangs motionless in the light. Then, with a sound like a sharp intake of breath, a single line of wind begins to turn, faster and faster, until it sings.\n\nThe duellists of the Freehold called this the Whispering Edge. A sky-sorcerer who had mastered it could kill a man across a crowded hall without anyone seeing them move.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may loose the wind's blade upon [recipient.GetFirstName], and decide in the instant of the cut whether to maim or to slay. Is such an unseen death a fitting one?"
+  zz_valyria_magic_air_magic.001.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster raises a single finger and draws it slowly through the air, and a thin whistling follows it, as though the air itself had been cut. A silk scarf hanging from a hook at the far end of the chamber parts neatly in two and drifts to the floor.\n\nThe sky-sorcerers of the Freehold needed no blade. The wind was sharp enough.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may loose the wind's blade upon [recipient.GetFirstName], and decide in the instant of the cut whether to maim or to slay. Is such an unseen death a fitting one?"
+  zz_valyria_magic_air_magic.001.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA feather is held up before the caster and released. It does not drift. It spins in place, faster and faster, until it is a blur, and then it shoots across the chamber and buries itself, quivering, in the oak of the far door.\n\nIn Valyria, it was said that a sky-sorcerer could kill with a breath. Those who doubted it seldom doubted it for long.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may loose the wind's blade upon [recipient.GetFirstName], and decide in the instant of the cut whether to maim or to slay. Is such an unseen death a fitting one?"
+  zz_valyria_magic_air_magic.001.opt.a:0 "Cut them, but let them live!"
+  zz_valyria_magic_air_magic.001.opt.b:0 "Yes, show them the fury of the winds, even unto death!"
   zz_valyria_magic_air_magic.001.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.001.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.001.name$"
-  zz_valyria_magic_air_magic.001.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ striking [recipient.GetFirstName] with a crushing strike of wind."
+  zz_valyria_magic_air_magic.001.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ striking at [recipient.GetFirstName] with an invisible blade of wind."
   zz_valyria_magic_air_magic.001.toast.tt:0 "$zz_valyria_magic_air_magic.001.toast.desc$"
   zz_valyria_magic_air_magic.001.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.001.name$"
   zz_valyria_magic_air_magic.001.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -26,15 +28,17 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_air_magic_002.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tr$\n$zz_cd$\n\nThrough the secret arts of [air_magic|E] it is possible to strike at the personal forces of your enemy."
+  zz_valyria_magic_air_magic_002.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tr$\n$zz_dr$\n$zz_cd$\n\nThe use of the arcane forces of [air_magic|E] to tear apart a single enemy company with a howling tempest.\n\nThrough this mystery, a small but furious tempest is conjured above a single company of the enemy host. Within its bounds the wind becomes a living thing, lifting men from their feet, tearing shields from their arms, and dashing them against the earth.\n\nThe storm is narrow but catastrophic. Few companies survive its passage in any state to fight.\n\nThe sky-sorcerers of Valyria used this working to destroy the elite companies of their enemies, the guards and champions on whom whole armies depended."
   ##event
   zz_valyria_magic_air_magic.002.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.002.name$"
-  zz_valyria_magic_air_magic.002.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. It is possible to create a targeted vaccum at the location of one of [recipient.GetFirstName] regiments.This vaccum would tear the air from the lungs of this regiment, consigning untold numbers of men to a most painful death. But surely such a strike would be an affront to honourable warfare?"
-  zz_valyria_magic_air_magic.002.opt.a:0 "Yes, what good is honour to the dead?"
+  zz_valyria_magic_air_magic.002.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe windows of the chamber begin to rattle in their frames, though there is no wind outside. A low, rising howl fills the air, like a gale heard through a keyhole.\n\nThe Freehold's battle-mages called this the Fist of the Sky. Where it fell, they said, there was nothing left to bury.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may unleash a tempest upon one of the companies of [recipient.GetFirstName], tearing it apart where it stands. What good is honour to the dead?"
+  zz_valyria_magic_air_magic.002.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nEvery door in the chamber slams shut at once, and the shutters strain against their latches as though something enormous were pressing against them from outside. The caster spreads their hands, and the pressure in the room builds until ears ache and candles gutter.\n\nThe battle-mages of the Freehold could hurl the force of a storm against an army in a single blow, and the armies that faced it were seldom whole afterwards.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may unleash a tempest upon one of the companies of [recipient.GetFirstName], tearing it apart where it stands. What good is honour to the dead?"
+  zz_valyria_magic_air_magic.002.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster draws a deep breath and holds it, and the air in the chamber seems to rush towards them, tugging at hair and clothes. When at last they let it out, it comes not as a breath but as a gale, roaring across the room and scattering everything before it.\n\nIn Valyria, the war-sorcerers called the wind their cavalry. It never tired, and it never retreated.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may unleash a tempest upon one of the companies of [recipient.GetFirstName], tearing it apart where it stands. What good is honour to the dead?"
+  zz_valyria_magic_air_magic.002.opt.a:0 "Unleash the tempest!"
   zz_valyria_magic_air_magic.002.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.002.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.002.name$"
-  zz_valyria_magic_air_magic.002.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ striking [target.GetName] of [recipient.GetFirstName] with a slicing blade of wind."
+  zz_valyria_magic_air_magic.002.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ tearing apart a company of [recipient.GetFirstName] with a howling tempest."
   zz_valyria_magic_air_magic.002.toast.tt:0 "$zz_valyria_magic_air_magic.002.toast.desc$"
   zz_valyria_magic_air_magic.002.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.002.name$"
   zz_valyria_magic_air_magic.002.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -42,30 +46,34 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_air_magic_003.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThrough the secret arts of [air_magic|E] it is possible to conjure forth a wall of wind, to protext your forces from those who would seek to do them harm."
+  zz_valyria_magic_air_magic_003.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_maat$\n\nThe use of the arcane forces of [air_magic|E] to shield a commander's soldiers behind a wall of wind.\n\nThrough this mystery, a constant, invisible wall of wind is raised around the professional soldiers of the chosen subject's host. Arrows veer aside, spears fall short, and blows that should have struck home are turned by a sudden gust.\n\nThe [men_at_arms|E] of the subject's army become far tougher, surviving punishment that would have broken them.\n\nThe legions of the Freehold marched beneath such walls, and their enemies grew to dread the sight of arrows falling harmlessly around them."
   ##event
   zz_valyria_magic_air_magic.003.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.003.name$"
-  zz_valyria_magic_air_magic.003.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. It is possible to create a targeted a vortex of air to protect the troops of [recipient.GetFirstName].This vortex would make their forces considerably more resilient to attack. Do you wish to use the winds to shield these forces?"
-  zz_valyria_magic_air_magic.003.opt.a:0 "Yes, for those troops are mine."
+  zz_valyria_magic_air_magic.003.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA steady breeze rises within the chamber and begins to circle the ritual, faster and faster, until the caster stands at the still heart of a whirlwind that hums like a plucked string.\n\nThe sky-sorcerers of the Freehold walked with the legions, raising walls of wind before every battle, so that the enemy's first volley was wasted on empty air.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may raise a wall of wind around the soldiers of [recipient.GetFirstName], making their men-at-arms far harder to kill. Will you shield them?"
+  zz_valyria_magic_air_magic.003.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster turns slowly in place, arms outstretched, and the air begins to turn with them. Dust and loose papers lift from the floor and circle the chamber in a widening ring, and the sound of it rises to a steady, droning hum.\n\nThe legions of the Freehold advanced behind walls of wind. Arrows that should have found their mark were snatched away and scattered across the field.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may raise a wall of wind around the soldiers of [recipient.GetFirstName], making their men-at-arms far harder to kill. Will you shield them?"
+  zz_valyria_magic_air_magic.003.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA ring of tall banners is planted around the ritual circle, and as the caster speaks, they begin to snap and flutter in a wind that blows from every direction at once. The wind thickens until the banners stand straight out, and the air between them grows hard and resisting to the touch.\n\nIn Valyria, the sky-sorcerers marched with every legion, and no enemy volley ever reached the soldiers they guarded.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may raise a wall of wind around the soldiers of [recipient.GetFirstName], making their men-at-arms far harder to kill. Will you shield them?"
+  zz_valyria_magic_air_magic.003.opt.a:0 "Raise the wall of wind!"
   zz_valyria_magic_air_magic.003.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.003.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.003.name$"
-  zz_valyria_magic_air_magic.003.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ protecting the forces of [recipient.GetFirstName] with a barrier of protective wind."
+  zz_valyria_magic_air_magic.003.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ raising a wall of wind around the soldiers of [recipient.GetFirstName]."
   zz_valyria_magic_air_magic.003.toast.tt:0 "$zz_valyria_magic_air_magic.003.toast.desc$"
   zz_valyria_magic_air_magic.003.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.003.name$"
   zz_valyria_magic_air_magic.003.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_air_magic.003.f.toast.tt:0 "$zz_valyria_magic_air_magic.003.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_air_magic_004.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_da$\n$zz_md$\n\nThrough the secret arts of [air_magic|E] it is possible to conjure forth the might of the storm. A ravaging hurricane to consume the world."
+  zz_valyria_magic_air_magic_004.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_dar$\n$zz_vld$\n$zz_dbld$\n\nThe use of the arcane forces of [air_magic|E] to call down a hurricane upon a chosen province and every army within it.\n\nThis is the sky's fury given form: a hurricane, conjured and set loose upon a single province. It strikes again and again at every army camped within it, friend or foe, and tears at the buildings of the land as it passes.\n\nThe longer the caster can sustain the storm, the more blows it lands, and the more thoroughly the province is ravaged.\n\nThe storm-lords of the Freehold were said to be able to keep such a hurricane alive for days. The provinces they punished took a generation to recover."
   ##event
   zz_valyria_magic_air_magic.004.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.004.name$"
-  zz_valyria_magic_air_magic.004.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. It is possible to create a monstrous hurricane at the location of one of [recipient.GetFirstName] provinces. Such a storm would become a focal point of the heaven's untameable wrath, ruining men and structures alike. But surely such a strike would be an affront to honourable warfare?"
-  zz_valyria_magic_air_magic.004.opt.a:0 "Yes, for I am the Lord of the Storm!"
+  zz_valyria_magic_air_magic.004.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe sky outside darkens in the space of a few heartbeats. A wind rises that bends the trees double and drives the rain sideways, and somewhere far away, in the direction of the chosen province, the clouds begin to turn in a vast, slow spiral.\n\nThe storm-lords of Valyria were among the most feared of the Freehold's sorcerers, for they could break an army without ever seeing it, and level a city without ever leaving their towers.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may call a hurricane down upon the chosen province, battering every army within it and ruining the works of its people. Are you the Lord of the Storm?"
+  zz_valyria_magic_air_magic.004.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster opens the shutters of the tallest window and looks out towards the chosen province. The sky in that direction darkens as they watch, clouds piling upon clouds, and a low roar rises from the horizon, like the sea heard from far inland.\n\nThe storm-lords of the Freehold could raise a hurricane over a land they had never seen, and leave it in ruins without ever leaving their towers.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may call a hurricane down upon the chosen province, battering every army within it and ruining the works of its people. Are you the Lord of the Storm?"
+  zz_valyria_magic_air_magic.004.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA bowl of water is set upon the ritual stone, and the caster stirs it with a single finger, round and round. The water begins to spin, faster and faster, until a tiny whirlpool forms at its heart, and far away, above the chosen province, the clouds begin to spin in the same way.\n\nIn Valyria, the storm-lords were among the most feared of all the Freehold's sorcerers. A single one of them could undo the work of a generation.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may call a hurricane down upon the chosen province, battering every army within it and ruining the works of its people. Are you the Lord of the Storm?"
+  zz_valyria_magic_air_magic.004.opt.a:0 "I am the Lord of the Storm!"
   zz_valyria_magic_air_magic.004.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.004.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.004.name$"
-  zz_valyria_magic_air_magic.004.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ conjuring a mighty storm at the location of [recipient.GetFirstName],  [target.GetName]."
+  zz_valyria_magic_air_magic.004.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ calling a hurricane down upon [target.GetName]."
   zz_valyria_magic_air_magic.004.toast.tt:0 "$zz_valyria_magic_air_magic.004.toast.desc$"
   zz_valyria_magic_air_magic.004.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.004.name$"
   zz_valyria_magic_air_magic.004.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -73,15 +81,17 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_air_magic_005.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThrough the secret arts of [air_magic|E] it is possible to observe the portents of the future and seize the advantage in battle."
+  zz_valyria_magic_air_magic_005.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_adv$\n\nThe use of the arcane forces of [air_magic|E] to grant a commander the foresight of the winds in battle.\n\nThe wind carries news. It bears the dust of marching feet, the smoke of distant fires, and the sound of orders shouted out of sight. Through this mystery, a commander learns to hear what the wind tells them.\n\nThe subject's armies seize the initiative in battle, striking first and positioning themselves before their enemies have even understood the field.\n\nThe generals of the Freehold were famed for always seeming to know where their enemies would be. The wind, it was whispered, told them."
   ##event
   zz_valyria_magic_air_magic.005.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.005.name$"
-  zz_valyria_magic_air_magic.005.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. It is possible to read the portents of the wind to benefit the forces of [recipient.GetFirstName].This wind would empower the advantages in battle of your forces. Do you wish to use the winds to empower these forces?"
-  zz_valyria_magic_air_magic.005.opt.a:0 "Yes, for those troops are mine."
+  zz_valyria_magic_air_magic.005.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA cool breeze stirs within the chamber, carrying with it the faint scent of distant places: wet grass, woodsmoke, horses. Somewhere in its murmur, almost too faint to hear, are voices.\n\nThe sky-sorcerers of the Freehold served its legions as scouts that no enemy could ever catch, listening to the wind and whispering what it told them into the ears of the legion commanders.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant [recipient.GetFirstName] the foresight of the winds, so that their armies seize the advantage in every battle. Will you lend them the sky's ear?"
+  zz_valyria_magic_air_magic.005.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster stands at an open window with their eyes closed, and a breeze rises to meet them, bringing with it the scents of far-off places. Their lips move as though in conversation, and now and then they nod, as if the wind had told them something worth knowing.\n\nThe sky-sorcerers of the Freehold were the eyes and ears of its legions. The wind carried them every word spoken within a day's ride.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant [recipient.GetFirstName] the foresight of the winds, so that their armies seize the advantage in every battle. Will you lend them the sky's ear?"
+  zz_valyria_magic_air_magic.005.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA small silver bell is hung upon a cord in the open air, and it begins to chime softly, though no hand touches it. Each chime carries a whisper, and each whisper a piece of news: a column on the march, a scout in the hills, a commander's careless word.\n\nIn Valyria, it was said that no army could surprise a legion that had a sky-sorcerer at its side.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant [recipient.GetFirstName] the foresight of the winds, so that their armies seize the advantage in every battle. Will you lend them the sky's ear?"
+  zz_valyria_magic_air_magic.005.opt.a:0 "Let the wind guide them."
   zz_valyria_magic_air_magic.005.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.005.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.005.name$"
-  zz_valyria_magic_air_magic.005.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ providing the forces of [recipient.GetFirstName] with an advantage in their battles."
+  zz_valyria_magic_air_magic.005.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ granting [recipient.GetFirstName] the foresight of the winds in battle."
   zz_valyria_magic_air_magic.005.toast.tt:0 "$zz_valyria_magic_air_magic.005.toast.desc$"
   zz_valyria_magic_air_magic.005.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.005.name$"
   zz_valyria_magic_air_magic.005.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -89,15 +99,17 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_air_magic_006.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_cd$\n\nThrough the secret arts of [air_magic|E] it is possible to strike an enemy army with the full fury of the heavens."
+  zz_valyria_magic_air_magic_006.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_da$\n$zz_cd$\n\nThe use of the arcane forces of [air_magic|E] to strike an enemy army with the full fury of the heavens.\n\nLightning, hail, and wind together: this mystery calls the full fury of the sky down upon a single army. Few armies survive the experience intact.\n\nThe working is catastrophic in its effect. Whole companies are scattered, burned, or crushed in the space of a single storm.\n\nThe Valyrians called it the Wrath of the Heavens, and their enemies came to believe that the sky itself served the Freehold."
   ##event
   zz_valyria_magic_air_magic.006.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.006.name$"
-  zz_valyria_magic_air_magic.006.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. It is possible to conjure in the heavens a mighty blast of lightning, that will strike one of the armies of [recipient.GetFirstName] with an unrivalled fury. This would obliterate this army as a fighting unit. But surely such a strike would be an affront to honourable warfare?"
-  zz_valyria_magic_air_magic.006.opt.a:0 "Yes, what good is honour to the dead?"
+  zz_valyria_magic_air_magic.006.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThunder rolls across the sky, though the day was clear moments ago. The air prickles with the charge of a coming storm, and the hair on every arm in the chamber stands on end.\n\nThe storm-lords of the Freehold were summoned only when an army had to be destroyed utterly, for the Wrath of the Heavens was not a working to be used lightly.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bring the full fury of the heavens down upon an army of [recipient.GetFirstName]. What good is honour to the dead?"
+  zz_valyria_magic_air_magic.006.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster lifts a rod of copper towards the sky, and the clouds above the tower begin to gather, black and heavy. Thunder rolls, closer and closer, and the rod begins to hum in the caster's grip, eager for the lightning that is about to fall.\n\nThe Wrath of the Heavens was the most terrible of the storm-lords' arts. The Freehold called upon it only when an army had to be broken utterly.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bring the full fury of the heavens down upon an army of [recipient.GetFirstName]. What good is honour to the dead?"
+  zz_valyria_magic_air_magic.006.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nEvery candle in the chamber is snuffed at once, and in the darkness, a faint blue light begins to crackle along the walls. The air grows thick and sharp, and a deep rumble shakes the floor beneath the caster's feet.\n\nIn Valyria, it was said that the sky had a temper, and that the storm-lords knew how to wake it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bring the full fury of the heavens down upon an army of [recipient.GetFirstName]. What good is honour to the dead?"
+  zz_valyria_magic_air_magic.006.opt.a:0 "Bring down the heavens!"
   zz_valyria_magic_air_magic.006.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.006.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.006.name$"
-  zz_valyria_magic_air_magic.006.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ striking [target.GetName] of [recipient.GetFirstName] with a monstrous blast of lightning."
+  zz_valyria_magic_air_magic.006.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ striking an army of [recipient.GetFirstName] with the full fury of the heavens."
   zz_valyria_magic_air_magic.006.toast.tt:0 "$zz_valyria_magic_air_magic.006.toast.desc$"
   zz_valyria_magic_air_magic.006.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.006.name$"
   zz_valyria_magic_air_magic.006.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -105,45 +117,51 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_air_magic_007.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThrough the secret arts of [air_magic|E] it is possible to enchant your forces to move with greater alacrity."
+  zz_valyria_magic_air_magic_007.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_ms_up$\n\nThe use of the arcane forces of [air_magic|E] to carry a commander's armies forward on a favouring wind.\n\nThrough this mystery, a constant wind is bound to the armies of the chosen subject, always at their backs, always pushing them onward. Their march becomes swifter, their columns more eager, their wagons lighter on the road.\n\nThe subject's armies move far faster than they otherwise could, arriving where they are needed before their enemies can prepare.\n\nThe legions of the Freehold seemed to appear from nowhere. The Chariot of the Heavens was the reason."
   ##event
   zz_valyria_magic_air_magic.007.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.007.name$"
-  zz_valyria_magic_air_magic.007.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. It is possible to enchant the armies commanded by [recipient.GetFirstName] to move with much greater alacrity. Do you wish to use the winds to empower these forces?"
-  zz_valyria_magic_air_magic.007.opt.a:0 "Yes, for those troops are mine."
+  zz_valyria_magic_air_magic.007.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA wind rises within the chamber and begins to blow steadily in a single direction, carrying papers, dust, and candle smoke before it. It does not falter, and it does not change.\n\nThe sky-sorcerers of the Freehold bound such winds to its legions on campaign, so that its armies could cross a province in the time it took their enemies to cross a county.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set a favouring wind at the backs of [recipient.GetFirstName]'s armies, speeding their every march. Will you harness the Chariot of the Heavens?"
+  zz_valyria_magic_air_magic.007.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA pair of wings, taken from some great bird of the high mountains, is laid upon the ritual stone. As the caster speaks, the feathers begin to stir, lifting and settling in a wind that blows steadily from behind, and the whole chamber seems to lean forward with them.\n\nThe legions of the Freehold crossed whole provinces in days. The wind at their backs was not natural.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set a favouring wind at the backs of [recipient.GetFirstName]'s armies, speeding their every march. Will you harness the Chariot of the Heavens?"
+  zz_valyria_magic_air_magic.007.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster unfurls a banner of the legion and holds it aloft, and a wind rises to fill it, steady and strong. The banner snaps forward, pointing towards some distant goal, and the wind does not waver or fail.\n\nIn Valyria, the sky-sorcerers bound such winds to the armies of the Freehold, so that they always arrived before their enemies were ready.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set a favouring wind at the backs of [recipient.GetFirstName]'s armies, speeding their every march. Will you harness the Chariot of the Heavens?"
+  zz_valyria_magic_air_magic.007.opt.a:0 "Let the wind carry them!"
   zz_valyria_magic_air_magic.007.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.007.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.007.name$"
-  zz_valyria_magic_air_magic.007.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ providing the forces of [recipient.GetFirstName] with greater movement speed."
+  zz_valyria_magic_air_magic.007.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ setting a favouring wind at the backs of the armies of [recipient.GetFirstName]."
   zz_valyria_magic_air_magic.007.toast.tt:0 "$zz_valyria_magic_air_magic.007.toast.desc$"
   zz_valyria_magic_air_magic.007.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.007.name$"
   zz_valyria_magic_air_magic.007.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_air_magic.007.f.toast.tt:0 "$zz_valyria_magic_air_magic.007.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_air_magic_008.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tr$\n$zz_sd$\n\nThrough the secret arts of [air_magic|E] it is possible to strike at an enemy army with the terrifying forces of the heavens."
+  zz_valyria_magic_air_magic_008.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_drs$\n$zz_vld$\n$zz_hkn$\n\nThe use of the arcane forces of [air_magic|E] to strike an enemy army and its champions with bolts of lightning.\n\nLightning seeks the tallest point, and on a battlefield, the tallest points are the knights. Through this mystery, bolts of lightning are called down upon an army, striking at its champions with a terrible preference.\n\nThe army's [knight|E]s may be maimed, wounded, or slain outright, while every company in the host is scorched by the storm.\n\nThe Valyrians found this working particularly useful against the armies of feudal lords, whose strength so often depended upon a handful of famous warriors."
   ##event
   zz_valyria_magic_air_magic.008.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.008.name$"
-  zz_valyria_magic_air_magic.008.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. It is possible to call the very fury of the heaves to rest above oneof the armies of [recipient.GetFirstName]. You bring forth the storm, and let the lightning bolts strike down towards the target enemy, dealing massive damage."
-  zz_valyria_magic_air_magic.008.opt.a:0 "Yes, what good is honour to the dead?"
+  zz_valyria_magic_air_magic.008.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA crackle of energy runs along every metal surface in the chamber. Blue sparks leap between the iron candlesticks, and the air smells sharp and clean, like the moment before a storm breaks.\n\nThe sky-sorcerers of the Freehold called this the Spear of the Sky. They aimed it not at armies, but at the men who led them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may call lightning down upon an army of [recipient.GetFirstName], striking at its champions and scorching its companies. Will you hurl the Spear of the Sky?"
+  zz_valyria_magic_air_magic.008.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster draws a long iron spike from a bundle and drives it into the floor of the chamber. A crackle runs up its length, and the air around it fills with the sharp, clean smell of a storm, and a thin blue thread of lightning dances at its tip.\n\nThe Spear of the Sky was the assassin's weapon of the storm-lords. They aimed it not at soldiers, but at the commanders who led them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may call lightning down upon an army of [recipient.GetFirstName], striking at its champions and scorching its companies. Will you hurl the Spear of the Sky?"
+  zz_valyria_magic_air_magic.008.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA coin of polished copper is tossed into the air, and it does not fall. It hangs, spinning, while lightning crawls across its face in thin blue threads, and the caster speaks a name into the crackling air.\n\nIn Valyria, it was said that a general who angered the storm-lords should never stand on high ground.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may call lightning down upon an army of [recipient.GetFirstName], striking at its champions and scorching its companies. Will you hurl the Spear of the Sky?"
+  zz_valyria_magic_air_magic.008.opt.a:0 "Hurl the lightning!"
   zz_valyria_magic_air_magic.008.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.008.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.008.name$"
-  zz_valyria_magic_air_magic.008.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ striking every regiment in the army [target.GetName] of [recipient.GetFirstName] with a powerful blast of lightning."
+  zz_valyria_magic_air_magic.008.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ calling lightning down upon an army of [recipient.GetFirstName], striking at its champions."
   zz_valyria_magic_air_magic.008.toast.tt:0 "$zz_valyria_magic_air_magic.008.toast.desc$"
   zz_valyria_magic_air_magic.008.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.008.name$"
   zz_valyria_magic_air_magic.008.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_air_magic.008.f.toast.tt:0 "$zz_valyria_magic_air_magic.008.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_air_magic_009.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_cd$\n\nThrough the secret arts of [air_magic|E] it is possible to strike at an enemy army with the terrifying forces of the heavens."
+  zz_valyria_magic_air_magic_009.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_dar$\n$zz_cd$\n$zz_rhold$\n$zz_cccon$\n$zz_ccd$\n\nThe use of the arcane forces of [air_magic|E] to bring down a single, devastating blow of the heavens upon a chosen province.\n\nThis is the greatest and most terrible of the sky's workings: a single bolt of lightning so vast it seems the sky itself has fallen. It strikes a chosen province, ruining one of its holdings, devastating every army camped within it, and shattering the county's [county_control|E] and [prosperity|E].\n\nNo wall, no fortress, no army can withstand God's Hammer. What it strikes, it destroys.\n\nLegend holds that the storm-lords of the Freehold used this working only a handful of times, and that each time the world remembered it for a century."
   ##event
   zz_valyria_magic_air_magic.009.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.009.name$"
-  zz_valyria_magic_air_magic.009.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. It is possible to call from the skies a mighty blast from the sky, striking one of the provinces of [recipient.GetFirstName]. This horrid mystery brings nothing but destruction, obliterating entire armies, and leaving the province a shattered ruin."
-  zz_valyria_magic_air_magic.009.opt.a:0 "Yes, what good is honour to the dead?"
+  zz_valyria_magic_air_magic.009.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA deep and terrible silence falls. The birds stop singing; the wind dies; even the heartbeat of the caster seems to slow. And then, far away above the chosen province, the sky begins to glow white.\n\nThe storm-lords of Valyria called it God's Hammer, and only the greatest among them ever dared to wield it. Even they spoke of it in whispers.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bring God's Hammer down upon the chosen province, ruining one of its holdings and shattering every army within it. Is any cause worth such ruin?"
+  zz_valyria_magic_air_magic.009.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster climbs to the very top of the tower and raises both hands to the sky. The clouds above part, and through the gap a light shines down, white and terrible, building and building until it seems the whole sky must crack open beneath it.\n\nGod's Hammer was the greatest of all the storm-lords' workings. In all the Freehold's history, only a handful ever dared to call it down.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bring God's Hammer down upon the chosen province, ruining one of its holdings and shattering every army within it. Is any cause worth such ruin?"
+  zz_valyria_magic_air_magic.009.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe world falls silent around the caster. No bird sings, no wind stirs, and even the flames of the candles stand utterly still. Then, from far above the chosen province, a sound begins to build: a low, rising thunder that does not stop.\n\nThe storm-lords of Valyria spoke of God's Hammer only in whispers. Those who had seen it fall seldom spoke of it at all.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bring God's Hammer down upon the chosen province, ruining one of its holdings and shattering every army within it. Is any cause worth such ruin?"
+  zz_valyria_magic_air_magic.009.opt.a:0 "Let the Hammer fall!"
   zz_valyria_magic_air_magic.009.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.009.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.009.name$"
-  zz_valyria_magic_air_magic.009.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ striking the province of [target.GetName] with a celestial calamity."
+  zz_valyria_magic_air_magic.009.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ bringing God's Hammer down upon [target.GetName]."
   zz_valyria_magic_air_magic.009.toast.tt:0 "$zz_valyria_magic_air_magic.009.toast.desc$"
   zz_valyria_magic_air_magic.009.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.009.name$"
   zz_valyria_magic_air_magic.009.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -151,15 +169,17 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_air_magic_010.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_dca$\n\nThrough the secret arts of [air_magic|E] it is possible to use the winds to restrict the ability of a character's army to screen itself."
+  zz_valyria_magic_air_magic_010.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_scr_dn$\n\nThe use of the arcane forces of [air_magic|E] to send a stifling southern wind against a commander's armies, blinding their scouts.\n\nThe south wind is hot, heavy, and full of dust. Through this mystery, it is bound to the armies of a chosen subject, filling their eyes with grit and their scouts' horizons with haze.\n\nThe subject's armies screen themselves far less effectively, leaving them exposed to pursuit and flanking.\n\nThe Freehold's sky-sorcerers sent the south wind against their enemies before battle, so that the legions could strike at an army that could not see them coming."
   ##event
   zz_valyria_magic_air_magic.010.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.010.name$"
-  zz_valyria_magic_air_magic.010.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. You can restrict the screening ability of the troops that are commanded by [recipient.GetFirstName]. This will make them more likely to take damage from flanking attacks."
-  zz_valyria_magic_air_magic.010.opt.a:0 "Yes, for those troops are mine."
+  zz_valyria_magic_air_magic.010.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA hot, dry wind rises within the chamber, carrying with it the smell of baked earth and the sting of fine sand. Eyes water, and the far walls seem to shimmer and blur.\n\nIn the wars of the Freehold, the south wind was the herald of the legions. Where it blew, the enemy's scouts went blind.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may send the south wind against the armies of [recipient.GetFirstName], leaving them half-blind and poorly screened. Will you raise the dust?"
+  zz_valyria_magic_air_magic.010.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster scatters a handful of fine red sand into the air, and a hot wind rises to catch it, swirling it about the chamber in a stinging cloud. The light dims, the far walls blur, and every eye in the room begins to water.\n\nThe legions of the Freehold advanced behind the south wind, and the enemy's scouts were blind before the first soldier came into sight.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may send the south wind against the armies of [recipient.GetFirstName], leaving them half-blind and poorly screened. Will you raise the dust?"
+  zz_valyria_magic_air_magic.010.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA brazier of hot coals is set beneath an open window, and the caster speaks to the air above it. The heat rises and rolls outward in a dry, choking wind, carrying dust and haze far across the land.\n\nIn Valyria, the south wind was called the legion's veil. No scout could see through it, and few tried for long.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may send the south wind against the armies of [recipient.GetFirstName], leaving them half-blind and poorly screened. Will you raise the dust?"
+  zz_valyria_magic_air_magic.010.opt.a:0 "Let the south wind blow!"
   zz_valyria_magic_air_magic.010.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.010.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.010.name$"
-  zz_valyria_magic_air_magic.010.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ weakening the forces of [recipient.GetFirstName] ability to screen attacks."
+  zz_valyria_magic_air_magic.010.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ sending a stifling south wind against the armies of [recipient.GetFirstName]."
   zz_valyria_magic_air_magic.010.toast.tt:0 "$zz_valyria_magic_air_magic.010.toast.desc$"
   zz_valyria_magic_air_magic.010.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.010.name$"
   zz_valyria_magic_air_magic.010.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -167,15 +187,17 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_air_magic_011.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThrough the secret arts of [air_magic|E] it is possible to use the winds to improve the ability of a character's army to screen itself."
+  zz_valyria_magic_air_magic_011.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_scr_up$\n\nThe use of the arcane forces of [air_magic|E] to grant a commander's scouts the clear sight of the northern wind.\n\nThe north wind is cold, clean, and clear. Through this mystery, it is bound to the armies of a chosen subject, sweeping away haze and carrying the sounds of the enemy to their scouts' ears.\n\nThe subject's armies screen themselves far more effectively, guarding their flanks and rear against surprise.\n\nThe legions of the Freehold were famously difficult to ambush. Their enemies blamed treachery; the truth was simpler, and colder."
   ##event
   zz_valyria_magic_air_magic.011.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.011.name$"
-  zz_valyria_magic_air_magic.011.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. You can improve the screening ability of the troops that are commanded by [recipient.GetFirstName]. This will make them less likely to take damage from flanking attacks."
-  zz_valyria_magic_air_magic.011.opt.a:0 "Yes, for those troops are mine."
+  zz_valyria_magic_air_magic.011.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA cold, clean wind sweeps through the chamber, sharp as the air of a mountaintop. The candle smoke clears, and every edge in the room seems suddenly crisper and closer.\n\nThe scouts of the Freehold's legions rode with the north wind at their backs, seeing further and hearing more than any rider had a right to.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant the north wind to the armies of [recipient.GetFirstName], sharpening their scouts and guarding their flanks. Will you call it?"
+  zz_valyria_magic_air_magic.011.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster opens every window in the tower, and a cold wind sweeps through, sharp and clear. The haze over the land lifts, the far hills come into focus, and the distant sounds of the world grow suddenly crisp and close.\n\nThe scouts of the Freehold rode with the north wind behind them, and saw further than any eye should see.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant the north wind to the armies of [recipient.GetFirstName], sharpening their scouts and guarding their flanks. Will you call it?"
+  zz_valyria_magic_air_magic.011.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA shard of ice is held up to the light, and the caster breathes upon it, speaking the old words softly. A cold, clear wind rises from the ice and spreads outward, and wherever it blows, the air grows clean and bright and sharp as glass.\n\nIn Valyria, it was said that the north wind carried every sound and every sight to those who knew how to listen.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant the north wind to the armies of [recipient.GetFirstName], sharpening their scouts and guarding their flanks. Will you call it?"
+  zz_valyria_magic_air_magic.011.opt.a:0 "Let the north wind blow!"
   zz_valyria_magic_air_magic.011.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.011.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.011.name$"
-  zz_valyria_magic_air_magic.011.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ strengthening the forces of [recipient.GetFirstName] ability to screen attacks."
+  zz_valyria_magic_air_magic.011.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ granting the clear sight of the north wind to the armies of [recipient.GetFirstName]."
   zz_valyria_magic_air_magic.011.toast.tt:0 "$zz_valyria_magic_air_magic.011.toast.desc$"
   zz_valyria_magic_air_magic.011.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.011.name$"
   zz_valyria_magic_air_magic.011.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -183,75 +205,85 @@ l_english:
 
 
 ## Interaction
-  zz_valyria_magic_air_magic_012.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThrough the secret arts of [air_magic|E] it is possible to use the winds to improve the ability of a character's army to screen itself."
+  zz_valyria_magic_air_magic_012.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_prw$\n\nThe use of the arcane forces of [air_magic|E] to lend a chosen warrior the speed and edge of the wind.\n\nThrough this mystery, the wind is bound to a single warrior, quickening their every movement. Their blade moves faster, their footwork lighter, and their blows land before their opponent can raise a guard.\n\nThe subject's [prowess|E] increases considerably for as long as the wind remains with them.\n\nThe duellists of the Freehold who bore Wind's Edge were said to fight like falling leaves, impossible to predict and impossible to touch."
   ##event
   zz_valyria_magic_air_magic.012.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.012.name$"
-  zz_valyria_magic_air_magic.012.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. You can improve the screening ability of the troops that are commanded by [recipient.GetFirstName]. This will make them less likely to take damage from flanking attacks."
-  zz_valyria_magic_air_magic.012.opt.a:0 "Yes, for those troops are mine."
+  zz_valyria_magic_air_magic.012.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA thin, swift breeze curls around the subject's arms and legs, and when they move, the air moves with them, a half-heartbeat ahead.\n\nThe champions of the Freehold's arenas paid dearly for Wind's Edge, and those who were caught using it were cast out in disgrace. Those who were not caught rarely lost.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lend the wind's speed to [recipient.GetFirstName], making them a far deadlier fighter. Will you quicken their blade?"
+  zz_valyria_magic_air_magic.012.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster ties a thin ribbon of silk about the subject's wrist, and it lifts and flutters in a wind that no one else can feel. When the subject moves, the ribbon moves first, and their arm follows, a little faster than it should.\n\nThe champions of the Freehold's arenas paid fortunes for this working, and lost very few duels while it lasted.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lend the wind's speed to [recipient.GetFirstName], making them a far deadlier fighter. Will you quicken their blade?"
+  zz_valyria_magic_air_magic.012.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA whisper of wind curls around the subject's feet and rises slowly up their body, lifting the hem of their cloak and the hair at their brow. When it settles, they feel lighter, quicker, as though the air itself were eager to help them move.\n\nIn Valyria, it was said that a duellist touched by Wind's Edge could strike twice before their opponent struck once.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lend the wind's speed to [recipient.GetFirstName], making them a far deadlier fighter. Will you quicken their blade?"
+  zz_valyria_magic_air_magic.012.opt.a:0 "Quicken their blade."
   zz_valyria_magic_air_magic.012.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.012.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.012.name$"
-  zz_valyria_magic_air_magic.012.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ strengthening the forces of [recipient.GetFirstName] ability to screen attacks."
+  zz_valyria_magic_air_magic.012.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ lending the speed and edge of the wind to [recipient.GetFirstName]."
   zz_valyria_magic_air_magic.012.toast.tt:0 "$zz_valyria_magic_air_magic.012.toast.desc$"
   zz_valyria_magic_air_magic.012.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.012.name$"
   zz_valyria_magic_air_magic.012.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_air_magic.012.f.toast.tt:0 "$zz_valyria_magic_air_magic.012.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_air_magic_013.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThrough the secret arts of [air_magic|E] it is possible to use the winds to improve the ability of a character's army to screen itself."
+  zz_valyria_magic_air_magic_013.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_nwp$\n\nThe use of the arcane forces of [air_magic|E] to bear up a chosen warrior on the wind, so that their wounds no longer weigh upon them.\n\nThrough this mystery, a cushion of wind is bound around a chosen warrior, bearing their weight and steadying their limbs. Injuries that should slow them seem to vanish; their body moves as though it were whole.\n\nThe subject ignores the penalties that their wounds would otherwise impose upon their [prowess|E].\n\nThe wounds themselves remain, and when the barrier fades, the warrior feels every one of them at once."
   ##event
   zz_valyria_magic_air_magic.013.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.013.name$"
-  zz_valyria_magic_air_magic.013.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. You can improve the screening ability of the troops that are commanded by [recipient.GetFirstName]. This will make them less likely to take damage from flanking attacks."
-  zz_valyria_magic_air_magic.013.opt.a:0 "Yes, for those troops are mine."
+  zz_valyria_magic_air_magic.013.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA soft, buoyant wind wraps itself around the subject. Their shoulders lift, their breathing eases, and the stiffness of old injuries seems to drain away like water.\n\nThe legion commanders of the Freehold were often borne up by Aether's Barrier before battle, so that no wound, however grievous, could keep them from the front.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bear [recipient.GetFirstName] up upon the wind, so that their wounds no longer hinder them in combat. Will you lift them?"
+  zz_valyria_magic_air_magic.013.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster draws a circle of white feathers around the subject and speaks softly in High Valyrian. The feathers lift and turn in the air, forming a slow, drifting ring that rises around the subject and then fades from sight.\n\nThe commanders of the Freehold went into battle borne up by the wind, and the blows that should have felled them glanced aside as if pushed by an unseen hand.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bear [recipient.GetFirstName] up upon the wind, so that their wounds no longer hinder them in combat. Will you lift them?"
+  zz_valyria_magic_air_magic.013.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA soft, warm breeze rises from nowhere and wraps itself around the subject, lifting them so that their feet barely touch the ground. Their aches and old wounds seem lighter, as though the wind were carrying part of their weight.\n\nIn Valyria, the sky-sorcerers armoured the champions of the Freehold not with steel, but with air.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bear [recipient.GetFirstName] up upon the wind, so that their wounds no longer hinder them in combat. Will you lift them?"
+  zz_valyria_magic_air_magic.013.opt.a:0 "Bear them up."
   zz_valyria_magic_air_magic.013.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.013.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.013.name$"
-  zz_valyria_magic_air_magic.013.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ strengthening the forces of [recipient.GetFirstName] ability to screen attacks."
+  zz_valyria_magic_air_magic.013.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ bearing [recipient.GetFirstName] up upon the wind, so that their wounds no longer hinder them."
   zz_valyria_magic_air_magic.013.toast.tt:0 "$zz_valyria_magic_air_magic.013.toast.desc$"
   zz_valyria_magic_air_magic.013.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.013.name$"
   zz_valyria_magic_air_magic.013.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_air_magic.013.f.toast.tt:0 "$zz_valyria_magic_air_magic.013.f.toast.desc$"
 
 ## Interaction
-  zz_valyria_magic_air_magic_014.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hcm$\n\nThrough the secret arts of [air_magic|E] it is possible to use the winds to improve the ability of a character's army to screen itself."
+  zz_valyria_magic_air_magic_014.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hcm$\n\nThe use of the arcane forces of [air_magic|E] to scour away the lingering taint of failed and miscast workings.\n\nEvery failed spell leaves a residue in the soul of its caster. Through this mystery, a clean, high wind is passed through the subject's spirit, scattering that residue like dust before a gale.\n\nThe subject's capacity to cast safely is restored, the scars of past miscasts blown away.\n\nThe sky-sorcerers of the Freehold performed this cleansing atop the highest towers of Valyria, where the wind was purest."
   ##event
   zz_valyria_magic_air_magic.014.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.014.name$"
-  zz_valyria_magic_air_magic.014.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. You can improve the screening ability of the troops that are commanded by [recipient.GetFirstName]. This will make them less likely to take damage from flanking attacks."
-  zz_valyria_magic_air_magic.014.opt.a:0 "Yes, for those troops are mine."
+  zz_valyria_magic_air_magic.014.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA high, clean wind rises within the chamber, smelling of snow and open sky. Where it passes over the subject, something dark and clinging seems to lift and blow away.\n\nThe Valyrians called this the Rite of the Open Sky, and the sky-sorcerers of the Freehold submitted to it at the turning of every season.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may cleanse [recipient.GetFirstName] of the lingering taint of their failed workings. Will you open the sky to them?"
+  zz_valyria_magic_air_magic.014.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster opens the window to the highest, coldest wind they can find, and bids the subject stand before it. The wind howls through the chamber, cold and clean, and as it passes over them, something heavy and tangled lifts from their shoulders and is carried away.\n\nThe Rite of the Open Sky was performed in the towers of the Freehold at the turning of every season.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may cleanse [recipient.GetFirstName] of the lingering taint of their failed workings. Will you open the sky to them?"
+  zz_valyria_magic_air_magic.014.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA bundle of white feathers is waved slowly over the subject, from head to foot, and a breeze follows the feathers' path. Where it passes, the subject feels a lightness, as though old burdens of failed workings were being blown away like dust.\n\nIn Valyria, it was understood that every failed spell leaves something behind. The wind, properly called, could carry it off.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may cleanse [recipient.GetFirstName] of the lingering taint of their failed workings. Will you open the sky to them?"
+  zz_valyria_magic_air_magic.014.opt.a:0 "Let the sky cleanse them."
   zz_valyria_magic_air_magic.014.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.014.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.014.name$"
-  zz_valyria_magic_air_magic.014.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ strengthening the forces of [recipient.GetFirstName] ability to screen attacks."
+  zz_valyria_magic_air_magic.014.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ scouring away the lingering taint of failed workings from [recipient.GetFirstName]."
   zz_valyria_magic_air_magic.014.toast.tt:0 "$zz_valyria_magic_air_magic.014.toast.desc$"
   zz_valyria_magic_air_magic.014.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.014.name$"
   zz_valyria_magic_air_magic.014.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_air_magic.014.f.toast.tt:0 "$zz_valyria_magic_air_magic.014.f.toast.desc$"
 
 ## Interaction
-  zz_valyria_magic_air_magic_015.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_pcm$\n\nThrough the secret arts of [air_magic|E] it is possible to use the winds to improve the ability of a character's army to screen itself."
+  zz_valyria_magic_air_magic_015.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_pcm$\n\nThe use of the arcane forces of [air_magic|E] to raise a ward of wind that carries away the backlash of a miscast spell.\n\nThrough this mystery, a ward of swirling wind is laid around the subject's spirit, ready to catch the wild energies of a failed working and carry them harmlessly away.\n\nThe ward lies dormant until it is needed. When a working fails, the wind rises, and the backlash is scattered to the sky.\n\nThe teachers of the Freehold laid this ward upon their students before every dangerous lesson."
   ##event
   zz_valyria_magic_air_magic.015.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.015.name$"
-  zz_valyria_magic_air_magic.015.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but the manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. You can improve the screening ability of the troops that are commanded by [recipient.GetFirstName]. This will make them less likely to take damage from flanking attacks."
-  zz_valyria_magic_air_magic.015.opt.a:0 "Yes, for those troops are mine."
+  zz_valyria_magic_air_magic.015.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA ring of wind rises around the subject, so faint it stirs only the hems of their clothes, then fades from sight, leaving behind a sense of watchful stillness.\n\nThe sky-sorcerers of the Freehold never cast a dangerous working without such a ward. Those who did were rarely given the chance to cast another.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lay a warding wind upon [recipient.GetFirstName], protecting them from the backlash of their next failed working. Will you raise the ward?"
+  zz_valyria_magic_air_magic.015.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster breathes slowly upon the subject's brow, and the breath does not fade. It lingers, circling them in a faint and steady breeze, and then settles into a stillness that is somehow watchful.\n\nThe sky-sorcerers of the Freehold laid such wards upon themselves before every perilous working. Those who did not were rarely given a second chance.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lay a warding wind upon [recipient.GetFirstName], protecting them from the backlash of their next failed working. Will you raise the ward?"
+  zz_valyria_magic_air_magic.015.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA thin silver chain is hung around the subject's neck, and the caster speaks the words of binding into the air. A soft breeze rises and wraps itself around the chain, and then both seem to vanish, leaving only a faint coolness against the skin.\n\nIn Valyria, it was said that the wind which shields is gentle, but never sleeps.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lay a warding wind upon [recipient.GetFirstName], protecting them from the backlash of their next failed working. Will you raise the ward?"
+  zz_valyria_magic_air_magic.015.opt.a:0 "Raise the ward."
   zz_valyria_magic_air_magic.015.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.015.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.015.name$"
-  zz_valyria_magic_air_magic.015.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ strengthening the forces of [recipient.GetFirstName] ability to screen attacks."
+  zz_valyria_magic_air_magic.015.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ laying a warding wind upon [recipient.GetFirstName] that will carry away the backlash of a failed working."
   zz_valyria_magic_air_magic.015.toast.tt:0 "$zz_valyria_magic_air_magic.015.toast.desc$"
   zz_valyria_magic_air_magic.015.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.015.name$"
   zz_valyria_magic_air_magic.015.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_air_magic.015.f.toast.tt:0 "$zz_valyria_magic_air_magic.015.f.toast.desc$"
 
 ## Interaction
-  zz_valyria_magic_air_magic_016.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThrough the secret arts of [air_magic|E] it is possible to use the winds to improve the ability of a character's army to screen itself."
+  zz_valyria_magic_air_magic_016.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_ccf$\n\nThe use of the arcane forces of [air_magic|E] to raise a fortress of wind around the defences of a chosen province.\n\nThrough this mystery, the walls and gates of a chosen province are wrapped in constant, howling winds. Ladders are torn from the walls, siege engines struggle to aim, and arrows loosed at the defenders are carried away.\n\nThe province's fortifications are made far stronger for as long as the winds endure.\n\nThe fortress-cities of the Freehold were said to be surrounded by winds so fierce that no army could approach them unless the sorcerers within allowed it."
   ##event
   zz_valyria_magic_air_magic.016.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.016.name$"
-  zz_valyria_magic_air_magic.016.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. You can improve the screening ability of the troops that are commanded by [recipient.GetFirstName]. This will make them less likely to take damage from flanking attacks."
-  zz_valyria_magic_air_magic.016.opt.a:0 "Yes, for those troops are mine."
+  zz_valyria_magic_air_magic.016.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA deep, rising roar fills the chamber, like a gale heard from deep within a mountain. Far away, around the walls of the chosen province, the wind begins to circle.\n\nThe sky-sorcerers of the Freehold raised Celestial Fortresses around its greatest cities, and the enemies who came against them were scattered like chaff.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may raise a fortress of wind around the defences of the chosen province, making them far harder to assail. Will you raise it?"
+  zz_valyria_magic_air_magic.016.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster lays a model of the chosen province's chief fortress upon the ritual stone and blows softly across it. A breeze rises and begins to circle the model, faster and faster, until it is a tiny whirlwind, and far away, the wind begins to circle the real walls in the same way.\n\nThe Celestial Fortresses of the Freehold were the despair of every besieger. No ladder could be raised, and no arrow could reach the walls.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may raise a fortress of wind around the defences of the chosen province, making them far harder to assail. Will you raise it?"
+  zz_valyria_magic_air_magic.016.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA ring of tall poles is set up around a map of the chosen province, each one flying a long streamer. As the caster speaks, the streamers begin to fly, all in the same direction, round and round the province, until the wind they ride becomes a wall.\n\nIn Valyria, the sky-sorcerers raised walls of wind around the Freehold's greatest cities, and those walls never fell.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may raise a fortress of wind around the defences of the chosen province, making them far harder to assail. Will you raise it?"
+  zz_valyria_magic_air_magic.016.opt.a:0 "Raise the fortress of wind!"
   zz_valyria_magic_air_magic.016.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.016.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.016.name$"
-  zz_valyria_magic_air_magic.016.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ strengthening the forces of [recipient.GetFirstName] ability to screen attacks."
+  zz_valyria_magic_air_magic.016.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ raising a fortress of wind around the defences of [target.GetName]."
   zz_valyria_magic_air_magic.016.toast.tt:0 "$zz_valyria_magic_air_magic.016.toast.desc$"
 
   zz_valyria_magic_air_magic.016.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.016.name$"
@@ -259,16 +291,298 @@ l_english:
   zz_valyria_magic_air_magic.016.f.toast.tt:0 "$zz_valyria_magic_air_magic.016.f.toast.desc$"
 
 ## Interaction
-  zz_valyria_magic_air_magic_017.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThrough the secret arts of [air_magic|E] it is possible to use the winds to improve the ability of a character's army to screen itself."
+  zz_valyria_magic_air_magic_017.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_ccf$\n\nThe use of the arcane forces of [air_magic|E] to batter the defences of a chosen province with unrelenting winds.\n\nThrough this mystery, unrelenting winds are set against the defences of a chosen province. Roofs are stripped, palisades torn down, and defenders driven from the walls.\n\nThe province's fortifications are weakened, leaving it far more vulnerable to assault.\n\nThe legions of the Freehold preferred to let the wind do the work of their siege engines."
   ##event
   zz_valyria_magic_air_magic.017.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.017.name$"
-  zz_valyria_magic_air_magic.017.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nAmong the streets of Alexandria the aeromancers make their trade. but thr manipulation of the air is more than a simple conjurer's trick. To call upon the airs is to have the power to have a blade, or to rip the air from a man's lungs. You can improve the screening ability of the troops that are commanded by [recipient.GetFirstName]. This will make them less likely to take damage from flanking attacks."
-  zz_valyria_magic_air_magic.017.opt.a:0 "Yes, for those troops are mine."
+  zz_valyria_magic_air_magic.017.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA wild, battering wind rises within the chamber, slamming the shutters and scattering everything that is not bolted down. Far away, the walls of the chosen province begin to shudder.\n\nIn the wars of the Freehold, the sky-sorcerers would batter a fortress for days before the legions ever approached it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set unrelenting winds against the defences of the chosen province, leaving them weakened against your armies. Will you begin the assault?"
+  zz_valyria_magic_air_magic.017.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster draws a map of the chosen province on the floor in chalk and then claps their hands together over it. The chalk dust erupts upward in a sudden, violent gust, and far away, a wind of the same violence begins to batter the province's walls.\n\nThe sky-sorcerers of the Freehold softened every fortress before the legions approached, and few fortresses were left standing to resist them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set unrelenting winds against the defences of the chosen province, leaving them weakened against your armies. Will you begin the assault?"
+  zz_valyria_magic_air_magic.017.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA heavy door is set upright in the centre of the chamber, held in place by iron braces. The caster speaks, and a wind rises and strikes the door again and again, harder and harder, until its timbers crack and its hinges groan.\n\nIn Valyria, it was said that no wall was so strong that the wind could not find its weakness, given time.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set unrelenting winds against the defences of the chosen province, leaving them weakened against your armies. Will you begin the assault?"
+  zz_valyria_magic_air_magic.017.opt.a:0 "Batter their walls!"
   zz_valyria_magic_air_magic.017.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_air_magic.017.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.017.name$"
-  zz_valyria_magic_air_magic.017.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ strengthening the forces of [recipient.GetFirstName] ability to screen attacks."
+  zz_valyria_magic_air_magic.017.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ battering the defences of [target.GetName] with unrelenting winds."
   zz_valyria_magic_air_magic.017.toast.tt:0 "$zz_valyria_magic_air_magic.017.toast.desc$"
   zz_valyria_magic_air_magic.017.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.017.name$"
   zz_valyria_magic_air_magic.017.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_air_magic.017.f.toast.tt:0 "$zz_valyria_magic_air_magic.017.f.toast.desc$"
+
+
+  ## Air 018
+  zz_valyria_magic_air_magic_018.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_arch$\n\nThe use of the arcane forces of [air_magic|E] to carry a chosen subject's arrows upon the wind.\n\nThrough this mystery, the wind turns at the moment of the volley. Shafts fly further and strike harder, and every enemy arrow seems to fall short.\n\nIt helps archers alone, but those who command them have rarely asked for more."
+  zz_valyria_magic_air_magic.018.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.018.name$"
+  zz_valyria_magic_air_magic.018.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA sharp breeze rises within the chamber. A single arrow upon the altar lifts its point and turns slowly about, as a weathervane turns."
+  zz_valyria_magic_air_magic.018.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster draws a bow with no string and looses at the ceiling. The sound of a thousand shafts passes overhead."
+  zz_valyria_magic_air_magic.018.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe candle flames lie flat in one direction. Dust streams along the floor, and the air has the taut feel of a drawn bowstring."
+  zz_valyria_magic_air_magic.018.opt.a:0 "Loose!"
+  zz_valyria_magic_air_magic.018.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_air_magic.018.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.018.name$"
+  zz_valyria_magic_air_magic.018.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ binding the winds to the archers of [recipient.GetFirstName]."
+  zz_valyria_magic_air_magic.018.toast.tt:0 "$zz_valyria_magic_air_magic.018.toast.desc$"
+  zz_valyria_magic_air_magic.018.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.018.name$"
+  zz_valyria_magic_air_magic.018.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_air_magic.018.f.toast.tt:0 "$zz_valyria_magic_air_magic.018.f.toast.desc$"
+
+
+  ## Air 019
+  zz_valyria_magic_air_magic_019.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hlth_dn$\n\nThe use of the arcane forces of [air_magic|E] to steal the breath from a chosen subject.\n\nThrough this mystery, the air around the subject grows thin, as it is on the highest peaks. Every stair is a mountain, and every breath comes short. Their health suffers for as long as it lasts.\n\nIt kills no one, but it has shortened many lives."
+  zz_valyria_magic_air_magic.019.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.019.name$"
+  zz_valyria_magic_air_magic.019.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe candle flames shrink to points of blue. The air in the chamber feels suddenly high and cold, and every breath seems to give a little less."
+  zz_valyria_magic_air_magic.019.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster draws a long breath and holds it. Far away, someone pauses on a stair with one hand at their chest."
+  zz_valyria_magic_air_magic.019.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA feather falls upon the altar far too quickly, as though there were nothing in the room to slow it."
+  zz_valyria_magic_air_magic.019.opt.a:0 "Take their breath!"
+  zz_valyria_magic_air_magic.019.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_air_magic.019.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.019.name$"
+  zz_valyria_magic_air_magic.019.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ thinning the air around [recipient.GetFirstName]."
+  zz_valyria_magic_air_magic.019.toast.tt:0 "$zz_valyria_magic_air_magic.019.toast.desc$"
+  zz_valyria_magic_air_magic.019.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.019.name$"
+  zz_valyria_magic_air_magic.019.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_air_magic.019.f.toast.tt:0 "$zz_valyria_magic_air_magic.019.f.toast.desc$"
+
+
+  ## Air 020
+  zz_valyria_magic_air_magic_020.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_nav_dn$\n\nThe use of the arcane forces of [air_magic|E] to turn every wind against a chosen subject's fleets.\n\nThrough this mystery, the wind veers whenever the subject's ships turn. Sails hang slack or strain the wrong way, and a voyage of days becomes a voyage of weeks.\n\nIt does nothing on land. The sailors of the Freehold paid well to have it cast upon their rivals."
+  zz_valyria_magic_air_magic.020.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.020.name$"
+  zz_valyria_magic_air_magic.020.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA small paper sail set upon the altar swings about and strains against its mast, always pointing away from the door."
+  zz_valyria_magic_air_magic.020.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster turns a brass weathervane by hand, against the breeze in the room. It fights them all the way."
+  zz_valyria_magic_air_magic.020.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe shutters blow inward, then outward, then inward again, as though the wind cannot be persuaded to choose."
+  zz_valyria_magic_air_magic.020.opt.a:0 "Turn the winds!"
+  zz_valyria_magic_air_magic.020.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_air_magic.020.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.020.name$"
+  zz_valyria_magic_air_magic.020.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ turning the winds against the fleets of [recipient.GetFirstName]."
+  zz_valyria_magic_air_magic.020.toast.tt:0 "$zz_valyria_magic_air_magic.020.toast.desc$"
+  zz_valyria_magic_air_magic.020.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.020.name$"
+  zz_valyria_magic_air_magic.020.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_air_magic.020.f.toast.tt:0 "$zz_valyria_magic_air_magic.020.f.toast.desc$"
+
+
+  ## Air 021
+  zz_valyria_magic_air_magic_021.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_esec$\n$zz_ongoing$\n\nThe use of the arcane forces of [air_magic|E] to set the winds to listening at a chosen subject's door.\n\nThrough this mystery, a breeze follows the subject wherever they go. Season by season, it brings a whispered secret back to the one who ordered the casting.\n\nThe Secret Flame shows all it can see at once and is done. This working is slower, but it goes on listening long after the fire has died."
+  zz_valyria_magic_air_magic.021.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.021.name$"
+  zz_valyria_magic_air_magic.021.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA soft breeze stirs the hangings. It carries a murmur just below the edge of hearing, and every voice in it seems to be speaking of someone else."
+  zz_valyria_magic_air_magic.021.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster opens a shutter a finger's width and speaks a name through the gap. The wind takes the word and does not bring it back."
+  zz_valyria_magic_air_magic.021.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA small silver bell upon the altar begins to tremble, without quite ringing, as though it is trying not to be overheard."
+  zz_valyria_magic_air_magic.021.opt.a:0 "Listen well."
+  zz_valyria_magic_air_magic.021.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_air_magic.021.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.021.name$"
+  zz_valyria_magic_air_magic.021.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ setting the winds to listen at the door of [recipient.GetFirstName]."
+  zz_valyria_magic_air_magic.021.toast.tt:0 "$zz_valyria_magic_air_magic.021.toast.desc$"
+  zz_valyria_magic_air_magic.021.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.021.name$"
+  zz_valyria_magic_air_magic.021.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_air_magic.021.f.toast.tt:0 "$zz_valyria_magic_air_magic.021.f.toast.desc$"
+
+
+  ## Air 022
+  zz_valyria_magic_air_magic_022.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_asn$\n$zz_resm$\n\nThe use of the arcane forces of [air_magic|E] to send a blade upon the wind against a chosen subject.\n\nThrough this mystery, a sudden gale carries a cold edge to its target. Guards and court mages cannot stop it, for it comes from nowhere they can watch, but wards work well against it. It is most deadly to those who are travelling.\n\nSkilled mages resist it through their own Higher Mysteries."
+  zz_valyria_magic_air_magic.022.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.022.name$"
+  zz_valyria_magic_air_magic.022.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA dagger upon the altar begins to turn slowly upon its point. A thin whistling fills the room, climbing until it can no longer be heard."
+  zz_valyria_magic_air_magic.022.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster opens their hand above the window ledge. The knife in it does not fall. It leaves."
+  zz_valyria_magic_air_magic.022.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe air in the chamber grows still, then draws back, as a breath is drawn before a shout. Somewhere high above, something sharp begins to fall."
+  zz_valyria_magic_air_magic.022.opt.a:0 "Strike from the sky!"
+  zz_valyria_magic_air_magic.022.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_air_magic.022.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.022.name$"
+  zz_valyria_magic_air_magic.022.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ sending a blade upon the wind against [recipient.GetFirstName]."
+  zz_valyria_magic_air_magic.022.toast.tt:0 "$zz_valyria_magic_air_magic.022.toast.desc$"
+  zz_valyria_magic_air_magic.022.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.022.name$"
+  zz_valyria_magic_air_magic.022.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_air_magic.022.f.toast.tt:0 "$zz_valyria_magic_air_magic.022.f.toast.desc$"
+
+
+  ## Air 023
+  zz_valyria_magic_air_magic_023.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_dar$\n$zz_sd$\n$zz_msd$\n$zz_mov$\n\nThe use of the arcane forces of [air_magic|E] to raise a great storm and send it to a chosen subject's door.\n\nThrough this mystery, a storm rises over a chosen province and drives straight for the subject's capital, crossing land and sea alike. It lashes every army in its path, and strikes hardest when it arrives.\n\nIt is the fastest of the great moving mysteries, and its path is plain for all to see."
+  zz_valyria_magic_air_magic.023.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.023.name$"
+  zz_valyria_magic_air_magic.023.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe sky beyond the window turns the colour of a bruise. A wind rises that seems to have a direction in mind, and the shutters strain towards it."
+  zz_valyria_magic_air_magic.023.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster draws a line across the map with a wet finger. Above the chamber, thunder begins to walk along it."
+  zz_valyria_magic_air_magic.023.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nAll the air in the room moves at once, drawn towards a single point upon the map. Then the first drops of rain begin to fall indoors."
+  zz_valyria_magic_air_magic.023.opt.a:0 "Ride the storm!"
+  zz_valyria_magic_air_magic.023.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_air_magic.023.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.023.name$"
+  zz_valyria_magic_air_magic.023.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ calling a storm down upon [recipient.GetFirstName]."
+  zz_valyria_magic_air_magic.023.toast.tt:0 "$zz_valyria_magic_air_magic.023.toast.desc$"
+  zz_valyria_magic_air_magic.023.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.023.name$"
+  zz_valyria_magic_air_magic.023.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_air_magic.023.f.toast.tt:0 "$zz_valyria_magic_air_magic.023.f.toast.desc$"
+
+
+  ## Air 024
+  zz_valyria_magic_air_magic_024.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_sa$\n$zz_nrep$\n\nThe use of the arcane forces of [air_magic|E] to raise a host from the wind.\n\nThrough this mystery, a company of Gale Shades gathers about the chosen subject. They howl across the front of a battle line, harrying the enemy and screening their own side, though they have little weight behind them.\n\nThe host is modest in size, and those lost in battle are never replaced."
+  zz_valyria_magic_air_magic.024.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.024.name$"
+  zz_valyria_magic_air_magic.024.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe shutters blow open and the candles lean all one way. Somewhere beyond the walls, a howling begins to take on a marching rhythm."
+  zz_valyria_magic_air_magic.024.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster casts a handful of feathers from the tower. The wind takes them and does not let them fall, and more of it gathers behind."
+  zz_valyria_magic_air_magic.024.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA pressure builds within the chamber until the ears ache. Then, at once, the air in the room is full of voices."
+  zz_valyria_magic_air_magic.024.opt.a:0 "Rise on the wind!"
+  zz_valyria_magic_air_magic.024.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_air_magic.024.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.024.name$"
+  zz_valyria_magic_air_magic.024.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ raising a host of winds for [recipient.GetFirstName]."
+  zz_valyria_magic_air_magic.024.toast.tt:0 "$zz_valyria_magic_air_magic.024.toast.desc$"
+  zz_valyria_magic_air_magic.024.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.024.name$"
+  zz_valyria_magic_air_magic.024.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_air_magic.024.f.toast.tt:0 "$zz_valyria_magic_air_magic.024.f.toast.desc$"
+
+
+  ## Air 025
+  zz_valyria_magic_air_magic_025.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_trvl_h$\n$zz_tsaf$\n$zz_onroad$\n\nThe use of the arcane forces of [air_magic|E] to speed a traveller on their way.\n\nThrough this mystery, a steady wind settles at the back of the chosen traveller. Their journey goes more quickly, sails and cloaks alike are filled, and the road is kinder to them than it has any right to be.\n\nThe wind can only follow someone already on the road."
+  zz_valyria_magic_air_magic.025.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.025.name$"
+  zz_valyria_magic_air_magic.025.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA small weathervane on the ritual table begins to turn, though the air is still. It settles and points the way the traveller is going."
+  zz_valyria_magic_air_magic.025.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster traces a road across a map with a damp finger. A breeze rises from the line and follows the finger along it."
+  zz_valyria_magic_air_magic.025.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA long breath is drawn in and held, then let go towards the horizon. It does not fade. Somewhere far off, a cloak stirs."
+  zz_valyria_magic_air_magic.025.opt.a:0 "Fair winds."
+  zz_valyria_magic_air_magic.025.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_air_magic.025.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.025.name$"
+  zz_valyria_magic_air_magic.025.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ sending a following wind to [recipient.GetFirstName]."
+  zz_valyria_magic_air_magic.025.toast.tt:0 "$zz_valyria_magic_air_magic.025.toast.desc$"
+  zz_valyria_magic_air_magic.025.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.025.name$"
+  zz_valyria_magic_air_magic.025.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_air_magic.025.f.toast.tt:0 "$zz_valyria_magic_air_magic.025.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_air_magic_026.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_trvl_end$\n$zz_onroad$\n\nThe use of the arcane forces of [air_magic|E] to carry the selected subject to the end of their journey at once.\n\nThe wind does not walk. Those it carries arrive before the road has noticed they have left."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_air_magic.026.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.026.name$"
+  zz_valyria_magic_air_magic.026.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA great wind rises behind the subject's party and does not drop until they stand at their journey's end."
+  zz_valyria_magic_air_magic.026.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster breathes on a map along the subject's road. Far away, the road folds up behind them like cloth."
+  zz_valyria_magic_air_magic.026.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA feather is set adrift from the tower. Wherever it lands, the subject is already there."
+  zz_valyria_magic_air_magic.026.opt.a:0 "Carry them home."
+  zz_valyria_magic_air_magic.026.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_air_magic.026.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.026.name$"
+  zz_valyria_magic_air_magic.026.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ carrying [recipient.GetFirstName] on the wind."
+  zz_valyria_magic_air_magic.026.toast.tt:0 "$zz_valyria_magic_air_magic.026.toast.desc$"
+
+  zz_valyria_magic_air_magic.026.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.026.name$"
+  zz_valyria_magic_air_magic.026.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_air_magic.026.f.toast.tt:0 "$zz_valyria_magic_air_magic.026.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_air_magic_027.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_sch_fz$\n\nThe use of the arcane forces of [air_magic|E] to halt a scheme against the selected subject for 15 days.\n\nPlans are written on paper, and paper is light. Dream Magic can hold a plot still for a month; a gust only scatters it for half as long."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_air_magic.027.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.027.name$"
+  zz_valyria_magic_air_magic.027.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA sudden wind tears through the conspirators' meeting, scattering their notes into the street."
+  zz_valyria_magic_air_magic.027.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster opens every shutter in the tower at once. Far away, letters go astray and messengers lose their way."
+  zz_valyria_magic_air_magic.027.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA breath is blown across a candle-lit map, and the plotters' plans blow away with it."
+  zz_valyria_magic_air_magic.027.opt.a:0 "Scatter their plans."
+  zz_valyria_magic_air_magic.027.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_air_magic.027.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.027.name$"
+  zz_valyria_magic_air_magic.027.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ scattering a plot against [recipient.GetFirstName]."
+  zz_valyria_magic_air_magic.027.toast.tt:0 "$zz_valyria_magic_air_magic.027.toast.desc$"
+
+  zz_valyria_magic_air_magic.027.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.027.name$"
+  zz_valyria_magic_air_magic.027.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_air_magic.027.f.toast.tt:0 "$zz_valyria_magic_air_magic.027.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_air_magic_028.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_lfoc$\n\nThe use of the arcane forces of [air_magic|E] to turn the selected adult subject's lifestyle focus to another standard focus, chosen by the wind.\n\nThe mind turns as the wind turns, and neither can say why. Where Dream Magic chooses, the wind only shifts."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_air_magic.028.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.028.name$"
+  zz_valyria_magic_air_magic.028.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA weathervane is set spinning in the subject's chamber. When it stops, so do their old interests."
+  zz_valyria_magic_air_magic.028.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster whistles a tune the subject has never heard. By evening they cannot stop humming it, or thinking of something new."
+  zz_valyria_magic_air_magic.028.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA wind blows through the subject's study and leaves every book open at a different page."
+  zz_valyria_magic_air_magic.028.opt.a:0 "Let the wind turn."
+  zz_valyria_magic_air_magic.028.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_air_magic.028.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.028.name$"
+  zz_valyria_magic_air_magic.028.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ shifting the winds of [recipient.GetFirstName]'s mind."
+  zz_valyria_magic_air_magic.028.toast.tt:0 "$zz_valyria_magic_air_magic.028.toast.desc$"
+
+  zz_valyria_magic_air_magic.028.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.028.name$"
+  zz_valyria_magic_air_magic.028.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_air_magic.028.f.toast.tt:0 "$zz_valyria_magic_air_magic.028.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_air_magic_029.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_sch_ag_all$\n\nThe use of the arcane forces of [air_magic|E] to expose every agent of every hostile scheme against the selected subject.\n\nA gust lifts every cloak at once."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_air_magic.029.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.029.name$"
+  zz_valyria_magic_air_magic.029.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA wind rushes through the subject's court, and every hood and mask is blown back."
+  zz_valyria_magic_air_magic.029.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster opens a door in the tower and a gale pours through the halls far away, slamming doors on whispered meetings."
+  zz_valyria_magic_air_magic.029.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA pinch of ash is thrown into the wind, and wherever it settles it marks a traitor's sleeve."
+  zz_valyria_magic_air_magic.029.opt.a:0 "Blow away their cover."
+  zz_valyria_magic_air_magic.029.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_air_magic.029.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.029.name$"
+  zz_valyria_magic_air_magic.029.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ exposing the agents plotting against [recipient.GetFirstName]."
+  zz_valyria_magic_air_magic.029.toast.tt:0 "$zz_valyria_magic_air_magic.029.toast.desc$"
+
+  zz_valyria_magic_air_magic.029.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.029.name$"
+  zz_valyria_magic_air_magic.029.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_air_magic.029.f.toast.tt:0 "$zz_valyria_magic_air_magic.029.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_air_magic_030.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hrel$\n\nThe use of the arcane forces of [air_magic|E] to move the relation between the commander's house and the selected subject's house one level warmer or colder.\n\nHouses drift together and apart like clouds. The wind can hurry them."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_air_magic.030.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.030.name$"
+  zz_valyria_magic_air_magic.030.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster hangs the banners of two houses side by side in the wind and lets them tangle, or tear apart."
+  zz_valyria_magic_air_magic.030.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nTwo feathers are let fall from the tower. The wind draws them together, or flings them to opposite ends of the sky."
+  zz_valyria_magic_air_magic.030.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster breathes on a mirror with two names written in the mist. As it clears, the names lean toward each other, or away."
+  zz_valyria_magic_air_magic.030.opt.a:0 "Let the winds blow!"
+  zz_valyria_magic_air_magic.030.opt.z:0 "No, do not cast!"
+  ## Air 030 - choices
+  zz_accord_raise:0 "Closer Accord"
+  zz_accord_lower:0 "Discord"
+
+  zz_valyria_magic_air_magic.030.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.030.name$"
+  zz_valyria_magic_air_magic.030.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ turning the winds between the houses of [actor.GetFirstName] and [recipient.GetFirstName]."
+  zz_valyria_magic_air_magic.030.toast.tt:0 "$zz_valyria_magic_air_magic.030.toast.desc$"
+
+  zz_valyria_magic_air_magic.030.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.030.name$"
+  zz_valyria_magic_air_magic.030.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_air_magic.030.f.toast.tt:0 "$zz_valyria_magic_air_magic.030.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_air_magic_031.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_prs_lvl$\n\nThe use of the arcane forces of [air_magic|E] to carry word of the selected subject's deeds far and wide, granting prestige level progress of four for every point of the caster's skill.\n\nFame travels on the wind, and the wind can be made to blow harder."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_air_magic.031.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.031.name$"
+  zz_valyria_magic_air_magic.031.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA horn is sounded from the tower and the wind takes the note far beyond the hills. Wherever it is heard, the subject's name is spoken."
+  zz_valyria_magic_air_magic.031.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster whispers the subject's deeds into a seashell and casts it into the gale."
+  zz_valyria_magic_air_magic.031.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nBanners in the subject's colours stream in a wind that blows across the whole realm."
+  zz_valyria_magic_air_magic.031.opt.a:0 "Spread their fame."
+  zz_valyria_magic_air_magic.031.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_air_magic.031.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.031.name$"
+  zz_valyria_magic_air_magic.031.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ spreading the fame of [recipient.GetFirstName]."
+  zz_valyria_magic_air_magic.031.toast.tt:0 "$zz_valyria_magic_air_magic.031.toast.desc$"
+
+  zz_valyria_magic_air_magic.031.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.031.name$"
+  zz_valyria_magic_air_magic.031.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_air_magic.031.f.toast.tt:0 "$zz_valyria_magic_air_magic.031.f.toast.desc$"
+
+  zz_valyria_magic_air_magic_030_relation_desc:0 "Winds of Accord"
+
+  # Air 032 - the Voice of the Wind (Summon Courtier)
+  zz_valyria_magic_air_magic_032.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_guest$\n\nThe use of the arcane forces of [air_magic|E] to send a summons on the wind, calling a skilled guest to the commander's court.\n\nA courtier skilled in the chosen area joins the commander's court; the greater the caster's mastery, the greater their skill.\n\nThe sky-mages of the Freehold said that the wind goes everywhere and is heard by everyone, and that the right word spoken to it will always find the right ear."
+  zz_valyria_magic_air_magic.032.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.032.name$"
+  zz_valyria_magic_air_magic.032.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster speaks a name that has not yet been given into the wind, and the wind carries it away. Days later, a traveller arrives at the gate, saying they were called.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may call a skilled guest to [actor.GetFirstName]'s court. What kind of guest will you summon?"
+  zz_valyria_magic_air_magic.032.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nA feather is set loose from the highest tower and does not fall. It drifts across the realm and beyond, until it settles at the feet of one who will understand its meaning.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may call a skilled guest to [actor.GetFirstName]'s court. What kind of guest will you summon?"
+  zz_valyria_magic_air_magic.032.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_air_magic')]\n\nThe caster whispers to the four winds in turn, describing the one they seek. The winds return with nothing but a scent of distant roads, and soon after, footsteps.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may call a skilled guest to [actor.GetFirstName]'s court. What kind of guest will you summon?"
+  zz_valyria_magic_air_magic.032.opt.a:0 "Send the summons."
+  zz_valyria_magic_air_magic.032.opt.z:0 "No, let the wind be still."
+  zz_valyria_magic_air_magic.032.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.032.name$"
+  zz_valyria_magic_air_magic.032.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ sending a summons on the wind."
+  zz_valyria_magic_air_magic.032.toast.tt:0 "$zz_valyria_magic_air_magic.032.toast.desc$"
+  zz_valyria_magic_air_magic.032.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.032.name$"
+  zz_valyria_magic_air_magic.032.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$ as the summons is lost on the wind."
+  zz_valyria_magic_air_magic.032.f.toast.tt:0 "$zz_valyria_magic_air_magic.032.f.toast.desc$"
+
+  # Air 033 - the Gale Step (Single Combat)
+  zz_valyria_magic_air_magic_033.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_duel_move$\n$zz_duel_skill$\n\nThe use of the arcane forces of [air_magic|E] to ride a sudden gust out of harm's way, so that blades meant for the caster cut only air.\n\nThe caster's injury risk falls, the more so with greater skill in Air Magic."
+  zz_valyria_magic_air_magic.033.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.033.name$"
+  zz_valyria_magic_air_magic.033.desc:0 "This [zz_mystery|E] is worked only in [single_combat_fight|E]."
+  zz_valyria_magic_air_magic.033.opt.z:0 "Very well."
+  zz_valyria_magic_air_magic.033.toast.t:0 "[air_magic|E] - $zz_valyria_magic_air_magic.033.name$"
+  zz_valyria_magic_air_magic.033.toast.desc:0 "$zz_toast_01$ [air_magic|E], $zz_toast_02$ in single combat."
+  zz_valyria_magic_air_magic.033.toast.tt:0 "$zz_valyria_magic_air_magic.033.toast.desc$"
+  zz_valyria_magic_air_magic.033.f.toast.t:0 "Failure [air_magic|E] - $zz_valyria_magic_air_magic.033.name$"
+  zz_valyria_magic_air_magic.033.f.toast.desc:0 "$zz_toast_01$ [air_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_air_magic.033.f.toast.tt:0 "$zz_valyria_magic_air_magic.033.f.toast.desc$"

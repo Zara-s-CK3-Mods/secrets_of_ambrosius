@@ -1804,7 +1804,7 @@ zz_valyria_magic_management.003 = {
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_management.003.t
 	desc = zz_valyria_magic_management.003.desc
-	theme = dragon
+	theme = dread
 	left_portrait = root
 	right_portrait = scope:recipient
 	immediate = {
@@ -1897,7 +1897,7 @@ zz_valyria_magic_management.003 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 		widget = {
@@ -2133,7 +2133,7 @@ zz_valyria_magic_management.004 = {
 				}
 			}
 		}
-		gui = "event_window_character_selection"
+		gui = "event_window_character_selection_popup"
 		container = "custom_widgets_container"
 	}
 	option = {

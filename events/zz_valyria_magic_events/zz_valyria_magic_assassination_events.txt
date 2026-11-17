@@ -1,0 +1,604 @@
+﻿namespace = zz_valyria_magic_assassination
+
+################ Lungs of Brine ################
+
+# Water: the first sign
+zz_valyria_magic_assassination.1001 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.1001.t
+	desc = zz_valyria_magic_assassination.1001.desc
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+
+	option = {
+		name = zz_valyria_magic_assassination.1001.a
+		trigger_event = {
+			id = zz_valyria_magic_assassination.1002
+			days = { 7 14 }
+		}
+		ai_chance = {
+			base = 30
+		}
+	}
+	option = {
+		name = zz_valyria_magic_assassination.1001.b
+		remove_short_term_gold = minor_gold_value
+		zz_valyria_assassination_add_ward_effect = { WARD = 30 }
+		trigger_event = {
+			id = zz_valyria_magic_assassination.1002
+			days = { 7 14 }
+		}
+		ai_chance = {
+			base = 60
+		}
+	}
+	option = {
+		name = zz_valyria_magic_assassination.1001.c
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_assassination_counter_cost }
+		}
+		zz_valyria_assassination_counter_effect = yes
+		trigger_event = {
+			id = zz_valyria_magic_assassination.1002
+			days = { 7 14 }
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# Water: the sickness deepens
+zz_valyria_magic_assassination.1002 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.1002.t
+	desc = zz_valyria_magic_assassination.1002.desc
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+
+	option = {
+		name = zz_valyria_magic_assassination.1002.a
+		remove_short_term_gold = minor_gold_value
+		zz_valyria_assassination_add_ward_effect = { WARD = 20 }
+		trigger_event = {
+			id = zz_valyria_magic_assassination.1003
+			days = { 7 14 }
+		}
+		ai_chance = {
+			base = 60
+		}
+	}
+	option = {
+		name = zz_valyria_magic_assassination.1002.b
+		add_stress = minor_stress_gain
+		zz_valyria_assassination_add_ward_effect = { WARD = 10 }
+		trigger_event = {
+			id = zz_valyria_magic_assassination.1003
+			days = { 7 14 }
+		}
+		ai_chance = {
+			base = 40
+		}
+	}
+	option = {
+		name = zz_valyria_magic_assassination.1002.c
+		trigger_event = {
+			id = zz_valyria_magic_assassination.1003
+			days = { 7 14 }
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+}
+
+# Water: the tide comes in
+zz_valyria_magic_assassination.1003 = {
+	hidden = yes
+
+	immediate = {
+		zz_valyria_assassination_resolve_effect = {
+			SCHOOL = water
+			SURVIVE = zz_valyria_magic_assassination.1004
+			FOIL = zz_valyria_magic_assassination.1005
+			REPORT = zz_valyria_magic_assassination.1006
+		}
+	}
+}
+
+# Water: survived, with scarred lungs
+zz_valyria_magic_assassination.1004 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.1004.t
+	desc = zz_valyria_magic_assassination.1004.desc
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+
+	option = {
+		name = zz_valyria_magic_assassination.1004.a
+		add_character_modifier = {
+			modifier = zz_valyria_magic_water_magic_022_modifier
+			years = 5
+		}
+		increase_wounds_effect = { REASON = fight }
+	}
+}
+
+# Water: foiled
+zz_valyria_magic_assassination.1005 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.1005.t
+	desc = zz_valyria_magic_assassination.1005.desc
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+
+	option = {
+		name = zz_valyria_magic_assassination.1005.a
+	}
+}
+
+# Water: report to the caster
+zz_valyria_magic_assassination.1006 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.1006.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:zz_assassin_outcome = flag:killed }
+				desc = zz_valyria_magic_assassination.1006.killed
+			}
+			triggered_desc = {
+				trigger = { scope:zz_assassin_outcome = flag:survived }
+				desc = zz_valyria_magic_assassination.1006.survived
+			}
+			desc = zz_valyria_magic_assassination.1006.foiled
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_assassination.1006.a
+	}
+}
+
+################ The Shade's Errand ################
+
+# Shadow: the shade arrives, and most never know
+zz_valyria_magic_assassination.2001 = {
+	hidden = yes
+
+	immediate = {
+		if = {
+			limit = {
+				OR = {
+					has_trait = zz_magister
+					has_trait = paranoid
+					intrigue >= 20
+				}
+			}
+			trigger_event = zz_valyria_magic_assassination.2002
+		}
+		else = {
+			trigger_event = {
+				id = zz_valyria_magic_assassination.2003
+				days = { 7 14 }
+			}
+		}
+	}
+}
+
+# Shadow: sensed by a mage or the watchful
+zz_valyria_magic_assassination.2002 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.2002.t
+	desc = zz_valyria_magic_assassination.2002.desc
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+
+	option = {
+		name = zz_valyria_magic_assassination.2002.a
+		add_stress = minor_stress_gain
+		zz_valyria_assassination_add_ward_effect = { WARD = 25 }
+		trigger_event = {
+			id = zz_valyria_magic_assassination.2003
+			days = { 7 14 }
+		}
+		ai_chance = {
+			base = 60
+		}
+	}
+	option = {
+		name = zz_valyria_magic_assassination.2002.b
+		trigger_event = {
+			id = zz_valyria_magic_assassination.2003
+			days = { 7 14 }
+		}
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		name = zz_valyria_magic_assassination.2002.c
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_assassination_counter_cost }
+		}
+		zz_valyria_assassination_counter_effect = yes
+		trigger_event = {
+			id = zz_valyria_magic_assassination.2003
+			days = { 7 14 }
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# Shadow: the errand is carried out
+zz_valyria_magic_assassination.2003 = {
+	hidden = yes
+
+	immediate = {
+		zz_valyria_assassination_resolve_effect = {
+			SCHOOL = shadow
+			SURVIVE = zz_valyria_magic_assassination.2004
+			FOIL = zz_valyria_magic_assassination.2005
+			REPORT = zz_valyria_magic_assassination.2006
+		}
+	}
+}
+
+# Shadow: survived
+zz_valyria_magic_assassination.2004 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.2004.t
+	desc = zz_valyria_magic_assassination.2004.desc
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+
+	option = {
+		name = zz_valyria_magic_assassination.2004.a
+		increase_wounds_effect = { REASON = fight }
+		add_stress = medium_stress_gain
+	}
+}
+
+# Shadow: foiled
+zz_valyria_magic_assassination.2005 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.2005.t
+	desc = zz_valyria_magic_assassination.2005.desc
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+
+	option = {
+		name = zz_valyria_magic_assassination.2005.a
+	}
+}
+
+# Shadow: report to the caster
+zz_valyria_magic_assassination.2006 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.2006.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:zz_assassin_outcome = flag:killed }
+				desc = zz_valyria_magic_assassination.2006.killed
+			}
+			triggered_desc = {
+				trigger = { scope:zz_assassin_outcome = flag:survived }
+				desc = zz_valyria_magic_assassination.2006.survived
+			}
+			desc = zz_valyria_magic_assassination.2006.foiled
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_assassination.2006.a
+	}
+}
+
+################ The Kindled Assassin ################
+
+# Fire: the blaze
+zz_valyria_magic_assassination.3001 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.3001.t
+	desc = zz_valyria_magic_assassination.3001.desc
+	theme = university
+	override_background = {
+		reference = zz_fire_magic
+	}
+	lower_left_portrait = root
+
+	after = {
+		trigger_event = zz_valyria_magic_assassination.3002
+	}
+
+	option = {
+		name = zz_valyria_magic_assassination.3001.a
+		zz_valyria_assassination_add_ward_effect = { WARD = 20 }
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = zz_valyria_magic_assassination.3001.b
+		add_prestige = minor_prestige_gain
+		random_courtier = {
+			increase_wounds_effect = { REASON = fight }
+		}
+		ai_chance = {
+			base = 25
+		}
+	}
+	option = {
+		name = zz_valyria_magic_assassination.3001.c
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_assassination_counter_cost }
+		}
+		zz_valyria_assassination_counter_effect = yes
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# Fire: the blaze resolves
+zz_valyria_magic_assassination.3002 = {
+	hidden = yes
+
+	immediate = {
+		zz_valyria_assassination_resolve_effect = {
+			SCHOOL = fire
+			SURVIVE = zz_valyria_magic_assassination.3003
+			FOIL = zz_valyria_magic_assassination.3004
+			REPORT = zz_valyria_magic_assassination.3005
+		}
+	}
+}
+
+# Fire: survived
+zz_valyria_magic_assassination.3003 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.3003.t
+	desc = zz_valyria_magic_assassination.3003.desc
+	theme = university
+	override_background = {
+		reference = zz_fire_magic
+	}
+	lower_left_portrait = root
+
+	option = {
+		name = zz_valyria_magic_assassination.3003.a
+		add_trait = disfigured
+		increase_wounds_effect = { REASON = fire_magic }
+	}
+}
+
+# Fire: foiled
+zz_valyria_magic_assassination.3004 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.3004.t
+	desc = zz_valyria_magic_assassination.3004.desc
+	theme = university
+	override_background = {
+		reference = zz_fire_magic
+	}
+	lower_left_portrait = root
+
+	option = {
+		name = zz_valyria_magic_assassination.3004.a
+		add_prestige = minor_prestige_gain
+	}
+}
+
+# Fire: report to the caster
+zz_valyria_magic_assassination.3005 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.3005.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:zz_assassin_outcome = flag:killed }
+				desc = zz_valyria_magic_assassination.3005.killed
+			}
+			triggered_desc = {
+				trigger = { scope:zz_assassin_outcome = flag:survived }
+				desc = zz_valyria_magic_assassination.3005.survived
+			}
+			desc = zz_valyria_magic_assassination.3005.foiled
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_fire_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_assassination.3005.a
+	}
+}
+
+################ The Windborne Blade ################
+
+# Air: the gale
+zz_valyria_magic_assassination.4001 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.4001.t
+	desc = zz_valyria_magic_assassination.4001.desc
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+
+	after = {
+		trigger_event = zz_valyria_magic_assassination.4002
+	}
+
+	option = {
+		name = zz_valyria_magic_assassination.4001.a
+		add_stress = minor_stress_gain
+		zz_valyria_assassination_add_ward_effect = { WARD = 15 }
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = zz_valyria_magic_assassination.4001.b
+		remove_short_term_gold = minor_gold_value
+		zz_valyria_assassination_add_ward_effect = { WARD = 25 }
+		ai_chance = {
+			base = 50
+		}
+	}
+	option = {
+		name = zz_valyria_magic_assassination.4001.c
+		ai_chance = {
+			base = 10
+		}
+	}
+	option = {
+		name = zz_valyria_magic_assassination.4001.d
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_assassination_counter_cost }
+		}
+		zz_valyria_assassination_counter_effect = yes
+		ai_chance = {
+			base = 100
+		}
+	}
+}
+
+# Air: the blade falls
+zz_valyria_magic_assassination.4002 = {
+	hidden = yes
+
+	immediate = {
+		zz_valyria_assassination_resolve_effect = {
+			SCHOOL = air
+			SURVIVE = zz_valyria_magic_assassination.4003
+			FOIL = zz_valyria_magic_assassination.4004
+			REPORT = zz_valyria_magic_assassination.4005
+		}
+	}
+}
+
+# Air: survived
+zz_valyria_magic_assassination.4003 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.4003.t
+	desc = zz_valyria_magic_assassination.4003.desc
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+
+	option = {
+		name = zz_valyria_magic_assassination.4003.a
+		increase_wounds_effect = { REASON = fight }
+		add_stress = medium_stress_gain
+	}
+}
+
+# Air: foiled
+zz_valyria_magic_assassination.4004 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.4004.t
+	desc = zz_valyria_magic_assassination.4004.desc
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+
+	option = {
+		name = zz_valyria_magic_assassination.4004.a
+	}
+}
+
+# Air: report to the caster
+zz_valyria_magic_assassination.4005 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_assassination.4005.t
+	desc = {
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:zz_assassin_outcome = flag:killed }
+				desc = zz_valyria_magic_assassination.4005.killed
+			}
+			triggered_desc = {
+				trigger = { scope:zz_assassin_outcome = flag:survived }
+				desc = zz_valyria_magic_assassination.4005.survived
+			}
+			desc = zz_valyria_magic_assassination.4005.foiled
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_assassination.4005.a
+	}
+}

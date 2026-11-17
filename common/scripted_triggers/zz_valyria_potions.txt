@@ -1,0 +1,88 @@
+﻿# Can this character drink the potion saved as scope:potion?
+zz_valyria_can_drink_potion_trigger = {
+	is_alive = yes
+	trigger_if = {
+		limit = { scope:potion.var:potion_effect ?= flag:elixir_longevity }
+		custom_tooltip = {
+			text = zz_valyria_potion_already_taken_tt
+			NOT = { has_character_modifier = zz_valyria_potion_elixir_longevity_modifier }
+		}
+	}
+	trigger_if = {
+		limit = { scope:potion.var:potion_effect ?= flag:elixir_fertility }
+		custom_tooltip = {
+			text = zz_valyria_potion_already_taken_tt
+			NOT = { has_character_modifier = zz_valyria_potion_elixir_fertility_modifier }
+		}
+	}
+	trigger_if = {
+		limit = { scope:potion.var:potion_effect ?= flag:tonic_power }
+		custom_tooltip = {
+			text = zz_valyria_potion_needs_mage_tt
+			has_trait = zz_magister
+		}
+	}
+}
+
+# Crafting window: can the crafter (var:zz_item_crafter) brew the potion in scope:zz_selected_potion? Mystery potions need a matching mystery
+zz_valyria_crafter_can_brew_potion_trigger = {
+	exists = var:zz_item_crafter
+	trigger_if = {
+		limit = { scope:zz_selected_potion = flag:potion_healing }
+		custom_tooltip = {
+			text = zz_valyria_potion_needs_potion_healing_tt
+			var:zz_item_crafter = {
+				OR = {
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_blood_magic_001 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_dream_magic_058 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_water_magic_011 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_fire_magic_004 }
+				}
+			}
+		}
+	}
+	trigger_if = {
+		limit = { scope:zz_selected_potion = flag:potion_purging }
+		custom_tooltip = {
+			text = zz_valyria_potion_needs_potion_purging_tt
+			var:zz_item_crafter = {
+				OR = {
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_water_magic_011 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_fire_magic_004 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_blood_magic_006 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_dream_magic_082 }
+				}
+			}
+		}
+	}
+	trigger_if = {
+		limit = { scope:zz_selected_potion = flag:potion_restoring }
+		custom_tooltip = {
+			text = zz_valyria_potion_needs_potion_restoring_tt
+			var:zz_item_crafter = {
+				OR = {
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_air_magic_014 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_alchemy_magic_035 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_blood_magic_032 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_dream_magic_051 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_fire_magic_014 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_shadow_magic_014 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_water_magic_014 }
+				}
+			}
+		}
+	}
+	trigger_if = {
+		limit = { scope:zz_selected_potion = flag:tonic_power }
+		custom_tooltip = {
+			text = zz_valyria_potion_needs_tonic_power_tt
+			var:zz_item_crafter = {
+				OR = {
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_dream_magic_053 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_dream_magic_054 }
+					zz_valyria_knows_spell = { SPELL = zz_valyria_magic_dream_magic_055 }
+				}
+			}
+		}
+	}
+}

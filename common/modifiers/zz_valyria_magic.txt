@@ -231,8 +231,8 @@ zz_valyria_magic_shadow_magic_012_modifier = {
 }
 
 zz_valyria_magic_shadow_magic_013_modifier = {
-	icon = magic_positive
-	negate_prowess_penalty_add = 1
+	icon = magic_negative
+	prowess_no_portrait = -1
 	stacking = yes
 	scale = {
 		value = zz_valyria_magic_shadow_magic_013_value_01
@@ -241,12 +241,14 @@ zz_valyria_magic_shadow_magic_013_modifier = {
 	}
 }
 
+
+
 zz_valyria_magic_shadow_magic_016_modifier = {
 	icon = magic_positive
-	additional_fort_level = 2
+	additional_fort_level = 1
 	stacking = yes
 	scale = {
-		value = zz_valyria_magic_shadow_magic_014_value_01
+		value = zz_valyria_magic_shadow_magic_016_value_01
 		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
 		display_mode = scaled
 	}
@@ -282,28 +284,6 @@ zz_valyria_magic_dream_magic_010_modifier = {
 	stacking = yes
 	scale = {
 		value = zz_valyria_magic_dream_magic_010_value
-		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
-		display_mode = scaled
-	}
-}
-
-zz_valyria_magic_dream_magic_038_modifier = {
-	icon = magic_positive
-	popular_opinion_add = 0.2
-	stacking = yes
-	scale = {
-		value = zz_valyria_magic_dream_magic_038_value_01
-		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
-		display_mode = scaled
-	}
-}
-
-zz_valyria_magic_dream_magic_039_modifier = {
-	icon = magic_positive
-	popular_opinion_add = -0.2
-	stacking = yes
-	scale = {
-		value = zz_valyria_magic_dream_magic_039_value_01
 		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
 		display_mode = scaled
 	}
@@ -358,6 +338,7 @@ zz_valyria_magic_alchemy_magic_002_modifier = {
 	icon = magic_positive
 	build_speed = -0.01
 	holding_build_speed = -0.01
+	district_build_speed = -0.01
 	stacking = yes
 	scale = {
 		value = zz_valyria_magic_alchemy_magic_002_value_01
@@ -741,3 +722,1263 @@ zz_valyria_magic_water_magic_017_modifier = {
 	}
 }
 
+# Alchemy - Mystery of Alchemical Refinement: one modifier per trade good
+zz_valyria_magic_alchemy_magic_022_modifier_wood = {
+	icon = trade_goods_positive
+	trade_good_wood_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_stone = {
+	icon = trade_goods_positive
+	trade_good_stone_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_wool = {
+	icon = trade_goods_positive
+	trade_good_wool_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_cotton = {
+	icon = trade_goods_positive
+	trade_good_cotton_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_leather = {
+	icon = trade_goods_positive
+	trade_good_leather_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_flax = {
+	icon = trade_goods_positive
+	trade_good_flax_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_hemp = {
+	icon = trade_goods_positive
+	trade_good_hemp_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_salt = {
+	icon = trade_goods_positive
+	trade_good_salt_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_grain = {
+	icon = trade_goods_positive
+	trade_good_grain_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_fruit = {
+	icon = trade_goods_positive
+	trade_good_fruit_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_meat = {
+	icon = trade_goods_positive
+	trade_good_meat_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_fish = {
+	icon = trade_goods_positive
+	trade_good_fish_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_cattle = {
+	icon = trade_goods_positive
+	trade_good_cattle_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_horses = {
+	icon = trade_goods_positive
+	trade_good_horses_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_cheese = {
+	icon = trade_goods_positive
+	trade_good_cheese_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_beer = {
+	icon = trade_goods_positive
+	trade_good_beer_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_wine = {
+	icon = trade_goods_positive
+	trade_good_wine_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_oil = {
+	icon = trade_goods_positive
+	trade_good_oil_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_honey = {
+	icon = trade_goods_positive
+	trade_good_honey_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_rice = {
+	icon = trade_goods_positive
+	trade_good_rice_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_millet = {
+	icon = trade_goods_positive
+	trade_good_millet_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_iron = {
+	icon = trade_goods_positive
+	trade_good_iron_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_alum = {
+	icon = trade_goods_positive
+	trade_good_alum_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_jade = {
+	icon = trade_goods_positive
+	trade_good_jade_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_gold = {
+	icon = trade_goods_positive
+	trade_good_gold_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_silver = {
+	icon = trade_goods_positive
+	trade_good_silver_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_amber = {
+	icon = trade_goods_positive
+	trade_good_amber_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_copper = {
+	icon = trade_goods_positive
+	trade_good_copper_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_gems = {
+	icon = trade_goods_positive
+	trade_good_gems_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_silk = {
+	icon = trade_goods_positive
+	trade_good_silk_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_textiles = {
+	icon = trade_goods_positive
+	trade_good_textiles_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_furs = {
+	icon = trade_goods_positive
+	trade_good_furs_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_books_paper = {
+	icon = trade_goods_positive
+	trade_good_books_paper_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_spices = {
+	icon = trade_goods_positive
+	trade_good_spices_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_dyes = {
+	icon = trade_goods_positive
+	trade_good_dyes_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_jewelry = {
+	icon = trade_goods_positive
+	trade_good_jewelry_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_ivory = {
+	icon = trade_goods_positive
+	trade_good_ivory_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_glass = {
+	icon = trade_goods_positive
+	trade_good_glass_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_sugar = {
+	icon = trade_goods_positive
+	trade_good_sugar_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_incense = {
+	icon = trade_goods_positive
+	trade_good_incense_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_ceramics = {
+	icon = trade_goods_positive
+	trade_good_ceramics_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_lacquerware = {
+	icon = trade_goods_positive
+	trade_good_lacquerware_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_medicaments = {
+	icon = trade_goods_positive
+	trade_good_medicaments_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_alchemy_magic_022_modifier_tea = {
+	icon = trade_goods_positive
+	trade_good_tea_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_022_value_01
+		display_mode = scaled
+	}
+}
+
+# Dream - Mystery of the Dreaming Road: travel speed tiers by days already travelled
+zz_valyria_magic_dream_magic_074_modifier_01 = {
+	icon = compass_positive
+	travel_speed = 1
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_074_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_074_modifier_02 = {
+	icon = compass_positive
+	travel_speed = 2
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_074_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_074_modifier_03 = {
+	icon = compass_positive
+	travel_speed = 3
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_074_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_074_modifier_04 = {
+	icon = compass_positive
+	travel_speed = 5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_074_value_01
+		display_mode = scaled
+	}
+}
+
+# Dream - Mystery of the Watchful Road
+zz_valyria_magic_dream_magic_076_modifier = {
+	icon = compass_positive
+	character_travel_safety = 2
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_076_value_01
+		display_mode = scaled
+	}
+}
+
+# Dream - Mystery of the Shared Dream
+zz_valyria_magic_dream_magic_079_modifier = {
+	icon = county_modifier_opinion_positive
+	monthly_popular_opinion_change = 0.04
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_079_value_01
+		display_mode = scaled
+	}
+}
+
+# Dream - Mystery of the Dreaming City
+zz_valyria_magic_dream_magic_078_modifier = {
+	icon = county_modifier_prosperity_positive
+	province_size_baseline_add = 2
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_078_value_01
+		display_mode = scaled
+	}
+}
+
+# Dream - Mystery of Prophecy (Resources): one modifier per trade good
+zz_valyria_magic_dream_magic_077_modifier_wood = {
+	icon = trade_goods_positive
+	trade_good_wood_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_stone = {
+	icon = trade_goods_positive
+	trade_good_stone_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_wool = {
+	icon = trade_goods_positive
+	trade_good_wool_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_cotton = {
+	icon = trade_goods_positive
+	trade_good_cotton_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_leather = {
+	icon = trade_goods_positive
+	trade_good_leather_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_flax = {
+	icon = trade_goods_positive
+	trade_good_flax_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_hemp = {
+	icon = trade_goods_positive
+	trade_good_hemp_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_salt = {
+	icon = trade_goods_positive
+	trade_good_salt_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_grain = {
+	icon = trade_goods_positive
+	trade_good_grain_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_fruit = {
+	icon = trade_goods_positive
+	trade_good_fruit_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_meat = {
+	icon = trade_goods_positive
+	trade_good_meat_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_fish = {
+	icon = trade_goods_positive
+	trade_good_fish_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_cattle = {
+	icon = trade_goods_positive
+	trade_good_cattle_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_horses = {
+	icon = trade_goods_positive
+	trade_good_horses_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_cheese = {
+	icon = trade_goods_positive
+	trade_good_cheese_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_beer = {
+	icon = trade_goods_positive
+	trade_good_beer_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_wine = {
+	icon = trade_goods_positive
+	trade_good_wine_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_oil = {
+	icon = trade_goods_positive
+	trade_good_oil_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_honey = {
+	icon = trade_goods_positive
+	trade_good_honey_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_rice = {
+	icon = trade_goods_positive
+	trade_good_rice_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_millet = {
+	icon = trade_goods_positive
+	trade_good_millet_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_iron = {
+	icon = trade_goods_positive
+	trade_good_iron_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_alum = {
+	icon = trade_goods_positive
+	trade_good_alum_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_jade = {
+	icon = trade_goods_positive
+	trade_good_jade_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_gold = {
+	icon = trade_goods_positive
+	trade_good_gold_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_silver = {
+	icon = trade_goods_positive
+	trade_good_silver_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_amber = {
+	icon = trade_goods_positive
+	trade_good_amber_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_copper = {
+	icon = trade_goods_positive
+	trade_good_copper_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_gems = {
+	icon = trade_goods_positive
+	trade_good_gems_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_silk = {
+	icon = trade_goods_positive
+	trade_good_silk_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_textiles = {
+	icon = trade_goods_positive
+	trade_good_textiles_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_furs = {
+	icon = trade_goods_positive
+	trade_good_furs_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_books_paper = {
+	icon = trade_goods_positive
+	trade_good_books_paper_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_spices = {
+	icon = trade_goods_positive
+	trade_good_spices_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_dyes = {
+	icon = trade_goods_positive
+	trade_good_dyes_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_jewelry = {
+	icon = trade_goods_positive
+	trade_good_jewelry_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_ivory = {
+	icon = trade_goods_positive
+	trade_good_ivory_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_glass = {
+	icon = trade_goods_positive
+	trade_good_glass_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_sugar = {
+	icon = trade_goods_positive
+	trade_good_sugar_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_incense = {
+	icon = trade_goods_positive
+	trade_good_incense_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_ceramics = {
+	icon = trade_goods_positive
+	trade_good_ceramics_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_lacquerware = {
+	icon = trade_goods_positive
+	trade_good_lacquerware_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_medicaments = {
+	icon = trade_goods_positive
+	trade_good_medicaments_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+zz_valyria_magic_dream_magic_077_modifier_tea = {
+	icon = trade_goods_positive
+	trade_good_tea_production_add = 2.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_077_value_01
+		display_mode = scaled
+	}
+}
+
+# Dream - Mystery of Soothsaying (Longevity) (tiers by story potency)
+zz_valyria_magic_dream_magic_081_modifier_01 = {
+	icon = health_positive
+	life_expectancy = 3
+	health = 0.1
+}
+
+zz_valyria_magic_dream_magic_081_modifier_02 = {
+	icon = health_positive
+	life_expectancy = 5
+	health = 0.2
+}
+
+zz_valyria_magic_dream_magic_081_modifier_03 = {
+	icon = health_positive
+	life_expectancy = 8
+	health = 0.3
+}
+
+zz_valyria_magic_dream_magic_081_modifier_04 = {
+	icon = health_positive
+	life_expectancy = 10
+	health = 0.5
+}
+
+# Dream - Mystery of Soothsaying (Health) (tiers by story potency)
+zz_valyria_magic_dream_magic_082_modifier_01 = {
+	icon = treatment_positive
+	negate_health_penalty_add = 0.5
+}
+
+zz_valyria_magic_dream_magic_082_modifier_02 = {
+	icon = treatment_positive
+	negate_health_penalty_add = 0.75
+}
+
+zz_valyria_magic_dream_magic_082_modifier_03 = {
+	icon = treatment_positive
+	negate_health_penalty_add = 1
+}
+
+zz_valyria_magic_dream_magic_082_modifier_04 = {
+	icon = treatment_positive
+	negate_health_penalty_add = 1.5
+}
+
+# Alchemy - Mystery of Mercantile Reach
+zz_valyria_magic_alchemy_magic_027_modifier = {
+	icon = trade_goods_positive
+	trade_post_limit_add = 1
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_027_value_01
+		display_mode = scaled
+	}
+}
+
+# Alchemy - Mystery of Bountiful Caravans
+zz_valyria_magic_alchemy_magic_028_modifier = {
+	icon = trade_goods_positive
+	trade_capacity_mult = 0.01
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_028_value_01
+		display_mode = scaled
+	}
+}
+
+# Alchemy - Mystery of the Long Road
+zz_valyria_magic_alchemy_magic_029_modifier = {
+	icon = trade_goods_positive
+	trade_route_length_mult = 0.01
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_029_value_01
+		display_mode = scaled
+	}
+}
+
+# Alchemy - Mystery of the Open Road
+zz_valyria_magic_alchemy_magic_030_modifier = {
+	icon = trade_goods_positive
+	max_trade_routes = 1
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_030_value_01
+		display_mode = scaled
+	}
+}
+
+# Alchemy - Mystery of Many Markets
+zz_valyria_magic_alchemy_magic_031_modifier = {
+	icon = trade_goods_positive
+	max_trade_markets_on_route = 1
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_031_value_01
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_water_magic_023_modifier = {
+	icon = magic_positive
+	naval_movement_speed_mult = 0.01
+	embarkation_cost_mult = -0.01
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_water_magic_023_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_shadow_magic_018_modifier = {
+	icon = magic_negative
+	stress_gain_mult = 0.01
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_shadow_magic_018_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_shadow_magic_020_modifier = {
+	icon = magic_negative
+	prowess_no_portrait = -0.5
+	movement_speed = -0.02
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_shadow_magic_020_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_shadow_magic_019_modifier = {
+	icon = magic_negative
+	levy_size = -0.1
+}
+
+zz_valyria_magic_fire_magic_019_modifier = {
+	icon = magic_negative
+	supply_limit_mult = -0.01
+	prosperity_growth_factor = -0.01
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_fire_magic_019_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_fire_magic_020_modifier = {
+	icon = magic_positive
+	supply_duration = 0.01
+	hostile_county_attrition = -0.002
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_fire_magic_020_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_air_magic_018_modifier = {
+	icon = magic_positive
+	archers_damage_mult = 0.02
+	archers_toughness_mult = 0.01
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_air_magic_018_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_air_magic_019_modifier = {
+	icon = magic_negative
+	health = -0.02
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_air_magic_019_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_air_magic_020_modifier = {
+	icon = magic_negative
+	naval_movement_speed_mult = -0.02
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_air_magic_020_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_water_magic_022_modifier = {
+	icon = magic_negative
+	health = -0.5
+	prowess = -3
+}
+zz_valyria_magic_water_magic_020_modifier = {
+	icon = magic_negative
+	supply_limit_mult = -0.25
+	prosperity_growth_factor = -0.1
+}
+
+zz_valyria_magic_fire_magic_025_modifier = {
+	icon = magic_positive
+	hostile_raid_time = 0.01
+	levy_size = 0.001
+	garrison_size = 0.002
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_fire_magic_025_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_water_magic_025_modifier = {
+	icon = magic_positive
+	stress_gain_mult = -0.002
+	stress_loss_mult = 0.005
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_water_magic_025_value_02
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_air_magic_025_modifier = {
+	icon = magic_positive
+	character_travel_speed = 1
+	character_travel_safety = 0.5
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_air_magic_025_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_dream_magic_086_modifier = {
+	icon = magic_positive
+	popular_opinion_add = 0.2
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_086_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_dream_magic_087_modifier = {
+	icon = magic_negative
+	popular_opinion_add = -0.2
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_087_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_dream_magic_088_modifier = {
+	icon = magic_positive
+	monthly_control_change = 0.01 # 1.21: was monthly_county_control_growth_add
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_088_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_dream_magic_089_modifier = {
+	icon = magic_negative
+	monthly_control_change_when_below_baseline_mult = -0.01 # 1.21: Control Growth, was monthly_county_control_growth_factor
+	monthly_control_change_when_above_baseline_mult = 0.01 # 1.21: Control Decline, was monthly_county_control_decline_factor
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_089_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_dream_magic_090_modifier = {
+	icon = magic_positive
+	prosperity_growth_factor = 0.001
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_090_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_dream_magic_091_modifier = {
+	icon = magic_negative
+	prosperity_growth_factor = -0.001
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_091_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_dream_magic_092_modifier = {
+	icon = magic_positive
+	prosperity_growth = 0.01
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_092_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+zz_valyria_magic_dream_magic_093_modifier = {
+	icon = magic_negative
+	prosperity_growth = -0.01
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_dream_magic_093_value_01
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+# Fire 027 - the Forge-Fire: the county builds faster and cheaper
+zz_valyria_magic_fire_magic_027_modifier = {
+	icon = magic_positive
+	build_speed = -0.5
+	build_gold_cost = -0.25
+}
+# Water 030 - the Fertile Flood: the waters stand on the fields
+zz_valyria_magic_water_magic_030_modifier = {
+	icon = magic_negative
+	levy_size = -0.15
+	supply_limit_mult = -0.25
+}
+
+# Dream - Mystery of Soothsaying (Longevity): added each time a vision turns aside a death, and stacks
+zz_valyria_magic_dream_magic_081_stacking_modifier = {
+	icon = health_positive
+	stacking = yes
+	life_expectancy = 5
+	health = 0.5
+}
+
+# Dream - Soothsaying (Omens of War): the commander foresaw the battle; added at its start for its length
+zz_valyria_magic_dream_magic_105_modifier_01 = {
+	icon = martial_positive
+	advantage = 4
+}
+
+zz_valyria_magic_dream_magic_105_modifier_02 = {
+	icon = martial_positive
+	advantage = 8
+}
+
+zz_valyria_magic_dream_magic_105_modifier_03 = {
+	icon = martial_positive
+	advantage = 12
+}
+
+zz_valyria_magic_dream_magic_105_modifier_04 = {
+	icon = martial_positive
+	advantage = 16
+}
+
+
+# Blood 040 - Vital Theft: the subject's loss and the caster's gain
+zz_valyria_magic_blood_magic_040_modifier = {
+	icon = magic_negative
+	health = -0.75
+}
+zz_valyria_magic_blood_magic_040_02_modifier = {
+	icon = magic_positive
+	health = 0.75
+}
+
+# Fire 032 - the Terror of Flame: dread lingers
+zz_valyria_magic_fire_magic_032_modifier = {
+	icon = magic_positive
+	dread_decay_mult = -0.5
+}

@@ -40,7 +40,7 @@ designate_heir_interaction = {
 		## SOTHM added
 		trigger_if = {
 			limit = { scope:actor = { has_trait = zz_magister } }
-			has_trait = zz_magister
+			scope:recipient = { has_trait = zz_magister }
 		}
 	}
 

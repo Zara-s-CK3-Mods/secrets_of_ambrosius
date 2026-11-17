@@ -4,8 +4,41 @@ zz_valyria_item_crafting_human_sacrifice.01 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_item_crafting_human_sacrifice.01.t
-	desc = zz_valyria_item_crafting_human_sacrifice.01.desc
-	theme = dragon
+	desc = {
+		# Event flavour variants
+		random_valid = {
+			desc = zz_valyria_item_crafting_human_sacrifice.01.desc.setting.1
+			desc = zz_valyria_item_crafting_human_sacrifice.01.desc.setting.2
+			desc = zz_valyria_item_crafting_human_sacrifice.01.desc.setting.3
+			desc = zz_valyria_item_crafting_human_sacrifice.01.desc.setting.4
+		}
+		desc = zz_valyria_item_crafting_human_sacrifice.01.desc
+		random_valid = {
+			desc = zz_valyria_item_crafting_human_sacrifice.01.desc.mood.1
+			desc = zz_valyria_item_crafting_human_sacrifice.01.desc.mood.2
+			triggered_desc = {
+				trigger = { has_trait = sadistic }
+				desc = zz_valyria_item_crafting_human_sacrifice.01.desc.mood.sadistic
+			}
+			triggered_desc = {
+				trigger = { has_trait = compassionate }
+				desc = zz_valyria_item_crafting_human_sacrifice.01.desc.mood.compassionate
+			}
+			triggered_desc = {
+				trigger = { has_trait = zealous }
+				desc = zz_valyria_item_crafting_human_sacrifice.01.desc.mood.zealous
+			}
+			triggered_desc = {
+				trigger = { has_trait = callous }
+				desc = zz_valyria_item_crafting_human_sacrifice.01.desc.mood.callous
+			}
+			triggered_desc = {
+				trigger = { has_trait = ambitious }
+				desc = zz_valyria_item_crafting_human_sacrifice.01.desc.mood.ambitious
+			}
+		}
+	}
+	theme = dread
 	left_portrait = root
 	right_portrait = scope:recipient
 	immediate = {
@@ -20,7 +53,7 @@ zz_valyria_item_crafting_human_sacrifice.01 = {
 				}
 			}
 		}
-		gui = "event_window_character_selection"
+		gui = "event_window_character_selection_popup"
 		container = "custom_widgets_container"
 	}
 	

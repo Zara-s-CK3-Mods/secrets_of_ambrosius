@@ -31,7 +31,51 @@ scripted_effect zz_grand_rite_poor_outcome = {
 valyria_blood_sacrifices.1 = { #by Mathilda Bjarnehed
 	type = character_event
 	title = valyria_blood_sacrifices.1.t
-	desc = valyria_blood_sacrifices.1.desc
+	desc = {
+		# Event flavour variants
+		random_valid = {
+			desc = valyria_blood_sacrifices.1.desc.setting.1
+			desc = valyria_blood_sacrifices.1.desc.setting.2
+			desc = valyria_blood_sacrifices.1.desc.setting.3
+			desc = valyria_blood_sacrifices.1.desc.setting.4
+			desc = valyria_blood_sacrifices.1.desc.setting.5
+			desc = valyria_blood_sacrifices.1.desc.setting.6
+		}
+		desc = valyria_blood_sacrifices.1.desc
+		random_valid = {
+			desc = valyria_blood_sacrifices.1.desc.mood.1
+			desc = valyria_blood_sacrifices.1.desc.mood.2
+			desc = valyria_blood_sacrifices.1.desc.mood.3
+			triggered_desc = {
+				trigger = { has_trait = sadistic }
+				desc = valyria_blood_sacrifices.1.desc.mood.sadistic
+			}
+			triggered_desc = {
+				trigger = { has_trait = compassionate }
+				desc = valyria_blood_sacrifices.1.desc.mood.compassionate
+			}
+			triggered_desc = {
+				trigger = { has_trait = zealous }
+				desc = valyria_blood_sacrifices.1.desc.mood.zealous
+			}
+			triggered_desc = {
+				trigger = { has_trait = cynical }
+				desc = valyria_blood_sacrifices.1.desc.mood.cynical
+			}
+			triggered_desc = {
+				trigger = { has_trait = callous }
+				desc = valyria_blood_sacrifices.1.desc.mood.callous
+			}
+			triggered_desc = {
+				trigger = { has_trait = paranoid }
+				desc = valyria_blood_sacrifices.1.desc.mood.paranoid
+			}
+			triggered_desc = {
+				trigger = { has_trait = craven }
+				desc = valyria_blood_sacrifices.1.desc.mood.craven
+			}
+		}
+	}
 	theme = witchcraft
 	window = zz_valyria_magic_character_event
 	override_background = {
@@ -56,7 +100,7 @@ valyria_blood_sacrifices.1 = { #by Mathilda Bjarnehed
 				}
 			}
 		}
-		gui = "event_window_character_selection"
+		gui = "event_window_character_selection_popup"
 		container = "custom_widgets_container"
 	}
 

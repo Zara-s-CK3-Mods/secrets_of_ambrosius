@@ -6,8 +6,8 @@
 	#Language
 	modifier = {
 		add = 5
-		desc = YOU_SPEAK_THE_LANGUAGE
-		scope:owner = { knows_language_of_culture = scope:target.culture }
+		desc = zz_scheme_knows_study_language
+		scope:owner = { knows_language = language_latin }
 	}
 
 	# Taught Dragon Lore

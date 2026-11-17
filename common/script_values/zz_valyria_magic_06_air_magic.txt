@@ -50,6 +50,21 @@ zz_valyria_magic_air_magic_base_value = {
 				add = this.var:air_magic_overcap
 			}
 		}
+		multiply = {
+			value = 1
+			if = {
+				limit = {
+					faith = { has_doctrine_parameter = zz_tenet_strength_air_magic }
+				}
+				add = 0.25
+			}
+			if = {
+				limit = {
+					has_personal_tenet_flag = zz_personal_strength_air_magic
+				}
+				add = 0.1
+			}
+		}
 	}
 }
 zz_valyria_magic_air_magic_001_value = { 
@@ -165,9 +180,8 @@ zz_valyria_magic_air_magic_006_value_01 = {
 	add = { 
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_air_magic_base_value
-			divide = zz_valyria_catastrophic_damage_army
-			min = 0.01
-			max = 0.99
+			multiply = zz_valyria_catastrophic_damage_army
+			min = zz_valyria_catastrophic_damage_army
 		}
 	}
 }
@@ -235,8 +249,8 @@ zz_valyria_magic_air_magic_009_value_01 = {
 	add = { 
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_air_magic_base_value
-			divide = zz_valyria_catastrophic_damage_army
-			min = 0.01
+			multiply = zz_valyria_catastrophic_damage_army
+			min = zz_valyria_catastrophic_damage_army
 		}
 	}
 }
@@ -396,6 +410,312 @@ zz_valyria_magic_air_magic_017_value_01 = {
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_air_magic_base_value
 			divide = 5
+			min = 1
+		}
+	}
+}
+# Air 018 - the Rain of Arrows
+zz_valyria_magic_air_magic_018_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_air_magic_018_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+# Air 019 - Thin Air
+zz_valyria_magic_air_magic_019_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_air_magic_019_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+# Air 020 - Contrary Winds
+zz_valyria_magic_air_magic_020_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_air_magic_020_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+# Air 021 - Whispers on the Wind
+zz_valyria_magic_air_magic_021_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_air_magic_021_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_air_magic_021_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			divide = 25
+			min = 1
+		}
+	}
+}
+# Air 022 - the Windborne Blade
+zz_valyria_magic_air_magic_022_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+# Air 023 - Stormcaller
+zz_valyria_magic_air_magic_023_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_air_magic_023_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_air_magic_023_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			multiply = zz_valyria_serious_damage_army
+			min = zz_valyria_serious_damage_army
+		}
+	}
+}
+zz_valyria_magic_air_magic_023_value_03 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			multiply = zz_valyria_massive_damage_army
+			min = zz_valyria_massive_damage_army
+		}
+	}
+}
+zz_valyria_magic_air_magic_023_value_04 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			divide = 5
+			min = 3
+		}
+	}
+}
+# Air 024 - the Gale Host
+zz_valyria_magic_air_magic_024_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_air_magic_024_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			divide = 12
+			min = 1
+		}
+	}
+}
+# Air 025 - the Following Wind
+zz_valyria_magic_air_magic_025_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_air_magic_025_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			divide = 2
+			min = 1
+			max = 100
+		}
+	}
+}
+# Air 026 - The Windborne Journey
+zz_valyria_magic_air_magic_026_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+# Air 027 - Scattered Plans
+zz_valyria_magic_air_magic_027_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+# Air 028 - The Shifting Winds
+zz_valyria_magic_air_magic_028_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+# Air 029 - The Scattering Gust
+zz_valyria_magic_air_magic_029_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+# Air 030 - Winds of Accord
+zz_valyria_magic_air_magic_030_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+# Air 031 - The Herald's Gale
+zz_valyria_magic_air_magic_031_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_air_magic_031_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			multiply = 4
+			min = 1
+		}
+	}
+}
+
+zz_valyria_magic_air_magic_032_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_air_magic_032_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			divide = 6
+			add = 6
+			floor = yes
+			min = 8
+			max = 24
+		}
+	}
+}
+zz_valyria_magic_air_magic_032_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			divide = 6
+			add = 9
+			floor = yes
+			min = 11
+			max = 27
+		}
+	}
+}
+
+zz_valyria_magic_air_magic_033_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
 			min = 1
 		}
 	}

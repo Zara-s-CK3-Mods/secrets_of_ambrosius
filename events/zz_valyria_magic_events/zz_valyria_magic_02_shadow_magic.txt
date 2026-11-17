@@ -1,10 +1,17 @@
 ﻿namespace = zz_valyria_magic_shadow_magic
 
+# Spell: Shadow 001 - Mystery of Shadowy Steeds
 zz_valyria_magic_shadow_magic.001 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.001.t
-	desc = zz_valyria_magic_shadow_magic.001.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.001.desc
+			desc = zz_valyria_magic_shadow_magic.001.desc_02
+			desc = zz_valyria_magic_shadow_magic.001.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -18,7 +25,7 @@ zz_valyria_magic_shadow_magic.001 = {
 	option = {
 		name = zz_valyria_magic_shadow_magic.001.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 001
 			}
@@ -29,11 +36,18 @@ zz_valyria_magic_shadow_magic.001 = {
 		name = zz_valyria_magic_shadow_magic.001.opt.z
 	}
 }
+# Spell: Shadow 002 - Mystery of Shadowy Daggers
 zz_valyria_magic_shadow_magic.002 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.002.t
-	desc = zz_valyria_magic_shadow_magic.002.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.002.desc
+			desc = zz_valyria_magic_shadow_magic.002.desc_02
+			desc = zz_valyria_magic_shadow_magic.002.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -47,7 +61,7 @@ zz_valyria_magic_shadow_magic.002 = {
 	option = {
 		name = zz_valyria_magic_shadow_magic.002.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 002
 			}
@@ -58,11 +72,18 @@ zz_valyria_magic_shadow_magic.002 = {
 		name = zz_valyria_magic_shadow_magic.002.opt.z
 	}
 }
+# Spell: Shadow 003 - Mystery of the Shadow Shield
 zz_valyria_magic_shadow_magic.003 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.003.t
-	desc = zz_valyria_magic_shadow_magic.003.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.003.desc
+			desc = zz_valyria_magic_shadow_magic.003.desc_02
+			desc = zz_valyria_magic_shadow_magic.003.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -76,7 +97,7 @@ zz_valyria_magic_shadow_magic.003 = {
 	option = {
 		name = zz_valyria_magic_shadow_magic.003.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 003
 			}
@@ -87,11 +108,18 @@ zz_valyria_magic_shadow_magic.003 = {
 		name = zz_valyria_magic_shadow_magic.003.opt.z
 	}
 }
+# Spell: Shadow 004 - Mystery of the Shadowy Cloak
 zz_valyria_magic_shadow_magic.004 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.004.t
-	desc = zz_valyria_magic_shadow_magic.004.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.004.desc
+			desc = zz_valyria_magic_shadow_magic.004.desc_02
+			desc = zz_valyria_magic_shadow_magic.004.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -105,7 +133,7 @@ zz_valyria_magic_shadow_magic.004 = {
 	option = {
 		name = zz_valyria_magic_shadow_magic.004.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 004
 			}
@@ -115,11 +143,18 @@ zz_valyria_magic_shadow_magic.004 = {
 		name = zz_valyria_magic_shadow_magic.004.opt.z
 	}
 }
+# Spell: Shadow 005 - Mystery of Cloying Shadows
 zz_valyria_magic_shadow_magic.005 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.005.t
-	desc = zz_valyria_magic_shadow_magic.005.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.005.desc
+			desc = zz_valyria_magic_shadow_magic.005.desc_02
+			desc = zz_valyria_magic_shadow_magic.005.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -133,7 +168,7 @@ zz_valyria_magic_shadow_magic.005 = {
 	option = {
 		name = zz_valyria_magic_shadow_magic.005.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 005
 			}
@@ -143,11 +178,18 @@ zz_valyria_magic_shadow_magic.005 = {
 		name = zz_valyria_magic_shadow_magic.005.opt.z
 	}
 }
+# Spell: Shadow 006 - Mystery of Feeble Daggers
 zz_valyria_magic_shadow_magic.006 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.006.t
-	desc = zz_valyria_magic_shadow_magic.006.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.006.desc
+			desc = zz_valyria_magic_shadow_magic.006.desc_02
+			desc = zz_valyria_magic_shadow_magic.006.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -161,7 +203,7 @@ zz_valyria_magic_shadow_magic.006 = {
 	option = {
 		name = zz_valyria_magic_shadow_magic.006.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 006
 			}
@@ -171,11 +213,18 @@ zz_valyria_magic_shadow_magic.006 = {
 		name = zz_valyria_magic_shadow_magic.006.opt.z
 	}
 }
+# Spell: Shadow 007 - Mystery of the Weakened Vigilance
 zz_valyria_magic_shadow_magic.007 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.007.t
-	desc = zz_valyria_magic_shadow_magic.007.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.007.desc
+			desc = zz_valyria_magic_shadow_magic.007.desc_02
+			desc = zz_valyria_magic_shadow_magic.007.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -189,7 +238,7 @@ zz_valyria_magic_shadow_magic.007 = {
 	option = {
 		name = zz_valyria_magic_shadow_magic.007.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 007
 			}
@@ -199,11 +248,18 @@ zz_valyria_magic_shadow_magic.007 = {
 		name = zz_valyria_magic_shadow_magic.007.opt.z
 	}
 }
+# Spell: Shadow 008 - Mystery of Revealed Shadows
 zz_valyria_magic_shadow_magic.008 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.008.t
-	desc = zz_valyria_magic_shadow_magic.008.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.008.desc
+			desc = zz_valyria_magic_shadow_magic.008.desc_02
+			desc = zz_valyria_magic_shadow_magic.008.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -217,7 +273,7 @@ zz_valyria_magic_shadow_magic.008 = {
 	option = {
 		name = zz_valyria_magic_shadow_magic.008.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 008
 			}
@@ -228,11 +284,18 @@ zz_valyria_magic_shadow_magic.008 = {
 	}
 }
 
+# Spell: Shadow 009 - Mystery of the Assassin of the Shadow
 zz_valyria_magic_shadow_magic.009 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.009.t
-	desc = zz_valyria_magic_shadow_magic.009.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.009.desc
+			desc = zz_valyria_magic_shadow_magic.009.desc_02
+			desc = zz_valyria_magic_shadow_magic.009.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -250,7 +313,7 @@ zz_valyria_magic_shadow_magic.009 = {
 				name = option_01
 				value = yes 
 			} 
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 009
 			}
@@ -263,7 +326,7 @@ zz_valyria_magic_shadow_magic.009 = {
 				name = option_02
 				value = yes 
 			} 
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 009
 			}
@@ -275,11 +338,18 @@ zz_valyria_magic_shadow_magic.009 = {
 	}
 }
 
+# Spell: Shadow 010 - Mystery of Umbral Blast (Army)
 zz_valyria_magic_shadow_magic.010 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.010.t
-	desc = zz_valyria_magic_shadow_magic.010.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.010.desc
+			desc = zz_valyria_magic_shadow_magic.010.desc_02
+			desc = zz_valyria_magic_shadow_magic.010.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -291,24 +361,7 @@ zz_valyria_magic_shadow_magic.010 = {
 	lower_center_portrait = scope:recipient
 
 	immediate = {
-		clear_variable_list = possible_armies
-		remove_variable = selected_army
-		scope:recipient = {
-			every_army = {
-				root = {
-					add_to_variable_list = {
-						name = possible_armies
-						target = prev
-					}
-					if = {
-						limit = {
-							NOT = { has_variable = selected_army }
-						}
-						set_variable = { name = selected_army value = prev }
-					}
-				}
-			}
-		}
+		zz_targed_character_army_selection_list_effect = yes
 	}
 
 	widget = {
@@ -324,7 +377,7 @@ zz_valyria_magic_shadow_magic.010 = {
 			var:selected_army ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 010
 			}
@@ -335,11 +388,18 @@ zz_valyria_magic_shadow_magic.010 = {
 	}
 }
 
+# Spell: Shadow 011 - Mystery of Umbral Strike (Regiment)
 zz_valyria_magic_shadow_magic.011 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.011.t
-	desc = zz_valyria_magic_shadow_magic.011.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.011.desc
+			desc = zz_valyria_magic_shadow_magic.011.desc_02
+			desc = zz_valyria_magic_shadow_magic.011.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -391,7 +451,7 @@ zz_valyria_magic_shadow_magic.011 = {
 			var:selected_regiment ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 011
 			}	
@@ -402,11 +462,18 @@ zz_valyria_magic_shadow_magic.011 = {
 	}
 }
 
+# Spell: Shadow 012 - Mystery of Shadow Blade
 zz_valyria_magic_shadow_magic.012 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.012.t
-	desc = zz_valyria_magic_shadow_magic.012.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.012.desc
+			desc = zz_valyria_magic_shadow_magic.012.desc_02
+			desc = zz_valyria_magic_shadow_magic.012.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -420,7 +487,7 @@ zz_valyria_magic_shadow_magic.012 = {
 	option = {
 		name = zz_valyria_magic_shadow_magic.012.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 012
 			}
@@ -432,11 +499,18 @@ zz_valyria_magic_shadow_magic.012 = {
 	}
 }
 
+# Spell: Shadow 013 - Mystery of Feeble Shield
 zz_valyria_magic_shadow_magic.013 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.013.t
-	desc = zz_valyria_magic_shadow_magic.013.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.013.desc
+			desc = zz_valyria_magic_shadow_magic.013.desc_02
+			desc = zz_valyria_magic_shadow_magic.013.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -450,7 +524,7 @@ zz_valyria_magic_shadow_magic.013 = {
 	option = {
 		name = zz_valyria_magic_shadow_magic.013.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 013
 			}
@@ -461,11 +535,18 @@ zz_valyria_magic_shadow_magic.013 = {
 		name = zz_valyria_magic_shadow_magic.013.opt.z
 	}
 }
+# Spell: Shadow 014 - Mystery of Shadow's Caress
 zz_valyria_magic_shadow_magic.014 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.014.t
-	desc = zz_valyria_magic_shadow_magic.014.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.014.desc
+			desc = zz_valyria_magic_shadow_magic.014.desc_02
+			desc = zz_valyria_magic_shadow_magic.014.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -479,7 +560,7 @@ zz_valyria_magic_shadow_magic.014 = {
 	option = {
 		name = zz_valyria_magic_shadow_magic.014.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 014
 			}
@@ -491,11 +572,18 @@ zz_valyria_magic_shadow_magic.014 = {
 	}
 }
 
+# Spell: Shadow 015 - Mystery of Shadowy Casting
 zz_valyria_magic_shadow_magic.015 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.015.t
-	desc = zz_valyria_magic_shadow_magic.015.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.015.desc
+			desc = zz_valyria_magic_shadow_magic.015.desc_02
+			desc = zz_valyria_magic_shadow_magic.015.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -509,7 +597,7 @@ zz_valyria_magic_shadow_magic.015 = {
 	option = {
 		name = zz_valyria_magic_shadow_magic.015.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 015
 			}
@@ -521,11 +609,18 @@ zz_valyria_magic_shadow_magic.015 = {
 	}
 }
 
+# Spell: Shadow 016 - Mystery of Shadowy Bulwark
 zz_valyria_magic_shadow_magic.016 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.016.t
-	desc = zz_valyria_magic_shadow_magic.016.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.016.desc
+			desc = zz_valyria_magic_shadow_magic.016.desc_02
+			desc = zz_valyria_magic_shadow_magic.016.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -553,7 +648,7 @@ zz_valyria_magic_shadow_magic.016 = {
 			var:selected_province ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 016
 			}
@@ -564,11 +659,18 @@ zz_valyria_magic_shadow_magic.016 = {
 	}
 }
 
+# Spell: Shadow 017 - Mystery of Insidious Shadow
 zz_valyria_magic_shadow_magic.017 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_shadow_magic.017.t
-	desc = zz_valyria_magic_shadow_magic.017.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.017.desc
+			desc = zz_valyria_magic_shadow_magic.017.desc_02
+			desc = zz_valyria_magic_shadow_magic.017.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_shadow_magic
@@ -596,7 +698,7 @@ zz_valyria_magic_shadow_magic.017 = {
 			var:selected_province ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = shadow_magic
 				SPELL = 017
 			}
@@ -604,5 +706,729 @@ zz_valyria_magic_shadow_magic.017 = {
 	}
 	option = {
 		name = zz_valyria_magic_shadow_magic.017.opt.z
+	}
+}
+
+# Spell: Shadow 018 - Mystery of Night Terrors
+zz_valyria_magic_shadow_magic.018 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.018.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.018.desc
+			desc = zz_valyria_magic_shadow_magic.018.desc_02
+			desc = zz_valyria_magic_shadow_magic.018.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_shadow_magic.018.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = shadow_magic
+				SPELL = 018
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.018.opt.z
+	}
+}
+
+# Spell: Shadow 019 - Mystery of Creeping Dread
+zz_valyria_magic_shadow_magic.019 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.019.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.019.desc
+			desc = zz_valyria_magic_shadow_magic.019.desc_02
+			desc = zz_valyria_magic_shadow_magic.019.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_province_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_province_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.019.opt.a
+		hidden_effect = {
+			var:selected_province ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = shadow_magic
+				SPELL = 019
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.019.opt.z
+	}
+}
+
+# Spell: Shadow 020 - Mystery of Shackles of Shadow
+zz_valyria_magic_shadow_magic.020 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.020.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.020.desc
+			desc = zz_valyria_magic_shadow_magic.020.desc_02
+			desc = zz_valyria_magic_shadow_magic.020.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_shadow_magic.020.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = shadow_magic
+				SPELL = 020
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.020.opt.z
+	}
+}
+
+# Spell: Shadow 021 - Mystery of the Veil of Secrets
+zz_valyria_magic_shadow_magic.021 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.021.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.021.desc
+			desc = zz_valyria_magic_shadow_magic.021.desc_02
+			desc = zz_valyria_magic_shadow_magic.021.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_shadow_magic.021.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = shadow_magic
+				SPELL = 021
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.021.opt.z
+	}
+}
+
+# Spell: Shadow 022 - Mystery of the Shade's Errand
+zz_valyria_magic_shadow_magic.022 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.022.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.022.desc
+			desc = zz_valyria_magic_shadow_magic.022.desc_02
+			desc = zz_valyria_magic_shadow_magic.022.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_shadow_magic.022.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = shadow_magic
+				SPELL = 022
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.022.opt.z
+	}
+}
+
+# Spell: Shadow 023 - Mystery of Shadow Shades
+zz_valyria_magic_shadow_magic.023 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.023.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.023.desc
+			desc = zz_valyria_magic_shadow_magic.023.desc_02
+			desc = zz_valyria_magic_shadow_magic.023.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_shadow_magic.023.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = shadow_magic
+				SPELL = 023
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.023.opt.z
+	}
+}
+
+# Spell: Shadow 024 - Mystery of Thieving Shadows
+zz_valyria_magic_shadow_magic.024 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.024.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.024.desc
+			desc = zz_valyria_magic_shadow_magic.024.desc_02
+			desc = zz_valyria_magic_shadow_magic.024.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_shadow_magic.024.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = shadow_magic
+				SPELL = 024
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.024.opt.z
+	}
+}
+
+# Spell: Shadow 025 - Mystery of Hollow Oaths
+zz_valyria_magic_shadow_magic.025 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.025.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.025.desc
+			desc = zz_valyria_magic_shadow_magic.025.desc_02
+			desc = zz_valyria_magic_shadow_magic.025.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_shadow_magic.025.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = shadow_magic
+				SPELL = 025
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.025.opt.z
+	}
+}
+
+# Spell: Shadow 026 - Mystery of The Stolen Secret
+zz_valyria_magic_shadow_magic.026 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.026.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.026.desc
+			desc = zz_valyria_magic_shadow_magic.026.desc_02
+			desc = zz_valyria_magic_shadow_magic.026.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_shadow_magic.026.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = shadow_magic
+				SPELL = 026
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.026.opt.z
+	}
+}
+
+# Spell: Shadow 027 - Mystery of The Snuffed Plot
+zz_valyria_magic_shadow_magic.027 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.027.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.027.desc
+			desc = zz_valyria_magic_shadow_magic.027.desc_02
+			desc = zz_valyria_magic_shadow_magic.027.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_targeting_scheme = {
+				root = {
+					add_to_variable_list = { name = possible_schemes target = prev }
+					zz_valyria_selection_variable = { VAR = selected_scheme }
+				}
+			}
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_schemes_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.027.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_scheme
+				}
+				var:selected_scheme = { save_scope_as = scheme }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = shadow_magic
+					SPELL = 027
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.027.opt.z
+	}
+}
+
+# Spell: Shadow 028 - Mystery of The Night's Escape
+zz_valyria_magic_shadow_magic.028 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.028.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.028.desc
+			desc = zz_valyria_magic_shadow_magic.028.desc_02
+			desc = zz_valyria_magic_shadow_magic.028.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_shadow_magic.028.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = shadow_magic
+				SPELL = 028
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.028.opt.z
+	}
+}
+
+# Spell: Shadow 029 - Mystery of Shadow Theft
+zz_valyria_magic_shadow_magic.029 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.029.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.029.desc
+			desc = zz_valyria_magic_shadow_magic.029.desc_02
+			desc = zz_valyria_magic_shadow_magic.029.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_valyria_artifact_list = yes
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_artifact_selection_tall"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.029.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:zz_valyria_selected_artifact
+				}
+				var:zz_valyria_selected_artifact = { save_scope_as = target }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = shadow_magic
+					SPELL = 029
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.029.opt.z
+	}
+}
+
+# Spell: Shadow 030 - Mystery of The Shadow of Guilt
+zz_valyria_magic_shadow_magic.030 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.030.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.030.desc
+			desc = zz_valyria_magic_shadow_magic.030.desc_02
+			desc = zz_valyria_magic_shadow_magic.030.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		remove_variable = selected_flag
+		clear_variable_list = possible_flags
+		if = {
+			limit = {
+				scope:recipient = {
+					is_adult = yes NOT = { has_trait = deviant }
+					NOT = { any_secret = { secret_type = secret_deviant } }
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_guilt_deviant }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_guilt_deviant }
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					is_adult = yes is_male = yes NOT = { has_trait = sodomite }
+					NOT = { any_secret = { secret_type = secret_homosexual } }
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_guilt_homosexual }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_guilt_homosexual }
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					is_adult = yes NOT = { has_trait = incestuous }
+					NOT = { any_secret = { secret_type = secret_incest } }
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_guilt_incest }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_guilt_incest }
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					NOT = { has_trait = cannibal }
+					NOT = { any_secret = { secret_type = secret_cannibal } }
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_guilt_cannibal }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_guilt_cannibal }
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					NOT = { has_trait = witch }
+					NOT = { any_secret = { secret_type = secret_witch } }
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_guilt_witch }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_guilt_witch }
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					NOT = { has_character_modifier = known_non_believer }
+					NOT = { any_secret = { secret_type = secret_non_believer } }
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_guilt_non_believer }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_guilt_non_believer }
+			}
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_flag_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.030.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_flag
+				}
+				var:selected_flag = { save_scope_as = option }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = shadow_magic
+					SPELL = 030
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.030.opt.z
+	}
+}
+
+# Spell: Shadow 031 - Mystery of The Whispered Hook
+zz_valyria_magic_shadow_magic.031 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.031.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.031.desc
+			desc = zz_valyria_magic_shadow_magic.031.desc_02
+			desc = zz_valyria_magic_shadow_magic.031.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_valyria_not_recipient_every_spouse_family_courter_or_guest_list_top_liege_liege_ruler = yes
+	}
+	widgets = {
+		widget = {
+			is_shown = { root = { any_in_list = { variable = zz_valyria_possible_characters count > 0 } } }
+			gui = "event_window_character_selection_popup"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.031.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:zz_valyria_selected_character
+				}
+				var:zz_valyria_selected_character = { save_scope_as = target }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = shadow_magic
+					SPELL = 031
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.031.opt.z
+	}
+}
+
+# Spell: Shadow 032 - Mystery of the Forged Lineage (Create Claim)
+zz_valyria_magic_shadow_magic.032 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.032.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_shadow_magic.032.desc
+			desc = zz_valyria_magic_shadow_magic.032.desc_02
+			desc = zz_valyria_magic_shadow_magic.032.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_shadow_magic.032.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { scope:recipient = scope:actor }
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = shadow_magic
+					SPELL = 032
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_shadow_magic.032.opt.z
+	}
+}
+
+# Spell: Shadow 033 - Mystery of the Shadow Feint (Single Combat). A duel move only: it never appears in the casting menu.
+zz_valyria_magic_shadow_magic.033 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_shadow_magic.033.t
+	desc = zz_valyria_magic_shadow_magic.033.desc
+	theme = university
+	override_background = {
+		reference = zz_shadow_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_shadow_magic.033.opt.z
 	}
 }

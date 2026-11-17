@@ -2,7 +2,7 @@
 zz_valyria_selection_variable = {
 	if = {
 		limit = {
-			has_variable != $VAR$
+			NOT = { has_variable = $VAR$ }
 		}
 		set_variable = {
 			name = $VAR$
@@ -291,6 +291,13 @@ zz_valyria_family_member_even_if_dead_list = {
 			}
 			set_variable = {
 				name = zz_valyria_magic_event_window_counter_selection_counter
+				value = {
+					value = 0 
+					add = scope:recipient.age
+				}
+			}
+			set_variable = {
+				name = zz_valyria_magic_event_window_counter_selection_counter_base
 				value = {
 					value = 0 
 					add = scope:recipient.age
@@ -621,6 +628,7 @@ zz_valyria_dream_magic_secret_knower_list = {
 	}
 }
 
+# Choices for Mystery of Enchantment (each listed once)
 zz_valyria_alchemy_magic_enchantment_list = {
 	remove_variable = selected_flag
 	clear_variable_list = possible_flags
@@ -670,6 +678,10 @@ zz_valyria_alchemy_magic_enchantment_list = {
 	}
 	add_to_variable_list = {
 		name = possible_flags
+		target = flag:item_modifier_11
+	}
+	add_to_variable_list = {
+		name = possible_flags
 		target = flag:item_modifier_12
 	}
 	add_to_variable_list = {
@@ -712,43 +724,53 @@ zz_valyria_alchemy_magic_enchantment_list = {
 		name = possible_flags
 		target = flag:item_modifier_22
 	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:item_modifier_23
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:item_modifier_24
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:item_modifier_25
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:item_modifier_26
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:item_modifier_27
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:item_modifier_28
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:item_modifier_29
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:item_modifier_30
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:item_modifier_31
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:item_modifier_32
+	}
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:item_modifier_33
+	}
 	set_variable = {
 		name = selected_flag
 		value = flag:item_modifier_none
-	}
-	if = {
-		limit = {
-			scope:secondary_recipient = {
-				or = {
-					var:casttype ?= flag:potion
-					var:casttype ?= flag:scroll
-					zz_valyria_has_mana_to_cast = {
-						MANACOST = zz_valyria_magic_alchemy_magic_006_cost_02
-					}
-				}
-			}
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_11
-		}
-	}
-	if = {
-		limit = {
-			scope:secondary_recipient = {
-				or = {
-					var:casttype ?= flag:potion
-					var:casttype ?= flag:scroll
-					zz_valyria_has_mana_to_cast = {
-						MANACOST = zz_valyria_magic_alchemy_magic_006_cost_02
-					}
-				}
-			}
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:item_modifier_22
-		}
 	}
 }
 zz_valyria_alchemy_magic_clone_sex_list_magic_list = {
@@ -796,6 +818,45 @@ zz_valyria_water_magic_epidemic_list = {
 				target = prev
 			}
 			zz_valyria_selection_variable = { VAR = selected_epidemic }
+		}
+	}
+}
+
+zz_valyria_dream_magic_skinchanging_list = {
+	remove_variable = selected_flag
+	clear_variable_list = possible_flags
+	add_to_variable_list = {
+		name = possible_flags
+		target = flag:dream_magic_skinchanging_ravens
+	}
+	set_variable = {
+		name = selected_flag
+		value = flag:dream_magic_skinchanging_ravens
+	}
+	if = {
+		limit = {
+			scope:secondary_recipient = {
+				zz_valyria_has_mana_to_cast = {
+					MANACOST = 12
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:dream_magic_skinchanging_direwolves
+		}
+	}
+	if = {
+		limit = {
+			scope:secondary_recipient = {
+				zz_valyria_has_mana_to_cast = {
+					MANACOST = 45
+				}
+			}
+		}
+		add_to_variable_list = {
+			name = possible_flags
+			target = flag:dream_magic_skinchanging_bears
 		}
 	}
 }
@@ -1189,11 +1250,6 @@ zz_valyria_dream_magic_relation_list = {
 		name = possible_flags
 		target = flag:dream_magic_relation_09
 	}
-	#
-	add_to_variable_list = {
-		name = possible_flags
-		target = flag:dream_magic_relation_10
-	}
 }
 
 zz_valyria_dream_magic_has_relation_list = {
@@ -1255,130 +1311,133 @@ zz_valyria_dream_magic_has_relation_list = {
 zz_valyria_character_relation = {
 	clear_variable_list ?= zz_valyria_possible_characters
 	remove_variable = zz_valyria_selected_character
-	root.var:selected_relation = {
-		save_scope_as = relation
+	if = {
+		limit = { exists = root.var:selected_relation }
+		root.var:selected_relation = {
+			save_scope_as = relation
+		}
+		switch = {
+			trigger = scope:relation
+			flag:dream_magic_relation_01 = {
+				scope:recipient = {
+					every_relation = {
+						type = soulmate
+						root = {
+							add_to_variable_list = {
+								name = zz_valyria_possible_characters
+								target = prev
+							}
+						}	
+					}
+				}
+			}
+			flag:dream_magic_relation_02 = {
+				scope:recipient = {
+					every_relation = {
+						type = lover
+						root = {
+							add_to_variable_list = {
+								name = zz_valyria_possible_characters
+								target = prev
+							}
+						}	
+					}
+				}
+			}
+			flag:dream_magic_relation_03 = {
+				scope:recipient = {
+					every_relation = {
+						type = best_friend
+						root = {
+							add_to_variable_list = {
+								name = zz_valyria_possible_characters
+								target = prev
+							}
+						}	
+					}
+				}
+			}
+			flag:dream_magic_relation_04 = {
+				scope:recipient = {
+					every_relation = {
+						type = friend
+						root = {
+							add_to_variable_list = {
+								name = zz_valyria_possible_characters
+								target = prev
+							}
+						}	
+					}
+				}
+			}
+			flag:dream_magic_relation_05 = {
+				scope:recipient = {
+					every_relation = {
+						type = nemesis
+						root = {
+							add_to_variable_list = {
+								name = zz_valyria_possible_characters
+								target = prev
+							}
+						}	
+					}
+				}
+			}
+			flag:dream_magic_relation_06 = {
+				scope:recipient = {
+					every_relation = {
+						type = rival
+						root = {
+							add_to_variable_list = {
+								name = zz_valyria_possible_characters
+								target = prev
+							}
+						}	
+					}
+				}
+			}
+			flag:dream_magic_relation_07 = {
+				scope:recipient = {
+					every_relation = {
+						type = grudge
+						root = {
+							add_to_variable_list = {
+								name = zz_valyria_possible_characters
+								target = prev
+							}
+						}	
+					}
+				}
+			}
+			flag:dream_magic_relation_08 = {
+				scope:recipient = {
+					every_relation = {
+						type = bully
+						root = {
+							add_to_variable_list = {
+								name = zz_valyria_possible_characters
+								target = prev
+							}
+						}	
+					}
+				}
+			}
+			flag:dream_magic_relation_09 = {
+				scope:recipient = {
+					every_relation = {
+						type = victim
+						root = {
+							add_to_variable_list = {
+								name = zz_valyria_possible_characters
+								target = prev
+							}
+						}	
+					}
+				}
+			}
+		}
+		zz_ordered_in_list = { VAR = character }
 	}
-	switch = {
-		trigger = scope:relation
-		flag:dream_magic_relation_01 = {
-			scope:recipient = {
-				every_relation = {
-					type = soulmate
-					root = {
-						add_to_variable_list = {
-							name = zz_valyria_possible_characters
-							target = prev
-						}
-					}	
-				}
-			}
-		}
-		flag:dream_magic_relation_02 = {
-			scope:recipient = {
-				every_relation = {
-					type = lover
-					root = {
-						add_to_variable_list = {
-							name = zz_valyria_possible_characters
-							target = prev
-						}
-					}	
-				}
-			}
-		}
-		flag:dream_magic_relation_03 = {
-			scope:recipient = {
-				every_relation = {
-					type = best_friend
-					root = {
-						add_to_variable_list = {
-							name = zz_valyria_possible_characters
-							target = prev
-						}
-					}	
-				}
-			}
-		}
-		flag:dream_magic_relation_04 = {
-			scope:recipient = {
-				every_relation = {
-					type = friend
-					root = {
-						add_to_variable_list = {
-							name = zz_valyria_possible_characters
-							target = prev
-						}
-					}	
-				}
-			}
-		}
-		flag:dream_magic_relation_05 = {
-			scope:recipient = {
-				every_relation = {
-					type = nemesis
-					root = {
-						add_to_variable_list = {
-							name = zz_valyria_possible_characters
-							target = prev
-						}
-					}	
-				}
-			}
-		}
-		flag:dream_magic_relation_06 = {
-			scope:recipient = {
-				every_relation = {
-					type = rival
-					root = {
-						add_to_variable_list = {
-							name = zz_valyria_possible_characters
-							target = prev
-						}
-					}	
-				}
-			}
-		}
-		flag:dream_magic_relation_07 = {
-			scope:recipient = {
-				every_relation = {
-					type = grudge
-					root = {
-						add_to_variable_list = {
-							name = zz_valyria_possible_characters
-							target = prev
-						}
-					}	
-				}
-			}
-		}
-		flag:dream_magic_relation_08 = {
-			scope:recipient = {
-				every_relation = {
-					type = bully
-					root = {
-						add_to_variable_list = {
-							name = zz_valyria_possible_characters
-							target = prev
-						}
-					}	
-				}
-			}
-		}
-		flag:dream_magic_relation_09 = {
-			scope:recipient = {
-				every_relation = {
-					type = victim
-					root = {
-						add_to_variable_list = {
-							name = zz_valyria_possible_characters
-							target = prev
-						}
-					}	
-				}
-			}
-		}
-	}
-	zz_ordered_in_list = { VAR = character }
 }
 
 zz_valyria_not_recipient_every_spouse_family_courter_or_guest_list_top_liege_liege_ruler = {
@@ -1449,9 +1508,9 @@ zz_valyria_not_recipient_every_spouse_family_courter_or_guest_list_top_liege_lie
 		}
 		if = {
 			limit = {
-				faith.religious_head != scope:recipient
+				faith.religious_head ?= { NOT = { this = scope:recipient } }
 			}	
-			faith.religious_head = {
+			faith.religious_head ?= {
 				root = {
 					add_to_variable_list = {
 						name = zz_valyria_possible_characters

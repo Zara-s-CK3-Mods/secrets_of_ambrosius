@@ -223,3 +223,126 @@ zz_valyria_ancient_scrolls_artifact_modifier = {
 	learning = 2
 	monthly_learning_lifestyle_xp_gain_mult = 0.25
 }
+
+# Higher Mysteries XP: was offered by the spell and crafting window but never defined
+
+# Knight Effectiveness
+item_modifier_23 = {
+	knight_effectiveness_mult = 0.05
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_crafting_value
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+# Commander Advantage
+item_modifier_24 = {
+	advantage = 1
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_crafting_value
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+# Health
+item_modifier_25 = {
+	health = 0.1
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_crafting_value
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+# Life Expectancy
+item_modifier_26 = {
+	life_expectancy = 1
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_crafting_value
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+# Stress Relief
+item_modifier_27 = {
+	stress_loss_mult = 0.05
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_crafting_value
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+# Fertility
+item_modifier_28 = {
+	fertility = 0.05
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_crafting_value
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+# Scheme Success
+item_modifier_29 = {
+	owned_hostile_scheme_success_chance_add = 1
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_crafting_value
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+# Scheme Protection
+item_modifier_30 = {
+	enemy_hostile_scheme_success_chance_add = -1
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_crafting_value
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+# Monthly Prestige
+item_modifier_31 = {
+	monthly_prestige = 0.1
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_crafting_value
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+# Monthly Piety
+item_modifier_32 = {
+	monthly_piety = 0.1
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_crafting_value
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}
+
+# Dread
+item_modifier_33 = {
+	dread_baseline_add = 1
+	stacking = yes
+	scale = {
+		value = zz_valyria_magic_alchemy_magic_crafting_value
+		#desc = MODIFIER_DEFINITION_VALUE_ESTATE_FACTORS
+		display_mode = scaled
+	}
+}

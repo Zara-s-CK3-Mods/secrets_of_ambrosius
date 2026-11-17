@@ -37,22 +37,106 @@ zz_valyria_province_cast_click = {
 
 	}
 	effect = {
-		save_scope_as = actor 
+		zz_valyria_province_cast_effect = yes
+	}
+}
 
-		set_variable = {
-			name = zz_selected_mystery_province 
-			value = scope:selected_province
+# Casting map mode: its map mode button arms the player, and the province view casts on every province it opens while armed
+zz_valyria_casting_map_arm = {
+	scope = character
+	is_shown = {
+		zz_open_mage_window = yes
+	}
+	effect = {
+		add_character_flag = zz_casting_map_armed
+	}
+}
+
+zz_valyria_casting_map_disarm = {
+	scope = character
+	effect = {
+		remove_character_flag = zz_casting_map_armed
+	}
+}
+
+zz_valyria_province_map_cast = {
+	scope = character
+	effect = {
+		if = {
+			limit = {
+				has_character_flag = zz_casting_map_armed
+				exists = scope:selected_province
+			}
+			zz_valyria_province_cast_effect = yes
 		}
-		set_variable = {
-			name = zz_selected_mystery_county 
-			value = scope:selected_province.county
-		}
-		scope:selected_province = {
-			province_owner = {
-				save_scope_as = recipient
+	}
+}
+
+zz_valyria_army_cast_click = {
+	scope = character
+	is_shown = {
+		zz_open_mage_window = yes
+	}
+	is_valid = {
+
+	}
+	effect = {
+		save_scope_as = actor
+		scope:actor = {
+			if = {
+				limit = {
+					NOT = { exists = var:zz_miscast_count }
+				}
+				set_variable = {
+					name = zz_miscast_count
+					value = 0
+				}
 			}
 		}
-		zz_ui_setup_effect = yes 
+		remove_variable = zz_selected_mystery_province
+		remove_variable = zz_selected_mystery_county
+		# Armies at sea have no county, so province spells fall back to the recipient's lands
+		if = {
+			limit = {
+				exists = scope:selected_province.county
+			}
+			set_variable = {
+				name = zz_selected_mystery_province
+				value = scope:selected_province
+			}
+			set_variable = {
+				name = zz_selected_mystery_county
+				value = scope:selected_province.county
+			}
+		}
+		# The combat window has no army to pass, so use this side's largest army in the battle
+		if = {
+			limit = {
+				NOT = { exists = scope:selected_army }
+			}
+			scope:opened_character = {
+				ordered_army = {
+					limit = {
+						location = scope:selected_province
+					}
+					order_by = army_size
+					save_scope_as = selected_army
+				}
+			}
+		}
+		scope:opened_character = {
+			save_scope_as = recipient
+		}
+		zz_ui_setup_effect = yes
+		if = {
+			limit = {
+				exists = scope:selected_army
+			}
+			set_variable = {
+				name = zz_selected_mystery_army
+				value = scope:selected_army
+			}
+		}
 	}
 }
 
@@ -93,6 +177,7 @@ zz_valyria_magic_casting_close = {
 		remove_variable = zz_magic_caster
 		remove_variable = zz_selected_mystery_province
 		remove_variable = zz_selected_mystery_county
+		remove_variable = zz_selected_mystery_army
 		clear_variable_list = zz_valyria_spell_list
 	}
 }
@@ -165,50 +250,8 @@ zz_valyria_magic_caster = {
 	}
 	
 	effect = {
-		save_scope_as = zz_magic_user 
-		set_variable = {
-			name = zz_magic_caster
-			value = scope:zz_magic_caster
-		}
-		if = {
-			limit = { NOT = { exists = scope:zz_magic_user.var:zz_miscast_count } }
-			scope:zz_magic_user ?= {
-				set_variable = {
-					name = zz_miscast_count
-					value = 0
-				}
-			}
-		}
-		if = {
-			limit = { NOT = { exists = scope:zz_magic_caster.var:zz_miscast_count } }
-			scope:zz_magic_caster ?= {
-				set_variable = {
-					name = zz_miscast_count
-					value = 0
-				}
-			}
-		}
-		if = {
-			limit = { NOT = { exists = scope:zz_magic_user.var:zz_miscast_count } }
-			scope:zz_magic_user ?= {
-				set_variable = {
-					name = zz_miscast_count
-					value = 0
-				}
-			}
-		}
-		if = {
-			limit = {
-				exists = scope:zz_magic_user.var:zz_magic_target
-			}
-			scope:zz_magic_caster ?= {
-				set_variable = {
-					name = zz_magic_target
-					value = scope:zz_magic_user.var:zz_magic_target
-				}
-			}
-		}
-		zz_valyria_make_spell_list = {MAGIC_USER = zz_magic_user MAGIC_CASTER = zz_magic_caster}
+		save_scope_as = zz_magic_user
+		zz_valyria_magic_set_caster_effect = yes
 	}
 }
 
@@ -299,6 +342,7 @@ zz_valyria_magic_cast_set_current_character = {
 
 	}
 	effect = {
+		remove_variable = zz_selected_mystery_army
 		set_variable = {
 			name = zz_magic_target
 			value = scope:zz_character_window_character
@@ -397,5 +441,39 @@ zz_valyria_magic_cast_ui = {
 			save_scope_as = recipient
 		}
 		zz_valyria_magic_cast_ui_effect = yes
+	}
+}
+
+# Opens the keyword search for the cast window
+zz_valyria_magic_spell_search = {
+	scope = character
+	effect = {
+		trigger_event = zz_valyria_magic_search.1
+	}
+}
+
+# Clears the keyword search in the cast window
+zz_valyria_magic_spell_search_clear = {
+	scope = character
+	effect = {
+		remove_localized_text = zz_spell_search
+		remove_variable = zz_spell_search
+	}
+}
+
+# Opens the caster selection interaction, which lists the mages in mage_list with the game's character search and filters
+zz_valyria_magic_open_caster_selection = {
+	scope = character
+	effect = {
+		set_variable = {
+			name = zz_choosing_caster
+			value = yes
+			days = 1
+		}
+		open_interaction_window = {
+			interaction = zz_valyria_select_caster_interaction
+			actor = root
+			recipient = root
+		}
 	}
 }

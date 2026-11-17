@@ -1,10 +1,17 @@
 ﻿namespace = zz_valyria_magic_air_magic
 
+# Spell: Air 001 - Mystery of the Slicing Wind
 zz_valyria_magic_air_magic.001 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.001.t
-	desc = zz_valyria_magic_air_magic.001.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.001.desc
+			desc = zz_valyria_magic_air_magic.001.desc_02
+			desc = zz_valyria_magic_air_magic.001.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -22,7 +29,7 @@ zz_valyria_magic_air_magic.001 = {
 				name = option_01
 				value = yes
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 001
 			}
@@ -35,7 +42,7 @@ zz_valyria_magic_air_magic.001 = {
 				name = option_02
 				value = yes
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 001
 			}
@@ -46,11 +53,18 @@ zz_valyria_magic_air_magic.001 = {
 		name = zz_valyria_magic_air_magic.001.opt.z
 	}
 }
+# Spell: Air 002 - Mystery of the Tempestuous Winds
 zz_valyria_magic_air_magic.002 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.002.t
-	desc = zz_valyria_magic_air_magic.002.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.002.desc
+			desc = zz_valyria_magic_air_magic.002.desc_02
+			desc = zz_valyria_magic_air_magic.002.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -102,7 +116,7 @@ zz_valyria_magic_air_magic.002 = {
 			var:selected_regiment ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 002
 			}	
@@ -112,11 +126,18 @@ zz_valyria_magic_air_magic.002 = {
 		name = zz_valyria_magic_air_magic.002.opt.z
 	}
 }
+# Spell: Air 003 - Mystery of the Wall of Wind
 zz_valyria_magic_air_magic.003 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.003.t
-	desc = zz_valyria_magic_air_magic.003.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.003.desc
+			desc = zz_valyria_magic_air_magic.003.desc_02
+			desc = zz_valyria_magic_air_magic.003.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -130,7 +151,7 @@ zz_valyria_magic_air_magic.003 = {
 	option = {
 		name = zz_valyria_magic_air_magic.003.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 003
 			}
@@ -140,11 +161,18 @@ zz_valyria_magic_air_magic.003 = {
 		name = zz_valyria_magic_air_magic.003.opt.z
 	}
 }
+# Spell: Air 004 - Mystery of the Hurricane
 zz_valyria_magic_air_magic.004 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.004.t
-	desc = zz_valyria_magic_air_magic.004.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.004.desc
+			desc = zz_valyria_magic_air_magic.004.desc_02
+			desc = zz_valyria_magic_air_magic.004.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -172,7 +200,7 @@ zz_valyria_magic_air_magic.004 = {
 			var:selected_province ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 004
 			}	
@@ -182,11 +210,18 @@ zz_valyria_magic_air_magic.004 = {
 		name = zz_valyria_magic_air_magic.004.opt.z
 	}
 }
+# Spell: Air 005 - Mystery of the Winds of Initiative
 zz_valyria_magic_air_magic.005 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.005.t
-	desc = zz_valyria_magic_air_magic.005.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.005.desc
+			desc = zz_valyria_magic_air_magic.005.desc_02
+			desc = zz_valyria_magic_air_magic.005.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -200,7 +235,7 @@ zz_valyria_magic_air_magic.005 = {
 	option = {
 		name = zz_valyria_magic_air_magic.005.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 005
 			}
@@ -210,11 +245,18 @@ zz_valyria_magic_air_magic.005 = {
 		name = zz_valyria_magic_air_magic.005.opt.z
 	}
 }
+# Spell: Air 006 - Mystery of the Heavens' Wrath
 zz_valyria_magic_air_magic.006 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.006.t
-	desc = zz_valyria_magic_air_magic.006.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.006.desc
+			desc = zz_valyria_magic_air_magic.006.desc_02
+			desc = zz_valyria_magic_air_magic.006.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -226,24 +268,7 @@ zz_valyria_magic_air_magic.006 = {
 	lower_center_portrait = scope:recipient
 
 	immediate = {
-		clear_variable_list = possible_armies
-		remove_variable = selected_army
-		scope:recipient = {
-			every_army = {
-				root = {
-					add_to_variable_list = {
-						name = possible_armies
-						target = prev
-					}
-					if = {
-						limit = {
-							NOT = { has_variable = selected_army }
-						}
-						set_variable = { name = selected_army value = prev }
-					}
-				}
-			}
-		}
+		zz_targed_character_army_selection_list_effect = yes
 	}
 
 	widget = {
@@ -259,7 +284,7 @@ zz_valyria_magic_air_magic.006 = {
 			var:selected_army ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 006
 			}	
@@ -269,11 +294,18 @@ zz_valyria_magic_air_magic.006 = {
 		name = zz_valyria_magic_air_magic.006.opt.z
 	}
 }
+# Spell: Air 007 - Mystery of the Chariot of the Heavens
 zz_valyria_magic_air_magic.007 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.007.t
-	desc = zz_valyria_magic_air_magic.007.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.007.desc
+			desc = zz_valyria_magic_air_magic.007.desc_02
+			desc = zz_valyria_magic_air_magic.007.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -287,7 +319,7 @@ zz_valyria_magic_air_magic.007 = {
 	option = {
 		name = zz_valyria_magic_air_magic.007.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 007
 			}
@@ -297,11 +329,18 @@ zz_valyria_magic_air_magic.007 = {
 		name = zz_valyria_magic_air_magic.007.opt.z
 	}
 }
+# Spell: Air 008 - Mystery of Lightning Strike
 zz_valyria_magic_air_magic.008 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.008.t
-	desc = zz_valyria_magic_air_magic.008.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.008.desc
+			desc = zz_valyria_magic_air_magic.008.desc_02
+			desc = zz_valyria_magic_air_magic.008.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -329,7 +368,7 @@ zz_valyria_magic_air_magic.008 = {
 			var:selected_army ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 008
 			}	
@@ -339,11 +378,18 @@ zz_valyria_magic_air_magic.008 = {
 		name = zz_valyria_magic_air_magic.008.opt.z
 	}
 }
+# Spell: Air 009 - Mystery of God's Hammer
 zz_valyria_magic_air_magic.009 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.009.t
-	desc = zz_valyria_magic_air_magic.009.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.009.desc
+			desc = zz_valyria_magic_air_magic.009.desc_02
+			desc = zz_valyria_magic_air_magic.009.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -371,7 +417,7 @@ zz_valyria_magic_air_magic.009 = {
 			var:selected_province ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 009
 			}	
@@ -381,11 +427,18 @@ zz_valyria_magic_air_magic.009 = {
 		name = zz_valyria_magic_air_magic.009.opt.z
 	}
 }
+# Spell: Air 010 - Mystery of South Wind
 zz_valyria_magic_air_magic.010 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.010.t
-	desc = zz_valyria_magic_air_magic.010.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.010.desc
+			desc = zz_valyria_magic_air_magic.010.desc_02
+			desc = zz_valyria_magic_air_magic.010.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -399,7 +452,7 @@ zz_valyria_magic_air_magic.010 = {
 	option = {
 		name = zz_valyria_magic_air_magic.010.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 010
 			}
@@ -409,11 +462,18 @@ zz_valyria_magic_air_magic.010 = {
 		name = zz_valyria_magic_air_magic.010.opt.z
 	}
 }
+# Spell: Air 011 - Mystery of North Wind
 zz_valyria_magic_air_magic.011 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.011.t
-	desc = zz_valyria_magic_air_magic.011.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.011.desc
+			desc = zz_valyria_magic_air_magic.011.desc_02
+			desc = zz_valyria_magic_air_magic.011.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -427,7 +487,7 @@ zz_valyria_magic_air_magic.011 = {
 	option = {
 		name = zz_valyria_magic_air_magic.011.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 011
 			}
@@ -437,11 +497,18 @@ zz_valyria_magic_air_magic.011 = {
 		name = zz_valyria_magic_air_magic.011.opt.z
 	}
 }
+# Spell: Air 012 - Mystery of Wind's Edge
 zz_valyria_magic_air_magic.012 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.012.t
-	desc = zz_valyria_magic_air_magic.012.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.012.desc
+			desc = zz_valyria_magic_air_magic.012.desc_02
+			desc = zz_valyria_magic_air_magic.012.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -455,7 +522,7 @@ zz_valyria_magic_air_magic.012 = {
 	option = {
 		name = zz_valyria_magic_air_magic.012.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 012
 			}
@@ -465,11 +532,18 @@ zz_valyria_magic_air_magic.012 = {
 		name = zz_valyria_magic_air_magic.012.opt.z
 	}
 }
+# Spell: Air 013 - Mystery of Aether's Barrier
 zz_valyria_magic_air_magic.013 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.013.t
-	desc = zz_valyria_magic_air_magic.013.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.013.desc
+			desc = zz_valyria_magic_air_magic.013.desc_02
+			desc = zz_valyria_magic_air_magic.013.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -483,7 +557,7 @@ zz_valyria_magic_air_magic.013 = {
 	option = {
 		name = zz_valyria_magic_air_magic.013.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 013
 			}
@@ -493,11 +567,18 @@ zz_valyria_magic_air_magic.013 = {
 		name = zz_valyria_magic_air_magic.013.opt.z
 	}
 }
+# Spell: Air 014 - Mystery of Celestial Purity
 zz_valyria_magic_air_magic.014 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.014.t
-	desc = zz_valyria_magic_air_magic.014.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.014.desc
+			desc = zz_valyria_magic_air_magic.014.desc_02
+			desc = zz_valyria_magic_air_magic.014.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -511,7 +592,7 @@ zz_valyria_magic_air_magic.014 = {
 	option = {
 		name = zz_valyria_magic_air_magic.014.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 014
 			}
@@ -521,11 +602,18 @@ zz_valyria_magic_air_magic.014 = {
 		name = zz_valyria_magic_air_magic.014.opt.z
 	}
 }
+# Spell: Air 015 - Mystery of Celestial Casting
 zz_valyria_magic_air_magic.015 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.015.t
-	desc = zz_valyria_magic_air_magic.015.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.015.desc
+			desc = zz_valyria_magic_air_magic.015.desc_02
+			desc = zz_valyria_magic_air_magic.015.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -539,7 +627,7 @@ zz_valyria_magic_air_magic.015 = {
 	option = {
 		name = zz_valyria_magic_air_magic.015.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 015
 			}
@@ -549,11 +637,18 @@ zz_valyria_magic_air_magic.015 = {
 		name = zz_valyria_magic_air_magic.015.opt.z
 	}
 }
+# Spell: Air 016 - Mystery of Celestial Fortress
 zz_valyria_magic_air_magic.016 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.016.t
-	desc = zz_valyria_magic_air_magic.016.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.016.desc
+			desc = zz_valyria_magic_air_magic.016.desc_02
+			desc = zz_valyria_magic_air_magic.016.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -581,7 +676,7 @@ zz_valyria_magic_air_magic.016 = {
 			var:selected_province ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 016
 			}
@@ -591,11 +686,18 @@ zz_valyria_magic_air_magic.016 = {
 		name = zz_valyria_magic_air_magic.016.opt.z
 	}
 }
+# Spell: Air 017 - Mystery of Celestial Assault
 zz_valyria_magic_air_magic.017 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_air_magic.017.t
-	desc = zz_valyria_magic_air_magic.017.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.017.desc
+			desc = zz_valyria_magic_air_magic.017.desc_02
+			desc = zz_valyria_magic_air_magic.017.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_air_magic
@@ -623,7 +725,7 @@ zz_valyria_magic_air_magic.017 = {
 			var:selected_province ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = air_magic
 				SPELL = 017
 			}
@@ -631,5 +733,636 @@ zz_valyria_magic_air_magic.017 = {
 	}
 	option = {
 		name = zz_valyria_magic_air_magic.017.opt.z
+	}
+}
+
+# Spell: Air 018 - Mystery of the Rain of Arrows
+zz_valyria_magic_air_magic.018 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.018.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.018.desc
+			desc = zz_valyria_magic_air_magic.018.desc_02
+			desc = zz_valyria_magic_air_magic.018.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_air_magic.018.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = air_magic
+				SPELL = 018
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.018.opt.z
+	}
+}
+
+# Spell: Air 019 - Mystery of Thin Air
+zz_valyria_magic_air_magic.019 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.019.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.019.desc
+			desc = zz_valyria_magic_air_magic.019.desc_02
+			desc = zz_valyria_magic_air_magic.019.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_air_magic.019.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = air_magic
+				SPELL = 019
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.019.opt.z
+	}
+}
+
+# Spell: Air 020 - Mystery of Contrary Winds
+zz_valyria_magic_air_magic.020 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.020.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.020.desc
+			desc = zz_valyria_magic_air_magic.020.desc_02
+			desc = zz_valyria_magic_air_magic.020.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_air_magic.020.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = air_magic
+				SPELL = 020
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.020.opt.z
+	}
+}
+
+# Spell: Air 021 - Mystery of Whispers on the Wind
+zz_valyria_magic_air_magic.021 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.021.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.021.desc
+			desc = zz_valyria_magic_air_magic.021.desc_02
+			desc = zz_valyria_magic_air_magic.021.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_air_magic.021.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = air_magic
+				SPELL = 021
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.021.opt.z
+	}
+}
+
+# Spell: Air 022 - Mystery of the Windborne Blade
+zz_valyria_magic_air_magic.022 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.022.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.022.desc
+			desc = zz_valyria_magic_air_magic.022.desc_02
+			desc = zz_valyria_magic_air_magic.022.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_air_magic.022.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = air_magic
+				SPELL = 022
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.022.opt.z
+	}
+}
+
+# Spell: Air 023 - Mystery of Stormcaller
+zz_valyria_magic_air_magic.023 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.023.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.023.desc
+			desc = zz_valyria_magic_air_magic.023.desc_02
+			desc = zz_valyria_magic_air_magic.023.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_province_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_province_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.023.opt.a
+		hidden_effect = {
+			var:selected_province ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = air_magic
+				SPELL = 023
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.023.opt.z
+	}
+}
+
+# Spell: Air 024 - Mystery of the Gale Host
+zz_valyria_magic_air_magic.024 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.024.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.024.desc
+			desc = zz_valyria_magic_air_magic.024.desc_02
+			desc = zz_valyria_magic_air_magic.024.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_air_magic.024.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = air_magic
+				SPELL = 024
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.024.opt.z
+	}
+}
+
+# Spell: Air 025 - Mystery of the Following Wind
+zz_valyria_magic_air_magic.025 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.025.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.025.desc
+			desc = zz_valyria_magic_air_magic.025.desc_02
+			desc = zz_valyria_magic_air_magic.025.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_air_magic.025.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = air_magic
+				SPELL = 025
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.025.opt.z
+	}
+}
+
+# Spell: Air 026 - Mystery of The Windborne Journey
+zz_valyria_magic_air_magic.026 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.026.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.026.desc
+			desc = zz_valyria_magic_air_magic.026.desc_02
+			desc = zz_valyria_magic_air_magic.026.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_air_magic.026.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = air_magic
+				SPELL = 026
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.026.opt.z
+	}
+}
+
+# Spell: Air 027 - Mystery of Scattered Plans
+zz_valyria_magic_air_magic.027 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.027.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.027.desc
+			desc = zz_valyria_magic_air_magic.027.desc_02
+			desc = zz_valyria_magic_air_magic.027.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_schemes
+		remove_variable = selected_scheme
+		scope:recipient = {
+			every_targeting_scheme = {
+				root = {
+					add_to_variable_list = { name = possible_schemes target = prev }
+					zz_valyria_selection_variable = { VAR = selected_scheme }
+				}
+			}
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_schemes_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.027.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_scheme
+				}
+				var:selected_scheme = { save_scope_as = scheme }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = air_magic
+					SPELL = 027
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.027.opt.z
+	}
+}
+
+# Spell: Air 028 - Mystery of The Shifting Winds
+zz_valyria_magic_air_magic.028 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.028.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.028.desc
+			desc = zz_valyria_magic_air_magic.028.desc_02
+			desc = zz_valyria_magic_air_magic.028.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_air_magic.028.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = air_magic
+				SPELL = 028
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.028.opt.z
+	}
+}
+
+# Spell: Air 029 - Mystery of The Scattering Gust
+zz_valyria_magic_air_magic.029 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.029.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.029.desc
+			desc = zz_valyria_magic_air_magic.029.desc_02
+			desc = zz_valyria_magic_air_magic.029.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_air_magic.029.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = air_magic
+				SPELL = 029
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.029.opt.z
+	}
+}
+
+# Spell: Air 030 - Mystery of Winds of Accord
+zz_valyria_magic_air_magic.030 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.030.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.030.desc
+			desc = zz_valyria_magic_air_magic.030.desc_02
+			desc = zz_valyria_magic_air_magic.030.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		remove_variable = selected_flag
+		clear_variable_list = possible_flags
+		add_to_variable_list = { name = possible_flags target = flag:zz_accord_raise }
+		add_to_variable_list = { name = possible_flags target = flag:zz_accord_lower }
+		set_variable = { name = selected_flag value = flag:zz_accord_raise }
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_flag_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.030.opt.a
+		hidden_effect = {
+			var:selected_flag ?= { save_scope_as = option }
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = air_magic
+				SPELL = 030
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.030.opt.z
+	}
+}
+
+# Spell: Air 031 - Mystery of The Herald's Gale
+zz_valyria_magic_air_magic.031 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.031.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.031.desc
+			desc = zz_valyria_magic_air_magic.031.desc_02
+			desc = zz_valyria_magic_air_magic.031.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_air_magic.031.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = air_magic
+				SPELL = 031
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.031.opt.z
+	}
+}
+
+# Spell: Air 032 - Mystery of the Voice of the Wind (Summon Courtier)
+zz_valyria_magic_air_magic.032 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.032.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_air_magic.032.desc
+			desc = zz_valyria_magic_air_magic.032.desc_02
+			desc = zz_valyria_magic_air_magic.032.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		remove_variable = selected_flag
+		clear_variable_list = possible_flags
+		add_to_variable_list = { name = possible_flags target = flag:zz_wind_diplomacy }
+		add_to_variable_list = { name = possible_flags target = flag:zz_wind_martial }
+		add_to_variable_list = { name = possible_flags target = flag:zz_wind_stewardship }
+		add_to_variable_list = { name = possible_flags target = flag:zz_wind_intrigue }
+		add_to_variable_list = { name = possible_flags target = flag:zz_wind_learning }
+		add_to_variable_list = { name = possible_flags target = flag:zz_wind_prowess }
+		set_variable = { name = selected_flag value = flag:zz_wind_martial }
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_flag_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.032.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_flag
+				}
+				var:selected_flag = { save_scope_as = option }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = air_magic
+					SPELL = 032
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_air_magic.032.opt.z
+	}
+}
+
+# Spell: Air 033 - Mystery of the Gale Step (Single Combat). A duel move only: it never appears in the casting menu.
+zz_valyria_magic_air_magic.033 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_air_magic.033.t
+	desc = zz_valyria_magic_air_magic.033.desc
+	theme = university
+	override_background = {
+		reference = zz_air_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_air_magic.033.opt.z
 	}
 }

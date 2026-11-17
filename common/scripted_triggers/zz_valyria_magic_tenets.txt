@@ -1,0 +1,15 @@
+﻿# Scope: faith. One check per sorcery stance, including vanilla's witchcraft doctrines.
+zz_valyria_sorcery_accepted_faith = {
+	OR = {
+		has_doctrine_parameter = witchcraft_accepted
+		has_doctrine_parameter = zz_sorcery_accepted
+		has_doctrine_parameter = zz_sorcery_revered
+	}
+}
+
+zz_valyria_sorcery_criminal_faith = {
+	OR = {
+		has_doctrine_parameter = witchcraft_illegal
+		has_doctrine_parameter = zz_sorcery_criminal
+	}
+}

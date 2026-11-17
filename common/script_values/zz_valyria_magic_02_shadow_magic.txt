@@ -50,6 +50,21 @@ zz_valyria_magic_shadow_magic_base_value = {
 				add = this.var:shadow_magic_overcap
 			}
 		}
+		multiply = {
+			value = 1
+			if = {
+				limit = {
+					faith = { has_doctrine_parameter = zz_tenet_strength_shadow_magic }
+				}
+				add = 0.25
+			}
+			if = {
+				limit = {
+					has_personal_tenet_flag = zz_personal_strength_shadow_magic
+				}
+				add = 0.1
+			}
+		}
 	}
 }
 zz_valyria_magic_shadow_magic_001_value = {
@@ -246,8 +261,8 @@ zz_valyria_magic_shadow_magic_010_value_01 = {
 	add = { 
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_shadow_magic_base_value
-			divide = zz_valyria_low_damage_army
-			min = 0.01
+			multiply = zz_valyria_low_damage_army
+			min = zz_valyria_low_damage_army
 		}
 	}	
 }
@@ -390,4 +405,304 @@ zz_valyria_magic_shadow_magic_017_value_01 = {
 			min = 1
 		}
 	}	
+}
+# Shadow 018 - Night Terrors
+zz_valyria_magic_shadow_magic_018_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_018_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_018_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			divide = 2
+			min = 10
+		}
+	}
+}
+# Shadow 019 - Creeping Dread
+zz_valyria_magic_shadow_magic_019_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_019_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			divide = 5
+			min = 3
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_019_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			divide = 10
+			min = 2
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_019_value_03 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+# Shadow 020 - Shackles of Shadow
+zz_valyria_magic_shadow_magic_020_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_020_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			divide = 7
+			min = 1
+		}
+	}
+}
+# Shadow 021 - the Veil of Secrets
+zz_valyria_magic_shadow_magic_021_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_021_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_021_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			divide = 25
+			min = 1
+		}
+	}
+}
+# Shadow 022 - the Shade's Errand
+zz_valyria_magic_shadow_magic_022_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+# Shadow 023 - Shadow Shades
+zz_valyria_magic_shadow_magic_023_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_023_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+# Shadow 024 - Thieving Shadows
+zz_valyria_magic_shadow_magic_024_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_024_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			multiply = 2
+			min = 1
+			max = scope:recipient.gold
+		}
+	}
+}
+# Shadow 025 - Hollow Oaths
+zz_valyria_magic_shadow_magic_025_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_025_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			divide = 2
+			min = 5
+			max = 50
+			multiply = -1
+		}
+	}
+}
+# Shadow 026 - The Stolen Secret
+zz_valyria_magic_shadow_magic_026_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+# Shadow 027 - The Snuffed Plot
+zz_valyria_magic_shadow_magic_027_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_027_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			divide = 5
+			add = 10
+			max = 40
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_027_value_02 = {
+	value = zz_valyria_magic_shadow_magic_027_value_01
+	multiply = -1
+}
+# Shadow 028 - The Night's Escape
+zz_valyria_magic_shadow_magic_028_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+# Shadow 029 - Shadow Theft
+zz_valyria_magic_shadow_magic_029_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+# Shadow 030 - The Shadow of Guilt
+zz_valyria_magic_shadow_magic_030_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+# Shadow 031 - The Whispered Hook
+zz_valyria_magic_shadow_magic_031_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+
+zz_valyria_magic_shadow_magic_032_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_shadow_magic_032_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			divide = 33
+			add = 2
+			floor = yes
+			min = 2
+			max = 5
+		}
+	}
+}
+
+zz_valyria_magic_shadow_magic_033_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+			min = 1
+		}
+	}
 }

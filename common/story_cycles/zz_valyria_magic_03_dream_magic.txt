@@ -3,12 +3,12 @@
 	visualization = {
 		basic_counter = {
 			variable_name = "mystery_potency"
-			label = "Mystery Strength"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
 			
 		}
 		basic_counter = {
 			variable_name = "mystery_duration"
-			label = "Years Remaining"
+			label = "ZZ_VALYRIA_STORY_YEARS_REMAINING"
 		}
 	}
 	on_setup = {
@@ -30,6 +30,15 @@
 		set_variable = {
 			name = mystery_duration
 			value = zz_valyria_magic_dream_magic_004_value_02
+		}
+		# The number of visions chosen when the mystery was cast
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_mystery_visions } }
+			set_variable = {
+				name = mystery_duration
+				value = story_owner.var:zz_valyria_mystery_visions
+			}
+			story_owner = { remove_variable = zz_valyria_mystery_visions }
 		}
 		set_variable = {
 			name = mystery_caster
@@ -401,16 +410,16 @@ zz_valyria_magic_dream_magic_010_story = { #Used for the Scholarship progress ev
 	visualization = {
 		character = {
 			variable_name = "mystery_caster"
-			label = "Caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
 		}
 		basic_counter = {
 			variable_name = "mystery_potency"
-			label = "Mystery Strength"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
 			
 		}
 		basic_counter = {
 			variable_name = "mystery_duration"
-			label = "Years Remaining"
+			label = "ZZ_VALYRIA_STORY_MONTHS_REMAINING"
 		}
 	}
 	on_setup = {
@@ -430,7 +439,10 @@ zz_valyria_magic_dream_magic_010_story = { #Used for the Scholarship progress ev
 		}
 		set_variable = {
 			name = mystery_duration
-			value = zz_valyria_magic_dream_magic_019_value_02
+			value = { # months
+				value = zz_valyria_magic_dream_magic_010_value_02
+				multiply = 12
+			}
 		}
 		set_variable = {
 			name = mystery_caster
@@ -479,12 +491,12 @@ zz_valyria_magic_dream_magic_048_story = { #Used for the Scholarship progress ev
 	visualization = {
 		basic_counter = {
 			variable_name = "mystery_potency"
-			label = "Mystery Strength"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
 			
 		}
 		basic_counter = {
 			variable_name = "mystery_duration"
-			label = "Years Remaining"
+			label = "ZZ_VALYRIA_STORY_YEARS_REMAINING"
 		}
 	}
 	on_setup = {
@@ -505,6 +517,15 @@ zz_valyria_magic_dream_magic_048_story = { #Used for the Scholarship progress ev
 		set_variable = {
 			name = mystery_duration
 			value = zz_valyria_magic_dream_magic_048_value_02
+		}
+		# The number of visions chosen when the mystery was cast
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_mystery_visions } }
+			set_variable = {
+				name = mystery_duration
+				value = story_owner.var:zz_valyria_mystery_visions
+			}
+			story_owner = { remove_variable = zz_valyria_mystery_visions }
 		}
 		set_variable = {
 			name = mystery_caster
@@ -542,13 +563,14 @@ zz_valyria_magic_dream_magic_048_story = { #Used for the Scholarship progress ev
 					var:mystery_caster ?= {
 						save_scope_as = caster
 					}
+					story_owner = { save_scope_as = zz_story_owner } # the message icons need a saved scope
 					scope:caster ?= {
 						send_interface_message = {
 							type = send_interface_message_as_feed_spell_buff_proc
 							title = zz_valyria_magic_dream_magic.048.buff.toast.t
 							desc = zz_valyria_magic_dream_magic.048.buff.toast.desc
 							left_icon = scope:caster
-							right_icon = scope:story_owner
+							right_icon = scope:zz_story_owner
 							custom_tooltip = zz_valyria_magic_dream_magic.048.buff.toast.tt
 						}
 					}
@@ -579,12 +601,12 @@ zz_valyria_magic_dream_magic_049_story = {
 	visualization = {
 		basic_counter = {
 			variable_name = "mystery_potency"
-			label = "Mystery Strength"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
 			
 		}
 		basic_counter = {
 			variable_name = "mystery_duration"
-			label = "Years Remaining"
+			label = "ZZ_VALYRIA_STORY_YEARS_REMAINING"
 		}
 	}
 	on_setup = {
@@ -605,6 +627,15 @@ zz_valyria_magic_dream_magic_049_story = {
 		set_variable = {
 			name = mystery_duration
 			value = zz_valyria_magic_dream_magic_049_value_02
+		}
+		# The number of visions chosen when the mystery was cast
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_mystery_visions } }
+			set_variable = {
+				name = mystery_duration
+				value = story_owner.var:zz_valyria_mystery_visions
+			}
+			story_owner = { remove_variable = zz_valyria_mystery_visions }
 		}
 		set_variable = {
 			name = mystery_caster
@@ -643,13 +674,14 @@ zz_valyria_magic_dream_magic_049_story = {
 						save_scope_as = caster
 					}
 					
+					story_owner = { save_scope_as = zz_story_owner } # the message icons need a saved scope
 					scope:caster ?= {
 						send_interface_message = {
 							type = send_interface_message_as_feed_spell_buff_proc
 							title = zz_valyria_magic_dream_magic.049.buff.toast.t
 							desc = zz_valyria_magic_dream_magic.049.buff.toast.desc
 							left_icon = scope:caster
-							right_icon = scope:story_owner
+							right_icon = scope:zz_story_owner
 							custom_tooltip = zz_valyria_magic_dream_magic.049.buff.toast.tt
 						}
 					}
@@ -679,12 +711,12 @@ zz_valyria_magic_dream_magic_072_story = {
 	visualization = {
 		basic_counter = {
 			variable_name = "mystery_potency"
-			label = "Mystery Strength"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
 			
 		}
 		basic_counter = {
 			variable_name = "mystery_duration"
-			label = "Years Remaining"
+			label = "ZZ_VALYRIA_STORY_YEARS_REMAINING"
 		}
 	}
 	on_setup = {
@@ -742,14 +774,14 @@ zz_valyria_magic_dream_magic_072_story = {
 					var:mystery_caster ?= {
 						save_scope_as = caster
 					}
-					
+					story_owner = { save_scope_as = zz_story_owner } # the message icons need a saved scope
 					scope:caster = {
 						send_interface_message = {
 							type = send_interface_message_as_feed_spell_buff_proc
 							title = zz_valyria_magic_dream_magic.049.buff.toast.t
 							desc = zz_valyria_magic_dream_magic.049.buff.toast.desc
 							left_icon = scope:caster
-							right_icon = scope:story_owner
+							right_icon = scope:zz_story_owner
 							custom_tooltip = zz_valyria_magic_dream_magic.049.buff.toast.tt
 						}
 					}
@@ -768,6 +800,1008 @@ zz_valyria_magic_dream_magic_072_story = {
 				effect = {
 					end_story = yes
 				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_dream_magic_080_story = { # Soothsaying (Betrayal)
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_VISIONS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_dream_magic_080_value_01
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_dream_magic_080_value_02
+		}
+		# The number of visions chosen when the mystery was cast
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_mystery_visions } }
+			set_variable = {
+				name = mystery_duration
+				value = story_owner.var:zz_valyria_mystery_visions
+			}
+			story_owner = { remove_variable = zz_valyria_mystery_visions }
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	# Each month, while visions remain, one member of a faction against the subject is warned away from it in a dream.
+	# They leave, and cannot rejoin a faction for as many years as the story's potency
+	effect_group = {
+		months = 1
+		first_valid = {
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration > 0
+					story_owner = {
+						any_targeting_faction = {
+							any_faction_member = { count >= 1 }
+						}
+					}
+				}
+				effect = {
+					change_variable = {
+						name = mystery_duration
+						subtract = 1
+					}
+					story_owner = {
+						random_targeting_faction = {
+							limit = { any_faction_member = { count >= 1 } }
+							save_scope_as = zz_betrayal_faction
+							# Ordinary members first; the leader only when no one else is left
+							if = {
+								limit = { any_faction_member = { NOT = { this = scope:zz_betrayal_faction.faction_leader } } }
+								random_faction_member = {
+									limit = { NOT = { this = scope:zz_betrayal_faction.faction_leader } }
+									save_scope_as = zz_betrayal_member
+								}
+							}
+							else = {
+								random_faction_member = { save_scope_as = zz_betrayal_member }
+							}
+							scope:zz_betrayal_member ?= {
+								leave_faction_with_cooldown_effect = {
+									FACTION = scope:zz_betrayal_faction
+									YEARS = scope:story.var:mystery_potency
+								}
+							}
+						}
+					}
+				var:mystery_caster ?= {
+					save_scope_as = caster
+				}
+				story_owner = { save_scope_as = zz_story_owner } # the message icons need a saved scope
+				scope:caster ?= {
+					send_interface_message = {
+						type = send_interface_message_as_feed_spell_buff_proc
+						title = zz_valyria_magic_dream_magic.080.buff.toast.t
+						desc = zz_valyria_magic_dream_magic.080.buff.toast.desc
+						left_icon = scope:caster
+						right_icon = scope:zz_story_owner
+						custom_tooltip = zz_valyria_magic_dream_magic.080.buff.toast.tt
+					}
+				}
+				}
+			}
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration < 1
+				}
+				effect = {
+					end_story = yes
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_dream_magic_081_story = { # Soothsaying (Longevity)
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_YEARS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_dream_magic_081_value_01
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_dream_magic_081_value_02
+		}
+		# The number of visions chosen when the mystery was cast
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_mystery_visions } }
+			set_variable = {
+				name = mystery_duration
+				value = story_owner.var:zz_valyria_mystery_visions
+			}
+			story_owner = { remove_variable = zz_valyria_mystery_visions }
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+	}
+
+	on_end = {
+		# Removes the timed modifiers from before visions turned aside deaths; the stacking modifier stays
+		story_owner = {
+			remove_character_modifier = zz_valyria_magic_dream_magic_081_modifier_01
+			remove_character_modifier = zz_valyria_magic_dream_magic_081_modifier_02
+			remove_character_modifier = zz_valyria_magic_dream_magic_081_modifier_03
+			remove_character_modifier = zz_valyria_magic_dream_magic_081_modifier_04
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	# Charges are spent in zz_valyria_longevity_second_chance when a vision turns aside a death
+	effect_group = {
+		months = 1
+		triggered_effect = {
+			trigger = {
+				scope:story.var:mystery_duration < 1
+			}
+			effect = {
+				end_story = yes
+			}
+		}
+	}
+}
+
+zz_valyria_magic_dream_magic_082_story = { # Soothsaying (Health): heals every hurt and treats disease
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_VISIONS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_dream_magic_082_value_01
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_dream_magic_082_value_02
+		}
+		# The number of visions chosen when the mystery was cast
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_mystery_visions } }
+			set_variable = {
+				name = mystery_duration
+				value = story_owner.var:zz_valyria_mystery_visions
+			}
+			story_owner = { remove_variable = zz_valyria_mystery_visions }
+		}
+		set_variable = {
+			name = zz_heal_count
+			value = zz_valyria_magic_dream_magic_082_value_04
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	# Each month, one vision is spent if the subject is ill, wounded, afflicted or near a stress break:
+	# the Dream of Health heals them, and a disease that remains is met with a treatment scaled to the caster's skill
+	effect_group = {
+		months = 1
+		first_valid = {
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration > 0
+					story_owner = {
+						OR = {
+							zz_valyria_magic_dream_magic_058_needs_healing_trigger = yes
+							AND = { stress >= 80 stress < 100 } # Stress nearing the first break point
+							AND = { has_any_disease_trigger = yes NOR = { has_character_modifier = zz_valyria_magic_dream_magic_082_modifier_01 has_character_modifier = zz_valyria_magic_dream_magic_082_modifier_02 has_character_modifier = zz_valyria_magic_dream_magic_082_modifier_03 has_character_modifier = zz_valyria_magic_dream_magic_082_modifier_04 } }
+						}
+					}
+				}
+				effect = {
+					change_variable = {
+						name = mystery_duration
+						subtract = 1
+					}
+					story_owner = {
+						while = {
+							count = scope:story.var:zz_heal_count
+							zz_valyria_magic_dream_magic_058_heal_effect = yes
+						}
+						if = {
+							limit = { has_any_disease_trigger = yes NOR = { has_character_modifier = zz_valyria_magic_dream_magic_082_modifier_01 has_character_modifier = zz_valyria_magic_dream_magic_082_modifier_02 has_character_modifier = zz_valyria_magic_dream_magic_082_modifier_03 has_character_modifier = zz_valyria_magic_dream_magic_082_modifier_04 } }
+						if = { limit = { scope:story.var:mystery_potency >= 8 } add_character_modifier = { modifier = zz_valyria_magic_dream_magic_082_modifier_04 years = 1 } }
+						else_if = { limit = { scope:story.var:mystery_potency >= 5 } add_character_modifier = { modifier = zz_valyria_magic_dream_magic_082_modifier_03 years = 1 } }
+						else_if = { limit = { scope:story.var:mystery_potency >= 3 } add_character_modifier = { modifier = zz_valyria_magic_dream_magic_082_modifier_02 years = 1 } }
+						else = { add_character_modifier = { modifier = zz_valyria_magic_dream_magic_082_modifier_01 years = 1 } }
+						}
+					}
+				var:mystery_caster ?= {
+					save_scope_as = caster
+				}
+				story_owner = { save_scope_as = zz_story_owner } # the message icons need a saved scope
+				scope:caster ?= {
+					send_interface_message = {
+						type = send_interface_message_as_feed_spell_buff_proc
+						title = zz_valyria_magic_dream_magic.082.buff.toast.t
+						desc = zz_valyria_magic_dream_magic.082.buff.toast.desc
+						left_icon = scope:caster
+						right_icon = scope:zz_story_owner
+						custom_tooltip = zz_valyria_magic_dream_magic.082.buff.toast.tt
+					}
+				}
+				}
+			}
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration < 1
+				}
+				effect = {
+					end_story = yes
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_dream_magic_083_story = { # Soothsaying (Infant Sex)
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_VISIONS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_dream_magic_083_value_01
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_dream_magic_083_value_02
+		}
+		# The number of visions chosen when the mystery was cast
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_mystery_visions } }
+			set_variable = {
+				name = mystery_duration
+				value = story_owner.var:zz_valyria_mystery_visions
+			}
+			story_owner = { remove_variable = zz_valyria_mystery_visions }
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_dream_infant_sex } }
+			set_variable = {
+				name = infant_sex
+				value = story_owner.var:zz_valyria_dream_infant_sex
+			}
+			story_owner = { remove_variable = zz_valyria_dream_infant_sex }
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	effect_group = {
+		months = 1
+		first_valid = {
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration > 0
+					OR = {
+						story_owner = {
+							is_pregnant = yes
+							NOT = { has_character_flag = zz_valyria_dream_infant_sex_set }
+						}
+						story_owner = {
+							is_female = no
+							any_consort = {
+								is_pregnant = yes
+								pregnancy_real_father = { this = scope:story.story_owner }
+								NOT = { has_character_flag = zz_valyria_dream_infant_sex_set }
+							}
+						}
+					}
+				}
+				effect = {
+					change_variable = {
+						name = mystery_duration
+						subtract = 1
+					}
+					story_owner = {
+						if = {
+							limit = { is_pregnant = yes NOT = { has_character_flag = zz_valyria_dream_infant_sex_set } }
+							save_scope_as = zz_infant_mother
+						}
+						else = {
+							random_consort = {
+								limit = {
+									is_pregnant = yes
+									pregnancy_real_father = { this = scope:story.story_owner }
+									NOT = { has_character_flag = zz_valyria_dream_infant_sex_set }
+								}
+								save_scope_as = zz_infant_mother
+							}
+						}
+					}
+					scope:zz_infant_mother ?= {
+						if = {
+							limit = { scope:story.var:infant_sex = flag:female }
+							set_pregnancy_gender = female
+						}
+						else = {
+							set_pregnancy_gender = male
+						}
+						add_character_flag = { flag = zz_valyria_dream_infant_sex_set days = 300 }
+					}
+					var:mystery_caster ?= {
+						save_scope_as = caster
+					}
+					story_owner = { save_scope_as = zz_story_owner } # the message icons need a saved scope
+					scope:caster ?= {
+						send_interface_message = {
+							type = send_interface_message_as_feed_spell_buff_proc
+							title = zz_valyria_magic_dream_magic.083.buff.toast.t
+							desc = zz_valyria_magic_dream_magic.083.buff.toast.desc
+							left_icon = scope:caster
+							right_icon = scope:zz_story_owner
+							custom_tooltip = zz_valyria_magic_dream_magic.083.buff.toast.tt
+						}
+					}
+				}
+			}
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration < 1
+				}
+				effect = {
+					end_story = yes
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_dream_magic_084_story = { # Soothsaying (Scheme Defence)
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_VISIONS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_dream_magic_084_value_01
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_dream_magic_084_value_02
+		}
+		# The number of visions chosen when the mystery was cast
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_mystery_visions } }
+			set_variable = {
+				name = mystery_duration
+				value = story_owner.var:zz_valyria_mystery_visions
+			}
+			story_owner = { remove_variable = zz_valyria_mystery_visions }
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	effect_group = {
+		months = 1
+		first_valid = {
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration > 0
+					story_owner = {
+						any_targeting_scheme = {
+							is_hostile = yes
+							is_scheme_exposed = no
+						}
+					}
+				}
+				effect = {
+					change_variable = {
+						name = mystery_duration
+						subtract = 1
+					}
+					story_owner = {
+						random_targeting_scheme = {
+							limit = {
+								is_hostile = yes
+								is_scheme_exposed = no
+							}
+							expose_scheme = yes # one scheme per vision
+						}
+					}
+					var:mystery_caster ?= {
+						save_scope_as = caster
+					}
+					story_owner = { save_scope_as = zz_story_owner } # the message icons need a saved scope
+					scope:caster ?= {
+						send_interface_message = {
+							type = send_interface_message_as_feed_spell_buff_proc
+							title = zz_valyria_magic_dream_magic.084.buff.toast.t
+							desc = zz_valyria_magic_dream_magic.084.buff.toast.desc
+							left_icon = scope:caster
+							right_icon = scope:zz_story_owner
+							custom_tooltip = zz_valyria_magic_dream_magic.084.buff.toast.tt
+						}
+					}
+				}
+			}
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration < 1
+				}
+				effect = {
+					end_story = yes
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_dream_magic_085_story = { # Soothsaying (Secret Destruction)
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_VISIONS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_dream_magic_085_value_01
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_dream_magic_085_value_02
+		}
+		# The number of visions chosen when the mystery was cast
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_mystery_visions } }
+			set_variable = {
+				name = mystery_duration
+				value = story_owner.var:zz_valyria_mystery_visions
+			}
+			story_owner = { remove_variable = zz_valyria_mystery_visions }
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	effect_group = {
+		months = 1
+		first_valid = {
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration > 0
+					story_owner = {
+						any_secret = {
+							any_secret_knower = {
+								NOT = { this = scope:story.story_owner }
+							}
+						}
+					}
+				}
+				effect = {
+					change_variable = {
+						name = mystery_duration
+						subtract = 1
+					}
+					story_owner = {
+						save_scope_as = zz_secret_keeper
+						random_secret = {
+							limit = {
+								any_secret_knower = {
+									NOT = { this = scope:zz_secret_keeper }
+								}
+							}
+							remove_secret = yes # one secret per vision
+						}
+					}
+					var:mystery_caster ?= {
+						save_scope_as = caster
+					}
+					story_owner = { save_scope_as = zz_story_owner } # the message icons need a saved scope
+					scope:caster ?= {
+						send_interface_message = {
+							type = send_interface_message_as_feed_spell_buff_proc
+							title = zz_valyria_magic_dream_magic.085.buff.toast.t
+							desc = zz_valyria_magic_dream_magic.085.buff.toast.desc
+							left_icon = scope:caster
+							right_icon = scope:zz_story_owner
+							custom_tooltip = zz_valyria_magic_dream_magic.085.buff.toast.tt
+						}
+					}
+				}
+			}
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration < 1
+				}
+				effect = {
+					end_story = yes
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_dream_magic_100_story = { # Soothsaying (Assassination)
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_VISIONS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_dream_magic_100_value_01
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_dream_magic_100_value_02
+		}
+		# The number of visions chosen when the mystery was cast
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_mystery_visions } }
+			set_variable = {
+				name = mystery_duration
+				value = story_owner.var:zz_valyria_mystery_visions
+			}
+			story_owner = { remove_variable = zz_valyria_mystery_visions }
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	# Charges are spent by the assassination ward hooks; see zz_valyria_assassination_ward_trigger
+	effect_group = {
+		months = 1
+		triggered_effect = {
+			trigger = {
+				scope:story.var:mystery_duration < 1
+			}
+			effect = {
+				end_story = yes
+			}
+		}
+	}
+}
+
+zz_valyria_magic_dream_magic_101_story = { # Soothsaying (Battle)
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_VISIONS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_dream_magic_101_value_01
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_dream_magic_101_value_02
+		}
+		# The number of visions chosen when the mystery was cast
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_mystery_visions } }
+			set_variable = {
+				name = mystery_duration
+				value = story_owner.var:zz_valyria_mystery_visions
+			}
+			story_owner = { remove_variable = zz_valyria_mystery_visions }
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	# Charges are spent by the battle ward hooks; see zz_valyria_battle_ward_trigger
+	effect_group = {
+		months = 1
+		triggered_effect = {
+			trigger = {
+				scope:story.var:mystery_duration < 1
+			}
+			effect = {
+				end_story = yes
+			}
+		}
+	}
+}
+
+zz_valyria_magic_dream_magic_104_story = { # Soothsaying (Captivity)
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_VISIONS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_dream_magic_104_value_01
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_dream_magic_104_value_02
+		}
+		# The number of visions chosen when the mystery was cast
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_mystery_visions } }
+			set_variable = {
+				name = mystery_duration
+				value = story_owner.var:zz_valyria_mystery_visions
+			}
+			story_owner = { remove_variable = zz_valyria_mystery_visions }
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	# Visions are spent by the on_action hooks in common/on_action/Magic/zz_valyria_soothsaying_wards.txt
+	effect_group = {
+		months = 1
+		triggered_effect = {
+			trigger = {
+				scope:story.var:mystery_duration < 1
+			}
+			effect = {
+				end_story = yes
+			}
+		}
+	}
+}
+
+zz_valyria_magic_dream_magic_105_story = { # Soothsaying (Omens of War)
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_VISIONS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_dream_magic_105_value_01
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_dream_magic_105_value_02
+		}
+		# The number of visions chosen when the mystery was cast
+		if = {
+			limit = { story_owner = { has_variable = zz_valyria_mystery_visions } }
+			set_variable = {
+				name = mystery_duration
+				value = story_owner.var:zz_valyria_mystery_visions
+			}
+			story_owner = { remove_variable = zz_valyria_mystery_visions }
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	# Visions are spent by the on_action hooks in common/on_action/Magic/zz_valyria_soothsaying_wards.txt
+	effect_group = {
+		months = 1
+		triggered_effect = {
+			trigger = {
+				scope:story.var:mystery_duration < 1
+			}
+			effect = {
+				end_story = yes
 			}
 		}
 	}

@@ -1,6 +1,6 @@
 widget = {
 	allow_outside = yes
-	name = "event_window_character_selection_0"
+	name = "event_window_character_selection_02"
 	size = { 350 250 } # Size of the insert inside the event window; needs to fit under the text box since a margin will only push the content and not the widget
 
 	vbox = {

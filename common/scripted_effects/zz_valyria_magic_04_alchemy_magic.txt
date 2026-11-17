@@ -1,4 +1,5 @@
-﻿zz_valyria_magic_alchemy_magic_001_effect = {
+﻿# Spell: Alchemy 001 - Mystery of Prosperity
+zz_valyria_magic_alchemy_magic_001_effect = {
 	random_list = {
 		75 = {
 			modifier = {
@@ -9,7 +10,7 @@
 				SPELL = $SPELL$
 			}
 			scope:target = {
-				zz_valyria_magic_apply_province_modifier_effect = {
+				zz_valyria_magic_apply_county_modifier_effect = {
 					MODIFIER = zz_valyria_magic_alchemy_magic_001_modifier
 					DURATION = 120
 					BOOSTED_DURATION = 240
@@ -25,6 +26,7 @@
 	}
 }
 
+# Spell: Alchemy 002 - Mystery of Construction
 zz_valyria_magic_alchemy_magic_002_effect = {
 	random_list = {
 		75 = {
@@ -52,6 +54,7 @@ zz_valyria_magic_alchemy_magic_002_effect = {
 	}
 }
 
+# Spell: Alchemy 003 - Mystery of Transmutation (Gold)
 zz_valyria_magic_alchemy_magic_003_effect = {
 	random_list = {
 		75 = {
@@ -101,6 +104,7 @@ zz_valyria_magic_alchemy_magic_003_effect = {
 	}
 }
 
+# Spell: Alchemy 004 - Mystery of Arms (Knights)
 zz_valyria_magic_alchemy_magic_004_effect = {
 	random_list = {
 		75 = {
@@ -154,6 +158,7 @@ zz_valyria_magic_alchemy_magic_004_effect = {
 	}
 }
 
+# Spell: Alchemy 005 - Mystery of Realm Alteration (Domain Limit)
 zz_valyria_magic_alchemy_magic_005_effect = {
 	random_list = {
 		75 = {
@@ -207,6 +212,7 @@ zz_valyria_magic_alchemy_magic_005_effect = {
 	}
 }
 
+# Spell: Alchemy 006 - Mystery of Enchantment
 zz_valyria_magic_alchemy_magic_006_effect = {
 	random_list = {
 		75 = {
@@ -325,6 +331,61 @@ zz_valyria_magic_alchemy_magic_006_effect = {
 				SPELL = $SPELL$
 				MODIFIER = item_modifier_22
 			}
+			zz_enchant_apply_modifier_effect = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+				MODIFIER = item_modifier_23
+			}
+			zz_enchant_apply_modifier_effect = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+				MODIFIER = item_modifier_24
+			}
+			zz_enchant_apply_modifier_effect = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+				MODIFIER = item_modifier_25
+			}
+			zz_enchant_apply_modifier_effect = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+				MODIFIER = item_modifier_26
+			}
+			zz_enchant_apply_modifier_effect = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+				MODIFIER = item_modifier_27
+			}
+			zz_enchant_apply_modifier_effect = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+				MODIFIER = item_modifier_28
+			}
+			zz_enchant_apply_modifier_effect = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+				MODIFIER = item_modifier_29
+			}
+			zz_enchant_apply_modifier_effect = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+				MODIFIER = item_modifier_30
+			}
+			zz_enchant_apply_modifier_effect = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+				MODIFIER = item_modifier_31
+			}
+			zz_enchant_apply_modifier_effect = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+				MODIFIER = item_modifier_32
+			}
+			zz_enchant_apply_modifier_effect = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+				MODIFIER = item_modifier_33
+			}
 		}
 		25 = {
 			zz_valyria_magic_spell_failure_interface = {
@@ -335,6 +396,7 @@ zz_valyria_magic_alchemy_magic_006_effect = {
 	}
 }
 
+# Spell: Alchemy 007 - Mystery of Transmutation (Piety)
 zz_valyria_magic_alchemy_magic_007_effect = {
 	random_list = {
 		75 = {
@@ -384,6 +446,7 @@ zz_valyria_magic_alchemy_magic_007_effect = {
 	}
 }
 
+# Spell: Alchemy 008 - Mystery of Transmutation (Prestige)
 zz_valyria_magic_alchemy_magic_008_effect = {
 	random_list = {
 		75 = {
@@ -433,6 +496,7 @@ zz_valyria_magic_alchemy_magic_008_effect = {
 	}
 }
 
+# Spell: Alchemy 009 - Mystery of Transmutation (Renown)
 zz_valyria_magic_alchemy_magic_009_effect = {
 	random_list = {
 		75 = {
@@ -484,6 +548,7 @@ zz_valyria_magic_alchemy_magic_009_effect = {
 	}
 }
 
+# Spell: Alchemy 010 - Mystery of Age Manipulation (Subtract)
 zz_valyria_magic_alchemy_magic_010_effect = {
 	random_list = {
 		75 = {
@@ -506,65 +571,32 @@ zz_valyria_magic_alchemy_magic_010_effect = {
 					callous = minor_stress_gain
 				}
 			}
+			# Change age by the amount chosen on the counter widget
 			if = {
 				limit = {
-					scope:option_01 ?= yes
-				}
-				if = {
-					limit = {
-						scope:recipient = {
-							OR = {
-								has_trait = immortal
-								has_trait = zz_valyrian_longevity
-							}
+					scope:recipient = {
+						OR = {
+							has_trait = immortal
+							has_trait = zz_valyrian_longevity
 						}
 					}
-					set_variable = {
-						name = immortal_effective_age
-						value = scope:recipient.effective_age
-						days = 1
-					}
-					change_variable = {
-						name = immortal_effective_age
-						subtract = 1
-					}
-					scope:recipient = {
-						set_immortal_age = root.var:immortal_effective_age
-					}
 				}
-				else = {
-					scope:recipient = {
-						change_age = -1
-					}
+				set_variable = {
+					name = immortal_effective_age
+					value = scope:recipient.effective_age
+					days = 1
+				}
+				change_variable = {
+					name = immortal_effective_age
+					add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				scope:recipient = {
+					set_immortal_age = root.var:immortal_effective_age
 				}
 			}
 			else = {
-				if = {
-					limit = {
-						scope:recipient = {
-							OR = {
-								has_trait = immortal
-								has_trait = zz_valyrian_longevity
-							}
-						}
-					}
-					set_variable = {
-						name = immortal_effective_age
-						value = scope:recipient.effective_age
-						days = 1
-					}
-					change_variable = {
-						name = immortal_effective_age
-						subtract = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
-					}
-					scope:recipient = {
-						set_immortal_age = root.var:immortal_effective_age
-					}
-				}
-				else = {
-					scope:recipient = {
-						change_age = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_02
-					}
+				scope:recipient = {
+					change_age = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
 				}
 			}
 			scope:recipient = {
@@ -591,6 +623,7 @@ zz_valyria_magic_alchemy_magic_010_effect = {
 	}
 }
 
+# Spell: Alchemy 011 - Mystery of Age Manipulation (Addition)
 zz_valyria_magic_alchemy_magic_011_effect = {
 	random_list = {
 		75 = {
@@ -613,80 +646,35 @@ zz_valyria_magic_alchemy_magic_011_effect = {
 					callous = minor_stress_gain
 				}
 			}
+			# Change age by the amount chosen on the counter widget
 			if = {
 				limit = {
-					scope:option_01 ?= yes
-				}
-				if = {
-					limit = {
-						scope:recipient = {
-							OR = {
-								has_trait = immortal
-								has_trait = zz_valyrian_longevity
-							}
+					scope:recipient = {
+						OR = {
+							has_trait = immortal
+							has_trait = zz_valyrian_longevity
 						}
 					}
-					set_variable = {
-						name = immortal_effective_age
-						value = scope:recipient.effective_age
-						days = 1
-					}
-					change_variable = {
-						name = immortal_effective_age
-						add = 1
-					}
-					scope:recipient = {
-						set_immortal_age = root.var:immortal_effective_age
-					}
 				}
-				else = {
-					scope:recipient = {
-						change_age = 1
-					}
+				set_variable = {
+					name = immortal_effective_age
+					value = scope:recipient.effective_age
+					days = 1
+				}
+				change_variable = {
+					name = immortal_effective_age
+					add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_02
+				}
+				scope:recipient = {
+					set_immortal_age = root.var:immortal_effective_age
 				}
 			}
 			else = {
-				if = {
-					limit = {
-						scope:recipient = {
-							OR = {
-								has_trait = immortal
-								has_trait = zz_valyrian_longevity
-							}
-						}
-					}
-					set_variable = {
-						name = immortal_effective_age
-						value = scope:recipient.effective_age
-						days = 1
-					}
-					change_variable = {
-						name = immortal_effective_age
-						add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
-					}
-					scope:recipient = {
-						set_immortal_age = root.var:immortal_effective_age
-					}
-				}
-				else = {
-					scope:recipient = {
-						change_age = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
-					}
+				scope:recipient = {
+					change_age = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_02
 				}
 			}
 			scope:recipient = {
-				if = {
-					limit = {
-						NOT = {
-							scope:actor = scope:recipient
-						}
-					}
-					add_opinion = {
-						modifier = grateful_opinion
-						target = scope:actor
-						opinion = 70
-					}
-				}
 			}
 		}
 		25 = {
@@ -698,6 +686,7 @@ zz_valyria_magic_alchemy_magic_011_effect = {
 	}
 }
 
+# Spell: Alchemy 012 - Mystery of Arms (Knights Efficiency)
 zz_valyria_magic_alchemy_magic_012_effect = {
 	random_list = {
 		75 = {
@@ -751,6 +740,7 @@ zz_valyria_magic_alchemy_magic_012_effect = {
 	}
 }
 
+# Spell: Alchemy 013 - Mystery of Arms (MAA Add)
 zz_valyria_magic_alchemy_magic_013_effect = {
 	random_list = {
 		75 = {
@@ -804,6 +794,7 @@ zz_valyria_magic_alchemy_magic_013_effect = {
 	}
 }
 
+# Spell: Alchemy 014 - Mystery of Arms (MAA Size)
 zz_valyria_magic_alchemy_magic_014_effect = {
 	random_list = {
 		75 = {
@@ -857,6 +848,7 @@ zz_valyria_magic_alchemy_magic_014_effect = {
 	}
 }
 
+# Spell: Alchemy 015 - Mystery of Arms (Title MAA Add)
 zz_valyria_magic_alchemy_magic_015_effect = {
 	random_list = {
 		75 = {
@@ -910,6 +902,7 @@ zz_valyria_magic_alchemy_magic_015_effect = {
 	}
 }
 
+# Spell: Alchemy 016 - Mystery of Arms (Title MAA Size)
 zz_valyria_magic_alchemy_magic_016_effect = {
 	random_list = {
 		75 = {
@@ -963,6 +956,7 @@ zz_valyria_magic_alchemy_magic_016_effect = {
 	}
 }
 
+# Spell: Alchemy 017 - Mystery of Transmutative Assault
 zz_valyria_magic_alchemy_magic_017_effect = {
 	random_list = {
 		75 = {
@@ -980,16 +974,33 @@ zz_valyria_magic_alchemy_magic_017_effect = {
 					add_character_modifier = duel_edge_debuff_02_modifier
 				}
 			}
-			zz_configure_start_magic_combat_effect = {
-				SC_INITIATOR = scope:secondary_recipient
-				SC_ATTACKER = scope:secondary_recipient
-				SC_DEFENDER = scope:recipient
-				FATALITY = possible
-				FIXED = no
-				LOCALE = tavern
-				OUTPUT_EVENT = jason_locale_events.201
-				INVALIDATION_EVENT = single_combat.1006
-				MAGIC = alchemy
+			# The first event option spares the target; otherwise losing the combat can be fatal
+			if = {
+				limit = { scope:option_01 ?= yes }
+				zz_configure_start_magic_combat_effect = {
+					SC_INITIATOR = scope:secondary_recipient
+					SC_ATTACKER = scope:secondary_recipient
+					SC_DEFENDER = scope:recipient
+					FATALITY = no
+					FIXED = no
+					LOCALE = tavern
+					OUTPUT_EVENT = jason_locale_events.201
+					INVALIDATION_EVENT = single_combat.1006
+					MAGIC = alchemy
+				}
+			}
+			else = {
+				zz_configure_start_magic_combat_effect = {
+					SC_INITIATOR = scope:secondary_recipient
+					SC_ATTACKER = scope:secondary_recipient
+					SC_DEFENDER = scope:recipient
+					FATALITY = possible
+					FIXED = no
+					LOCALE = tavern
+					OUTPUT_EVENT = jason_locale_events.201
+					INVALIDATION_EVENT = single_combat.1006
+					MAGIC = alchemy
+				}
 			}
 		}
 		25 = {
@@ -1001,6 +1012,7 @@ zz_valyria_magic_alchemy_magic_017_effect = {
 	}
 }
 
+# Spell: Alchemy 018 - Mystery of Transmutation (Influence)
 zz_valyria_magic_alchemy_magic_018_effect = {
 	random_list = {
 		75 = {
@@ -1050,6 +1062,7 @@ zz_valyria_magic_alchemy_magic_018_effect = {
 	}
 }
 
+# Spell: Alchemy 019 - Mystery of Transmutation (Treasury)
 zz_valyria_magic_alchemy_magic_019_effect = {
 	random_list = {
 		75 = {
@@ -1099,6 +1112,7 @@ zz_valyria_magic_alchemy_magic_019_effect = {
 	}
 }
 
+# Spell: Alchemy 020 - Mystery of Realm Alteration (Vassal Limit)
 zz_valyria_magic_alchemy_magic_020_effect = {
 	random_list = {
 		75 = {
@@ -1153,6 +1167,7 @@ zz_valyria_magic_alchemy_magic_020_effect = {
 	}
 }
 
+# Spell: Alchemy 021 - Mystery of Transmute Homunculus
 zz_valyria_magic_alchemy_magic_021_effect = { 
 	random_list = { 
 		50 = {
@@ -1184,7 +1199,7 @@ zz_valyria_magic_alchemy_magic_021_effect = {
 		
 					#faith = var:zz_valyria_selected_character.faith
 					#culture = var:zz_valyria_selected_character.culture
-					dynasty_house = var:zz_valyria_selected_character.father.house
+					dynasty_house = scope:target_char.house
 		
 					save_scope_as = character_clone 
 		
@@ -1225,7 +1240,7 @@ zz_valyria_magic_alchemy_magic_021_effect = {
 		
 					#faith = var:zz_valyria_selected_character.faith
 					#culture = var:zz_valyria_selected_character.culture
-					dynasty_house = var:zz_valyria_selected_character.father.house
+					dynasty_house = scope:target_char.house
 		
 					save_scope_as = character_clone 
 		
@@ -1264,4 +1279,1361 @@ zz_valyria_magic_alchemy_magic_021_effect = {
 		}
 	}
 	
+}
+
+# Spell: Alchemy 022 - Mystery of Alchemical Refinement
+zz_valyria_magic_alchemy_magic_022_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# AI casters cannot use the widget: they pick a trade good at random
+			if = {
+				limit = { NOT = { exists = scope:trade_good } }
+				random_in_list = {
+					variable = possible_trade_goods
+					save_scope_as = trade_good
+				}
+			}
+			scope:target = {
+				zz_valyria_magic_alchemy_magic_022_apply_effect = { DURATION = -1 BOOSTED_DURATION = -1 } # permanent
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Province scope: the production modifier for scope:trade_good (one modifier per trade good)
+zz_valyria_magic_alchemy_magic_022_apply_effect = {
+	zz_valyria_magic_trade_good_modifier_apply_effect = { PREFIX = zz_valyria_magic_alchemy_magic_022_modifier DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+}
+
+# The trade goods offered by the trade good selection widget (gui/event_window_widgets/event_window_trade_good_selection.gui)
+zz_valyria_trade_good_selection_list_effect = {
+	clear_variable_list = possible_trade_goods
+	remove_variable = selected_trade_good
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_wood }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_stone }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_wool }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_cotton }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_leather }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_flax }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_hemp }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_salt }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_grain }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_fruit }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_meat }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_fish }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_cattle }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_horses }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_cheese }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_beer }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_wine }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_oil }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_honey }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_rice }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_millet }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_iron }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_alum }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_jade }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_gold }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_silver }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_amber }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_copper }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_gems }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_silk }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_textiles }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_furs }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_books_paper }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_spices }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_dyes }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_jewelry }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_ivory }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_glass }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_sugar }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_incense }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_ceramics }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_lacquerware }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_medicaments }
+	add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_tea }
+	# Event options are only checked when the event opens, so players start with a trade good chosen (AI casters pick at random in the cast effect)
+	if = {
+		limit = { is_ai = no }
+		set_variable = { name = selected_trade_good value = flag:trade_good_wood }
+	}
+}
+
+# Spell: Alchemy 023 - Mystery of Expansion
+zz_valyria_magic_alchemy_magic_023_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				change_province_size_progress = zz_valyria_magic_alchemy_magic_023_value_02
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 027 - Mystery of Mercantile Reach
+zz_valyria_magic_alchemy_magic_027_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			if = {
+				limit = {
+					NOT = {
+						scope:actor = scope:recipient
+					}
+				}
+				stress_impact = {
+					compassionate = medium_stress_impact_loss
+					sadistic = minor_stress_gain
+					callous = minor_stress_gain
+				}
+			}
+			scope:recipient = {
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_alchemy_magic_027_modifier
+					DURATION = -1
+					BOOSTED_DURATION = -1
+				}
+				if = {
+					limit = {
+						NOT = {
+							scope:actor = scope:recipient
+						}
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 028 - Mystery of Bountiful Caravans
+zz_valyria_magic_alchemy_magic_028_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			if = {
+				limit = {
+					NOT = {
+						scope:actor = scope:recipient
+					}
+				}
+				stress_impact = {
+					compassionate = medium_stress_impact_loss
+					sadistic = minor_stress_gain
+					callous = minor_stress_gain
+				}
+			}
+			scope:recipient = {
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_alchemy_magic_028_modifier
+					DURATION = -1
+					BOOSTED_DURATION = -1
+				}
+				if = {
+					limit = {
+						NOT = {
+							scope:actor = scope:recipient
+						}
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 029 - Mystery of the Long Road
+zz_valyria_magic_alchemy_magic_029_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			if = {
+				limit = {
+					NOT = {
+						scope:actor = scope:recipient
+					}
+				}
+				stress_impact = {
+					compassionate = medium_stress_impact_loss
+					sadistic = minor_stress_gain
+					callous = minor_stress_gain
+				}
+			}
+			scope:recipient = {
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_alchemy_magic_029_modifier
+					DURATION = -1
+					BOOSTED_DURATION = -1
+				}
+				if = {
+					limit = {
+						NOT = {
+							scope:actor = scope:recipient
+						}
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 030 - Mystery of the Open Road
+zz_valyria_magic_alchemy_magic_030_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			if = {
+				limit = {
+					NOT = {
+						scope:actor = scope:recipient
+					}
+				}
+				stress_impact = {
+					compassionate = medium_stress_impact_loss
+					sadistic = minor_stress_gain
+					callous = minor_stress_gain
+				}
+			}
+			scope:recipient = {
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_alchemy_magic_030_modifier
+					DURATION = -1
+					BOOSTED_DURATION = -1
+				}
+				if = {
+					limit = {
+						NOT = {
+							scope:actor = scope:recipient
+						}
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 031 - Mystery of Many Markets
+zz_valyria_magic_alchemy_magic_031_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			if = {
+				limit = {
+					NOT = {
+						scope:actor = scope:recipient
+					}
+				}
+				stress_impact = {
+					compassionate = medium_stress_impact_loss
+					sadistic = minor_stress_gain
+					callous = minor_stress_gain
+				}
+			}
+			scope:recipient = {
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_alchemy_magic_031_modifier
+					DURATION = -1
+					BOOSTED_DURATION = -1
+				}
+				if = {
+					limit = {
+						NOT = {
+							scope:actor = scope:recipient
+						}
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 032 - Mystery of Transmutation (Valyrian Steel)
+zz_valyria_magic_alchemy_magic_032_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				while = {
+					count = zz_valyria_magic_alchemy_magic_032_value_01
+					zz_valyria_create_artifact_vs_ingot_effect = { OWNER = scope:recipient }
+				}
+				if = {
+					limit = {
+						NOT = {
+							scope:actor = scope:recipient
+						}
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+
+# Province scope: adds $PREFIX$_<good> for scope:trade_good (used by the Mystery of Alchemical Refinement and the Prophecy of Resources)
+zz_valyria_magic_trade_good_modifier_apply_effect = {
+	if = {
+		limit = { scope:trade_good = flag:trade_good_wood }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_wood DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_stone }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_stone DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_wool }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_wool DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_cotton }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_cotton DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_leather }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_leather DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_flax }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_flax DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_hemp }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_hemp DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_salt }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_salt DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_grain }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_grain DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_fruit }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_fruit DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_meat }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_meat DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_fish }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_fish DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_cattle }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_cattle DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_horses }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_horses DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_cheese }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_cheese DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_beer }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_beer DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_wine }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_wine DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_oil }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_oil DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_honey }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_honey DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_rice }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_rice DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_millet }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_millet DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_iron }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_iron DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_alum }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_alum DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_jade }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_jade DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_gold }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_gold DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_silver }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_silver DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_amber }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_amber DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_copper }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_copper DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_gems }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_gems DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_silk }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_silk DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_textiles }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_textiles DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_furs }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_furs DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_books_paper }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_books_paper DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_spices }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_spices DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_dyes }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_dyes DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_jewelry }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_jewelry DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_ivory }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_ivory DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_glass }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_glass DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_sugar }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_sugar DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_incense }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_incense DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_ceramics }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_ceramics DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_lacquerware }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_lacquerware DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_medicaments }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_medicaments DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+	else_if = {
+		limit = { scope:trade_good = flag:trade_good_tea }
+		zz_valyria_magic_apply_province_modifier_effect = { MODIFIER = $PREFIX$_tea DURATION = $DURATION$ BOOSTED_DURATION = $BOOSTED_DURATION$ }
+	}
+}
+
+# Builds possible_trade_goods from the trade goods $COUNTY$ has the potential for (all of them if it has none)
+zz_valyria_trade_good_potential_list_effect = {
+	clear_variable_list = possible_trade_goods
+	remove_variable = selected_trade_good
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_wood } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_wood }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_stone } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_stone }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_wool } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_wool }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_cotton } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_cotton }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_leather } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_leather }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_flax } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_flax }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_hemp } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_hemp }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_salt } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_salt }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_grain } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_grain }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_fruit } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_fruit }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_meat } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_meat }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_fish } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_fish }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_cattle } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_cattle }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_horses } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_horses }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_cheese } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_cheese }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_beer } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_beer }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_wine } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_wine }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_oil } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_oil }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_honey } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_honey }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_rice } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_rice }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_millet } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_millet }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_iron } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_iron }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_alum } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_alum }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_jade } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_jade }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_gold } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_gold }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_silver } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_silver }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_amber } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_amber }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_copper } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_copper }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_gems } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_gems }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_silk } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_silk }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_textiles } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_textiles }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_furs } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_furs }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_books_paper } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_books_paper }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_spices } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_spices }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_dyes } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_dyes }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_jewelry } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_jewelry }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_ivory } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_ivory }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_glass } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_glass }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_sugar } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_sugar }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_incense } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_incense }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_ceramics } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_ceramics }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_lacquerware } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_lacquerware }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_medicaments } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_medicaments }
+	}
+	if = {
+		limit = { $COUNTY$ = { has_potential_for_trade_good = trade_good_type:trade_good_tea } }
+		add_to_variable_list = { name = possible_trade_goods target = flag:trade_good_tea }
+	}
+	if = {
+		limit = {
+			NOT = { any_in_list = { variable = possible_trade_goods } }
+		}
+		zz_valyria_trade_good_selection_list_effect = yes
+	}
+	# Players start with the first trade good chosen (AI casters pick at random in the cast effect)
+	if = {
+		limit = { is_ai = no }
+		every_in_list = {
+			variable = possible_trade_goods
+			root = {
+				zz_valyria_selection_variable = { VAR = selected_trade_good }
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 033 - Mystery of Bronze Sentinels
+zz_valyria_magic_alchemy_magic_033_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				spawn_army = {
+					men_at_arms = {
+						type = zz_bronze_sentinels
+						stacks = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+					location = scope:recipient.location
+					uses_supply = no
+					name = "zz_valyria_bronze_host"
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 034 - Mystery of Iron Colossi
+zz_valyria_magic_alchemy_magic_034_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				spawn_army = {
+					men_at_arms = {
+						type = zz_iron_colossi
+						stacks = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+					location = scope:recipient.location
+					uses_supply = no
+					name = "zz_valyria_iron_host"
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 035 - Mystery of Alchemical Purgation
+zz_valyria_magic_alchemy_magic_035_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				if = {
+					limit = {
+						has_variable = zz_miscast_count
+					}
+					change_variable = {
+						name = zz_miscast_count
+						subtract = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							scope:actor = scope:recipient
+						}
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 036 - Mystery of Alchemical Tempering
+zz_valyria_magic_alchemy_magic_036_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				if = {
+					limit = {
+						has_variable = zz_miscast_protection_count
+					}
+					change_variable = {
+						name = zz_miscast_protection_count
+						add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+				}
+				else = {
+					set_variable = {
+						name = zz_miscast_protection_count
+						value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							scope:actor = scope:recipient
+						}
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 037 - Mystery of Inner Transmutation (Diplomacy)
+# Permanently raises or lowers diplomacy by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_037_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# Change diplomacy by the amount chosen on the counter widget
+			scope:recipient = {
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
+					}
+					add_diplomacy_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 038 - Mystery of Inner Transmutation (Martial)
+# Permanently raises or lowers martial by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_038_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# Change martial by the amount chosen on the counter widget
+			scope:recipient = {
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
+					}
+					add_martial_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 039 - Mystery of Inner Transmutation (Stewardship)
+# Permanently raises or lowers stewardship by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_039_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# Change stewardship by the amount chosen on the counter widget
+			scope:recipient = {
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
+					}
+					add_stewardship_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 040 - Mystery of Inner Transmutation (Intrigue)
+# Permanently raises or lowers intrigue by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_040_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# Change intrigue by the amount chosen on the counter widget
+			scope:recipient = {
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
+					}
+					add_intrigue_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 041 - Mystery of Inner Transmutation (Learning)
+# Permanently raises or lowers learning by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_041_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# Change learning by the amount chosen on the counter widget
+			scope:recipient = {
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
+					}
+					add_learning_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 042 - Mystery of Inner Transmutation (Prowess)
+# Permanently raises or lowers prowess by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_042_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# Change prowess by the amount chosen on the counter widget
+			scope:recipient = {
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
+					}
+					add_prowess_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 024 - Mystery of Unmaking (Building to Gold)
+# A random building in the chosen county is transmuted back into the wealth it was made from: it is destroyed or
+# downgraded, and the county's holder, the subject, receives gold scaled to the caster's skill. Nothing is paid if no building is found
+zz_valyria_magic_alchemy_magic_024_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				random_county_province = {
+					limit = { has_holding = yes }
+					destroy_random_building_variable_effect = yes
+					if = {
+						limit = { has_variable = destroyed_building_variable }
+						destroy_random_building_effect = yes
+						scope:recipient = {
+							add_gold = zz_valyria_magic_alchemy_magic_024_value_01
+						}
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 026 - Mystery of Fatal Transmutation (Strike Army)
+# Soldiers of the chosen army turn to base metal and gold where they stand (Moderate damage). The commander who ordered the
+# casting collects part of the gold, worked out from the troops lost, before the army is depleted
+zz_valyria_magic_alchemy_magic_026_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				save_scope_value_as = {
+					name = zz_transmuted_gold
+					value = zz_valyria_magic_alchemy_magic_026_value_02
+				}
+				zz_valyria_change_army_troops_effect = { AMOUNT = zz_valyria_magic_alchemy_magic_026_value_01 }
+			}
+			scope:actor = {
+				add_gold = scope:zz_transmuted_gold
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 025 - Mystery of Potion Making (Brew Potion)
+# Brews the chosen potion for the subject, with a strength set by the caster's Alchemy skill
+zz_valyria_magic_alchemy_magic_025_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:secondary_recipient = { zz_valyria_save_potion_strength_effect = yes }
+			scope:recipient = {
+				switch = {
+					trigger = scope:option
+					flag:elixir_longevity = { zz_valyria_create_potion_effect = { EFFECT = elixir_longevity } }
+					flag:elixir_fertility = { zz_valyria_create_potion_effect = { EFFECT = elixir_fertility } }
+					flag:draught_strength = { zz_valyria_create_potion_effect = { EFFECT = draught_strength } }
+					flag:draught_clarity = { zz_valyria_create_potion_effect = { EFFECT = draught_clarity } }
+					flag:draught_calm = { zz_valyria_create_potion_effect = { EFFECT = draught_calm } }
+					flag:draught_warding = { zz_valyria_create_potion_effect = { EFFECT = draught_warding } }
+					flag:potion_healing = { zz_valyria_create_potion_effect = { EFFECT = potion_healing } }
+					flag:potion_purging = { zz_valyria_create_potion_effect = { EFFECT = potion_purging } }
+					flag:potion_restoring = { zz_valyria_create_potion_effect = { EFFECT = potion_restoring } }
+					flag:tonic_power = { zz_valyria_create_potion_effect = { EFFECT = tonic_power } }
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 043 - Mystery of Transmutation (Prosperity)
+# Raises the chosen county's prosperity level by 1 to 5, growing with Alchemy.
+zz_valyria_magic_alchemy_magic_043_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				change_prosperity_level = zz_valyria_magic_alchemy_magic_043_value_01
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Alchemy 044 - Mystery of Quicksilver Skin (Single Combat). Its work is done in single combat (combat_move_zz_quicksilver_skin_effect).
+zz_valyria_magic_alchemy_magic_044_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
 }

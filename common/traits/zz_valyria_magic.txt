@@ -385,12 +385,32 @@ zz_magister = {
 		ignore_opinion_value_if_same_trait = yes
 	}
 	triggered_opinion = {
-		parameter = execute_prisoner_to_improve_artifact
-		opinion_modifier = zz_mage_valyrian_steel
+		parameter = witchcraft_accepted
+		opinion_modifier = zz_magic_accepted
+		ignore_opinion_value_if_same_trait = yes
+	}
+	rite_modifier = {
+		parameter = zz_sorcery_criminal
+		religious_head_opinion = -30
+		same_faith_opinion = -30
+		clergy_opinion = -30
+		religious_vassal_opinion = -30
+		monthly_control_change_when_above_baseline_add = 0.4
+		domain_tax_same_faith_mult = -0.2
+		popular_opinion_add = -10
+	}
+	triggered_opinion = {
+		parameter = zz_sorcery_criminal
+		opinion_modifier = zz_magic_crime
 		ignore_opinion_value_if_same_trait = yes
 	}
 	triggered_opinion = {
-		parameter = witchcraft_accepted
+		parameter = zz_sorcery_accepted
+		opinion_modifier = zz_magic_accepted
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = zz_sorcery_revered
 		opinion_modifier = zz_magic_accepted
 		ignore_opinion_value_if_same_trait = yes
 	}

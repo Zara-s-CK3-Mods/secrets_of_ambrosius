@@ -1,5 +1,5 @@
 ﻿scroll = {
 	type = "scroll"
 	category = inventory
-	icon = journal
+	icon = scroll
 }

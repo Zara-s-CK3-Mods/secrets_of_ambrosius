@@ -1,0 +1,112 @@
+﻿namespace = zz_valyria_magic_tenet
+
+# A mage finds an old book that teaches them one of the magic tenets.
+# Fired from zz_valyria_tenet_discovery_on_action (random_yearly_everyone_pulse).
+zz_valyria_magic_tenet.0001 = {
+	type = character_event
+	title = zz_valyria_magic_tenet.0001.t
+	desc = {
+		desc = zz_valyria_magic_tenet.0001.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:zz_found_tenet = tenet:tenet_zz_blood_rites }
+				desc = zz_valyria_magic_tenet.0001.desc.blood_rites
+			}
+			triggered_desc = {
+				trigger = { scope:zz_found_tenet = tenet:tenet_zz_faceless_arts }
+				desc = zz_valyria_magic_tenet.0001.desc.faceless_arts
+			}
+			triggered_desc = {
+				trigger = { scope:zz_found_tenet = tenet:tenet_zz_greensight }
+				desc = zz_valyria_magic_tenet.0001.desc.greensight
+			}
+			triggered_desc = {
+				trigger = { scope:zz_found_tenet = tenet:tenet_zz_the_undying }
+				desc = zz_valyria_magic_tenet.0001.desc.the_undying
+			}
+			triggered_desc = {
+				trigger = { scope:zz_found_tenet = tenet:tenet_zz_sacred_flame }
+				desc = zz_valyria_magic_tenet.0001.desc.sacred_flame
+			}
+			triggered_desc = {
+				trigger = { scope:zz_found_tenet = tenet:tenet_zz_stormspeakers }
+				desc = zz_valyria_magic_tenet.0001.desc.stormspeakers
+			}
+			triggered_desc = {
+				trigger = { scope:zz_found_tenet = tenet:tenet_zz_drowned_mysteries }
+				desc = zz_valyria_magic_tenet.0001.desc.drowned_mysteries
+			}
+			triggered_desc = {
+				trigger = { scope:zz_found_tenet = tenet:tenet_zz_living_wellspring }
+				desc = zz_valyria_magic_tenet.0001.desc.living_wellspring
+			}
+			triggered_desc = {
+				trigger = { scope:zz_found_tenet = tenet:tenet_zz_deep_vessel }
+				desc = zz_valyria_magic_tenet.0001.desc.deep_vessel
+			}
+			triggered_desc = {
+				trigger = { scope:zz_found_tenet = tenet:tenet_zz_font_of_mysteries }
+				desc = zz_valyria_magic_tenet.0001.desc.font_of_mysteries
+			}
+		}
+		desc = zz_valyria_magic_tenet.0001.desc.end
+	}
+	theme = university
+	left_portrait = {
+		character = root
+		animation = reading
+	}
+
+	trigger = {
+		zz_valyria_can_discover_magic_tenet_trigger = yes
+		NOT = { has_character_flag = zz_valyria_tenet_book_cooldown }
+	}
+
+	immediate = {
+		add_character_flag = {
+			flag = zz_valyria_tenet_book_cooldown
+			years = 3
+		}
+		zz_valyria_pick_discoverable_magic_tenet_effect = yes
+	}
+
+	# Study the book
+	option = {
+		name = zz_valyria_magic_tenet.0001.a
+		add_known_tenet = scope:zz_found_tenet
+		zz_valyria_gain_spell_experience = {
+			XPGAIN = 1
+			XPTRACK = secrets_of_the_higher_mysteries
+		}
+		stress_impact = {
+			lazy = minor_stress_impact_gain
+		}
+		ai_chance = {
+			base = 90
+			modifier = {
+				add = -50
+				faith = { zz_valyria_sorcery_criminal_faith = yes }
+			}
+		}
+	}
+
+	# Burn it
+	option = {
+		name = zz_valyria_magic_tenet.0001.b
+		if = {
+			limit = { faith = { zz_valyria_sorcery_criminal_faith = yes } }
+			add_piety = minor_piety_gain
+		}
+		stress_impact = {
+			diligent = minor_stress_impact_gain
+			zealous = minor_stress_impact_loss
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 40
+				faith = { zz_valyria_sorcery_criminal_faith = yes }
+			}
+		}
+	}
+}

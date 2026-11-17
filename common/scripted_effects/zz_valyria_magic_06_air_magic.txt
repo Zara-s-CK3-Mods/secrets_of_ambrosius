@@ -1,4 +1,5 @@
-﻿zz_valyria_magic_air_magic_001_effect = {
+﻿# Spell: Air 001 - Mystery of the Slicing Wind
+zz_valyria_magic_air_magic_001_effect = {
 	random_list = {
 		75 = {
 			modifier = {
@@ -15,16 +16,33 @@
 					add_character_modifier = duel_edge_debuff_02_modifier
 				}
 			}
-			zz_configure_start_magic_combat_effect = {
-				SC_INITIATOR = scope:secondary_recipient
-				SC_ATTACKER = scope:secondary_recipient
-				SC_DEFENDER = scope:recipient
-				FATALITY = possible
-				FIXED = no
-				LOCALE = tavern
-				OUTPUT_EVENT = jason_locale_events.201
-				INVALIDATION_EVENT = single_combat.1006
-				MAGIC = air
+			# The first event option spares the target; otherwise losing the combat can be fatal
+			if = {
+				limit = { scope:option_01 ?= yes }
+				zz_configure_start_magic_combat_effect = {
+					SC_INITIATOR = scope:secondary_recipient
+					SC_ATTACKER = scope:secondary_recipient
+					SC_DEFENDER = scope:recipient
+					FATALITY = no
+					FIXED = no
+					LOCALE = tavern
+					OUTPUT_EVENT = jason_locale_events.201
+					INVALIDATION_EVENT = single_combat.1006
+					MAGIC = air
+				}
+			}
+			else = {
+				zz_configure_start_magic_combat_effect = {
+					SC_INITIATOR = scope:secondary_recipient
+					SC_ATTACKER = scope:secondary_recipient
+					SC_DEFENDER = scope:recipient
+					FATALITY = possible
+					FIXED = no
+					LOCALE = tavern
+					OUTPUT_EVENT = jason_locale_events.201
+					INVALIDATION_EVENT = single_combat.1006
+					MAGIC = air
+				}
 			}
 		}
 		25 = {
@@ -36,6 +54,7 @@
 	}
 }
 
+# Spell: Air 002 - Mystery of the Tempestuous Winds
 zz_valyria_magic_air_magic_002_effect = {
 	random_list = {
 		75 = {
@@ -59,6 +78,7 @@ zz_valyria_magic_air_magic_002_effect = {
 	}
 }
 
+# Spell: Air 003 - Mystery of the Wall of Wind
 zz_valyria_magic_air_magic_003_effect = {
 	random_list = {
 		75 = {
@@ -110,6 +130,7 @@ zz_valyria_magic_air_magic_003_effect = {
 	}
 }
 
+# Spell: Air 004 - Mystery of the Hurricane
 zz_valyria_magic_air_magic_004_effect = {
 	random_list = {
 		75 = {
@@ -144,6 +165,7 @@ zz_valyria_magic_air_magic_004_effect = {
 	}
 }
 
+# Spell: Air 005 - Mystery of the Winds of Initiative
 zz_valyria_magic_air_magic_005_effect = {
 	random_list = {
 		75 = {
@@ -195,6 +217,7 @@ zz_valyria_magic_air_magic_005_effect = {
 	}
 }
 
+# Spell: Air 006 - Mystery of the Heavens' Wrath
 zz_valyria_magic_air_magic_006_effect = {
 	random_list = {
 		75 = {
@@ -206,7 +229,7 @@ zz_valyria_magic_air_magic_006_effect = {
 				SPELL = $SPELL$
 			}
 			scope:target = {
-				deplete_army_by_percentage = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+				zz_valyria_change_army_troops_effect = { AMOUNT = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 }
 			}
 		}
 		25 = {
@@ -218,6 +241,7 @@ zz_valyria_magic_air_magic_006_effect = {
 	}
 }
 
+# Spell: Air 007 - Mystery of the Chariot of the Heavens
 zz_valyria_magic_air_magic_007_effect = {
 	random_list = {
 		75 = {
@@ -269,6 +293,7 @@ zz_valyria_magic_air_magic_007_effect = {
 	}
 }
 
+# Spell: Air 008 - Mystery of Lightning Strike
 zz_valyria_magic_air_magic_008_effect = {
 	random_list = {
 		75 = {
@@ -338,6 +363,7 @@ zz_valyria_magic_air_magic_008_effect = {
 	}
 }
 
+# Spell: Air 009 - Mystery of God's Hammer
 zz_valyria_magic_air_magic_009_effect = {
 	random_list = {
 		75 = {
@@ -350,8 +376,8 @@ zz_valyria_magic_air_magic_009_effect = {
 			}
 			scope:target = {
 				remove_holding = yes
-				change_county_control = massive_county_control_loss
 				county = {
+					change_county_control = massive_county_control_loss
 					change_prosperity_level = {
 						subtract = prosperity_level
 						multiply = 0.2
@@ -364,7 +390,7 @@ zz_valyria_magic_air_magic_009_effect = {
 							army_owner = scope:actor
 						}
 					}
-					deplete_army_by_percentage = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					zz_valyria_change_army_troops_effect = { AMOUNT = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 }
 				}
 			}
 		}
@@ -377,6 +403,7 @@ zz_valyria_magic_air_magic_009_effect = {
 	}
 }
 
+# Spell: Air 010 - Mystery of South Wind
 zz_valyria_magic_air_magic_010_effect = {
 	random_list = {
 		75 = {
@@ -394,9 +421,8 @@ zz_valyria_magic_air_magic_010_effect = {
 					}
 				}
 				stress_impact = {
-					compassionate = medium_stress_impact_loss
-					sadistic = minor_stress_gain
-					callous = minor_stress_gain
+					compassionate = minor_stress_impact_gain
+					sadistic = minor_stress_impact_loss
 				}
 			}
 			scope:recipient = {
@@ -412,9 +438,9 @@ zz_valyria_magic_air_magic_010_effect = {
 						}
 					}
 					add_opinion = {
-						modifier = grateful_opinion
+						modifier = scared_opinion
 						target = scope:actor
-						opinion = 70
+						opinion = -30
 					}
 				}
 			}
@@ -428,6 +454,7 @@ zz_valyria_magic_air_magic_010_effect = {
 	}
 }
 
+# Spell: Air 011 - Mystery of North Wind
 zz_valyria_magic_air_magic_011_effect = {
 	random_list = {
 		75 = {
@@ -479,6 +506,7 @@ zz_valyria_magic_air_magic_011_effect = {
 	}
 }
 
+# Spell: Air 012 - Mystery of Wind's Edge
 zz_valyria_magic_air_magic_012_effect = {
 	random_list = {
 		75 = {
@@ -530,6 +558,7 @@ zz_valyria_magic_air_magic_012_effect = {
 	}
 }
 
+# Spell: Air 013 - Mystery of Aether's Barrier
 zz_valyria_magic_air_magic_013_effect = {
 	random_list = {
 		75 = {
@@ -581,6 +610,7 @@ zz_valyria_magic_air_magic_013_effect = {
 	}
 }
 
+# Spell: Air 014 - Mystery of Celestial Purity
 zz_valyria_magic_air_magic_014_effect = {
 	random_list = {
 		75 = {
@@ -636,6 +666,7 @@ zz_valyria_magic_air_magic_014_effect = {
 	}
 }
 
+# Spell: Air 015 - Mystery of Celestial Casting
 zz_valyria_magic_air_magic_015_effect = {
 	random_list = {
 		75 = {
@@ -697,6 +728,7 @@ zz_valyria_magic_air_magic_015_effect = {
 	}
 }
 
+# Spell: Air 016 - Mystery of Celestial Fortress
 zz_valyria_magic_air_magic_016_effect = {
 	random_list = {
 		75 = {
@@ -710,8 +742,8 @@ zz_valyria_magic_air_magic_016_effect = {
 			scope:target = {
 				zz_valyria_magic_apply_province_modifier_effect = {
 					MODIFIER = zz_valyria_magic_air_magic_016_modifier
-					DURATION = 1
-					BOOSTED_DURATION = 1
+					DURATION = 12 # months
+					BOOSTED_DURATION = 24
 				}
 			}
 		}
@@ -724,6 +756,7 @@ zz_valyria_magic_air_magic_016_effect = {
 	}
 }
 
+# Spell: Air 017 - Mystery of Celestial Assault
 zz_valyria_magic_air_magic_017_effect = {
 	random_list = {
 		75 = {
@@ -737,9 +770,655 @@ zz_valyria_magic_air_magic_017_effect = {
 			scope:target = {
 				zz_valyria_magic_apply_province_modifier_effect = {
 					MODIFIER = zz_valyria_magic_air_magic_017_modifier
-					DURATION = 1
-					BOOSTED_DURATION = 1
+					DURATION = 12 # months
+					BOOSTED_DURATION = 24
 				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 018 - Mystery of the Rain of Arrows
+zz_valyria_magic_air_magic_018_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_air_magic_018_modifier
+					DURATION = 1
+					BOOSTED_DURATION = 2
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 019 - Mystery of Thin Air
+zz_valyria_magic_air_magic_019_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_air_magic_019_modifier
+					DURATION = 1
+					BOOSTED_DURATION = 2
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 020 - Mystery of Contrary Winds
+zz_valyria_magic_air_magic_020_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_air_magic_020_modifier
+					DURATION = 1
+					BOOSTED_DURATION = 2
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 021 - Mystery of Whispers on the Wind
+zz_valyria_magic_air_magic_021_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				create_story = {
+					type = zz_valyria_magic_air_magic_021_story
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 022 - Mystery of the Windborne Blade
+zz_valyria_magic_air_magic_022_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			zz_valyria_assassination_begin_effect = { EVENT = zz_valyria_magic_assassination.4001 }
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 023 - Mystery of Stormcaller
+zz_valyria_magic_air_magic_023_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_story_province
+					value = scope:target
+				}
+				create_story = {
+					type = zz_valyria_magic_air_magic_023_story
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 024 - Mystery of the Gale Host
+zz_valyria_magic_air_magic_024_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				spawn_army = {
+					men_at_arms = {
+						type = zz_gale_shades
+						stacks = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+					location = scope:recipient.location
+					uses_supply = no
+					name = "zz_valyria_gale_host"
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 025 - Mystery of the Following Wind
+zz_valyria_magic_air_magic_025_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_air_magic_025_modifier
+					DURATION = 1
+					BOOSTED_DURATION = 2
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 026 - Mystery of The Windborne Journey
+zz_valyria_magic_air_magic_026_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				current_travel_plan ?= {
+					complete_travel_plan = yes
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 027 - Mystery of Scattered Plans
+zz_valyria_magic_air_magic_027_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:scheme = {
+				scheme_freeze = {
+					reason = "ZZ_MAGIC"
+					days = 15
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 028 - Mystery of The Shifting Winds
+zz_valyria_magic_air_magic_028_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				if = {
+					limit = { is_adult = yes }
+					random_list = {
+						1 = {
+							trigger = { NOT = { has_focus = diplomacy_foreign_affairs_focus } }
+							set_focus = diplomacy_foreign_affairs_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = diplomacy_majesty_focus } }
+							set_focus = diplomacy_majesty_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = diplomacy_family_focus } }
+							set_focus = diplomacy_family_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = martial_strategy_focus } }
+							set_focus = martial_strategy_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = martial_authority_focus } }
+							set_focus = martial_authority_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = martial_chivalry_focus } }
+							set_focus = martial_chivalry_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = intrigue_skulduggery_focus } }
+							set_focus = intrigue_skulduggery_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = intrigue_temptation_focus } }
+							set_focus = intrigue_temptation_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = intrigue_intimidation_focus } }
+							set_focus = intrigue_intimidation_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = stewardship_wealth_focus } }
+							set_focus = stewardship_wealth_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = stewardship_domain_focus } }
+							set_focus = stewardship_domain_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = stewardship_duty_focus } }
+							set_focus = stewardship_duty_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = learning_medicine_focus } }
+							set_focus = learning_medicine_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = learning_scholarship_focus } }
+							set_focus = learning_scholarship_focus
+						}
+						1 = {
+							trigger = { NOT = { has_focus = learning_theology_focus } }
+							set_focus = learning_theology_focus
+						}
+						1 = { # 1.21: only for merchant governments
+							trigger = {
+								NOT = { has_focus = diplomacy_merchant_focus }
+								government_has_flag = government_is_merchant
+							}
+							set_focus = diplomacy_merchant_focus
+						}
+						1 = { # 1.21: only for merchant governments
+							trigger = {
+								NOT = { has_focus = martial_merchant_focus }
+								government_has_flag = government_is_merchant
+							}
+							set_focus = martial_merchant_focus
+						}
+						1 = { # 1.21: only for merchant governments
+							trigger = {
+								NOT = { has_focus = intrigue_merchant_focus }
+								government_has_flag = government_is_merchant
+							}
+							set_focus = intrigue_merchant_focus
+						}
+						1 = { # 1.21: only for merchant governments
+							trigger = {
+								NOT = { has_focus = stewardship_merchant_focus }
+								government_has_flag = government_is_merchant
+							}
+							set_focus = stewardship_merchant_focus
+						}
+						1 = { # 1.21: only for merchant governments
+							trigger = {
+								NOT = { has_focus = learning_merchant_focus }
+								government_has_flag = government_is_merchant
+							}
+							set_focus = learning_merchant_focus
+						}
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 029 - Mystery of The Scattering Gust
+zz_valyria_magic_air_magic_029_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				every_targeting_scheme = {
+					limit = { is_hostile = yes }
+					save_scope_as = gust_scheme
+					every_scheme_agent_character = {
+						save_scope_as = gust_agent
+						scope:gust_scheme = {
+							if = {
+								limit = { NOT = { is_scheme_agent_exposed = scope:gust_agent } }
+								expose_scheme_agent = scope:gust_agent
+							}
+						}
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 030 - Mystery of Winds of Accord
+zz_valyria_magic_air_magic_030_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:actor.house ?= { save_scope_as = accord_house_1 }
+			scope:recipient.house ?= { save_scope_as = accord_house_2 }
+			if = {
+				limit = {
+					exists = scope:accord_house_1
+					exists = scope:accord_house_2
+					NOT = { scope:accord_house_1 = scope:accord_house_2 }
+				}
+				scope:accord_house_1 = {
+					if = {
+						limit = { NOT = { has_house_relation_with = scope:accord_house_2 } }
+						set_house_relation = {
+							target = scope:accord_house_2
+							description = zz_valyria_magic_air_magic_030_relation_desc
+						}
+					}
+					if = {
+						limit = { scope:option ?= flag:zz_accord_lower }
+						random_house_relation = {
+							limit = { any_relation_house = { this = scope:accord_house_2 } }
+							change_house_relation_level = {
+								steps = -1
+								description = zz_valyria_magic_air_magic_030_relation_desc
+							}
+						}
+					}
+					else = {
+						random_house_relation = {
+							limit = { any_relation_house = { this = scope:accord_house_2 } }
+							change_house_relation_level = {
+								steps = 1
+								description = zz_valyria_magic_air_magic_030_relation_desc
+							}
+						}
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 031 - Mystery of The Herald's Gale
+zz_valyria_magic_air_magic_031_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				add_prestige_experience = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 032 - Mystery of the Voice of the Wind (Summon Courtier)
+# The wind carries a summons: a courtier skilled in the chosen area joins the commander's court. Their skill grows with Air Magic.
+zz_valyria_magic_air_magic_032_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:actor = {
+				switch = {
+					trigger = scope:option
+					flag:zz_wind_diplomacy = {
+						create_character = {
+							age = { 20 40 }
+							gender_female_chance = 50
+							culture = scope:actor.culture
+							faith = scope:actor.faith
+							employer = scope:actor
+							diplomacy = { zz_valyria_magic_air_magic_032_value_01 zz_valyria_magic_air_magic_032_value_02 }
+							save_scope_as = zz_wind_guest
+						}
+					}
+					flag:zz_wind_martial = {
+						create_character = {
+							age = { 20 40 }
+							gender_female_chance = 50
+							culture = scope:actor.culture
+							faith = scope:actor.faith
+							employer = scope:actor
+							martial = { zz_valyria_magic_air_magic_032_value_01 zz_valyria_magic_air_magic_032_value_02 }
+							save_scope_as = zz_wind_guest
+						}
+					}
+					flag:zz_wind_stewardship = {
+						create_character = {
+							age = { 20 40 }
+							gender_female_chance = 50
+							culture = scope:actor.culture
+							faith = scope:actor.faith
+							employer = scope:actor
+							stewardship = { zz_valyria_magic_air_magic_032_value_01 zz_valyria_magic_air_magic_032_value_02 }
+							save_scope_as = zz_wind_guest
+						}
+					}
+					flag:zz_wind_intrigue = {
+						create_character = {
+							age = { 20 40 }
+							gender_female_chance = 50
+							culture = scope:actor.culture
+							faith = scope:actor.faith
+							employer = scope:actor
+							intrigue = { zz_valyria_magic_air_magic_032_value_01 zz_valyria_magic_air_magic_032_value_02 }
+							save_scope_as = zz_wind_guest
+						}
+					}
+					flag:zz_wind_learning = {
+						create_character = {
+							age = { 20 40 }
+							gender_female_chance = 50
+							culture = scope:actor.culture
+							faith = scope:actor.faith
+							employer = scope:actor
+							learning = { zz_valyria_magic_air_magic_032_value_01 zz_valyria_magic_air_magic_032_value_02 }
+							save_scope_as = zz_wind_guest
+						}
+					}
+					flag:zz_wind_prowess = {
+						create_character = {
+							age = { 20 40 }
+							gender_female_chance = 50
+							culture = scope:actor.culture
+							faith = scope:actor.faith
+							employer = scope:actor
+							prowess = { zz_valyria_magic_air_magic_032_value_01 zz_valyria_magic_air_magic_032_value_02 }
+							save_scope_as = zz_wind_guest
+						}
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Air 033 - Mystery of the Gale Step (Single Combat). Its work is done in single combat (combat_move_zz_gale_step_effect).
+zz_valyria_magic_air_magic_033_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
 		}
 		25 = {

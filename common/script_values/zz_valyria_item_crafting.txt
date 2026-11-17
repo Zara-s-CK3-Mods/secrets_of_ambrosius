@@ -3,79 +3,88 @@
 }
 
 zz_modifier_dop_mult_cost= {
-	value = 200
+	value = 1000
 }
 
 zz_modifier_magic_xp_mult_cost= {
-	value = 100
+	value = 300
 }
 zz_modifier_higher_mysteries_xp_mult_cost= {
-	value = 100
+	value = 300
 }
 zz_modifier_blood_magic_xp_mult_cost= {
-	value = 50
+	value = 150
 }
 zz_modifier_shadow_magic_xp_mult_cost= {
-	value = 50
+	value = 150
 }
 zz_modifier_dream_magic_xp_mult_cost= {
-	value = 50
+	value = 150
 }
 zz_modifier_alchemy_magic_xp_mult_cost= {
-	value = 50
+	value = 150
 }
 zz_modifier_fire_magic_xp_mult_cost= {
-	value = 50
+	value = 150
 }
 zz_modifier_air_magic_xp_mult_cost= {
-	value = 50
+	value = 150
 }
 zz_modifier_water_magic_xp_mult_cost= {
-	value = 50
+	value = 150
 }
 zz_modifier_passive_dop_xp_mult_cost= {
 	value = 5000
 }
 zz_modifier_learning_add_cost= {
-	value = 50
+	value = 500
 }
 zz_modifier_diplomacy_add_cost= {
-	value = 50
+	value = 500
 }
 zz_modifier_stewardship_add_cost= {
-	value = 50
+	value = 500
 }
 zz_modifier_martial_add_cost= {
-	value = 50
+	value = 500
 }
 
 zz_modifier_intrigue_add_cost= {
-	value = 50
+	value = 500
 }
 
 zz_modifier_prowess_add_cost= {
-	value = 50
+	value = 500
 }
 
 zz_modifier_diplomacy_range_mult_cost= {
-	value = 500
+	value = 200
+}
+zz_modifier_tax_mult_cost= {
+	value = 600
+}
+zz_modifier_monthly_income_cost= {
+	value = 1500
+}
+zz_modifier_monthly_income_mult_cost= {
+	value = 600
 }
 zz_modifier_mana_cap_cost= {
 	value = 1000
 }
 
 zz_item_vs_sword_cost= {
-	value = 750
+	value = 2500
 }
 zz_item_dragonbone_bow_cost= {
 	value = 750
 }
 zz_item_vs_armour_cost= {
-	value = 3000
+	value = 1000
 }
 
 zz_item_vs_ring_cost= {
-	value = 900
+	value = 1500
 }
 
 
@@ -141,6 +150,19 @@ zz_valyria_current_item_modifier = {
 			exists = this 
 		}
 		add = var:zz_current_cost_modifier
+		# Enchantment slots 2 to 4
+		if = {
+			limit = { exists = var:zz_current_cost_modifier_2 }
+			add = var:zz_current_cost_modifier_2
+		}
+		if = {
+			limit = { exists = var:zz_current_cost_modifier_3 }
+			add = var:zz_current_cost_modifier_3
+		}
+		if = {
+			limit = { exists = var:zz_current_cost_modifier_4 }
+			add = var:zz_current_cost_modifier_4
+		}
 	}
 }
 
@@ -153,29 +175,31 @@ zz_valyria_current_cost = {
 		}
 		add = zz_valyria_current_item_cost
 		add = zz_valyria_current_item_modifier
-		divide = {
+		divide = { # the crafter's skill lowers the cost, to half at most (Higher Mysteries 100)
 			value = zz_valyria_current_crafter_stat
+			max = 100
 			divide = 50
 			min = 1
+		}
+		# Mage's Power reagent: 100 mana takes 25% off the gold cost
+		if = {
+			limit = {
+				var:zz_current_magic_reagent ?= flag:mages_power
+			}
+			multiply = 0.75
+		}
+		# Human Sacrifice reagent: a sacrifice takes half off the gold cost
+		else_if = {
+			limit = {
+				var:zz_current_magic_reagent ?= flag:human_sacrifice
+			}
+			multiply = 0.5
 		}
 	}
 }
 
-zz_valyria_mana_cost = {
-	value = 0 
-	if = {
-		limit = {
-			exists = this 
-		}
-		if = {
-			limit = {
-				exists = var:zz_item_crafter 
-			}
-			var:zz_item_crafter = {
-				add = "has_trait_xp(zz_magister|drops_of_power)" 
-			}
-		}
-	}
+zz_valyria_mana_cost = { # mana spent by the Mage's Power crafting reagent
+	value = 100
 }
 
 zz_valyria_resources_current_spend = {
@@ -184,20 +208,6 @@ zz_valyria_resources_current_spend = {
 		limit = {
 			exists = this 
 		}
-		if = {
-			limit = {
-				var:zz_current_magic_reagent ?= flag:mages_power
-			}
-			var:zz_item_crafter = {
-				add = "has_trait_xp(zz_magister|drops_of_power)" 
-			}
-		}
-		if = {
-			limit = {
-				var:zz_current_magic_reagent ?= flag:human_sacrifice
-			}
-			add = 100
-		}
 		add = {
 			value = gold
 		}
@@ -205,9 +215,67 @@ zz_valyria_resources_current_spend = {
 }
 
 zz_item_crown_cost = {
-	value = 6000
+	value = 750
 }
 
 zz_item_staff_cost = {
-	value = 7500
+	value = 750
+}
+zz_item_grimoire_cost = { # very high: a mage's lifework
+	value = 4000
+}
+zz_modifier_knight_effectiveness_mult_cost= { # Knight Effectiveness
+	value = 300
+}
+zz_modifier_advantage_add_cost= { # Commander Advantage
+	value = 600
+}
+zz_modifier_health_add_cost= { # Health
+	value = 300
+}
+zz_modifier_life_expectancy_add_cost= { # Life Expectancy
+	value = 600
+}
+zz_modifier_stress_loss_mult_cost= { # Stress Relief
+	value = 300
+}
+zz_modifier_fertility_add_cost= { # Fertility
+	value = 150
+}
+zz_modifier_scheme_success_add_cost= { # Scheme Success
+	value = 300
+}
+zz_modifier_scheme_protection_add_cost= { # Scheme Protection
+	value = 300
+}
+zz_modifier_monthly_prestige_cost= { # Monthly Prestige
+	value = 300
+}
+zz_modifier_monthly_piety_cost= { # Monthly Piety
+	value = 300
+}
+zz_modifier_dread_add_cost= { # Dread
+	value = 150
+}
+
+# Potions tab: the chosen potion's cost, reduced by the crafter's skill as item costs are
+zz_valyria_current_potion_cost = {
+	value = 0
+	if = {
+		limit = { exists = var:zz_current_potion_cost }
+		add = var:zz_current_potion_cost
+		divide = { # the crafter's skill lowers the cost, to half at most (Higher Mysteries 100)
+			value = zz_valyria_current_crafter_stat
+			max = 100
+			divide = 50
+			min = 1
+		}
+	}
+}
+# The strength a crafter brews at: Alchemy skill / 10, from 1 to 10 (as zz_valyria_save_potion_strength_effect). Character scope
+zz_valyria_potion_strength_value = {
+	value = zz_valyria_magic_alchemy_magic_base_value
+	divide = 10
+	min = 1
+	max = 10
 }

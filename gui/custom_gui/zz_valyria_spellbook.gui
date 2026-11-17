@@ -1,0 +1,415 @@
+types zz_spellbook {
+	# The Spellbook: the mysteries a Magister knows, by school, opened from the character window's book button
+	# (zz_valyria_spellbook_open). Read only: hovering a mystery shows its description; casting stays in the casting menu
+	type zz_spellbook_window = window {
+		name = "zz_spellbook_window"
+		layer = middle
+		# Beside the character window (a 610-wide sidebar at the top left) and clear of its spouse bar
+		# (zz_secondary_spouse_bar: x 600, 134 wide), below the top HUD
+		parentanchor = top|left
+		position = { 750 60 }
+		size = { 620 760 }
+		movable = no
+		allow_outside = yes
+		using = Window_Background
+		using = Window_Decoration
+		datacontext = "[GetPlayer.MakeScope.Var('zz_spellbook_owner').Char]"
+		visible = "[GetPlayer.MakeScope.Var('zz_spellbook_owner').IsSet]"
+		state = {
+			name = _show
+			using = Animation_FadeIn_Quick
+			using = Sound_WindowShow_Standard
+			on_start = "[GetVariableSystem.Set( 'zz_book_page', 'all' )]"
+		}
+		state = {
+			name = _hide
+			using = Animation_FadeOut_Quick
+			using = Sound_WindowHide_Standard
+		}
+
+		vbox = {
+			using = Window_Margins
+			spacing = 8
+
+			header_pattern = {
+				layoutpolicy_horizontal = expanding
+				blockoverride "header_text" {
+					text = "zz_spellbook_title"
+				}
+				blockoverride "button_close" {
+					onclick = "[GetScriptedGui('zz_valyria_spellbook_close').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+			}
+
+			# The owner, and how many mysteries they know
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				margin = { 15 0 }
+				spacing = 10
+				portrait_head_small = {}
+				vbox = {
+					layoutpolicy_horizontal = expanding
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						text = "[Character.GetFullNameNoTooltip]"
+						default_format = "#high"
+					}
+					text_single = {
+						layoutpolicy_horizontal = expanding
+						text = "zz_spellbook_count"
+						default_format = "#low"
+					}
+				}
+				expand = {}
+			}
+
+			# Schools
+			widget = {
+				size = { 300 40 }
+				hbox = {
+					layoutpolicy_horizontal = expanding
+					background = {
+						using = Background_Area_Dark
+					}
+					expand = {}
+						button_normal = {
+							size = { 30 30 }
+							tooltip = "zz_spellbook_tab_all"
+							onclick = "[GetVariableSystem.Set( 'zz_book_page', 'all' )]"
+							down = "[GetVariableSystem.HasValue( 'zz_book_page', 'all' )]"
+							icon = {
+								texture = "gfx/interface/icons/trait_level_tracks/secrets_of_the_higher_mysteries.dds"
+								size = { 100% 100% }
+								alwaystransparent = yes
+							}
+						}
+						button_normal = {
+							size = { 30 30 }
+							tooltip = "zz_spellbook_tab_blood"
+							onclick = "[GetVariableSystem.Set( 'zz_book_page', 'blood' )]"
+							down = "[GetVariableSystem.HasValue( 'zz_book_page', 'blood' )]"
+							icon = {
+								texture = "gfx/interface/icons/trait_level_tracks/blood_magic.dds"
+								size = { 100% 100% }
+								alwaystransparent = yes
+							}
+						}
+						button_normal = {
+							size = { 30 30 }
+							tooltip = "zz_spellbook_tab_shadow"
+							onclick = "[GetVariableSystem.Set( 'zz_book_page', 'shadow' )]"
+							down = "[GetVariableSystem.HasValue( 'zz_book_page', 'shadow' )]"
+							icon = {
+								texture = "gfx/interface/icons/trait_level_tracks/shadow_magic.dds"
+								size = { 100% 100% }
+								alwaystransparent = yes
+							}
+						}
+						button_normal = {
+							size = { 30 30 }
+							tooltip = "zz_spellbook_tab_dream"
+							onclick = "[GetVariableSystem.Set( 'zz_book_page', 'dream' )]"
+							down = "[GetVariableSystem.HasValue( 'zz_book_page', 'dream' )]"
+							icon = {
+								texture = "gfx/interface/icons/trait_level_tracks/dream_magic.dds"
+								size = { 100% 100% }
+								alwaystransparent = yes
+							}
+						}
+						button_normal = {
+							size = { 30 30 }
+							tooltip = "zz_spellbook_tab_alchemy"
+							onclick = "[GetVariableSystem.Set( 'zz_book_page', 'alchemy' )]"
+							down = "[GetVariableSystem.HasValue( 'zz_book_page', 'alchemy' )]"
+							icon = {
+								texture = "gfx/interface/icons/trait_level_tracks/alchemy_magic.dds"
+								size = { 100% 100% }
+								alwaystransparent = yes
+							}
+						}
+						button_normal = {
+							size = { 30 30 }
+							tooltip = "zz_spellbook_tab_fire"
+							onclick = "[GetVariableSystem.Set( 'zz_book_page', 'fire' )]"
+							down = "[GetVariableSystem.HasValue( 'zz_book_page', 'fire' )]"
+							icon = {
+								texture = "gfx/interface/icons/trait_level_tracks/fire_magic.dds"
+								size = { 100% 100% }
+								alwaystransparent = yes
+							}
+						}
+						button_normal = {
+							size = { 30 30 }
+							tooltip = "zz_spellbook_tab_air"
+							onclick = "[GetVariableSystem.Set( 'zz_book_page', 'air' )]"
+							down = "[GetVariableSystem.HasValue( 'zz_book_page', 'air' )]"
+							icon = {
+								texture = "gfx/interface/icons/trait_level_tracks/air_magic.dds"
+								size = { 100% 100% }
+								alwaystransparent = yes
+							}
+						}
+						button_normal = {
+							size = { 30 30 }
+							tooltip = "zz_spellbook_tab_water"
+							onclick = "[GetVariableSystem.Set( 'zz_book_page', 'water' )]"
+							down = "[GetVariableSystem.HasValue( 'zz_book_page', 'water' )]"
+							icon = {
+								texture = "gfx/interface/icons/trait_level_tracks/water_magic.dds"
+								size = { 100% 100% }
+								alwaystransparent = yes
+							}
+						}
+					expand = {}
+				}
+			}
+			text_single = {
+				text = "[Localize( Concatenate( 'zz_spellbook_tab_', GetVariableSystem.Get( 'zz_book_page' ) ) )]"
+				default_format = "#low"
+			}
+
+			# Keyword search: the same search as the casting menu (zz_valyria_magic_search.1)
+			hbox = {
+				layoutpolicy_horizontal = expanding
+				margin = { 15 0 }
+				spacing = 10
+				button_standard = {
+					size = { 100 30 }
+					text = "zz_spell_search_button"
+					tooltip = "zz_spell_search_button_tt"
+					datacontext = "[GetScriptedGui('zz_valyria_magic_spell_search')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+				text_single = {
+					visible = "[Not( StringIsEmpty( GetPlayer.GetLocalizedText('zz_spell_search') ) )]"
+					text = "zz_spell_search_showing"
+					default_format = "#low"
+				}
+				button_standard = {
+					visible = "[Not( StringIsEmpty( GetPlayer.GetLocalizedText('zz_spell_search') ) )]"
+					size = { 30 30 }
+					text = "zz_spell_search_clear_button"
+					tooltip = "zz_spell_search_clear_button_tt"
+					datacontext = "[GetScriptedGui('zz_valyria_magic_spell_search_clear')]"
+					onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).End )]"
+				}
+				expand = {}
+			}
+
+			text_single = {
+				visible = "[EqualTo_CFixedPoint( GetPlayer.MakeScope.ScriptValue('zz_valyria_spellbook_count'), '(CFixedPoint)0' )]"
+				text = "zz_spellbook_empty"
+				default_format = "#low"
+			}
+
+			scrollbox = {
+				visible = "[Or( GetVariableSystem.HasValue( 'zz_book_page', 'all' ), Not( GetVariableSystem.Exists( 'zz_book_page' ) ) )]"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				blockoverride "scrollbox_content" {
+					flowcontainer = {
+						direction = vertical
+						spacing = 6
+						ignoreinvisible = yes
+						margin = { 15 5 }
+						datacontext = "[GetPlayer.MakeScope]"
+						datamodel = "[Scope.GetList('zz_valyria_book_list')]"
+						item = {
+							zz_spellbook_item = {}
+						}
+					}
+					expand = {}
+				}
+			}
+			scrollbox = {
+				visible = "[GetVariableSystem.HasValue( 'zz_book_page', 'blood' )]"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				blockoverride "scrollbox_content" {
+					flowcontainer = {
+						direction = vertical
+						spacing = 6
+						ignoreinvisible = yes
+						margin = { 15 5 }
+						datacontext = "[GetPlayer.MakeScope]"
+						datamodel = "[Scope.GetList('zz_valyria_book_blood_list')]"
+						item = {
+							zz_spellbook_item = {}
+						}
+					}
+					expand = {}
+				}
+			}
+			scrollbox = {
+				visible = "[GetVariableSystem.HasValue( 'zz_book_page', 'shadow' )]"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				blockoverride "scrollbox_content" {
+					flowcontainer = {
+						direction = vertical
+						spacing = 6
+						ignoreinvisible = yes
+						margin = { 15 5 }
+						datacontext = "[GetPlayer.MakeScope]"
+						datamodel = "[Scope.GetList('zz_valyria_book_shadow_list')]"
+						item = {
+							zz_spellbook_item = {}
+						}
+					}
+					expand = {}
+				}
+			}
+			scrollbox = {
+				visible = "[GetVariableSystem.HasValue( 'zz_book_page', 'dream' )]"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				blockoverride "scrollbox_content" {
+					flowcontainer = {
+						direction = vertical
+						spacing = 6
+						ignoreinvisible = yes
+						margin = { 15 5 }
+						datacontext = "[GetPlayer.MakeScope]"
+						datamodel = "[Scope.GetList('zz_valyria_book_dream_list')]"
+						item = {
+							zz_spellbook_item = {}
+						}
+					}
+					expand = {}
+				}
+			}
+			scrollbox = {
+				visible = "[GetVariableSystem.HasValue( 'zz_book_page', 'alchemy' )]"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				blockoverride "scrollbox_content" {
+					flowcontainer = {
+						direction = vertical
+						spacing = 6
+						ignoreinvisible = yes
+						margin = { 15 5 }
+						datacontext = "[GetPlayer.MakeScope]"
+						datamodel = "[Scope.GetList('zz_valyria_book_alchemy_list')]"
+						item = {
+							zz_spellbook_item = {}
+						}
+					}
+					expand = {}
+				}
+			}
+			scrollbox = {
+				visible = "[GetVariableSystem.HasValue( 'zz_book_page', 'fire' )]"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				blockoverride "scrollbox_content" {
+					flowcontainer = {
+						direction = vertical
+						spacing = 6
+						ignoreinvisible = yes
+						margin = { 15 5 }
+						datacontext = "[GetPlayer.MakeScope]"
+						datamodel = "[Scope.GetList('zz_valyria_book_fire_list')]"
+						item = {
+							zz_spellbook_item = {}
+						}
+					}
+					expand = {}
+				}
+			}
+			scrollbox = {
+				visible = "[GetVariableSystem.HasValue( 'zz_book_page', 'air' )]"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				blockoverride "scrollbox_content" {
+					flowcontainer = {
+						direction = vertical
+						spacing = 6
+						ignoreinvisible = yes
+						margin = { 15 5 }
+						datacontext = "[GetPlayer.MakeScope]"
+						datamodel = "[Scope.GetList('zz_valyria_book_air_list')]"
+						item = {
+							zz_spellbook_item = {}
+						}
+					}
+					expand = {}
+				}
+			}
+			scrollbox = {
+				visible = "[GetVariableSystem.HasValue( 'zz_book_page', 'water' )]"
+				layoutpolicy_horizontal = expanding
+				layoutpolicy_vertical = expanding
+				blockoverride "scrollbox_content" {
+					flowcontainer = {
+						direction = vertical
+						spacing = 6
+						ignoreinvisible = yes
+						margin = { 15 5 }
+						datacontext = "[GetPlayer.MakeScope]"
+						datamodel = "[Scope.GetList('zz_valyria_book_water_list')]"
+						item = {
+							zz_spellbook_item = {}
+						}
+					}
+					expand = {}
+				}
+			}
+		}
+	}
+
+	# One mystery: its name and drops of power cost; its description on hover. Hidden by the keyword search like the casting menu's entries
+	type zz_spellbook_item = widget {
+		datacontext = "[Scope.CharacterMemory]"
+		visible = "[Or( StringIsEmpty( GetPlayer.GetLocalizedText('zz_spell_search') ), Or6( Or8( EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw01' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw02' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw03' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw04' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw05' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw06' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw07' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw08' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ) ), Or8( EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw09' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw10' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw11' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw12' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw13' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw14' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw15' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw16' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ) ), Or8( EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw17' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw18' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw19' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw20' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw21' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw22' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw23' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw24' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ) ), Or8( EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw25' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw26' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw27' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw28' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw29' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw30' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw31' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw32' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ) ), Or8( EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw33' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw34' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw35' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw36' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw37' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw38' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw39' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw40' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ) ), Or8( EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw41' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw42' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw43' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw44' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw45' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw46' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw47' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ), EqualTo_string( Localize( Concatenate( CharacterMemory.MakeScope.Var('spell_name').GetFlagKey, '.zkw48' ) ), TrimFront( TrimBack( GetPlayer.GetLocalizedText('zz_spell_search') ) ) ) ) ) )]"
+		size = { 510 38 }
+		tooltip = "[Localize(Concatenate(CharacterMemory.MakeScope.Var('spell_name').GetFlagKey,'.tooltip.desc' ))]"
+		background = {
+			using = Background_Area
+		}
+		# Name on the left, then the drops of power cost and its icon, side by side so they never overlap
+		hbox = {
+			size = { 100% 100% }
+			margin_left = 12
+			margin_right = 12
+			spacing = 6
+			alwaystransparent = yes
+			text_single = {
+				layoutpolicy_horizontal = expanding
+				max_width = 420
+				text = "[CharacterMemory.GetName|U]"
+				default_format = "#high"
+				align = left|nobaseline
+				alwaystransparent = yes
+			}
+			text_single = {
+				min_width = 34
+				text = "[CharacterMemory.MakeScope.ScriptValue('mystery_cost')|0]"
+				align = right|nobaseline
+				alwaystransparent = yes
+			}
+			icon = {
+				size = { 22 22 }
+				texture = "gfx/interface/icons/zz_drops_of_power.dds"
+				alwaystransparent = yes
+			}
+		}
+	}
+
+	# The book button in the character window, below the cast button: any Magister's Spellbook
+	type zz_magic_spellbook_button = button_round {
+		name = "zz_spellbook_button"
+		size = { 35 35 }
+		visible = "[Character.HasTrait( GetTrait( 'zz_magister' ) )]"
+		datacontext = "[GetScriptedGui('zz_valyria_spellbook_open')]"
+		onclick = "[GetVariableSystem.Set( 'zz_book_page', 'all' )]"
+		onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_book_owner', Character.MakeScope ).End )]"
+		using = tooltip_ne
+		tooltip = "ZZ_SPELLBOOK_TT"
+		button_icon = {
+			texture = "gfx/interface/icons/zz_magic_spellbook.dds"
+			parentanchor = center
+			size = { 25 25 }
+			alwaystransparent = yes
+		}
+	}
+}

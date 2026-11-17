@@ -1,0 +1,15 @@
+﻿# Reforge window conversions for the Mage's Grimoire. Its enchantments come with it either way
+# Carried book -> library book, for a Mages' Commune or merchant company library slot
+zz_grimoire_to_library = {
+	in_type = zz_grimoire
+	in_visuals = book
+	out_type = library_item
+	out_visuals = zz_valyria_grimoire_library
+}
+# Library book -> carried book
+zz_grimoire_to_journal = {
+	in_type = library_item
+	in_visuals = zz_valyria_grimoire_library
+	out_type = zz_grimoire
+	out_visuals = book
+}

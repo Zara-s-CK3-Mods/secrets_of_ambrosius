@@ -336,10 +336,6 @@ zz_remove_single_combat_character_local_variables_effect = {
 	remove_local_variable = combat_move_special_fallback_flag
 	remove_local_variable = combat_move_something_to_hide_flag
 
-	## Remove Magic attacks 
-	remove_local_variable = zz_magic_attack_tier_01
-	remove_local_variable = zz_magic_attack_tier_02
-	remove_local_variable = zz_magic_attack_tier_03
 }
 
 # Clean up all variables resulting from single combat.

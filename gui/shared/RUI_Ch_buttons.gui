@@ -56,7 +56,7 @@
 		}
 		button_barbershop = {
 			name = "customize_portrait"
-			using = RUI_Ch_should_show_barbershop
+			visible = "[Character.CanCustomizePortrait]"
 			onclick = "[Character.OnCustomizePortrait]"
 			onclick = "[CharacterInteractionMenuWindow.Close]"
 			size = { 30 30 }

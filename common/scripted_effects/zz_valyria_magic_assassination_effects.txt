@@ -1,0 +1,167 @@
+﻿# Run from the spell effect. Starts the killing mystery's own event chain on the target.
+zz_valyria_assassination_begin_effect = {
+	scope:recipient = {
+		set_variable = {
+			name = zz_assassin_ward
+			value = 0
+		}
+		remove_variable = zz_assassin_countered
+		trigger_event = {
+			id = $EVENT$
+			days = { 7 14 }
+		}
+	}
+}
+
+# Mage only Omen option. Scope: the target.
+zz_valyria_assassination_counter_effect = {
+	set_variable = {
+		name = zz_manacost
+		value = zz_valyria_assassination_counter_cost
+	}
+	zz_valyria_mana_spend = yes
+	change_variable = {
+		name = zz_assassin_ward
+		add = 50
+	}
+	set_variable = {
+		name = zz_assassin_countered
+		value = yes
+	}
+}
+
+zz_valyria_assassination_add_ward_effect = {
+	change_variable = {
+		name = zz_assassin_ward
+		add = $WARD$
+	}
+}
+
+zz_valyria_assassination_trace_effect = {
+	random = {
+		chance = zz_valyria_assassination_trace_chance_$SCHOOL$
+		add_opinion = {
+			target = scope:secondary_recipient
+			modifier = attempted_murder_opinion
+		}
+	}
+}
+
+zz_valyria_assassination_clear_effect = {
+	remove_variable = zz_assassin_ward
+	remove_variable = zz_assassin_countered
+}
+
+# Scope: the target. Rolls the outcome and hands off to the chain's own events.
+zz_valyria_assassination_resolve_effect = {
+	random_list = {
+		1 = {
+			modifier = {
+				add = zz_valyria_assassination_kill_chance_$SCHOOL$
+			}
+			save_scope_value_as = {
+				name = zz_assassin_outcome
+				value = flag:killed
+			}
+			scope:secondary_recipient = {
+				trigger_event = {
+					id = $REPORT$
+					days = 1
+				}
+			}
+			zz_valyria_assassination_clear_effect = yes
+			death = {
+				death_reason = death_$SCHOOL$_magic
+				killer = scope:secondary_recipient
+			}
+		}
+		1 = {
+			modifier = {
+				add = zz_valyria_assassination_miss_chance_$SCHOOL$
+			}
+			save_scope_value_as = {
+				name = zz_assassin_outcome
+				value = flag:survived
+			}
+			zz_valyria_assassination_trace_effect = { SCHOOL = $SCHOOL$ }
+			zz_valyria_assassination_clear_effect = yes
+			trigger_event = {
+				id = $SURVIVE$
+				days = 1
+			}
+			scope:secondary_recipient = {
+				trigger_event = {
+					id = $REPORT$
+					days = 1
+				}
+			}
+		}
+		1 = {
+			modifier = {
+				add = zz_valyria_assassination_miss_chance_$SCHOOL$
+			}
+			save_scope_value_as = {
+				name = zz_assassin_outcome
+				value = flag:foiled
+			}
+			zz_valyria_assassination_trace_effect = { SCHOOL = $SCHOOL$ }
+			if = {
+				limit = {
+					has_variable = zz_assassin_countered
+				}
+				scope:secondary_recipient = {
+					increase_wounds_effect = { REASON = fight }
+					add_stress = major_stress_gain
+				}
+			}
+			zz_valyria_assassination_clear_effect = yes
+			trigger_event = {
+				id = $FOIL$
+				days = 1
+			}
+			scope:secondary_recipient = {
+				trigger_event = {
+					id = $REPORT$
+					days = 1
+				}
+			}
+		}
+	}
+}
+
+# Scope: a province. scope:zz_storm_caster keeps the caster's own armies safe.
+zz_valyria_moving_spell_hit_effect = {
+	every_army_in_location = {
+		limit = {
+			NOT = {
+				army_owner = scope:zz_storm_caster
+			}
+		}
+		zz_valyria_change_army_troops_effect = { AMOUNT = $STRENGTH$ }
+	}
+	if = {
+		limit = {
+			exists = county
+		}
+		while = {
+			count = $BUILDINGS$
+			destroy_random_building_variable_effect = yes
+		}
+	}
+}
+
+zz_valyria_story_proc_message_effect = {
+	var:mystery_caster ?= {
+		save_scope_as = caster
+	}
+	scope:caster ?= {
+		send_interface_message = {
+			type = send_interface_message_as_feed_spell_buff_proc
+			title = zz_valyria_magic_$SPELLSCHOOL$.$SPELL$.buff.toast.t
+			desc = zz_valyria_magic_$SPELLSCHOOL$.$SPELL$.buff.toast.desc
+			left_icon = scope:caster
+			right_icon = scope:zz_story_owner
+			custom_tooltip = zz_valyria_magic_$SPELLSCHOOL$.$SPELL$.buff.toast.tt
+		}
+	}
+}

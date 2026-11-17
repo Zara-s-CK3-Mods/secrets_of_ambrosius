@@ -1,0 +1,246 @@
+﻿# Choose a character for the Magical Archives, using the game's character list with search and filters
+# Opened by each list's Search button (scripted GUI zz_valyria_archive_open_selection), which sets var:zz_archive_selection_mode
+# to the list being searched. The lists are the ones the archives window already built; the grids stay, this is an alternative
+# The crafting window's Select Mage button (flag:crafter) and the scroll window's Select Scribe button (flag:scroll_maker) are
+# their only pickers, in the cast window's style: there is no grid for them. Crafter mode reads mage_list and sets var:zz_item_crafter
+zz_valyria_archive_select_character_interaction = {
+	category = interaction_category_uncategorized
+	common_interaction = no
+	icon = divination_magic
+	desc = zz_valyria_archive_select_character_interaction_desc
+
+	is_shown = {
+		scope:recipient = scope:actor
+		scope:actor = {
+			is_ai = no
+			has_variable = zz_archive_selection_mode
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = zz_valyria_archive_select_character_interaction_empty_tt
+			scope:actor = {
+				OR = {
+				AND = {
+					OR = {
+						var:zz_archive_selection_mode = flag:archive_mage
+						var:zz_archive_selection_mode = flag:crafter
+					}
+					any_in_list = { variable = mage_list count > 0 }
+				}
+				AND = {
+					var:zz_archive_selection_mode = flag:apprentice_master
+					any_in_list = { variable = magic_master_list count > 0 }
+				}
+				AND = {
+					var:zz_archive_selection_mode = flag:apprentice_learner
+					any_in_list = { variable = magic_learner_list count > 0 }
+				}
+				AND = {
+					var:zz_archive_selection_mode = flag:mystery_master
+					any_in_list = { variable = magic_mystery_master_list count > 0 }
+				}
+				AND = {
+					var:zz_archive_selection_mode = flag:mystery_learner_all
+					any_in_list = { variable = magic_mystery_learner_list count > 0 }
+				}
+				AND = {
+					var:zz_archive_selection_mode = flag:mystery_learner_non_mages
+					any_in_list = { variable = magic_mystery_learner_not_mage_list count > 0 }
+				}
+				AND = {
+					var:zz_archive_selection_mode = flag:mystery_learner_mages
+					any_in_list = { variable = magic_mystery_learner_mage_list count > 0 }
+				}
+				AND = {
+					var:zz_archive_selection_mode = flag:scroll_owner
+					any_in_list = { variable = item_caster_list count > 0 }
+				}
+				AND = {
+					var:zz_archive_selection_mode = flag:scroll_learner_all
+					any_in_list = { variable = zz_valyria_scroll_learner_list count > 0 }
+				}
+				AND = {
+					var:zz_archive_selection_mode = flag:scroll_learner_non_mages
+					any_in_list = { variable = zz_valyria_scroll_learner_not_mage_list count > 0 }
+				}
+				AND = {
+					var:zz_archive_selection_mode = flag:scroll_learner_mages
+					any_in_list = { variable = zz_valyria_scroll_learner_mage_list count > 0 }
+				}
+				AND = {
+					var:zz_archive_selection_mode = flag:scroll_maker
+					any_in_list = { variable = scroll_maker_list count > 0 }
+				}
+				}
+			}
+		}
+	}
+
+	# An if chain rather than switch: switch is not allowed in populate_recipient_list
+	populate_recipient_list = {
+		scope:actor = {
+			if = {
+				limit = {
+					OR = {
+						var:zz_archive_selection_mode = flag:archive_mage
+						var:zz_archive_selection_mode = flag:crafter
+					}
+				}
+				every_in_list = {
+					variable = mage_list
+					add_to_list = characters
+				}
+			}
+			else_if = {
+				limit = { var:zz_archive_selection_mode = flag:apprentice_master }
+				every_in_list = {
+					variable = magic_master_list
+					add_to_list = characters
+				}
+			}
+			else_if = {
+				limit = { var:zz_archive_selection_mode = flag:apprentice_learner }
+				every_in_list = {
+					variable = magic_learner_list
+					add_to_list = characters
+				}
+			}
+			else_if = {
+				limit = { var:zz_archive_selection_mode = flag:mystery_master }
+				every_in_list = {
+					variable = magic_mystery_master_list
+					add_to_list = characters
+				}
+			}
+			else_if = {
+				limit = { var:zz_archive_selection_mode = flag:mystery_learner_all }
+				every_in_list = {
+					variable = magic_mystery_learner_list
+					add_to_list = characters
+				}
+			}
+			else_if = {
+				limit = { var:zz_archive_selection_mode = flag:mystery_learner_non_mages }
+				every_in_list = {
+					variable = magic_mystery_learner_not_mage_list
+					add_to_list = characters
+				}
+			}
+			else_if = {
+				limit = { var:zz_archive_selection_mode = flag:mystery_learner_mages }
+				every_in_list = {
+					variable = magic_mystery_learner_mage_list
+					add_to_list = characters
+				}
+			}
+			else_if = {
+				limit = { var:zz_archive_selection_mode = flag:scroll_owner }
+				every_in_list = {
+					variable = item_caster_list
+					add_to_list = characters
+				}
+			}
+			else_if = {
+				limit = { var:zz_archive_selection_mode = flag:scroll_learner_all }
+				every_in_list = {
+					variable = zz_valyria_scroll_learner_list
+					add_to_list = characters
+				}
+			}
+			else_if = {
+				limit = { var:zz_archive_selection_mode = flag:scroll_learner_non_mages }
+				every_in_list = {
+					variable = zz_valyria_scroll_learner_not_mage_list
+					add_to_list = characters
+				}
+			}
+			else_if = {
+				limit = { var:zz_archive_selection_mode = flag:scroll_learner_mages }
+				every_in_list = {
+					variable = zz_valyria_scroll_learner_mage_list
+					add_to_list = characters
+				}
+			}
+			else_if = {
+				limit = { var:zz_archive_selection_mode = flag:scroll_maker }
+				every_in_list = {
+					variable = scroll_maker_list
+					add_to_list = characters
+				}
+			}
+		}
+	}
+
+	can_send = {
+		custom_tooltip = {
+			text = zz_valyria_archive_select_character_interaction_choose_tt
+			exists = scope:secondary_recipient
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:actor = {
+			save_scope_as = zz_magic_user
+			switch = {
+			trigger = var:zz_archive_selection_mode
+			flag:archive_mage = {
+				scope:secondary_recipient = { save_scope_as = zz_magic_caster }
+				zz_valyria_archive_set_mage_effect = yes
+			}
+			flag:apprentice_master = {
+				scope:secondary_recipient = { save_scope_as = zz_magic_master }
+				zz_valyria_archive_set_apprentice_master_effect = yes
+			}
+			flag:apprentice_learner = {
+				scope:secondary_recipient = { save_scope_as = zz_valyria_magic_learner }
+				zz_valyria_archive_set_apprentice_learner_effect = yes
+			}
+			flag:mystery_master = {
+				scope:secondary_recipient = { save_scope_as = zz_magic_mystery_master }
+				zz_valyria_archive_set_mystery_master_effect = yes
+			}
+			flag:mystery_learner_all = {
+				scope:secondary_recipient = { save_scope_as = zz_valyria_mystery_magic_learner }
+				zz_valyria_archive_set_mystery_learner_effect = yes
+			}
+			flag:mystery_learner_non_mages = {
+				scope:secondary_recipient = { save_scope_as = zz_valyria_mystery_magic_learner }
+				zz_valyria_archive_set_mystery_learner_effect = yes
+			}
+			flag:mystery_learner_mages = {
+				scope:secondary_recipient = { save_scope_as = zz_valyria_mystery_magic_learner }
+				zz_valyria_archive_set_mystery_learner_effect = yes
+			}
+			flag:scroll_owner = {
+				scope:secondary_recipient = { save_scope_as = zz_item_caster }
+				zz_valyria_archive_set_scroll_owner_effect = yes
+			}
+			flag:scroll_learner_all = {
+				scope:secondary_recipient = { save_scope_as = zz_valyria_scroll_learner }
+				zz_valyria_archive_set_scroll_learner_effect = yes
+			}
+			flag:scroll_learner_non_mages = {
+				scope:secondary_recipient = { save_scope_as = zz_valyria_scroll_learner }
+				zz_valyria_archive_set_scroll_learner_effect = yes
+			}
+			flag:scroll_learner_mages = {
+				scope:secondary_recipient = { save_scope_as = zz_valyria_scroll_learner }
+				zz_valyria_archive_set_scroll_learner_effect = yes
+			}
+			flag:scroll_maker = {
+				scope:secondary_recipient = { save_scope_as = zz_scroll_maker }
+				zz_valyria_archive_set_scroll_maker_effect = yes
+			}
+			flag:crafter = {
+				scope:secondary_recipient = { save_scope_as = zz_item_crafter }
+				zz_valyria_archive_set_crafter_effect = yes
+			}
+			}
+			remove_variable = zz_archive_selection_mode
+		}
+	}
+}

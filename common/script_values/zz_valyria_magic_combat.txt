@@ -6,139 +6,88 @@ zz_magic_injury_risk_high = 75
 zz_magic_injury_risk_very_high = 100
 
 # Duel Success values
-zz_magic_duel_success_none = 0
-zz_magic_duel_success_low = 25
-
-
-
-zz_magic_duel_success_medium = {
-	value = 0 
-	if = {
-		limit = {
-			has_variable = magic_type
-		}
-		add = {
-			switch = {
-				trigger = var:magic_type
-				flag:dream = {
-					value = zz_valyria_magic_dream_magic_008_value
-					multiply = 1.75
-				}
-				flag:blood = {
-					value = zz_valyria_magic_blood_magic_017_value
-					multiply = 1.2
-				}
-				flag:alchemy = { 
-					value = zz_valyria_magic_alchemy_magic_017_value
-					multiply = 1
-				}
-				flag:shadow = { 
-					value = zz_valyria_magic_shadow_magic_009_value
-					multiply = 1
-				}
-				flag:fire = {
-					value = zz_valyria_magic_fire_magic_001_value
-					multiply = 1.5
-				}
-				flag:water = {
-					value = zz_valyria_magic_water_magic_001_value
-					multiply = 1.25
-				}
-				flag:air = {
-					value = zz_valyria_magic_air_magic_001_value
-					multiply = 2
-				}
-			}
-		}
-	}
-	
-	min = 50
+# A spell used as a duel move (combat_move_zz_spell_effect): 25, plus the mover's skill in its school times the school's weight; at most 150
+# (vanilla moves give 25 to 100). Weights: Air 1, Dream 0.875, Fire 0.75, Water 0.625, Blood 0.6, Shadow and Alchemy 0.5
+zz_duel_spell_success_fire = {
+	value = zz_valyria_fire_magic_stat_gui
+	multiply = 0.75
+	add = 25
+}
+zz_duel_spell_success_air = {
+	value = zz_valyria_air_magic_stat_gui
+	multiply = 1.0
+	add = 25
+}
+zz_duel_spell_success_water = {
+	value = zz_valyria_water_magic_stat_gui
+	multiply = 0.625
+	add = 25
+}
+zz_duel_spell_success_blood = {
+	value = zz_valyria_blood_magic_stat_gui
+	multiply = 0.6
+	add = 25
+}
+zz_duel_spell_success_shadow = {
+	value = zz_valyria_shadow_magic_stat_gui
+	multiply = 0.5
+	add = 25
+}
+zz_duel_spell_success_dream = {
+	value = zz_valyria_dream_magic_stat_gui
+	multiply = 0.875
+	add = 25
+}
+zz_duel_spell_success_alchemy = {
+	value = zz_valyria_alchemy_magic_stat_gui
+	multiply = 0.5
+	add = 25
 }
 
-zz_magic_duel_success_high = {
-	value = 0 
-	if = {
-		limit = {
-			has_variable = magic_type
-		}
-		add = {
-			switch = {
-				trigger = var:magic_type
-				flag:dream = {
-					value = zz_valyria_magic_dream_magic_008_value
-					multiply = 2
-				}
-				flag:blood = {
-					value = zz_valyria_magic_blood_magic_017_value
-					multiply = 1.8
-				}
-				flag:alchemy = { 
-					value = zz_valyria_magic_alchemy_magic_017_value
-					multiply = 1.3
-				}
-				flag:shadow = { 
-					value = zz_valyria_magic_shadow_magic_009_value
-					multiply = 1.25
-				}
-				flag:fire = {
-					value = zz_valyria_magic_fire_magic_001_value
-					multiply = 2
-				}
-				flag:water = {
-					value = zz_valyria_magic_water_magic_001_value
-					multiply = 1.5
-				}
-				flag:air = {
-					value = zz_valyria_magic_air_magic_001_value
-					multiply = 2.5
-				}
-			}
-		}
-	}
-
-	min = 75
+# Second duel spells: each pulls a different lever, all scale with school skill (overcap included), none capped
+zz_duel_searing_brand_value = { # Fire: added to the foe's injury risk
+	value = zz_valyria_fire_magic_stat_gui
+	multiply = 0.6
+	add = 15
 }
-
-zz_magic_duel_success_very_high = {
-	value = 0 
-	if = {
-		limit = {
-			has_variable = magic_type
-		}
-		add = {
-			switch = {
-				trigger = var:magic_type
-				flag:dream = {
-					value = zz_valyria_magic_dream_magic_008_value
-					multiply = 2.5
-				}
-				flag:blood = {
-					value = zz_valyria_magic_blood_magic_017_value
-					multiply = 2.2
-				}
-				flag:alchemy = { 
-					value = zz_valyria_magic_alchemy_magic_017_value
-					multiply = 1.75
-				}
-				flag:shadow = { 
-					value = zz_valyria_magic_shadow_magic_009_value
-					multiply = 1.5
-				}
-				flag:fire = {
-					value = zz_valyria_magic_fire_magic_001_value
-					multiply = 2.5
-				}
-				flag:water = {
-					value = zz_valyria_magic_water_magic_001_value
-					multiply = 2
-				}
-				flag:air = {
-					value = zz_valyria_magic_air_magic_001_value
-					multiply = 3
-				}
-			}
-		}
-	}
-	
-	min = 100
+zz_duel_gale_step_value = { # Air: taken from the mover's injury risk
+	value = zz_valyria_air_magic_stat_gui
+	multiply = 0.75
+	add = 15
+}
+zz_duel_undertow_value = { # Water: taken from the foe's duel success
+	value = zz_valyria_water_magic_stat_gui
+	multiply = 0.5
+	add = 15
+}
+zz_duel_blood_price_value = { # Blood: added to the mover's duel success (and injury_risk_medium to their risk)
+	value = zz_valyria_blood_magic_stat_gui
+	multiply = 1.0
+	add = 35
+}
+zz_duel_shadow_feint_value = { # Shadow: taken from the foe's success and added to their injury risk
+	value = zz_valyria_shadow_magic_stat_gui
+	multiply = 0.3
+	add = 10
+}
+zz_duel_foresight_success_value = { # Dream: added to the mover's duel success every round after Foresight
+	value = zz_valyria_dream_magic_stat_gui
+	multiply = 0.35
+	add = 10
+}
+zz_duel_foresight_ward_value = { # Dream: taken from the mover's injury risk every round after Foresight
+	value = zz_valyria_dream_magic_stat_gui
+	multiply = 0.25
+	add = 5
+}
+zz_duel_quicksilver_skin_pct = { # Alchemy: % of the mover's injury risk removed; 25% plus 0.5% per point of skill, all of it from 150
+	value = zz_valyria_alchemy_magic_stat_gui
+	multiply = 0.5
+	add = 25
+	max = 100
+}
+zz_duel_quicksilver_skin_value = { # the share of injury risk that remains
+	value = 100
+	subtract = zz_duel_quicksilver_skin_pct
+	divide = 100
 }

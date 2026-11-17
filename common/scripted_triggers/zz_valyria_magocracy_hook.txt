@@ -1,0 +1,5 @@
+﻿# Hook for the optional Magocracy Government mod: always false here, the Magocracy mod overrides it
+# (from a file that loads after this one) to check for the Magocracy government.
+zz_sothm_magocracy_trigger = {
+	always = no
+}

@@ -5,6 +5,7 @@
   game_concept_drops_of_power:0 "Drops of Power"
   game_concept_drops_of_power_desc:0 "$game_concept_drops_of_power$ are the measure of a Character's mystical energies. They are consumed to work [zz_mystery_plural]."
   game_concept_passive_drops_of_power:0 "Passive Drops of Power Gain"
+  game_concept_dop_i:0 "$game_concept_passive_drops_of_power$"
   game_concept_passive_drops_of_power_desc:0 "Certain items, traits, and mysteries will enable the passive gain of [drops_of_power|E]. Characters that are playable, gain drops of power every three months. All characters gain an additional drops of power yearly."
   game_concept_max_drops_of_power:0 "Drops of Power Cap"
   game_concept_max_drops_of_power_desc:0 "Certain items, traits, and mysteries will expand the maximum stored [drops_of_power|E]. Characters that are playable, gain drops of power every three months. All characters gain an additional drops of power yearly."

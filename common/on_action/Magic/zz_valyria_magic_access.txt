@@ -1,0 +1,55 @@
+﻿# Keeps each player's stored magic access (zz_valyria_refresh_magic_access) up to date
+# These only add to the vanilla on_actions' lists, so vanilla's own effects are untouched
+
+on_game_start_after_lobby = {
+	on_actions = {
+		zz_valyria_magic_access_refresh_players
+	}
+}
+
+quarterly_playable_pulse = {
+	on_actions = {
+		zz_valyria_magic_access_quarterly
+	}
+}
+
+on_trait_gained = {
+	on_actions = {
+		zz_valyria_magic_access_trait_changed
+	}
+}
+
+on_trait_lost = {
+	on_actions = {
+		zz_valyria_magic_access_trait_changed
+	}
+}
+
+zz_valyria_magic_access_refresh_players = {
+	effect = {
+		every_player = {
+			zz_valyria_refresh_magic_access = yes
+		}
+	}
+}
+
+zz_valyria_magic_access_quarterly = {
+	trigger = {
+		is_ai = no
+	}
+	effect = {
+		zz_valyria_refresh_magic_access = yes
+	}
+}
+
+# Someone became, or stopped being, a mage: they may be a player's spouse, house member, courtier or vassal
+zz_valyria_magic_access_trait_changed = {
+	trigger = {
+		scope:trait = trait:zz_magister
+	}
+	effect = {
+		every_player = {
+			zz_valyria_refresh_magic_access = yes
+		}
+	}
+}

@@ -1,10 +1,17 @@
 ﻿namespace = zz_valyria_magic_alchemy_magic
 
+# Spell: Alchemy 001 - Mystery of Prosperity
 zz_valyria_magic_alchemy_magic.001 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.001.t
-	desc = zz_valyria_magic_alchemy_magic.001.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.001.desc
+			desc = zz_valyria_magic_alchemy_magic.001.desc_02
+			desc = zz_valyria_magic_alchemy_magic.001.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -16,23 +23,23 @@ zz_valyria_magic_alchemy_magic.001 = {
 	lower_center_portrait = scope:recipient
 
 	immediate = {
-		zz_targeted_character_province_selection_list_effect = yes
+		zz_targeted_character_county_selection_list_effect = yes
 	}
 
 	widget = {
 		is_shown = {
 			is_ai = no
 		}
-		gui = "event_window_province_selection"
+		gui = "event_window_county_selection"
 		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_alchemy_magic.001.opt.a
 		hidden_effect = {
-			var:selected_province ?= { 
+			var:selected_county ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 001
 			}
@@ -42,11 +49,18 @@ zz_valyria_magic_alchemy_magic.001 = {
 		name = zz_valyria_magic_alchemy_magic.001.opt.z
 	}
 }
+# Spell: Alchemy 002 - Mystery of Construction
 zz_valyria_magic_alchemy_magic.002 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.002.t
-	desc = zz_valyria_magic_alchemy_magic.002.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.002.desc
+			desc = zz_valyria_magic_alchemy_magic.002.desc_02
+			desc = zz_valyria_magic_alchemy_magic.002.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -74,7 +88,7 @@ zz_valyria_magic_alchemy_magic.002 = {
 			var:selected_province ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 002
 			}
@@ -84,11 +98,18 @@ zz_valyria_magic_alchemy_magic.002 = {
 		name = zz_valyria_magic_alchemy_magic.002.opt.z
 	}
 }
+# Spell: Alchemy 003 - Mystery of Transmutation (Gold)
 zz_valyria_magic_alchemy_magic.003 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.003.t
-	desc = zz_valyria_magic_alchemy_magic.003.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.003.desc
+			desc = zz_valyria_magic_alchemy_magic.003.desc_02
+			desc = zz_valyria_magic_alchemy_magic.003.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -102,7 +123,7 @@ zz_valyria_magic_alchemy_magic.003 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.003.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 003
 			}
@@ -112,11 +133,18 @@ zz_valyria_magic_alchemy_magic.003 = {
 		name = zz_valyria_magic_alchemy_magic.003.opt.z
 	}
 }
+# Spell: Alchemy 004 - Mystery of Arms (Knights)
 zz_valyria_magic_alchemy_magic.004 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.004.t
-	desc = zz_valyria_magic_alchemy_magic.004.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.004.desc
+			desc = zz_valyria_magic_alchemy_magic.004.desc_02
+			desc = zz_valyria_magic_alchemy_magic.004.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -130,7 +158,7 @@ zz_valyria_magic_alchemy_magic.004 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.004.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 004
 			}
@@ -141,11 +169,18 @@ zz_valyria_magic_alchemy_magic.004 = {
 		name = zz_valyria_magic_alchemy_magic.004.opt.z
 	}
 }
+# Spell: Alchemy 005 - Mystery of Realm Alteration (Domain Limit)
 zz_valyria_magic_alchemy_magic.005 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.005.t
-	desc = zz_valyria_magic_alchemy_magic.005.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.005.desc
+			desc = zz_valyria_magic_alchemy_magic.005.desc_02
+			desc = zz_valyria_magic_alchemy_magic.005.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -159,7 +194,7 @@ zz_valyria_magic_alchemy_magic.005 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.005.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 005
 			}
@@ -169,11 +204,18 @@ zz_valyria_magic_alchemy_magic.005 = {
 		name = zz_valyria_magic_alchemy_magic.004.opt.z
 	}
 }
+# Spell: Alchemy 006 - Mystery of Enchantment
 zz_valyria_magic_alchemy_magic.006 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.006.t
-	desc = zz_valyria_magic_alchemy_magic.006.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.006.desc
+			desc = zz_valyria_magic_alchemy_magic.006.desc_02
+			desc = zz_valyria_magic_alchemy_magic.006.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -215,7 +257,7 @@ zz_valyria_magic_alchemy_magic.006 = {
 			var:selected_flag ?= { 
 				save_scope_as = modifier
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 006
 			}
@@ -227,11 +269,18 @@ zz_valyria_magic_alchemy_magic.006 = {
 		name = zz_valyria_magic_alchemy_magic.006.opt.z
 	}
 }
+# Spell: Alchemy 007 - Mystery of Transmutation (Piety)
 zz_valyria_magic_alchemy_magic.007 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.007.t
-	desc = zz_valyria_magic_alchemy_magic.007.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.007.desc
+			desc = zz_valyria_magic_alchemy_magic.007.desc_02
+			desc = zz_valyria_magic_alchemy_magic.007.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -246,7 +295,7 @@ zz_valyria_magic_alchemy_magic.007 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.007.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 007
 			}
@@ -256,11 +305,18 @@ zz_valyria_magic_alchemy_magic.007 = {
 		name = zz_valyria_magic_alchemy_magic.007.opt.z
 	}
 }
+# Spell: Alchemy 008 - Mystery of Transmutation (Prestige)
 zz_valyria_magic_alchemy_magic.008 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.008.t
-	desc = zz_valyria_magic_alchemy_magic.008.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.008.desc
+			desc = zz_valyria_magic_alchemy_magic.008.desc_02
+			desc = zz_valyria_magic_alchemy_magic.008.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -271,7 +327,7 @@ zz_valyria_magic_alchemy_magic.008 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.008.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 008
 			}
@@ -281,11 +337,18 @@ zz_valyria_magic_alchemy_magic.008 = {
 		name = zz_valyria_magic_alchemy_magic.008.opt.z
 	}
 }
+# Spell: Alchemy 009 - Mystery of Transmutation (Renown)
 zz_valyria_magic_alchemy_magic.009 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.009.t
-	desc = zz_valyria_magic_alchemy_magic.009.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.009.desc
+			desc = zz_valyria_magic_alchemy_magic.009.desc_02
+			desc = zz_valyria_magic_alchemy_magic.009.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -299,7 +362,7 @@ zz_valyria_magic_alchemy_magic.009 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.009.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 009
 			}
@@ -309,11 +372,18 @@ zz_valyria_magic_alchemy_magic.009 = {
 		name = zz_valyria_magic_alchemy_magic.009.opt.z
 	}
 }
+# Spell: Alchemy 010 - Mystery of Age Manipulation (Subtract)
 zz_valyria_magic_alchemy_magic.010 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.010.t
-	desc = zz_valyria_magic_alchemy_magic.010.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.010.desc
+			desc = zz_valyria_magic_alchemy_magic.010.desc_02
+			desc = zz_valyria_magic_alchemy_magic.010.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -324,23 +394,29 @@ zz_valyria_magic_alchemy_magic.010 = {
 	}
 	lower_center_portrait = scope:recipient
 
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = alchemy
+			SPELL = 010
+			CURRENT = zz_valyria_alchemy_magic_recipient_age
+			LOWER = zz_valyria_magic_alchemy_magic_010_value_01
+			RAISE = 0
+			START = min
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
 	option = {
 		name = zz_valyria_magic_alchemy_magic.010.opt.a
 		hidden_effect = {
-			save_scope_value_as = {
-				name = option_01
-				value = yes 
-			} 
-			zz_valyria_magic_cast_effect = { 
-				SKILL = alchemy_magic
-				SPELL = 010
-			}
-		}
-	}
-	option = {
-		name = zz_valyria_magic_alchemy_magic.010.opt.b
-		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 010
 			}
@@ -349,12 +425,22 @@ zz_valyria_magic_alchemy_magic.010 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.010.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
+# Spell: Alchemy 011 - Mystery of Age Manipulation (Addition)
 zz_valyria_magic_alchemy_magic.011 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.011.t
-	desc = zz_valyria_magic_alchemy_magic.011.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.011.desc
+			desc = zz_valyria_magic_alchemy_magic.011.desc_02
+			desc = zz_valyria_magic_alchemy_magic.011.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -365,38 +451,53 @@ zz_valyria_magic_alchemy_magic.011 = {
 	}
 	lower_center_portrait = scope:recipient
 
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = alchemy
+			SPELL = 011
+			CURRENT = zz_valyria_alchemy_magic_recipient_age
+			LOWER = 0
+			RAISE = zz_valyria_magic_alchemy_magic_011_value_01
+			START = max
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
 	option = {
 		name = zz_valyria_magic_alchemy_magic.011.opt.a
 		hidden_effect = {
-			save_scope_value_as = {
-				name = option_01
-				value = yes 
-			} 
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 011
 			}
 		}
-	}
-	option = {
-		name = zz_valyria_magic_alchemy_magic.011.opt.b
-		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
-				SKILL = alchemy_magic
-				SPELL = 011
-			}
-		}
-	
 	}
 	option = {
 		name = zz_valyria_magic_alchemy_magic.011.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
+# Spell: Alchemy 012 - Mystery of Arms (Knights Efficiency)
 zz_valyria_magic_alchemy_magic.012 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.012.t
-	desc = zz_valyria_magic_alchemy_magic.012.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.012.desc
+			desc = zz_valyria_magic_alchemy_magic.012.desc_02
+			desc = zz_valyria_magic_alchemy_magic.012.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -411,7 +512,7 @@ zz_valyria_magic_alchemy_magic.012 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.012.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 012
 			}
@@ -421,11 +522,18 @@ zz_valyria_magic_alchemy_magic.012 = {
 		name = zz_valyria_magic_alchemy_magic.012.opt.z
 	}
 }
+# Spell: Alchemy 013 - Mystery of Arms (MAA Add)
 zz_valyria_magic_alchemy_magic.013 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.013.t
-	desc = zz_valyria_magic_alchemy_magic.013.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.013.desc
+			desc = zz_valyria_magic_alchemy_magic.013.desc_02
+			desc = zz_valyria_magic_alchemy_magic.013.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -439,7 +547,7 @@ zz_valyria_magic_alchemy_magic.013 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.013.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 013
 			}
@@ -449,11 +557,18 @@ zz_valyria_magic_alchemy_magic.013 = {
 		name = zz_valyria_magic_alchemy_magic.013.opt.z
 	}
 }
+# Spell: Alchemy 014 - Mystery of Arms (MAA Size)
 zz_valyria_magic_alchemy_magic.014 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.014.t
-	desc = zz_valyria_magic_alchemy_magic.014.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.014.desc
+			desc = zz_valyria_magic_alchemy_magic.014.desc_02
+			desc = zz_valyria_magic_alchemy_magic.014.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -467,7 +582,7 @@ zz_valyria_magic_alchemy_magic.014 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.014.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 014
 			}
@@ -478,11 +593,18 @@ zz_valyria_magic_alchemy_magic.014 = {
 		name = zz_valyria_magic_alchemy_magic.014.opt.z
 	}
 }
+# Spell: Alchemy 015 - Mystery of Arms (Title MAA Add)
 zz_valyria_magic_alchemy_magic.015 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.015.t
-	desc = zz_valyria_magic_alchemy_magic.015.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.015.desc
+			desc = zz_valyria_magic_alchemy_magic.015.desc_02
+			desc = zz_valyria_magic_alchemy_magic.015.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -496,7 +618,7 @@ zz_valyria_magic_alchemy_magic.015 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.015.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 015
 			}
@@ -506,11 +628,18 @@ zz_valyria_magic_alchemy_magic.015 = {
 		name = zz_valyria_magic_alchemy_magic.015.opt.z
 	}
 }
+# Spell: Alchemy 016 - Mystery of Arms (Title MAA Size)
 zz_valyria_magic_alchemy_magic.016 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.016.t
-	desc = zz_valyria_magic_alchemy_magic.016.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.016.desc
+			desc = zz_valyria_magic_alchemy_magic.016.desc_02
+			desc = zz_valyria_magic_alchemy_magic.016.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -524,7 +653,7 @@ zz_valyria_magic_alchemy_magic.016 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.016.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 016
 			}
@@ -535,11 +664,18 @@ zz_valyria_magic_alchemy_magic.016 = {
 		name = zz_valyria_magic_alchemy_magic.016.opt.z
 	}
 }
+# Spell: Alchemy 017 - Mystery of Transmutative Assault
 zz_valyria_magic_alchemy_magic.017 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.017.t
-	desc = zz_valyria_magic_alchemy_magic.017.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.017.desc
+			desc = zz_valyria_magic_alchemy_magic.017.desc_02
+			desc = zz_valyria_magic_alchemy_magic.017.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -557,7 +693,7 @@ zz_valyria_magic_alchemy_magic.017 = {
 				name = option_01
 				value = yes
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 017
 			}
@@ -570,7 +706,7 @@ zz_valyria_magic_alchemy_magic.017 = {
 				name = option_02
 				value = yes
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 017
 			}
@@ -581,11 +717,18 @@ zz_valyria_magic_alchemy_magic.017 = {
 		name = zz_valyria_magic_alchemy_magic.017.opt.z
 	}
 }
+# Spell: Alchemy 018 - Mystery of Transmutation (Influence)
 zz_valyria_magic_alchemy_magic.018 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.018.t
-	desc = zz_valyria_magic_alchemy_magic.018.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.018.desc
+			desc = zz_valyria_magic_alchemy_magic.018.desc_02
+			desc = zz_valyria_magic_alchemy_magic.018.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -599,7 +742,7 @@ zz_valyria_magic_alchemy_magic.018 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.018.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 018
 			}
@@ -609,11 +752,18 @@ zz_valyria_magic_alchemy_magic.018 = {
 		name = zz_valyria_magic_alchemy_magic.018.opt.z
 	}
 }
+# Spell: Alchemy 019 - Mystery of Transmutation (Treasury)
 zz_valyria_magic_alchemy_magic.019 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.019.t
-	desc = zz_valyria_magic_alchemy_magic.019.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.019.desc
+			desc = zz_valyria_magic_alchemy_magic.019.desc_02
+			desc = zz_valyria_magic_alchemy_magic.019.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -627,7 +777,7 @@ zz_valyria_magic_alchemy_magic.019 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.019.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 019
 			}
@@ -638,11 +788,18 @@ zz_valyria_magic_alchemy_magic.019 = {
 	}
 }
 
+# Spell: Alchemy 020 - Mystery of Realm Alteration (Vassal Limit)
 zz_valyria_magic_alchemy_magic.020 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.020.t
-	desc = zz_valyria_magic_alchemy_magic.020.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.020.desc
+			desc = zz_valyria_magic_alchemy_magic.020.desc_02
+			desc = zz_valyria_magic_alchemy_magic.020.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -655,7 +812,7 @@ zz_valyria_magic_alchemy_magic.020 = {
 	option = {
 		name = zz_valyria_magic_alchemy_magic.020.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 020
 			}
@@ -667,11 +824,18 @@ zz_valyria_magic_alchemy_magic.020 = {
 }
 
 
+# Spell: Alchemy 021 - Mystery of Transmute Homunculus
 zz_valyria_magic_alchemy_magic.021 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_alchemy_magic.021.t
-	desc = zz_valyria_magic_alchemy_magic.021.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.021.desc
+			desc = zz_valyria_magic_alchemy_magic.021.desc_02
+			desc = zz_valyria_magic_alchemy_magic.021.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_alchemy_magic
@@ -696,7 +860,7 @@ zz_valyria_magic_alchemy_magic.021 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 
@@ -720,7 +884,7 @@ zz_valyria_magic_alchemy_magic.021 = {
 			var:selected_flag ?= { 
 				save_scope_as = option
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = alchemy_magic
 				SPELL = 021
 			}
@@ -730,5 +894,1056 @@ zz_valyria_magic_alchemy_magic.021 = {
 		name = zz_valyria_magic_alchemy_magic.021.opt.z
 	}
 	after = {
+	}
+}
+
+# Spell: Alchemy 022 - Mystery of Alchemical Refinement
+zz_valyria_magic_alchemy_magic.022 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.022.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.022.desc
+			desc = zz_valyria_magic_alchemy_magic.022.desc_02
+			desc = zz_valyria_magic_alchemy_magic.022.desc_03
+		}
+	}
+	theme = university 
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_province_selection_list_effect = yes
+		zz_valyria_trade_good_selection_list_effect = yes
+	}
+
+	widgets = {
+		widget = {
+			is_shown = {
+				is_ai = no
+			}
+			gui = "event_window_province_selection"
+			container = "custom_widgets_container"
+		}
+		widget = {
+			is_shown = {
+				is_ai = no
+			}
+			gui = "event_window_trade_good_selection"
+			container = "custom_widgets_container_01"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.022.opt.a
+		hidden_effect = {
+			var:selected_province ?= { 
+				save_scope_as = target
+			}
+			var:selected_trade_good ?= { 
+				save_scope_as = trade_good
+			}
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = alchemy_magic
+				SPELL = 022
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.022.opt.z
+	}
+}
+
+# Spell: Alchemy 023 - Mystery of Expansion
+zz_valyria_magic_alchemy_magic.023 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.023.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.023.desc
+			desc = zz_valyria_magic_alchemy_magic.023.desc_02
+			desc = zz_valyria_magic_alchemy_magic.023.desc_03
+		}
+	}
+	theme = university 
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_province_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_province_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.023.opt.a
+		hidden_effect = {
+			var:selected_province ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = alchemy_magic
+				SPELL = 023
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.023.opt.z
+	}
+}
+
+# Spell: Alchemy 027 - Mystery of Mercantile Reach
+zz_valyria_magic_alchemy_magic.027 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.027.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.027.desc
+			desc = zz_valyria_magic_alchemy_magic.027.desc_02
+			desc = zz_valyria_magic_alchemy_magic.027.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_alchemy_magic.027.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = alchemy_magic
+				SPELL = 027
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.027.opt.z
+	}
+}
+
+# Spell: Alchemy 028 - Mystery of Bountiful Caravans
+zz_valyria_magic_alchemy_magic.028 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.028.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.028.desc
+			desc = zz_valyria_magic_alchemy_magic.028.desc_02
+			desc = zz_valyria_magic_alchemy_magic.028.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_alchemy_magic.028.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = alchemy_magic
+				SPELL = 028
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.028.opt.z
+	}
+}
+
+# Spell: Alchemy 029 - Mystery of the Long Road
+zz_valyria_magic_alchemy_magic.029 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.029.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.029.desc
+			desc = zz_valyria_magic_alchemy_magic.029.desc_02
+			desc = zz_valyria_magic_alchemy_magic.029.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_alchemy_magic.029.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = alchemy_magic
+				SPELL = 029
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.029.opt.z
+	}
+}
+
+# Spell: Alchemy 030 - Mystery of the Open Road
+zz_valyria_magic_alchemy_magic.030 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.030.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.030.desc
+			desc = zz_valyria_magic_alchemy_magic.030.desc_02
+			desc = zz_valyria_magic_alchemy_magic.030.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_alchemy_magic.030.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = alchemy_magic
+				SPELL = 030
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.030.opt.z
+	}
+}
+
+# Spell: Alchemy 031 - Mystery of Many Markets
+zz_valyria_magic_alchemy_magic.031 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.031.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.031.desc
+			desc = zz_valyria_magic_alchemy_magic.031.desc_02
+			desc = zz_valyria_magic_alchemy_magic.031.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_alchemy_magic.031.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = alchemy_magic
+				SPELL = 031
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.031.opt.z
+	}
+}
+
+# Spell: Alchemy 032 - Mystery of Transmutation (Valyrian Steel)
+zz_valyria_magic_alchemy_magic.032 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.032.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.032.desc
+			desc = zz_valyria_magic_alchemy_magic.032.desc_02
+			desc = zz_valyria_magic_alchemy_magic.032.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_alchemy_magic.032.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = alchemy_magic
+				SPELL = 032
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.032.opt.z
+	}
+}
+
+# Spell: Alchemy 033 - Mystery of Bronze Sentinels
+zz_valyria_magic_alchemy_magic.033 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.033.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.033.desc
+			desc = zz_valyria_magic_alchemy_magic.033.desc_02
+			desc = zz_valyria_magic_alchemy_magic.033.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_alchemy_magic.033.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = alchemy_magic
+				SPELL = 033
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.033.opt.z
+	}
+}
+
+# Spell: Alchemy 034 - Mystery of Iron Colossi
+zz_valyria_magic_alchemy_magic.034 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.034.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.034.desc
+			desc = zz_valyria_magic_alchemy_magic.034.desc_02
+			desc = zz_valyria_magic_alchemy_magic.034.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_alchemy_magic.034.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = alchemy_magic
+				SPELL = 034
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.034.opt.z
+	}
+}
+
+# Spell: Alchemy 035 - Mystery of Alchemical Purgation
+zz_valyria_magic_alchemy_magic.035 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.035.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.035.desc
+			desc = zz_valyria_magic_alchemy_magic.035.desc_02
+			desc = zz_valyria_magic_alchemy_magic.035.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_alchemy_magic.035.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = alchemy_magic
+				SPELL = 035
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.035.opt.z
+	}
+}
+
+# Spell: Alchemy 036 - Mystery of Alchemical Tempering
+zz_valyria_magic_alchemy_magic.036 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.036.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.036.desc
+			desc = zz_valyria_magic_alchemy_magic.036.desc_02
+			desc = zz_valyria_magic_alchemy_magic.036.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_alchemy_magic.036.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = alchemy_magic
+				SPELL = 036
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.036.opt.z
+	}
+}
+
+# Spell: Alchemy 037 - Mystery of Inner Transmutation (Diplomacy)
+zz_valyria_magic_alchemy_magic.037 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.037.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.037.desc
+			desc = zz_valyria_magic_alchemy_magic.037.desc_02
+			desc = zz_valyria_magic_alchemy_magic.037.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = alchemy
+			SPELL = 037
+			CURRENT = scope:recipient.diplomacy
+			LOWER = zz_valyria_magic_alchemy_magic_037_value_01
+			RAISE = zz_valyria_magic_alchemy_magic_037_value_01
+			START = max
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_alchemy_magic.037.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = alchemy_magic
+				SPELL = 037
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.037.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Alchemy 038 - Mystery of Inner Transmutation (Martial)
+zz_valyria_magic_alchemy_magic.038 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.038.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.038.desc
+			desc = zz_valyria_magic_alchemy_magic.038.desc_02
+			desc = zz_valyria_magic_alchemy_magic.038.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = alchemy
+			SPELL = 038
+			CURRENT = scope:recipient.martial
+			LOWER = zz_valyria_magic_alchemy_magic_038_value_01
+			RAISE = zz_valyria_magic_alchemy_magic_038_value_01
+			START = max
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_alchemy_magic.038.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = alchemy_magic
+				SPELL = 038
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.038.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Alchemy 039 - Mystery of Inner Transmutation (Stewardship)
+zz_valyria_magic_alchemy_magic.039 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.039.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.039.desc
+			desc = zz_valyria_magic_alchemy_magic.039.desc_02
+			desc = zz_valyria_magic_alchemy_magic.039.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = alchemy
+			SPELL = 039
+			CURRENT = scope:recipient.stewardship
+			LOWER = zz_valyria_magic_alchemy_magic_039_value_01
+			RAISE = zz_valyria_magic_alchemy_magic_039_value_01
+			START = max
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_alchemy_magic.039.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = alchemy_magic
+				SPELL = 039
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.039.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Alchemy 040 - Mystery of Inner Transmutation (Intrigue)
+zz_valyria_magic_alchemy_magic.040 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.040.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.040.desc
+			desc = zz_valyria_magic_alchemy_magic.040.desc_02
+			desc = zz_valyria_magic_alchemy_magic.040.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = alchemy
+			SPELL = 040
+			CURRENT = scope:recipient.intrigue
+			LOWER = zz_valyria_magic_alchemy_magic_040_value_01
+			RAISE = zz_valyria_magic_alchemy_magic_040_value_01
+			START = max
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_alchemy_magic.040.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = alchemy_magic
+				SPELL = 040
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.040.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Alchemy 041 - Mystery of Inner Transmutation (Learning)
+zz_valyria_magic_alchemy_magic.041 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.041.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.041.desc
+			desc = zz_valyria_magic_alchemy_magic.041.desc_02
+			desc = zz_valyria_magic_alchemy_magic.041.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = alchemy
+			SPELL = 041
+			CURRENT = scope:recipient.learning
+			LOWER = zz_valyria_magic_alchemy_magic_041_value_01
+			RAISE = zz_valyria_magic_alchemy_magic_041_value_01
+			START = max
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_alchemy_magic.041.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = alchemy_magic
+				SPELL = 041
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.041.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Alchemy 042 - Mystery of Inner Transmutation (Prowess)
+zz_valyria_magic_alchemy_magic.042 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.042.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.042.desc
+			desc = zz_valyria_magic_alchemy_magic.042.desc_02
+			desc = zz_valyria_magic_alchemy_magic.042.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = alchemy
+			SPELL = 042
+			CURRENT = scope:recipient.prowess
+			LOWER = zz_valyria_magic_alchemy_magic_042_value_01
+			RAISE = zz_valyria_magic_alchemy_magic_042_value_01
+			START = max
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
+	option = {
+		name = zz_valyria_magic_alchemy_magic.042.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
+				SKILL = alchemy_magic
+				SPELL = 042
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.042.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Alchemy 024 - Mystery of Unmaking (Building to Gold)
+zz_valyria_magic_alchemy_magic.024 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.024.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.024.desc
+			desc = zz_valyria_magic_alchemy_magic.024.desc_02
+			desc = zz_valyria_magic_alchemy_magic.024.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_targeted_character_county_selection_list_effect = yes
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_county_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.024.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_county
+				}
+				var:selected_county = { save_scope_as = target }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = alchemy_magic
+					SPELL = 024
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.024.opt.z
+	}
+}
+
+# Spell: Alchemy 026 - Mystery of Fatal Transmutation (Strike Army)
+zz_valyria_magic_alchemy_magic.026 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.026.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.026.desc
+			desc = zz_valyria_magic_alchemy_magic.026.desc_02
+			desc = zz_valyria_magic_alchemy_magic.026.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_targed_character_army_selection_list_effect = yes
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_army_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.026.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_army
+				}
+				var:selected_army = { save_scope_as = target }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = alchemy_magic
+					SPELL = 026
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.026.opt.z
+	}
+}
+
+# Spell: Alchemy 025 - Mystery of Potion Making (Brew Potion)
+zz_valyria_magic_alchemy_magic.025 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.025.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.025.desc
+			desc = zz_valyria_magic_alchemy_magic.025.desc_02
+			desc = zz_valyria_magic_alchemy_magic.025.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		remove_variable = selected_flag
+		clear_variable_list = possible_flags
+		# Every potion; the mystery needs no other mystery to brew any of them
+		add_to_variable_list = { name = possible_flags target = flag:elixir_longevity }
+		add_to_variable_list = { name = possible_flags target = flag:elixir_fertility }
+		add_to_variable_list = { name = possible_flags target = flag:draught_strength }
+		add_to_variable_list = { name = possible_flags target = flag:draught_clarity }
+		add_to_variable_list = { name = possible_flags target = flag:draught_calm }
+		add_to_variable_list = { name = possible_flags target = flag:draught_warding }
+		add_to_variable_list = { name = possible_flags target = flag:potion_healing }
+		add_to_variable_list = { name = possible_flags target = flag:potion_purging }
+		add_to_variable_list = { name = possible_flags target = flag:potion_restoring }
+		add_to_variable_list = { name = possible_flags target = flag:tonic_power }
+		set_variable = { name = selected_flag value = flag:elixir_longevity }
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_flag_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.025.opt.a
+		hidden_effect = {
+			if = {
+				limit = { exists = var:selected_flag }
+				var:selected_flag = { save_scope_as = option }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = alchemy_magic
+					SPELL = 025
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.025.opt.z
+	}
+}
+
+# Spell: Alchemy 043 - Mystery of Transmutation (Development)
+zz_valyria_magic_alchemy_magic.043 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.043.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_alchemy_magic.043.desc
+			desc = zz_valyria_magic_alchemy_magic.043.desc_02
+			desc = zz_valyria_magic_alchemy_magic.043.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_targeted_character_county_selection_list_effect = yes
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_county_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.043.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_county
+				}
+				var:selected_county = { save_scope_as = target }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = alchemy_magic
+					SPELL = 043
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_alchemy_magic.043.opt.z
+	}
+}
+
+# Spell: Alchemy 044 - Mystery of Quicksilver Skin (Single Combat). A duel move only: it never appears in the casting menu.
+zz_valyria_magic_alchemy_magic.044 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_alchemy_magic.044.t
+	desc = zz_valyria_magic_alchemy_magic.044.desc
+	theme = university
+	override_background = {
+		reference = zz_alchemy_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_alchemy_magic.044.opt.z
 	}
 }

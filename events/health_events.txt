@@ -471,9 +471,10 @@ health.0102 = {
 	### Option Magic
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -483,11 +484,13 @@ health.0102 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 	
 }
@@ -977,9 +980,10 @@ health.0204 = {
 	## Option Magic
 	option = {
 		name = health.0204.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -989,11 +993,13 @@ health.0204 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 
 
@@ -1314,9 +1320,10 @@ health.1001 = {
 	### Option Magic
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -1326,11 +1333,13 @@ health.1001 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 
 }
@@ -1543,9 +1552,10 @@ health.1002 = {
 	### Option Magic
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -1555,11 +1565,13 @@ health.1002 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -1825,9 +1837,10 @@ health.1003 = {
 	### Option Magic
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -1837,11 +1850,13 @@ health.1003 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -2031,9 +2046,10 @@ health.1004 = {
 	### Option Magic
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -2044,11 +2060,13 @@ health.1004 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -2257,9 +2275,10 @@ health.1005 = {
 	### Option Magic
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -2270,11 +2289,13 @@ health.1005 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -2483,9 +2504,10 @@ health.1006 = {
 	### Option Magic
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -2495,11 +2517,13 @@ health.1006 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -2744,9 +2768,10 @@ health.1007 = {
 
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -2756,11 +2781,13 @@ health.1007 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -2887,9 +2914,10 @@ health.1008 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -2899,11 +2927,13 @@ health.1008 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -3065,9 +3095,10 @@ health.1012 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -3077,11 +3108,13 @@ health.1012 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -3285,9 +3318,10 @@ health.1013 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -3297,11 +3331,13 @@ health.1013 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -3536,9 +3572,10 @@ health.1010 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -3548,11 +3585,13 @@ health.1010 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -3771,9 +3810,10 @@ health.1011 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -3783,11 +3823,13 @@ health.1011 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -4038,9 +4080,10 @@ health.1015 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -4050,11 +4093,13 @@ health.1015 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -4305,9 +4350,10 @@ health.1016 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -4317,11 +4363,13 @@ health.1016 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -4572,9 +4620,10 @@ health.1017 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			save_scope_as = recipient
@@ -4584,11 +4633,13 @@ health.1017 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -6275,9 +6326,10 @@ health.2101 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			scope:sick_character = {
@@ -6289,11 +6341,13 @@ health.2101 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = scope:sick_character SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 
@@ -6714,9 +6768,10 @@ health.2201 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
+		trigger = {
 			is_ai = no
-			zz_valyria_is_mage = yes 
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_player_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		root = {
 			scope:sick_character = {
@@ -6729,11 +6784,13 @@ health.2201 = {
 	}
 	option = {
 		name = health.3101.zz_mage
-		trigger = { 
-			is_ai = yes 
-			zz_valyria_is_mage = yes 
+		trigger = {
+			is_ai = yes
+			zz_valyria_is_mage = yes
+			zz_valyria_magic_event_cast_available = { SPELL = 001 SPELLSCHOOL = blood_magic }
 		}
 		zz_valyria_magic_event_cast = { TARGET = scope:sick_character SPELL = 001 SPELLSCHOOL = blood_magic }
+		ai_chance = { base = 10 }
 	}
 }
 

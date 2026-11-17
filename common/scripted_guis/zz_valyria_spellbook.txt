@@ -1,0 +1,25 @@
+﻿# Opens the Spellbook of scope:zz_book_owner (any Magister) for the player; read only
+zz_valyria_spellbook_open = {
+	scope = character
+	saved_scopes = {
+		zz_book_owner
+	}
+	is_shown = {
+		scope:zz_book_owner = { has_trait = zz_magister }
+	}
+	effect = {
+		set_variable = {
+			name = zz_spellbook_owner
+			value = scope:zz_book_owner
+		}
+		zz_valyria_make_spellbook_list_effect = yes
+	}
+}
+
+zz_valyria_spellbook_close = {
+	scope = character
+	effect = {
+		remove_variable = zz_spellbook_owner
+		zz_valyria_clear_spellbook_lists_effect = yes
+	}
+}

@@ -50,6 +50,21 @@ zz_valyria_magic_blood_magic_base_value = {
 				add = this.var:blood_magic_overcap
 			}
 		}
+		multiply = {
+			value = 1
+			if = {
+				limit = {
+					faith = { has_doctrine_parameter = zz_tenet_strength_blood_magic }
+				}
+				add = 0.25
+			}
+			if = {
+				limit = {
+					has_personal_tenet_flag = zz_personal_strength_blood_magic
+				}
+				add = 0.1
+			}
+		}
 	}
 }
 zz_valyria_magic_blood_magic_001_value = {
@@ -405,8 +420,8 @@ zz_valyria_magic_blood_magic_016_value_01 = {
 	add = { 
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_blood_magic_base_value
-			divide = zz_valyria_moderate_damage_army
-			min = 0.01
+			multiply = zz_valyria_moderate_damage_army
+			min = zz_valyria_moderate_damage_army
 		}
 	}
 }
@@ -769,6 +784,324 @@ zz_valyria_magic_blood_magic_031_value_01 = {
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_blood_magic_base_value
 			divide = 5
+			min = 1
+		}
+	}
+}
+# Mystery of Blood Cleansing: _01 is the miscast reduction
+zz_valyria_magic_blood_magic_032_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 1
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_032_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 25
+			min = 1
+		}
+	}
+}
+# Mystery of Blood Warding: _01 is the miscast protection
+zz_valyria_magic_blood_magic_033_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 1
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_033_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 20
+			min = 1
+		}
+	}
+}
+# Blood 034 - Bloodcraft (Diplomacy): _01 is the change to diplomacy, +1 per 75 skill and at least 1; _02 is the same as a loss
+zz_valyria_magic_blood_magic_034_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_034_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 75
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_034_value_02 = {
+	value = zz_valyria_magic_blood_magic_034_value_01
+	multiply = -1
+}
+# Blood 034: _03 is the change to diplomacy chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_blood_magic_034_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_blood_magic_034_value_02
+		max = zz_valyria_magic_blood_magic_034_value_01
+	}
+	else = {
+		value = zz_valyria_magic_blood_magic_034_value_01
+	}
+}
+# Blood 035 - Bloodcraft (Martial): _01 is the change to martial, +1 per 45 skill and at least 1; _02 is the same as a loss
+zz_valyria_magic_blood_magic_035_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_035_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 45
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_035_value_02 = {
+	value = zz_valyria_magic_blood_magic_035_value_01
+	multiply = -1
+}
+# Blood 035: _03 is the change to martial chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_blood_magic_035_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_blood_magic_035_value_02
+		max = zz_valyria_magic_blood_magic_035_value_01
+	}
+	else = {
+		value = zz_valyria_magic_blood_magic_035_value_01
+	}
+}
+# Blood 036 - Bloodcraft (Stewardship): _01 is the change to stewardship, +1 per 90 skill and at least 1; _02 is the same as a loss
+zz_valyria_magic_blood_magic_036_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_036_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 90
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_036_value_02 = {
+	value = zz_valyria_magic_blood_magic_036_value_01
+	multiply = -1
+}
+# Blood 036: _03 is the change to stewardship chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_blood_magic_036_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_blood_magic_036_value_02
+		max = zz_valyria_magic_blood_magic_036_value_01
+	}
+	else = {
+		value = zz_valyria_magic_blood_magic_036_value_01
+	}
+}
+# Blood 037 - Bloodcraft (Intrigue): _01 is the change to intrigue, +1 per 60 skill and at least 1; _02 is the same as a loss
+zz_valyria_magic_blood_magic_037_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_037_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 60
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_037_value_02 = {
+	value = zz_valyria_magic_blood_magic_037_value_01
+	multiply = -1
+}
+# Blood 037: _03 is the change to intrigue chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_blood_magic_037_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_blood_magic_037_value_02
+		max = zz_valyria_magic_blood_magic_037_value_01
+	}
+	else = {
+		value = zz_valyria_magic_blood_magic_037_value_01
+	}
+}
+# Blood 038 - Bloodcraft (Learning): _01 is the change to learning, +1 per 100 skill and at least 1; _02 is the same as a loss
+zz_valyria_magic_blood_magic_038_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_038_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 100
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_038_value_02 = {
+	value = zz_valyria_magic_blood_magic_038_value_01
+	multiply = -1
+}
+# Blood 038: _03 is the change to learning chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_blood_magic_038_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_blood_magic_038_value_02
+		max = zz_valyria_magic_blood_magic_038_value_01
+	}
+	else = {
+		value = zz_valyria_magic_blood_magic_038_value_01
+	}
+}
+# Blood 039 - Bloodcraft (Prowess): _01 is the change to prowess, +1 per 35 skill and at least 1; _02 is the same as a loss
+zz_valyria_magic_blood_magic_039_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_039_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 35
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_039_value_02 = {
+	value = zz_valyria_magic_blood_magic_039_value_01
+	multiply = -1
+}
+# Blood 039: _03 is the change to prowess chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_blood_magic_039_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_blood_magic_039_value_02
+		max = zz_valyria_magic_blood_magic_039_value_01
+	}
+	else = {
+		value = zz_valyria_magic_blood_magic_039_value_01
+	}
+}
+
+zz_valyria_magic_blood_magic_040_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_blood_magic_040_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 10
+			min = 2
+			max = 10
+		}
+	}
+}
+zz_valyria_magic_blood_magic_040_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
+			divide = 5
+			min = 4
+			max = 20
+		}
+	}
+}
+
+zz_valyria_magic_blood_magic_041_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_blood_magic_base_value
 			min = 1
 		}
 	}

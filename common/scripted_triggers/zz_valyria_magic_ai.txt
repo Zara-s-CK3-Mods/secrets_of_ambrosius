@@ -1,7 +1,11 @@
-﻿zz_valyria_is_mage_ai = {
+﻿# An AI who is a mage, or who has AI mages to call on (spouse, house, court or realm)
+zz_valyria_is_mage_ai = {
 	OR = { 
-		has_trait = zz_magister
-		is_ai = yes 
+		# Was two separate OR branches, so "is_ai = yes" alone passed for every AI character
+		AND = {
+			has_trait = zz_magister
+			is_ai = yes
+		}
 		any_spouse = {
 			has_trait = zz_magister 
 			is_ai = yes 
@@ -25,16 +29,18 @@
 
 zz_valyria_magic_is_ai_spouse_is_ai = {
 	is_ai = yes  
-	any_spouse = {
-		NOT = {
+	NOT = {
+		any_spouse = {
 			is_ai = no
 		}
 	}
 }
 zz_valyria_magic_is_not_player_court_mage = {
-	has_court_position = zz_valyria_court_mages_court_position
-	court_owner = {
-		is_ai = yes 
+	NAND = {
+		has_court_position = zz_valyria_court_mages_court_position
+		court_owner ?= {
+			is_ai = no 
+		}
 	}
 }
 zz_valyria_ai_spell_cast_knows_spell_has_mana = {
@@ -46,8 +52,17 @@ zz_valyria_ai_spell_cast_knows_spell_has_mana = {
 	}
 }
 
+# AI mages stop casting once they have one miscast left
+zz_valyria_ai_safe_to_cast = {
+	OR = {
+		NOT = { exists = var:zz_miscast_count }
+		var:zz_miscast_count < zz_valyria_miscast_warning_2
+	}
+}
+
 zz_valyria_magic_valid_ai_caster = {
 	has_trait = zz_magister
+	zz_valyria_ai_safe_to_cast = yes
 	zz_valyria_magic_is_ai_spouse_is_ai = yes 
 	zz_valyria_magic_is_not_player_court_mage = yes
 	zz_valyria_ai_spell_cast_knows_spell_has_mana = { SPELL = $SPELL$}
@@ -165,4 +180,48 @@ zz_valyria_magic_longevity_target = {
 
 zz_valyria_magic_health_boost_target = {
 	health <= poor_health
+}
+
+
+# Can someone cast this mystery for the scoped character? Checks the same mages as zz_valyria_magic_event_cast.
+zz_valyria_magic_event_cast_available = {
+	OR = {
+		zz_valyria_magic_valid_ai_caster = { SPELL = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$ }
+		any_spouse_mage = {
+			zz_valyria_magic_valid_ai_caster = { SPELL = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$ }
+		}
+		house ?= {
+			any_house_mage = {
+				zz_valyria_magic_valid_ai_caster = { SPELL = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$ }
+			}
+		}
+		any_court_mage = {
+			zz_valyria_magic_valid_ai_caster = { SPELL = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$ }
+		}
+		any_realm_mage = {
+			zz_valyria_magic_valid_ai_caster = { SPELL = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$ }
+		}
+	}
+}
+
+
+# Can someone cast this mystery for the scoped character? Checks the same mages as zz_valyria_magic_event_cast.
+zz_valyria_magic_player_cast_available = {
+	OR = {
+		zz_valyria_valid_caster = { SPELL = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$ MANACOST = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_cost }
+		any_spouse_mage = {
+			zz_valyria_valid_caster = { SPELL = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$ MANACOST = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_cost }
+		}
+		house ?= {
+			any_house_mage = {
+				zz_valyria_valid_caster = { SPELL = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$ MANACOST = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_cost }
+			}
+		}
+		any_court_mage = {
+			zz_valyria_valid_caster = { SPELL = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$ MANACOST = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_cost }
+		}
+		any_realm_mage = {
+			zz_valyria_valid_caster = { SPELL = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$ MANACOST = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_cost }
+		}
+	}
 }

@@ -16,7 +16,10 @@
 
 	can_start_showing_failures_only = {
 		zz_valyria_is_mage = yes 
-		has_prisoners = yes
+		custom_tooltip = {
+			text = zz_valyria_blood_sacrifice_needs_prisoner_tt
+			has_prisoners = yes
+		}
 	}
 
 	is_valid = {
@@ -24,7 +27,10 @@
 			has_variable = activity_invalidated
 		}
 		scope:host = {
-			has_prisoners = yes
+			custom_tooltip = {
+				text = zz_valyria_blood_sacrifice_needs_prisoner_tt
+				has_prisoners = yes
+			}
 			zz_valyria_is_mage = yes 
 			is_playable_character = yes
 			NOT = { is_incapable = yes }
@@ -213,7 +219,7 @@
 		# How much do you care about your faith not liking this?
 		if = {
 			limit = {
-				faith = { has_doctrine_parameter = witchcraft_illegal }
+				faith = { zz_valyria_sorcery_criminal_faith = yes }
 				NOT = { has_trait = cynical }
 			}
 			add = -25
@@ -222,8 +228,7 @@
 			limit = {
 				faith = {	
 					OR = {
-						has_doctrine_parameter = execute_prisoner_to_improve_artifact
-						has_doctrine_parameter = witchcraft_accepted
+						zz_valyria_sorcery_accepted_faith = yes
 					}
 				}
 				NOT = { has_trait = cynical }
@@ -234,8 +239,7 @@
 			limit = {
 				faith = {	
 					OR = {
-						has_doctrine_parameter = execute_prisoner_to_improve_artifact
-						has_doctrine_parameter = witchcraft_accepted
+						zz_valyria_sorcery_accepted_faith = yes
 					}
 				}
 				has_trait = zealous
@@ -246,8 +250,7 @@
 			limit = {
 				faith = {	
 					NOR = {
-						has_doctrine_parameter = execute_prisoner_to_improve_artifact
-						has_doctrine_parameter = witchcraft_accepted
+						zz_valyria_sorcery_accepted_faith = yes
 						
 					}
 				}

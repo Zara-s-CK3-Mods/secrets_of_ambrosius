@@ -6,6 +6,11 @@
 			add_to_list = zz_mages_casting_target
 		}
 		else_if = {
+			limit = {
+				any_spouse = {
+					$TRIGGER$ = yes
+				}
+			}
 			every_spouse = {
 				limit = {
 					$TRIGGER$ = yes
@@ -14,6 +19,11 @@
 			}
 		}
 		else_if = {
+			limit = {
+				any_close_family_member = {
+					$TRIGGER$ = yes
+				}
+			}
 			every_close_family_member = {
 				limit = {
 					$TRIGGER$ = yes
@@ -72,28 +82,36 @@ zz_valyria_magic_event_cast = {
 		add_to_list = mages
 	}
 			
-	random_in_list = {
-		list = mages
-		save_scope_as = zz_magic_caster
-		save_scope_as = secondary_recipient
-	}
-	$TARGET$ = {
-		save_scope_as = recipient
-		save_scope_as = zz_magic_target
-	}
-
-		
-	scope:secondary_recipient = { 
-		random_memory = {
-			limit = {
-				var:spell_name ?= flag:zz_valyria_magic_$SPELLSCHOOL$_$SPELL$
+	if = {
+		limit = {
+			any_in_list = {
+				list = mages
+				count > 0
 			}
-			save_scope_as = zz_valyria_mystery
 		}
-	}
-	zz_valyria_magic_cast_effect = { 
-		SKILL = $SPELLSCHOOL$
-		SPELL = $SPELL$
+		random_in_list = {
+			list = mages
+			save_scope_as = zz_magic_caster
+			save_scope_as = secondary_recipient
+		}
+		$TARGET$ = {
+			save_scope_as = recipient
+			save_scope_as = zz_magic_target
+		}
+
+
+		scope:secondary_recipient = {
+			random_memory = {
+				limit = {
+					var:spell_name ?= flag:zz_valyria_magic_$SPELLSCHOOL$_$SPELL$
+				}
+				save_scope_as = zz_valyria_mystery
+			}
+		}
+		zz_valyria_magic_cast_effect = {
+			SKILL = $SPELLSCHOOL$
+			SPELL = $SPELL$
+		}
 	}
 }
 

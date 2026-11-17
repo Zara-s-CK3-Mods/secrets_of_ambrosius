@@ -27,7 +27,7 @@ zz_magical_eduction = {
 				limit = { exists = scope:bg_override_char }
 				scope:bg_override_char = {
 					OR = {
-						location.culture = {
+						location.culture ?= {
 							OR = {
 								has_graphical_western_culture_group_trigger = yes
 								has_graphical_norse_culture_group_trigger = yes
@@ -38,14 +38,14 @@ zz_magical_eduction = {
 						location ?= {
 							steppe_building_gfx_use_mena_trigger = no
 							steppe_building_gfx_use_indian_trigger = no
-							culture = { has_building_gfx = steppe_building_gfx }
+							culture ?= { has_building_gfx = steppe_building_gfx }
 						}
 					}
 				}
 			}
 			trigger_else = {
 				OR = {
-					location.culture = {
+					location.culture ?= {
 						OR = {
 							has_graphical_western_culture_group_trigger = yes
 							has_graphical_norse_culture_group_trigger = yes
@@ -56,7 +56,7 @@ zz_magical_eduction = {
 					location ?= {
 						steppe_building_gfx_use_mena_trigger = no
 						steppe_building_gfx_use_indian_trigger = no
-						culture = { has_building_gfx = steppe_building_gfx }
+						culture ?= { has_building_gfx = steppe_building_gfx }
 					}
 				}
 			}
@@ -71,14 +71,14 @@ zz_magical_eduction = {
 				limit = { exists = scope:bg_override_char }
 				scope:bg_override_char = {
 					OR = {
-						location.culture = { has_graphical_india_culture_group_trigger = yes }
+						location.culture ?= { has_graphical_india_culture_group_trigger = yes }
 						location ?= { steppe_building_gfx_use_indian_trigger = yes }
 					}
 				}
 			}
 			trigger_else = {
 				OR = {
-					location.culture = { has_graphical_india_culture_group_trigger = yes }
+					location.culture ?= { has_graphical_india_culture_group_trigger = yes }
 					location ?= { steppe_building_gfx_use_indian_trigger = yes }
 				}
 			}

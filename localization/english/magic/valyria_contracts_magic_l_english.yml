@@ -4,7 +4,7 @@
   zz_valyria_search_for_magic_decision:0 "Investigate the Magics of Valyria"
   zz_valyria_search_for_magic_decision_desc:0 "Having found mention in a hidden library of the secrets of the higher mysteries belonging to the lost Valyrian Freehold, the choice is yours whether or not you should seek to explore and discover these secrets of long lost Valyria."
   zz_valyria_search_for_magic_decision_confirm:0 "For the Secrets of the Higher Mysteries!"
-  zz_valyria_search_for_magic_decision_tooltip:0 "Three locations have been suggested where you might find a scroll of Valyrian Magic."
+  zz_valyria_search_for_magic_decision_tooltip:0 "Contracts in pursuit of Valyrian magic will now appear from time to time, until you stop investigating."
   SELECT_COST:0 "Select Cost"
   zz_valyria_search_for_magic_decision_cost_gold_name:0 "Wealth"
   zz_valyria_search_for_magic_decision_cost_gold_desc:0 "The exploration of magic can be financed by the resources of treasure that fund your realm."
@@ -18,14 +18,18 @@
   zz_valyria_stop_search_for_magic_decision:0 "Stop investigating the Magics of Valyria"
   zz_valyria_stop_search_for_magic_decision_desc:0 "The search for magic consumes much in treasure and time. It is now time to put aside this task for a time."
   zz_valyria_stop_search_for_magic_decision_confirm:0 "For the Secrets of the Higher Mysteries!"
-  zz_valyria_stop_search_for_magic_decision_tooltip:0 "Three locations have been suggested where you might find a scroll of Valyrian Magic."
+  zz_valyria_stop_search_for_magic_decision_tooltip:0 "Contracts in pursuit of Valyrian magic will no longer appear on their own."
+
+  zz_valyria_seek_magic_contracts_decision:0 "Seek out the Magics of Valyria"
+  zz_valyria_seek_magic_contracts_decision_desc:0 "Spending freely on informants, old maps and the ramblings of scholars may turn up fresh leads to the secrets of the higher mysteries at once, rather than waiting for them to surface."
+  zz_valyria_seek_magic_contracts_decision_confirm:0 "For the Secrets of the Higher Mysteries!"
+  zz_valyria_seek_magic_contracts_decision_tooltip:0 "Three locations have been suggested where you might find a scroll of Valyrian Magic."
 
   #zz_valyria_magic_research_decision
   zz_valyria_magic_research_decision:0 "Research a Mystery"
   zz_valyria_magic_research_decision_desc:0 "Your magical development can be further accelerated by taking the time to study your insights into the higher mysteries. Perhaps it is time to retreat to an isolated room and experiment with your theories of how to bring about a specific kind of magical effect."
   zz_valyria_magic_research_decision_confirm:0 "For the Secrets of the Higher Mysteries!"
   zz_valyria_magic_research_decision_tooltip:0 "Retreat to a location and learn a mystery of your choosing"
-  SELECT_COST:0 "Select Cost"
   zz_valyria_magic_research_decision_cost_gold_name:0 "Wealth"
   zz_valyria_magic_research_decision_cost_gold_desc:0 "The exploration of magic can be financed by the resources of treasure that fund your realm."
   zz_valyria_magic_research_decision_cost_influence_name:0 "Influence"
@@ -72,7 +76,7 @@
 
 
 
-  zz_valyria_magic_contracts.00021.t:0 "The archives of House [employer.GetHouse.GetBaseNameNoTooltip]""
+  zz_valyria_magic_contracts.00021.t:0 "The archives of House [employer.GetHouse.GetBaseNameNoTooltip]"
   zz_valyria_magic_contracts.00021.desc:0 "Our arrival in [employer.GetPrimaryTitle.GetBaseNameNoTier] is met with little fanfare — the locals are in some measure of frustration of our desires to accesss the records stored in this location.\n\nWithout our rapid completion of our examinations the local population may become antagonised by our presence.$zz_valyria_magic_contracts.00021.desc.outro$"
   zz_valyria_magic_contracts.00021.desc.outro:0 "\n\n[employer.GetTitledFirstName|U] is at pains to let us know that their tolerance of our intrusion into their archives has its limits."
   zz_valyria_magic_contracts.00021.a:0 "Let us utilise our administrative mastery"
@@ -172,10 +176,10 @@
 
   zz_valyria_magic_contracts.00101.t:0 "Magical Experiments"
   zz_valyria_magic_contracts.00101.desc:0 "Here in the province of [task_contract_location.GetTitle.GetBaseNameNoTier] there is a wide freedom of opporutnity to explore magic. These lands shall provide the resources for your practical experiments in the casting of magic."
-  zz_valyria_magic_contracts.00101.desc.experiments_type.higher_mysteries:0 "/n/nThe focus of your current experiments is your general ability in the weaving, channelling, and controlling the mystical energies. Sucess shall lead your skills in $higher_mysteries$ to expand in leaps and bounds."
-  zz_valyria_magic_contracts.00101.desc.experiments_type.blood_magic:0 "/n/nYour current agenda is the development of your abilities in the casting of $blood_magic$. This art is based upon the spilling and cajouling of the essential life giving fluid. Thus, this location, provides an opportunity for you to engage in the necessary transgressions without much fear of your art being discovered."
-  zz_valyria_magic_contracts.00101.desc.experiments_type.dream_magic:0 "/n/nYour current plan is to develop your abilities in $dream_magic$. This esoteric art blurs the distinction between fantasy and reality, making the minds, the hopes, and the destinies of other beings the playground of a gifted practioner. But such magics inspire accute fear and disgust. While success in your experiments will let your powers transgress the limitations of mortal men, the knowledge that you are conducting such experiments could cause those around you a measure of fear."
-  zz_valyria_magic_contracts.00101.desc.experiments_type.alchemy_magic:0 "/n/nYour current intention is to develop your skills in the wielding of $alchemy_magic$. This learned discipline of transmutating substances at their most essential level, to remake reality as to your own impecable design. Such magics are an intrusion into the realm of the Gods themselves, begging for a measure of divine judgement for your hubris. While successful experiments may lead to your ever increasing riches, failures will bring forth monstrosities of twisted natures that even lost Valyria would fail to face with pride..."
+  zz_valyria_magic_contracts.00101.desc.experiments_type.higher_mysteries:0 "\n\nThe focus of your current experiments is your general ability in the weaving, channelling, and controlling the mystical energies. Sucess shall lead your skills in $higher_mysteries$ to expand in leaps and bounds."
+  zz_valyria_magic_contracts.00101.desc.experiments_type.blood_magic:0 "\n\nYour current agenda is the development of your abilities in the casting of $blood_magic$. This art is based upon the spilling and cajouling of the essential life giving fluid. Thus, this location, provides an opportunity for you to engage in the necessary transgressions without much fear of your art being discovered."
+  zz_valyria_magic_contracts.00101.desc.experiments_type.dream_magic:0 "\n\nYour current plan is to develop your abilities in $dream_magic$. This esoteric art blurs the distinction between fantasy and reality, making the minds, the hopes, and the destinies of other beings the playground of a gifted practioner. But such magics inspire accute fear and disgust. While success in your experiments will let your powers transgress the limitations of mortal men, the knowledge that you are conducting such experiments could cause those around you a measure of fear."
+  zz_valyria_magic_contracts.00101.desc.experiments_type.alchemy_magic:0 "\n\nYour current intention is to develop your skills in the wielding of $alchemy_magic$. This learned discipline of transmutating substances at their most essential level, to remake reality as to your own impecable design. Such magics are an intrusion into the realm of the Gods themselves, begging for a measure of divine judgement for your hubris. While successful experiments may lead to your ever increasing riches, failures will bring forth monstrosities of twisted natures that even lost Valyria would fail to face with pride..."
   zz_valyria_magic_contracts.00101.desc.experiments_type.shadow_magic:0 "\n\nYour current focus is to develop your understanding of the lingering entities of shadow commanded by the use of $shadow_magic$. This dark and feared art calls forth the things that dwell between the light, binding them to your will as instruments of subterfuge and death. The shadows themselves are alive to those who know their true names, and in this remote place you may commune with them freely. Yet such workings leave their mark upon the practioner — for every shadow bound to your service, your own grows ever darker and more restless, as though it were no longer entirely your own."
   zz_valyria_magic_contracts.00101.desc.experiments_type.air_magic:0 "\n\nYour current ambition is to refine your command of $air_magic$. This volatile art grants dominion over the winds and the breath of the sky itself, calling forth gales and tempests, or stilling the air to silence with but a whispered incantation. Such experiments demand wide and open spaces far from settled lands, for even a minor miscalculation in the channelling of these energies could unleash devastation upon the surrounding countryside. Here, amidst the wilds, the skies themselves shall serve as your proving ground."
   zz_valyria_magic_contracts.00101.desc.experiments_type.fire_magic:0 "\n\nYour current design is to advance your mastery of $fire_magic$. This most fearsome and destructive of the Valyrian arts commands the primal force of flame — that same force which the Freehold once wielded to forge an empire and bend the very stone of the earth to its will. The casting of such magics is not without considerable peril, for fire is a merciless tutor that suffers no lapse in concentration. These remote lands offer the necessary distance from civilisation, where the inevitable scorching of the earth will trouble no one of consequence."
@@ -194,7 +198,7 @@
   zz_valyria_magic_contracts.00103.a:0 "Perhaps next time."
 
   zz_valyria_magic_contracts.00091.t:0 "Magical Meditations"
-  zz_valyria_magic_contracts.00091.desc:0 "You have arrived in the province of [task_contract_location.GetTitle.GetBaseNameNoTier]. Here, isolated from the stresses of your responsibiltiies it is time to let your mind flow freely upon the mysteries of lost Valryia, those hidden mysteries that the lesser minds call 'magic'. /n/nWithin your meditations it might be possible to reach towards the ebbs and flows of esoteric energies and grasp in its fullness one of these arcane powers. This will let you grow in your stature as what the fearful call a mage. /n/nBut such secrets take effort to uncover, are you fully committed to this arduous path?"
+  zz_valyria_magic_contracts.00091.desc:0 "You have arrived in the province of [task_contract_location.GetTitle.GetBaseNameNoTier]. Here, isolated from the stresses of your responsibiltiies it is time to let your mind flow freely upon the mysteries of lost Valryia, those hidden mysteries that the lesser minds call 'magic'. \n\nWithin your meditations it might be possible to reach towards the ebbs and flows of esoteric energies and grasp in its fullness one of these arcane powers. This will let you grow in your stature as what the fearful call a mage. \n\nBut such secrets take effort to uncover, are you fully committed to this arduous path?"
   zz_valyria_magic_contracts.00091.a:0 "Within my mind is power."
   zz_valyria_magic_contracts.00091.b:0 "Their power will be mine..."
   zz_valyria_magic_contracts.00092.t:0 "$zz_valyria_magic_contracts.00091.t$: Success"
@@ -235,21 +239,8 @@
   zz_valyria_magic_contracts.00197.a:0 "Knowledge is power!"
 
 
-  zz_valyria_magic_contracts.00501.t:0 "Dragonsteel Forging"
-  zz_valyria_magic_contracts.00501.desc:0 "Here in the province of [task_contract_location.GetTitle.GetBaseNameNoTier], where the fires of the earth rage beneath the crust, there is an unparalleled opportunity to forge a Valyrian steel ingot. Only through the combination of magical insight and dragonfire can the molten metal be tempered to perfection."
-  zz_valyria_magic_contracts.00501.desc.experiments_type.dragon_steel:0 "\n\nYour current endeavor is to craft a Valyrian steel ingot using the flames of dragons themselves. The metal must be folded, tempered, and infused with mystical energies to achieve its legendary properties. Success will yield a masterpiece worthy of legend; failure may leave nothing but molten slag and scorched earth."
-  zz_valyria_magic_contracts.00501.a:0 "Call upon my knowledge and dragonfire!"
-  zz_valyria_magic_contracts.00501.b:0 "I shall attempt the forging ritual with utmost care."
 
-  zz_valyria_magic_contracts.00502.t:0 "$zz_valyria_magic_contracts.00501.t$: Success"
-  zz_valyria_magic_contracts.00502.desc.resolution_type.dragon_steel:0 "Through focus, skill, and the searing heat of dragonfire, the ingot has been perfectly forged. It gleams with a deep, almost mystical luster, and the arcane energies woven into its fibers hum with power. My mastery over the forge and the flame has been proven."
-  zz_valyria_magic_contracts.00502.desc.outro:0 "\n\nThe ingot is now mine to shape into whatever legendary weapon I desire. Such an achievement shall be remembered for generations."
-  zz_valyria_magic_contracts.00502.a:0 "The forge has favored me!"
 
-  zz_valyria_magic_contracts.00503.t:0 "$zz_valyria_magic_contracts.00501.t$: Failure"
-  zz_valyria_magic_contracts.00503.desc.resolution_type.dragon_steel:0 "Despite my most careful work, the dragonfire proved too wild, and the molten steel resisted my every effort. The ingot warped and cracked, and the forge itself bears the scars of this failed endeavor. Even my learning could not command the flames this day."
-  zz_valyria_magic_contracts.00503.desc.outro:0 "\n\nI must retreat and recover my strength before attempting this legendary craft again. The secrets of Valyria are stubborn and demand patience, skill, and a measure of daring beyond most mortals."
-  zz_valyria_magic_contracts.00503.a:0 "I will try again another day."
   
 
   higher_mysteries:0 "[higher_mysteries|E]"
@@ -268,3 +259,24 @@
   air_magic_skill:0 "Improve $air_magic$"
   fire_magic_skill:0 "Improve $fire_magic$"
   water_magic_skill:0 "Improve $water_magic$"
+
+  zz_valyria_magic_forge_valyrian_steel_ingot_request:0 "Solve the situation potentially using your [learning|E]"
+  zz_valyria_magic_forge_valyrian_steel_ingot_contract:0 "Forging the Flames: Valyrian Steel Mysteries"
+  zz_valyria_magic_forge_valyrian_steel_ingot_desc:0 "The forging secrets of Valyria are lost to time, yet a mage who knows the old rites may still forge a single, perfect ingot in the forges of their own seat, folding the steel with sorcery and tempering it in enchanted flame. Only a mage of great skill and courage can attempt such a feat, channeling mystical energies to temper the steel in a way that no mortal forge could achieve."
+  zz_valyria_magic_forge_valyrian_steel_ingot_desc_title:0 "Forge a Valyrian Steel Ingot"
+
+  zz_valyria_magic_contracts.00501.t:0 "Valyrian Steel Forging"
+  zz_valyria_magic_contracts.00501.desc:0 "Here in the forges of [task_contract_location.GetTitle.GetBaseNameNoTier], the fires have been stoked hotter than any smith would dare, and the anvil is ready for the forging of a Valyrian steel ingot. Only through the combination of magical insight and enchanted flame can the molten metal be tempered to perfection."
+  zz_valyria_magic_contracts.00501.desc.experiments_type.dragon_steel:0 "\n\nYour current endeavor is to craft a Valyrian steel ingot in sorcerous flame. The metal must be folded, tempered, and infused with mystical energies to achieve its legendary properties. Success will yield a masterpiece worthy of legend; failure may leave nothing but molten slag and scorched stone."
+  zz_valyria_magic_contracts.00501.a:0 "Call upon my knowledge and the flame!"
+  zz_valyria_magic_contracts.00501.b:0 "I shall attempt the forging ritual with utmost care."
+
+  zz_valyria_magic_contracts.00502.t:0 "$zz_valyria_magic_contracts.00501.t$: Success"
+  zz_valyria_magic_contracts.00502.desc.resolution_type.dragon_steel:0 "Through focus, skill, and the searing heat of sorcerous flame, the ingot has been perfectly forged. It gleams with a deep, almost mystical luster, and the arcane energies woven into its fibers hum with power. My mastery over the forge and the flame has been proven."
+  zz_valyria_magic_contracts.00502.desc.outro:0 "\n\nThe ingot is now mine to shape into whatever legendary work I desire. Such an achievement shall be remembered for generations."
+  zz_valyria_magic_contracts.00502.a:0 "The forge has favored me!"
+
+  zz_valyria_magic_contracts.00503.t:0 "$zz_valyria_magic_contracts.00501.t$: Failure"
+  zz_valyria_magic_contracts.00503.desc.resolution_type.dragon_steel:0 "Despite my most careful work, the flame proved too wild, and the molten steel resisted my every effort. The ingot warped and cracked, and the forge itself bears the scars of this failed endeavor. Even my learning could not command the fire this day."
+  zz_valyria_magic_contracts.00503.desc.outro:0 "\n\nI must retreat and recover my strength before attempting this legendary craft again. The secrets of Valyria are stubborn and demand patience, skill, and a measure of daring beyond most mortals."
+  zz_valyria_magic_contracts.00503.a:0 "I will try again another day."

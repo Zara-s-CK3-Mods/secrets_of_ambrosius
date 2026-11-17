@@ -184,7 +184,6 @@
   trait_track_drops_of_power_gain:0 "[drops_of_power|E] Passive Gain"
   trait_track_drops_of_power_gain_xp_gain_mult:0 "[GetTrait('zz_magic_dummy_trait').GetTraitTrackByKey( 'drops_of_power_gain' ).GetName]"
   trait_track_drops_of_power_mult:0 "[drops_of_power|E] Multiplier"
-  zz_drops_of_power_holding_construction_piety_cost:0 "[GetTrait('zz_magic_dummy_trait').GetTraitTrackByKey( 'drops_of_power_mult' ).GetName]"
   
 
 

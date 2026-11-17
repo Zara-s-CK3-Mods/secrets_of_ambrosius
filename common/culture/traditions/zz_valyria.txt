@@ -349,3 +349,32 @@ tradition_zz_cultural_polygamy_nine_wives = {
 		value = -1
 	}
 }
+
+tradition_zz_cultural_polygamy_fifteen_wives = {
+	category = societal
+
+	layers = {
+		0 = diplo
+	}
+
+	is_shown = {
+		always = no
+		has_game_rule = debug_mode_on
+	}
+
+	can_pick = {
+		always = no
+	}
+
+	can_pick_for_hybridization = {
+		always = no
+	}
+
+	cost = {
+		prestige = 1000
+	}
+
+	ai_will_do = {
+		value = -1
+	}
+}

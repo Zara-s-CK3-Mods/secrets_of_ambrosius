@@ -1,0 +1,61 @@
+# Single-choice popup picker: shows the chosen character (zz_valyria_selected_character) and opens the Select Character window,
+# which lists zz_valyria_possible_characters and picks with zz_valyria_character_selecting. Replaces the inline grid in
+# event_window_character_selection; the window is hosted in gui/event_windows/zz_valyria_magic_character_event.gui
+widget = {
+	allow_outside = yes
+	name = "event_window_character_selection_popup"
+	size = { 350 100 } # Size of the insert inside the event window; needs to fit under the text box since a margin will only push the content and not the widget
+
+	vbox = {
+		allow_outside = yes
+		layoutpolicy_horizontal = expanding
+		layoutpolicy_vertical = expanding
+		position = { 0 4 } # Pushes the box around
+		button_standard = {
+			size = { 300 65 } # Size of the button frame borders; needs to fit within the widget size
+			using = tooltip_ws
+			layoutpolicy_vertical = expanding
+			onclick = "[GetVariableSystem.Set( 'zz_character_selection_popup_view', 'true' )]"
+
+			# Nothing chosen yet
+			text_single = {
+				visible = "[Not( GetPlayer.MakeScope.Var('zz_valyria_selected_character').IsSet )]"
+				text = "zz_character_selection_popup_choose"
+				using = Font_Size_Small
+				parentanchor = center
+				align = center|nobaseline
+			}
+
+			# The chosen character
+			widget = {
+				visible = "[GetPlayer.MakeScope.Var('zz_valyria_selected_character').IsSet]"
+				size = { 300 65 }
+				datacontext = "[GetPlayer.MakeScope.Var('zz_valyria_selected_character').Char]"
+				tooltipwidget = {
+					cooltip_type = {
+						blockoverride "interaction_info" {
+							text = "CHARACTER_TOOLTIP_INSTRUCTION"
+						}
+					}
+				}
+				tooltip_offset = { 0 0 }
+				tooltip_verticalbehavior = slide
+				tooltip_horizontalbehavior = mirror
+
+				portrait_head_small = {
+					scale = 1
+					tooltip_visible = no
+				}
+				text_single = {
+					name = "character_name"
+					text = "[Character.GetShortUINameNotMeNoTooltip]"
+					using = Font_Size_Small
+					parentanchor = center
+					align = center|nobaseline
+					max_width = 200 # Position where the text begins to resize; needs to fit within the button size, taking into account anything this text shares the button with
+				}
+			}
+		}
+		expand = {}
+	}
+}

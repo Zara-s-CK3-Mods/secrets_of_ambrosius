@@ -1,0 +1,19 @@
+﻿# Stores whether a player character has access to magic, so the interface can check a variable instead of searching
+# their house, court and realm on every update. Read by zz_valyria_has_mage_access_cached and zz_valyria_has_magic_access_cached.
+# Refreshed at game start, every quarter, and whenever anyone gains or loses the magister trait (common/on_action/Magic/zz_valyria_magic_access.txt)
+zz_valyria_refresh_magic_access = {
+	if = {
+		limit = { zz_valyria_is_mage = yes }
+		set_variable = { name = zz_magic_access_mage value = yes }
+	}
+	else = {
+		remove_variable = zz_magic_access_mage
+	}
+	if = {
+		limit = { zz_valyria_is_scroll_holder = yes }
+		set_variable = { name = zz_magic_access_scroll value = yes }
+	}
+	else = {
+		remove_variable = zz_magic_access_scroll
+	}
+}

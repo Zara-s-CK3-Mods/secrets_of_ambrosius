@@ -1,0 +1,6 @@
+﻿# Troop counts for the regiment damage/heal magic effects in zz_valyria_magic_09_magic_system.txt
+# (each point is one soldier; evaluated in army scope, so these are flat values)
+zz_value_army_regiments_damage_mystery = 100
+zz_value_army_regiments_heal_mystery = 100
+zz_value_owned_regiments_damage_mystery = 100
+zz_value_owned_regiments_heal_mystery = 100

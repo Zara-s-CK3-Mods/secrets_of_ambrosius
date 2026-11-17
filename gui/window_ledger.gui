@@ -82,59 +82,19 @@
 					container = {
 						visible = "[GetVariableSystem.HasValue('ledger_tab', 'titles')]"
 
-						icon_button_mapmode = {
+						icon_button_mapmode_dejure_duchies = {
 							visible = "[GetVariableSystem.HasValue('ledger_titles_tab', 'duchies')]"
-							name = "map_mode_duchies_button"
-
 							size = { 38 38 }
-
-							blockoverride "mm_datacontext" {
-								datacontext = "[GetMapMode('dejure_duchies')]"
-							}
-
-							blockoverride "mm_button" {
-								shortcut = "map_mode_dejure_duchies"
-							}
-
-							blockoverride "button_bg_color" {
-								color = { 0.1 0.14 0.1 1 } #TODO template
-							}
 						}
 
-						icon_button_mapmode = {
+						icon_button_mapmode_dejure_kingdoms = {
 							visible = "[GetVariableSystem.HasValue('ledger_titles_tab', 'kingdoms')]"
-							name = "map_mode_kingdoms_button"
 							size = { 38 38 }
-
-							blockoverride "mm_datacontext" {
-								datacontext = "[GetMapMode('dejure_kingdoms')]"
-							}
-
-							blockoverride "mm_button" {
-								shortcut = "map_mode_dejure_kingdoms"
-							}
-
-							blockoverride "button_bg_color" {
-								color = { 0.18 0.1 0.1 1 }
-							}
 						}
 
-						icon_button_mapmode = {
+						icon_button_mapmode_dejure_empires = {
 							visible = "[GetVariableSystem.HasValue('ledger_titles_tab', 'empires')]"
-							name = "map_mode_empires_button"
 							size = { 38 38 }
-
-							blockoverride "mm_datacontext" {
-								datacontext = "[GetMapMode('dejure_empires')]"
-							}
-
-							blockoverride "mm_button" {
-								shortcut = "map_mode_dejure_empires"
-							}
-
-							blockoverride "button_bg_color" {
-								color = { 0.12 0.12 0.18 1 }
-							}
 						}
 
 						icon_button_mapmode = {
@@ -3277,7 +3237,7 @@ types LedgerTypes {
 			datacontext = "[LedgerDistrictItem.GetDistrictType]"
 			visible = "[LedgerDistrictItem.IsValid]"
 			parentanchor = center
-			size = { 28 24 }
+			size = { 24 24 }
 			alwaystransparent = yes
 
 			modify_texture = {
@@ -3307,7 +3267,7 @@ types LedgerTypes {
 			alwaystransparent = yes
 		}
 
-		# Declared before the progress bar so the bar draws over the badge, as the Holding View bar covers its slot pips.
+		# Declared before the progress bar so the bar draws over the badge, as on Holding View
 		icon_district_level = {}
 
 		progressbar_standard = {
@@ -6351,8 +6311,7 @@ types LedgerTypes {
 								datamodel = "[TraitArrays.GetTraits]"
 								item = {
 									icon_trait = {
-										visible = "[EqualTo_string(Trait.GetTraitCategoryLabel, GetTrait('logistician').GetTraitCategoryLabel)]"
-										# visible = "[Trait.HasFlag('commander_trait_flag')]"
+										visible = "[Trait.HasFlag('commander_trait_flag')]"
 										blockoverride "icon_size" {
 											size = { 30 30 }
 										}
@@ -8609,7 +8568,13 @@ types LedgerTypes {
 					text_single = {
 						default_format = "#clickable"
 						text = "[Province.GetLoot|0]"
-						tooltip = "[Province.GetLootTooltip]"
+
+						tooltip_visible = yes
+						tooltipwidget = {
+							widget_value_breakdown_tooltip = {
+								datacontext = "[LedgerProvinceItem.GetLootBreakdown]"
+							}
+						}
 
 						background = {
 							visible = "[Holding.GetProvince.IsRecentlyLooted]"

@@ -441,7 +441,7 @@ widget = {
 					widget_hud_main_tab = {
 						name = "republic_hud_button_tutorial_uses_this"
 						datacontext = "[GetPlayer]"
-						visible = "[Character.GetGovernment.IsType( 'republic_government' )]"
+						visible = "[Or( Character.GetGovernment.IsType( 'republic_government' ), Character.GetGovernment.HasGovernmentFlag( 'government_is_magocracy' ) )]" # SOTHM: the Magocracy (zz_mag_government) also gets the republic window
 
 						blockoverride "maintab_button"
 						{
@@ -458,7 +458,7 @@ widget = {
 
 					widget_hud_main_tab = {
 						datacontext = "[GetPlayer.GetTopLiege]"
-						visible = "[Character.GetGovernment.UsesStandardAdminView]"
+						visible = "[Or( Character.GetGovernment.UsesStandardAdminView, Character.GetGovernment.HasGovernmentFlag( 'government_is_magocracy' ) )]" # SOTHM: the Magocracy (zz_mag_government) also gets the administration window
 						blockoverride "maintab_button"
 						{
 							texture = "gfx/interface/icons/hud_maintab/maintab_administrative.dds"
@@ -1100,6 +1100,12 @@ widget = {
 				visible = "[And(Not( IsPauseMenuShown ), Not( GreaterThan_CFixedPoint( GetPlayer.MakeScope.Var('hide_ui_top_bar').GetValue, '(CFixedPoint)0' ) ))]"
 			}
 		}
+	}
+
+	# We put extra mapmodes here so they sit on top of the HUD, including the Byzantine emperor tabs
+	flowcontainer_additional_mapmodes = {
+		parentanchor = bottom|right
+		position = { 21 -148 }
 	}
 
 	widget_stress_sounds = {}
@@ -3767,7 +3773,7 @@ types HUD
 					texture = "[Domicile.GetType.GetIcon]"
 				}
 				widget_new_court_artifacts = {
-					visible = "[And( Character.GetDomicile.GetType.IsDomicileType( 'merchant_company' ), GreaterThan_int32( LocalPlayerNewArtifacts.GetNumNewArtifactsOfCategory( 'court' ), '(int32)0' ) ) ]"
+					visible = "[And( Character.GetDomicile.GetType.IsDomicileType( 'merchant_company' ), GreaterThan_int32( Add_int32( LocalPlayerNewArtifacts.GetNumNewArtifactsOfSlot( 'library' ), Add_int32( LocalPlayerNewArtifacts.GetNumNewArtifactsOfSlot( 'curio' ), LocalPlayerNewArtifacts.GetNumNewArtifactsOfSlot( 'creature' ) ) ), '(int32)0' ) ) ]"
 					position = { 6 2 }
 					parentanchor = bottom|right
 				}
@@ -6666,7 +6672,11 @@ types HUD
 			onclick = "[GetVariableSystem.Clear( 'extra_buttons_expand' )]"
 			shortcut = "encyclopedia"
 		}
-
+		button_normal = {
+			onclick = "[SetMapMode( 'mandala' )]"
+			shortcut = "map_mode_mandala"
+			enabled = "[GetPlayer.ShouldShowRadiance]"
+		}
 		button_normal = {
 			onclick = "[SetMapMode( 'trade_markets' )]"
 			shortcut = "map_mode_trade_markets"
@@ -7432,7 +7442,7 @@ types HUD
 					widget = {
 						name = "influence"
 						datacontext = "[InGameTopbar.GetInfluenceItem]"
-						visible = "[GetPlayer.GetGovernment.HasMechanic( 'administrative' )]"
+						visible = "[Or( GetPlayer.GetGovernment.HasMechanic( 'administrative' ), GetPlayer.GetGovernment.HasGovernmentFlag( 'government_is_magocracy' ) )]" # SOTHM: the Magocracy (zz_mag_government) also has influence
 						size = { 112 70 }
 
 						widget = {

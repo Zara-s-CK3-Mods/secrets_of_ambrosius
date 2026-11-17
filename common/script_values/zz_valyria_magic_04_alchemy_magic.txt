@@ -50,6 +50,21 @@ zz_valyria_magic_alchemy_magic_base_value = {
 				add = this.var:alchemy_magic_overcap
 			}
 		}
+		multiply = {
+			value = 1
+			if = {
+				limit = {
+					faith = { has_doctrine_parameter = zz_tenet_strength_alchemy_magic }
+				}
+				add = 0.25
+			}
+			if = {
+				limit = {
+					has_personal_tenet_flag = zz_personal_strength_alchemy_magic
+				}
+				add = 0.1
+			}
+		}
 	}
 }
 zz_valyria_magic_alchemy_magic_001_value = {
@@ -198,7 +213,7 @@ zz_valyria_magic_alchemy_magic_006_value_01 = {
 	add = { 
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_alchemy_magic_base_value
-			divide = 90
+			divide = 100
 			min = 1
 		}
 	}
@@ -283,6 +298,19 @@ zz_valyria_magic_alchemy_magic_010_value_01 = {
 		}
 	}
 }
+# Alchemy 010: _03 is the change in years chosen on the counter widget, between minus the spell's power and 0; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_010_value_03 = {
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+	}
+	else = {
+		value = zz_valyria_magic_alchemy_magic_010_value_02
+	}
+	min = zz_valyria_magic_alchemy_magic_010_value_02
+	max = 0
+}
 zz_valyria_magic_alchemy_magic_010_value_02 = {
 	value = 0
 	add = { 
@@ -312,6 +340,35 @@ zz_valyria_magic_alchemy_magic_011_value_01 = {
 			divide = 20
 			min = 1
 		}
+	}
+}
+# Alchemy age manipulation: the recipient's age as the counter widget shows it, using effective age for the immortal and long-lived
+zz_valyria_alchemy_magic_recipient_age = {
+	value = scope:recipient.age
+	if = {
+		limit = {
+			scope:recipient = {
+				OR = {
+					has_trait = immortal
+					has_trait = zz_valyrian_longevity
+				}
+			}
+		}
+		value = scope:recipient.effective_age
+	}
+}
+# Alchemy 011: _02 is the change in years chosen on the counter widget, between 0 and the spell's power; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_011_value_02 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = 0
+		max = zz_valyria_magic_alchemy_magic_011_value_01
+	}
+	else = {
+		value = zz_valyria_magic_alchemy_magic_011_value_01
 	}
 }
 zz_valyria_magic_alchemy_magic_012_value = {
@@ -488,13 +545,13 @@ zz_valyria_magic_alchemy_magic_020_value = {
 	}
 }
 
-zz_valyria_magic_alchemy_magic_020_value_01 = {
+zz_valyria_magic_alchemy_magic_020_value_01 = { # +5 vassal limit per 100 alchemy skill (minimum 1), no cap
 	value = 0
 	add = { 
 		scope:secondary_recipient = { 
 			add = zz_valyria_magic_alchemy_magic_base_value
-			divide = 3
-			min = 100
+			divide = 100
+			min = 1
 		}
 	}
 }
@@ -514,6 +571,606 @@ zz_valyria_magic_alchemy_magic_021_value_01 = {
 	value = 0
 	add = { 
 		scope:secondary_recipient = { 
+			value = zz_valyria_magic_alchemy_magic_base_value
+			min = 1
+		}
+	}
+}
+
+# Mystery of Alchemical Refinement (same scaling as the Mystery of Prosperity)
+zz_valyria_magic_alchemy_magic_022_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			add = zz_valyria_magic_alchemy_magic_base_value
+			multiply = 1
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_022_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+
+# Mystery of Expansion (same scaling as the Mystery of Prosperity)
+zz_valyria_magic_alchemy_magic_023_value = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			add = zz_valyria_magic_alchemy_magic_base_value
+			multiply = 1
+			min = 1
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_023_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+
+# Unmaking (Building to Gold): _01 is the gold the county's holder receives
+zz_valyria_magic_alchemy_magic_024_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 1
+			min = 1
+		}
+	}
+	multiply = 1
+}
+zz_valyria_magic_alchemy_magic_025_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 1
+			min = 1
+		}
+	}
+	multiply = 1
+}
+zz_valyria_magic_alchemy_magic_024_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			multiply = 5
+			min = 25
+		}
+	}
+}
+
+# Fatal Transmutation (Strike Army): _01 is the share of the army destroyed, at the Moderate tier (skill / 300);
+# _02, worked out in the army's scope before it is depleted, is the gold: a quarter of a gold piece per soldier transmuted
+zz_valyria_magic_alchemy_magic_026_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 1
+			min = 1
+		}
+	}
+	multiply = 1
+}
+zz_valyria_magic_alchemy_magic_026_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			multiply = zz_valyria_moderate_damage_army
+			min = zz_valyria_moderate_damage_army
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_026_value_02 = { # gold: a quarter for every soldier killed, no more than the army has
+	value = zz_valyria_magic_alchemy_magic_026_value_01
+	if = {
+		limit = { army_size < zz_valyria_magic_alchemy_magic_026_value_01 }
+		value = army_size
+	}
+	multiply = 0.25
+	min = 0
+}
+# 1 size progress per alchemy level (100 size progress is one full size level)
+zz_valyria_magic_alchemy_magic_023_value_02 = {
+	value = zz_valyria_magic_alchemy_magic_023_value
+}
+
+# Mystery of Mercantile Reach
+zz_valyria_magic_alchemy_magic_027_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_alchemy_magic_base_value
+			multiply = 1
+			min = 1
+		}
+	}
+}
+# 1 per 100 alchemy skill (minimum 1), no cap
+zz_valyria_magic_alchemy_magic_027_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 100
+			floor = yes
+			min = 1
+		}
+	}
+}
+
+# Mystery of Bountiful Caravans
+zz_valyria_magic_alchemy_magic_028_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_alchemy_magic_base_value
+			multiply = 1
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_028_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+
+# Mystery of the Long Road
+zz_valyria_magic_alchemy_magic_029_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_alchemy_magic_base_value
+			multiply = 1
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_029_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+
+# Mystery of the Open Road
+zz_valyria_magic_alchemy_magic_030_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_alchemy_magic_base_value
+			multiply = 1
+			min = 1
+		}
+	}
+}
+# 1 per 100 alchemy skill (minimum 1), no cap
+zz_valyria_magic_alchemy_magic_030_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 100
+			floor = yes
+			min = 1
+		}
+	}
+}
+
+# Mystery of Many Markets
+zz_valyria_magic_alchemy_magic_031_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_alchemy_magic_base_value
+			multiply = 1
+			min = 1
+		}
+	}
+}
+# 1 per 100 alchemy skill (minimum 1), no cap
+zz_valyria_magic_alchemy_magic_031_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 100
+			floor = yes
+			min = 1
+		}
+	}
+}
+# Mystery of Transmutation (Valyrian Steel): _01 is the number of ingots, 1 per 500 alchemy skill (minimum 1), no cap
+zz_valyria_magic_alchemy_magic_032_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 1
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_032_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 500
+			floor = yes
+			min = 1
+		}
+	}
+}
+# Alchemy 033 - Bronze Sentinels
+zz_valyria_magic_alchemy_magic_033_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_033_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 20
+			min = 1
+		}
+	}
+}
+# Alchemy 034 - Iron Colossi
+zz_valyria_magic_alchemy_magic_034_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_034_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 33
+			min = 1
+		}
+	}
+}
+# Alchemy 035 - Alchemical Purgation: _01 is the miscast reduction, the strongest of any school
+zz_valyria_magic_alchemy_magic_035_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_035_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 15
+			min = 1
+		}
+	}
+}
+# Alchemy 036 - Alchemical Tempering: _01 is the miscast protection
+zz_valyria_magic_alchemy_magic_036_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_036_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 25
+			min = 1
+		}
+	}
+}
+# Alchemy 037 - Inner Transmutation (Diplomacy): _01 is the change to diplomacy, +1 per 80 skill and at least 1; _02 is the same as a loss
+zz_valyria_magic_alchemy_magic_037_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_037_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 80
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_037_value_02 = {
+	value = zz_valyria_magic_alchemy_magic_037_value_01
+	multiply = -1
+}
+# Alchemy 037: _03 is the change to diplomacy chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_037_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_alchemy_magic_037_value_02
+		max = zz_valyria_magic_alchemy_magic_037_value_01
+	}
+	else = {
+		value = zz_valyria_magic_alchemy_magic_037_value_01
+	}
+}
+# Alchemy 038 - Inner Transmutation (Martial): _01 is the change to martial, +1 per 90 skill and at least 1; _02 is the same as a loss
+zz_valyria_magic_alchemy_magic_038_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_038_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 90
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_038_value_02 = {
+	value = zz_valyria_magic_alchemy_magic_038_value_01
+	multiply = -1
+}
+# Alchemy 038: _03 is the change to martial chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_038_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_alchemy_magic_038_value_02
+		max = zz_valyria_magic_alchemy_magic_038_value_01
+	}
+	else = {
+		value = zz_valyria_magic_alchemy_magic_038_value_01
+	}
+}
+# Alchemy 039 - Inner Transmutation (Stewardship): _01 is the change to stewardship, +1 per 35 skill and at least 1; _02 is the same as a loss
+zz_valyria_magic_alchemy_magic_039_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_039_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 35
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_039_value_02 = {
+	value = zz_valyria_magic_alchemy_magic_039_value_01
+	multiply = -1
+}
+# Alchemy 039: _03 is the change to stewardship chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_039_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_alchemy_magic_039_value_02
+		max = zz_valyria_magic_alchemy_magic_039_value_01
+	}
+	else = {
+		value = zz_valyria_magic_alchemy_magic_039_value_01
+	}
+}
+# Alchemy 040 - Inner Transmutation (Intrigue): _01 is the change to intrigue, +1 per 65 skill and at least 1; _02 is the same as a loss
+zz_valyria_magic_alchemy_magic_040_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_040_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 65
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_040_value_02 = {
+	value = zz_valyria_magic_alchemy_magic_040_value_01
+	multiply = -1
+}
+# Alchemy 040: _03 is the change to intrigue chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_040_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_alchemy_magic_040_value_02
+		max = zz_valyria_magic_alchemy_magic_040_value_01
+	}
+	else = {
+		value = zz_valyria_magic_alchemy_magic_040_value_01
+	}
+}
+# Alchemy 041 - Inner Transmutation (Learning): _01 is the change to learning, +1 per 45 skill and at least 1; _02 is the same as a loss
+zz_valyria_magic_alchemy_magic_041_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_041_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 45
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_041_value_02 = {
+	value = zz_valyria_magic_alchemy_magic_041_value_01
+	multiply = -1
+}
+# Alchemy 041: _03 is the change to learning chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_041_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_alchemy_magic_041_value_02
+		max = zz_valyria_magic_alchemy_magic_041_value_01
+	}
+	else = {
+		value = zz_valyria_magic_alchemy_magic_041_value_01
+	}
+}
+# Alchemy 042 - Inner Transmutation (Prowess): _01 is the change to prowess, +1 per 100 skill and at least 1; _02 is the same as a loss
+zz_valyria_magic_alchemy_magic_042_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_042_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 100
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_042_value_02 = {
+	value = zz_valyria_magic_alchemy_magic_042_value_01
+	multiply = -1
+}
+# Alchemy 042: _03 is the change to prowess chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_alchemy_magic_042_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_alchemy_magic_042_value_02
+		max = zz_valyria_magic_alchemy_magic_042_value_01
+	}
+	else = {
+		value = zz_valyria_magic_alchemy_magic_042_value_01
+	}
+}
+
+zz_valyria_magic_alchemy_magic_043_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_alchemy_magic_043_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 20
+			floor = yes
+			min = 1
+			max = 5
+		}
+	}
+}
+
+zz_valyria_magic_alchemy_magic_044_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
 			value = zz_valyria_magic_alchemy_magic_base_value
 			min = 1
 		}

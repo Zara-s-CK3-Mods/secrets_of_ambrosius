@@ -1,0 +1,108 @@
+﻿# Effects behind the Magical Archives character pickers. Each expects scope:zz_magic_user (the player) and the chosen character
+# under the picker's scope name. Used by the archive scripted GUIs and zz_valyria_archive_select_character_interaction
+
+# zz_valyria_mages_selection: scope:zz_magic_caster
+zz_valyria_archive_set_mage_effect = {
+	scope:zz_magic_user = {
+		set_variable = {
+			name = zz_magic_caster
+			value = scope:zz_magic_caster
+		}
+	}
+}
+
+# Crafting window, zz_valyria_magic_item_crafter: scope:zz_item_crafter
+zz_valyria_archive_set_crafter_effect = {
+	scope:zz_magic_user = {
+		set_variable = {
+			name = zz_item_crafter
+			value = scope:zz_item_crafter
+		}
+	}
+}
+
+# zz_valyria_magic_learning_type_apprentice_master: scope:zz_magic_master
+zz_valyria_archive_set_apprentice_master_effect = {
+	scope:zz_magic_user = {
+		set_variable = {
+			name = zz_magic_master
+			value = scope:zz_magic_master
+		}
+	}
+}
+
+# zz_valyria_magic_learning_type_apprentice_learner: scope:zz_valyria_magic_learner
+zz_valyria_archive_set_apprentice_learner_effect = {
+	scope:zz_magic_user = {
+		set_variable = {
+			name = zz_valyria_magic_learner
+			value = scope:zz_valyria_magic_learner
+		}
+	}
+}
+
+# zz_valyria_magic_learning_type_mystery_master: scope:zz_magic_mystery_master
+zz_valyria_archive_set_mystery_master_effect = {
+	scope:zz_magic_user = {
+		set_variable = {
+			name = zz_magic_mystery_master
+			value = scope:zz_magic_mystery_master
+		}
+	}
+	zz_valyria_make_master_spell_list = {MAGIC_USER = zz_magic_user MAGIC_TEACHER = zz_magic_mystery_master}
+}
+
+# zz_valyria_magic_learning_type_mystery_learner: scope:zz_valyria_mystery_magic_learner
+zz_valyria_archive_set_mystery_learner_effect = {
+	scope:zz_magic_user = {
+		set_variable = {
+			name = zz_valyria_mystery_magic_learner
+			value = scope:zz_valyria_mystery_magic_learner
+		}
+	}
+}
+
+# zz_valyria_magic_scroll_learning_owner: scope:zz_item_caster
+zz_valyria_archive_set_scroll_owner_effect = {
+	scope:zz_magic_user = {
+		set_variable = {
+			name = zz_item_caster
+			value = scope:zz_item_caster
+		}
+	}
+	zz_valyria_make_scroll_list = {MAGIC_USER = zz_magic_user ITEM_CASTER = zz_item_caster}
+}
+
+# zz_valyria_magic_scroll_learning_learner: scope:zz_valyria_scroll_learner
+zz_valyria_archive_set_scroll_learner_effect = {
+	scope:zz_magic_user = {
+		set_variable = {
+			name = zz_valyria_scroll_learner
+			value = scope:zz_valyria_scroll_learner
+		}
+	}
+}
+
+# zz_valyria_magic_scroll_maker: scope:zz_scroll_maker
+zz_valyria_archive_set_scroll_maker_effect = {
+	scope:zz_magic_user = {
+		clear_variable_list = zz_valyria_spell_list
+		set_variable = {
+			name = zz_scroll_maker
+			value = scope:zz_scroll_maker
+		}
+	}
+	scope:zz_scroll_maker = {
+		every_memory = {
+			limit = {
+				has_memory_category = magic
+			}
+			scope:zz_magic_user = {
+				add_to_variable_list = {
+					name = zz_valyria_spell_list
+					target = prev
+				}
+			}
+		}
+	}
+}

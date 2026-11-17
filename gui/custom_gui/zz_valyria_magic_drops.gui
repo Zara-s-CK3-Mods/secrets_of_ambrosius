@@ -18,7 +18,9 @@
         
         text_single = {
             name = "balance_neg"
-            visible = "[LessThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('zz_valyria_drops_power_passive_gain'), '(CFixedPoint)0')]"
+            # Off for performance: passive gain can't currently go negative, and this check ran the whole gain calculation every update.
+            # If a negative source is added, restore: visible = "[LessThan_CFixedPoint(GetPlayer.MakeScope.ScriptValue('zz_valyria_drops_power_passive_gain'), '(CFixedPoint)0')]"
+            visible = no
             text = "[GetPlayer.MakeScope.ScriptValue('zz_valyria_drops_power_passive_gain')|1=]"
             max_width = 110
             default_format = "#N"

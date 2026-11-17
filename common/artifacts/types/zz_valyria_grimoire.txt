@@ -1,0 +1,6 @@
+﻿# The Mage's Grimoire: carried in the journal slot. Unlike vanilla's journal type it can be reforged,
+# which lets the reforge window turn it into a library book and back (common/artifacts/blueprints, base-game version)
+zz_grimoire = {
+	slot = journal
+	optional_features = { book_subject book_cover_material book_topic book_title book_decoration decoration_pattern generic_material_wood decoration_material_gem decoration_material_inlay_HSB }
+}

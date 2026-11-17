@@ -31,7 +31,7 @@ zz_take_face_decision = {
 		reference = "gfx/interface/illustrations/decisions/ep3_cerimonial_decision.dds"
 	}
 	decision_group_type = zz_valyria_magic
-	desc = manage_grant_nickname_decision_desc
+	desc = zz_take_face_decision_desc
 
 	ai_check_interval = 0 # Set to 0 instead of 72 since the AI will never use this anyway (removed the is_ai checks below)
 
@@ -50,7 +50,7 @@ zz_take_face_decision = {
 	}
 
 	effect = {
-		custom_tooltip = manage_grant_nickname_decision_effect_tooltip
+		custom_tooltip = zz_take_face_decision_effect_tooltip
 		trigger_event = zz_valyria_magic_management.004
 	}
 }
@@ -141,6 +141,7 @@ manage_grant_culture_trait_decision = {
 		item = { # Administrative
 			value = go_cultural_incest
 			is_shown = {
+				has_global_variable = zz_cultural_incest_mod # set by the Cultural Incest mod
 			}
 			is_valid = {
 
@@ -155,6 +156,7 @@ manage_grant_culture_trait_decision = {
 		item = { # Administrative
 			value = go_cultural_sibling_incest
 			is_shown = {
+				has_global_variable = zz_cultural_incest_mod # set by the Cultural Incest mod
 			}
 			is_valid = {
 
@@ -169,6 +171,7 @@ manage_grant_culture_trait_decision = {
 		item = { # Administrative
 			value = go_cultural_two_concubines
 			is_shown = {
+				has_global_variable = zz_cultural_polygamy_mod # set by the Cultural Polygamy mod
 			}
 			is_valid = {
 
@@ -183,6 +186,7 @@ manage_grant_culture_trait_decision = {
 		item = { # Administrative
 			value = go_cultural_three_concubines
 			is_shown = {
+				has_global_variable = zz_cultural_polygamy_mod # set by the Cultural Polygamy mod
 			}
 			is_valid = {
 
@@ -197,6 +201,7 @@ manage_grant_culture_trait_decision = {
 		item = { # Administrative
 			value = go_cultural_four_concubines
 			is_shown = {
+				has_global_variable = zz_cultural_polygamy_mod # set by the Cultural Polygamy mod
 			}
 			is_valid = {
 
@@ -211,6 +216,7 @@ manage_grant_culture_trait_decision = {
 		item = { # Administrative
 			value = go_cultural_five_concubines
 			is_shown = {
+				has_global_variable = zz_cultural_polygamy_mod # set by the Cultural Polygamy mod
 			}
 			is_valid = {
 
@@ -225,6 +231,7 @@ manage_grant_culture_trait_decision = {
 		item = { # Administrative
 			value = go_cultural_nine_concubines
 			is_shown = {
+				has_global_variable = zz_cultural_polygamy_mod # set by the Cultural Polygamy mod
 			}
 			is_valid = {
 
@@ -239,6 +246,7 @@ manage_grant_culture_trait_decision = {
 		item = { # Administrative
 			value = go_cultural_fifteen_concubines
 			is_shown = {
+				has_global_variable = zz_cultural_polygamy_mod # set by the Cultural Polygamy mod
 			}
 			is_valid = {
 
@@ -256,105 +264,237 @@ manage_grant_culture_trait_decision = {
 		if = {
 			limit = { scope:go_cultural_trait_cap = yes }
 			culture = {
-				add_culture_tradition = tradition_zz_valyrian_practices
+				if = {
+					limit = { NOT = { has_cultural_tradition = tradition_zz_valyrian_practices } }
+					add_culture_tradition = tradition_zz_valyrian_practices
+				}
 			}
 		}
 		if = {
 			limit = { scope:go_mage_lords = yes }
 			culture = {
-				add_culture_tradition = tradition_zz_cultural_mage_lords
+				if = {
+					limit = { NOT = { has_cultural_tradition = tradition_zz_cultural_mage_lords } }
+					add_culture_tradition = tradition_zz_cultural_mage_lords
+				}
 			}
 		}
 		if = {
 			limit = { scope:go_sorcerous_studies = yes }
 			culture = {
-				add_culture_tradition = tradition_zz_sorcerous_studies
+				if = {
+					limit = { NOT = { has_cultural_tradition = tradition_zz_sorcerous_studies } }
+					add_culture_tradition = tradition_zz_sorcerous_studies
+				}
 			}
 		}
 		if = {
 			limit = { scope:go_magic_studies = yes }
 			culture = {
-				add_culture_tradition = tradition_zz_magic_studies
+				if = {
+					limit = { NOT = { has_cultural_tradition = tradition_zz_magic_studies } }
+					add_culture_tradition = tradition_zz_magic_studies
+				}
 			}
 		}
 		else_if = {
 			limit = { scope:go_cultural_incest = yes }
 			culture = {
-				add_culture_tradition = tradition_zz_valyrian_incest
-				remove_culture_tradition = tradition_zz_valyrian_sibling_incest
+				if = {
+					limit = { NOT = { has_cultural_tradition = tradition_zz_valyrian_incest } }
+					add_culture_tradition = tradition_zz_valyrian_incest
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_valyrian_sibling_incest }
+					remove_culture_tradition = tradition_zz_valyrian_sibling_incest
+				}
 			}
 		}
 		else_if = {
 			limit = { scope:go_cultural_sibling_incest = yes }
 			culture = {
-				add_culture_tradition = tradition_zz_valyrian_sibling_incest
-				remove_culture_tradition = tradition_zz_valyrian_incest
+				if = {
+					limit = { NOT = { has_cultural_tradition = tradition_zz_valyrian_sibling_incest } }
+					add_culture_tradition = tradition_zz_valyrian_sibling_incest
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_valyrian_incest }
+					remove_culture_tradition = tradition_zz_valyrian_incest
+				}
 			}
 		}
 		else_if = {
 			limit = { scope:go_cultural_two_concubines = yes }
 			culture = {
-				add_culture_tradition = tradition_zz_cultural_polygamy_two_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
+				if = {
+					limit = { NOT = { has_cultural_tradition = tradition_zz_cultural_polygamy_two_wives } }
+					add_culture_tradition = tradition_zz_cultural_polygamy_two_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_three_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_four_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_five_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_nine_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_fifteen_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
+				}
 			}
 		}
 		else_if = {
 			limit = { scope:go_cultural_three_concubines = yes }
 			culture = {
-				add_culture_tradition = tradition_zz_cultural_polygamy_three_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_two_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
+				if = {
+					limit = { NOT = { has_cultural_tradition = tradition_zz_cultural_polygamy_three_wives } }
+					add_culture_tradition = tradition_zz_cultural_polygamy_three_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_two_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_two_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_four_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_five_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_nine_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_fifteen_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
+				}
 			}
 		}
 		else_if = {
 			limit = { scope:go_cultural_four_concubines = yes }
 			culture = {
-				add_culture_tradition = tradition_zz_cultural_polygamy_four_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_two_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
+				if = {
+					limit = { NOT = { has_cultural_tradition = tradition_zz_cultural_polygamy_four_wives } }
+					add_culture_tradition = tradition_zz_cultural_polygamy_four_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_two_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_two_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_three_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_five_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_nine_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_fifteen_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
+				}
 			}
 		}
 		else_if = {
 			limit = { scope:go_cultural_five_concubines = yes }
 			culture = {
-				add_culture_tradition = tradition_zz_cultural_polygamy_five_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_two_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
+				if = {
+					limit = { NOT = { has_cultural_tradition = tradition_zz_cultural_polygamy_five_wives } }
+					add_culture_tradition = tradition_zz_cultural_polygamy_five_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_two_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_two_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_three_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_four_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_nine_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_fifteen_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
+				}
 			}
 		}
 		else_if = {
 			limit = { scope:go_cultural_nine_concubines = yes }
 			culture = {
-				add_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_two_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
+				if = {
+					limit = { NOT = { has_cultural_tradition = tradition_zz_cultural_polygamy_nine_wives } }
+					add_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_two_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_two_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_three_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_four_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_five_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_fifteen_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
+				}
 			}
 		}
 		else_if = {
 			limit = { scope:go_cultural_fifteen_concubines = yes }
 			culture = {
-				add_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_two_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
-				remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
+				if = {
+					limit = { NOT = { has_cultural_tradition = tradition_zz_cultural_polygamy_fifteen_wives } }
+					add_culture_tradition = tradition_zz_cultural_polygamy_fifteen_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_two_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_two_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_three_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_three_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_four_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_four_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_five_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_five_wives
+				}
+				if = {
+					limit = { has_cultural_tradition = tradition_zz_cultural_polygamy_nine_wives }
+					remove_culture_tradition = tradition_zz_cultural_polygamy_nine_wives
+				}
 			}
 		}
 		
@@ -368,7 +508,7 @@ zz_valyria_search_for_magic_decision = {
 	}
 	decision_group_type = zz_valyria_magic
 	desc = zz_valyria_search_for_magic_decision_desc
-	cooldown = { years = 10 }
+	cooldown = { years = 0 }
 
 	ai_check_interval = 0 # Set to 0 instead of 72 since the AI will never use this anyway (removed the is_ai checks below)
 
@@ -377,6 +517,37 @@ zz_valyria_search_for_magic_decision = {
 			has_trait = zz_magister
 			has_character_flag = zz_valyria_magic_search_enable
 		}
+		NOT = { has_character_flag = zz_valyria_magic_search } # Already investigating: the Stop decision shows instead
+		is_ai = no 
+	}
+	
+	is_valid_showing_failures_only = {
+		is_at_war = no
+	}
+	cost = {
+	}
+
+	effect = {
+		add_character_flag = zz_valyria_magic_search
+		custom_tooltip = zz_valyria_search_for_magic_decision_tooltip
+	}
+}
+zz_valyria_seek_magic_contracts_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/zz_valyria_magic/zz_find_the_secrets_of_the_higher_mysteries.dds"
+	}
+	decision_group_type = zz_valyria_magic
+	desc = zz_valyria_seek_magic_contracts_decision_desc
+	cooldown = { years = 5 }
+
+	ai_check_interval = 0 # Set to 0 instead of 72 since the AI will never use this anyway (removed the is_ai checks below)
+
+	is_shown = {
+		or = {
+			has_trait = zz_magister
+			has_character_flag = zz_valyria_magic_search_enable
+		}
+		has_character_flag = zz_valyria_magic_search # Only while investigating
 		is_ai = no 
 	}
 	
@@ -428,8 +599,7 @@ zz_valyria_search_for_magic_decision = {
 			is_valid = {
 				faith = {  
 					OR = {
-						has_doctrine_parameter = execute_prisoner_to_improve_artifact
-						has_doctrine_parameter = witchcraft_accepted
+						zz_valyria_sorcery_accepted_faith = yes
 					}
 					
 				}
@@ -496,12 +666,11 @@ zz_valyria_search_for_magic_decision = {
 	effect = {
 		if = {
 			limit = {
-				government_has_flag = government_is_freehold
+				zz_sothm_magocracy_trigger = yes
 			}
-			remove_decision_cooldown = zz_valyria_search_for_magic_decision
+			remove_decision_cooldown = zz_valyria_seek_magic_contracts_decision
 		}
-		add_character_flag = zz_valyria_magic_search
-		custom_tooltip = zz_valyria_search_for_magic_decision_tooltip
+		custom_tooltip = zz_valyria_seek_magic_contracts_decision_tooltip
 		magic_contract_passive_spawn_effect = {
 			SPAWN_CONTRACTS = 3
 		}
@@ -549,12 +718,6 @@ zz_valyria_stop_search_for_magic_decision = {
 	}
 
 	effect = {
-		if = {
-			limit = {
-				government_has_flag = government_is_freehold
-			}
-			remove_decision_cooldown = zz_valyria_search_for_magic_decision
-		}
 		remove_character_flag = zz_valyria_magic_search
 	}
 }
@@ -575,7 +738,7 @@ zz_valyria_magic_research_decision = {
 		}
 		is_ai = no 
 		any_realm_province = {
-			has_building_or_higher = zz_mages_tower_tower_01
+			has_building_with_flag = zz_mages_tower_tower_01
 		}
 	}
 	
@@ -627,8 +790,7 @@ zz_valyria_magic_research_decision = {
 			is_valid = {
 				faith = {  
 					OR = {
-						has_doctrine_parameter = execute_prisoner_to_improve_artifact
-						has_doctrine_parameter = witchcraft_accepted
+						zz_valyria_sorcery_accepted_faith = yes
 					}
 					
 				}
@@ -695,7 +857,7 @@ zz_valyria_magic_research_decision = {
 	effect = {
 		if = {
 			limit = {
-				government_has_flag = government_is_freehold
+				zz_sothm_magocracy_trigger = yes
 			}
 			remove_decision_cooldown = zz_valyria_magic_research_decision
 		}
@@ -712,7 +874,128 @@ zz_valyria_magic_research_decision = {
 	}
 }
 
+# Debug: skips the Divine Mystery contract and opens its reward at once (pick a school, then learn a mystery)
+zz_valyria_magic_divine_mystery_dummy = {
+	picture = {
+		reference = "gfx/interface/illustrations/zz_valyria_magic/zz_valyria_magical_study.dds"
+	}
+	decision_group_type = zz_valyria_magic
+	desc = zz_valyria_magic_divine_mystery_dummy_desc
+	selection_tooltip = zz_valyria_magic_divine_mystery_dummy_tooltip
 
+	ai_check_interval = 0
 
+	is_shown = {
+		has_game_rule = debug_mode_on
+		has_trait = zz_magister
+		is_ai = no
+	}
 
+	effect = {
+		trigger_event = zz_valyria_magic_contracts.00190
+	}
+}
 
+# Places the Forging the Flames contract in the ruler's contracts without taking it, to accept when they choose
+zz_valyria_seek_vs_ingot_contract_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/zz_valyria_magic/zz_valyria_magical_study.dds"
+	}
+	decision_group_type = zz_valyria_magic
+	desc = zz_valyria_seek_vs_ingot_contract_decision_desc
+	selection_tooltip = zz_valyria_seek_vs_ingot_contract_decision_tooltip
+	cooldown = { years = 1 }
+
+	ai_check_interval = 0
+
+	is_shown = {
+		has_ep3_dlc_trigger = yes
+		has_trait = zz_magister
+		is_ai = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_at_war = no
+		exists = capital_province
+		custom_tooltip = {
+			text = zz_valyria_forge_vs_ingot_decision_busy_tt
+			NOT = {
+				any_character_task_contract = {
+					has_task_contract_type = zz_valyria_magic_forge_valyrian_steel_ingot
+				}
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = zz_valyria_seek_vs_ingot_contract_decision_effect_tt
+		hidden_effect = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_forge_valyrian_steel_ingot
+				task_contract_tier = 3
+				location = root.capital_province
+				task_contract_employer = root
+				save_scope_as = forge_contract
+			}
+			scope:forge_contract ?= {
+				set_variable = {
+					name = retain_despite_distance
+					value = yes
+				}
+			}
+		}
+	}
+}
+
+# Starts the Forging the Flames contract at the ruler's capital and takes it at once, going straight to its progress events.
+# It rewards a Valyrian steel ingot, which crafting needs
+zz_valyria_forge_vs_ingot_decision = {
+	picture = {
+		reference = "gfx/interface/illustrations/zz_valyria_magic/zz_valyria_magical_study.dds"
+	}
+	decision_group_type = zz_valyria_magic
+	desc = zz_valyria_forge_vs_ingot_decision_desc
+	selection_tooltip = zz_valyria_forge_vs_ingot_decision_tooltip
+	cooldown = { years = 10 }
+
+	ai_check_interval = 0
+
+	is_shown = {
+		has_ep3_dlc_trigger = yes
+		has_trait = zz_magister
+		is_ai = no
+	}
+
+	is_valid_showing_failures_only = {
+		is_at_war = no
+		exists = capital_province
+		custom_tooltip = {
+			text = zz_valyria_forge_vs_ingot_decision_busy_tt
+			NOT = {
+				any_character_task_contract = {
+					has_task_contract_type = zz_valyria_magic_forge_valyrian_steel_ingot
+				}
+			}
+		}
+	}
+
+	effect = {
+		custom_tooltip = zz_valyria_forge_vs_ingot_decision_effect_tt
+		hidden_effect = {
+			create_task_contract = {
+				task_contract_type = zz_valyria_magic_forge_valyrian_steel_ingot
+				task_contract_tier = 3
+				location = root.capital_province
+				task_contract_employer = root
+				save_scope_as = forge_contract
+			}
+			scope:forge_contract ?= {
+				set_variable = {
+					name = retain_despite_distance
+					value = yes
+				}
+			}
+			accept_task_contract = scope:forge_contract
+		}
+	}
+}

@@ -1,0 +1,5 @@
+﻿# The Mage's Grimoire as a library book. A look of its own, so that only Grimoires reforge back into the carried book
+zz_valyria_grimoire_library = {
+	icon = "artifact_book.dds"
+	asset = ep1_mediterranean_book_big_01_a_entity
+}

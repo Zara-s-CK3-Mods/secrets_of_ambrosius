@@ -1,0 +1,30 @@
+﻿# Scope: character. Which magic tenets a mage can still learn from an old book (zz_valyria_magic_tenet.0001).
+
+# School tenets need some skill in their school.
+zz_valyria_school_tenet_discoverable_trigger = {
+	NOT = { knows_tenet = $TENET$ }
+	zz_valyria_$SCHOOL$_stat_gui >= 20
+}
+
+# General tenets need overall mastery of the Higher Mysteries.
+zz_valyria_general_tenet_discoverable_trigger = {
+	NOT = { knows_tenet = $TENET$ }
+	zz_valyria_higher_mysteries_stat_gui >= $MIN$
+}
+
+zz_valyria_can_discover_magic_tenet_trigger = {
+	has_trait = zz_magister
+	is_playable = yes # add_known_tenet only works on rulers
+	OR = {
+		zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_blood_rites SCHOOL = blood_magic }
+		zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_faceless_arts SCHOOL = shadow_magic }
+		zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_greensight SCHOOL = dream_magic }
+		zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_the_undying SCHOOL = alchemy_magic }
+		zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_sacred_flame SCHOOL = fire_magic }
+		zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_stormspeakers SCHOOL = air_magic }
+		zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_drowned_mysteries SCHOOL = water_magic }
+		zz_valyria_general_tenet_discoverable_trigger = { TENET = tenet_zz_living_wellspring MIN = 40 }
+		zz_valyria_general_tenet_discoverable_trigger = { TENET = tenet_zz_deep_vessel MIN = 60 }
+		zz_valyria_general_tenet_discoverable_trigger = { TENET = tenet_zz_font_of_mysteries MIN = 80 }
+	}
+}

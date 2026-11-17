@@ -51,6 +51,21 @@ zz_valyria_magic_water_magic_base_value = {
 				add = this.var:water_magic_overcap
 			}
 		}
+		multiply = {
+			value = 1
+			if = {
+				limit = {
+					faith = { has_doctrine_parameter = zz_tenet_strength_water_magic }
+				}
+				add = 0.25
+			}
+			if = {
+				limit = {
+					has_personal_tenet_flag = zz_personal_strength_water_magic
+				}
+				add = 0.1
+			}
+		}
 	}
 }
 zz_valyria_magic_water_magic_001_value = {
@@ -87,8 +102,8 @@ zz_valyria_magic_water_magic_002_value_01 = {
 	add = { 
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_water_magic_base_value
-			divide = zz_valyria_low_damage_army
-			min = 0.01
+			multiply = zz_valyria_low_damage_army
+			min = zz_valyria_low_damage_army
 		}
 	}
 }
@@ -372,6 +387,308 @@ zz_valyria_magic_water_magic_017_value_01 = {
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_water_magic_base_value
 			divide = 5
+			min = 1
+		}
+	}
+}
+# Water 018 - Drowning Grasp
+zz_valyria_magic_water_magic_018_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_018_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			multiply = zz_valyria_moderate_damage_regiment
+			min = zz_valyria_moderate_damage_regiment
+		}
+	}
+}
+# Water 019 - Riptide
+zz_valyria_magic_water_magic_019_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_019_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			multiply = zz_valyria_moderate_damage_army
+			min = zz_valyria_moderate_damage_army
+		}
+	}
+}
+zz_valyria_magic_water_magic_019_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			multiply = zz_valyria_serious_damage_army
+			min = zz_valyria_serious_damage_army
+		}
+	}
+}
+# Water 020 - the Breaking of the Dams
+zz_valyria_magic_water_magic_020_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_020_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_020_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			multiply = zz_valyria_serious_damage_army
+			min = zz_valyria_serious_damage_army
+		}
+	}
+}
+zz_valyria_magic_water_magic_020_value_03 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 25
+			min = 1
+		}
+	}
+}
+# Water 021 - Healing Springs
+zz_valyria_magic_water_magic_021_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_021_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			multiply = zz_valyria_moderate_healing_regiment
+			min = zz_valyria_moderate_healing_regiment
+		}
+	}
+}
+# Water 022 - Lungs of Brine
+zz_valyria_magic_water_magic_022_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+# Water 023 - Tide's Favour
+zz_valyria_magic_water_magic_023_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_023_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+# Water 024 - the Mist Host
+zz_valyria_magic_water_magic_024_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_024_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 15
+			if = {
+				limit = {
+					scope:recipient = {
+						location = {
+							OR = {
+								is_coastal = yes
+								is_riverside_province = yes
+							}
+						}
+					}
+				}
+				multiply = 1.5
+			}
+			min = 1
+		}
+	}
+}
+# Water 025 - Still Waters
+zz_valyria_magic_water_magic_025_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_025_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			multiply = -1
+		}
+	}
+}
+zz_valyria_magic_water_magic_025_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+			max = 200
+		}
+	}
+}
+# Water 026 - Baptismal Waters
+zz_valyria_magic_water_magic_026_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+# Water 027 - The Sea Change
+zz_valyria_magic_water_magic_027_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+# Water 028 - Water Under the Bridge
+zz_valyria_magic_water_magic_028_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+# Water 029 - Wash Away the Stain
+zz_valyria_magic_water_magic_029_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+# Water 030 - The Fertile Flood
+zz_valyria_magic_water_magic_030_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_030_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			divide = 2
+			min = 1
+		}
+	}
+}
+# Water 031 - The Breaking of Bonds
+zz_valyria_magic_water_magic_031_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+
+zz_valyria_magic_water_magic_032_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_water_magic_032_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			multiply = zz_valyria_catastrophic_damage_army
+			min = zz_valyria_catastrophic_damage_army
+		}
+	}
+}
+
+zz_valyria_magic_water_magic_033_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
 			min = 1
 		}
 	}

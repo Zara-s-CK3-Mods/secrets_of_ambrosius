@@ -1,0 +1,17 @@
+﻿# Tooltips for setting and removing the magic teaching relations (common/scripted_relations/zz_valyria_magic.txt)
+set_relation_zz_magic_apprentice = {
+	first = ZZ_I_GAIN_APPRENTICE
+	third = ZZ_THEY_GET_APPRENTICE
+}
+remove_relation_zz_magic_apprentice = {
+	first = ZZ_I_LOSE_APPRENTICE
+	third = ZZ_THEY_LOSE_APPRENTICE
+}
+set_relation_zz_magic_master = {
+	first = ZZ_I_GAIN_MAGIC_MASTER
+	third = ZZ_THEY_GET_MAGIC_MASTER
+}
+remove_relation_zz_magic_master = {
+	first = ZZ_I_LOSE_MAGIC_MASTER
+	third = ZZ_THEY_LOSE_MAGIC_MASTER
+}

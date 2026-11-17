@@ -116,3 +116,130 @@ zz_valyria_bears = {
 	icon = magic_bears
 }
 
+
+zz_shadow_shades = {
+	type = light_cavalry
+
+	damage = 6
+	toughness = 8
+	pursuit = 20
+	screen = 0
+
+	can_recruit = {
+		always = no
+	}
+
+	buy_cost = { gold = 0 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 0 }
+
+	stack = 100
+	allowed_in_hired_troops = no
+	icon = zz_shadow_shades
+}
+
+zz_ember_shades = {
+	type = heavy_infantry
+
+	damage = 16
+	toughness = 4
+	pursuit = 0
+	screen = 0
+
+	can_recruit = {
+		always = no
+	}
+
+	buy_cost = { gold = 0 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 0 }
+
+	stack = 100
+	allowed_in_hired_troops = no
+	icon = zz_ember_shades
+}
+
+zz_mist_shades = {
+	type = pikemen
+
+	damage = 2
+	toughness = 18
+	pursuit = 0
+	screen = 5
+
+	can_recruit = {
+		always = no
+	}
+
+	buy_cost = { gold = 0 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 0 }
+
+	stack = 100
+	allowed_in_hired_troops = no
+	icon = zz_mist_shades
+}
+
+zz_gale_shades = {
+	type = skirmishers
+
+	damage = 6
+	toughness = 6
+	pursuit = 5
+	screen = 20
+
+	can_recruit = {
+		always = no
+	}
+
+	buy_cost = { gold = 0 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 0 }
+
+	stack = 100
+	allowed_in_hired_troops = no
+	icon = zz_gale_shades
+}
+
+zz_bronze_sentinels = {
+	type = heavy_infantry
+
+	damage = 20
+	toughness = 36
+	pursuit = 0
+	screen = 0
+
+	can_recruit = {
+		always = no
+	}
+
+	buy_cost = { gold = 0 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 0 }
+
+	stack = 100
+	allowed_in_hired_troops = no
+	icon = zz_bronze_sentinels
+}
+
+zz_iron_colossi = {
+	type = heavy_infantry
+
+	damage = 200
+	toughness = 60
+	pursuit = 0
+	screen = 0
+	siege_value = 0.15
+
+	can_recruit = {
+		always = no
+	}
+
+	buy_cost = { gold = 0 }
+	low_maintenance_cost = { gold = 0 }
+	high_maintenance_cost = { gold = 0 }
+
+	stack = 25
+	allowed_in_hired_troops = no
+	icon = zz_iron_colossi
+}

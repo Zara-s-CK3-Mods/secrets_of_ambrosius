@@ -5,19 +5,21 @@ l_english:
  
   ## Water Magic
   ## Interaction
-  zz_valyria_magic_water_magic_001.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_cwok$\n\nThe arts of [water_magic|E] allows for a most terrifying of actions. To bring forth the might of water as a physical force, to strike at your foes and bring them physically to ruin."
+  zz_valyria_magic_water_magic_001.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_duel_move$\n$zz_duel_skill$\n\nThe use of the arcane forces of [water_magic|E] to strike a chosen subject with the crushing weight of water.\n\nWater is patient, but it is never weak. Through this mystery, the full weight of the deep sea is summoned and brought down upon a single subject, crushing bone and driving the breath from their lungs.\n\nIn the instant of the strike, the caster may choose whether to cripple or to kill. Those who survive often carry the memory of drowning for the rest of their lives.\n\nThe tide-sorcerers of the Freehold used this working rarely and quietly. A body found drowned far from any water tells its own story to those who know how to read it."
 
   ##Spell Options
   ##event
   zz_valyria_magic_water_magic.001.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.001.name$"
-  zz_valyria_magic_water_magic.001.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. Indeed, even their final act, to unleash a plague unto the waking world was born from their powers over the waters. Water is a mighty force, capable of crushing anything under its weight. You can strike down [recipient.GetFirstName] under an immense torrent, crushing their bones and rupturing their organs. Is this the weapon you want?"
-  zz_valyria_magic_water_magic.001.opt.a:0 "Yes, let my fury free!"
-  zz_valyria_magic_water_magic.001.opt.b:0 "Yes, strike them down with the waves!"
+  zz_valyria_magic_water_magic.001.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe air in the chamber grows heavy and damp. Water beads upon the walls and runs down in slow rivulets, and the pressure builds until every breath feels like breathing at the bottom of a well.\n\nThe tide-sorcerers of Valyria learned this working from the sea itself, which has drowned more men than every army in history.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bring the crushing weight of water down upon [recipient.GetFirstName], and decide in the moment whether to maim or to slay. Is such a death fitting for them?"
+  zz_valyria_magic_water_magic.001.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster fills a heavy bronze bowl to the brim and holds it above their head. The water does not spill. It grows heavier and heavier, pressing down upon their arms, until they lower it slowly and the floor beneath it cracks under the weight.\n\nThe tide-sorcerers of the Freehold held that the sea's strength lies not in its waves but in its weight, and they learned to wield that weight like a hammer.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bring the crushing weight of water down upon [recipient.GetFirstName], and decide in the moment whether to maim or to slay. Is such a death fitting for them?"
+  zz_valyria_magic_water_magic.001.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA single drop of water is let fall from a glass rod onto the ritual stone. It does not splash. It spreads, flat and heavy, and the stone beneath it groans, and the air in the chamber grows thick and damp, as though the whole room had sunk beneath the sea.\n\nIn Valyria, it was said that the deep waters remember every ship they have ever crushed, and that the tide-sorcerers could call that memory up.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bring the crushing weight of water down upon [recipient.GetFirstName], and decide in the moment whether to maim or to slay. Is such a death fitting for them?"
+  zz_valyria_magic_water_magic.001.opt.a:0 "Crush them, but let them live!"
+  zz_valyria_magic_water_magic.001.opt.b:0 "Yes, strike them down with the waves, even unto death!"
 
   zz_valyria_magic_water_magic.001.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.001.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.001.name$"
-  zz_valyria_magic_water_magic.001.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ striking [recipient.GetFirstName] with a crushing blast of water"
+  zz_valyria_magic_water_magic.001.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ bringing the crushing weight of water down upon [recipient.GetFirstName]."
   zz_valyria_magic_water_magic.001.toast.tt:0 "$zz_valyria_magic_water_magic.001.toast.desc$"
   zz_valyria_magic_water_magic.001.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.001.name$"
   zz_valyria_magic_water_magic.001.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -27,15 +29,17 @@ l_english:
 
   ## Interaction
 
-  zz_valyria_magic_water_magic_002.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_da$\n$zz_ld$\n\nThe arts of [water_magic|E] allows for a most terrifying of actions. To bring forth the might of water as a physical force, to strike at the armies of your foe, to bring them to utter ruin upon the battlefied"
+  zz_valyria_magic_water_magic_002.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_da$\n$zz_ld$\n\nThe use of the arcane forces of [water_magic|E] to sweep an enemy army away with a surging torrent.\n\nThrough this mystery, a torrent of water is summoned out of nothing and sent surging through an enemy host. Men are swept from their feet, wagons overturned, and supplies carried off in the flood.\n\nThe damage is modest compared with the great war-workings of fire and air, but the torrent leaves chaos in its wake, and chaos is its own kind of wound.\n\nThe tide-sorcerers of the Freehold used this working to harry armies on the march, breaking up columns and scattering baggage trains."
   ##event
   zz_valyria_magic_water_magic.002.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.002.name$"
-  zz_valyria_magic_water_magic.002.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. Indeed, even their final act, to unleash a plague unto the waking world was born from their powers over the waters. It is within your options to unleash a flood of water, to strike and wash away one of the armies of [recipient.GetFirstName]. Is this the weapon you want?"
-  zz_valyria_magic_water_magic.002.opt.a:0 "Yes, let my fury free!"
+  zz_valyria_magic_water_magic.002.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA sound like rushing water fills the chamber, growing louder until it drowns out every other noise. The floor grows slick and wet, and the smell of river mud rises from nowhere.\n\nThe Valyrians called this the Breaking of the Banks, and their enemies came to fear the sound of running water as much as the sound of war-horns.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may send a surging torrent through an army of [recipient.GetFirstName], scattering its soldiers and sweeping away its supplies. Will you let the waters rise?"
+  zz_valyria_magic_water_magic.002.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster tips a jug of water onto the floor, and instead of spreading, it gathers itself into a narrow, rushing stream that runs straight across the chamber and strikes the far wall with the force of a battering ram.\n\nThe enemies of the Freehold learned to dread the sound of rushing water. It meant the tide-sorcerers had come, and that the river would soon be in their camp.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may send a surging torrent through an army of [recipient.GetFirstName], scattering its soldiers and sweeping away its supplies. Will you let the waters rise?"
+  zz_valyria_magic_water_magic.002.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA model of a river dam, made of clay and wood, is set upon the ritual stone. The caster speaks a word, and the dam cracks, and a torrent of water bursts through it, far more than the little model could ever have held.\n\nIn Valyria, the tide-sorcerers could turn a gentle river into a raging flood, and turn it upon whatever army was unwise enough to camp beside it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may send a surging torrent through an army of [recipient.GetFirstName], scattering its soldiers and sweeping away its supplies. Will you let the waters rise?"
+  zz_valyria_magic_water_magic.002.opt.a:0 "Let the waters rise!"
   zz_valyria_magic_water_magic.002.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.002.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.002.name$"
-  zz_valyria_magic_water_magic.002.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ striking the forces of [recipient.GetFirstName] with a crushing torrent of water"
+  zz_valyria_magic_water_magic.002.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ sweeping through an army of [recipient.GetFirstName] with a surging torrent."
   zz_valyria_magic_water_magic.002.toast.tt:0 "$zz_valyria_magic_water_magic.002.toast.desc$"
   zz_valyria_magic_water_magic.002.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.002.name$"
   zz_valyria_magic_water_magic.002.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -43,15 +47,17 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_water_magic_003.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_as$\n\nThe arts of [water_magic|E] allows for a most beneficial power, the rejuvenation of your forces. With this simple spell, you are able to restore your armies supplies to facilitate their march into battle."
+  zz_valyria_magic_water_magic_003.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_as$\n\nThe use of the arcane forces of [water_magic|E] to replenish the supplies of a chosen army.\n\nAn army marches on its stomach, and dies of thirst long before it dies of hunger. Through this mystery, the stores of a chosen army are replenished: water-skins refill, barrels grow heavy, and the wagons groan beneath renewed supplies.\n\nThe army can march further and fight longer before hunger and thirst begin to take their toll.\n\nThe legions of the Freehold crossed deserts that had swallowed every army before them. The tide-sorcerers who marched with them were the reason."
   ##event
   zz_valyria_magic_water_magic.003.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.003.name$"
-  zz_valyria_magic_water_magic.003.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. Indeed, even their final act, to unleash a plague unto the waking world was born from their powers over the waters.You can with the powers availiable to you, purify the waters near one of [recipient.GetFirstName] armies. This would refresh their supply and ability to wage war. Do you wish to?"
-  zz_valyria_magic_water_magic.003.opt.a:0 "Yes, logistics win wars!"
+  zz_valyria_magic_water_magic.003.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA cool, clean smell of fresh water fills the chamber. The empty cup upon the altar fills, slowly at first, then overflows, and keeps on flowing.\n\nThe quartermasters of the Freehold prized their tide-sorcerers above any wagon-master. Logistics, they said, win wars; and water is the first of all logistics.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may replenish the supplies of an army of [recipient.GetFirstName], allowing it to march further and fight longer. Will you fill their stores?"
+  zz_valyria_magic_water_magic.003.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nAn empty wineskin is laid upon the ritual stone, and the caster pours a single cup of water into it. The skin swells, and keeps swelling, until it is taut and full and the water is spilling from its mouth in a steady stream.\n\nThe quartermasters of the Freehold never feared a dry march. Their tide-sorcerers carried rivers with them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may replenish the supplies of an army of [recipient.GetFirstName], allowing it to march further and fight longer. Will you fill their stores?"
+  zz_valyria_magic_water_magic.003.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA bucket is lowered into the ritual basin and drawn up full. The caster empties it and lowers it again, and it comes up full again, and again, each time with more water than the basin could ever have held.\n\nIn Valyria, it was said that an army marches on its water before its bread. The tide-sorcerers made sure neither ever ran short.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may replenish the supplies of an army of [recipient.GetFirstName], allowing it to march further and fight longer. Will you fill their stores?"
+  zz_valyria_magic_water_magic.003.opt.a:0 "Logistics win wars!"
   zz_valyria_magic_water_magic.003.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.003.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.003.name$"
-  zz_valyria_magic_water_magic.003.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ restoring the supplies of the army of [recipient.GetFirstName]"
+  zz_valyria_magic_water_magic.003.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ replenishing the supplies of an army of [recipient.GetFirstName]."
   zz_valyria_magic_water_magic.003.toast.tt:0 "$zz_valyria_magic_water_magic.003.toast.desc$"
   zz_valyria_magic_water_magic.003.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.003.name$"
   zz_valyria_magic_water_magic.003.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -59,10 +65,12 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_water_magic_004.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_ve$\n$zz_se$\n\nThe arts of [water_magic|E] allows for a most terrifying power. Through the corruption of the humours, it is possible to turn health into sickness, to manifest forth a wave of unspeakable pestilence. Such a power does not distinguish friend from fore and strikes all down."
+  zz_valyria_magic_water_magic_004.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_se$\n\nThe use of the arcane forces of [water_magic|E] to corrupt the waters of a chosen province and loose a pestilence upon it.\n\nWater gives life, and water can take it. Through this mystery, the wells, rivers, and rains of a chosen province are corrupted, and a pestilence rises from them to sweep through the land.\n\nThe severity of the plague depends upon how much power the caster is willing to pour into the working.\n\nIt is said that a great river was once poisoned in this way, in the wars between the Freehold and the river-folk. If so, the river remembers."
   ##event
   zz_valyria_magic_water_magic.004.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.004.name$"
-  zz_valyria_magic_water_magic.004.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. Indeed, even their final act, to unleash a plague unto the waking world was born from their powers over the waters.You could call upon one of the many plagues of the world, and unleash it upon a province of [recipient.GetFirstName]. This would be indiscriminate and you cannot know whom it would strike down. Do you wish to risk such a weapon?"
+  zz_valyria_magic_water_magic.004.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe water in the basin upon the altar turns cloudy, then grey, then black. A sickly-sweet smell rises from it, the smell of stagnant pools and fever-wards, and those nearby find their throats suddenly dry.\n\nFew practitioners of the Freehold would admit to knowing this working, for even among the sorcerers of Valyria, to poison the waters of a land was considered an abomination.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may corrupt the waters of the chosen province and loose a pestilence upon its people. But a plague cares nothing for borders. Is any enemy worth such a crime?"
+  zz_valyria_magic_water_magic.004.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster lets a single drop of a dark, oily liquid fall into the ritual basin. It spreads through the clear water like ink, turning it grey, then black, and a smell of rot and fever rises from its surface.\n\nEven in Valyria, the poisoning of rivers was spoken of with distaste. Those who practised it were paid well, and spoken of seldom.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may corrupt the waters of the chosen province and loose a pestilence upon its people. But a plague cares nothing for borders. Is any enemy worth such a crime?"
+  zz_valyria_magic_water_magic.004.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA dead fish is laid in a bowl of clean water, and the caster speaks the words of corruption over it. The water clouds at once, a sickly green spreading through it, and the smell that rises from it makes the watchers turn away.\n\nThe tide-sorcerers of the Freehold could heal a river or kill it. Few of them ever admitted to doing the latter.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may corrupt the waters of the chosen province and loose a pestilence upon its people. But a plague cares nothing for borders. Is any enemy worth such a crime?"
   
   water_magic_intensity_01:0 "Small"
   water_magic_intensity_02:0 "Major"
@@ -71,7 +79,7 @@ l_english:
   zz_valyria_magic_water_magic.004.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.004.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.004.name$"
-  zz_valyria_magic_water_magic.004.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ unleashing a virtulent pestilence in the province of [recipient.GetFirstName], [target.GetName]."
+  zz_valyria_magic_water_magic.004.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ corrupting the waters of [target.GetName] and loosing a pestilence upon it."
   zz_valyria_magic_water_magic.004.toast.tt:0 "$zz_valyria_magic_water_magic.004.toast.desc$"
   zz_valyria_magic_water_magic.004.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.004.name$"
   zz_valyria_magic_water_magic.004.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -79,15 +87,17 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_water_magic_005.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThe arts of [water_magic|E] allows for a most terrifying power. You could call forth the very power of the winter winds, to make a chosen general's armies strike with an unnatural advatange in a winter war."
+  zz_valyria_magic_water_magic_005.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_wadv$\n\nThe use of the arcane forces of [water_magic|E] to bind the bitter strength of winter to a commander's armies.\n\nWater in its winter form is ice, snow, and bitter cold. Through this mystery, the strength of winter itself is bound to the armies of a chosen subject, so that they fight as if the season were their ally.\n\nThe subject's armies gain a substantial advantage when fighting in winter, while their enemies freeze and falter around them.\n\nThe legions of the Freehold rarely campaigned in winter. When they did, it was because they knew the cold would fight for them."
   ##event
   zz_valyria_magic_water_magic.005.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.005.name$"
-  zz_valyria_magic_water_magic.005.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. Indeed, even their final act, to unleash a plague unto the waking world was born from their powers over the waters.You could call upon the very fury of winter to empower the armies of  [recipient.GetFirstName]. Do you wish to risk such a weapon?"
-  zz_valyria_magic_water_magic.005.opt.a:0 "Yes, let winter's wind blow!"
+  zz_valyria_magic_water_magic.005.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe chamber grows bitterly cold. Frost spreads across the flagstones, breath steams in the air, and the water in the ritual basin freezes solid with a sharp crack.\n\nThe tide-sorcerers of the Freehold who mastered the winter waters were sent north with the legions, where the cold would otherwise have been their enemy.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bind winter's strength to the armies of [recipient.GetFirstName], so that the cold fights at their side. Will you let winter's wind blow?"
+  zz_valyria_magic_water_magic.005.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster breathes upon a pane of glass, and frost blooms across it in delicate, spreading patterns. The frost does not stop at the edge of the glass. It creeps outward onto the walls, the floor, the ceiling, until the whole chamber glitters with ice.\n\nThe tide-sorcerers who mastered winter were sent north with the Freehold's legions, and the cold that should have stopped them did not.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bind winter's strength to the armies of [recipient.GetFirstName], so that the cold fights at their side. Will you let winter's wind blow?"
+  zz_valyria_magic_water_magic.005.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA cup of water is set upon the ritual stone and the caster speaks a single word over it. The water freezes from the top down with a sharp crackling sound, and the cold spreads out from it in a wave that numbs fingers and turns breath to mist.\n\nIn Valyria, it was said that the tide-sorcerers could call winter in the middle of summer, and turn it upon their enemies.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bind winter's strength to the armies of [recipient.GetFirstName], so that the cold fights at their side. Will you let winter's wind blow?"
+  zz_valyria_magic_water_magic.005.opt.a:0 "Let winter's wind blow!"
   zz_valyria_magic_water_magic.005.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.005.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.005.name$"
-  zz_valyria_magic_water_magic.005.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$  empowering the armies of [recipient.GetFirstName] in the seasons of the winter."
+  zz_valyria_magic_water_magic.005.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ binding the bitter strength of winter to the armies of [recipient.GetFirstName]."
   zz_valyria_magic_water_magic.005.toast.tt:0 "$zz_valyria_magic_water_magic.005.toast.desc$"
   zz_valyria_magic_water_magic.005.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.005.name$"
   zz_valyria_magic_water_magic.005.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -95,15 +105,17 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_water_magic_006.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_bsp$\n\nThe arts of [water_magic|E] allows for a most terrifying power. You can purify a chosen province, increasing its resistence to diseases and increases its tax income."
+  zz_valyria_magic_water_magic_006.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_epr$\n$zz_tax$\n\nThe use of the arcane forces of [water_magic|E] to purify the waters of a chosen province, warding it against disease and enriching its people.\n\nClean water is the foundation of every healthy city. Through this mystery, the wells, rivers, and springs of a chosen province are purified, so that sickness finds it harder to take root and the people grow healthier and more prosperous.\n\nThe province becomes far more resistant to [epidemic|E]s, and its taxes increase as its people thrive.\n\nThe cities of the Freehold were famed for their fountains and their health. Visitors marvelled that plague so rarely touched them."
   ##event
   zz_valyria_magic_water_magic.006.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.006.name$"
-  zz_valyria_magic_water_magic.006.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. Indeed, even their final act, to unleash a plague unto the waking world was born from their powers over the waters.You could call upon a rejuvenating flow of water and transform one of the provines of [recipient.GetFirstName], enriching the land and letting it become more productive."
-  zz_valyria_magic_water_magic.006.opt.a:0 "Yes, let it flower!"
+  zz_valyria_magic_water_magic.006.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe water in the ritual basin clears until it is so transparent it seems not to be there at all. A smell of fresh rain and green growth fills the chamber.\n\nThe water-wardens of the Freehold walked the aqueducts and cisterns of every great city, singing to the waters and keeping them pure.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may purify the waters of the chosen province, warding it against disease and enriching its people. Will you let it flower?"
+  zz_valyria_magic_water_magic.006.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster pours muddy water from a jug into a crystal bowl, and as it falls, it clears. By the time the bowl is full, the water is so clean and bright it seems to glow, and the smell of a mountain spring fills the chamber.\n\nThe water-wardens of the Freehold kept the cisterns of its great cities pure, and no plague ever took root within their walls.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may purify the waters of the chosen province, warding it against disease and enriching its people. Will you let it flower?"
+  zz_valyria_magic_water_magic.006.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA sprig of mint and a handful of silver coins are dropped into the ritual basin, and the caster sings softly over the water. The water grows clear and sweet, and the coins shine at the bottom like stars.\n\nIn Valyria, it was understood that clean water was the foundation of every city, and the water-wardens were its keepers.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may purify the waters of the chosen province, warding it against disease and enriching its people. Will you let it flower?"
+  zz_valyria_magic_water_magic.006.opt.a:0 "Let it flower!"
   zz_valyria_magic_water_magic.006.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.006.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.006.name$"
-  zz_valyria_magic_water_magic.006.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$  empowering one of the provinces of [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.006.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ purifying the waters of [target.GetName], warding it against disease and enriching its people."
   zz_valyria_magic_water_magic.006.toast.tt:0 "$zz_valyria_magic_water_magic.006.toast.desc$"
   zz_valyria_magic_water_magic.006.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.006.name$"
   zz_valyria_magic_water_magic.006.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -111,15 +123,17 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_water_magic_007.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_bsp$\n\nThe arts of [water_magic|E] allows for a most terrifying power. You can purify a chosen province, increasing its prosperity level."
+  zz_valyria_magic_water_magic_007.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tcc$\n$zz_ccd$\n\nThe use of the arcane forces of [water_magic|E] to bless a chosen county with waters of fertility.\n\nThrough this mystery, the waters of a chosen county are made fertile: rivers run richer, rains fall more kindly, and the land answers with abundance.\n\nThe county grows in wealth and vigour, its fields and towns flourishing beneath the blessing.\n\nThe river-provinces of the Freehold were the breadbasket of the world. Their fertility was no accident."
   ##event
   zz_valyria_magic_water_magic.007.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.007.name$"
-  zz_valyria_magic_water_magic.007.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. Indeed, even their final act, to unleash a plague unto the waking world was born from their powers over the waters.You could call upon a rejuvenating flow of water and transform one of the provines of [recipient.GetFirstName], improving its prosperity level and making it more attractive for a migrating population."
-  zz_valyria_magic_water_magic.007.opt.a:0 "Yes, let it flower!"
+  zz_valyria_magic_water_magic.007.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA warm, soft rain begins to fall within the chamber, though there is a roof overhead. Where it lands, green shoots push up between the flagstones.\n\nThe water-wardens of the Freehold blessed the fields of the empire each spring, and the harvests that followed were the envy of every other land.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bless the waters of the chosen county, letting its land flourish beneath your art. Will you let it flower?"
+  zz_valyria_magic_water_magic.007.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster holds a bowl of seeds beneath a slow drip of water, and as each drop falls, a seed splits and sends out a pale green shoot. By the end of the incantation, the bowl is a tangle of tiny green leaves.\n\nThe water-wardens of the Freehold blessed its fields each spring, and its granaries were never empty.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bless the waters of the chosen county, letting its land flourish beneath your art. Will you let it flower?"
+  zz_valyria_magic_water_magic.007.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA soft mist rises from the ritual basin and drifts across a map of the chosen land. Where it settles, the parchment darkens as if wet with rain, and the faint scent of new growth fills the chamber.\n\nIn Valyria, the harvests were richer than in any other land. The farmers gave thanks to the gods; the water-wardens did not correct them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bless the waters of the chosen county, letting its land flourish beneath your art. Will you let it flower?"
+  zz_valyria_magic_water_magic.007.opt.a:0 "Let the land flourish!"
   zz_valyria_magic_water_magic.007.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.007.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.007.name$"
-  zz_valyria_magic_water_magic.007.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ empowering one of the provinces of [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.007.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ blessing the waters of [target.GetName] with fertility."
   zz_valyria_magic_water_magic.007.toast.tt:0 "$zz_valyria_magic_water_magic.007.toast.desc$"
   zz_valyria_magic_water_magic.007.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.007.name$"
   zz_valyria_magic_water_magic.007.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -127,15 +141,17 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_water_magic_008.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_dca$\n\nThe arts of [water_magic|E] allows for a most terrifying power. You could call forth the a magical mist that will reduce the ability of a character's commaned army to defend against flanking attacks.."
+  zz_valyria_magic_water_magic_008.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_scr_dn$\n\nThe use of the arcane forces of [water_magic|E] to shroud a commander's armies in blinding mists.\n\nThrough this mystery, thick and clinging mists are bound to the armies of a chosen subject, following them wherever they march. Their scouts lose their way, their flanks go unwatched, and their enemies approach unseen.\n\nThe subject's armies screen themselves far less effectively, leaving them exposed to pursuit and flanking.\n\nThe tide-sorcerers of the Freehold wrapped their enemies in fog before battle, so that the legions could strike from nowhere."
   ##event
   zz_valyria_magic_water_magic.008.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.008.name$"
-  zz_valyria_magic_water_magic.008.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. Indeed, even their final act, to unleash a plague unto the waking world was born from their powers over the waters. By calling forth a magical mist it is possible to reduce the ability of [recipient.GetFirstName]'s armies to resist flanking attackings?"
-  zz_valyria_magic_water_magic.008.opt.a:0 "Yes, let winter's wind blow!"
+  zz_valyria_magic_water_magic.008.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA cold grey mist seeps up from the floor of the chamber, curling around ankles and rising until the far walls disappear. Voices sound strangely distant within it.\n\nIn the wars of the Freehold, the mists were the herald of the legions. Where the fog rolled in, the enemy did not see the morning.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may shroud the armies of [recipient.GetFirstName] in blinding mists, leaving their flanks unwatched. Will you call the fog?"
+  zz_valyria_magic_water_magic.008.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster breathes slowly into a bowl of cold water, and a thin mist rises from its surface. It spreads across the floor and up the walls, until the candles are only faint smudges of light and the far side of the room has vanished entirely.\n\nIn the wars of the Freehold, the mist came first, and the legions came out of it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may shroud the armies of [recipient.GetFirstName] in blinding mists, leaving their flanks unwatched. Will you call the fog?"
+  zz_valyria_magic_water_magic.008.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA wet cloth is held over the brazier, and a thick white steam rises from it. The caster speaks, and the steam does not disperse. It rolls outward in a slow grey wave, swallowing the room, and every sound within it seems muffled and far away.\n\nIn Valyria, it was said that the mist was the legion's cloak, and that no enemy could find a foe they could not see.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may shroud the armies of [recipient.GetFirstName] in blinding mists, leaving their flanks unwatched. Will you call the fog?"
+  zz_valyria_magic_water_magic.008.opt.a:0 "Call the mists!"
   zz_valyria_magic_water_magic.008.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.008.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.008.name$"
-  zz_valyria_magic_water_magic.008.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ reducing the resistance against flanking attacks of armies belonging to [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.008.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ shrouding the armies of [recipient.GetFirstName] in blinding mists."
   zz_valyria_magic_water_magic.008.toast.tt:0 "$zz_valyria_magic_water_magic.008.toast.desc$"
   zz_valyria_magic_water_magic.008.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.008.name$"
   zz_valyria_magic_water_magic.008.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -143,15 +159,17 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_water_magic_009.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_dca$\n\nThe arts of [water_magic|E] allows for a most terrifying power. You could call forth the a magical mist that will reduce the ability of a character's commaned army to defend against flanking attacks.."
+  zz_valyria_magic_water_magic_009.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_cav_dn$\n\nThe use of the arcane forces of [water_magic|E] to turn the ground beneath a commander's armies to clinging mud.\n\nThrough this mystery, the earth beneath the armies of a chosen subject is soaked through, becoming a sucking, clinging mire wherever they fight.\n\nThe subject's cavalry, elephants, and heavy infantry fight far less effectively, floundering in mud that seems to rise to meet them.\n\nThe heavy horse of many a proud kingdom was broken by the Freehold not with lances, but with mud."
   ##event
   zz_valyria_magic_water_magic.009.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.009.name$"
-  zz_valyria_magic_water_magic.009.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. Indeed, even their final act, to unleash a plague unto the waking world was born from their powers over the waters. By calling forth a magical mist it is possible to reduce the ability of [recipient.GetFirstName]'s armies to resist flanking attackings?"
-  zz_valyria_magic_water_magic.009.opt.a:0 "Yes, let winter's wind blow!"
+  zz_valyria_magic_water_magic.009.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nWater seeps up through the floor of the chamber, slow and steady, until the flagstones are slick and the caster's feet sink into a mud that should not exist.\n\nThe tide-sorcerers of Valyria were masters of the battlefield's ground as much as its skies. Armies that relied on the charge learned to dread the rain.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may turn the ground beneath the armies of [recipient.GetFirstName] to clinging mud, crippling their heavy troops. Will you soak the field?"
+  zz_valyria_magic_water_magic.009.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster pours a jug of water onto the stone floor, and the stone drinks it. Then the floor grows soft beneath their feet, sinking slightly, until they stand ankle-deep in a thick, sucking mud that was not there a moment before.\n\nThe cavalry that charged the legions of the Freehold often found their horses floundering in mire before they reached the line.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may turn the ground beneath the armies of [recipient.GetFirstName] to clinging mud, crippling their heavy troops. Will you soak the field?"
+  zz_valyria_magic_water_magic.009.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA heavy rain begins to fall upon a map of the battlefield, though no clouds hang above it. The ink of the roads and fields runs and blurs, and the parchment grows soft and sodden under the caster's hands.\n\nIn Valyria, it was said that the tide-sorcerers could turn any field into a swamp, and any charge into a slow and deadly crawl.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may turn the ground beneath the armies of [recipient.GetFirstName] to clinging mud, crippling their heavy troops. Will you soak the field?"
+  zz_valyria_magic_water_magic.009.opt.a:0 "Soak the field!"
   zz_valyria_magic_water_magic.009.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.009.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.009.name$"
-  zz_valyria_magic_water_magic.009.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ reducing the resistance against flanking attacks of armies belonging to [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.009.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ turning the ground beneath the armies of [recipient.GetFirstName] to clinging mud."
   zz_valyria_magic_water_magic.009.toast.tt:0 "$zz_valyria_magic_water_magic.009.toast.desc$"
   zz_valyria_magic_water_magic.009.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.009.name$"
   zz_valyria_magic_water_magic.009.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -159,15 +177,17 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_water_magic_010.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThe arts of [water_magic|E] allows for a most terrifying power. You could call forth the very power of the winter winds, to make a chosen general's armies strike with an unnatural advatange in a winter war."
+  zz_valyria_magic_water_magic_010.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_tough$\n\nThe use of the arcane forces of [water_magic|E] to grant a commander's armies the enduring resilience of water.\n\nWater cannot be broken. Strike it and it parts; let go and it closes again. Through this mystery, that resilience is bound to the armies of a chosen subject.\n\nThe subject's armies become far tougher, and fewer of those who fall in battle are lost for good.\n\nThe legions of the Freehold were said to be like the sea: you could cut them, but you could never make them bleed."
   ##event
   zz_valyria_magic_water_magic.010.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.010.name$"
-  zz_valyria_magic_water_magic.010.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. Indeed, even their final act, to unleash a plague unto the waking world was born from their powers over the waters.You could call upon the very fury of winter to empower the armies of  [recipient.GetFirstName]. Do you wish to risk such a weapon?"
-  zz_valyria_magic_water_magic.010.opt.a:0 "Yes, let winter's wind blow!"
+  zz_valyria_magic_water_magic.010.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe water in the ritual basin begins to move, flowing in slow circles. When the caster plunges a blade into it, the water parts, then closes again without a ripple.\n\nThe tide-sorcerers of the Freehold blessed its legions with Water's Resilience before every great battle, so that no blow could break them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant the resilience of water to the armies of [recipient.GetFirstName], making them far harder to break. Will you bless them?"
+  zz_valyria_magic_water_magic.010.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster plunges a knife into a bowl of water and draws it out again. The water closes behind the blade without a ripple, as though it had never been cut, and the caster speaks the words that will bind that same quality to the subject's soldiers.\n\nThe legions of the Freehold were hard to break. Like water, they bent around every blow and closed again behind it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant the resilience of water to the armies of [recipient.GetFirstName], making them far harder to break. Will you bless them?"
+  zz_valyria_magic_water_magic.010.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA great jar of water is set at the centre of the circle, and the caster strikes it with an iron rod. The jar does not crack. The water inside ripples, settles, and is still, and the blow seems to vanish into it as though it had never been struck.\n\nIn Valyria, the tide-sorcerers taught that water cannot be broken, only displaced. They taught the same to the soldiers they blessed.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant the resilience of water to the armies of [recipient.GetFirstName], making them far harder to break. Will you bless them?"
+  zz_valyria_magic_water_magic.010.opt.a:0 "Let them endure like water."
   zz_valyria_magic_water_magic.010.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.010.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.010.name$"
-  zz_valyria_magic_water_magic.010.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$  empowering the armies of [recipient.GetFirstName] in the seasons of the winter."
+  zz_valyria_magic_water_magic.010.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ granting the resilience of water to the armies of [recipient.GetFirstName]."
   zz_valyria_magic_water_magic.010.toast.tt:0 "$zz_valyria_magic_water_magic.010.toast.desc$"
   zz_valyria_magic_water_magic.010.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.010.name$"
   zz_valyria_magic_water_magic.010.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -175,15 +195,17 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_water_magic_011.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hc$\n\nThe arts of [water_magic|E] allows for a power over life and death. By calling forth the power of water to heal and clean it is possible to wash away disease and infection, and provide a lasting immunity to such forces.."
+  zz_valyria_magic_water_magic_011.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hc$\n$zz_mh$\n\nThe use of the arcane forces of [water_magic|E] to wash away a chosen subject's diseases and infections.\n\nWater cleanses. Through this mystery, purifying waters are passed through the body of the chosen subject, washing away disease, infection, and festering wounds.\n\nThe subject is healed of their illnesses and gains a lasting resistance to the sicknesses that would otherwise afflict them.\n\nThe healers of the Freehold built their temples beside springs and rivers, for they held that no fever could survive the touch of truly pure water."
   ##event
   zz_valyria_magic_water_magic.011.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.011.name$"
-  zz_valyria_magic_water_magic.011.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. It is possible to call forth the purifying properties of water, and to have all disease and infection purged from the body of [recipient.GetFirstName]. Sucha  power will leave a lingering immunity to disease. "
-  zz_valyria_magic_water_magic.011.opt.a:0 "Yes, let them be purified!"
+  zz_valyria_magic_water_magic.011.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA clear, cool water rises from the ritual basin and flows over the subject, though none of it falls to the floor. Where it passes, fever-flush fades and inflamed flesh cools.\n\nThe water-healers of Valyria were revered across the Freehold, and their temples were places of pilgrimage for the sick of a hundred cities.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may wash away the diseases and infections of [recipient.GetFirstName], granting them lasting protection. Will you purify them?"
+  zz_valyria_magic_water_magic.011.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster fills a cup with water from a clear spring and holds it to the subject's lips. As they drink, a cool calm spreads through their body, and the heat of fever and inflammation ebbs away like a tide going out.\n\nThe water-healers of Valyria were revered across the Freehold. Pilgrims came from a hundred cities to drink from their wells.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may wash away the diseases and infections of [recipient.GetFirstName], granting them lasting protection. Will you purify them?"
+  zz_valyria_magic_water_magic.011.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA cloth soaked in cold water is laid across the subject's brow, and the caster sings softly as it rests there. The water seems to sink into the skin, and as it does, the pain and sickness within begin to dissolve, like salt in a stream.\n\nIn Valyria, it was said that there was no ill so deep that clean water could not wash it away.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may wash away the diseases and infections of [recipient.GetFirstName], granting them lasting protection. Will you purify them?"
+  zz_valyria_magic_water_magic.011.opt.a:0 "Let them be purified!"
   zz_valyria_magic_water_magic.011.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.011.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.011.name$"
-  zz_valyria_magic_water_magic.011.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ purging [recipient.GetFirstName] of all disease."
+  zz_valyria_magic_water_magic.011.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ washing away the diseases and infections of [recipient.GetFirstName]."
   zz_valyria_magic_water_magic.011.toast.tt:0 "$zz_valyria_magic_water_magic.011.toast.desc$"
 
   zz_valyria_magic_water_magic.011.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.011.name$"
@@ -192,45 +214,51 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_water_magic_012.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hc$\n\nThe arts of [water_magic|E] allows for a power over life and death. By calling forth the power of water to heal and clean it is possible to wash away disease and infection, and provide a lasting immunity to such forces.."
+  zz_valyria_magic_water_magic_012.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_prw$\n\nThe use of the arcane forces of [water_magic|E] to lend a chosen warrior the flowing strength of water.\n\nWater flows around every obstacle and wears down every stone. Through this mystery, that quality is bound to a single warrior, so that their movements flow without pause and their strikes wear down any defence.\n\nThe subject's [prowess|E] increases for as long as the blessing endures.\n\nThe duellists of the Freehold who bore Water's Edge fought without a single wasted motion, and their opponents tired long before they did."
   ##event
   zz_valyria_magic_water_magic.012.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.012.name$"
-  zz_valyria_magic_water_magic.012.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. It is possible to call forth the purifying properties of water, and to have all disease and infection purged from the body of [recipient.GetFirstName]. Sucha  power will leave a lingering immunity to disease. "
-  zz_valyria_magic_water_magic.012.opt.a:0 "Yes, let them be purified!"
+  zz_valyria_magic_water_magic.012.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA thin film of water slides over the subject's arms and hands, and when they move, it moves with them, smooth and unbroken.\n\nThe champions of the Freehold's arenas who fought with Water's Edge were said to be impossible to strike cleanly. Every blow simply slid away.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lend the flowing strength of water to [recipient.GetFirstName], making them a deadlier fighter. Will you grant it?"
+  zz_valyria_magic_water_magic.012.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster dips the subject's hands into a bowl of cool water and holds them there. When they draw them out, the water clings to their skin in a thin, shining film that does not drip or dry, and moves with their fingers as they flex them.\n\nThe champions of the Freehold's arenas who fought with Water's Edge were notoriously hard to hit. Every blow simply slid away.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lend the flowing strength of water to [recipient.GetFirstName], making them a deadlier fighter. Will you grant it?"
+  zz_valyria_magic_water_magic.012.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA fine spray of water is breathed over the subject's sword arm, and it settles upon the skin like dew. When they lift their blade, the water flows along it, and every movement becomes smoother, quicker, more fluid than before.\n\nIn Valyria, it was said that a duellist touched by water was like a river: impossible to grasp, and impossible to stop.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lend the flowing strength of water to [recipient.GetFirstName], making them a deadlier fighter. Will you grant it?"
+  zz_valyria_magic_water_magic.012.opt.a:0 "Let their blade flow like water."
   zz_valyria_magic_water_magic.012.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.012.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.012.name$"
-  zz_valyria_magic_water_magic.012.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ purging [recipient.GetFirstName] of all disease."
+  zz_valyria_magic_water_magic.012.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ lending the flowing strength of water to [recipient.GetFirstName]."
   zz_valyria_magic_water_magic.012.toast.tt:0 "$zz_valyria_magic_water_magic.012.toast.desc$"
   zz_valyria_magic_water_magic.012.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.012.name$"
   zz_valyria_magic_water_magic.012.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_water_magic.012.f.toast.tt:0 "$zz_valyria_magic_water_magic.012.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_water_magic_013.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hc$\n\nThe arts of [water_magic|E] allows for a power over life and death. By calling forth the power of water to heal and clean it is possible to wash away disease and infection, and provide a lasting immunity to such forces.."
+  zz_valyria_magic_water_magic_013.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_nwp$\n\nThe use of the arcane forces of [water_magic|E] to bind a barrier of condensed water about a chosen warrior, so that their wounds no longer weigh upon them.\n\nThrough this mystery, a barrier of condensed water is bound around a chosen warrior, cooling their wounds and steadying their limbs, so that injuries no longer slow them.\n\nThe subject ignores the penalties that their wounds would otherwise impose upon their [prowess|E].\n\nThe wounds themselves remain beneath the barrier, waiting for the water to recede."
   ##event
   zz_valyria_magic_water_magic.013.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.013.name$"
-  zz_valyria_magic_water_magic.013.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. It is possible to call forth the purifying properties of water, and to have all disease and infection purged from the body of [recipient.GetFirstName]. Sucha  power will leave a lingering immunity to disease. "
-  zz_valyria_magic_water_magic.013.opt.a:0 "Yes, let them be purified!"
+  zz_valyria_magic_water_magic.013.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA cool, shimmering film of water settles over the subject like a second skin. Where it touches old wounds, the heat of inflammation fades and stiff joints loosen.\n\nThe legion commanders of the Freehold were often wrapped in the Condensed Barrier before battle, so that no wound could keep them from the front.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bind a barrier of water about [recipient.GetFirstName], so that their wounds no longer hinder them in combat. Will you grant it?"
+  zz_valyria_magic_water_magic.013.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster pours a slow stream of water over the subject's shoulders, and it does not run off. It spreads across them in a thin, shimmering layer, cool and close, and settles into the folds of their clothing like a second skin.\n\nThe commanders of the Freehold went into battle wrapped in water, and many a blow that should have killed them merely glanced aside.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bind a barrier of water about [recipient.GetFirstName], so that their wounds no longer hinder them in combat. Will you grant it?"
+  zz_valyria_magic_water_magic.013.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA fine mist rises from the ritual basin and drifts towards the subject, wrapping itself around them until they are hidden in a cool, glimmering cloud. When the mist clears, it leaves behind a faint sheen upon their skin that does not fade.\n\nIn Valyria, it was said that water could turn a blade as well as any steel, if it was called upon by the right hand.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bind a barrier of water about [recipient.GetFirstName], so that their wounds no longer hinder them in combat. Will you grant it?"
+  zz_valyria_magic_water_magic.013.opt.a:0 "Raise the barrier."
   zz_valyria_magic_water_magic.013.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.013.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.013.name$"
-  zz_valyria_magic_water_magic.013.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ purging [recipient.GetFirstName] of all disease."
+  zz_valyria_magic_water_magic.013.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ binding a barrier of condensed water about [recipient.GetFirstName], so that their wounds no longer hinder them."
   zz_valyria_magic_water_magic.013.toast.tt:0 "$zz_valyria_magic_water_magic.013.toast.desc$"
   zz_valyria_magic_water_magic.013.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.013.name$"
   zz_valyria_magic_water_magic.013.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_water_magic.013.f.toast.tt:0 "$zz_valyria_magic_water_magic.013.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_water_magic_014.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hcm$\n\nThe arts of [water_magic|E] allows for a power over life and death. By calling forth the power of water to heal and clean it is possible to wash away disease and infection, and provide a lasting immunity to such forces.."
+  zz_valyria_magic_water_magic_014.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hcm$\n\nThe use of the arcane forces of [water_magic|E] to wash away the lingering taint of failed and miscast workings.\n\nEvery failed spell leaves a residue in the soul of its caster. Through this mystery, pure water is passed through the subject's spirit, washing that residue away.\n\nThe subject's capacity to cast safely is restored, the scars of past miscasts cleansed.\n\nThe tide-sorcerers of the Freehold bathed in sacred springs at the turning of every season, so that no failure would cling to them."
   ##event
   zz_valyria_magic_water_magic.014.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.014.name$"
-  zz_valyria_magic_water_magic.014.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. It is possible to call forth the purifying properties of water, and to have all disease and infection purged from the body of [recipient.GetFirstName]. Sucha  power will leave a lingering immunity to disease. "
-  zz_valyria_magic_water_magic.014.opt.a:0 "Yes, let them be purified!"
+  zz_valyria_magic_water_magic.014.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA clear spring wells up from the floor of the chamber and flows over the subject's feet. Where it passes, something dark and clinging seems to dissolve and drift away.\n\nThe Valyrians called this the Rite of the Clean Spring, and no sorcerer of the Freehold went long without it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may wash [recipient.GetFirstName] clean of the lingering taint of their failed workings. Will you cleanse them?"
+  zz_valyria_magic_water_magic.014.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster draws a basin of cold, clear water from a spring and bids the subject wash their hands and face in it. As they do, the water darkens, as though something were being drawn out of them, and when it is poured away, they feel lighter and cleaner than before.\n\nThe Rite of the Clean Spring was performed often in the towers of the Freehold, for no sorcerer could afford to carry the debris of their failures for long.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may wash [recipient.GetFirstName] clean of the lingering taint of their failed workings. Will you cleanse them?"
+  zz_valyria_magic_water_magic.014.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA slow trickle of water is poured over the subject's head, from a jug that never seems to empty. Where it runs, the dark marks left by old and failed workings seem to loosen and wash away, carried off down the drain in the floor.\n\nIn Valyria, it was understood that water carries away all things in time. The tide-sorcerers only hastened it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may wash [recipient.GetFirstName] clean of the lingering taint of their failed workings. Will you cleanse them?"
+  zz_valyria_magic_water_magic.014.opt.a:0 "Wash them clean."
   zz_valyria_magic_water_magic.014.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.014.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.014.name$"
-  zz_valyria_magic_water_magic.014.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ purging [recipient.GetFirstName] of all disease."
+  zz_valyria_magic_water_magic.014.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ washing away the lingering taint of failed workings from [recipient.GetFirstName]."
   zz_valyria_magic_water_magic.014.toast.tt:0 "$zz_valyria_magic_water_magic.014.toast.desc$"
 
   zz_valyria_magic_water_magic.014.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.014.name$"
@@ -238,47 +266,328 @@ l_english:
   zz_valyria_magic_water_magic.014.f.toast.tt:0 "$zz_valyria_magic_water_magic.014.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_water_magic_015.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_pcm$\n\nThe arts of [water_magic|E] allows for a power over life and death. By calling forth the power of water to heal and clean it is possible to wash away disease and infection, and provide a lasting immunity to such forces.."
+  zz_valyria_magic_water_magic_015.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_pcm$\n\nThe use of the arcane forces of [water_magic|E] to raise a ward of water that absorbs the backlash of a miscast spell.\n\nThrough this mystery, a ward of still water is laid around the subject's spirit, ready to absorb the wild energies of a failed working as the sea absorbs a falling stone.\n\nThe ward lies dormant until it is needed. When a working fails, the water rises, and the backlash is swallowed without harm.\n\nThe teachers of the Freehold laid this ward upon their students before every dangerous lesson."
   ##event
   zz_valyria_magic_water_magic.015.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.015.name$"
-  zz_valyria_magic_water_magic.015.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. It is possible to call forth the purifying properties of water, and to have all disease and infection purged from the body of [recipient.GetFirstName]. Sucha  power will leave a lingering immunity to disease. "
-  zz_valyria_magic_water_magic.015.opt.a:0 "Yes, let them be purified!"
+  zz_valyria_magic_water_magic.015.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA ring of still water forms in the air around the subject, smooth as glass, then sinks out of sight, leaving behind only a faint coolness that lingers.\n\nThe tide-sorcerers of the Freehold never attempted a dangerous working without such a ward. They had seen too many towers fall.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lay a warding water upon [recipient.GetFirstName], protecting them from the backlash of their next failed working. Will you raise the ward?"
+  zz_valyria_magic_water_magic.015.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster draws a circle of water around the subject with a wet finger, and the water rises from the floor in a thin, shining ring. It hangs in the air for a moment, smooth as glass, and then sinks out of sight, leaving a faint coolness in its place.\n\nThe tide-sorcerers of the Freehold never cast a dangerous working without such a ward. They had seen too many towers fall.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lay a warding water upon [recipient.GetFirstName], protecting them from the backlash of their next failed working. Will you raise the ward?"
+  zz_valyria_magic_water_magic.015.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA small crystal flask of water is hung on a cord about the subject's neck, and the caster speaks the words of binding over it. The water within begins to glow faintly, and the subject feels a quiet calm settle over them, as though the sea itself were standing guard.\n\nIn Valyria, it was said that water was the most patient of all guardians. It would wait forever for a mistake, and catch it when it came.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lay a warding water upon [recipient.GetFirstName], protecting them from the backlash of their next failed working. Will you raise the ward?"
+  zz_valyria_magic_water_magic.015.opt.a:0 "Raise the ward."
   zz_valyria_magic_water_magic.015.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.015.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.015.name$"
-  zz_valyria_magic_water_magic.015.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ purging [recipient.GetFirstName] of all disease."
+  zz_valyria_magic_water_magic.015.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ laying a ward of still water upon [recipient.GetFirstName] that will absorb the backlash of a failed working."
   zz_valyria_magic_water_magic.015.toast.tt:0 "$zz_valyria_magic_water_magic.015.toast.desc$"
   zz_valyria_magic_water_magic.015.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.015.name$"
   zz_valyria_magic_water_magic.015.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_water_magic.015.f.toast.tt:0 "$zz_valyria_magic_water_magic.015.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_water_magic_016.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hc$\n\nThe arts of [water_magic|E] allows for a power over life and death. By calling forth the power of water to heal and clean it is possible to wash away disease and infection, and provide a lasting immunity to such forces.."
+  zz_valyria_magic_water_magic_016.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_ccf$\n\nThe use of the arcane forces of [water_magic|E] to raise a great fortress of water around the defences of a chosen province.\n\nThrough this mystery, the defences of a chosen province are ringed by deep and treacherous waters: moats that fill of their own accord, marshes that rise around the walls, and rivers that turn to guard the gates.\n\nThe province's fortifications are made enormously stronger for as long as the waters endure.\n\nThe great river-fortresses of old were said to be impregnable. The Valyrians, who eventually took them, learned the secret and made it their own."
   ##event
   zz_valyria_magic_water_magic.016.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.016.name$"
-  zz_valyria_magic_water_magic.016.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. It is possible to call forth the purifying properties of water, and to have all disease and infection purged from the body of [recipient.GetFirstName]. Sucha  power will leave a lingering immunity to disease. "
-  zz_valyria_magic_water_magic.016.opt.a:0 "Yes, let them be purified!"
+  zz_valyria_magic_water_magic.016.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe sound of deep water fills the chamber, the slow surge of a river in flood. Far away, the ditches and moats of the chosen province begin to fill.\n\nThe tide-sorcerers of the Freehold raised such fortresses around its river-cities, and the armies that came against them drowned in the attempt.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may raise a fortress of water around the defences of the chosen province, making them nearly impregnable. Will you raise it?"
+  zz_valyria_magic_water_magic.016.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster pours a jug of water slowly around a model of the chosen province's chief fortress. The water does not spread across the floor. It gathers itself into a deep, swirling moat around the model, and far away, the moats and ditches of the real fortress begin to fill.\n\nThe river-cities of the Freehold were surrounded by water that rose and fell at their sorcerers' command, and few besiegers ever crossed it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may raise a fortress of water around the defences of the chosen province, making them nearly impregnable. Will you raise it?"
+  zz_valyria_magic_water_magic.016.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA bowl of river water is set upon a map of the chosen province, and the caster stirs it slowly with a rod of silver. As the water turns, the rivers on the map seem to swell and spread, flowing around the province's walls and filling every hollow.\n\nIn Valyria, the tide-sorcerers made rivers into walls, and walls of water could not be climbed.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may raise a fortress of water around the defences of the chosen province, making them nearly impregnable. Will you raise it?"
+  zz_valyria_magic_water_magic.016.opt.a:0 "Raise the fortress of water!"
   zz_valyria_magic_water_magic.016.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.016.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.016.name$"
-  zz_valyria_magic_water_magic.016.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ purging [recipient.GetFirstName] of all disease."
+  zz_valyria_magic_water_magic.016.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ raising a fortress of water around the defences of [target.GetName]."
   zz_valyria_magic_water_magic.016.toast.tt:0 "$zz_valyria_magic_water_magic.016.toast.desc$"
   zz_valyria_magic_water_magic.016.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.016.name$"
   zz_valyria_magic_water_magic.016.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_water_magic.016.f.toast.tt:0 "$zz_valyria_magic_water_magic.016.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_water_magic_017.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hc$\n\nThe arts of [water_magic|E] allows for a power over life and death. By calling forth the power of water to heal and clean it is possible to wash away disease and infection, and provide a lasting immunity to such forces.."
+  zz_valyria_magic_water_magic_017.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_ccf$\n\nThe use of the arcane forces of [water_magic|E] to seep oppressive mists and damp into the defences of a chosen province.\n\nThrough this mystery, oppressive mists and creeping damp are sent into the defences of a chosen province. Mortar softens, timbers rot, and the defenders grow sick and weary.\n\nThe province's fortifications are weakened, leaving it more vulnerable to assault.\n\nWater wears down stone. The tide-sorcerers of the Freehold simply made it work faster."
   ##event
   zz_valyria_magic_water_magic.017.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.013.name$"
-  zz_valyria_magic_water_magic.017.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe inhabitants of the Rhoyne were masters of binding the source of life to their purposes. They could remove rot, and strike dragons down from the air with spouts of furious water. It is possible to call forth the purifying properties of water, and to have all disease and infection purged from the body of [recipient.GetFirstName]. Sucha  power will leave a lingering immunity to disease. "
-  zz_valyria_magic_water_magic.017.opt.a:0 "Yes, let them be purified!"
+  zz_valyria_magic_water_magic.017.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA cold, clammy mist seeps into the chamber, and the walls begin to sweat. Far away, the same mist creeps over the walls of the chosen province.\n\nIn the wars of the Freehold, a fortress that had endured the Oppression of the Mists for a season was rarely in a state to resist the legions.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may send oppressive mists into the defences of the chosen province, weakening them against your armies. Will you send the mist?"
+  zz_valyria_magic_water_magic.017.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster breathes slowly upon a cold stone taken from the walls of the chosen province. A damp mist rises from it and spreads across the chamber, and far away, the same mist creeps up the walls of the province, seeping into every crack and crevice.\n\nThe fortresses of the Freehold's enemies grew damp and weak under the mists, their timbers rotting and their mortar crumbling, long before the legions arrived.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may send oppressive mists into the defences of the chosen province, weakening them against your armies. Will you send the mist?"
+  zz_valyria_magic_water_magic.017.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA wet cloth is wrapped around a model of the chosen province's walls, and the caster speaks the words of creeping cold. The cloth begins to steam, and the model beneath it grows dark and soft, its edges crumbling under the weight of the damp.\n\nIn Valyria, it was said that a fortress could withstand the battering ram, but not the slow and patient mist.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may send oppressive mists into the defences of the chosen province, weakening them against your armies. Will you send the mist?"
+  zz_valyria_magic_water_magic.017.opt.a:0 "Let the mists creep in."
   zz_valyria_magic_water_magic.017.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_water_magic.017.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.017.name$"
-  zz_valyria_magic_water_magic.017.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ purging [recipient.GetFirstName] of all disease."
+  zz_valyria_magic_water_magic.017.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ sending oppressive mists into the defences of [target.GetName], weakening them."
   zz_valyria_magic_water_magic.017.toast.tt:0 "$zz_valyria_magic_water_magic.017.toast.desc$"
 
   zz_valyria_magic_water_magic.017.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.017.name$"
   zz_valyria_magic_water_magic.017.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_water_magic.017.f.toast.tt:0 "$zz_valyria_magic_water_magic.017.f.toast.desc$"
+
+
+  ## Water 018
+  zz_valyria_magic_water_magic_018.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tr$\n$zz_dr$\n$zz_md$\n\nThe use of the arcane forces of [water_magic|E] to drown a single company where it stands.\n\nThrough this mystery, water fills helm and breastplate, rising from nothing around the men of one chosen company. They drown on dry ground, in full sight of their comrades.\n\nOf the mysteries of water this is the most direct, and the river-sorcerers of the Freehold kept it for the enemy's finest soldiers."
+  zz_valyria_magic_water_magic.018.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.018.name$"
+  zz_valyria_magic_water_magic.018.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe water in the ritual basin begins to rise without being poured. It climbs over the rim and hangs in the air in a trembling column, reaching towards something far away."
+  zz_valyria_magic_water_magic.018.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster lowers an iron helm into a basin and holds it under. Somewhere distant, men begin to choke, and the bubbles that rise from the helm are not the caster's."
+  zz_valyria_magic_water_magic.018.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA wet handprint appears upon the flagstones, then another. They cross the chamber in a slow line, as though something unseen has already gone out to find its prey."
+  zz_valyria_magic_water_magic.018.opt.a:0 "Pull them under!"
+  zz_valyria_magic_water_magic.018.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_water_magic.018.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.018.name$"
+  zz_valyria_magic_water_magic.018.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ drowning a company of [recipient.GetFirstName]'s soldiers where they stood."
+  zz_valyria_magic_water_magic.018.toast.tt:0 "$zz_valyria_magic_water_magic.018.toast.desc$"
+  zz_valyria_magic_water_magic.018.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.018.name$"
+  zz_valyria_magic_water_magic.018.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_water_magic.018.f.toast.tt:0 "$zz_valyria_magic_water_magic.018.f.toast.desc$"
+
+
+  ## Water 019
+  zz_valyria_magic_water_magic_019.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_da$\n$zz_md$\n\nThe use of the arcane forces of [water_magic|E] to drag an enemy host away with an unseen current.\n\nThrough this mystery, a pull like the sea's own undertow seizes a chosen army. An army near a coast or riverbank suffers far worse, for there the working has real water to command.\n\nThe fisherfolk of the Freehold's coasts are said to have feared this working above all others, and with good cause."
+  zz_valyria_magic_water_magic.019.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.019.name$"
+  zz_valyria_magic_water_magic.019.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe water in the ritual basin draws back from one side and piles against the other, leaning like a tide. The caster's robes begin to tug in the same direction."
+  zz_valyria_magic_water_magic.019.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA coil of wet rope lying upon the floor begins to pay itself out, slowly at first and then faster, hauled by nothing that anyone can see."
+  zz_valyria_magic_water_magic.019.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe floor seems to tilt. Candles, cups and loose papers all begin to slide towards the same wall, and the sound of a retreating wave fills the room."
+  zz_valyria_magic_water_magic.019.opt.a:0 "Drag them out!"
+  zz_valyria_magic_water_magic.019.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_water_magic.019.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.019.name$"
+  zz_valyria_magic_water_magic.019.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ sending a riptide through an army of [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.019.toast.tt:0 "$zz_valyria_magic_water_magic.019.toast.desc$"
+  zz_valyria_magic_water_magic.019.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.019.name$"
+  zz_valyria_magic_water_magic.019.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_water_magic.019.f.toast.tt:0 "$zz_valyria_magic_water_magic.019.f.toast.desc$"
+
+
+  ## Water 020
+  zz_valyria_magic_water_magic_020.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_dar$\n$zz_sd$\n$zz_ccd$\n$zz_mov$\n\nThe use of the arcane forces of [water_magic|E] to send a flood down the waterways of a chosen province.\n\nThrough this mystery, a great flood begins in the chosen province and strikes it with terrible force. It then runs on from one riverside or coastal province to the next, drowning armies and tearing down buildings as it goes.\n\nA flood cannot leave the water behind it. Where no river or coast lies ahead, the working ends."
+  zz_valyria_magic_water_magic.020.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.020.name$"
+  zz_valyria_magic_water_magic.020.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA deep groan rises from below the floor, the sound of stone giving way. The water in the ritual basin begins to shake, and then to climb the walls of the bowl."
+  zz_valyria_magic_water_magic.020.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster draws a line of wet chalk across a map and breaks a clay seal upon it. Water runs from the crack and follows the line of the rivers."
+  zz_valyria_magic_water_magic.020.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nAll at once every jug, cup and basin in the chamber overflows. The water runs together upon the floor and moves away as one, in a single purposeful stream."
+  zz_valyria_magic_water_magic.020.opt.a:0 "Break the dams!"
+  zz_valyria_magic_water_magic.020.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_water_magic.020.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.020.name$"
+  zz_valyria_magic_water_magic.020.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ loosing a great flood in the lands of [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.020.toast.tt:0 "$zz_valyria_magic_water_magic.020.toast.desc$"
+  zz_valyria_magic_water_magic.020.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.020.name$"
+  zz_valyria_magic_water_magic.020.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_water_magic.020.f.toast.tt:0 "$zz_valyria_magic_water_magic.020.f.toast.desc$"
+
+
+  ## Water 021
+  zz_valyria_magic_water_magic_021.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tr$\n$zz_hr$\n$zz_mh$\n\nThe use of the arcane forces of [water_magic|E] to restore a wounded company with waters that mend.\n\nThrough this mystery, a spring rises in the camp of a chosen company. Those who drink from it find fever gone and wounds closed, and many who were counted lost return to the line.\n\nIt lacks the terrible strength of the blood mysteries, but it asks a far smaller price."
+  zz_valyria_magic_water_magic.021.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.021.name$"
+  zz_valyria_magic_water_magic.021.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nClear water wells up through a crack in the flagstones, cold and sweet. A smell of moss and wet stone fills the chamber, and the ache of old wounds fades from the room."
+  zz_valyria_magic_water_magic.021.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster fills a clay bowl from the ritual basin and pours it upon the ground. The earth drinks, and then gives back more than it was given."
+  zz_valyria_magic_water_magic.021.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA slow drip begins from the ceiling, falling in time with a heartbeat. Each drop strikes the basin with a clear note, and each note leaves the air a little cleaner."
+  zz_valyria_magic_water_magic.021.opt.a:0 "Let the springs rise!"
+  zz_valyria_magic_water_magic.021.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_water_magic.021.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.021.name$"
+  zz_valyria_magic_water_magic.021.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ raising healing springs for a company of [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.021.toast.tt:0 "$zz_valyria_magic_water_magic.021.toast.desc$"
+  zz_valyria_magic_water_magic.021.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.021.name$"
+  zz_valyria_magic_water_magic.021.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_water_magic.021.f.toast.tt:0 "$zz_valyria_magic_water_magic.021.f.toast.desc$"
+
+
+  ## Water 022
+  zz_valyria_magic_water_magic_022.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_dsick$\n$zz_coast$\n$zz_resm$\n\nThe use of the arcane forces of [water_magic|E] to fill a chosen subject's lungs with the sea.\n\nThrough this mystery, a slow sickness of salt and water takes root in the subject. It gives warning, and a skilled healer or mage may yet turn it aside, but those who ignore the taste of brine drown in their own beds.\n\nThe working grows stronger when the victim is at sea or upon the coast. Skilled mages resist it through their own Higher Mysteries."
+  zz_valyria_magic_water_magic.022.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.022.name$"
+  zz_valyria_magic_water_magic.022.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster breathes slowly over a bowl of seawater. With each breath the level in the bowl falls, though nothing is drunk, and nothing is spilled."
+  zz_valyria_magic_water_magic.022.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA lock of the subject's hair is dropped into a jar of brine and the lid is sealed with wax. The caster sets it upon the altar and begins, softly, to cough."
+  zz_valyria_magic_water_magic.022.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA cup is filled with salt water and turned over upon the altar. Not a drop falls. It has already gone where it was sent."
+  zz_valyria_magic_water_magic.022.opt.a:0 "Fill their lungs!"
+  zz_valyria_magic_water_magic.022.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_water_magic.022.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.022.name$"
+  zz_valyria_magic_water_magic.022.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ sending a slow tide against [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.022.toast.tt:0 "$zz_valyria_magic_water_magic.022.toast.desc$"
+  zz_valyria_magic_water_magic.022.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.022.name$"
+  zz_valyria_magic_water_magic.022.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_water_magic.022.f.toast.tt:0 "$zz_valyria_magic_water_magic.022.f.toast.desc$"
+
+
+  ## Water 023
+  zz_valyria_magic_water_magic_023.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_nav_up$\n$zz_sea$\n\nThe use of the arcane forces of [water_magic|E] to make the sea an ally to a chosen subject.\n\nThrough this mystery, tides turn early and currents run true beneath the subject's keels. Their fleets sail faster, and the cost of putting to sea is lessened.\n\nThis working has no power on land. It is the sea alone that answers it."
+  zz_valyria_magic_water_magic.023.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.023.name$"
+  zz_valyria_magic_water_magic.023.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe water in the ritual basin begins to rise and fall in a slow, steady rhythm, as though the chamber itself had put out to sea."
+  zz_valyria_magic_water_magic.023.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA small boat of folded parchment is set upon the basin. There is no wind in the chamber, yet it sails, straight and sure, against the edge of the bowl."
+  zz_valyria_magic_water_magic.023.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA smell of salt and tar fills the room. Far away, gulls begin to cry, and the floor seems to rock gently beneath the caster's feet."
+  zz_valyria_magic_water_magic.023.opt.a:0 "Turn the tide!"
+  zz_valyria_magic_water_magic.023.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_water_magic.023.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.023.name$"
+  zz_valyria_magic_water_magic.023.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ binding the tides to the favour of [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.023.toast.tt:0 "$zz_valyria_magic_water_magic.023.toast.desc$"
+  zz_valyria_magic_water_magic.023.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.023.name$"
+  zz_valyria_magic_water_magic.023.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_water_magic.023.f.toast.tt:0 "$zz_valyria_magic_water_magic.023.f.toast.desc$"
+
+
+  ## Water 024
+  zz_valyria_magic_water_magic_024.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_sa$\n$zz_nrep$\n$zz_coast$\n\nThe use of the arcane forces of [water_magic|E] to raise a host from the mist.\n\nThrough this mystery, a small company of Mist Shades forms around the chosen commander. They strike feebly, but no other summoned host is so hard to bring down.\n\nWhen called beside a coast or a river, half as many again rise from the water."
+  zz_valyria_magic_water_magic.024.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.024.name$"
+  zz_valyria_magic_water_magic.024.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe water in the ritual basin begins to steam, though no fire is near it. The vapour settles along the floor and slowly stands."
+  zz_valyria_magic_water_magic.024.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster breathes out across a still pool. The mist of that breath does not fade, but thickens, and stays."
+  zz_valyria_magic_water_magic.024.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe chamber grows damp and cold. Pale figures gather in the fog, patient as the tide."
+  zz_valyria_magic_water_magic.024.opt.a:0 "Rise from the mist."
+  zz_valyria_magic_water_magic.024.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_water_magic.024.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.024.name$"
+  zz_valyria_magic_water_magic.024.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ raising a host of mist for [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.024.toast.tt:0 "$zz_valyria_magic_water_magic.024.toast.desc$"
+  zz_valyria_magic_water_magic.024.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.024.name$"
+  zz_valyria_magic_water_magic.024.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_water_magic.024.f.toast.tt:0 "$zz_valyria_magic_water_magic.024.f.toast.desc$"
+
+
+  ## Water 025
+  zz_valyria_magic_water_magic_025.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_rstr$\n$zz_strs_dn$\n\nThe use of the arcane forces of [water_magic|E] to calm a troubled mind.\n\nThrough this mystery, the turmoil of the chosen character settles like silt in a quiet pool. Their stress drains away at once, and for some time after the world weighs less heavily upon them.\n\nOf all the mysteries of water this is the gentlest, and the most often asked for in secret."
+  zz_valyria_magic_water_magic.025.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.025.name$"
+  zz_valyria_magic_water_magic.025.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe surface of the ritual basin trembles, and then stops. The stillness spreads outward from it until the whole chamber seems to be holding its breath."
+  zz_valyria_magic_water_magic.025.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster bathes the subject's brow with cool water, and speaks low and slowly. The tension leaves their shoulders by degrees."
+  zz_valyria_magic_water_magic.025.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA single drop falls into a dark bowl. The ring it makes goes on widening, long after it ought to have faded."
+  zz_valyria_magic_water_magic.025.opt.a:0 "Be at peace."
+  zz_valyria_magic_water_magic.025.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_water_magic.025.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.025.name$"
+  zz_valyria_magic_water_magic.025.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ calming the troubled mind of [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.025.toast.tt:0 "$zz_valyria_magic_water_magic.025.toast.desc$"
+  zz_valyria_magic_water_magic.025.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.025.name$"
+  zz_valyria_magic_water_magic.025.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_water_magic.025.f.toast.tt:0 "$zz_valyria_magic_water_magic.025.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_water_magic_026.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_cf$\n\nThe use of the arcane forces of [water_magic|E] to convert the selected subject to the faith of the commander.\n\nWater washes away the old and makes all things new. Dream Magic can lead a mind to any faith; the water can only bring it to the commander's own."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_water_magic.026.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.026.name$"
+  zz_valyria_magic_water_magic.026.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe subject is lowered into a pool beneath the tower. When they rise, they pray with different words."
+  zz_valyria_magic_water_magic.026.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster pours water over the subject's head from a silver ewer, three times, and speaks the commander's creed."
+  zz_valyria_magic_water_magic.026.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nHoly water is dripped onto the subject's lips while they sleep. They wake remembering a faith they never learned."
+  zz_valyria_magic_water_magic.026.opt.a:0 "Baptise them."
+  zz_valyria_magic_water_magic.026.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_water_magic.026.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.026.name$"
+  zz_valyria_magic_water_magic.026.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ baptising [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.026.toast.tt:0 "$zz_valyria_magic_water_magic.026.toast.desc$"
+
+  zz_valyria_magic_water_magic.026.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.026.name$"
+  zz_valyria_magic_water_magic.026.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_water_magic.026.f.toast.tt:0 "$zz_valyria_magic_water_magic.026.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_water_magic_027.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_ccul$\n\nThe use of the arcane forces of [water_magic|E] to change the selected subject's culture to one of the commander's choosing.\n\nThe sea changes all who cross it. Those it changes most come ashore as strangers to their own kin."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_water_magic.027.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.027.name$"
+  zz_valyria_magic_water_magic.027.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe subject drinks a cup of seawater drawn from a far coast. By morning their speech has the accent of that shore."
+  zz_valyria_magic_water_magic.027.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster pours river water over the subject's hands until it runs clear. They no longer remember the songs of their childhood."
+  zz_valyria_magic_water_magic.027.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe subject bathes in a tide pool at moonrise and walks out of it speaking another tongue."
+  zz_valyria_magic_water_magic.027.opt.a:0 "Let the sea change them."
+  zz_valyria_magic_water_magic.027.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_water_magic.027.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.027.name$"
+  zz_valyria_magic_water_magic.027.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ changing [recipient.GetFirstName] as the sea changes all things."
+  zz_valyria_magic_water_magic.027.toast.tt:0 "$zz_valyria_magic_water_magic.027.toast.desc$"
+
+  zz_valyria_magic_water_magic.027.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.027.name$"
+  zz_valyria_magic_water_magic.027.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_water_magic.027.f.toast.tt:0 "$zz_valyria_magic_water_magic.027.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_water_magic_028.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_dcor$\n\nThe use of the arcane forces of [water_magic|E] to wash away one relationship between the selected subject and a chosen character.\n\nWhat has passed is water under the bridge, and water does not flow back."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_water_magic.028.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.028.name$"
+  zz_valyria_magic_water_magic.028.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe subject and the caster stand on a bridge at dawn. The caster lets a ribbon fall into the river, and the subject forgets why it ever mattered."
+  zz_valyria_magic_water_magic.028.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster pours a cup of wine into a stream and lets it carry away the memory of every quarrel and kiss."
+  zz_valyria_magic_water_magic.028.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA letter between the two is soaked until the ink runs, then left in the rain."
+  zz_valyria_magic_water_magic.028.opt.a:0 "Let it pass."
+  zz_valyria_magic_water_magic.028.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_water_magic.028.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.028.name$"
+  zz_valyria_magic_water_magic.028.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ washing away a bond of [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.028.toast.tt:0 "$zz_valyria_magic_water_magic.028.toast.desc$"
+
+  zz_valyria_magic_water_magic.028.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.028.name$"
+  zz_valyria_magic_water_magic.028.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_water_magic.028.f.toast.tt:0 "$zz_valyria_magic_water_magic.028.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_water_magic_029.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_dsec$\n\nThe use of the arcane forces of [water_magic|E] to wash one chosen secret away from the selected subject.\n\nWater washes out every stain, given time. The caster gives it no time at all. Water must scrub what a dream would simply forget, so this costs more than Dream Magic's version."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_water_magic.029.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.029.name$"
+  zz_valyria_magic_water_magic.029.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe subject's hands are washed in a basin of cold spring water until the water runs dark. When it clears, so has their conscience."
+  zz_valyria_magic_water_magic.029.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA bloodstained cloth is soaked in the river overnight. In the morning it is white, and no one remembers the blood."
+  zz_valyria_magic_water_magic.029.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster bathes the subject in rainwater gathered on a moonless night, and what they did is gone from the world."
+  zz_valyria_magic_water_magic.029.opt.a:0 "Wash it away."
+  zz_valyria_magic_water_magic.029.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_water_magic.029.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.029.name$"
+  zz_valyria_magic_water_magic.029.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ washing a stain from [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.029.toast.tt:0 "$zz_valyria_magic_water_magic.029.toast.desc$"
+
+  zz_valyria_magic_water_magic.029.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.029.name$"
+  zz_valyria_magic_water_magic.029.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_water_magic.029.f.toast.tt:0 "$zz_valyria_magic_water_magic.029.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_water_magic_030.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tcc$\n$zz_ccd$\n\nThe use of the arcane forces of [water_magic|E] to flood the selected county, enriching its soil with prosperity progress of half the caster's skill, but its levies and supply suffer while the waters stand.\n\nThe river gives as it takes. When it withdraws, the fields are black and rich."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_water_magic.030.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.030.name$"
+  zz_valyria_magic_water_magic.030.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster pours a jug of river water onto the county map, and far away the river bursts its banks."
+  zz_valyria_magic_water_magic.030.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nRain falls for three days over the county. When it stops, the fields are drowned and the silt lies thick."
+  zz_valyria_magic_water_magic.030.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA dam of reeds is cut at the caster's word, and the floodwaters spread across the fields."
+  zz_valyria_magic_water_magic.030.opt.a:0 "Release the flood."
+  zz_valyria_magic_water_magic.030.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_water_magic.030.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.030.name$"
+  zz_valyria_magic_water_magic.030.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ flooding the fields of [target.GetName]."
+  zz_valyria_magic_water_magic.030.toast.tt:0 "$zz_valyria_magic_water_magic.030.toast.desc$"
+
+  zz_valyria_magic_water_magic.030.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.030.name$"
+  zz_valyria_magic_water_magic.030.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_water_magic.030.f.toast.tt:0 "$zz_valyria_magic_water_magic.030.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_water_magic_031.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_dch$\n\nThe use of the arcane forces of [water_magic|E] to wash away a weak hook the selected subject holds on a chosen character.\n\nWater loosens every knot in time. A weak bond it unties at once; a strong one is beyond it, where Dream Magic is not."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_water_magic.031.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.031.name$"
+  zz_valyria_magic_water_magic.031.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA knotted cord is dropped into a fast stream. By the time it reaches the sea, the knot has come loose."
+  zz_valyria_magic_water_magic.031.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster pours water over a signed promise until the signature runs and fades."
+  zz_valyria_magic_water_magic.031.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe two are made to wash their hands in the same basin, and what one owed the other drains away with the water."
+  zz_valyria_magic_water_magic.031.opt.a:0 "Loosen the bond."
+  zz_valyria_magic_water_magic.031.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_water_magic.031.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.031.name$"
+  zz_valyria_magic_water_magic.031.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ breaking a bond held by [recipient.GetFirstName]."
+  zz_valyria_magic_water_magic.031.toast.tt:0 "$zz_valyria_magic_water_magic.031.toast.desc$"
+
+  zz_valyria_magic_water_magic.031.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.031.name$"
+  zz_valyria_magic_water_magic.031.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_water_magic.031.f.toast.tt:0 "$zz_valyria_magic_water_magic.031.f.toast.desc$"
+
+  # Water 032 - the Drowning Deep (Strike Embarked Army)
+  zz_valyria_magic_water_magic_032.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_sea$\n$zz_cd$\n\nThe use of the arcane forces of [water_magic|E] to drag an army at sea down into the deep.\n\nAn embarked army suffers catastrophic losses, growing with the caster's mastery. It has no effect on an army on land.\n\nThe sea-mages of the Freehold said that every ship floats only by the sea's leave, and that the sea can always be persuaded to withdraw it."
+  zz_valyria_magic_water_magic.032.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.032.name$"
+  zz_valyria_magic_water_magic.032.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster lowers a hand into a basin of seawater and closes it into a fist. Far away, beneath a fleet under full sail, the sea opens.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may drown [recipient.GetFirstName]'s army at sea. Will you call the deep?"
+  zz_valyria_magic_water_magic.032.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nA wave rises from a flat calm, taller than any mast, and falls upon the ships with the weight of a mountain. When the spray clears, there is much less fleet than before.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may drown [recipient.GetFirstName]'s army at sea. Will you call the deep?"
+  zz_valyria_magic_water_magic.032.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_water_magic')]\n\nThe caster sings a drowned sailor's song, and the deep answers. Hands of black water rise around the hulls and pull, and the timbers groan and split.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may drown [recipient.GetFirstName]'s army at sea. Will you call the deep?"
+  zz_valyria_magic_water_magic.032.opt.a:0 "Call up the deep."
+  zz_valyria_magic_water_magic.032.opt.z:0 "No, let the sea be calm."
+  zz_valyria_magic_water_magic.032.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.032.name$"
+  zz_valyria_magic_water_magic.032.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ dragging an army down into the deep."
+  zz_valyria_magic_water_magic.032.toast.tt:0 "$zz_valyria_magic_water_magic.032.toast.desc$"
+  zz_valyria_magic_water_magic.032.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.032.name$"
+  zz_valyria_magic_water_magic.032.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$ as the sea settles and the ships sail on."
+  zz_valyria_magic_water_magic.032.f.toast.tt:0 "$zz_valyria_magic_water_magic.032.f.toast.desc$"
+
+  # Water 033 - the Undertow (Single Combat)
+  zz_valyria_magic_water_magic_033.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_duel_move$\n$zz_duel_skill$\n\nThe use of the arcane forces of [water_magic|E] to pull the ground from beneath the foe like a wave drawing back from the shore.\n\nThe foe's duel success falls, the more so with greater skill in Water Magic."
+  zz_valyria_magic_water_magic.033.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.033.name$"
+  zz_valyria_magic_water_magic.033.desc:0 "This [zz_mystery|E] is worked only in [single_combat_fight|E]."
+  zz_valyria_magic_water_magic.033.opt.z:0 "Very well."
+  zz_valyria_magic_water_magic.033.toast.t:0 "[water_magic|E] - $zz_valyria_magic_water_magic.033.name$"
+  zz_valyria_magic_water_magic.033.toast.desc:0 "$zz_toast_01$ [water_magic|E], $zz_toast_02$ in single combat."
+  zz_valyria_magic_water_magic.033.toast.tt:0 "$zz_valyria_magic_water_magic.033.toast.desc$"
+  zz_valyria_magic_water_magic.033.f.toast.t:0 "Failure [water_magic|E] - $zz_valyria_magic_water_magic.033.name$"
+  zz_valyria_magic_water_magic.033.f.toast.desc:0 "$zz_toast_01$ [water_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_water_magic.033.f.toast.tt:0 "$zz_valyria_magic_water_magic.033.f.toast.desc$"

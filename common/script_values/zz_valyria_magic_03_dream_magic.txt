@@ -50,6 +50,21 @@ zz_valyria_magic_dream_magic_base_value = {
 				add = this.var:dream_magic_overcap
 			}
 		}
+		multiply = {
+			value = 1
+			if = {
+				limit = {
+					faith = { has_doctrine_parameter = zz_tenet_strength_dream_magic }
+				}
+				add = 0.25
+			}
+			if = {
+				limit = {
+					has_personal_tenet_flag = zz_personal_strength_dream_magic
+				}
+				add = 0.1
+			}
+		}
 	}
 }
 
@@ -138,6 +153,19 @@ zz_valyria_magic_dream_magic_004_value_02 = {
 			min = 1
 			divide = 20
 		}
+	}
+}
+# Dream 004: _03 is the number of visions chosen on the counter widget, from 1 to _02; all of them when cast without the widget
+zz_valyria_magic_dream_magic_004_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		min = 1
+		max = zz_valyria_magic_dream_magic_004_value_02
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_004_value_02
 	}
 }
 zz_valyria_magic_dream_magic_005_value = {
@@ -783,6 +811,17 @@ zz_valyria_magic_dream_magic_033_value_01 = {
 	}
 	multiply = -1
 }
+# Troops summoned. Stays positive: value_01 is negative for the stress impact
+zz_valyria_magic_dream_magic_033_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 20
+			min = 1
+		}
+	}
+}
 zz_valyria_magic_dream_magic_034_value = {
 	value = 0
 	add = { 
@@ -838,12 +877,12 @@ zz_valyria_magic_dream_magic_038_value = {
 	}
 	multiply = 1
 }
-zz_valyria_magic_dream_magic_038_value_01 = {
+zz_valyria_magic_dream_magic_038_value_01 = { # popular opinion added to the county
 	value = 0
 	add = { 
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+			divide = 2
 			min = 1
 		}
 	}
@@ -860,16 +899,16 @@ zz_valyria_magic_dream_magic_039_value = {
 	}
 	multiply = 1
 }
-zz_valyria_magic_dream_magic_039_value_01 = {
+zz_valyria_magic_dream_magic_039_value_01 = { # popular opinion removed from the county
 	value = 0
 	add = { 
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+			divide = 2
 			min = 1
 		}
 	}
-	multiply = 1
+	multiply = -1
 }
 zz_valyria_magic_dream_magic_040_value = {
 	value = 0
@@ -1060,6 +1099,19 @@ zz_valyria_magic_dream_magic_048_value_02 = {
 	}
 	multiply = 1
 }
+# Dream 048: _03 is the number of visions chosen on the counter widget, from 1 to _02; all of them when cast without the widget
+zz_valyria_magic_dream_magic_048_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		min = 1
+		max = zz_valyria_magic_dream_magic_048_value_02
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_048_value_02
+	}
+}
 zz_valyria_magic_dream_magic_049_value = {
 	value = 0
 	add = { 
@@ -1092,6 +1144,19 @@ zz_valyria_magic_dream_magic_049_value_02 = {
 		}
 	}
 	multiply = 1
+}
+# Dream 049: _03 is the number of visions chosen on the counter widget, from 1 to _02; all of them when cast without the widget
+zz_valyria_magic_dream_magic_049_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		min = 1
+		max = zz_valyria_magic_dream_magic_049_value_02
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_049_value_02
+	}
 }
 zz_valyria_magic_dream_magic_050_value = {
 	value = 0
@@ -1532,7 +1597,7 @@ zz_valyria_magic_dream_magic_072_value = {
 	}
 	multiply = 1
 }
-zz_valyria_magic_dream_magic_072_value_01 = {
+zz_valyria_magic_dream_magic_073_value_01 = {
 	value = 0
 	add = { 
 		scope:secondary_recipient = { 
@@ -1556,7 +1621,7 @@ zz_valyria_magic_dream_magic_073_value = {
 	}
 	multiply = 1
 }
-zz_valyria_magic_dream_magic_073_value_01 = {
+zz_valyria_magic_dream_magic_072_value_01 = {
 	value = 0
 	add = { 
 		scope:secondary_recipient = { 
@@ -1568,148 +1633,445 @@ zz_valyria_magic_dream_magic_073_value_01 = {
 	multiply = 1
 }
 
+# Mystery of the Dreaming Road (Hasten): tiers by the days the target has already travelled
 zz_valyria_magic_dream_magic_074_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
-			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
 			min = 1
 		}
 	}
-	multiply = 1
 }
 
+zz_valyria_magic_dream_magic_074_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+
+# Mystery of the Dreaming Road (Hinder): days of delay, tiered by the days the target has already travelled
 zz_valyria_magic_dream_magic_075_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
-			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
 			min = 1
 		}
 	}
-	multiply = 1
 }
 
+zz_valyria_magic_dream_magic_075_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+
+zz_valyria_magic_dream_magic_075_delay_value_01 = {
+	value = zz_valyria_magic_dream_magic_075_value_01
+	multiply = 2
+	min = 1
+}
+
+zz_valyria_magic_dream_magic_075_delay_value_02 = {
+	value = zz_valyria_magic_dream_magic_075_value_01
+	multiply = 4
+	min = 1
+}
+
+zz_valyria_magic_dream_magic_075_delay_value_03 = {
+	value = zz_valyria_magic_dream_magic_075_value_01
+	multiply = 7
+	min = 1
+}
+
+zz_valyria_magic_dream_magic_075_delay_value_04 = {
+	value = zz_valyria_magic_dream_magic_075_value_01
+	multiply = 12
+	min = 1
+}
+
+# Mystery of the Watchful Road: travel safety for some years
 zz_valyria_magic_dream_magic_076_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
-			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
 			min = 1
 		}
 	}
-	multiply = 1
 }
 
+zz_valyria_magic_dream_magic_076_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+
+# Mystery of Prophecy (Resources): production of the found trade good
 zz_valyria_magic_dream_magic_077_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
-			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
 			min = 1
 		}
 	}
-	multiply = 1
 }
 
+zz_valyria_magic_dream_magic_077_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+
+# Mystery of the Dreaming City: five years (months, the province helper counts in months)
 zz_valyria_magic_dream_magic_078_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
-			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
 			min = 1
 		}
 	}
-	multiply = 1
+}
+zz_valyria_magic_dream_magic_078_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
 }
 
+# Mystery of the Shared Dream: five years (months, the county helper counts in months)
 zz_valyria_magic_dream_magic_079_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
-			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
 			min = 1
 		}
 	}
-	multiply = 1
+}
+zz_valyria_magic_dream_magic_079_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
 }
 
+# Soothsaying (Resilience): _01 is the story potency, _02 the visions (uses) it lasts
 zz_valyria_magic_dream_magic_080_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
-			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
 			min = 1
 		}
 	}
-	multiply = 1
+}
+# Soothsaying (Betrayal): _01 is how many years a member warned away cannot rejoin a faction
+zz_valyria_magic_dream_magic_080_value_01 = {
+	value = 5
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 0
+		}
+	}
+}
+zz_valyria_magic_dream_magic_080_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+# Dream 080: _03 is the number of visions chosen on the counter widget, from 1 to _02; all of them when cast without the widget
+zz_valyria_magic_dream_magic_080_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		min = 1
+		max = zz_valyria_magic_dream_magic_080_value_02
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_080_value_02
+	}
 }
 
+# Soothsaying (Longevity): _01 is the story potency, _02 the years it lasts
 zz_valyria_magic_dream_magic_081_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
-			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
 			min = 1
 		}
 	}
-	multiply = 1
+}
+zz_valyria_magic_dream_magic_081_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_081_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+# Dream 081: _03 is the number of visions chosen on the counter widget, from 1 to _02; all of them when cast without the widget
+zz_valyria_magic_dream_magic_081_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		min = 1
+		max = zz_valyria_magic_dream_magic_081_value_02
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_081_value_02
+	}
 }
 
+# Soothsaying (Health): _01 is the story potency, _02 the visions (uses) it lasts
 zz_valyria_magic_dream_magic_082_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
-			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
 			min = 1
 		}
 	}
-	multiply = 1
 }
-
+zz_valyria_magic_dream_magic_082_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_082_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+# Dream 082: _03 is the number of visions chosen on the counter widget, from 1 to _02; all of them when cast without the widget
+zz_valyria_magic_dream_magic_082_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		min = 1
+		max = zz_valyria_magic_dream_magic_082_value_02
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_082_value_02
+	}
+}
+# Soothsaying (Health): _04 is how many times the Dream of Health heal runs each time a vision is spent (as Resilience had)
+zz_valyria_magic_dream_magic_082_value_04 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 20
+			min = 1
+		}
+	}
+}
+# Soothsaying (Infant Sex): _01 is the story potency, _02 the visions (uses) it lasts
 zz_valyria_magic_dream_magic_083_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
-			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
 			min = 1
 		}
 	}
-	multiply = 1
+}
+zz_valyria_magic_dream_magic_083_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_083_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+# Dream 083: _03 is the number of visions chosen on the counter widget, from 1 to _02; all of them when cast without the widget
+zz_valyria_magic_dream_magic_083_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		min = 1
+		max = zz_valyria_magic_dream_magic_083_value_02
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_083_value_02
+	}
 }
 
+# Soothsaying (Scheme Defence): _01 is the story potency, _02 the visions (uses) it lasts
 zz_valyria_magic_dream_magic_084_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
-			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
 			min = 1
 		}
 	}
-	multiply = 1
+}
+zz_valyria_magic_dream_magic_084_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_084_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+# Dream 084: _03 is the number of visions chosen on the counter widget, from 1 to _02; all of them when cast without the widget
+zz_valyria_magic_dream_magic_084_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		min = 1
+		max = zz_valyria_magic_dream_magic_084_value_02
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_084_value_02
+	}
 }
 
+# Soothsaying (Secret Destruction): _01 is the story potency, _02 the visions (uses) it lasts
 zz_valyria_magic_dream_magic_085_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
-			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
 			min = 1
 		}
 	}
-	multiply = 1
+}
+zz_valyria_magic_dream_magic_085_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_085_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+# Dream 085: _03 is the number of visions chosen on the counter widget, from 1 to _02; all of them when cast without the widget
+zz_valyria_magic_dream_magic_085_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		min = 1
+		max = zz_valyria_magic_dream_magic_085_value_02
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_085_value_02
+	}
 }
 
 zz_valyria_magic_dream_magic_086_value = {
@@ -1724,6 +2086,17 @@ zz_valyria_magic_dream_magic_086_value = {
 	multiply = 1
 }
 
+zz_valyria_magic_dream_magic_086_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+
 zz_valyria_magic_dream_magic_087_value = {
 	value = 0
 	add = { 
@@ -1734,6 +2107,17 @@ zz_valyria_magic_dream_magic_087_value = {
 		}
 	}
 	multiply = 1
+}
+
+zz_valyria_magic_dream_magic_087_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
 }
 
 zz_valyria_magic_dream_magic_088_value = {
@@ -1748,6 +2132,17 @@ zz_valyria_magic_dream_magic_088_value = {
 	multiply = 1
 }
 
+zz_valyria_magic_dream_magic_088_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+
 zz_valyria_magic_dream_magic_089_value = {
 	value = 0
 	add = { 
@@ -1758,6 +2153,17 @@ zz_valyria_magic_dream_magic_089_value = {
 		}
 	}
 	multiply = 1
+}
+
+zz_valyria_magic_dream_magic_089_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
 }
 
 zz_valyria_magic_dream_magic_090_value = {
@@ -1772,6 +2178,17 @@ zz_valyria_magic_dream_magic_090_value = {
 	multiply = 1
 }
 
+zz_valyria_magic_dream_magic_090_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+
 zz_valyria_magic_dream_magic_091_value = {
 	value = 0
 	add = { 
@@ -1782,6 +2199,17 @@ zz_valyria_magic_dream_magic_091_value = {
 		}
 	}
 	multiply = 1
+}
+
+zz_valyria_magic_dream_magic_091_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
 }
 
 zz_valyria_magic_dream_magic_092_value = {
@@ -1796,6 +2224,17 @@ zz_valyria_magic_dream_magic_092_value = {
 	multiply = 1
 }
 
+zz_valyria_magic_dream_magic_092_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+
 zz_valyria_magic_dream_magic_093_value = {
 	value = 0
 	add = { 
@@ -1808,70 +2247,352 @@ zz_valyria_magic_dream_magic_093_value = {
 	multiply = 1
 }
 
+zz_valyria_magic_dream_magic_093_value_01 = {
+	value = 0
+	add = { 
+		scope:secondary_recipient = { 
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+
+
+
+
+
+
+
+# Dream 094 - Dreamshaping (Diplomacy): _01 is the change to diplomacy, +1 per 55 skill and at least 1; _02 is the same as a loss
 zz_valyria_magic_dream_magic_094_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
+	add = {
+		scope:secondary_recipient = {
 			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
 			min = 1
 		}
 	}
-	multiply = 1
 }
-
+zz_valyria_magic_dream_magic_094_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 55
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_094_value_02 = {
+	value = zz_valyria_magic_dream_magic_094_value_01
+	multiply = -1
+}
+# Dream 094: _03 is the change to diplomacy chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_dream_magic_094_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_dream_magic_094_value_02
+		max = zz_valyria_magic_dream_magic_094_value_01
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_094_value_01
+	}
+}
+# Dream 095 - Dreamshaping (Martial): _01 is the change to martial, +1 per 85 skill and at least 1; _02 is the same as a loss
 zz_valyria_magic_dream_magic_095_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
+	add = {
+		scope:secondary_recipient = {
 			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
 			min = 1
 		}
 	}
-	multiply = 1
 }
-
+zz_valyria_magic_dream_magic_095_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 85
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_095_value_02 = {
+	value = zz_valyria_magic_dream_magic_095_value_01
+	multiply = -1
+}
+# Dream 095: _03 is the change to martial chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_dream_magic_095_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_dream_magic_095_value_02
+		max = zz_valyria_magic_dream_magic_095_value_01
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_095_value_01
+	}
+}
+# Dream 096 - Dreamshaping (Stewardship): _01 is the change to stewardship, +1 per 75 skill and at least 1; _02 is the same as a loss
 zz_valyria_magic_dream_magic_096_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
+	add = {
+		scope:secondary_recipient = {
 			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
 			min = 1
 		}
 	}
-	multiply = 1
 }
-
+zz_valyria_magic_dream_magic_096_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 75
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_096_value_02 = {
+	value = zz_valyria_magic_dream_magic_096_value_01
+	multiply = -1
+}
+# Dream 096: _03 is the change to stewardship chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_dream_magic_096_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_dream_magic_096_value_02
+		max = zz_valyria_magic_dream_magic_096_value_01
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_096_value_01
+	}
+}
+# Dream 097 - Dreamshaping (Intrigue): _01 is the change to intrigue, +1 per 45 skill and at least 1; _02 is the same as a loss
 zz_valyria_magic_dream_magic_097_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
+	add = {
+		scope:secondary_recipient = {
 			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
 			min = 1
 		}
 	}
-	multiply = 1
 }
-
+zz_valyria_magic_dream_magic_097_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 45
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_097_value_02 = {
+	value = zz_valyria_magic_dream_magic_097_value_01
+	multiply = -1
+}
+# Dream 097: _03 is the change to intrigue chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_dream_magic_097_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_dream_magic_097_value_02
+		max = zz_valyria_magic_dream_magic_097_value_01
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_097_value_01
+	}
+}
+# Dream 098 - Dreamshaping (Learning): _01 is the change to learning, +1 per 35 skill and at least 1; _02 is the same as a loss
 zz_valyria_magic_dream_magic_098_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
+	add = {
+		scope:secondary_recipient = {
 			value = zz_valyria_magic_dream_magic_base_value
-			divide = 1
 			min = 1
 		}
 	}
-	multiply = 1
 }
-
+zz_valyria_magic_dream_magic_098_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 35
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_098_value_02 = {
+	value = zz_valyria_magic_dream_magic_098_value_01
+	multiply = -1
+}
+# Dream 098: _03 is the change to learning chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_dream_magic_098_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_dream_magic_098_value_02
+		max = zz_valyria_magic_dream_magic_098_value_01
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_098_value_01
+	}
+}
+# Dream 099 - Dreamshaping (Prowess): _01 is the change to prowess, +1 per 100 skill and at least 1; _02 is the same as a loss
 zz_valyria_magic_dream_magic_099_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_099_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 100
+			floor = yes
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_099_value_02 = {
+	value = zz_valyria_magic_dream_magic_099_value_01
+	multiply = -1
+}
+# Dream 099: _03 is the change to prowess chosen on the counter widget, within the spell's power either way; full power when cast without the widget
+zz_valyria_magic_dream_magic_099_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
+		min = zz_valyria_magic_dream_magic_099_value_02
+		max = zz_valyria_magic_dream_magic_099_value_01
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_099_value_01
+	}
+}
+
+# Soothsaying (Assassination): _01 is the story potency, _02 the visions (uses) it lasts
+zz_valyria_magic_dream_magic_100_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_100_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_100_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+# Dream 100: _03 is the number of visions chosen on the counter widget, from 1 to _02; all of them when cast without the widget
+zz_valyria_magic_dream_magic_100_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		min = 1
+		max = zz_valyria_magic_dream_magic_100_value_02
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_100_value_02
+	}
+}
+
+# Soothsaying (Battle): _01 is the story potency, _02 the visions (uses) it lasts
+zz_valyria_magic_dream_magic_101_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			add = zz_valyria_magic_dream_magic_base_value
+			multiply = 1
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_101_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_101_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+# Dream 101: _03 is the number of visions chosen on the counter widget, from 1 to _02; all of them when cast without the widget
+zz_valyria_magic_dream_magic_101_value_03 = {
+	# Clamped only when the counter is set: without it the result is always the max, so min and max would only repeat work
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		min = 1
+		max = zz_valyria_magic_dream_magic_101_value_02
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_101_value_02
+	}
+}
+
+zz_valyria_magic_dream_magic_102_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
 			value = zz_valyria_magic_dream_magic_base_value
 			divide = 1
 			min = 1
@@ -1880,14 +2601,134 @@ zz_valyria_magic_dream_magic_099_value = {
 	multiply = 1
 }
 
-zz_valyria_magic_dream_magic_100_value = {
+zz_valyria_magic_dream_magic_103_value = {
 	value = 0
-	add = { 
-		scope:secondary_recipient = { 
+	add = {
+		scope:secondary_recipient = {
 			value = zz_valyria_magic_dream_magic_base_value
 			divide = 1
 			min = 1
 		}
 	}
 	multiply = 1
+}
+
+# Soothsaying (Captivity): _01 is the story potency, _02 the most visions, _03 the visions chosen on the counter
+zz_valyria_magic_dream_magic_104_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 1
+			min = 1
+		}
+	}
+	multiply = 1
+}
+zz_valyria_magic_dream_magic_104_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_104_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 20
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_104_value_03 = {
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		min = 1
+		max = zz_valyria_magic_dream_magic_104_value_02
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_104_value_02
+	}
+}
+
+# Soothsaying (Omens of War): _01 is the story potency, _02 the most visions, _03 the visions chosen on the counter
+zz_valyria_magic_dream_magic_105_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 1
+			min = 1
+		}
+	}
+	multiply = 1
+}
+zz_valyria_magic_dream_magic_105_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_105_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_105_value_03 = {
+	if = {
+		limit = { exists = root.var:zz_valyria_magic_event_window_counter_selection_counter_base }
+		value = root.var:zz_valyria_magic_event_window_counter_selection_counter
+		min = 1
+		max = zz_valyria_magic_dream_magic_105_value_02
+	}
+	else = {
+		value = zz_valyria_magic_dream_magic_105_value_02
+	}
+}
+
+zz_valyria_magic_dream_magic_106_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_dream_magic_106_value_01 = { # years the subject cannot join a faction
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			divide = 20
+			floor = yes
+			min = 2
+			max = 10
+		}
+	}
+}
+
+zz_valyria_magic_dream_magic_107_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_dream_magic_base_value
+			min = 1
+		}
+	}
 }

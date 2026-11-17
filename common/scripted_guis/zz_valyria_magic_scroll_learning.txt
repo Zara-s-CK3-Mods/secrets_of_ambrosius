@@ -4,10 +4,7 @@
 zz_valyria_magic_management = {
 	scope = character
 	is_shown = {
-		OR = {
-			zz_valyria_is_mage = yes 
-			zz_valyria_is_scroll_holder = yes 
-		}
+		zz_valyria_has_magic_access_cached = yes # The HUD checks this continuously, so it reads the stored access
 	}
 
 	effect = {
@@ -323,11 +320,8 @@ zz_valyria_mages_selection = {
 	}
 	
 	effect = {
-		save_scope_as = zz_magic_user 
-		set_variable = {
-			name = zz_magic_caster
-			value = scope:zz_magic_caster
-		}
+		save_scope_as = zz_magic_user
+		zz_valyria_archive_set_mage_effect = yes
 	}
 }
 
@@ -347,11 +341,8 @@ zz_valyria_magic_learning_type_apprentice_master = {
 		var:zz_magic_master ?= scope:zz_magic_master
 	}
 	effect = {
-		save_scope_as = zz_magic_user 
-		set_variable = {
-			name = zz_magic_master
-			value = scope:zz_magic_master
-		}
+		save_scope_as = zz_magic_user
+		zz_valyria_archive_set_apprentice_master_effect = yes
 	}
 }
 
@@ -372,11 +363,8 @@ zz_valyria_magic_learning_type_apprentice_learner = {
 		var:zz_valyria_magic_learner ?= scope:zz_valyria_magic_learner
 	}
 	effect = {
-		save_scope_as = zz_magic_user 
-		set_variable = {
-			name = zz_valyria_magic_learner
-			value = scope:zz_valyria_magic_learner
-		}
+		save_scope_as = zz_magic_user
+		zz_valyria_archive_set_apprentice_learner_effect = yes
 	}
 }
 zz_valyria_magic_learning_type_apprentice_learn = {
@@ -491,13 +479,8 @@ zz_valyria_magic_learning_type_mystery_master = {
 		var:zz_magic_mystery_master ?= scope:zz_magic_mystery_master
 	}
 	effect = {
-		save_scope_as = zz_magic_user 
-		set_variable = {
-			name = zz_magic_mystery_master
-			value = scope:zz_magic_mystery_master
-		}
-		
-		zz_valyria_make_master_spell_list = {MAGIC_USER = zz_magic_user MAGIC_TEACHER = zz_magic_mystery_master}
+		save_scope_as = zz_magic_user
+		zz_valyria_archive_set_mystery_master_effect = yes
 	}
 }
 zz_valyria_magic_learning_type_mystery_mystery = {
@@ -528,16 +511,14 @@ zz_valyria_magic_learning_type_mystery_mystery = {
 zz_valyria_magic_learning_type_mystery_learner = {
 	scope = character
 	saved_scopes = {
+		zz_valyria_mystery_magic_learner
 	}
 	is_shown = {
 		var:zz_valyria_mystery_magic_learner ?= scope:zz_valyria_mystery_magic_learner
 	}
 	effect = {
-		save_scope_as = zz_magic_user 
-		set_variable = {
-			name = zz_valyria_mystery_magic_learner
-			value = scope:zz_valyria_mystery_magic_learner
-		}
+		save_scope_as = zz_magic_user
+		zz_valyria_archive_set_mystery_learner_effect = yes
 	}
 }
 
@@ -546,10 +527,14 @@ zz_valyria_magic_learning_type_mystery_teach = {
 	is_valid = {
 		gold >= 1000
 		exists = var:zz_valyria_mystery_magic_learner
-		var:zz_valyria_mystery_magic_learner ?= {
-			NOT = {
-				any_memory = {
-					var:spell_name ?= scope:zz_valyria_teach_mystery.var:spell_name
+		exists = var:zz_valyria_teach_mystery # the selected Mystery; the button passes no scope
+		custom_tooltip = {
+			text = zz_valyria_learner_already_knows_mystery_tt
+			var:zz_valyria_mystery_magic_learner ?= {
+				NOT = {
+					any_memory = {
+						var:spell_name ?= root.var:zz_valyria_teach_mystery.var:spell_name
+					}
 				}
 			}
 		}
@@ -573,17 +558,14 @@ zz_valyria_magic_learning_type_mystery_teach = {
 		custom_tooltip = {
 			text = learn_spell 
 			scope:zz_valyria_mystery_magic_learner = {
-				scope:zz_magic_learner = {
-					scope:zz_valyria_teach_mystery.var:spell_name = {
-						save_scope_as = random_spell
-					}
-					save_scope_value_as = {
-						name = spell 
-						value = yes
-					}
-					zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
+				scope:zz_valyria_teach_mystery.var:spell_name = {
+					save_scope_as = random_spell
 				}
-				
+				save_scope_value_as = {
+					name = spell 
+					value = yes
+				}
+				zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
 			}
 		}
 		
@@ -592,14 +574,8 @@ zz_valyria_magic_learning_type_mystery_teach = {
 		var:zz_magic_mystery_master = {
 			add_character_flag = { flag = zz_valyria_magic_taught_magic months = 18 } 
 		}
-		zz_valyria_make_magic_master_list =  {MAGIC_USER = zz_magic_user}
-		zz_valyria_make_magic_learner_list =  {MAGIC_USER = zz_magic_user}
-			
-		zz_valyria_make_magic_mystery_master_list =  {MAGIC_USER = zz_magic_user}
-		zz_valyria_make_magic_mystery_learner_list =  {MAGIC_USER = zz_magic_user}
-		zz_valyria_make_magic_mystery_learner_not_mage_list = {MAGIC_USER = zz_magic_user}
-		zz_valyria_make_magic_mystery_learner_mage_list = {MAGIC_USER = zz_magic_user}
-		zz_valyria_make_master_spell_list = {MAGIC_USER = zz_magic_user MAGIC_TEACHER = zz_magic_mystery_master}
+		# The lists are not rebuilt: teaching changes nobody's place in them (known spells are checked live by
+		# zz_valyria_magic_learning_type_mystery_mystery), and clearing a list the open window shows leaves it empty.
 	}
 }
 zz_valyria_magic_learning_type_scroll = {
@@ -676,12 +652,8 @@ zz_valyria_magic_scroll_learning_owner = {
 		var:zz_item_caster ?= scope:zz_item_caster
 	}
 	effect = {
-		save_scope_as = zz_magic_user 
-		set_variable = {
-			name = zz_item_caster
-			value = scope:zz_item_caster
-		}
-		zz_valyria_make_scroll_list = {MAGIC_USER = zz_magic_user ITEM_CASTER = zz_item_caster}
+		save_scope_as = zz_magic_user
+		zz_valyria_archive_set_scroll_owner_effect = yes
 	}
 }
 
@@ -695,10 +667,13 @@ zz_valyria_magic_scroll_learning_seroll = {
 	}
 	is_valid = {
 		exists = var:zz_valyria_scroll_learner
-		var:zz_valyria_scroll_learner ?= {
-			NOT = {
-				any_memory = {
-					var:spell_name ?= scope:zz_valyria_scroll.var:spell_name
+		custom_tooltip = {
+			text = zz_valyria_learner_already_knows_mystery_tt
+			var:zz_valyria_scroll_learner ?= {
+				NOT = {
+					any_memory = {
+						var:spell_name ?= scope:zz_valyria_scroll.var:spell_name
+					}
 				}
 			}
 		}
@@ -716,17 +691,14 @@ zz_valyria_magic_scroll_learning_seroll = {
 zz_valyria_magic_scroll_learning_learner = {
 	scope = character
 	saved_scopes = {
-		zz_item_caster
+		zz_valyria_scroll_learner
 	}
 	is_shown = {
 		var:zz_valyria_scroll_learner ?= scope:zz_valyria_scroll_learner
 	}
 	effect = {
-		save_scope_as = zz_magic_user 
-		set_variable = {
-			name = zz_valyria_scroll_learner
-			value = scope:zz_valyria_scroll_learner
-		}
+		save_scope_as = zz_magic_user
+		zz_valyria_archive_set_scroll_learner_effect = yes
 	}
 }
 zz_valyria_magic_scroll_learn = {
@@ -1050,7 +1022,7 @@ zz_valyria_magic_school_blood_offering = {
 		not = {
 			var:zz_magic_caster.var:blood_sacrifice ?= flag:true
 		}
-		var:zz_magic_caster.var:zz_drops_of_power < var:zz_magic_caster.zz_valyria_mana_cap
+		var:zz_magic_caster ?= { OR = { NOT = { has_variable = zz_drops_of_power } var:zz_drops_of_power < zz_valyria_mana_cap } }
 	}
 	is_shown = {
 		var:zz_magic_caster.var:blood_sacrifice ?= flag:true
@@ -1093,7 +1065,7 @@ zz_valyria_magic_school_piety_offering = {
 		not = {
 			var:zz_magic_caster.var:piety_sacrifice ?= flag:true
 		}
-		var:zz_magic_caster.var:zz_drops_of_power < var:zz_magic_caster.zz_valyria_mana_cap
+		var:zz_magic_caster ?= { OR = { NOT = { has_variable = zz_drops_of_power } var:zz_drops_of_power < zz_valyria_mana_cap } }
 	}
 	is_shown = {
 		var:zz_magic_caster.var:piety_sacrifice ?= flag:true
@@ -1134,28 +1106,8 @@ zz_valyria_magic_scroll_maker = {
 		var:zz_scroll_maker ?= scope:zz_scroll_maker
 	}
 	effect = {
-		scope:zz_scroll_maker = {
-			root = {
-				clear_variable_list = zz_valyria_spell_list
-				set_variable = {
-					name = zz_scroll_maker
-					value = scope:zz_scroll_maker
-				}
-			}
-			scope:zz_scroll_maker = {
-				every_memory = {
-					limit = { 
-						has_memory_category = magic
-					}
-					root = {
-						add_to_variable_list = {
-							name = zz_valyria_spell_list
-							target = prev
-						}
-					}
-				}
-			}
-		}
+		save_scope_as = zz_magic_user
+		zz_valyria_archive_set_scroll_maker_effect = yes
 	}
 }
 
@@ -1203,6 +1155,26 @@ zz_valyria_scroll_make = {
 		custom_tooltip = {
 			text = make_scroll 
 			zz_spell_trigger_switch_effect = { SCOPE = scope:random_spell EFFECT = zz_add_spell_or_scroll } 
+		}
+	}
+}
+
+# Opens the archive character picker for one list. The Search button passes the list as a flag (scope:zz_archive_selection_mode)
+zz_valyria_archive_open_selection = {
+	scope = character
+	saved_scopes = {
+		zz_archive_selection_mode
+	}
+	effect = {
+		set_variable = {
+			name = zz_archive_selection_mode
+			value = scope:zz_archive_selection_mode
+			days = 1
+		}
+		open_interaction_window = {
+			interaction = zz_valyria_archive_select_character_interaction
+			actor = root
+			recipient = root
 		}
 	}
 }

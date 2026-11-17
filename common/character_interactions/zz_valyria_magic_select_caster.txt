@@ -1,0 +1,60 @@
+﻿# Choose the mage who casts for you, using the game's character list with search and filters
+# Opened by the cast window's Select Mage button (scripted GUI zz_valyria_magic_open_caster_selection). The mages come from mage_list,
+# which the cast window builds when it opens; it is read here rather than rebuilt, since rebuilding clears the current caster
+zz_valyria_select_caster_interaction = {
+	category = interaction_category_uncategorized
+	common_interaction = no
+	icon = divination_magic
+	desc = zz_valyria_select_caster_interaction_desc
+
+	is_shown = {
+		scope:recipient = scope:actor
+		scope:actor = {
+			is_ai = no
+			has_variable = zz_choosing_caster
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		custom_tooltip = {
+			text = zz_valyria_select_caster_interaction_no_mages_tt
+			scope:actor = {
+				any_in_list = {
+					variable = mage_list
+					count > 0
+				}
+			}
+		}
+	}
+
+	populate_recipient_list = {
+		scope:actor = {
+			every_in_list = {
+				variable = mage_list
+				add_to_list = characters
+			}
+		}
+	}
+
+	can_send = {
+		custom_tooltip = {
+			text = zz_valyria_select_caster_interaction_choose_tt
+			exists = scope:secondary_recipient
+		}
+	}
+
+	auto_accept = yes
+
+	on_accept = {
+		scope:actor = {
+			remove_variable = zz_choosing_caster
+			save_scope_as = zz_magic_user
+		}
+		scope:secondary_recipient = {
+			save_scope_as = zz_magic_caster
+		}
+		scope:actor = {
+			zz_valyria_magic_set_caster_effect = yes
+		}
+	}
+}

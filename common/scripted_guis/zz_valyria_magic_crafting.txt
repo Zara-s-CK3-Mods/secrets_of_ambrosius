@@ -1,7 +1,7 @@
 ﻿zz_magic_crafting_open = {
 	scope = character
 	is_valid = {
-		zz_valyria_is_mage = yes
+		zz_valyria_has_mage_access_cached = yes # The HUD checks this continuously, so it reads the stored access
 	}
 	effect = {
 		custom_tooltip = order_item_crafting_decision_effect_tooltip
@@ -28,6 +28,10 @@
 				remove_variable = zz_current_magic_reagent
 				remove_variable = zz_selected_item
 				remove_variable = zz_selected_modifier
+				remove_variable = zz_selected_modifier_2
+				remove_variable = zz_selected_modifier_4
+				remove_variable = zz_selected_modifier_3
+				remove_variable = zz_enchant_popup
 	
 				set_variable = {
 					name = zz_current_use_iron
@@ -51,6 +55,18 @@
 				}
 				set_variable = {
 					name = zz_current_cost_modifier
+					value = 0
+				}
+				set_variable = {
+					name = zz_current_cost_modifier_2
+					value = 0
+				}
+				set_variable = {
+					name = zz_current_cost_modifier_4
+					value = 0
+				}
+				set_variable = {
+					name = zz_current_cost_modifier_3
 					value = 0
 				}
 				set_variable = {
@@ -78,6 +94,17 @@
 					}
 				}
 				every_spouse = {
+					limit = {
+						has_trait = zz_magister
+					}
+					scope:actor = {
+						add_to_variable_list = {
+							name = mage_list
+							target = prev
+						}
+					}
+				}
+				every_concubine = {
 					limit = {
 						has_trait = zz_magister
 					}
@@ -153,6 +180,10 @@
 				add_to_variable_list = {
 					name = zz_valyria_item_list
 					target = flag:item_staff
+				}
+				add_to_variable_list = {
+					name = zz_valyria_item_list
+					target = flag:item_grimoire
 				}
 				clear_variable_list = zz_valyria_modifier_list
 
@@ -248,6 +279,50 @@
 					name = zz_valyria_modifier_list
 					target = flag:item_modifier_22
 				}
+				add_to_variable_list = {
+					name = zz_valyria_modifier_list
+					target = flag:item_modifier_23
+				}
+				add_to_variable_list = {
+					name = zz_valyria_modifier_list
+					target = flag:item_modifier_24
+				}
+				add_to_variable_list = {
+					name = zz_valyria_modifier_list
+					target = flag:item_modifier_25
+				}
+				add_to_variable_list = {
+					name = zz_valyria_modifier_list
+					target = flag:item_modifier_26
+				}
+				add_to_variable_list = {
+					name = zz_valyria_modifier_list
+					target = flag:item_modifier_27
+				}
+				add_to_variable_list = {
+					name = zz_valyria_modifier_list
+					target = flag:item_modifier_28
+				}
+				add_to_variable_list = {
+					name = zz_valyria_modifier_list
+					target = flag:item_modifier_29
+				}
+				add_to_variable_list = {
+					name = zz_valyria_modifier_list
+					target = flag:item_modifier_30
+				}
+				add_to_variable_list = {
+					name = zz_valyria_modifier_list
+					target = flag:item_modifier_31
+				}
+				add_to_variable_list = {
+					name = zz_valyria_modifier_list
+					target = flag:item_modifier_32
+				}
+				add_to_variable_list = {
+					name = zz_valyria_modifier_list
+					target = flag:item_modifier_33
+				}
 
 				remove_variable = zz_item_ui
 				clear_variable_list = zz_valyria_sword_list
@@ -314,6 +389,18 @@
 				}
 				set_variable = { 
 					name = zz_selected_modifier
+					value = flag:item_modifier_none
+				}
+				set_variable = {
+					name = zz_selected_modifier_2
+					value = flag:item_modifier_none
+				}
+				set_variable = {
+					name = zz_selected_modifier_3
+					value = flag:item_modifier_none
+				}
+				set_variable = {
+					name = zz_selected_modifier_4
 					value = flag:item_modifier_none
 				}
 			}
@@ -420,6 +507,7 @@ zz_valyria_magic_item_selection = {
 		}
 	}
 }
+# Enchantment slots 1 to 4. A slot can't take an enchantment already in another slot; picking closes the popup
 zz_valyria_magic_modifier_selection = {
 	scope = character
 	saved_scopes = {
@@ -428,14 +516,137 @@ zz_valyria_magic_modifier_selection = {
 	is_shown = {
 		var:zz_selected_modifier ?= scope:zz_selected_modifier
 	}
+	is_valid = {
+		OR = {
+			scope:zz_selected_modifier = flag:item_modifier_none
+			NOR = {
+			var:zz_selected_modifier_2 ?= scope:zz_selected_modifier
+			var:zz_selected_modifier_3 ?= scope:zz_selected_modifier
+			var:zz_selected_modifier_4 ?= scope:zz_selected_modifier
+			}
+		}
+	}
 	effect = {
 		root = {
 			set_variable = {
 				name = zz_selected_modifier
 				value = scope:zz_selected_modifier
 			}
-			zz_valyria_crafting_calculate_crafting_cost_modifier_effect = yes 
+			zz_valyria_crafting_calculate_crafting_cost_modifier_effect = yes
+			remove_variable = zz_enchant_popup
 		}
+	}
+}
+
+zz_valyria_magic_modifier_selection_2 = {
+	scope = character
+	saved_scopes = {
+		zz_selected_modifier_2
+	}
+	is_shown = {
+		var:zz_selected_modifier_2 ?= scope:zz_selected_modifier_2
+	}
+	is_valid = {
+		OR = {
+			scope:zz_selected_modifier_2 = flag:item_modifier_none
+			NOR = {
+			var:zz_selected_modifier ?= scope:zz_selected_modifier_2
+			var:zz_selected_modifier_3 ?= scope:zz_selected_modifier_2
+			var:zz_selected_modifier_4 ?= scope:zz_selected_modifier_2
+			}
+		}
+	}
+	effect = {
+		root = {
+			set_variable = {
+				name = zz_selected_modifier_2
+				value = scope:zz_selected_modifier_2
+			}
+			zz_valyria_crafting_calculate_crafting_cost_modifier_slot_effect = { N = 2 }
+			remove_variable = zz_enchant_popup
+		}
+	}
+}
+
+zz_valyria_magic_modifier_selection_3 = {
+	scope = character
+	saved_scopes = {
+		zz_selected_modifier_3
+	}
+	is_shown = {
+		var:zz_selected_modifier_3 ?= scope:zz_selected_modifier_3
+	}
+	is_valid = {
+		OR = {
+			scope:zz_selected_modifier_3 = flag:item_modifier_none
+			NOR = {
+			var:zz_selected_modifier ?= scope:zz_selected_modifier_3
+			var:zz_selected_modifier_2 ?= scope:zz_selected_modifier_3
+			var:zz_selected_modifier_4 ?= scope:zz_selected_modifier_3
+			}
+		}
+	}
+	effect = {
+		root = {
+			set_variable = {
+				name = zz_selected_modifier_3
+				value = scope:zz_selected_modifier_3
+			}
+			zz_valyria_crafting_calculate_crafting_cost_modifier_slot_effect = { N = 3 }
+			remove_variable = zz_enchant_popup
+		}
+	}
+}
+
+zz_valyria_magic_modifier_selection_4 = {
+	scope = character
+	saved_scopes = {
+		zz_selected_modifier_4
+	}
+	is_shown = {
+		var:zz_selected_modifier_4 ?= scope:zz_selected_modifier_4
+	}
+	is_valid = {
+		OR = {
+			scope:zz_selected_modifier_4 = flag:item_modifier_none
+			NOR = {
+			var:zz_selected_modifier ?= scope:zz_selected_modifier_4
+			var:zz_selected_modifier_2 ?= scope:zz_selected_modifier_4
+			var:zz_selected_modifier_3 ?= scope:zz_selected_modifier_4
+			}
+		}
+	}
+	effect = {
+		root = {
+			set_variable = {
+				name = zz_selected_modifier_4
+				value = scope:zz_selected_modifier_4
+			}
+			zz_valyria_crafting_calculate_crafting_cost_modifier_slot_effect = { N = 4 }
+			remove_variable = zz_enchant_popup
+		}
+	}
+}
+
+
+# Opens the enchantment popup for one slot (scope:zz_enchant_slot is flag:enchant_slot_1 to flag:enchant_slot_4)
+zz_valyria_enchant_popup_open = {
+	scope = character
+	saved_scopes = {
+		zz_enchant_slot
+	}
+	effect = {
+		set_variable = {
+			name = zz_enchant_popup
+			value = scope:zz_enchant_slot
+		}
+	}
+}
+
+zz_valyria_enchant_popup_close = {
+	scope = character
+	effect = {
+		remove_variable = zz_enchant_popup
 	}
 }
 
@@ -460,7 +671,7 @@ zz_valyria_magic_item_craft_mages_power = {
 	is_valid = {
 		var:zz_item_crafter = {
 			zz_valyria_has_mana_to_cast = {
-				MANACOST = 1
+				MANACOST = zz_valyria_mana_cost
 			}
 		}
 	}
@@ -490,6 +701,13 @@ zz_valyria_magic_item_craft = {
 	}
 	is_valid = {
 		zz_valyria_resources_current_spend >= zz_valyria_current_cost
+		trigger_if = {
+			limit = { NOT = { var:zz_selected_item ?= flag:item_grimoire } } # a book needs no Valyrian steel
+			custom_tooltip = {
+				text = zz_valyria_craft_needs_vs_ingot_tt
+				zz_valyria_has_vs_ingot_trigger = yes
+			}
+		}
 	}
 	is_shown = {
 	}
@@ -503,7 +721,8 @@ zz_valyria_magic_item_craft = {
 			save_scope_as = secondary_recipient
 		}
 	
-		zz_valyria_crafting_item_construct_effect = yes 
+		zz_valyria_crafting_item_construct_effect = yes
+		remove_variable = zz_ring_look # the next ring starts with its own school's look 
 		zz_craft_item_cost_effect = yes
 		set_variable = {
 			name = zz_current_use_iron
@@ -530,6 +749,18 @@ zz_valyria_magic_item_craft = {
 			value = 0
 		}
 		set_variable = {
+			name = zz_current_cost_modifier_2
+			value = 0
+		}
+		set_variable = {
+			name = zz_current_cost_modifier_4
+			value = 0
+		}
+		set_variable = {
+			name = zz_current_cost_modifier_3
+			value = 0
+		}
+		set_variable = {
 			name = zz_current_spend
 			value = 0
 		}
@@ -543,6 +774,18 @@ zz_valyria_magic_item_craft = {
 		}
 		set_variable = { 
 			name = zz_selected_modifier
+			value = flag:item_modifier_none
+		}
+		set_variable = {
+			name = zz_selected_modifier_2
+			value = flag:item_modifier_none
+		}
+		set_variable = {
+			name = zz_selected_modifier_3
+			value = flag:item_modifier_none
+		}
+		set_variable = {
+			name = zz_selected_modifier_4
 			value = flag:item_modifier_none
 		}
 	}
@@ -628,5 +871,162 @@ zz_ring_selection = {
 			value = scope:zz_ring_selection_ring
 		}
 		remove_variable = zz_item_ui
+	}
+}
+
+# Crafting window tabs: flag:items (the default) or flag:potions. Opening the Potions tab builds its list
+zz_valyria_crafting_tab = {
+	scope = character
+	saved_scopes = {
+		zz_crafting_tab
+	}
+	is_shown = {
+		OR = {
+			var:zz_crafting_tab ?= scope:zz_crafting_tab
+			AND = {
+				scope:zz_crafting_tab = flag:items
+				NOT = { has_variable = zz_crafting_tab }
+			}
+		}
+	}
+	effect = {
+		set_variable = { name = zz_crafting_tab value = scope:zz_crafting_tab }
+		if = {
+			limit = { scope:zz_crafting_tab = flag:potions }
+			clear_variable_list = zz_valyria_potion_list
+			add_to_variable_list = { name = zz_valyria_potion_list target = flag:elixir_longevity }
+			add_to_variable_list = { name = zz_valyria_potion_list target = flag:elixir_fertility }
+			add_to_variable_list = { name = zz_valyria_potion_list target = flag:draught_strength }
+			add_to_variable_list = { name = zz_valyria_potion_list target = flag:draught_clarity }
+			add_to_variable_list = { name = zz_valyria_potion_list target = flag:draught_calm }
+			add_to_variable_list = { name = zz_valyria_potion_list target = flag:draught_warding }
+			add_to_variable_list = { name = zz_valyria_potion_list target = flag:potion_healing }
+			add_to_variable_list = { name = zz_valyria_potion_list target = flag:potion_purging }
+			add_to_variable_list = { name = zz_valyria_potion_list target = flag:potion_restoring }
+			add_to_variable_list = { name = zz_valyria_potion_list target = flag:tonic_power }
+		}
+	}
+}
+
+# Potions tab: pick a potion. Mystery potions need a crafter who knows a matching mystery
+zz_valyria_magic_potion_selection = {
+	scope = character
+	saved_scopes = {
+		zz_selected_potion
+	}
+	is_shown = {
+		var:zz_selected_potion ?= scope:zz_selected_potion
+	}
+	is_valid = {
+		zz_valyria_crafter_can_brew_potion_trigger = yes
+	}
+	effect = {
+		set_variable = { name = zz_selected_potion value = scope:zz_selected_potion }
+		switch = {
+			trigger = scope:zz_selected_potion
+			flag:elixir_longevity = { set_variable = { name = zz_current_potion_cost value = 800 } }
+			flag:elixir_fertility = { set_variable = { name = zz_current_potion_cost value = 600 } }
+			flag:draught_strength = { set_variable = { name = zz_current_potion_cost value = 200 } }
+			flag:draught_clarity = { set_variable = { name = zz_current_potion_cost value = 200 } }
+			flag:draught_calm = { set_variable = { name = zz_current_potion_cost value = 150 } }
+			flag:draught_warding = { set_variable = { name = zz_current_potion_cost value = 150 } }
+			flag:potion_healing = { set_variable = { name = zz_current_potion_cost value = 250 } }
+			flag:potion_purging = { set_variable = { name = zz_current_potion_cost value = 250 } }
+			flag:potion_restoring = { set_variable = { name = zz_current_potion_cost value = 300 } }
+			flag:tonic_power = { set_variable = { name = zz_current_potion_cost value = 400 } }
+		}
+	}
+}
+
+# Potions tab: brew the chosen potion for yourself. Uses crafting's success chance; the cost is paid either way, as for items
+zz_valyria_magic_potion_brew = {
+	scope = character
+	is_valid = {
+		custom_tooltip = {
+			text = zz_valyria_potion_choose_first_tt
+			exists = var:zz_selected_potion
+		}
+		exists = var:zz_item_crafter
+		var:zz_selected_potion = { save_temporary_scope_as = zz_selected_potion }
+		zz_valyria_crafter_can_brew_potion_trigger = yes
+		zz_valyria_resources_current_spend >= zz_valyria_current_potion_cost
+	}
+	effect = {
+		save_scope_as = recipient
+		save_scope_as = actor
+		var:zz_item_crafter = {
+			save_scope_as = zz_item_crafter
+			save_scope_as = secondary_recipient
+			zz_valyria_save_potion_strength_effect = yes
+		}
+		remove_treasury_or_gold = zz_valyria_current_potion_cost
+		random_list = {
+			65 = {
+				modifier = {
+					add = zz_spellcast_value
+				}
+				switch = {
+					trigger = var:zz_selected_potion
+						flag:elixir_longevity = { zz_valyria_create_potion_effect = { EFFECT = elixir_longevity } }
+						flag:elixir_fertility = { zz_valyria_create_potion_effect = { EFFECT = elixir_fertility } }
+						flag:draught_strength = { zz_valyria_create_potion_effect = { EFFECT = draught_strength } }
+						flag:draught_clarity = { zz_valyria_create_potion_effect = { EFFECT = draught_clarity } }
+						flag:draught_calm = { zz_valyria_create_potion_effect = { EFFECT = draught_calm } }
+						flag:draught_warding = { zz_valyria_create_potion_effect = { EFFECT = draught_warding } }
+						flag:potion_healing = { zz_valyria_create_potion_effect = { EFFECT = potion_healing } }
+						flag:potion_purging = { zz_valyria_create_potion_effect = { EFFECT = potion_purging } }
+						flag:potion_restoring = { zz_valyria_create_potion_effect = { EFFECT = potion_restoring } }
+						flag:tonic_power = { zz_valyria_create_potion_effect = { EFFECT = tonic_power } }
+				}
+				send_interface_toast = {
+					type = event_toast_effect_good
+					title = zz_valyria_potion_brewed_toast
+					left_icon = scope:zz_item_crafter
+				}
+			}
+			35 = {
+				send_interface_toast = {
+					type = event_toast_effect_bad
+					title = zz_valyria_potion_spoiled_toast
+					left_icon = scope:zz_item_crafter
+				}
+			}
+		}
+	}
+}
+
+# Ring look picker: var:zz_ring_look holds the chosen look (flag:ring_look_<school>); flag:ring_look_default clears it,
+# so the ring wears its own school's look. The popup is open while var:zz_ring_look_popup is set
+zz_ring_look_popup_open = {
+	scope = character
+	effect = { set_variable = { name = zz_ring_look_popup value = yes } }
+}
+zz_ring_look_popup_close = {
+	scope = character
+	effect = { remove_variable = zz_ring_look_popup }
+}
+zz_ring_look_selection = {
+	scope = character
+	saved_scopes = {
+		zz_ring_look
+	}
+	is_shown = {
+		OR = {
+			var:zz_ring_look ?= scope:zz_ring_look
+			AND = {
+				scope:zz_ring_look = flag:ring_look_default
+				NOT = { has_variable = zz_ring_look }
+			}
+		}
+	}
+	effect = {
+		if = {
+			limit = { scope:zz_ring_look = flag:ring_look_default }
+			remove_variable = zz_ring_look
+		}
+		else = {
+			set_variable = { name = zz_ring_look value = scope:zz_ring_look }
+		}
+		remove_variable = zz_ring_look_popup
 	}
 }

@@ -1,0 +1,14 @@
+﻿l_english:
+ # The Spellbook (gui/custom_gui/zz_valyria_spellbook.gui)
+ ZZ_SPELLBOOK_TT:0 "#T Spellbook#!\nThe [zz_mystery_plural|E] this Magister knows"
+ zz_spellbook_title:0 "Spellbook of [Character.GetFirstNameNoTooltip]"
+ zz_spellbook_count:0 "[GetPlayer.MakeScope.ScriptValue('zz_valyria_spellbook_count')|0] [zz_mystery_plural|E] known"
+ zz_spellbook_empty:0 "No [zz_mystery_plural|E] learned yet."
+ zz_spellbook_tab_all:0 "All Mysteries"
+ zz_spellbook_tab_blood:0 "Blood Magic"
+ zz_spellbook_tab_shadow:0 "Shadow Magic"
+ zz_spellbook_tab_dream:0 "Dream Magic"
+ zz_spellbook_tab_alchemy:0 "Alchemy"
+ zz_spellbook_tab_fire:0 "Fire Magic"
+ zz_spellbook_tab_air:0 "Air Magic"
+ zz_spellbook_tab_water:0 "Water Magic"

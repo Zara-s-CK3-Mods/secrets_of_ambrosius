@@ -1,0 +1,46 @@
+﻿# The Spellbook (gui/custom_gui/zz_valyria_spellbook.gui): the mysteries var:zz_spellbook_owner knows, listed on the player (root)
+# zz_valyria_book_list holds them all; zz_valyria_book_<school>_list one school each
+zz_valyria_clear_spellbook_lists_effect = {
+	clear_variable_list = zz_valyria_book_list
+	clear_variable_list = zz_valyria_book_blood_list
+	clear_variable_list = zz_valyria_book_shadow_list
+	clear_variable_list = zz_valyria_book_dream_list
+	clear_variable_list = zz_valyria_book_alchemy_list
+	clear_variable_list = zz_valyria_book_fire_list
+	clear_variable_list = zz_valyria_book_air_list
+	clear_variable_list = zz_valyria_book_water_list
+}
+
+zz_valyria_make_spellbook_list_effect = {
+	zz_valyria_clear_spellbook_lists_effect = yes
+	var:zz_spellbook_owner ?= {
+		every_memory = {
+			limit = { has_memory_category = magic }
+			root = { add_to_variable_list = { name = zz_valyria_book_list target = prev } }
+			switch = {
+				trigger = has_memory_category
+				blood_magic = {
+					root = { add_to_variable_list = { name = zz_valyria_book_blood_list target = prev } }
+				}
+				shadow_magic = {
+					root = { add_to_variable_list = { name = zz_valyria_book_shadow_list target = prev } }
+				}
+				dream_magic = {
+					root = { add_to_variable_list = { name = zz_valyria_book_dream_list target = prev } }
+				}
+				alchemy_magic = {
+					root = { add_to_variable_list = { name = zz_valyria_book_alchemy_list target = prev } }
+				}
+				fire_magic = {
+					root = { add_to_variable_list = { name = zz_valyria_book_fire_list target = prev } }
+				}
+				air_magic = {
+					root = { add_to_variable_list = { name = zz_valyria_book_air_list target = prev } }
+				}
+				water_magic = {
+					root = { add_to_variable_list = { name = zz_valyria_book_water_list target = prev } }
+				}
+			}
+		}
+	}
+}

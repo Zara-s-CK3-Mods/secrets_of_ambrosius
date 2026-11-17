@@ -14,3 +14,8 @@ zz_magic_crime = {
 zz_magic_intolerant = {
 	opinion = -15
 }
+
+zz_hollow_oaths_opinion = {
+	monthly_change = 0.5
+	decaying = yes
+}

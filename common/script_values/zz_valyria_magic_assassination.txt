@@ -1,0 +1,215 @@
+﻿# Target's defence against the killing mysteries. Scope: the target.
+# The base values already include overcap and the magic_level multiplier.
+zz_valyria_assassination_mage_defence_value = {
+	value = 0
+	if = {
+		limit = {
+			has_trait = zz_magister
+		}
+		add = zz_valyria_magic_higher_mysteries_base_value
+		divide = 2
+	}
+}
+
+zz_valyria_assassination_ward_value = {
+	value = 0
+	if = {
+		limit = {
+			faith = { has_doctrine_parameter = zz_sorcery_criminal }
+		}
+		add = 20
+	}
+	if = {
+		limit = {
+			has_personal_tenet_flag = zz_personal_sorcery_anathema
+		}
+		add = 10
+	}
+	if = {
+		limit = {
+			has_variable = zz_assassin_ward
+		}
+		add = var:zz_assassin_ward
+	}
+	if = {
+		limit = {
+			has_character_modifier = zz_valyria_magic_shadow_magic_003_modifier
+		}
+		add = 15
+	}
+}
+
+zz_valyria_assassination_court_value = {
+	value = 0
+	if = {
+		limit = {
+			any_court_mage = {
+				exists = this
+			}
+		}
+		add = 15
+	}
+}
+
+zz_valyria_assassination_counter_cost = {
+	value = 40
+}
+
+# Kill chances. Scope: the target. scope:secondary_recipient is the caster.
+# Clamped so overcap can never give immunity or a certain kill.
+zz_valyria_assassination_kill_chance_water = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_water_magic_base_value
+			multiply = 1.25
+		}
+	}
+	subtract = zz_valyria_assassination_mage_defence_value
+	subtract = zz_valyria_assassination_ward_value
+	subtract = zz_valyria_assassination_court_value
+	if = {
+		limit = {
+			location = {
+				OR = {
+					is_coastal = yes
+					is_sea_province = yes
+				}
+			}
+		}
+		add = 25
+	}
+	min = 10
+	max = 90
+}
+
+zz_valyria_assassination_kill_chance_shadow = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_shadow_magic_base_value
+		}
+	}
+	subtract = zz_valyria_assassination_mage_defence_value
+	subtract = zz_valyria_assassination_ward_value
+	subtract = zz_valyria_assassination_court_value
+	min = 10
+	max = 90
+}
+
+zz_valyria_assassination_kill_chance_fire = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			multiply = 1.5
+		}
+	}
+	subtract = zz_valyria_assassination_mage_defence_value
+	subtract = zz_valyria_assassination_ward_value
+	subtract = zz_valyria_assassination_court_value
+	min = 10
+	max = 90
+}
+
+# Guards and court mages can't stop the blade, but wards count for more.
+zz_valyria_assassination_kill_chance_air = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_air_magic_base_value
+			multiply = 2
+		}
+	}
+	subtract = zz_valyria_assassination_mage_defence_value
+	subtract = {
+		value = zz_valyria_assassination_ward_value
+		multiply = 1.5
+	}
+	if = {
+		limit = {
+			is_travelling = yes
+		}
+		add = 25
+	}
+	min = 10
+	max = 90
+}
+
+zz_valyria_assassination_miss_chance_water = {
+	value = 100
+	subtract = zz_valyria_assassination_kill_chance_water
+	divide = 2
+}
+zz_valyria_assassination_miss_chance_shadow = {
+	value = 100
+	subtract = zz_valyria_assassination_kill_chance_shadow
+	divide = 2
+}
+zz_valyria_assassination_miss_chance_fire = {
+	value = 100
+	subtract = zz_valyria_assassination_kill_chance_fire
+	divide = 2
+}
+zz_valyria_assassination_miss_chance_air = {
+	value = 100
+	subtract = zz_valyria_assassination_kill_chance_air
+	divide = 2
+}
+
+# Chance the target learns who cast it. Scope: the target.
+zz_valyria_assassination_trace_chance_water = {
+	value = 30
+	add = {
+		value = zz_valyria_assassination_mage_defence_value
+		divide = 2
+	}
+	min = 5
+	max = 90
+}
+zz_valyria_assassination_trace_chance_shadow = {
+	value = 15
+	add = {
+		value = zz_valyria_assassination_mage_defence_value
+		divide = 2
+	}
+	min = 5
+	max = 90
+}
+zz_valyria_assassination_trace_chance_fire = {
+	value = 60
+	add = {
+		value = zz_valyria_assassination_mage_defence_value
+		divide = 2
+	}
+	min = 5
+	max = 90
+}
+zz_valyria_assassination_trace_chance_air = {
+	value = 30
+	add = {
+		value = zz_valyria_assassination_mage_defence_value
+		divide = 2
+	}
+	min = 5
+	max = 90
+}
+
+# Immolation is a direct strike, so it has no omen and no wards to prepare.
+zz_valyria_magic_fire_magic_021_kill_value = {
+	value = 0
+	scope:recipient = {
+		add = {
+			scope:secondary_recipient = {
+				value = zz_valyria_magic_fire_magic_base_value
+			}
+		}
+		subtract = zz_valyria_assassination_mage_defence_value
+	}
+	min = 10
+	max = 90
+}
+zz_valyria_magic_fire_magic_021_survive_value = {
+	value = 100
+	subtract = zz_valyria_magic_fire_magic_021_kill_value
+}

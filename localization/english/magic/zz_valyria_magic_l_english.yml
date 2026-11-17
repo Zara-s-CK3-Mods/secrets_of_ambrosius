@@ -11,8 +11,6 @@
   lifestyle_04:0 "Intrigue Lifestyle"
   lifestyle_05:0 "Martial Lifestyle"
   lifestyle_06:0 "Wandering Lifestyle"
-  lifestyle_07:0 "Prowess Lifestyle"
-  lifestyle_08:0 "Leadership Lifestyle"
   
 
 
@@ -91,13 +89,12 @@
 
   zz_cast:0 "Caster"
   ## Magic Toast
-  zz_toast_01:0 "By the secret arts of"
-  zz_toast_02:0 " [secondary_recipient.GetFirstName] has enacted a [zz_mystery],"
+  zz_toast_01:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_arts')]"
+  zz_toast_02:0 " [secondary_recipient.Custom('zz_valyria_magic_cast_enacted')]"
 
-  zz_toast_03:0 "but it failed to be realised."
+  zz_toast_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_failed')]"
 
 
-  zz_valyria_magic_enact_mystery.interaction:0 "Enact Mystery"
   zz_valyria_magic_enact_mystery.interaction.interaction.desc:0 "Have a Mage in your realm attemtp to eaact a mystery targeting the selected character."
 
   zz_valyria_magic_cannot_cast_on_self:0 "Cannot Enact on Self"
@@ -200,6 +197,10 @@
 
 
  ZZ_CAST_MYSTERY_TT:0 "Enact a Mystery against this character."
+ ZZ_SECONDARY_SPOUSES_HEADING:0 "Secondary Spouses #weak ([GetDataModelSize(CharacterWindow.GetSecondarySpouses)])#!"
+ ZZ_MAGIC_CASTING_MAP_TT:0 "#T Mystery Casting#!\nWhile this map mode is on, selecting a province on the map opens the Mysteries window, targeting that province and its [county|E]."
+ zz_magic_casting:0 "Mystery Casting"
+ zz_magic_casting_desc:0 "$ZZ_MAGIC_CASTING_MAP_TT$"
 
 
  zz_fire_wizards:0 "Valyrian Pyromancers" 
@@ -245,8 +246,10 @@
  
 
 ## relations
- zz_magic_master: "Master" #"[elder|E]"
- zz_magic_apprentice: "Apprentice" #"[disciple|E]"
+ # zz_magic_master was "[elder|E]"; comments after a value can break the text formatter
+ zz_magic_master: "Master"
+ # zz_magic_apprentice was "[disciple|E]"
+ zz_magic_apprentice: "Apprentice"
 
 ### house_aspirations 
 
@@ -262,7 +265,7 @@
   zz_valyria_dop_gain_dynasty:0 "Dynasty"
   zz_valyria_dop_gain_starwalker:0 "[GetTrait('starwalker').GetName(ROOT.Char )]"
   zz_valyria_dop_gain_item_modifier_11:0 "$item_modifier_11$"
-  zz_valyria_dop_gain_zz_valyria_magic_dream_magic_010_story:0 "$zz_valyria_dop_gain_zz_valyria_magic_dream_magic_010_story$"
+  zz_valyria_dop_gain_zz_valyria_magic_dream_magic_010_story:0 "$zz_valyria_magic_dream_magic.010.name$"
   zz_valyria_dop_gain_zz_drops_of_power_passive_gain:0 "Magical Engineering"
 
   
@@ -280,7 +283,7 @@
   zz_valyria_dop_mult_court_mage:0 "Court Mages (Own)"
   zz_valyria_dop_mult_host_court_mage:0 "Court Mages (Employer)"
   zz_valyria_dop_mult_tradition_zz_sorcerous_studies:0 "$tradition_zz_sorcerous_studies_name$"
-  zz_valyria_dop_mult_zz_valyria_magocracy_law:0 "$freehold_type_magocracy$"
+  zz_valyria_dop_mult_zz_valyria_magocracy_law:0 "Magocracy"
   zz_valyria_dop_mult_born_beneath_the_comet:0 "[GetTrait('born_beneath_the_comet').GetName(ROOT.Char )]"
   zz_valyria_dop_mult_starwalker_01:0 "[GetTrait('starwalker').GetName(ROOT.Char )]"
   zz_valyria_dop_mult_zz_mage_lords:0 "$arcane_mage_lords_house_power$"
@@ -296,3 +299,55 @@
   ZZ_BREAKDOWN_ENTRY_FORMAT:0 "$KEY$:"
   ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT:0 "$KEY$: $VALUE|=+0$"
   ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT:0 "$KEY$: $VALUE|=+0%/$"
+
+  # Magic teaching relation tooltips (common/effect_localization/zz_valyria_magic_relations.txt)
+  ZZ_I_GAIN_APPRENTICE:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes your $zz_magic_apprentice$"
+  ZZ_THEY_GET_APPRENTICE:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUINamePossessive] $zz_magic_apprentice$"
+  ZZ_I_LOSE_APPRENTICE:0 "[TARGET_CHARACTER.GetShortUIName|U] is no longer your $zz_magic_apprentice$"
+  ZZ_THEY_LOSE_APPRENTICE:0 "[TARGET_CHARACTER.GetShortUIName|U] is no longer [CHARACTER.GetShortUINamePossessive] $zz_magic_apprentice$"
+  ZZ_I_GAIN_MAGIC_MASTER:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes your Master of the Arts"
+  ZZ_THEY_GET_MAGIC_MASTER:0 "[TARGET_CHARACTER.GetShortUIName|U] becomes [CHARACTER.GetShortUINamePossessive] Master of the Arts"
+  ZZ_I_LOSE_MAGIC_MASTER:0 "[TARGET_CHARACTER.GetShortUIName|U] is no longer your Master of the Arts"
+  ZZ_THEY_LOSE_MAGIC_MASTER:0 "[TARGET_CHARACTER.GetShortUIName|U] is no longer [CHARACTER.GetShortUINamePossessive] Master of the Arts"
+  zz_valyria_learner_already_knows_mystery_tt:0 "The learner does not already know this [zz_mystery]"
+  zz_valyria_blood_sacrifice_needs_prisoner_tt:0 "Has a [prisoner|E] to sacrifice"
+
+  ## event_window_counter_selection: the counter label is <spell flag>.counter
+  zz_counter_selection_change:0 "Change: [GetPlayer.MakeScope.ScriptValue('zz_valyria_magic_event_window_counter_selection_counter_change')|+0]"
+  zz_counter_selection_range:0 "From [GetPlayer.MakeScope.ScriptValue('zz_valyria_magic_event_window_counter_selection_counter_min')|0] to [GetPlayer.MakeScope.ScriptValue('zz_valyria_magic_event_window_counter_selection_counter_max')|0]"
+  zz_valyria_magic_blood_magic_005.counter:0 "Age"
+  zz_valyria_magic_alchemy_magic_010.counter:0 "Age"
+  zz_valyria_magic_alchemy_magic_011.counter:0 "Age"
+  zz_valyria_magic_blood_magic_034.counter:0 "Diplomacy"
+  zz_valyria_magic_blood_magic_035.counter:0 "Martial"
+  zz_valyria_magic_blood_magic_036.counter:0 "Stewardship"
+  zz_valyria_magic_blood_magic_037.counter:0 "Intrigue"
+  zz_valyria_magic_blood_magic_038.counter:0 "Learning"
+  zz_valyria_magic_blood_magic_039.counter:0 "Prowess"
+  zz_valyria_magic_dream_magic_094.counter:0 "Diplomacy"
+  zz_valyria_magic_dream_magic_095.counter:0 "Martial"
+  zz_valyria_magic_dream_magic_096.counter:0 "Stewardship"
+  zz_valyria_magic_dream_magic_097.counter:0 "Intrigue"
+  zz_valyria_magic_dream_magic_098.counter:0 "Learning"
+  zz_valyria_magic_dream_magic_099.counter:0 "Prowess"
+  zz_valyria_magic_alchemy_magic_037.counter:0 "Diplomacy"
+  zz_valyria_magic_alchemy_magic_038.counter:0 "Martial"
+  zz_valyria_magic_alchemy_magic_039.counter:0 "Stewardship"
+  zz_valyria_magic_alchemy_magic_040.counter:0 "Intrigue"
+  zz_valyria_magic_alchemy_magic_041.counter:0 "Learning"
+  zz_valyria_magic_alchemy_magic_042.counter:0 "Prowess"
+  zz_valyria_magic_dream_magic_004.counter:0 "Visions"
+  zz_valyria_magic_dream_magic_048.counter:0 "Visions"
+  zz_valyria_magic_dream_magic_049.counter:0 "Visions"
+  zz_valyria_magic_dream_magic_080.counter:0 "Visions"
+  zz_valyria_magic_dream_magic_081.counter:0 "Visions"
+  zz_valyria_magic_dream_magic_082.counter:0 "Visions"
+  zz_valyria_magic_dream_magic_104.counter:0 "Visions"
+  zz_valyria_magic_dream_magic_105.counter:0 "Visions"
+  zz_valyria_magic_dream_magic_083.counter:0 "Visions"
+  zz_valyria_magic_dream_magic_084.counter:0 "Visions"
+  zz_valyria_magic_dream_magic_085.counter:0 "Visions"
+  zz_valyria_magic_dream_magic_100.counter:0 "Visions"
+  zz_valyria_magic_dream_magic_101.counter:0 "Visions"
+  zz_character_selection_popup_choose:0 "Choose a character..."
+  zz_valyria_magic_duel_move_only:0 "Used as a Move in [single_combat_fight|E], Not Enacted"

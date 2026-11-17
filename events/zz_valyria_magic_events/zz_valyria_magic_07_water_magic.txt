@@ -2,11 +2,18 @@
 
 namespace = zz_valyria_magic_water_magic
 
+# Spell: Water 001 - Mystery of the Crushing Waters
 zz_valyria_magic_water_magic.001 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.001.t
-	desc = zz_valyria_magic_water_magic.001.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.001.desc
+			desc = zz_valyria_magic_water_magic.001.desc_02
+			desc = zz_valyria_magic_water_magic.001.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -24,7 +31,7 @@ zz_valyria_magic_water_magic.001 = {
 				name = option_01
 				value = yes
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 001
 			}
@@ -37,7 +44,7 @@ zz_valyria_magic_water_magic.001 = {
 				name = option_02
 				value = yes
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 001
 			}
@@ -48,11 +55,18 @@ zz_valyria_magic_water_magic.001 = {
 		name = zz_valyria_magic_water_magic.001.opt.z
 	}
 }
+# Spell: Water 002 - Mystery of the Surging Torrent
 zz_valyria_magic_water_magic.002 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.002.t
-	desc = zz_valyria_magic_water_magic.002.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.002.desc
+			desc = zz_valyria_magic_water_magic.002.desc_02
+			desc = zz_valyria_magic_water_magic.002.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -64,24 +78,7 @@ zz_valyria_magic_water_magic.002 = {
 	lower_center_portrait = scope:recipient
 
 	immediate = {
-		clear_variable_list = possible_armies
-		remove_variable = selected_army
-		scope:recipient = {
-			every_army = {
-				root = {
-					add_to_variable_list = {
-						name = possible_armies
-						target = prev
-					}
-					if = {
-						limit = {
-							NOT = { has_variable = selected_army }
-						}
-						set_variable = { name = selected_army value = prev }
-					}
-				}
-			}
-		}
+		zz_targed_character_army_selection_list_effect = yes
 	}
 
 	widget = {
@@ -97,7 +94,7 @@ zz_valyria_magic_water_magic.002 = {
 			var:selected_army ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 002
 			}
@@ -107,11 +104,18 @@ zz_valyria_magic_water_magic.002 = {
 		name = zz_valyria_magic_water_magic.002.opt.z
 	}
 }
+# Spell: Water 003 - Mystery of Replenishing Waters
 zz_valyria_magic_water_magic.003 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.003.t
-	desc = zz_valyria_magic_water_magic.003.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.003.desc
+			desc = zz_valyria_magic_water_magic.003.desc_02
+			desc = zz_valyria_magic_water_magic.003.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -123,24 +127,7 @@ zz_valyria_magic_water_magic.003 = {
 	lower_center_portrait = scope:recipient
 
 	immediate = {
-		clear_variable_list = possible_armies
-		remove_variable = selected_army
-		scope:recipient = {
-			every_army = {
-				root = {
-					add_to_variable_list = {
-						name = possible_armies
-						target = prev
-					}
-					if = {
-						limit = {
-							NOT = { has_variable = selected_army }
-						}
-						set_variable = { name = selected_army value = prev }
-					}
-				}
-			}
-		}
+		zz_targed_character_army_selection_list_effect = yes
 	}
 
 	widget = {
@@ -156,7 +143,7 @@ zz_valyria_magic_water_magic.003 = {
 			var:selected_army ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 003
 			}
@@ -166,11 +153,18 @@ zz_valyria_magic_water_magic.003 = {
 		name = zz_valyria_magic_water_magic.003.opt.z
 	}
 }
+# Spell: Water 004 - Mystery of the Poisoned River
 zz_valyria_magic_water_magic.004 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.004.t
-	desc = zz_valyria_magic_water_magic.004.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.004.desc
+			desc = zz_valyria_magic_water_magic.004.desc_02
+			desc = zz_valyria_magic_water_magic.004.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -228,7 +222,7 @@ zz_valyria_magic_water_magic.004 = {
 				save_scope_as = flag
 			}
 				
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 004
 			}	
@@ -239,11 +233,18 @@ zz_valyria_magic_water_magic.004 = {
 	}
 }
 
+# Spell: Water 005 - Mystery of Winter
 zz_valyria_magic_water_magic.005 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.005.t
-	desc = zz_valyria_magic_water_magic.005.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.005.desc
+			desc = zz_valyria_magic_water_magic.005.desc_02
+			desc = zz_valyria_magic_water_magic.005.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -257,7 +258,7 @@ zz_valyria_magic_water_magic.005 = {
 	option = {
 		name = zz_valyria_magic_water_magic.005.opt.a	
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 005
 			}
@@ -267,11 +268,18 @@ zz_valyria_magic_water_magic.005 = {
 		name = zz_valyria_magic_water_magic.005.opt.z
 	}
 }
+# Spell: Water 006 - Mystery of Purifying Waters
 zz_valyria_magic_water_magic.006 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.006.t
-	desc = zz_valyria_magic_water_magic.006.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.006.desc
+			desc = zz_valyria_magic_water_magic.006.desc_02
+			desc = zz_valyria_magic_water_magic.006.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -299,7 +307,7 @@ zz_valyria_magic_water_magic.006 = {
 			var:selected_province ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 006
 			}
@@ -309,11 +317,18 @@ zz_valyria_magic_water_magic.006 = {
 		name = zz_valyria_magic_water_magic.006.opt.z
 	}
 }
+# Spell: Water 007 - Mystery of Waters of Fertility
 zz_valyria_magic_water_magic.007 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.007.t
-	desc = zz_valyria_magic_water_magic.007.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.007.desc
+			desc = zz_valyria_magic_water_magic.007.desc_02
+			desc = zz_valyria_magic_water_magic.007.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -325,23 +340,23 @@ zz_valyria_magic_water_magic.007 = {
 	lower_center_portrait = scope:recipient
 
 	immediate = {
-		zz_targeted_character_province_selection_list_effect = yes
+		zz_targeted_character_county_selection_list_effect = yes
 	}
 
 	widget = {
 		is_shown = {
 			is_ai = no
 		}
-		gui = "event_window_province_selection"
+		gui = "event_window_county_selection"
 		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_water_magic.007.opt.a
 		hidden_effect = {
-			var:selected_province ?= { 
+			var:selected_county ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 007
 			}
@@ -351,11 +366,18 @@ zz_valyria_magic_water_magic.007 = {
 		name = zz_valyria_magic_water_magic.007.opt.z
 	}
 }
+# Spell: Water 008 - Mystery of Mists
 zz_valyria_magic_water_magic.008 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.008.t
-	desc = zz_valyria_magic_water_magic.008.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.008.desc
+			desc = zz_valyria_magic_water_magic.008.desc_02
+			desc = zz_valyria_magic_water_magic.008.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -369,7 +391,7 @@ zz_valyria_magic_water_magic.008 = {
 	option = {
 		name = zz_valyria_magic_water_magic.008.opt.a	
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 008
 			}
@@ -379,11 +401,18 @@ zz_valyria_magic_water_magic.008 = {
 		name = zz_valyria_magic_water_magic.008.opt.z
 	}
 }
+# Spell: Water 009 - Mystery of Soggy Ground
 zz_valyria_magic_water_magic.009 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.009.t
-	desc = zz_valyria_magic_water_magic.009.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.009.desc
+			desc = zz_valyria_magic_water_magic.009.desc_02
+			desc = zz_valyria_magic_water_magic.009.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -397,7 +426,7 @@ zz_valyria_magic_water_magic.009 = {
 	option = {
 		name = zz_valyria_magic_water_magic.009.opt.a	
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 009
 			}
@@ -407,11 +436,18 @@ zz_valyria_magic_water_magic.009 = {
 		name = zz_valyria_magic_water_magic.009.opt.z
 	}
 }
+# Spell: Water 010 - Mystery of Water's Resilience (Army)
 zz_valyria_magic_water_magic.010 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.010.t
-	desc = zz_valyria_magic_water_magic.010.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.010.desc
+			desc = zz_valyria_magic_water_magic.010.desc_02
+			desc = zz_valyria_magic_water_magic.010.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -425,7 +461,7 @@ zz_valyria_magic_water_magic.010 = {
 	option = {
 		name = zz_valyria_magic_water_magic.010.opt.a	
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 010
 			}
@@ -435,11 +471,18 @@ zz_valyria_magic_water_magic.010 = {
 		name = zz_valyria_magic_water_magic.010.opt.z
 	}
 }
+# Spell: Water 011 - Mystery of Cleansing Tide
 zz_valyria_magic_water_magic.011 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.011.t
-	desc = zz_valyria_magic_water_magic.011.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.011.desc
+			desc = zz_valyria_magic_water_magic.011.desc_02
+			desc = zz_valyria_magic_water_magic.011.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -453,7 +496,7 @@ zz_valyria_magic_water_magic.011 = {
 	option = {
 		name = zz_valyria_magic_water_magic.011.opt.a	
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 011
 			}
@@ -463,11 +506,18 @@ zz_valyria_magic_water_magic.011 = {
 		name = zz_valyria_magic_water_magic.011.opt.z
 	}
 }
+# Spell: Water 012 - Mystery of Water's Edge
 zz_valyria_magic_water_magic.012 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.012.t
-	desc = zz_valyria_magic_water_magic.012.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.012.desc
+			desc = zz_valyria_magic_water_magic.012.desc_02
+			desc = zz_valyria_magic_water_magic.012.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -481,7 +531,7 @@ zz_valyria_magic_water_magic.012 = {
 	option = {
 		name = zz_valyria_magic_water_magic.012.opt.a	
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 012
 			}
@@ -491,11 +541,18 @@ zz_valyria_magic_water_magic.012 = {
 		name = zz_valyria_magic_water_magic.012.opt.z
 	}
 }
+# Spell: Water 013 - Mystery of Condensed Barrier
 zz_valyria_magic_water_magic.013 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.013.t
-	desc = zz_valyria_magic_water_magic.013.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.013.desc
+			desc = zz_valyria_magic_water_magic.013.desc_02
+			desc = zz_valyria_magic_water_magic.013.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -509,7 +566,7 @@ zz_valyria_magic_water_magic.013 = {
 	option = {
 		name = zz_valyria_magic_water_magic.013.opt.a	
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 013
 			}
@@ -519,11 +576,18 @@ zz_valyria_magic_water_magic.013 = {
 		name = zz_valyria_magic_water_magic.013.opt.z
 	}
 }
+# Spell: Water 014 - Mystery of Water's Purity
 zz_valyria_magic_water_magic.014 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.014.t
-	desc = zz_valyria_magic_water_magic.014.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.014.desc
+			desc = zz_valyria_magic_water_magic.014.desc_02
+			desc = zz_valyria_magic_water_magic.014.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -537,7 +601,7 @@ zz_valyria_magic_water_magic.014 = {
 	option = {
 		name = zz_valyria_magic_water_magic.014.opt.a	
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 014
 			}
@@ -547,11 +611,18 @@ zz_valyria_magic_water_magic.014 = {
 		name = zz_valyria_magic_water_magic.014.opt.z
 	}
 }
+# Spell: Water 015 - Mystery of Watery Casting
 zz_valyria_magic_water_magic.015 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.015.t
-	desc = zz_valyria_magic_water_magic.015.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.015.desc
+			desc = zz_valyria_magic_water_magic.015.desc_02
+			desc = zz_valyria_magic_water_magic.015.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -565,7 +636,7 @@ zz_valyria_magic_water_magic.015 = {
 	option = {
 		name = zz_valyria_magic_water_magic.015.opt.a	
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 015
 			}
@@ -575,11 +646,18 @@ zz_valyria_magic_water_magic.015 = {
 		name = zz_valyria_magic_water_magic.015.opt.z
 	}
 }
+# Spell: Water 016 - Mystery of the River Fortress
 zz_valyria_magic_water_magic.016 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.016.t
-	desc = zz_valyria_magic_water_magic.016.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.016.desc
+			desc = zz_valyria_magic_water_magic.016.desc_02
+			desc = zz_valyria_magic_water_magic.016.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -607,7 +685,7 @@ zz_valyria_magic_water_magic.016 = {
 			var:selected_province ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 016
 			}
@@ -617,11 +695,18 @@ zz_valyria_magic_water_magic.016 = {
 		name = zz_valyria_magic_water_magic.016.opt.z
 	}
 }
+# Spell: Water 017 - Mystery of Oppression of the Mists
 zz_valyria_magic_water_magic.017 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_water_magic.017.t
-	desc = zz_valyria_magic_water_magic.017.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.017.desc
+			desc = zz_valyria_magic_water_magic.017.desc_02
+			desc = zz_valyria_magic_water_magic.017.desc_03
+		}
+	}
 	theme = university 
 	override_background = {
 		reference = zz_water_magic
@@ -649,7 +734,7 @@ zz_valyria_magic_water_magic.017 = {
 			var:selected_province ?= { 
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = { 
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = water_magic
 				SPELL = 017
 			}
@@ -657,5 +742,831 @@ zz_valyria_magic_water_magic.017 = {
 	}
 	option = {
 		name = zz_valyria_magic_water_magic.017.opt.z
+	}
+}
+
+# Spell: Water 018 - Mystery of Drowning Grasp
+zz_valyria_magic_water_magic.018 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.018.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.018.desc
+			desc = zz_valyria_magic_water_magic.018.desc_02
+			desc = zz_valyria_magic_water_magic.018.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		clear_variable_list = possible_regiments
+		remove_variable = selected_regiment
+		scope:recipient = {
+			every_maa_regiment = {
+				limit = {
+					maa_current_troops_count > 0
+				}
+				root = {
+					add_to_variable_list = {
+						name = possible_regiments
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_regiment }
+						}
+						set_variable = { name = selected_regiment value = prev }
+					}
+				}
+			}
+		}
+	}
+	widget = {
+		is_shown = {
+			root = {
+				any_in_list = {
+					variable = possible_regiments
+					count > 0
+				}
+			}
+		}
+		gui = "event_window_maa_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.018.opt.a
+		hidden_effect = {
+			var:selected_regiment ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = water_magic
+				SPELL = 018
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.018.opt.z
+	}
+}
+
+# Spell: Water 019 - Mystery of Riptide
+zz_valyria_magic_water_magic.019 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.019.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.019.desc
+			desc = zz_valyria_magic_water_magic.019.desc_02
+			desc = zz_valyria_magic_water_magic.019.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_targed_character_army_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_army_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.019.opt.a
+		hidden_effect = {
+			var:selected_army ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = water_magic
+				SPELL = 019
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.019.opt.z
+	}
+}
+
+# Spell: Water 020 - Mystery of the Breaking of the Dams
+zz_valyria_magic_water_magic.020 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.020.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.020.desc
+			desc = zz_valyria_magic_water_magic.020.desc_02
+			desc = zz_valyria_magic_water_magic.020.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		zz_targeted_character_province_selection_list_effect = yes
+	}
+
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_province_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.020.opt.a
+		hidden_effect = {
+			var:selected_province ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = water_magic
+				SPELL = 020
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.020.opt.z
+	}
+}
+
+# Spell: Water 021 - Mystery of Healing Springs
+zz_valyria_magic_water_magic.021 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.021.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.021.desc
+			desc = zz_valyria_magic_water_magic.021.desc_02
+			desc = zz_valyria_magic_water_magic.021.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	immediate = {
+		clear_variable_list = possible_regiments
+		remove_variable = selected_regiment
+		scope:recipient = {
+			every_maa_regiment = {
+				limit = {
+					maa_current_troops_count > 0
+				}
+				root = {
+					add_to_variable_list = {
+						name = possible_regiments
+						target = prev
+					}
+					if = {
+						limit = {
+							NOT = { has_variable = selected_regiment }
+						}
+						set_variable = { name = selected_regiment value = prev }
+					}
+				}
+			}
+		}
+	}
+	widget = {
+		is_shown = {
+			root = {
+				any_in_list = {
+					variable = possible_regiments
+					count > 0
+				}
+			}
+		}
+		gui = "event_window_maa_selection"
+		container = "custom_widgets_container"
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.021.opt.a
+		hidden_effect = {
+			var:selected_regiment ?= { 
+				save_scope_as = target
+			}
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = water_magic
+				SPELL = 021
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.021.opt.z
+	}
+}
+
+# Spell: Water 022 - Mystery of Lungs of Brine
+zz_valyria_magic_water_magic.022 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.022.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.022.desc
+			desc = zz_valyria_magic_water_magic.022.desc_02
+			desc = zz_valyria_magic_water_magic.022.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_water_magic.022.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = water_magic
+				SPELL = 022
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.022.opt.z
+	}
+}
+
+# Spell: Water 023 - Mystery of Tide's Favour
+zz_valyria_magic_water_magic.023 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.023.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.023.desc
+			desc = zz_valyria_magic_water_magic.023.desc_02
+			desc = zz_valyria_magic_water_magic.023.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_water_magic.023.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = water_magic
+				SPELL = 023
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.023.opt.z
+	}
+}
+
+# Spell: Water 024 - Mystery of the Mist Host
+zz_valyria_magic_water_magic.024 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.024.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.024.desc
+			desc = zz_valyria_magic_water_magic.024.desc_02
+			desc = zz_valyria_magic_water_magic.024.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_water_magic.024.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = water_magic
+				SPELL = 024
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.024.opt.z
+	}
+}
+
+# Spell: Water 025 - Mystery of Still Waters
+zz_valyria_magic_water_magic.025 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.025.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.025.desc
+			desc = zz_valyria_magic_water_magic.025.desc_02
+			desc = zz_valyria_magic_water_magic.025.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+
+	option = {
+		name = zz_valyria_magic_water_magic.025.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = water_magic
+				SPELL = 025
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.025.opt.z
+	}
+}
+
+# Spell: Water 026 - Mystery of Baptismal Waters
+zz_valyria_magic_water_magic.026 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.026.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.026.desc
+			desc = zz_valyria_magic_water_magic.026.desc_02
+			desc = zz_valyria_magic_water_magic.026.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_water_magic.026.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = water_magic
+				SPELL = 026
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.026.opt.z
+	}
+}
+
+# Spell: Water 027 - Mystery of The Sea Change
+zz_valyria_magic_water_magic.027 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.027.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.027.desc
+			desc = zz_valyria_magic_water_magic.027.desc_02
+			desc = zz_valyria_magic_water_magic.027.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_culture
+		remove_variable = selected_culture
+		root = {
+			culture = {
+				add_to_variable_list = {
+					name = possible_culture
+					target = prev
+				}
+			}
+		}
+		every_culture_global = {
+			limit = {
+				NOT = {
+					is_in_list = possible_culture
+				}
+			}
+			root = {
+				add_to_variable_list = {
+					name = possible_culture
+					target = prev
+				}
+				scope:recipient.culture = {
+					root = {
+						set_variable = {
+							name = selected_culture
+							value = prev
+						}
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_variable = selected_culture
+						}
+					}
+					set_variable = {
+						name = selected_culture
+						value = prev
+					}
+				}
+			}
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {  }
+			gui = "event_window_culture_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.027.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_culture
+				}
+				var:selected_culture = { save_scope_as = culture }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = water_magic
+					SPELL = 027
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.027.opt.z
+	}
+}
+
+# Spell: Water 028 - Mystery of Water Under the Bridge
+zz_valyria_magic_water_magic.028 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.028.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.028.desc
+			desc = zz_valyria_magic_water_magic.028.desc_02
+			desc = zz_valyria_magic_water_magic.028.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_valyria_dream_magic_relation_list = yes
+		zz_valyria_character_relation = yes
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_flag_selection_relation"
+			container = "custom_widgets_container"
+		}
+		widget = {
+			is_shown = { root = { any_in_list = { variable = zz_valyria_possible_characters count > 0 } } }
+			gui = "event_window_character_selection_popup"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.028.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_flag
+					exists = var:zz_valyria_selected_character
+				}
+				var:selected_flag = { save_scope_as = relation }
+				var:zz_valyria_selected_character = { save_scope_as = target }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = water_magic
+					SPELL = 028
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.028.opt.z
+	}
+}
+
+# Spell: Water 029 - Mystery of Wash Away the Stain
+zz_valyria_magic_water_magic.029 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.029.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.029.desc
+			desc = zz_valyria_magic_water_magic.029.desc_02
+			desc = zz_valyria_magic_water_magic.029.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_valyria_dream_magic_secrets_owned_list = yes
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_secret_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.029.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_secret
+				}
+				var:selected_secret = { save_scope_as = secret }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = water_magic
+					SPELL = 029
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.029.opt.z
+	}
+}
+
+# Spell: Water 030 - Mystery of The Fertile Flood
+zz_valyria_magic_water_magic.030 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.030.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.030.desc
+			desc = zz_valyria_magic_water_magic.030.desc_02
+			desc = zz_valyria_magic_water_magic.030.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_targeted_character_county_selection_list_effect = yes
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_county_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.030.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_county
+				}
+				var:selected_county = { save_scope_as = target }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = water_magic
+					SPELL = 030
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.030.opt.z
+	}
+}
+
+# Spell: Water 031 - Mystery of The Breaking of Bonds
+zz_valyria_magic_water_magic.031 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.031.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.031.desc
+			desc = zz_valyria_magic_water_magic.031.desc_02
+			desc = zz_valyria_magic_water_magic.031.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		clear_variable_list ?= zz_valyria_possible_characters
+		remove_variable = zz_valyria_selected_character
+		scope:recipient = {
+			every_hooked_character = {
+				limit = { scope:recipient = { has_weak_hook = prev } }
+				root = {
+					add_to_variable_list = { name = zz_valyria_possible_characters target = prev }
+					zz_valyria_selection_variable = { VAR = zz_valyria_selected_character }
+				}
+			}
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = { root = { any_in_list = { variable = zz_valyria_possible_characters count > 0 } } }
+			gui = "event_window_character_selection_popup"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.031.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:zz_valyria_selected_character
+				}
+				var:zz_valyria_selected_character = { save_scope_as = target }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = water_magic
+					SPELL = 031
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.031.opt.z
+	}
+}
+
+# Spell: Water 032 - Mystery of the Drowning Deep (Strike Embarked Army)
+zz_valyria_magic_water_magic.032 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.032.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_water_magic.032.desc
+			desc = zz_valyria_magic_water_magic.032.desc_02
+			desc = zz_valyria_magic_water_magic.032.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		clear_variable_list = possible_armies
+		remove_variable = selected_army
+		# Only the subject's armies at sea
+		scope:recipient = {
+			every_army = {
+				limit = { location = { is_sea_province = yes } }
+				root = {
+					add_to_variable_list = { name = possible_armies target = prev }
+					if = {
+						limit = { NOT = { has_variable = selected_army } }
+						set_variable = { name = selected_army value = prev }
+					}
+				}
+			}
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_army_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.032.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_army
+				}
+				var:selected_army = { save_scope_as = target }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = water_magic
+					SPELL = 032
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_water_magic.032.opt.z
+	}
+}
+
+# Spell: Water 033 - Mystery of the Undertow (Single Combat). A duel move only: it never appears in the casting menu.
+zz_valyria_magic_water_magic.033 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_water_magic.033.t
+	desc = zz_valyria_magic_water_magic.033.desc
+	theme = university
+	override_background = {
+		reference = zz_water_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_water_magic.033.opt.z
 	}
 }

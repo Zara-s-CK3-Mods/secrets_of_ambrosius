@@ -21,18 +21,11 @@
 			add = 500
 		}
 	}
-	if = { 
-		limit = { 
-			any_equipped_character_artifact = {
-				has_artifact_modifier =  item_modifier_22
-			}
+	every_equipped_character_artifact = { 
+		limit = {
+			has_artifact_modifier =  item_modifier_22
 		}
-		every_equipped_character_artifact = { 
-			limit = {
-				has_artifact_modifier =  item_modifier_22
-			}
-			add = this.var:item_mana_cap_add
-		}
+		add = this.var:item_mana_cap_add
 	}
 	if = {
 		limit = { 
@@ -42,7 +35,7 @@
 	} 
 	if = {
 		limit = {
-			has_realm_law_flag = zz_valyria_magocracy_law
+			zz_sothm_magocracy_trigger = yes
 		}
 		add = 250
 	}
@@ -76,6 +69,21 @@
 		}
 		add = 1000000
 	}
+	if = {
+		limit = {
+			exists = this
+			faith = { has_doctrine_parameter = zz_tenet_deep_vessel }
+		}
+		add = 250
+	}
+	if = {
+		limit = {
+			exists = this
+			has_personal_tenet_flag = zz_personal_deep_vessel
+		}
+		add = 250
+	}
+	round = yes
 }
 
 zz_valyria_mana_gain_mult = { 
@@ -130,22 +138,16 @@ zz_valyria_mana_gain_mult = {
 			}
 		}
 	}
-	if = { 
-		limit = { 
-			any_equipped_character_artifact = {
-				has_artifact_modifier = item_modifier_01
-			}
+	every_equipped_character_artifact = { 
+		limit = {
+			has_artifact_modifier = item_modifier_01
 		}
-		every_equipped_character_artifact = { 
-			limit = {
-				has_artifact_modifier = item_modifier_01
-			}
-			add = {
-				value = this.var:item_mana_gain_mult
-				desc = zz_valyria_dop_mult_item_modifier_01
-				format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
-			} 
-		}
+		add = {
+			value = this.var:item_mana_gain_mult
+			multiply = 100
+			desc = zz_valyria_dop_mult_item_modifier_01
+			format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
+		} 
 	}
 	if = {
 		limit = {
@@ -157,82 +159,47 @@ zz_valyria_mana_gain_mult = {
 			format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
 		}
 	}
-	add = {
-		value = 0
-		every_court_position_holder = {
-			type = zz_valyria_court_mages_court_position
-			switch = {
-				trigger = aptitude:zz_valyria_court_mages_court_position
-				4 = {
-					add = {
-						value = 25
-					}
-				}
-				3 = {
-					add = {
-						value = 20
-					}
-				}
-				2 = {
-					add = {
-						value = 15
-					}
-				}
-				1 = {
-					add = {
-						value = 10
-					}
-				}
-				0 = {
-					add = {
-						value = 5
-					}
-				}
-			}
+	if = {
+		limit = {
+			can_employ_court_position_type = zz_valyria_court_mages_court_position
 		}
-		desc = zz_valyria_dop_mult_court_mage
-		format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
-	}
-	
-	add = {
-		value = 0 
-		employer ?= {
+
+		add = {
+			value = 0
 			every_court_position_holder = {
 				type = zz_valyria_court_mages_court_position
-				switch = {
-					trigger = aptitude:zz_valyria_court_mages_court_position
-					4 = {
-						add = {
-							value = 25
-						}
-					}
-					3 = {
-						add = {
-							value = 20
-						}
-					}
-					2 = {
-						add = {
-							value = 15
-						}
-					}
-					1 = {
-						add = {
-							value = 10
-						}
-					}
-					0 = {
-						add = {
-							value = 5
-						}
+				# Aptitude 0-4 gives 5-25, the same as the old switch, but works out aptitude once
+				add = {
+					value = aptitude:zz_valyria_court_mages_court_position
+					multiply = 5
+					add = 5
+				}
+			}
+			desc = zz_valyria_dop_mult_court_mage
+			format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
+		}
+	}
+	if = {
+		limit = {
+			can_employ_court_position_type = zz_valyria_court_mages_court_position
+		}
+		add = {
+			value = 0 
+			employer ?= {
+				every_court_position_holder = {
+					type = zz_valyria_court_mages_court_position
+					# Aptitude 0-4 gives 5-25, the same as the old switch, but works out aptitude once
+					add = {
+						value = aptitude:zz_valyria_court_mages_court_position
+						multiply = 5
+						add = 5
 					}
 				}
 			}
+			desc = zz_valyria_dop_mult_host_court_mage
+			format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
 		}
-		desc = zz_valyria_dop_mult_host_court_mage
-		format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
 	}
-	
 	
 	if = {
 		limit = { 
@@ -246,7 +213,7 @@ zz_valyria_mana_gain_mult = {
 	} 
 	if = {
 		limit = {
-			has_realm_law_flag = zz_valyria_magocracy_law
+			zz_sothm_magocracy_trigger = yes
 		}
 		add = {
 			value = 10
@@ -268,74 +235,14 @@ zz_valyria_mana_gain_mult = {
 		limit = {
 			has_trait = starwalker
 		}
+		# 25, plus 25 for each full 20 Chosen of the Heavens XP up to 100: the same as the old five checks, reading the XP once
 		add = {
-			value = 25
-			
-			if = { 
-				limit = {
-					has_trait_xp = {
-						trait = starwalker
-						track = chosen_of_the_heavens
-						value >= 20
-					}
-				}
-				add = {
-					value = 25
-					format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
-				}
-			}
-			if = { 
-				limit = {
-					has_trait_xp = {
-						trait = starwalker
-						track = chosen_of_the_heavens
-						value >= 40
-					}
-				}
-				add = {
-					value = 25
-					format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
-				}
-			}
-			if = { 
-				limit = {
-					has_trait_xp = {
-						trait = starwalker
-						track = chosen_of_the_heavens
-						value >= 60
-					}
-				}
-				add = {
-					value = 25
-					format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
-				}
-			}
-			if = { 
-				limit = {
-					has_trait_xp = {
-						trait = starwalker
-						track = chosen_of_the_heavens
-						value >= 80
-					}
-				}
-				add = {
-					value = 25
-					format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
-				}
-			}
-			if = { 
-				limit = {
-					has_trait_xp = {
-						trait = starwalker
-						track = chosen_of_the_heavens
-						value >= 100
-					}
-				}
-				add = {
-					value = 25
-					format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
-				}
-			}
+			value = "has_trait_xp(starwalker|chosen_of_the_heavens)"
+			divide = 20
+			floor = yes
+			max = 5
+			multiply = 25
+			add = 25
 			desc = zz_valyria_dop_mult_starwalker_01
 			format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
 		}
@@ -526,7 +433,7 @@ zz_valyria_mana_gain_mult = {
 			culture = { has_cultural_tradition = tradition_zz_magic_studies }
 		}
 		add = {
-			value = 25
+			value = 50
 			desc = zz_valyria_dop_mult_tradition_zz_magic_studies
 			format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
 		}
@@ -576,6 +483,29 @@ zz_valyria_mana_gain_mult = {
 		}
 	}
 	
+	if = {
+		limit = {
+			exists = this
+			faith = { has_doctrine_parameter = zz_tenet_living_wellspring }
+		}
+		add = {
+			value = 50
+			desc = zz_valyria_dop_mult_tenet_living_wellspring
+			format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
+		}
+	}
+	if = {
+		limit = {
+			exists = this
+			has_personal_tenet_flag = zz_personal_living_wellspring
+		}
+		add = {
+			value = 25
+			desc = zz_valyria_dop_mult_personal_living_wellspring
+			format = ZZ_BREAKDOWN_ENTRY_PERCENTAGE_FORMAT
+		}
+	}
+	round = yes
 }
 
 
@@ -586,107 +516,114 @@ zz_valyria_drops_power_passive_gain = {
 		desc = BASE
 		format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
 	}
-	
 	if = {
 		limit = {
-			exists = this 
+			exists = this
+			faith = { has_doctrine_parameter = zz_tenet_font_of_mysteries }
 		}
-		
-		if = {
-			limit = {
-				dynasty ?= dynasty:dynn_Ambrosius
-			}
-			add = {
-				value = 1
-				desc = zz_valyria_dop_gain_dynasty
-				format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
-			}
-			
-		}
-		if = { 
-			limit = { 
-				has_trait = starwalker
-			}
-			add = {
-				value = 1
-				desc = zz_valyria_dop_gain_starwalker
-				format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
-			}
-		}
-		if = { 
-			limit = { 
-				any_equipped_character_artifact = {
-					has_artifact_modifier = item_modifier_11
-				}
-			}
-			every_equipped_character_artifact = { 
-				limit = {
-					has_artifact_modifier = item_modifier_11
-				}
-				add = { 
-					value = this.var:item_mana_gain
-					desc = zz_valyria_dop_gain_item_modifier_11
-					format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
-				} 
-				
-			}
-		}
-		if = { 
-			limit = { 
-				any_owned_story = {
-					story_type = zz_valyria_magic_dream_magic_010_story
-				}
-			}
-			every_owned_story = {
-				limit = {
-					story_type = zz_valyria_magic_dream_magic_010_story
-				}
-				add = {
-					value = this.var:mystery_potency
-					desc = zz_valyria_dop_gain_zz_valyria_magic_dream_magic_010_story
-					format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
-				}
-				
-			}
-		}
-		if = {
-			limit = { 
-				has_variable = zz_drops_of_power_passive_gain
-			}
-			add = {
-				value = this.var:zz_drops_of_power_passive_gain
-				desc = zz_valyria_dop_gain_zz_drops_of_power_passive_gain
-				format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
-			}
-		}
-		multiply = {
-			value = 1
-			add = {
-				value = this.zz_valyria_mana_gain_mult
-				divide = 100 
-			}
+		add = {
+			value = 2
+			desc = zz_valyria_dop_passive_tenet_font_of_mysteries
 			format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
 		}
 	}
+	if = {
+		limit = {
+			exists = this
+			has_personal_tenet_flag = zz_personal_font_of_mysteries
+		}
+		add = {
+			value = 1
+			desc = zz_valyria_dop_passive_personal_font_of_mysteries
+			format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
+		}
+	}
+	
+
+		
+	if = {
+		limit = {
+			dynasty ?= dynasty:dynn_Ambrosius
+		}
+		add = {
+			value = 1
+			desc = zz_valyria_dop_gain_dynasty
+			format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
+		}
+			
+	}
+	if = { 
+		limit = { 
+			has_trait = starwalker
+		}
+		add = {
+			value = 1
+			desc = zz_valyria_dop_gain_starwalker
+			format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
+		}
+	}
+	every_equipped_character_artifact = { 
+		limit = {
+			has_artifact_modifier = item_modifier_11
+		}
+		add = { 
+			value = this.var:item_mana_gain
+			desc = zz_valyria_dop_gain_item_modifier_11
+			format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
+		} 
+			
+	}
+	every_owned_story = {
+		limit = {
+			story_type = zz_valyria_magic_dream_magic_010_story
+		}
+		add = {
+			value = this.var:mystery_potency
+			desc = zz_valyria_dop_gain_zz_valyria_magic_dream_magic_010_story
+			format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
+		}
+			
+	}
+	if = {
+		limit = { 
+			has_variable = zz_drops_of_power_passive_gain
+		}
+		add = {
+			value = this.var:zz_drops_of_power_passive_gain
+			desc = zz_valyria_dop_gain_zz_drops_of_power_passive_gain
+			format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
+		}
+	}
+	multiply = {
+		value = 1
+		add = {
+			value = this.zz_valyria_mana_gain_mult
+			divide = 100 
+		}
+		format = ZZ_BREAKDOWN_ENTRY_PLUS_MINUS_FORMAT
+	}
+	round = yes
 }
 
+# Army damage: soldiers killed per point of the caster's school skill (ten times the regiment ladder below).
+# Used with zz_valyria_change_army_troops_effect; a strong enough caster can destroy a whole army.
 zz_valyria_very_low_damage_army = {
-	value = 1000
+	value = 10
 }
 zz_valyria_low_damage_army = {
-	value = 400
+	value = 50
 }
 zz_valyria_moderate_damage_army = {
-	value = 300
+	value = 100
 }
 zz_valyria_serious_damage_army = {
-	value = 200
-}
-zz_valyria_massive_damage_army = {
 	value = 150
 }
+zz_valyria_massive_damage_army = {
+	value = 200
+}
 zz_valyria_catastrophic_damage_army = {
-	value = 100
+	value = 250
 }
 
 ## Value done at 10 skill
@@ -1042,4 +979,11 @@ zz_valyria_magic_event_window_counter_selection_counter_max = {
 zz_valyria_magic_event_window_counter_selection_counter_min = {
 	value = 0 
 	add = root.var:zz_valyria_magic_event_window_counter_selection_counter_min
+}
+
+# How far the counter has moved from where it started, for the widget
+zz_valyria_magic_event_window_counter_selection_counter_change = {
+	value = 0 
+	add = root.var:zz_valyria_magic_event_window_counter_selection_counter
+	subtract = root.var:zz_valyria_magic_event_window_counter_selection_counter_base
 }

@@ -226,6 +226,14 @@ types magic_scroll_learning {
 									align = center
 								}
 								spacer = { size = { 00 30 } }
+								# Search this list with the game's character search (zz_valyria_archive_select_character_interaction)
+								button_standard = {
+									size = { 200 30 }
+									text = "zz_archive_search_button"
+									tooltip = "zz_archive_search_button_tt"
+									datacontext = "[GetScriptedGui('zz_valyria_archive_open_selection')]"
+									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_archive_selection_mode', MakeScopeFlag('archive_mage') ).End )]"
+								}
 								scrollbox = {
 									name = "mages_scrollarea"
 									layoutpolicy_vertical = expanding
@@ -238,11 +246,12 @@ types magic_scroll_learning {
 											addcolumn = 200
 											addrow = 125
 											datamodel = "[Scope.GetList('mage_list')]"
+											datamodel_reuse_widgets = yes
 											
 											item = {
 												zz_valyria_mage_select_button = {
 													blockoverride "ButtonAction" {
-														down = "[GetScriptedGui('zz_valyria_mages_selection').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_magic_caster', Character.MakeScope ).End )]"
+														down = "[ObjectsEqual( GetPlayer.MakeScope.Var('zz_magic_caster').Char.Self, Character.Self )]"
 														onclick = "[GetScriptedGui('zz_valyria_mages_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_magic_caster', Character.MakeScope ).End )]"
 													}
 												}							 
@@ -685,6 +694,14 @@ types magic_scroll_learning {
 									}
 								}
 								spacer = { size = { 00 25 } }
+								# Search this list with the game's character search (zz_valyria_archive_select_character_interaction)
+								button_standard = {
+									size = { 200 30 }
+									text = "zz_archive_search_button"
+									tooltip = "zz_archive_search_button_tt"
+									datacontext = "[GetScriptedGui('zz_valyria_archive_open_selection')]"
+									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_archive_selection_mode', MakeScopeFlag('apprentice_master') ).End )]"
+								}
 								scrollbox = {
 									name = "mages_scrollarea"
 									layoutpolicy_vertical = expanding
@@ -697,12 +714,12 @@ types magic_scroll_learning {
 											addcolumn = 200
 											addrow = 125
 											datamodel = "[Scope.GetList('magic_master_list')]"
+											datamodel_reuse_widgets = yes
 											
 											item = {
 												zz_valyria_mage_select_button = {
 													blockoverride "ButtonAction" {
-														enabled = "[GetScriptedGui('zz_valyria_magic_learning_type_apprentice_master').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_magic_master', Character.MakeScope ).End )]"
-														down = "[GetScriptedGui('zz_valyria_magic_learning_type_apprentice_master').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_magic_master', Character.MakeScope ).End )]"
+														down = "[ObjectsEqual( GetPlayer.MakeScope.Var('zz_magic_master').Char.Self, Character.Self )]"
 														onclick = "[GetScriptedGui('zz_valyria_magic_learning_type_apprentice_master').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_magic_master', Character.MakeScope ).End )]"
 													}
 												}								 
@@ -773,6 +790,14 @@ types magic_scroll_learning {
 									}
 								}
 								spacer = { size = { 00 25 } }
+								# Search this list with the game's character search (zz_valyria_archive_select_character_interaction)
+								button_standard = {
+									size = { 200 30 }
+									text = "zz_archive_search_button"
+									tooltip = "zz_archive_search_button_tt"
+									datacontext = "[GetScriptedGui('zz_valyria_archive_open_selection')]"
+									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_archive_selection_mode', MakeScopeFlag('apprentice_learner') ).End )]"
+								}
 								scrollbox = {
 									name = "mages_scrollarea"
 									layoutpolicy_vertical = expanding
@@ -785,12 +810,13 @@ types magic_scroll_learning {
 											addcolumn = 200
 											addrow = 125
 											datamodel = "[Scope.GetList('magic_learner_list')]"
+											datamodel_reuse_widgets = yes
 											
 											item = {
 												zz_valyria_mage_select_button = {
 													blockoverride "ButtonAction" {
 														enabled= "[GetScriptedGui('zz_valyria_magic_learning_type_apprentice_learner').IsValid( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_magic_learner', Character.MakeScope ).End )]"
-														down = "[GetScriptedGui('zz_valyria_magic_learning_type_apprentice_learner').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_magic_learner', Character.MakeScope ).End )]"
+														down = "[ObjectsEqual( GetPlayer.MakeScope.Var('zz_valyria_magic_learner').Char.Self, Character.Self )]"
 														onclick = "[GetScriptedGui('zz_valyria_magic_learning_type_apprentice_learner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_magic_learner', Character.MakeScope ).End )]"
 													}
 												}								 
@@ -844,6 +870,14 @@ types magic_scroll_learning {
 									}
 								}
 								spacer = { size = { 00 25 } }
+								# Search this list with the game's character search (zz_valyria_archive_select_character_interaction)
+								button_standard = {
+									size = { 200 30 }
+									text = "zz_archive_search_button"
+									tooltip = "zz_archive_search_button_tt"
+									datacontext = "[GetScriptedGui('zz_valyria_archive_open_selection')]"
+									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_archive_selection_mode', MakeScopeFlag('mystery_master') ).End )]"
+								}
 								scrollbox = {
 									name = "mages_scrollarea"
 									layoutpolicy_vertical = expanding
@@ -856,11 +890,12 @@ types magic_scroll_learning {
 											addcolumn = 200
 											addrow = 125
 											datamodel = "[Scope.GetList('magic_mystery_master_list')]"
+											datamodel_reuse_widgets = yes
 											
 											item = {
 												zz_valyria_mage_select_button = {
 													blockoverride "ButtonAction" {
-														down = "[GetScriptedGui('zz_valyria_magic_learning_type_mystery_master').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_magic_mystery_master', Character.MakeScope ).End )]"
+														down = "[ObjectsEqual( GetPlayer.MakeScope.Var('zz_magic_mystery_master').Char.Self, Character.Self )]"
 														onclick = "[GetScriptedGui('zz_valyria_magic_learning_type_mystery_master').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_magic_mystery_master', Character.MakeScope ).End )]"
 													}
 												}					 
@@ -904,6 +939,7 @@ types magic_scroll_learning {
 											addrow = 55
 											datacontext = "[GetPlayer.MakeScope]"
 											datamodel = "[Scope.GetList('zz_valyria_teach_mystery_list')]"
+											datamodel_reuse_widgets = yes
 											
 											item = {
 												button_standard = {
@@ -1018,6 +1054,15 @@ types magic_scroll_learning {
 										expand = {}
 									}
 								}
+								# Search this list with the game's character search (zz_valyria_archive_select_character_interaction)
+								button_standard = {
+									visible = "[GetVariableSystem.HasValue( 'magic_learners','all')]"
+									size = { 200 30 }
+									text = "zz_archive_search_button"
+									tooltip = "zz_archive_search_button_tt"
+									datacontext = "[GetScriptedGui('zz_valyria_archive_open_selection')]"
+									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_archive_selection_mode', MakeScopeFlag('mystery_learner_all') ).End )]"
+								}
 								scrollbox = {
 									name = "magic_learner_mystery_all_scrollarea"
 									visible = "[GetVariableSystem.HasValue( 'magic_learners','all')]"
@@ -1031,17 +1076,27 @@ types magic_scroll_learning {
 											addcolumn = 200
 											addrow = 125
 											datamodel = "[Scope.GetList('magic_mystery_learner_list')]"
+											datamodel_reuse_widgets = yes
 											
 											item = {
 												zz_valyria_mage_select_button = {
 													blockoverride "ButtonAction" {
-														down = "[GetScriptedGui('zz_valyria_magic_learning_type_mystery_learner').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery_magic_learner', Character.MakeScope ).End )]"
+														down = "[ObjectsEqual( GetPlayer.MakeScope.Var('zz_valyria_mystery_magic_learner').Char.Self, Character.Self )]"
 														onclick = "[GetScriptedGui('zz_valyria_magic_learning_type_mystery_learner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery_magic_learner', Character.MakeScope ).End )]"
 													}
 												}						 
 											}
 										}
 									}
+								}
+								# Search this list with the game's character search (zz_valyria_archive_select_character_interaction)
+								button_standard = {
+									visible = "[GetVariableSystem.HasValue( 'magic_learners','non-mages')]"
+									size = { 200 30 }
+									text = "zz_archive_search_button"
+									tooltip = "zz_archive_search_button_tt"
+									datacontext = "[GetScriptedGui('zz_valyria_archive_open_selection')]"
+									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_archive_selection_mode', MakeScopeFlag('mystery_learner_non_mages') ).End )]"
 								}
 								scrollbox = {
 									name = "magic_learner_mystery_non-mages_scrollarea"
@@ -1056,17 +1111,27 @@ types magic_scroll_learning {
 											addcolumn = 200
 											addrow = 125
 											datamodel = "[Scope.GetList('magic_mystery_learner_not_mage_list')]"
+											datamodel_reuse_widgets = yes
 											
 											item = {
 												zz_valyria_mage_select_button = {
 													blockoverride "ButtonAction" {
-														down = "[GetScriptedGui('zz_valyria_magic_learning_type_mystery_learner').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery_magic_learner', Character.MakeScope ).End )]"
+														down = "[ObjectsEqual( GetPlayer.MakeScope.Var('zz_valyria_mystery_magic_learner').Char.Self, Character.Self )]"
 														onclick = "[GetScriptedGui('zz_valyria_magic_learning_type_mystery_learner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery_magic_learner', Character.MakeScope ).End )]"
 													}
 												}					 
 											}
 										}
 									}
+								}
+								# Search this list with the game's character search (zz_valyria_archive_select_character_interaction)
+								button_standard = {
+									visible = "[GetVariableSystem.HasValue( 'magic_learners','mages')]"
+									size = { 200 30 }
+									text = "zz_archive_search_button"
+									tooltip = "zz_archive_search_button_tt"
+									datacontext = "[GetScriptedGui('zz_valyria_archive_open_selection')]"
+									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_archive_selection_mode', MakeScopeFlag('mystery_learner_mages') ).End )]"
 								}
 								scrollbox = {
 									name = "magic_learner_mystery_mages_scrollarea"
@@ -1081,11 +1146,12 @@ types magic_scroll_learning {
 											addcolumn = 200
 											addrow = 125
 											datamodel = "[Scope.GetList('magic_mystery_learner_mage_list')]"
+											datamodel_reuse_widgets = yes
 											
 											item = {
 												zz_valyria_mage_select_button = {
 													blockoverride "ButtonAction" {
-														down = "[GetScriptedGui('zz_valyria_magic_learning_type_mystery_learner').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery_magic_learner', Character.MakeScope ).End )]"
+														down = "[ObjectsEqual( GetPlayer.MakeScope.Var('zz_valyria_mystery_magic_learner').Char.Self, Character.Self )]"
 														onclick = "[GetScriptedGui('zz_valyria_magic_learning_type_mystery_learner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_mystery_magic_learner', Character.MakeScope ).End )]"
 													}
 												}								 
@@ -1140,6 +1206,14 @@ types magic_scroll_learning {
 									}
 								}
 								spacer = { size = { 00 25 } }
+								# Search this list with the game's character search (zz_valyria_archive_select_character_interaction)
+								button_standard = {
+									size = { 200 30 }
+									text = "zz_archive_search_button"
+									tooltip = "zz_archive_search_button_tt"
+									datacontext = "[GetScriptedGui('zz_valyria_archive_open_selection')]"
+									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_archive_selection_mode', MakeScopeFlag('scroll_owner') ).End )]"
+								}
 								scrollbox = {
 									name = "mages_scrollarea"
 									layoutpolicy_vertical = expanding
@@ -1152,11 +1226,12 @@ types magic_scroll_learning {
 											addcolumn = 200
 											addrow = 125
 											datamodel = "[Scope.GetList('item_caster_list')]"
+											datamodel_reuse_widgets = yes
 											
 											item = {
 												zz_valyria_mage_select_button = {
 													blockoverride "ButtonAction" {
-														down = "[GetScriptedGui('zz_valyria_magic_scroll_learning_owner').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_item_caster', Character.MakeScope ).End )]"
+														down = "[ObjectsEqual( GetPlayer.MakeScope.Var('zz_item_caster').Char.Self, Character.Self )]"
 														onclick = "[GetScriptedGui('zz_valyria_magic_scroll_learning_owner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_item_caster', Character.MakeScope ).End )]"
 													}
 												}							 
@@ -1200,6 +1275,7 @@ types magic_scroll_learning {
 											addrow = 55
 											datacontext = "[GetPlayer.MakeScope]"
 											datamodel = "[Scope.GetList('zz_valyria_scroll_list')]"
+											datamodel_reuse_widgets = yes
 											
 											item = {
 												button_standard = {
@@ -1307,6 +1383,15 @@ types magic_scroll_learning {
 										expand = {}
 									}
 								}
+								# Search this list with the game's character search (zz_valyria_archive_select_character_interaction)
+								button_standard = {
+									visible = "[GetVariableSystem.HasValue( 'magic_learners','all')]"
+									size = { 200 30 }
+									text = "zz_archive_search_button"
+									tooltip = "zz_archive_search_button_tt"
+									datacontext = "[GetScriptedGui('zz_valyria_archive_open_selection')]"
+									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_archive_selection_mode', MakeScopeFlag('scroll_learner_all') ).End )]"
+								}
 								scrollbox = {
 									name = "magic_learner_scroll_all_scrollarea"
 									visible = "[GetVariableSystem.HasValue( 'magic_learners','all')]"
@@ -1320,17 +1405,27 @@ types magic_scroll_learning {
 											addcolumn = 200
 											addrow = 125
 											datamodel = "[Scope.GetList('zz_valyria_scroll_learner_list')]"
+											datamodel_reuse_widgets = yes
 											
 											item = {
 												zz_valyria_mage_select_button = {
 													blockoverride "ButtonAction" {
-														down = "[GetScriptedGui('zz_valyria_magic_scroll_learning_learner').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_scroll_learner', Character.MakeScope ).End )]"
+														down = "[ObjectsEqual( GetPlayer.MakeScope.Var('zz_valyria_scroll_learner').Char.Self, Character.Self )]"
 														onclick = "[GetScriptedGui('zz_valyria_magic_scroll_learning_learner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_scroll_learner', Character.MakeScope ).End )]"
 													}
 												}				 
 											}
 										}
 									}
+								}
+								# Search this list with the game's character search (zz_valyria_archive_select_character_interaction)
+								button_standard = {
+									visible = "[GetVariableSystem.HasValue( 'magic_learners','non-mages')]"
+									size = { 200 30 }
+									text = "zz_archive_search_button"
+									tooltip = "zz_archive_search_button_tt"
+									datacontext = "[GetScriptedGui('zz_valyria_archive_open_selection')]"
+									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_archive_selection_mode', MakeScopeFlag('scroll_learner_non_mages') ).End )]"
 								}
 								scrollbox = {
 									name = "magic_learner_scroll_non-mages_scrollarea"
@@ -1345,17 +1440,27 @@ types magic_scroll_learning {
 											addcolumn = 200
 											addrow = 125
 											datamodel = "[Scope.GetList('zz_valyria_scroll_learner_not_mage_list')]"
+											datamodel_reuse_widgets = yes
 											
 											item = {
 												zz_valyria_mage_select_button = {
 													blockoverride "ButtonAction" {
-														down = "[GetScriptedGui('zz_valyria_magic_scroll_learning_learner').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_scroll_learner', Character.MakeScope ).End )]"
+														down = "[ObjectsEqual( GetPlayer.MakeScope.Var('zz_valyria_scroll_learner').Char.Self, Character.Self )]"
 														onclick = "[GetScriptedGui('zz_valyria_magic_scroll_learning_learner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_scroll_learner', Character.MakeScope ).End )]"
 													}
 												}					 
 											}
 										}
 									}
+								}
+								# Search this list with the game's character search (zz_valyria_archive_select_character_interaction)
+								button_standard = {
+									visible = "[GetVariableSystem.HasValue( 'magic_learners','mages')]"
+									size = { 200 30 }
+									text = "zz_archive_search_button"
+									tooltip = "zz_archive_search_button_tt"
+									datacontext = "[GetScriptedGui('zz_valyria_archive_open_selection')]"
+									onclick = "[ScriptedGui.Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_archive_selection_mode', MakeScopeFlag('scroll_learner_mages') ).End )]"
 								}
 								scrollbox = {
 									name = "magic_learner_scroll_mages_scrollarea"
@@ -1370,11 +1475,12 @@ types magic_scroll_learning {
 											addcolumn = 200
 											addrow = 125
 											datamodel = "[Scope.GetList('zz_valyria_scroll_learner_mage_list')]"
+											datamodel_reuse_widgets = yes
 											
 											item = {
 												zz_valyria_mage_select_button = {
 													blockoverride "ButtonAction" {
-														down = "[GetScriptedGui('zz_valyria_magic_scroll_learning_learner').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_scroll_learner', Character.MakeScope ).End )]"
+														down = "[ObjectsEqual( GetPlayer.MakeScope.Var('zz_valyria_scroll_learner').Char.Self, Character.Self )]"
 														onclick = "[GetScriptedGui('zz_valyria_magic_scroll_learning_learner').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_valyria_scroll_learner', Character.MakeScope ).End )]"
 													}
 												}							 
@@ -1410,46 +1516,6 @@ types magic_scroll_learning {
 								}
 							}
 							vbox = {
-								layoutpolicy_horizontal = expanding
-								layoutpolicy_vertical = expanding
-								max_width = 300
-								background = {
-									using = Background_Area_Dark
-								}
-								spacer = { size = { 00 30 } }
-								text_single = {
-									raw_text = "Mages"
-									fontsize = 24
-									align = center
-								}
-								spacer = { size = { 00 30 } }
-								scrollbox = {
-									name = "mages_scrollarea"
-									layoutpolicy_vertical = expanding
-									layoutpolicy_horizontal = expanding
-									max_width = 250
-									#max_height = 450
-									blockoverride "scrollbox_content"
-									{
-										fixedgridbox = {
-											addcolumn = 200
-											addrow = 125
-											datamodel = "[GetPlayer.MakeScope.GetList('scroll_maker_list')]"
-											
-											item = {
-												zz_valyria_mage_select_button = {
-													blockoverride "ButtonAction" {
-															down = "[GetScriptedGui('zz_valyria_magic_scroll_maker').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_scroll_maker', Character.MakeScope ).End )]"
-														onclick = "[GetScriptedGui('zz_valyria_magic_scroll_maker').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_scroll_maker', Character.MakeScope ).End )]"
-													}
-												}						 
-											}
-										}
-									}
-								}
-								expand = {}
-							}
-							vbox = {
 								layoutpolicy_horizontal = growing 
 								layoutpolicy_vertical = growing
 								max_width = 300
@@ -1471,6 +1537,19 @@ types magic_scroll_learning {
 									text_single = {
 										align = left
 										text = "[Character.GetFirstNameBase]"
+									}
+								}
+								spacer = { size = { 00 5 } }
+								# Opens zz_valyria_archive_select_character_interaction (scroll_maker mode): the game's character list with search, like the cast window's Select Mage
+								button_standard = {
+									onclick = "[GetScriptedGui('zz_valyria_archive_open_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_archive_selection_mode', MakeScopeFlag('scroll_maker') ).End )]"
+									text_single = {
+										raw_text = "Select Scribe"
+										fontsize = 18
+										resizeparent = yes
+										align = center|nobaseline
+										default_format = "#low"
+										margin = { 15 15 }
 									}
 								}
 								spacer = { size = { 00 5 } }
@@ -1508,6 +1587,7 @@ types magic_scroll_learning {
 											addcolumn = 500
 											addrow = 55
 											datamodel = "[GetPlayer.MakeScope.GetList('zz_valyria_spell_list')]"
+											datamodel_reuse_widgets = yes
 											item = {
 												button_standard = {
 													parentanchor = top|left
@@ -1577,7 +1657,7 @@ types magic_scroll_learning {
 		layoutpolicy_vertical = expanding
 		layoutpolicy_horizontal = growing
 		block "ButtonAction" {
-			down = "[GetScriptedGui('zz_valyria_mages_selection').IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_magic_caster', Character.MakeScope ).End )]"
+			down = "[ObjectsEqual( GetPlayer.MakeScope.Var('zz_magic_caster').Char.Self, Character.Self )]"
 			onclick = "[GetScriptedGui('zz_valyria_mages_selection').Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'zz_magic_caster', Character.MakeScope ).End )]"
 		}							
 		

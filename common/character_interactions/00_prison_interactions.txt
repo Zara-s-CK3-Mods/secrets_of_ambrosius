@@ -168,6 +168,13 @@
 					}
 				}
 			}
+			trigger_if = {
+				limit = {
+					government_has_flag = government_is_republic
+					scope:recipient = { government_has_flag = government_is_republic }
+				}
+				has_imprisonment_reason = scope:recipient
+			}
 		}
 		imprison_neutral_is_valid_showing_failures_only_triggers_trigger = yes
 		trigger_if = {
@@ -2379,18 +2386,6 @@ ransom_interaction = {
 					has_relation_best_friend = scope:secondary_recipient
 					is_parent_of = scope:secondary_recipient
 				}
-				NOR = {
-					is_spouse_of = scope:secondary_recipient
-					AND = {
-						NOT = {
-							is_parent_of = scope:secondary_recipient
-						}
-						is_close_or_extended_family_of = scope:secondary_recipient
-					}
-					has_relation_lover = scope:secondary_recipient
-					has_relation_friend = scope:secondary_recipient
-					has_secret_relation_lover = scope:secondary_recipient
-				}
 			}
 			desc = "DEAR_TO_ME_REASON"
 		}
@@ -2721,15 +2716,15 @@ pay_ransom_interaction = {
 						}
 					}
 					stress_and_fulfillment_impact = {
-						compassionate = minor_stress_impact_loss
-						generous = medium_stress_impact_loss
+						compassionate = medium_stress_impact_loss
+						generous = minor_stress_impact_loss
+						just = minor_stress_impact_loss
 					}
 				}
 				else = { # Stress impact for random courtiers
 					stress_and_fulfillment_impact = {
-						compassionate = medium_stress_impact_loss
-						generous = minor_stress_impact_loss
-						just = minor_stress_impact_loss
+						compassionate = minor_stress_impact_loss
+						generous = medium_stress_impact_loss
 					}
 				}
 
@@ -3190,7 +3185,7 @@ pay_ransom_interaction = {
 			}
 			desc = "RIVAL_TO_ME_REASON"
 		}
-		modifier = { # Say no to rivals
+		modifier = { # Say no to nemeses
 			add = -300
 			scope:recipient = {
 				has_relation_nemesis = scope:secondary_recipient
@@ -3206,14 +3201,7 @@ pay_ransom_interaction = {
 		}
 		modifier = { # At war
 			add = -300
-			scope:recipient = {
-				is_at_war = yes
-				any_primary_war_enemy = {
-					scope:secondary_recipient = {
-						liege ?= prev
-					}
-				}
-			}
+			scope:secondary_recipient = { character_is_prisoner_of_war = yes }
 			desc = "IS_POW_REASON"
 		}
 		modifier = { # At war
@@ -7775,7 +7763,7 @@ execute_prisoner_interaction = {
 				}
 			}
 			# Kill the target
-			else_if = {
+			if = {
 				limit = {
 					scope:recipient = { is_ai = no }
 					scope:puppet_or_actor = { is_ai = yes }

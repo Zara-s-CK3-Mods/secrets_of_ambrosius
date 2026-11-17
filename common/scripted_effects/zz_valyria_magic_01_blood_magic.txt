@@ -55,6 +55,7 @@ zz_valyria_blood_magic_trait_downgrade = {
 }
 
 
+# Spell: Blood 001 - Mystery of Restoration
 zz_valyria_magic_blood_magic_001_effect = {
 	random_list = {
 		75 = {
@@ -370,6 +371,7 @@ zz_valyria_magic_blood_magic_001_effect = {
 		}
 	}
 }
+# Spell: Blood 002 - Mystery of Transmogrification
 zz_valyria_magic_blood_magic_002_effect = {
 	random_list = {
 		50 = {
@@ -777,6 +779,7 @@ zz_valyria_magic_blood_magic_002_effect = {
 		}
 	}
 }
+# Spell: Blood 003 - Mystery of Regeneration (Regiment)
 zz_valyria_magic_blood_magic_003_effect = {
 	random_list = {
 		75 = {
@@ -813,6 +816,7 @@ zz_valyria_magic_blood_magic_003_effect = {
 		}
 	}
 }
+# Spell: Blood 004 - Mystery of Renewal (Army)
 zz_valyria_magic_blood_magic_004_effect = {
 	random_list = {
 		75 = {
@@ -851,6 +855,7 @@ zz_valyria_magic_blood_magic_004_effect = {
 		}
 	}
 }
+# Spell: Blood 005 - Mystery of Replication
 zz_valyria_magic_blood_magic_005_effect = { 
 	random_list = { 
 		50 = {
@@ -882,7 +887,7 @@ zz_valyria_magic_blood_magic_005_effect = {
 		
 					#faith = var:zz_valyria_selected_character.faith
 					#culture = var:zz_valyria_selected_character.culture
-					dynasty_house = var:zz_valyria_selected_character.father.house
+					dynasty_house = scope:target_char.house
 		
 					save_scope_as = character_clone 
 		
@@ -890,8 +895,14 @@ zz_valyria_magic_blood_magic_005_effect = {
 						copy_inheritable_appearance_from = scope:target_char
 						copy_traits = scope:target_char
 						change_first_name = { template_character = scope:target_char }
-						set_father = scope:target_char.father
-						set_mother = scope:target_char.mother
+						if = {
+							limit = { exists = scope:target_char.father }
+							set_father = scope:target_char.father
+						}
+						if = {
+							limit = { exists = scope:target_char.mother }
+							set_mother = scope:target_char.mother
+						}
 						remove_trait = pregnant
 						remove_trait = infertile
 					}
@@ -921,7 +932,7 @@ zz_valyria_magic_blood_magic_005_effect = {
 		
 					#faith = var:zz_valyria_selected_character.faith
 					#culture = var:zz_valyria_selected_character.culture
-					dynasty_house = var:zz_valyria_selected_character.father.house
+					dynasty_house = scope:target_char.house
 		
 					save_scope_as = character_clone 
 		
@@ -929,8 +940,14 @@ zz_valyria_magic_blood_magic_005_effect = {
 						copy_inheritable_appearance_from = scope:target_char
 						copy_traits = scope:target_char
 						change_first_name = { template_character = scope:target_char }
-						set_father = scope:target_char.father
-						set_mother = scope:target_char.mother
+						if = {
+							limit = { exists = scope:target_char.father }
+							set_father = scope:target_char.father
+						}
+						if = {
+							limit = { exists = scope:target_char.mother }
+							set_mother = scope:target_char.mother
+						}
 						remove_trait = pregnant
 						remove_trait = infertile
 					}
@@ -953,7 +970,7 @@ zz_valyria_magic_blood_magic_005_effect = {
 		
 					#faith = var:zz_valyria_selected_character.faith
 					#culture = var:zz_valyria_selected_character.culture
-					dynasty_house = var:zz_valyria_selected_character.father.house
+					dynasty_house = scope:target_char.house
 		
 					save_scope_as = character_clone 
 		
@@ -961,8 +978,14 @@ zz_valyria_magic_blood_magic_005_effect = {
 						copy_inheritable_appearance_from = scope:target_char
 						copy_traits = scope:target_char
 						change_first_name = { template_character = scope:target_char }
-						set_father = scope:target_char.father
-						set_mother = scope:target_char.mother
+						if = {
+							limit = { exists = scope:target_char.father }
+							set_father = scope:target_char.father
+						}
+						if = {
+							limit = { exists = scope:target_char.mother }
+							set_mother = scope:target_char.mother
+						}
 						remove_trait = pregnant
 						remove_trait = infertile
 					}
@@ -985,7 +1008,7 @@ zz_valyria_magic_blood_magic_005_effect = {
 		
 					#faith = var:zz_valyria_selected_character.faith
 					#culture = var:zz_valyria_selected_character.culture
-					dynasty_house = var:zz_valyria_selected_character.father.house
+					dynasty_house = scope:target_char.house
 		
 					save_scope_as = character_clone 
 		
@@ -993,8 +1016,14 @@ zz_valyria_magic_blood_magic_005_effect = {
 						copy_inheritable_appearance_from = scope:target_char
 						copy_traits = scope:target_char
 						change_first_name = { template_character = scope:target_char }
-						set_father = scope:target_char.father
-						set_mother = scope:target_char.mother
+						if = {
+							limit = { exists = scope:target_char.father }
+							set_father = scope:target_char.father
+						}
+						if = {
+							limit = { exists = scope:target_char.mother }
+							set_mother = scope:target_char.mother
+						}
 						remove_trait = pregnant
 						remove_trait = infertile
 						
@@ -1013,18 +1042,23 @@ zz_valyria_magic_blood_magic_005_effect = {
 				}
 				zz_copy_memories = yes
 			}
-			every_ruler = { 
-				every_held_title = {
-					limit = {
-						any_past_holder = {
-							OR = {
-								this = scope:target_char
-								is_parent_of = scope:target_char
-							}
-						} 
+			# The clone claims what the original and their parents hold, and every claim the original has
+			# (which already covers titles they lost or their parents' titles that went elsewhere).
+			# Replaces a scan of every title in the world, which hit deleted past holders and was very slow.
+			if = {
+				limit = { exists = scope:character_clone }
+				scope:target_char = {
+					every_held_title = {
+						scope:character_clone = { make_claim_strong = prev }
 					}
-					scope:character_clone = {
-						make_claim_strong = prev
+					every_claim = {
+						explicit = all
+						scope:character_clone = { make_claim_strong = prev }
+					}
+					every_parent = {
+						every_held_title = {
+							scope:character_clone = { make_claim_strong = prev }
+						}
 					}
 				}
 			}
@@ -1038,6 +1072,7 @@ zz_valyria_magic_blood_magic_005_effect = {
 	}
 	
 }
+# Spell: Blood 006 - Mystery of Immunity from Pestilence
 zz_valyria_magic_blood_magic_006_effect = { 
 	random_list = { 
 		50 = {
@@ -1120,6 +1155,7 @@ zz_valyria_magic_blood_magic_006_effect = {
 	}
 	
 }
+# Spell: Blood 007 - Mystery of Enchanted Blood
 zz_valyria_magic_blood_magic_007_effect = {
 	random_list = {
 		75 = {
@@ -1167,6 +1203,7 @@ zz_valyria_magic_blood_magic_007_effect = {
 		}
 	}
 }
+# Spell: Blood 008 - Mystery of Travel Endurance
 zz_valyria_magic_blood_magic_008_effect = { 
 	random_list = {
 		50 = {
@@ -1189,6 +1226,7 @@ zz_valyria_magic_blood_magic_008_effect = {
 	}
 	
 }
+# Spell: Blood 009 - Mystery of Traveling Haste
 zz_valyria_magic_blood_magic_009_effect = { 
 	random_list = {
 		50 = {
@@ -1210,6 +1248,7 @@ zz_valyria_magic_blood_magic_009_effect = {
 		}
 	}
 }
+# Spell: Blood 010 - Mystery of Travel Efficiency
 zz_valyria_magic_blood_magic_010_effect = { 
 	
 	random_list = { 
@@ -1244,6 +1283,7 @@ zz_valyria_magic_blood_magic_010_effect = {
 	}
 }
 ## life
+# Spell: Blood 011 - Mystery of Longevity
 zz_valyria_magic_blood_magic_011_effect = {
 	random_list = {
 		75 = {
@@ -1302,6 +1342,7 @@ zz_valyria_magic_blood_magic_011_effect = {
 	}
 }
 #health
+# Spell: Blood 012 - Mystery of Vitality
 zz_valyria_magic_blood_magic_012_effect = {
 	random_list = {
 		75 = {
@@ -1355,6 +1396,7 @@ zz_valyria_magic_blood_magic_012_effect = {
 	}
 }
 ## epidemic
+# Spell: Blood 013 - Mystery of Resilience
 zz_valyria_magic_blood_magic_013_effect = {
 	random_list = {
 		75 = {
@@ -1412,6 +1454,7 @@ zz_valyria_magic_blood_magic_013_effect = {
 	}
 }
 ## health penalties
+# Spell: Blood 014 - Mystery of Fortitude
 zz_valyria_magic_blood_magic_014_effect = {
 	random_list = {
 		75 = {
@@ -1464,6 +1507,7 @@ zz_valyria_magic_blood_magic_014_effect = {
 		}
 	}
 }
+# Spell: Blood 015 - Mystery of Fertility
 zz_valyria_magic_blood_magic_015_effect = {
 	random_list = {
 		75 = {
@@ -1516,6 +1560,7 @@ zz_valyria_magic_blood_magic_015_effect = {
 		}
 	}
 }
+# Spell: Blood 016 - Mystery of the Boiling Blood
 zz_valyria_magic_blood_magic_016_effect = {
 	random_list = {
 		75 = {
@@ -1530,7 +1575,7 @@ zz_valyria_magic_blood_magic_016_effect = {
 				every_army_maa_regiment = {
 					change_maa_troops_count = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_02
 				}
-				deplete_army_by_percentage = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+				zz_valyria_change_army_troops_effect = { AMOUNT = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 }
 			}
 		}
 		25 = {
@@ -1541,6 +1586,7 @@ zz_valyria_magic_blood_magic_016_effect = {
 		}
 	}
 }
+# Spell: Blood 017 - Mystery of Vital Consumption
 zz_valyria_magic_blood_magic_017_effect = {
 	random_list = {
 		75 = {
@@ -1578,6 +1624,7 @@ zz_valyria_magic_blood_magic_017_effect = {
 		}
 	}
 }
+# Spell: Blood 018 - Mystery of Battle Resilience (Army)
 zz_valyria_magic_blood_magic_018_effect = {
 	random_list = { 
 		50 = {
@@ -1612,6 +1659,7 @@ zz_valyria_magic_blood_magic_018_effect = {
 		}
 	}
 }
+# Spell: Blood 019 - Mystery of Sex Selection
 zz_valyria_magic_blood_magic_019_effect = {
 	random_list = { 
 		50 = {
@@ -1656,6 +1704,7 @@ zz_valyria_magic_blood_magic_019_effect = {
 		}
 	}
 }
+# Spell: Blood 020 - Mystery of Maternal Protection
 zz_valyria_magic_blood_magic_020_effect = {
 	random_list = { 
 		75 = {
@@ -1685,6 +1734,7 @@ zz_valyria_magic_blood_magic_020_effect = {
 		}
 	}
 }
+# Spell: Blood 021 - Mystery of Infant Protection
 zz_valyria_magic_blood_magic_021_effect = {
 	random_list = { 
 		75 = {
@@ -1730,6 +1780,7 @@ zz_valyria_magic_blood_magic_021_effect = {
 		}
 	}
 }
+# Spell: Blood 022 - Mystery of Eternal Life
 zz_valyria_magic_blood_magic_022_effect = { 
 	random_list = { 
 		50 = {
@@ -1928,6 +1979,7 @@ zz_valyria_magic_blood_magic_022_effect = {
 		}
 	}
 }
+# Spell: Blood 023 - Mystery of Ageless Vigour
 zz_valyria_magic_blood_magic_023_effect = {
 	random_list = {
 		75 = {
@@ -1980,6 +2032,7 @@ zz_valyria_magic_blood_magic_023_effect = {
 		}
 	}
 }
+# Spell: Blood 024 - Mystery of Blessing (Learning)
 zz_valyria_magic_blood_magic_024_effect = {
 	random_list = {
 		75 = {
@@ -2027,6 +2080,7 @@ zz_valyria_magic_blood_magic_024_effect = {
 		}
 	}
 }
+# Spell: Blood 025 - Mystery of Blessing (Diplomacy)
 zz_valyria_magic_blood_magic_025_effect = {
 	random_list = {
 		75 = {
@@ -2074,6 +2128,7 @@ zz_valyria_magic_blood_magic_025_effect = {
 		}
 	}
 }
+# Spell: Blood 026 - Mystery of Blessing (Stewardship)
 zz_valyria_magic_blood_magic_026_effect = {
 	random_list = {
 		75 = {
@@ -2121,6 +2176,7 @@ zz_valyria_magic_blood_magic_026_effect = {
 		}
 	}
 }
+# Spell: Blood 027 - Mystery of Blessing (Intrigue)
 zz_valyria_magic_blood_magic_027_effect = {
 	random_list = {
 		75 = {
@@ -2172,6 +2228,7 @@ zz_valyria_magic_blood_magic_027_effect = {
 		}
 	}
 }
+# Spell: Blood 028 - Mystery of Blessing (Martial)
 zz_valyria_magic_blood_magic_028_effect = {
 	random_list = {
 		75 = {
@@ -2219,6 +2276,7 @@ zz_valyria_magic_blood_magic_028_effect = {
 		}
 	}
 }
+# Spell: Blood 029 - Mystery of Blessing (Prowess)
 zz_valyria_magic_blood_magic_029_effect = {
 	random_list = {
 		75 = {
@@ -2266,6 +2324,7 @@ zz_valyria_magic_blood_magic_029_effect = {
 		}
 	}
 }
+# Spell: Blood 030 - Mystery of Blood Memory
 zz_valyria_magic_blood_magic_030_effect = {
 	random_list = {
 		75 = {
@@ -2303,6 +2362,7 @@ zz_valyria_magic_blood_magic_030_effect = {
 		}
 	}
 }
+# Spell: Blood 031 - Mystery of Blood Rewriting
 zz_valyria_magic_blood_magic_031_effect = {
 	random_list = {
 		50 = {
@@ -2333,6 +2393,421 @@ zz_valyria_magic_blood_magic_031_effect = {
 			}
 		}
 		50 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Blood 032 - Mystery of Blood Cleansing
+zz_valyria_magic_blood_magic_032_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				if = {
+					limit = {
+						has_variable = zz_miscast_count
+					}
+					change_variable = {
+						name = zz_miscast_count
+						subtract = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							scope:actor = scope:recipient
+						}
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Blood 033 - Mystery of Blood Warding
+zz_valyria_magic_blood_magic_033_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				if = {
+					limit = {
+						has_variable = zz_miscast_protection_count
+					}
+					change_variable = {
+						name = zz_miscast_protection_count
+						add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+				}
+				else = {
+					set_variable = {
+						name = zz_miscast_protection_count
+						value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+				}
+				if = {
+					limit = {
+						NOT = {
+							scope:actor = scope:recipient
+						}
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Blood 034 - Mystery of Bloodcraft (Diplomacy)
+# Permanently raises or lowers diplomacy by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
+zz_valyria_magic_blood_magic_034_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# Change diplomacy by the amount chosen on the counter widget
+			scope:recipient = {
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
+					}
+					add_diplomacy_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Blood 035 - Mystery of Bloodcraft (Martial)
+# Permanently raises or lowers martial by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
+zz_valyria_magic_blood_magic_035_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# Change martial by the amount chosen on the counter widget
+			scope:recipient = {
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
+					}
+					add_martial_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Blood 036 - Mystery of Bloodcraft (Stewardship)
+# Permanently raises or lowers stewardship by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
+zz_valyria_magic_blood_magic_036_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# Change stewardship by the amount chosen on the counter widget
+			scope:recipient = {
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
+					}
+					add_stewardship_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Blood 037 - Mystery of Bloodcraft (Intrigue)
+# Permanently raises or lowers intrigue by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
+zz_valyria_magic_blood_magic_037_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# Change intrigue by the amount chosen on the counter widget
+			scope:recipient = {
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
+					}
+					add_intrigue_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Blood 038 - Mystery of Bloodcraft (Learning)
+# Permanently raises or lowers learning by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
+zz_valyria_magic_blood_magic_038_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# Change learning by the amount chosen on the counter widget
+			scope:recipient = {
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
+					}
+					add_learning_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Blood 039 - Mystery of Bloodcraft (Prowess)
+# Permanently raises or lowers prowess by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
+zz_valyria_magic_blood_magic_039_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# Change prowess by the amount chosen on the counter widget
+			scope:recipient = {
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
+					}
+					add_prowess_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Blood 040 - Mystery of Vital Theft (Drain Health)
+# The subject loses health and the caster gains it, for years that grow with Blood Magic. Never stacks: a new theft replaces the old.
+zz_valyria_magic_blood_magic_040_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				remove_character_modifier = zz_valyria_magic_blood_magic_040_modifier
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_blood_magic_040_modifier
+					DURATION = zz_valyria_magic_blood_magic_040_value_01
+					BOOSTED_DURATION = zz_valyria_magic_blood_magic_040_value_02
+				}
+			}
+			scope:secondary_recipient = {
+				remove_character_modifier = zz_valyria_magic_blood_magic_040_02_modifier
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_blood_magic_040_02_modifier
+					DURATION = zz_valyria_magic_blood_magic_040_value_01
+					BOOSTED_DURATION = zz_valyria_magic_blood_magic_040_value_02
+				}
+			}
+			if = {
+				limit = { NOT = { scope:actor = scope:recipient } }
+				scope:recipient = {
+					add_opinion = {
+						modifier = hurt_opinion
+						target = scope:actor
+						opinion = -30
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Blood 041 - Mystery of the Blood Price (Single Combat). Its work is done in single combat (combat_move_zz_blood_price_effect).
+zz_valyria_magic_blood_magic_041_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+		25 = {
 			zz_valyria_magic_spell_failure_interface = {
 				SPELLSCHOOL = $SPELLSCHOOL$
 				SPELL = $SPELL$

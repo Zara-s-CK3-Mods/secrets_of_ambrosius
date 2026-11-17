@@ -14,8 +14,9 @@ widget = {
 		vbox = {
 			layoutpolicy_horizontal = expanding   
 			layoutpolicy_vertical = expanding
+			# What is being counted, from <spell flag>.counter, e.g. zz_valyria_magic_alchemy_magic_010.counter
 			text_single = {
-				Raw_Text = "Current Counter"
+				text = "[Localize(Concatenate(GetPlayer.MakeScope.Var('zz_valyria_spell_counter_selection').GetFlagKey,'.counter'))]"
 				fontsize = 18
 				min_width = 100
 				align = center|nobaseline
@@ -23,24 +24,22 @@ widget = {
 			}								
 			spacer = { size = { 0 10 } }						
 			text_single = {
-				raw_text = "[GetPlayer.MakeScope.ScriptValue('zz_valyria_magic_event_window_counter_selection_counter')|0] "
+				raw_text = "[GetPlayer.MakeScope.ScriptValue('zz_valyria_magic_event_window_counter_selection_counter')|0]"
+				fontsize = 22
+				min_width = 100
+				align = center|nobaseline
+			}
+			text_single = {
+				text = "zz_counter_selection_change"
 				min_width = 100
 				align = center|nobaseline
 				default_format = "#low"
 			}
-			hbox = {
-				text_single = {
-					raw_text = "[GetPlayer.MakeScope.ScriptValue('zz_valyria_magic_event_window_counter_selection_counter_max')|0] "
-					min_width = 100
-					align = center|nobaseline
-					default_format = "#low"
-				}
-				text_single = {
-					raw_text = "[GetPlayer.MakeScope.ScriptValue('zz_valyria_magic_event_window_counter_selection_counter_min')|0] "
-					min_width = 100
-					align = center|nobaseline
-					default_format = "#low"
-				}
+			text_single = {
+				text = "zz_counter_selection_range"
+				min_width = 100
+				align = center|nobaseline
+				default_format = "#low"
 			}
 			spacer = { size = { 00 15 } }
 			hbox = {

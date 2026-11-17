@@ -1,0 +1,71 @@
+﻿# Army troop effects for spells. Scope: army.
+
+# Changes an army's troops by a number of soldiers rather than a share.
+#   AMOUNT > 0: that many soldiers die, spread across the army's levies and men-at-arms the same way
+#               deplete_army_by_percentage spreads them (the number is turned into a share of the army's current size).
+#   AMOUNT < 0: that many soldiers return to the army's men-at-arms, filling each regiment up to its maximum in turn
+#               until the amount runs out. Levies cannot be restored by script.
+# Usage: scope:target = { zz_valyria_change_army_troops_effect = { AMOUNT = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 } }
+zz_valyria_change_army_troops_effect = {
+	save_temporary_scope_value_as = {
+		name = zz_troops_change
+		value = $AMOUNT$
+	}
+	if = {
+		limit = {
+			scope:zz_troops_change > 0
+			army_size > 0
+		}
+		save_temporary_scope_value_as = {
+			name = zz_troops_share
+			value = {
+				value = scope:zz_troops_change
+				divide = army_size
+				max = 1
+			}
+		}
+		deplete_army_by_percentage = scope:zz_troops_share
+	}
+	else_if = {
+		limit = {
+			scope:zz_troops_change < 0
+		}
+		set_local_variable = {
+			name = zz_troops_left
+			value = {
+				value = scope:zz_troops_change
+				multiply = -1
+			}
+		}
+		every_army_maa_regiment = {
+			if = {
+				limit = {
+					local_var:zz_troops_left > 0
+					maa_current_troops_count < maa_max_troops_count
+				}
+				# The regiment's missing soldiers, or what is left to restore if that is less
+				set_local_variable = {
+					name = zz_troops_add
+					value = {
+						value = maa_max_troops_count
+						subtract = maa_current_troops_count
+					}
+				}
+				if = {
+					limit = { local_var:zz_troops_add > local_var:zz_troops_left }
+					set_local_variable = {
+						name = zz_troops_add
+						value = local_var:zz_troops_left
+					}
+				}
+				change_maa_troops_count = local_var:zz_troops_add
+				change_local_variable = {
+					name = zz_troops_left
+					subtract = local_var:zz_troops_add
+				}
+			}
+		}
+		remove_local_variable = zz_troops_left
+		remove_local_variable = zz_troops_add
+	}
+}

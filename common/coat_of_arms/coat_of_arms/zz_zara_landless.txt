@@ -13,3 +13,17 @@ c_merchant_ambrosius = {
         #instance = { position = { 0.5 0.49 } scale = { 1.0 1.0 }  }
 	}
 }
+
+# The Ambrosius dynasty bears the same phoenix as its merchant company
+dynn_Ambrosius = {
+	pattern = "pattern_solid.dds"
+	color1 = "black"
+	color2 = "purple"
+	color3 = rgb { 196 100 4 }
+
+	colored_emblem = {
+		color1 = "purple"
+		color2 = "purple"
+		texture = "d_Pheonix1.dds"
+	}
+}

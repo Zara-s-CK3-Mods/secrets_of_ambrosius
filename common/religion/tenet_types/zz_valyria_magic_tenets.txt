@@ -1,0 +1,357 @@
+﻿tenet_zz_blood_rites = {
+	icon = tenet_gruesome_festivals
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		if = {
+			limit = { rite_has_tenet = tenet_zz_blood_rites }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick = {
+		OR = {
+			NOT = { exists = scope:actor }
+			scope:actor = { zz_valyria_is_mage = yes }
+		}
+	}
+
+	can_pick_as_personal_tenet = {
+		has_trait = zz_magister
+	}
+
+	personal_tenet_parameters = {
+		zz_personal_strength_blood_magic
+	}
+
+	parameters = {
+		zz_sorcery_accepted
+		zz_tenet_strength_blood_magic
+	}
+}
+
+tenet_zz_sacred_flame = {
+	icon = tenet_sacred_destruction
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		if = {
+			limit = { rite_has_tenet = tenet_zz_sacred_flame }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick = {
+		OR = {
+			NOT = { exists = scope:actor }
+			scope:actor = { zz_valyria_is_mage = yes }
+		}
+	}
+
+	can_pick_as_personal_tenet = {
+		has_trait = zz_magister
+	}
+
+	personal_tenet_parameters = {
+		zz_personal_strength_fire_magic
+	}
+
+	parameters = {
+		zz_sorcery_revered
+		zz_tenet_strength_fire_magic
+		zz_tenet_piety_fire_magic
+	}
+}
+
+tenet_zz_faceless_arts = {
+	icon = tenet_sacred_shadows
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		if = {
+			limit = { rite_has_tenet = tenet_zz_faceless_arts }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick = {
+		OR = {
+			NOT = { exists = scope:actor }
+			scope:actor = { zz_valyria_is_mage = yes }
+		}
+	}
+
+	can_pick_as_personal_tenet = {
+		has_trait = zz_magister
+	}
+
+	personal_tenet_parameters = {
+		zz_personal_strength_shadow_magic
+	}
+
+	parameters = {
+		zz_sorcery_accepted
+		zz_tenet_strength_shadow_magic
+	}
+}
+
+tenet_zz_greensight = {
+	icon = tenet_mystical_birthright
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		if = {
+			limit = { rite_has_tenet = tenet_zz_greensight }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick = {
+		OR = {
+			NOT = { exists = scope:actor }
+			scope:actor = { zz_valyria_is_mage = yes }
+		}
+	}
+
+	can_pick_as_personal_tenet = {
+		has_trait = zz_magister
+	}
+
+	personal_tenet_parameters = {
+		zz_personal_strength_dream_magic
+	}
+
+	parameters = {
+		zz_sorcery_accepted
+		zz_tenet_strength_dream_magic
+	}
+}
+
+tenet_zz_drowned_mysteries = {
+	icon = tenet_natural_primitivism
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		if = {
+			limit = { rite_has_tenet = tenet_zz_drowned_mysteries }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick = {
+		OR = {
+			NOT = { exists = scope:actor }
+			scope:actor = { zz_valyria_is_mage = yes }
+		}
+	}
+
+	can_pick_as_personal_tenet = {
+		has_trait = zz_magister
+	}
+
+	personal_tenet_parameters = {
+		zz_personal_strength_water_magic
+	}
+
+	parameters = {
+		zz_sorcery_accepted
+		zz_tenet_strength_water_magic
+	}
+}
+
+tenet_zz_stormspeakers = {
+	icon = tenet_sky_burials
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		if = {
+			limit = { rite_has_tenet = tenet_zz_stormspeakers }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick = {
+		OR = {
+			NOT = { exists = scope:actor }
+			scope:actor = { zz_valyria_is_mage = yes }
+		}
+	}
+
+	can_pick_as_personal_tenet = {
+		has_trait = zz_magister
+	}
+
+	personal_tenet_parameters = {
+		zz_personal_strength_air_magic
+	}
+
+	personal_tenet_modifier = {
+		naval_movement_speed_mult = 0.05
+	}
+
+	parameters = {
+		zz_sorcery_accepted
+		zz_tenet_strength_air_magic
+	}
+
+	character_modifier = {
+		naval_movement_speed_mult = 0.1
+	}
+}
+
+tenet_zz_the_undying = {
+	icon = tenet_reincarnation
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		if = {
+			limit = { rite_has_tenet = tenet_zz_the_undying }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick = {
+		OR = {
+			NOT = { exists = scope:actor }
+			scope:actor = { zz_valyria_is_mage = yes }
+		}
+	}
+
+	can_pick_as_personal_tenet = {
+		has_trait = zz_magister
+	}
+
+	personal_tenet_parameters = {
+		zz_personal_strength_alchemy_magic
+	}
+
+	personal_tenet_modifier = {
+		life_expectancy = 10
+	}
+
+	parameters = {
+		zz_sorcery_accepted
+		zz_tenet_strength_alchemy_magic
+	}
+
+	character_modifier = {
+		life_expectancy = 20
+	}
+}
+
+tenet_zz_living_wellspring = {
+	icon = tenet_esotericism
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		if = {
+			limit = { rite_has_tenet = tenet_zz_living_wellspring }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick = {
+		OR = {
+			NOT = { exists = scope:actor }
+			scope:actor = { zz_valyria_is_mage = yes }
+		}
+	}
+
+	can_pick_as_personal_tenet = {
+		has_trait = zz_magister
+	}
+
+	personal_tenet_parameters = {
+		zz_personal_living_wellspring
+	}
+
+	parameters = {
+		zz_sorcery_accepted
+		zz_tenet_living_wellspring
+	}
+}
+
+tenet_zz_deep_vessel = {
+	icon = tenet_asceticism
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		if = {
+			limit = { rite_has_tenet = tenet_zz_deep_vessel }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick = {
+		OR = {
+			NOT = { exists = scope:actor }
+			scope:actor = { zz_valyria_is_mage = yes }
+		}
+	}
+
+	can_pick_as_personal_tenet = {
+		has_trait = zz_magister
+	}
+
+	personal_tenet_parameters = {
+		zz_personal_deep_vessel
+	}
+
+	parameters = {
+		zz_sorcery_accepted
+		zz_tenet_deep_vessel
+	}
+}
+
+tenet_zz_font_of_mysteries = {
+	icon = tenet_pursuit_of_knowledge
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		if = {
+			limit = { rite_has_tenet = tenet_zz_font_of_mysteries }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	can_pick = {
+		OR = {
+			NOT = { exists = scope:actor }
+			scope:actor = { zz_valyria_is_mage = yes }
+		}
+	}
+
+	can_pick_as_personal_tenet = {
+		has_trait = zz_magister
+	}
+
+	personal_tenet_parameters = {
+		zz_personal_font_of_mysteries
+	}
+
+	parameters = {
+		zz_sorcery_accepted
+		zz_tenet_font_of_mysteries
+	}
+}
+
+tenet_zz_sorcery_anathema = {
+	icon = tenet_unrelenting_faith
+
+	piety_cost = {
+		value = faith_tenet_cost_mid
+		if = {
+			limit = { rite_has_tenet = tenet_zz_sorcery_anathema }
+			multiply = faith_unchanged_doctrine_cost_mult
+		}
+	}
+
+	personal_tenet_parameters = {
+		zz_personal_sorcery_anathema
+	}
+
+	parameters = {
+		zz_sorcery_criminal
+	}
+}
+

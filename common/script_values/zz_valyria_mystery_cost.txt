@@ -48,264 +48,342 @@ zz_valyria_magic_knowledge_cost = {
 	value = 0
 }
 zz_valyria_magic_blood_magic_001_cost = { # Restoration
-	value = 25
-}
-zz_valyria_magic_blood_magic_002_cost = { # Transmogrification
-	value = 200
-}
-zz_valyria_magic_blood_magic_003_cost = { # Regeneration
-	value = 75
-}
-zz_valyria_magic_blood_magic_004_cost = { # Renewal
-	value = 125
-}
-zz_valyria_magic_blood_magic_005_cost = { # Replication
-	value = 250
-}
-zz_valyria_magic_blood_magic_006_cost = { # Immunity from Pestilence
 	value = 50
 }
-zz_valyria_magic_blood_magic_007_cost = { # Enchanted Blood
-	value = 15
+zz_valyria_magic_blood_magic_002_cost = { # Transmogrification
+	value = 250
 }
-zz_valyria_magic_blood_magic_008_cost = { # Travel Endurance
-	value = 20
+zz_valyria_magic_blood_magic_003_cost = { # Regeneration (Regiment)
+	value = 40
 }
-zz_valyria_magic_blood_magic_009_cost = { # Travel Haste
+zz_valyria_magic_blood_magic_004_cost = { # Renewal (Army)
+	value = 75
+}
+zz_valyria_magic_blood_magic_005_cost = { # Replication
+	value = 400
+}
+zz_valyria_magic_blood_magic_006_cost = { # Immunity from Pestilence
 	value = 25
 }
+zz_valyria_magic_blood_magic_007_cost = { # Enchanted Blood
+	value = 75
+}
+zz_valyria_magic_blood_magic_008_cost = { # Travel Endurance
+	value = 5
+}
+zz_valyria_magic_blood_magic_009_cost = { # Travel Haste
+	value = 5
+}
 zz_valyria_magic_blood_magic_010_cost = { # Travel Efficiency
-	value = 35
+	value = 10
 }
 zz_valyria_magic_blood_magic_011_cost = { # Longevity
 	value = 100
 }
 zz_valyria_magic_blood_magic_012_cost = { # Vitality
-	value = 5
+	value = 100
 }
 zz_valyria_magic_blood_magic_013_cost = { # Resilience
-	value = 3
+	value = 15
 }
 zz_valyria_magic_blood_magic_014_cost = { # Fortitude
-	value = 8
+	value = 25
 }
 zz_valyria_magic_blood_magic_015_cost = { # Fertility
-	value = 35
-}
-zz_valyria_magic_blood_magic_016_cost = { # Blood Control
-	value = 45
-}
-zz_valyria_magic_blood_magic_017_cost = { # Vital Consumption
-	value = 75
-}
-zz_valyria_magic_blood_magic_018_cost = { # Battle Resilience
 	value = 30
 }
+zz_valyria_magic_blood_magic_016_cost = { # Blood Control
+	value = 50
+}
+zz_valyria_magic_blood_magic_017_cost = { # Vital Consumption
+	value = 25
+}
+zz_valyria_magic_blood_magic_018_cost = { # Battle Resilience (Army)
+	value = 60
+}
 zz_valyria_magic_blood_magic_019_cost = { # Sex Selection
-	value = 125
+	value = 25
 }
 zz_valyria_magic_blood_magic_020_cost = { # Maternal Protection
-	value = 25
+	value = 30
 }
 
 zz_valyria_magic_blood_magic_021_cost = { # Babe Protection
-	value = 50
+	value = 30
 }
 ## Humann Immortality
 zz_valyria_magic_blood_magic_022_cost = {
-	value = 1000
+	value = 2000
 }
 zz_valyria_magic_blood_magic_023_cost = { # Prowess
-	value = 20
+	value = 25
 }
 zz_valyria_magic_blood_magic_024_cost = { # Bloodline Learning
-	value = 15
+	value = 50
 }
 zz_valyria_magic_blood_magic_025_cost = { # Bloodline Diplomacy
-	value = 25
+	value = 50
 }
 zz_valyria_magic_blood_magic_026_cost = { # Bloodline Stewardship
-	value = 25
+	value = 50
 }
 zz_valyria_magic_blood_magic_027_cost = { # Bloodline Intrigue
-	value = 25
+	value = 50
 }
 zz_valyria_magic_blood_magic_028_cost = { # Bloodline Martial
-	value = 25
+	value = 50
 }
 zz_valyria_magic_blood_magic_029_cost = { # Bloodline Prowess
-	value = 25
+	value = 50
 }
 zz_valyria_magic_blood_magic_030_cost = { # Bloodline Prowess
-	value = 25
+	value = 15
 }
 zz_valyria_magic_blood_magic_031_cost = { # Bloodline Prowess
 	value = 1000
 }
-zz_valyria_magic_shadow_magic_001_cost = { # Shadowy Steeds
-	value = 35
-}
-zz_valyria_magic_shadow_magic_002_cost = { # Shadowy Daggers
-	value = 35
-}
-zz_valyria_magic_shadow_magic_003_cost = { # Shadow Shield
-	value = 65
-}
-zz_valyria_magic_shadow_magic_004_cost = { # Shadowy Cloak
-	value = 75
-}
-zz_valyria_magic_shadow_magic_005_cost = { # Cloying Shadow
-	value = 90
-}
-zz_valyria_magic_shadow_magic_006_cost = { # Feeble Daggers
-	value = 55
-}
-zz_valyria_magic_shadow_magic_007_cost = { # Weakened Viligence
-	value = 95
-}
-zz_valyria_magic_shadow_magic_008_cost = { # Revealed Shadows
-	value = 125
-}
-zz_valyria_magic_shadow_magic_009_cost = { # Assassin of the Shadow
-	value = 175
-}
-zz_valyria_magic_shadow_magic_010_cost = { # Umbral Blast
-	value = 150
-}
-zz_valyria_magic_shadow_magic_011_cost = { # Umbral Strike
+zz_valyria_magic_blood_magic_032_cost = { # Blood Cleansing
 	value = 100
 }
-zz_valyria_magic_shadow_magic_012_cost = { # Shadow Blade
+zz_valyria_magic_blood_magic_033_cost = { # Blood Warding
+	value = 160
+}
+zz_valyria_magic_blood_magic_034_cost = { # Bloodcraft (Diplomacy)
+	value = 300
+}
+zz_valyria_magic_blood_magic_035_cost = { # Bloodcraft (Martial)
+	value = 325
+}
+zz_valyria_magic_blood_magic_036_cost = { # Bloodcraft (Stewardship)
+	value = 275
+}
+zz_valyria_magic_blood_magic_037_cost = { # Bloodcraft (Intrigue)
+	value = 300
+}
+zz_valyria_magic_blood_magic_038_cost = { # Bloodcraft (Learning)
+	value = 275
+}
+zz_valyria_magic_blood_magic_039_cost = { # Bloodcraft (Prowess)
+	value = 325
+}
+zz_valyria_magic_blood_magic_040_cost = { # Vital Theft (Drain Health)
+	value = 120
+}
+zz_valyria_magic_blood_magic_041_cost = { # the Blood Price (Single Combat)
+	value = 25
+}
+zz_valyria_magic_shadow_magic_001_cost = { # Shadowy Steeds
 	value = 20
 }
-zz_valyria_magic_shadow_magic_013_cost = { # Feeble Shield
+zz_valyria_magic_shadow_magic_002_cost = { # Shadowy Daggers
+	value = 15
+}
+zz_valyria_magic_shadow_magic_003_cost = { # Shadow Shield
+	value = 15
+}
+zz_valyria_magic_shadow_magic_004_cost = { # Shadowy Cloak
 	value = 30
 }
+zz_valyria_magic_shadow_magic_005_cost = { # Cloying Shadow
+	value = 20
+}
+zz_valyria_magic_shadow_magic_006_cost = { # Feeble Daggers
+	value = 15
+}
+zz_valyria_magic_shadow_magic_007_cost = { # Weakened Viligence
+	value = 15
+}
+zz_valyria_magic_shadow_magic_008_cost = { # Revealed Shadows
+	value = 30
+}
+zz_valyria_magic_shadow_magic_009_cost = { # Assassin of the Shadow
+	value = 25
+}
+zz_valyria_magic_shadow_magic_010_cost = { # Umbral Blast (Army)
+	value = 40
+}
+zz_valyria_magic_shadow_magic_011_cost = { # Umbral Strike (Regiment)
+	value = 13
+}
+zz_valyria_magic_shadow_magic_012_cost = { # Shadow Blade
+	value = 5
+}
+zz_valyria_magic_shadow_magic_013_cost = { # Feeble Shield
+	value = 5
+}
 zz_valyria_magic_shadow_magic_014_cost = { # Shadow's Carress
-	value = 235
+	value = 110
 }
 zz_valyria_magic_shadow_magic_015_cost = { # Shadowy Casting
-	value = 165
+	value = 130
 }
 zz_valyria_magic_shadow_magic_016_cost = { # Shadowy Bulwark
-	value = 185
+	value = 50
 }
 zz_valyria_magic_shadow_magic_017_cost = { # Insidious Shadow
-	value = 145
+	value = 50
+}
+zz_valyria_magic_shadow_magic_018_cost = { # Night Terrors
+	value = 35
+}
+zz_valyria_magic_shadow_magic_019_cost = { # Creeping Dread
+	value = 90
+}
+zz_valyria_magic_shadow_magic_020_cost = { # Shackles of Shadow
+	value = 40
+}
+zz_valyria_magic_shadow_magic_021_cost = { # the Veil of Secrets
+	value = 70
+}
+zz_valyria_magic_shadow_magic_022_cost = { # the Shade's Errand
+	value = 70
+}
+zz_valyria_magic_shadow_magic_023_cost = { # Shadow Shades
+	value = 120
+}
+zz_valyria_magic_shadow_magic_024_cost = { # Thieving Shadows
+	value = 60
+}
+zz_valyria_magic_shadow_magic_025_cost = { # Hollow Oaths
+	value = 80
+}
+zz_valyria_magic_shadow_magic_026_cost = { # The Stolen Secret
+	value = 15
+}
+zz_valyria_magic_shadow_magic_027_cost = { # The Snuffed Plot
+	value = 90
+}
+zz_valyria_magic_shadow_magic_028_cost = { # The Night's Escape
+	value = 90
+}
+zz_valyria_magic_shadow_magic_029_cost = { # Shadow Theft
+	value = 120
+}
+zz_valyria_magic_shadow_magic_030_cost = { # The Shadow of Guilt
+	value = 110
+}
+zz_valyria_magic_shadow_magic_031_cost = { # The Whispered Hook
+	value = 200
+}
+zz_valyria_magic_shadow_magic_032_cost = { # the Forged Lineage (Create Claim)
+	value = 150
+}
+zz_valyria_magic_shadow_magic_033_cost = { # the Shadow Feint (Single Combat)
+	value = 25
 }
 zz_valyria_magic_dream_magic_001_cost = {
-	value = 100
+	value = 150
 }
 zz_valyria_magic_dream_magic_002_cost = {
-	value = 19
+	value = 50
 }
 zz_valyria_magic_dream_magic_003_cost = {
-	value = 19
+	value = 10
 }
 zz_valyria_magic_dream_magic_004_cost = {
-	value = 45
+	value = 100
 }
 zz_valyria_magic_dream_magic_005_cost = {
-	value = 19
+	value = 50
 }
 zz_valyria_magic_dream_magic_006_cost = {
-	value = 19
+	value = 50
 }
 zz_valyria_magic_dream_magic_007_cost = {
-	value = 150
+	value = 100
 }
 zz_valyria_magic_dream_magic_0071_cost = {
 	value = 150
 }
 zz_valyria_magic_dream_magic_008_cost = {
-	value = 19
+	value = 25
 }
 zz_valyria_magic_dream_magic_009_cost = {
-	value = 20
+	value = 75
 }
 zz_valyria_magic_dream_magic_010_cost = {
-	value = 800
+	value = 400
 }
 zz_valyria_magic_dream_magic_011_cost = {
-	value = 15
+	value = 5
 }
 zz_valyria_magic_dream_magic_012_cost = {
-	value = 15
+	value = 5
 }
 zz_valyria_magic_dream_magic_013_cost = {
-	value = 18
+	value = 5
 }
 zz_valyria_magic_dream_magic_014_cost = {
-	value = 18
+	value = 5
 }
 zz_valyria_magic_dream_magic_015_cost = {
-	value = 18
+	value = 5
 }
 zz_valyria_magic_dream_magic_016_cost = {
-	value = 20
+	value = 10
 }
 zz_valyria_magic_dream_magic_017_cost = {
-	value = 20
+	value = 10
 }
 zz_valyria_magic_dream_magic_018_cost = {
-	value = 20
+	value = 10
 }
 zz_valyria_magic_dream_magic_019_cost = {
-	value = 19
+	value = 15
 }
 zz_valyria_magic_dream_magic_020_cost = {
-	value = 19
+	value = 15
 }
 zz_valyria_magic_dream_magic_021_cost = {
-	value = 18
+	value = 15
 }
 zz_valyria_magic_dream_magic_022_cost = {
-	value = 18
+	value = 15
 }
 zz_valyria_magic_dream_magic_023_cost = {
-	value = 15
+	value = 10
 }
 zz_valyria_magic_dream_magic_024_cost = {
-	value = 15
+	value = 10
 }
 zz_valyria_magic_dream_magic_025_cost = {
-	value = 12
+	value = 5
 }
 zz_valyria_magic_dream_magic_026_cost = {
-	value = 12
+	value = 5
 }
 zz_valyria_magic_dream_magic_027_cost = {
-	value = 15
+	value = 10
 }
 zz_valyria_magic_dream_magic_028_cost = {
-	value = 15
+	value = 10
 }
 zz_valyria_magic_dream_magic_029_cost = {
-	value = 12
+	value = 5
 }
 zz_valyria_magic_dream_magic_030_cost = {
-	value = 12
+	value = 5
 }
 zz_valyria_magic_dream_magic_031_cost = {
-	value = 75
+	value = 60
 }
 zz_valyria_magic_dream_magic_032_cost = {
-	value = 75
+	value = 60
 }
 zz_valyria_magic_dream_magic_033_cost = {
-	value = 12
+	value = 100
 }
 zz_valyria_magic_dream_magic_034_cost = {
-	value = 21
+	value = 50
 }
 zz_valyria_magic_dream_magic_035_cost = {
-	value = 21
+	value = 50
 }
 zz_valyria_magic_dream_magic_036_cost = {
-	value = 21
+	value = 100
 }
 zz_valyria_magic_dream_magic_037_cost = {
-	value = 51
+	value = 100
 }
 zz_valyria_magic_dream_magic_034_mysteries_of_loyalty_cost = {
 	value = 51
@@ -323,34 +401,34 @@ zz_valyria_magic_dream_magic_038_mysteries_of_nightmares_cost = {
 	value = 11
 }
 zz_valyria_magic_dream_magic_038_cost = {
-	value = 33
+	value = 40
 }
 zz_valyria_magic_dream_magic_039_cost = {
-	value = 33
+	value = 40
 }
 zz_valyria_magic_dream_magic_040_cost = {
-	value = 25
+	value = 20
 }
 zz_valyria_magic_dream_magic_041_cost = {
-	value = 25
+	value = 20
 }
 zz_valyria_magic_dream_magic_042_cost = {
-	value = 25
+	value = 20
 }
 zz_valyria_magic_dream_magic_043_cost = {
-	value = 10
+	value = 5
 }
 zz_valyria_magic_dream_magic_044_cost = {
-	value = 10
+	value = 5
 }
 zz_valyria_magic_dream_magic_045_cost = {
-	value = 55
+	value = 30
 }
 zz_valyria_magic_dream_magic_046_cost = {
-	value = 55
+	value = 30
 }
 zz_valyria_magic_dream_magic_047_cost = {
-	value = 200
+	value = 250
 }
 zz_valyria_magic_dream_magic_048_cost = {
 	value = 100
@@ -362,176 +440,175 @@ zz_valyria_magic_dream_magic_050_cost = {
 	value = 1000
 }
 zz_valyria_magic_dream_magic_051_cost = {
-	value = 250
+	value = 175
 }
 zz_valyria_magic_dream_magic_052_cost = {
-	value = 300
+	value = 200
 }
 zz_valyria_magic_dream_magic_053_cost = {
-	value = 5000
+	value = 2000
 }
 zz_valyria_magic_dream_magic_054_cost = {
-	value = 2000
+	value = 1500
 }
 zz_valyria_magic_dream_magic_055_cost = {
 	value = 1000
 }
 zz_valyria_magic_dream_magic_056_cost = {
-	value = 150
+	value = 250
 }
 zz_valyria_magic_dream_magic_057_cost = {
-	value = 175
+	value = 150
 }
 zz_valyria_magic_dream_magic_058_cost = {
-	value = 60
+	value = 75
 }
 zz_valyria_magic_dream_magic_059_cost = {
 	value = 300
 }
 zz_valyria_magic_dream_magic_060_cost = {
-	value = 300
+	value = 100
 }
 zz_valyria_magic_dream_magic_061_cost = {
-	value = 300
+	value = 100
 }
 zz_valyria_magic_dream_magic_062_cost = {
-	value = 300
+	value = 150
 }
 zz_valyria_magic_dream_magic_063_cost = {
-	value = 300
+	value = 150
 }
 zz_valyria_magic_dream_magic_064_cost = {
-	value = 300
+	value = 50
 }
 zz_valyria_magic_dream_magic_065_cost = {
-	value = 300
+	value = 50
 }
 zz_valyria_magic_dream_magic_066_cost = {
-	value = 300
+	value = 250
 }
 zz_valyria_magic_dream_magic_067_cost = {
-	value = 300
+	value = 250
 }
 zz_valyria_magic_dream_magic_068_cost = {
-	value = 300
+	value = 250
 }
 zz_valyria_magic_dream_magic_069_cost = {
-	value = 300
+	value = 250
 }
 zz_valyria_magic_dream_magic_070_cost = {
-	value = 300
+	value = 250
 }
 zz_valyria_magic_dream_magic_071_cost = {
-	value = 300
+	value = 250
 }
 zz_valyria_magic_dream_magic_072_cost = {
-	value = 300
+	value = 250
 }
 zz_valyria_magic_dream_magic_073_cost = {
+	value = 250
+}
+zz_valyria_magic_dream_magic_074_cost = { # Dreaming Road (Hasten)
+	value = 25
+}
+zz_valyria_magic_dream_magic_075_cost = { # Dreaming Road (Hinder)
+	value = 25
+}
+zz_valyria_magic_dream_magic_076_cost = { # Watchful Road
+	value = 25
+}
+zz_valyria_magic_dream_magic_077_cost = { # Prophecy (Resources)
+	value = 250
+}
+zz_valyria_magic_dream_magic_078_cost = { # Dreaming City
+	value = 150
+}
+zz_valyria_magic_dream_magic_079_cost = { # Shared Dream
+	value = 150
+}
+zz_valyria_magic_dream_magic_080_cost = { # Soothsaying (Resilience)
+	value = 100
+}
+zz_valyria_magic_dream_magic_081_cost = { # Soothsaying (Longevity)
+	value = 100
+}
+zz_valyria_magic_dream_magic_082_cost = { # Soothsaying (Health), merged with Resilience
+	value = 150
+}
+zz_valyria_magic_dream_magic_083_cost = { # Soothsaying (Infant Sex)
+	value = 100
+}
+zz_valyria_magic_dream_magic_084_cost = { # Soothsaying (Scheme Defence)
+	value = 100
+}
+zz_valyria_magic_dream_magic_085_cost = { # Soothsaying (Secret Destruction)
+	value = 100
+}
+zz_valyria_magic_dream_magic_086_cost = { # the Long Dream of Devotion
+	value = 200
+}
+zz_valyria_magic_dream_magic_087_cost = { # the Long Nightmare of Betrayal
+	value = 200
+}
+zz_valyria_magic_dream_magic_088_cost = { # the Long Dream of Order
+	value = 200
+}
+zz_valyria_magic_dream_magic_089_cost = { # the Long Nightmare of Unrest
+	value = 200
+}
+zz_valyria_magic_dream_magic_090_cost = { # the Long Dream of Spring
+	value = 200
+}
+zz_valyria_magic_dream_magic_091_cost = { # the Long Nightmare of Winter
+	value = 200
+}
+zz_valyria_magic_dream_magic_092_cost = { # the Long Dream of Plenty
+	value = 200
+}
+zz_valyria_magic_dream_magic_093_cost = { # the Long Nightmare of Want
+	value = 200
+}
+zz_valyria_magic_dream_magic_094_cost = { # Dreamshaping (Diplomacy)
+	value = 275
+}
+zz_valyria_magic_dream_magic_095_cost = { # Dreamshaping (Martial)
+	value = 250
+}
+zz_valyria_magic_dream_magic_096_cost = { # Dreamshaping (Stewardship)
+	value = 275
+}
+zz_valyria_magic_dream_magic_097_cost = { # Dreamshaping (Intrigue)
 	value = 300
 }
-zz_valyria_magic_dream_magic_074_cost = {
+zz_valyria_magic_dream_magic_098_cost = { # Dreamshaping (Learning)
 	value = 300
 }
-zz_valyria_magic_dream_magic_075_cost = {
-	value = 300
+zz_valyria_magic_dream_magic_099_cost = { # Dreamshaping (Prowess)
+	value = 250
 }
-zz_valyria_magic_dream_magic_076_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_077_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_078_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_079_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_080_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_081_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_082_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_083_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_084_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_085_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_086_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_087_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_088_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_089_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_090_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_091_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_092_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_093_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_094_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_095_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_096_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_097_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_098_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_099_cost = {
-	value = 300
-}
-zz_valyria_magic_dream_magic_100_cost = {
-	value = 300
-}
+
+
 
 zz_valyria_magic_dream_magic_039_mysteries_of_self_incarnation_cost = {
 	value = 150
 }
 zz_valyria_magic_alchemy_magic_001_cost = { # Development
-	value = 100
+	value = 75
 }
 zz_valyria_magic_alchemy_magic_002_cost = { # Construction
 	value = 50
 }
 zz_valyria_magic_alchemy_magic_003_cost = { # Transmute Gold
-	value = 10
+	value = 25
 }
 zz_valyria_magic_alchemy_magic_004_cost = { # Mystery of Arms (Knights): attracts more knights
 	value = 200
 }
 zz_valyria_magic_alchemy_magic_005_cost = { # Realm Fortification
-	value = 2000
+	value = 1000
 }
 zz_valyria_magic_alchemy_magic_006_cost = { # Enchantment
-	value = 500
+	value = 250
 }
 zz_valyria_magic_alchemy_magic_006_cost_01 = { # Enchantment Passive Mana
 	scope:secondary_recipient = { 
@@ -554,7 +631,7 @@ zz_valyria_magic_alchemy_magic_006_cost_01 = { # Enchantment Passive Mana
 		}
 
 		else = {
-			value = 2000
+			value = 1500
 		}
 	}
 }
@@ -579,170 +656,335 @@ zz_valyria_magic_alchemy_magic_006_cost_02 = { # Enchantment Mana Cap
 		}
 
 		else = {
-			value = 500
+			value = 600
 		}
 	}
 }
 zz_valyria_magic_alchemy_magic_007_cost = { # Transmute Piety
-	value = 15
+	value = 25
 }
 zz_valyria_magic_alchemy_magic_008_cost = { # Transmute Prestige
-	value = 15
+	value = 25
 }
 zz_valyria_magic_alchemy_magic_009_cost = { # Transmute Renown
-	value = 125
+	value = 30
 }
 zz_valyria_magic_alchemy_magic_010_cost = { # Age Manipulation: Subtraction
-	value = 125
+	value = 50
 }
 zz_valyria_magic_alchemy_magic_011_cost = { # Age Manipulation: Addition
-	value = 75
+	value = 30
 }
 zz_valyria_magic_alchemy_magic_012_cost = { # Mystery of Arms (Knight Efficiency): increases knight effectiveness permanently
 	value = 75
 }
 zz_valyria_magic_alchemy_magic_013_cost = { # Mystery of Arms (MAA Add): Increases max # of MAA permanently
-	value = 750
+	value = 600
 }
 zz_valyria_magic_alchemy_magic_014_cost = { # Mystery of Arms (MAA Size): Increase max size of MAA regiments permanently
-	value = 500
+	value = 400
 }
 zz_valyria_magic_alchemy_magic_015_cost = { # Mystery of Arms (Title MAA Add): Increase max # of titular MAA regiments permanently
-	value = 1000
+	value = 800
 }
 zz_valyria_magic_alchemy_magic_016_cost = { # Mystery of Arms (Title MAA Size): Increase max size of titular MAA regiments permanently
-	value = 750
+	value = 500
 }
 zz_valyria_magic_alchemy_magic_017_cost = { # Transmutative Assault
 	value = 25
 }
 zz_valyria_magic_alchemy_magic_018_cost = { # Transmute Influence
-	value = 10
+	value = 25
 }
 zz_valyria_magic_alchemy_magic_019_cost = { # Transmute Treasury
-	value = 10
+	value = 25
 }
 zz_valyria_magic_alchemy_magic_020_cost = { # Realm Fortification
-	value = 2000
+	value = 500
 }
 zz_valyria_magic_alchemy_magic_021_cost = { # Transmute Homunculus
-	value = 1500
+	value = 300
+}
+zz_valyria_magic_alchemy_magic_022_cost = { # Alchemical Refinement
+	value = 150
+}
+zz_valyria_magic_alchemy_magic_023_cost = { # Expansion
+	value = 75
+}
+zz_valyria_magic_alchemy_magic_024_cost = { # Unmaking (Building to Gold)
+	value = 60
+}
+zz_valyria_magic_alchemy_magic_025_cost = { # Potion Making (Brew Potion)
+	value = 100
+}
+zz_valyria_magic_alchemy_magic_026_cost = { # Fatal Transmutation (Strike Army)
+	value = 75
+}
+zz_valyria_magic_alchemy_magic_027_cost = { # Mercantile Reach
+	value = 100
+}
+zz_valyria_magic_alchemy_magic_028_cost = { # Bountiful Caravans
+	value = 75
+}
+zz_valyria_magic_alchemy_magic_029_cost = { # the Long Road
+	value = 75
+}
+zz_valyria_magic_alchemy_magic_030_cost = { # the Open Road
+	value = 150
+}
+zz_valyria_magic_alchemy_magic_031_cost = { # Many Markets
+	value = 150
+}
+zz_valyria_magic_alchemy_magic_032_cost = { # Transmutation (Valyrian Steel)
+	value = 250
+}
+zz_valyria_magic_alchemy_magic_033_cost = { # Bronze Sentinels
+	value = 140
+}
+zz_valyria_magic_alchemy_magic_034_cost = { # Iron Colossi
+	value = 170
+}
+zz_valyria_magic_alchemy_magic_035_cost = { # Alchemical Purgation
+	value = 250
+}
+zz_valyria_magic_alchemy_magic_036_cost = { # Alchemical Tempering
+	value = 225
+}
+zz_valyria_magic_alchemy_magic_037_cost = { # Inner Transmutation (Diplomacy)
+	value = 400
+}
+zz_valyria_magic_alchemy_magic_038_cost = { # Inner Transmutation (Martial)
+	value = 375
+}
+zz_valyria_magic_alchemy_magic_039_cost = { # Inner Transmutation (Stewardship)
+	value = 425
+}
+zz_valyria_magic_alchemy_magic_040_cost = { # Inner Transmutation (Intrigue)
+	value = 400
+}
+zz_valyria_magic_alchemy_magic_041_cost = { # Inner Transmutation (Learning)
+	value = 425
+}
+zz_valyria_magic_alchemy_magic_042_cost = { # Inner Transmutation (Prowess)
+	value = 375
+}
+zz_valyria_magic_alchemy_magic_043_cost = { # Transmutation (Development)
+	value = 100
+}
+zz_valyria_magic_alchemy_magic_044_cost = { # Quicksilver Skin (Single Combat)
+	value = 25
 }
 zz_valyria_magic_fire_magic_001_cost = { # Striking Flame
 	value = 25
 }
 zz_valyria_magic_fire_magic_002_cost = { # Blasting Flame
-	value = 45
-}
-zz_valyria_magic_fire_magic_003_cost = { # Storm of Fire
-	value = 135
-}
-zz_valyria_magic_fire_magic_004_cost = { # Flaming Purification
-	value = 25
-}
-zz_valyria_magic_fire_magic_005_cost = { # Flaming Blades
 	value = 50
 }
-zz_valyria_magic_fire_magic_006_cost = { # Secret Flame
+zz_valyria_magic_fire_magic_003_cost = { # Storm of Fire
+	value = 75
+}
+zz_valyria_magic_fire_magic_004_cost = { # Flaming Purification
+	value = 40
+}
+zz_valyria_magic_fire_magic_005_cost = { # Flaming Blades (Army)
+	value = 40
+}
+zz_valyria_magic_fire_magic_006_cost = { # Secret Flame (Secrets)
+	value = 5
+}
+zz_valyria_magic_fire_magic_007_cost = { # Revealing Flames (Schemes)
 	value = 15
 }
-zz_valyria_magic_fire_magic_007_cost = { # Revealing Flames
-	value = 25
-}
 zz_valyria_magic_fire_magic_008_cost = { # Siege
-	value = 85
+	value = 40
 }
 zz_valyria_magic_fire_magic_009_cost = { # Fireball
-	value = 65
+	value = 20
 }
 zz_valyria_magic_fire_magic_010_cost = { # Dragon's Breath
-	value = 65
+	value = 40
 }
 zz_valyria_magic_fire_magic_011_cost = { # Flame Volley
-	value = 25
+	value = 10
 }
 zz_valyria_magic_fire_magic_012_cost = { # Flaming Edge
 	value = 15
 }
 zz_valyria_magic_fire_magic_013_cost = { # Ember's Armour
-	value = 35
+	value = 15
 }
 zz_valyria_magic_fire_magic_014_cost = { # Flame's Magical Purity
-	value = 185
+	value = 125
 }
 zz_valyria_magic_fire_magic_015_cost = { # Flaming Casting
-	value = 225
-}
-zz_valyria_magic_fire_magic_016_cost = { # Bastion of Flame
 	value = 175
 }
+zz_valyria_magic_fire_magic_016_cost = { # Bastion of Flame
+	value = 60
+}
 zz_valyria_magic_fire_magic_017_cost = {
-	value = 125
+	value = 60
+}
+zz_valyria_magic_fire_magic_018_cost = { # Burning the Stores
+	value = 45
+}
+zz_valyria_magic_fire_magic_019_cost = { # Scorched Earth
+	value = 55
+}
+zz_valyria_magic_fire_magic_020_cost = { # Hearthfire
+	value = 40
+}
+zz_valyria_magic_fire_magic_021_cost = { # Immolation
+	value = 60
+}
+zz_valyria_magic_fire_magic_022_cost = { # the Kindled Assassin
+	value = 65
+}
+zz_valyria_magic_fire_magic_023_cost = { # Wildfire
+	value = 120
+}
+zz_valyria_magic_fire_magic_024_cost = { # the Ember Host
+	value = 120
+}
+zz_valyria_magic_fire_magic_025_cost = { # Beacon Fires
+	value = 75
+}
+zz_valyria_magic_fire_magic_026_cost = { # Burn the Records
+	value = 130
+}
+zz_valyria_magic_fire_magic_027_cost = { # The Forge-Fire
+	value = 150
+}
+zz_valyria_magic_fire_magic_028_cost = { # The Firebrand
+	value = 110
+}
+zz_valyria_magic_fire_magic_029_cost = { # Trial by Fire
+	value = 200
+}
+zz_valyria_magic_fire_magic_030_cost = { # The Reforging
+	value = 60
+}
+zz_valyria_magic_fire_magic_031_cost = { # Burning Bridges
+	value = 90
+}
+zz_valyria_magic_fire_magic_032_cost = { # the Terror of Flame (Dread)
+	value = 80
+}
+zz_valyria_magic_fire_magic_033_cost = { # Searing Brand (Single Combat)
+	value = 25
 }
 
 zz_valyria_magic_air_magic_001_cost = { # Slicing Wind
 	value = 25
 }
 zz_valyria_magic_air_magic_002_cost = { # Tempestuous Winds
-	value = 235
+	value = 30
 }
 zz_valyria_magic_air_magic_003_cost = { # Wall of Wind
-	value = 75
-}
-zz_valyria_magic_air_magic_004_cost = { # Hurricane
-	value = 125
-}
-zz_valyria_magic_air_magic_005_cost = { # Initiative Air
-	value = 65
-}
-zz_valyria_magic_air_magic_006_cost = { # Heavens Wrath
-	value = 275
-}
-zz_valyria_magic_air_magic_007_cost = { # Chariot of the Heavens
-	value = 65
-}
-zz_valyria_magic_air_magic_008_cost = { # Lightning Strike
-	value = 325
-}
-zz_valyria_magic_air_magic_009_cost = { # God's Hammer
-	value = 450
-}
-zz_valyria_magic_air_magic_010_cost = { # South Wind
-	value = 85
-}
-zz_valyria_magic_air_magic_011_cost = { # North Wind
-	value = 75
-}
-zz_valyria_magic_air_magic_012_cost = { # Wind's Edge
-	value = 40
-}
-zz_valyria_magic_air_magic_013_cost = { # Aether's Barrier
 	value = 25
 }
+zz_valyria_magic_air_magic_004_cost = { # Hurricane
+	value = 75
+}
+zz_valyria_magic_air_magic_005_cost = { # Initiative Air
+	value = 40
+}
+zz_valyria_magic_air_magic_006_cost = { # Heavens Wrath
+	value = 125
+}
+zz_valyria_magic_air_magic_007_cost = { # Chariot of the Heavens
+	value = 15
+}
+zz_valyria_magic_air_magic_008_cost = { # Lightning Strike
+	value = 25
+}
+zz_valyria_magic_air_magic_009_cost = { # God's Hammer
+	value = 150
+}
+zz_valyria_magic_air_magic_010_cost = { # South Wind
+	value = 15
+}
+zz_valyria_magic_air_magic_011_cost = { # North Wind
+	value = 15
+}
+zz_valyria_magic_air_magic_012_cost = { # Wind's Edge
+	value = 15
+}
+zz_valyria_magic_air_magic_013_cost = { # Aether's Barrier
+	value = 5
+}
 zz_valyria_magic_air_magic_014_cost = { # Celestial Purity
-	value = 215
+	value = 150
 }
 zz_valyria_magic_air_magic_015_cost = { # Celestial Casting
-	value = 275
+	value = 150
 }
 zz_valyria_magic_air_magic_016_cost = {
-	value = 200
+	value = 50
 }
 zz_valyria_magic_air_magic_017_cost = {
-	value = 225
+	value = 60
+}
+zz_valyria_magic_air_magic_018_cost = { # the Rain of Arrows
+	value = 40
+}
+zz_valyria_magic_air_magic_019_cost = { # Thin Air
+	value = 40
+}
+zz_valyria_magic_air_magic_020_cost = { # Contrary Winds
+	value = 35
+}
+zz_valyria_magic_air_magic_021_cost = { # Whispers on the Wind
+	value = 75
+}
+zz_valyria_magic_air_magic_022_cost = { # the Windborne Blade
+	value = 80
+}
+zz_valyria_magic_air_magic_023_cost = { # Stormcaller
+	value = 130
+}
+zz_valyria_magic_air_magic_024_cost = { # the Gale Host
+	value = 105
+}
+zz_valyria_magic_air_magic_025_cost = { # the Following Wind
+	value = 45
+}
+zz_valyria_magic_air_magic_026_cost = { # The Windborne Journey
+	value = 60
+}
+zz_valyria_magic_air_magic_027_cost = { # Scattered Plans
+	value = 25
+}
+zz_valyria_magic_air_magic_028_cost = { # The Shifting Winds
+	value = 120
+}
+zz_valyria_magic_air_magic_029_cost = { # The Scattering Gust
+	value = 110
+}
+zz_valyria_magic_air_magic_030_cost = { # Winds of Accord
+	value = 120
+}
+zz_valyria_magic_air_magic_031_cost = { # The Herald's Gale
+	value = 70
+}
+zz_valyria_magic_air_magic_032_cost = { # the Voice of the Wind (Summon Courtier)
+	value = 120
+}
+zz_valyria_magic_air_magic_033_cost = { # the Gale Step (Single Combat)
+	value = 25
 }
 
 zz_valyria_magic_water_magic_001_cost = { # Crushing Waters
 	value = 25
 }
 zz_valyria_magic_water_magic_002_cost = { # Surging Torrent
-	value = 45
+	value = 30
 }
 zz_valyria_magic_water_magic_003_cost = { # Endurance
-	value = 60
+	value = 25
 }
 zz_valyria_magic_water_magic_004_cost = { # the Rhoyne
-	value = 250
+	value = 100
 }
 zz_valyria_magic_water_magic_004_01_cost = {
 	value = 250
@@ -754,46 +996,115 @@ zz_valyria_magic_water_magic_004_03_cost = {
 	value = 1000
 }
 zz_valyria_magic_water_magic_005_cost = { # Winter
-	value = 35
+	value = 25
 }
 zz_valyria_magic_water_magic_006_cost = { # Purifying Waters
-	value = 165
+	value = 100
 }
 zz_valyria_magic_water_magic_007_cost = { # Waters of Fertility
-	value = 225
+	value = 75
 }
 zz_valyria_magic_water_magic_008_cost = { # Mists
-	value = 70
+	value = 30
 }
 zz_valyria_magic_water_magic_009_cost = { # Soggy Ground
-	value = 90
+	value = 40
 }
-zz_valyria_magic_water_magic_010_cost = { # Water's Resilience
-	value = 85
+zz_valyria_magic_water_magic_010_cost = { # Water's Resilience (Army)
+	value = 40
 }
-zz_valyria_magic_water_magic_011_cost = { # Purity
-	value = 15
+zz_valyria_magic_water_magic_011_cost = { # Cleansing Tide
+	value = 5
 }
 zz_valyria_magic_water_magic_012_cost = { # Water's Edge
-	value = 35
+	value = 15
 }
 zz_valyria_magic_water_magic_013_cost = {
-	value = 20
+	value = 15
 }
 zz_valyria_magic_water_magic_014_cost = {
-	value = 200
+	value = 140
 }
 zz_valyria_magic_water_magic_015_cost = {
-	value = 225
+	value = 120
 }
 zz_valyria_magic_water_magic_016_cost = {
-	value = 175
+	value = 60
 }
 zz_valyria_magic_water_magic_017_cost = {
-	value = 190
+	value = 60
+}
+zz_valyria_magic_water_magic_018_cost = { # Drowning Grasp
+	value = 18
+}
+zz_valyria_magic_water_magic_019_cost = { # Riptide
+	value = 45
+}
+zz_valyria_magic_water_magic_020_cost = { # the Breaking of the Dams
+	value = 110
+}
+zz_valyria_magic_water_magic_021_cost = { # Healing Springs
+	value = 30
+}
+zz_valyria_magic_water_magic_022_cost = { # Lungs of Brine
+	value = 60
+}
+zz_valyria_magic_water_magic_023_cost = { # Tide's Favour
+	value = 40
+}
+zz_valyria_magic_water_magic_024_cost = { # the Mist Host
+	value = 110
+}
+zz_valyria_magic_water_magic_025_cost = { # Still Waters
+	value = 50
+}
+zz_valyria_magic_water_magic_026_cost = { # Baptismal Waters
+	value = 75
+}
+zz_valyria_magic_water_magic_027_cost = { # The Sea Change
+	value = 75
+}
+zz_valyria_magic_water_magic_028_cost = { # Water Under the Bridge
+	value = 140
+}
+zz_valyria_magic_water_magic_029_cost = { # Wash Away the Stain
+	value = 40
+}
+zz_valyria_magic_water_magic_030_cost = { # The Fertile Flood
+	value = 20
+}
+zz_valyria_magic_water_magic_031_cost = { # The Breaking of Bonds
+	value = 200
+}
+zz_valyria_magic_water_magic_032_cost = { # the Drowning Deep (Strike Embarked Army)
+	value = 70
+}
+zz_valyria_magic_water_magic_033_cost = { # the Undertow (Single Combat)
+	value = 25
 }
 
+zz_valyria_magic_dream_magic_100_cost = { # Soothsaying (Assassination)
+	value = 100
+}
 
-
-
-
+zz_valyria_magic_dream_magic_101_cost = { # Soothsaying (Battle)
+	value = 100
+}
+zz_valyria_magic_dream_magic_102_cost = { # Secret Weaving (False Memory)
+	value = 40
+}
+zz_valyria_magic_dream_magic_103_cost = { # Secret Weaving (Sleep-Talk)
+	value = 30
+}
+zz_valyria_magic_dream_magic_104_cost = { # Soothsaying (Captivity)
+	value = 100
+}
+zz_valyria_magic_dream_magic_105_cost = { # Soothsaying (Omens of War)
+	value = 100
+}
+zz_valyria_magic_dream_magic_106_cost = { # the Dream of Fealty (Leave Faction)
+	value = 90
+}
+zz_valyria_magic_dream_magic_107_cost = { # Foresight (Single Combat)
+	value = 40
+}

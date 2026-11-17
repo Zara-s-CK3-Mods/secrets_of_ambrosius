@@ -1,0 +1,43 @@
+﻿# Give one of your potions to a character, yourself included. The potion is used up
+zz_valyria_administer_potion_interaction = {
+	category = interaction_category_friendly
+	common_interaction = no
+	interface_priority = 25
+	desc = zz_valyria_administer_potion_interaction_desc
+	icon = artisan_inspiration
+
+	target_type = artifact
+	target_filter = actor_artifacts
+	auto_accept = yes
+
+	can_be_picked_artifact = {
+		scope:target = {
+			artifact_type = potion
+			save_temporary_scope_as = potion
+		}
+		scope:recipient = { zz_valyria_can_drink_potion_trigger = yes }
+	}
+
+	is_shown = {
+		scope:actor = {
+			any_character_artifact = { artifact_type = potion }
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:recipient = { is_imprisoned = no }
+	}
+
+	on_accept = {
+		scope:target = { save_scope_as = potion }
+		scope:recipient = {
+			send_interface_toast = {
+				type = event_toast_effect_good
+				title = zz_valyria_administer_potion_interaction_toast
+				left_icon = scope:actor
+				right_icon = scope:recipient
+				zz_valyria_drink_potion_effect = yes
+			}
+		}
+	}
+}

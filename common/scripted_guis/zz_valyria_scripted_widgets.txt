@@ -76,6 +76,13 @@ zz_valyria_character_selecting = {
 				}
 			}
 			set_variable = {
+				name = zz_valyria_magic_event_window_counter_selection_counter_base
+				value = {
+					value = 0 
+					add = scope:zz_valyria_selected_character.age
+				}
+			}
+			set_variable = {
 				name = zz_valyria_magic_event_window_counter_selection_counter_max
 				value = {
 					value = 0 
@@ -877,7 +884,7 @@ zz_valyria_magic_event_window_counter_selection_01 = {
 	is_shown = {
 	}
 	is_valid = {
-		zz_valyria_magic_event_window_counter_selection_counter <= zz_valyria_magic_event_window_counter_selection_counter_max
+		zz_valyria_magic_event_window_counter_selection_counter < zz_valyria_magic_event_window_counter_selection_counter_max
 	}
 	effect = {
 		increment_variable_effect = {
@@ -892,12 +899,29 @@ zz_valyria_magic_event_window_counter_selection_02 = {
 	is_shown = {
 	}
 	is_valid = {
-		zz_valyria_magic_event_window_counter_selection_counter >= zz_valyria_magic_event_window_counter_selection_counter_min
+		zz_valyria_magic_event_window_counter_selection_counter > zz_valyria_magic_event_window_counter_selection_counter_min
 	}
 	effect = {
 		increment_variable_effect = {
 			VAR = zz_valyria_magic_event_window_counter_selection_counter
 			VAL = -1
 		}
+	}
+}
+
+zz_valyria_trade_good_selecting = {
+	scope = character
+	saved_scopes = {
+		selected_trade_good
+	}
+	is_valid = {
+	}
+
+	is_shown = {
+		var:selected_trade_good ?= scope:selected_trade_good
+	}
+
+	effect = {
+		set_variable = { name = selected_trade_good value = scope:selected_trade_good }
 	}
 }

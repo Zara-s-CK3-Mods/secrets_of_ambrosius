@@ -809,723 +809,621 @@ scripted_effect select_special_tier_move_effect = {
 
 # Select a single tier 1 combat move from the list.
 scripted_effect select_tier_1_move_effect = {
-	if = {
-		limit = {
-			has_variable = magic_type
-		}
-		random_list = {
-			1000 = {
-				trigger = {
-					NOT = { exists = local_var:zz_magic_attack_tier_01 }
-				}
-				set_local_variable = {
-					name = zz_magic_attack_tier_01
-					value = yes
-				}
-			}
-			1000 = {
-				trigger = {
-					NOT = { exists = local_var:zz_magic_attack_tier_02 }
-				}
-				set_local_variable = {
-					name = zz_magic_attack_tier_02
-					value = yes
-				}
-			}
-			1000 = {
-				trigger = {
-					NOT = { exists = local_var:zz_magic_attack_tier_03 }
-				}
-				set_local_variable = {
-					name = zz_magic_attack_tier_03
-					value = yes
-				}
-			}
-		}	
-	}
-	else = {
-		random_list = {
-			#Ordinary moves.
-			70 = {
-				random_list = {
-					# Wait and Hope
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_wait_and_hope_flag }
-							#Fallback, always available.
-						}
-						set_local_variable = {
-							name = combat_move_wait_and_hope_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:wait_and_hope
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:wait_and_hope
-								}
-							}
-						}
+	random_list = {
+		#Ordinary moves.
+		70 = {
+			random_list = {
+				# Wait and Hope
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_wait_and_hope_flag }
+						#Fallback, always available.
 					}
-					# Unsure Attack
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_unsure_attack_flag }
-							#Fallback, always available.
-						}
-						set_local_variable = {
-							name = combat_move_unsure_attack_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:unsure_attack
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:unsure_attack
-								}
-							}
-						}
+					set_local_variable = {
+						name = combat_move_wait_and_hope_flag
+						value = yes
 					}
-					# Enthusiastic Onslaught
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_enthusiastic_onslaught_flag }
-							#Fallback, always available.
-						}
-						set_local_variable = {
-							name = combat_move_enthusiastic_onslaught_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:enthusiastic_onslaught
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:enthusiastic_onslaught
-								}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:wait_and_hope
 							}
-						}
-					}
-					# Hail Mary
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_hail_mary_flag }
-							#Only valid against an opponent who _truly_ outclasses you.
-							OR = {
-								AND = {
-									this = scope:sc_attacker
-									prowess_diff = {
-										target = scope:sc_defender
-										value <= -10
-									}
-								}
-								AND = {
-									this = scope:sc_defender
-									prowess_diff = {
-										target = scope:sc_attacker
-										value <= -10
-									}
-								}
-							}
-						}
-						set_local_variable = {
-							name = combat_move_hail_mary_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:hail_mary
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:hail_mary
-								}
-							}
-						}
-					}
-					# Pocket Sand
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_pocket_sand_flag }
-							#Only valid against opponents who really won't be able to see it coming a mile away.
-							OR = {
-								AND = {
-									this = scope:sc_attacker
-									scope:sc_defender.prowess <= medium_scsk
-								}
-								AND = {
-									this = scope:sc_defender
-									scope:sc_attacker.prowess <= medium_scsk
-								}
-							}
-							# Move essentially requires two arms, I'm afraid.
-							NOT = { has_trait = maimed }
-						}
-						set_local_variable = {
-							name = combat_move_pocket_sand_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:pocket_sand
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:pocket_sand
-								}
-							}
-						}
-					}
-					# Nut 'em
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_nut_em_flag }
-							#No special requirements.
-						}
-						set_local_variable = {
-							name = combat_move_nut_em_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:nut_em
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:nut_em
-								}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:wait_and_hope
 							}
 						}
 					}
 				}
-			}
-			#Special moves.
-			30 = {
-				trigger = {
-					NOT = { exists = local_var:combat_move_special_slot_used_flag }
+				# Unsure Attack
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_unsure_attack_flag }
+						#Fallback, always available.
+					}
+					set_local_variable = {
+						name = combat_move_unsure_attack_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:unsure_attack
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:unsure_attack
+							}
+						}
+					}
 				}
-				select_special_tier_move_effect = yes
+				# Enthusiastic Onslaught
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_enthusiastic_onslaught_flag }
+						#Fallback, always available.
+					}
+					set_local_variable = {
+						name = combat_move_enthusiastic_onslaught_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:enthusiastic_onslaught
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:enthusiastic_onslaught
+							}
+						}
+					}
+				}
+				# Hail Mary
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_hail_mary_flag }
+						#Only valid against an opponent who _truly_ outclasses you.
+						OR = {
+							AND = {
+								this = scope:sc_attacker
+								prowess_diff = {
+									target = scope:sc_defender
+									value <= -10
+								}
+							}
+							AND = {
+								this = scope:sc_defender
+								prowess_diff = {
+									target = scope:sc_attacker
+									value <= -10
+								}
+							}
+						}
+					}
+					set_local_variable = {
+						name = combat_move_hail_mary_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:hail_mary
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:hail_mary
+							}
+						}
+					}
+				}
+				# Pocket Sand
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_pocket_sand_flag }
+						#Only valid against opponents who really won't be able to see it coming a mile away.
+						OR = {
+							AND = {
+								this = scope:sc_attacker
+								scope:sc_defender.prowess <= medium_scsk
+							}
+							AND = {
+								this = scope:sc_defender
+								scope:sc_attacker.prowess <= medium_scsk
+							}
+						}
+						# Move essentially requires two arms, I'm afraid.
+						NOT = { has_trait = maimed }
+					}
+					set_local_variable = {
+						name = combat_move_pocket_sand_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:pocket_sand
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:pocket_sand
+							}
+						}
+					}
+				}
+				# Nut 'em
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_nut_em_flag }
+						#No special requirements.
+					}
+					set_local_variable = {
+						name = combat_move_nut_em_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:nut_em
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:nut_em
+							}
+						}
+					}
+				}
 			}
 		}
+		#Special moves.
+		30 = {
+			trigger = {
+				NOT = { exists = local_var:combat_move_special_slot_used_flag }
+			}
+			select_special_tier_move_effect = yes
+		}
 	}
+
+
 }
 
 # Select a single tier 2 combat move from the list.
 scripted_effect select_tier_2_move_effect = {
-	if = {
-		limit = {
-			has_variable = magic_type
+	random_list = {
+		#Ordinary moves.
+		70 = {
+			random_list = {
+				# Guard
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_guard_flag }
+						#Fallback, always available.
+					}
+					set_local_variable = {
+						name = combat_move_guard_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:guard
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:guard
+							}
+						}
+					}
+				}
+				# Probing Attack
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_probing_attack_flag }
+						#Fallback, always available.
+					}
+					set_local_variable = {
+						name = combat_move_probing_attack_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:probing_attack
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:probing_attack
+							}
+						}
+					}
+				}
+				# Onslaught
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_onslaught_flag }
+						#Fallback, always available.
+					}
+					set_local_variable = {
+						name = combat_move_onslaught_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:onslaught
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:onslaught
+							}
+						}
+					}
+				}
+				# Surprise Attack
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_surprise_attack_flag }
+						OR = {
+							AND = {
+								this = scope:sc_attacker
+								scope:sc_defender = {
+									NOT = { has_trait = paranoid }
+								}
+							}
+							AND = {
+								this = scope:sc_defender
+								scope:sc_attacker = {
+									NOT = { has_trait = paranoid }
+								}
+							}
+						}
+					}
+					set_local_variable = {
+						name = combat_move_surprise_attack_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:surprise_attack
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:surprise_attack
+							}
+						}
+					}
+				}
+				# Taunt
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_taunt_flag }
+						OR = {
+							AND = {
+								this = scope:sc_attacker
+								scope:sc_defender = {
+									is_ai = yes
+									NOT = { has_trait = calm }
+								}
+							}
+							AND = {
+								this = scope:sc_defender
+								scope:sc_attacker = {
+									is_ai = yes
+									NOT = { has_trait = calm }
+								}
+							}
+						}
+					}
+					set_local_variable = {
+						name = combat_move_taunt_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:taunt
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:taunt
+							}
+						}
+					}
+				}
+				# Put the Boot In
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_put_the_boot_in_flag }
+						#No special requirements.
+					}
+					set_local_variable = {
+						name = combat_move_put_the_boot_in_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:put_the_boot_in
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:put_the_boot_in
+							}
+						}
+					}
+				}
+			}
 		}
-		random_list = {
-			1000 = {
-				trigger = {
-					NOT = { exists = local_var:zz_magic_attack_tier_01 }
-				}
-				set_local_variable = {
-					name = zz_magic_attack_tier_01
-					value = yes
-				}
+		#Special moves.
+		30 = {
+			trigger = {
+				NOT = { exists = local_var:combat_move_special_slot_used_flag }
 			}
-			1000 = {
-				trigger = {
-					NOT = { exists = local_var:zz_magic_attack_tier_02 }
-				}
-				set_local_variable = {
-					name = zz_magic_attack_tier_02
-					value = yes
-				}
-			}
-			1000 = {
-				trigger = {
-					NOT = { exists = local_var:zz_magic_attack_tier_03 }
-				}
-				set_local_variable = {
-					name = zz_magic_attack_tier_03
-					value = yes
-				}
-			}
-		}
-	}
-	else = {
-		random_list = {
-			#Ordinary moves.
-			70 = {
-				random_list = {
-					# Guard
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_guard_flag }
-							#Fallback, always available.
-						}
-						set_local_variable = {
-							name = combat_move_guard_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:guard
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:guard
-								}
-							}
-						}
-					}
-					# Probing Attack
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_probing_attack_flag }
-							#Fallback, always available.
-						}
-						set_local_variable = {
-							name = combat_move_probing_attack_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:probing_attack
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:probing_attack
-								}
-							}
-						}
-					}
-					# Onslaught
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_onslaught_flag }
-							#Fallback, always available.
-						}
-						set_local_variable = {
-							name = combat_move_onslaught_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:onslaught
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:onslaught
-								}
-							}
-						}
-					}
-					# Surprise Attack
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_surprise_attack_flag }
-							OR = {
-								AND = {
-									this = scope:sc_attacker
-									scope:sc_defender = {
-										NOT = { has_trait = paranoid }
-									}
-								}
-								AND = {
-									this = scope:sc_defender
-									scope:sc_attacker = {
-										NOT = { has_trait = paranoid }
-									}
-								}
-							}
-						}
-						set_local_variable = {
-							name = combat_move_surprise_attack_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:surprise_attack
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:surprise_attack
-								}
-							}
-						}
-					}
-					# Taunt
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_taunt_flag }
-							OR = {
-								AND = {
-									this = scope:sc_attacker
-									scope:sc_defender = {
-										is_ai = yes
-										NOT = { has_trait = calm }
-									}
-								}
-								AND = {
-									this = scope:sc_defender
-									scope:sc_attacker = {
-										is_ai = yes
-										NOT = { has_trait = calm }
-									}
-								}
-							}
-						}
-						set_local_variable = {
-							name = combat_move_taunt_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:taunt
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:taunt
-								}
-							}
-						}
-					}
-					# Put the Boot In
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_put_the_boot_in_flag }
-							#No special requirements.
-						}
-						set_local_variable = {
-							name = combat_move_put_the_boot_in_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:put_the_boot_in
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:put_the_boot_in
-								}
-							}
-						}
-					}
-				}
-			}
-			#Special moves.
-			30 = {
-				trigger = {
-					NOT = { exists = local_var:combat_move_special_slot_used_flag }
-				}
-				select_special_tier_move_effect = yes
-			}
+			select_special_tier_move_effect = yes
 		}
 	}
+
+
 }
 
 # Select a single tier 3 combat move from the list.
 scripted_effect select_tier_3_move_effect = {
-	if = {
-		limit = {
-			has_variable = magic_type
+	random_list = {
+		#Ordinary moves.
+		70 = {
+			random_list = {
+				# Strict Guard
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_strict_guard_flag }
+						#Fallback, always available.
+					}
+					set_local_variable = {
+						name = combat_move_strict_guard_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:strict_guard
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:strict_guard
+							}
+						}
+					}
+				}
+				# Confident Attack
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_confident_attack_flag }
+						#Fallback, always available.
+					}
+					set_local_variable = {
+						name = combat_move_confident_attack_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:confident_attack
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:confident_attack
+							}
+						}
+					}
+				}
+				# Expert Onslaught
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_expert_onslaught_flag }
+						#Fallback, always available.
+					}
+					set_local_variable = {
+						name = combat_move_expert_onslaught_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:expert_onslaught
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:expert_onslaught
+							}
+						}
+					}
+				}
+				# Attempt Disarm
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_attempt_disarm_flag }
+						OR = {
+							AND = {
+								this = scope:sc_attacker
+								scope:sc_defender = {
+									prowess >= decent_scsk
+									# Blademasters cannot be wrong-footed by a disarmament attempt.
+									NOT = { has_trait = lifestyle_blademaster }
+								}
+							}
+							AND = {
+								this = scope:sc_defender
+								scope:sc_attacker = {
+									prowess >= decent_scsk
+									# Blademasters cannot be wrong-footed by a disarmament attempt.
+									NOT = { has_trait = lifestyle_blademaster }
+								}
+							}
+						}
+					}
+					set_local_variable = {
+						name = combat_move_attempt_disarm_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:attempt_disarm
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:attempt_disarm
+							}
+						}
+					}
+				}
+				# Lightning Assault
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_lightning_assault_flag }
+						scope:sc_defender.var:current_round = 1
+					}
+					set_local_variable = {
+						name = combat_move_lightning_assault_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:lightning_assault
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:lightning_assault
+							}
+						}
+					}
+				}
+				# Tire Opponent
+				1000 = {
+					trigger = {
+						NOT = { exists = local_var:combat_move_tire_opponent_flag }
+						#No special requirements.
+					}
+					set_local_variable = {
+						name = combat_move_tire_opponent_flag
+						value = yes
+					}
+					# Weight down repeat moves
+					modifier = {
+						add = sce_regular_combat_repeat_down_weight
+						OR = {
+							AND = {
+								exists = scope:sc_defender_last_move
+								this = scope:sc_defender
+								scope:sc_defender_last_move = flag:tire_opponent
+							}
+							AND = {
+								exists = scope:sc_attacker_last_move
+								this = scope:sc_attacker
+								scope:sc_attacker_last_move = flag:tire_opponent
+							}
+						}
+					}
+				}
+			}
 		}
-		random_list = {
-			1000 = {
-				trigger = {
-					NOT = { exists = local_var:zz_magic_attack_tier_01 }
-				}
-				set_local_variable = {
-					name = zz_magic_attack_tier_01
-					value = yes
-				}
+		#Special moves.
+		30 = {
+			trigger = {
+				NOT = { exists = local_var:combat_move_special_slot_used_flag }
 			}
-			1000 = {
-				trigger = {
-					NOT = { exists = local_var:zz_magic_attack_tier_02 }
-				}
-				set_local_variable = {
-					name = zz_magic_attack_tier_02
-					value = yes
-				}
-			}
-			1000 = {
-				trigger = {
-					NOT = { exists = local_var:zz_magic_attack_tier_03 }
-				}
-				set_local_variable = {
-					name = zz_magic_attack_tier_03
-					value = yes
-				}
-			}
-		}
-	}
-	else = {
-		random_list = {
-			#Ordinary moves.
-			70 = {
-				random_list = {
-					# Strict Guard
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_strict_guard_flag }
-							#Fallback, always available.
-						}
-						set_local_variable = {
-							name = combat_move_strict_guard_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:strict_guard
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:strict_guard
-								}
-							}
-						}
-					}
-					# Confident Attack
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_confident_attack_flag }
-							#Fallback, always available.
-						}
-						set_local_variable = {
-							name = combat_move_confident_attack_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:confident_attack
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:confident_attack
-								}
-							}
-						}
-					}
-					# Expert Onslaught
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_expert_onslaught_flag }
-							#Fallback, always available.
-						}
-						set_local_variable = {
-							name = combat_move_expert_onslaught_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:expert_onslaught
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:expert_onslaught
-								}
-							}
-						}
-					}
-					# Attempt Disarm
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_attempt_disarm_flag }
-							OR = {
-								AND = {
-									this = scope:sc_attacker
-									scope:sc_defender = {
-										prowess >= decent_scsk
-										# Blademasters cannot be wrong-footed by a disarmament attempt.
-										NOT = { has_trait = lifestyle_blademaster }
-									}
-								}
-								AND = {
-									this = scope:sc_defender
-									scope:sc_attacker = {
-										prowess >= decent_scsk
-										# Blademasters cannot be wrong-footed by a disarmament attempt.
-										NOT = { has_trait = lifestyle_blademaster }
-									}
-								}
-							}
-						}
-						set_local_variable = {
-							name = combat_move_attempt_disarm_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:attempt_disarm
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:attempt_disarm
-								}
-							}
-						}
-					}
-					# Lightning Assault
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_lightning_assault_flag }
-							scope:sc_defender.var:current_round = 1
-						}
-						set_local_variable = {
-							name = combat_move_lightning_assault_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:lightning_assault
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:lightning_assault
-								}
-							}
-						}
-					}
-					# Tire Opponent
-					1000 = {
-						trigger = {
-							NOT = { exists = local_var:combat_move_tire_opponent_flag }
-							#No special requirements.
-						}
-						set_local_variable = {
-							name = combat_move_tire_opponent_flag
-							value = yes
-						}
-						# Weight down repeat moves
-						modifier = {
-							add = sce_regular_combat_repeat_down_weight
-							OR = {
-								AND = {
-									exists = scope:sc_defender_last_move
-									this = scope:sc_defender
-									scope:sc_defender_last_move = flag:tire_opponent
-								}
-								AND = {
-									exists = scope:sc_attacker_last_move
-									this = scope:sc_attacker
-									scope:sc_attacker_last_move = flag:tire_opponent
-								}
-							}
-						}
-					}
-				}
-			}
-			#Special moves.
-			30 = {
-				trigger = {
-					NOT = { exists = local_var:combat_move_special_slot_used_flag }
-				}
-				select_special_tier_move_effect = yes
-			}
+			select_special_tier_move_effect = yes
 		}
 	}
+
+
 }
 
 # Determine what tier of moves a character is getting this round, then pick them.
@@ -1547,7 +1445,7 @@ scripted_effect select_combat_options_from_pool_effect = {
 		#low_scsk *always* draws x3 tier 1 moves.
 		set_variable = {
 			name = tier_1_counter
-			value = 3
+			value = 5
 		}
 		set_variable = {
 			name = tier_2_counter
@@ -1566,7 +1464,7 @@ scripted_effect select_combat_options_from_pool_effect = {
 			50 = {
 				set_variable = {
 					name = tier_1_counter
-					value = 3
+					value = 5
 				}
 				set_variable = {
 					name = tier_2_counter
@@ -1581,11 +1479,11 @@ scripted_effect select_combat_options_from_pool_effect = {
 			50 = {
 				set_variable = {
 					name = tier_1_counter
-					value = 2
+					value = 3
 				}
 				set_variable = {
 					name = tier_2_counter
-					value = 1
+					value = 2
 				}
 				set_variable = {
 					name = tier_3_counter
@@ -1602,7 +1500,7 @@ scripted_effect select_combat_options_from_pool_effect = {
 			33 = {
 				set_variable = {
 					name = tier_1_counter
-					value = 3
+					value = 5
 				}
 				set_variable = {
 					name = tier_2_counter
@@ -1617,11 +1515,11 @@ scripted_effect select_combat_options_from_pool_effect = {
 			34 = {
 				set_variable = {
 					name = tier_1_counter
-					value = 2
+					value = 3
 				}
 				set_variable = {
 					name = tier_2_counter
-					value = 1
+					value = 2
 				}
 				set_variable = {
 					name = tier_3_counter
@@ -1632,11 +1530,11 @@ scripted_effect select_combat_options_from_pool_effect = {
 			33 = {
 				set_variable = {
 					name = tier_1_counter
-					value = 1
+					value = 2
 				}
 				set_variable = {
 					name = tier_2_counter
-					value = 1
+					value = 2
 				}
 				set_variable = {
 					name = tier_3_counter
@@ -1653,11 +1551,11 @@ scripted_effect select_combat_options_from_pool_effect = {
 			33 = {
 				set_variable = {
 					name = tier_1_counter
-					value = 2
+					value = 3
 				}
 				set_variable = {
 					name = tier_2_counter
-					value = 1
+					value = 2
 				}
 				set_variable = {
 					name = tier_3_counter
@@ -1672,11 +1570,11 @@ scripted_effect select_combat_options_from_pool_effect = {
 				}
 				set_variable = {
 					name = tier_2_counter
-					value = 1
+					value = 2
 				}
 				set_variable = {
 					name = tier_3_counter
-					value = 1
+					value = 2
 				}
 			}
 			#Good roll, +1 to tier set.
@@ -1687,11 +1585,11 @@ scripted_effect select_combat_options_from_pool_effect = {
 				}
 				set_variable = {
 					name = tier_2_counter
-					value = 2
+					value = 3
 				}
 				set_variable = {
 					name = tier_3_counter
-					value = 1
+					value = 2
 				}
 			}
 		}
@@ -1708,11 +1606,11 @@ scripted_effect select_combat_options_from_pool_effect = {
 				}
 				set_variable = {
 					name = tier_2_counter
-					value = 1
+					value = 2
 				}
 				set_variable = {
 					name = tier_3_counter
-					value = 1
+					value = 2
 				}
 			}
 			#Average roll, default tier set.
@@ -1723,11 +1621,11 @@ scripted_effect select_combat_options_from_pool_effect = {
 				}
 				set_variable = {
 					name = tier_2_counter
-					value = 2
+					value = 3
 				}
 				set_variable = {
 					name = tier_3_counter
-					value = 1
+					value = 2
 				}
 			}
 			#Good roll, +1 to tier set.
@@ -1738,11 +1636,11 @@ scripted_effect select_combat_options_from_pool_effect = {
 				}
 				set_variable = {
 					name = tier_2_counter
-					value = 1
+					value = 2
 				}
 				set_variable = {
 					name = tier_3_counter
-					value = 2
+					value = 3
 				}
 			}
 		}
@@ -1759,11 +1657,11 @@ scripted_effect select_combat_options_from_pool_effect = {
 				}
 				set_variable = {
 					name = tier_2_counter
-					value = 2
+					value = 3
 				}
 				set_variable = {
 					name = tier_3_counter
-					value = 1
+					value = 2
 				}
 			}
 			#Average roll, default tier set.
@@ -1774,11 +1672,11 @@ scripted_effect select_combat_options_from_pool_effect = {
 				}
 				set_variable = {
 					name = tier_2_counter
-					value = 1
+					value = 2
 				}
 				set_variable = {
 					name = tier_3_counter
-					value = 2
+					value = 3
 				}
 			}
 			#Good roll, +1 to tier set.
@@ -1793,7 +1691,7 @@ scripted_effect select_combat_options_from_pool_effect = {
 				}
 				set_variable = {
 					name = tier_3_counter
-					value = 3
+					value = 5
 				}
 			}
 		}
@@ -1810,11 +1708,11 @@ scripted_effect select_combat_options_from_pool_effect = {
 				}
 				set_variable = {
 					name = tier_2_counter
-					value = 1
+					value = 2
 				}
 				set_variable = {
 					name = tier_3_counter
-					value = 2
+					value = 3
 				}
 			}
 			#Average roll, default tier set.
@@ -1829,7 +1727,7 @@ scripted_effect select_combat_options_from_pool_effect = {
 				}
 				set_variable = {
 					name = tier_3_counter
-					value = 3
+					value = 5
 				}
 			}
 		}
@@ -1847,7 +1745,7 @@ scripted_effect select_combat_options_from_pool_effect = {
 		}
 		set_variable = {
 			name = tier_3_counter
-			value = 3
+			value = 5
 		}
 	}
 
@@ -1874,6 +1772,31 @@ scripted_effect select_combat_options_from_pool_effect = {
 		}
 		select_tier_1_move_effect = yes
 	}
+	if = {
+		limit = {
+			# Check that the variable exists; strictly unnecessary, but stops a false positive clogging the error log.
+			has_variable = tier_1_counter
+			var:tier_1_counter > 0
+		}
+		change_variable = {
+			name = tier_1_counter
+			add = -1
+		}
+		select_tier_1_move_effect = yes
+	}
+	if = {
+		limit = {
+			# Check that the variable exists; strictly unnecessary, but stops a false positive clogging the error log.
+			has_variable = tier_1_counter
+			var:tier_1_counter > 0
+		}
+		change_variable = {
+			name = tier_1_counter
+			add = -1
+		}
+		select_tier_1_move_effect = yes
+	}
+	# zz: 5 moves a round (tier 1 draws 4 and 5)
 	if = {
 		limit = {
 			# Check that the variable exists; strictly unnecessary, but stops a false positive clogging the error log.
@@ -1935,6 +1858,31 @@ scripted_effect select_combat_options_from_pool_effect = {
 		}
 		select_tier_2_move_effect = yes
 	}
+	# zz: 5 moves a round (tier 2 draws 4 and 5)
+	if = {
+		limit = {
+			# Check that the variable exists; strictly unnecessary, but stops a false positive clogging the error log.
+			has_variable = tier_2_counter
+			var:tier_2_counter > 0
+		}
+		change_variable = {
+			name = tier_2_counter
+			add = -1
+		}
+		select_tier_2_move_effect = yes
+	}
+	if = {
+		limit = {
+			# Check that the variable exists; strictly unnecessary, but stops a false positive clogging the error log.
+			has_variable = tier_2_counter
+			var:tier_2_counter > 0
+		}
+		change_variable = {
+			name = tier_2_counter
+			add = -1
+		}
+		select_tier_2_move_effect = yes
+	}
 	## Tier 3
 	if = {
 		limit = {
@@ -1948,6 +1896,31 @@ scripted_effect select_combat_options_from_pool_effect = {
 		}
 		select_tier_3_move_effect = yes
 	}
+	if = {
+		limit = {
+			# Check that the variable exists; strictly unnecessary, but stops a false positive clogging the error log.
+			has_variable = tier_3_counter
+			var:tier_3_counter > 0
+		}
+		change_variable = {
+			name = tier_3_counter
+			add = -1
+		}
+		select_tier_3_move_effect = yes
+	}
+	if = {
+		limit = {
+			# Check that the variable exists; strictly unnecessary, but stops a false positive clogging the error log.
+			has_variable = tier_3_counter
+			var:tier_3_counter > 0
+		}
+		change_variable = {
+			name = tier_3_counter
+			add = -1
+		}
+		select_tier_3_move_effect = yes
+	}
+	# zz: 5 moves a round (tier 3 draws 4 and 5)
 	if = {
 		limit = {
 			# Check that the variable exists; strictly unnecessary, but stops a false positive clogging the error log.
@@ -2271,9 +2244,16 @@ scripted_effect work_out_wounds_or_death_effect = {
 					execute_opinion_effect = { VICTIM = scope:recipient EXECUTIONER = scope:secondary_recipient }
 				}
 				scope:recipient = {
-					death = {
-						death_reason = death_dream_magic
-						killer = scope:secondary_recipient
+					#zz_valyria Modified: a Soothsaying (Battle) vision turns this death aside
+					if = {
+						limit = { zz_valyria_battle_ward_trigger = yes }
+						trigger_event = { on_action = zz_valyria_battle_ward }
+					}
+					else = {
+						death = {
+							death_reason = death_dream_magic
+							killer = scope:secondary_recipient
+						}
 					}
 				}
 				scope:secondary_recipient = {
@@ -2363,9 +2343,16 @@ scripted_effect work_out_wounds_or_death_effect = {
 					execute_opinion_effect = { VICTIM = scope:recipient EXECUTIONER = scope:secondary_recipient }
 				}
 				scope:recipient = {
-					death = {
-						death_reason = death_blood_magic
-						killer = scope:secondary_recipient
+					#zz_valyria Modified: a Soothsaying (Battle) vision turns this death aside
+					if = {
+						limit = { zz_valyria_battle_ward_trigger = yes }
+						trigger_event = { on_action = zz_valyria_battle_ward }
+					}
+					else = {
+						death = {
+							death_reason = death_blood_magic
+							killer = scope:secondary_recipient
+						}
 					}
 				}
 				scope:secondary_recipient = {
@@ -2458,9 +2445,16 @@ scripted_effect work_out_wounds_or_death_effect = {
 					execute_opinion_effect = { VICTIM = scope:recipient EXECUTIONER = scope:secondary_recipient }
 				}
 				scope:recipient = {
-					death = {
-						death_reason = death_transmutation_magic
-						killer = scope:secondary_recipient
+					#zz_valyria Modified: a Soothsaying (Battle) vision turns this death aside
+					if = {
+						limit = { zz_valyria_battle_ward_trigger = yes }
+						trigger_event = { on_action = zz_valyria_battle_ward }
+					}
+					else = {
+						death = {
+							death_reason = death_transmutation_magic
+							killer = scope:secondary_recipient
+						}
 					}
 				}
 			}
@@ -2542,9 +2536,16 @@ scripted_effect work_out_wounds_or_death_effect = {
 				}
 				
 				scope:recipient = {
-					death = {
-						death_reason = death_shadow_magic
-						killer = scope:secondary_recipient
+					#zz_valyria Modified: a Soothsaying (Battle) vision turns this death aside
+					if = {
+						limit = { zz_valyria_battle_ward_trigger = yes }
+						trigger_event = { on_action = zz_valyria_battle_ward }
+					}
+					else = {
+						death = {
+							death_reason = death_shadow_magic
+							killer = scope:secondary_recipient
+						}
 					}
 				}
 			}
@@ -2616,9 +2617,16 @@ scripted_effect work_out_wounds_or_death_effect = {
 					execute_opinion_effect = { VICTIM = scope:recipient EXECUTIONER = scope:secondary_recipient }
 				}
 				scope:recipient = {
-					death = {
-						death_reason = death_fire_magic
-						killer = scope:secondary_recipient
+					#zz_valyria Modified: a Soothsaying (Battle) vision turns this death aside
+					if = {
+						limit = { zz_valyria_battle_ward_trigger = yes }
+						trigger_event = { on_action = zz_valyria_battle_ward }
+					}
+					else = {
+						death = {
+							death_reason = death_fire_magic
+							killer = scope:secondary_recipient
+						}
 					}
 				}
 			}
@@ -2690,9 +2698,16 @@ scripted_effect work_out_wounds_or_death_effect = {
 					execute_opinion_effect = { VICTIM = scope:recipient EXECUTIONER = scope:secondary_recipient }
 				}
 				scope:recipient = {
-					death = {
-						death_reason = death_water_magic
-						killer = scope:secondary_recipient
+					#zz_valyria Modified: a Soothsaying (Battle) vision turns this death aside
+					if = {
+						limit = { zz_valyria_battle_ward_trigger = yes }
+						trigger_event = { on_action = zz_valyria_battle_ward }
+					}
+					else = {
+						death = {
+							death_reason = death_water_magic
+							killer = scope:secondary_recipient
+						}
 					}
 				}
 			}
@@ -2765,9 +2780,16 @@ scripted_effect work_out_wounds_or_death_effect = {
 				}
 				scope:recipient = {
 					maimed_in_battle_effect = yes
-					death = {
-						death_reason = death_air_magic
-						killer = scope:secondary_recipient
+					#zz_valyria Modified: a Soothsaying (Battle) vision turns this death aside
+					if = {
+						limit = { zz_valyria_battle_ward_trigger = yes }
+						trigger_event = { on_action = zz_valyria_battle_ward }
+					}
+					else = {
+						death = {
+							death_reason = death_air_magic
+							killer = scope:secondary_recipient
+						}
 					}
 				}
 			}
@@ -2798,9 +2820,16 @@ scripted_effect work_out_wounds_or_death_effect = {
 				}
 			}
 			scope:sc_loser = {
-				death = {
-					killer = scope:sc_victor
-					death_reason = death_duel
+				#zz_valyria Modified: a Soothsaying (Battle) vision turns this death aside
+				if = {
+					limit = { zz_valyria_battle_ward_trigger = yes }
+					trigger_event = { on_action = zz_valyria_battle_ward }
+				}
+				else = {
+					death = {
+						killer = scope:sc_victor
+						death_reason = death_duel
+					}
 				}
 			}
 		}
@@ -2834,9 +2863,16 @@ scripted_effect work_out_wounds_or_death_effect = {
 			}
 		}
 		scope:sc_loser = {
-			death = {
-				killer = scope:sc_victor
-				death_reason = death_duel
+			#zz_valyria Modified: a Soothsaying (Battle) vision turns this death aside
+			if = {
+				limit = { zz_valyria_battle_ward_trigger = yes }
+				trigger_event = { on_action = zz_valyria_battle_ward }
+			}
+			else = {
+				death = {
+					killer = scope:sc_victor
+					death_reason = death_duel
+				}
 			}
 		}
 	}
@@ -3482,56 +3518,6 @@ scripted_effect adjust_risk_reward_effect = {
 	}
 	else_if = {
 		limit = { $DUEL_SUCCESS$ = duel_success_very_high }
-		# If this is a past tense tooltip, refer to scope:my_foe grammatically.
-		if = {
-			limit = { this = scope:my_foe }
-			custom_tooltip = single_combat.0001.duel_success.very_high.has_happened
-		}
-		# Otherwise, we do it from first person.
-		else = { custom_tooltip = single_combat.0001.duel_success.very_high }
-	}
-	if = {
-		limit = { $DUEL_SUCCESS$ = zz_magic_duel_success_none }
-		# If this is a past tense tooltip, refer to scope:my_foe grammatically.
-		if = {
-			limit = { this = scope:my_foe }
-			custom_tooltip = single_combat.0001.duel_success.none.has_happened
-		}
-		# Otherwise, we do it from first person.
-		else = { custom_tooltip = single_combat.0001.duel_success.none }
-	}
-	else_if = {
-		limit = { $DUEL_SUCCESS$ = zz_magic_duel_success_low }
-		# If this is a past tense tooltip, refer to scope:my_foe grammatically.
-		if = {
-			limit = { this = scope:my_foe }
-			custom_tooltip = single_combat.0001.duel_success.low.has_happened
-		}
-		# Otherwise, we do it from first person.
-		else = { custom_tooltip = single_combat.0001.duel_success.low }
-	}
-	else_if = {
-		limit = { $DUEL_SUCCESS$ = zz_magic_duel_success_medium }
-		# If this is a past tense tooltip, refer to scope:my_foe grammatically.
-		if = {
-			limit = { this = scope:my_foe }
-			custom_tooltip = single_combat.0001.duel_success.medium.has_happened
-		}
-		# Otherwise, we do it from first person.
-		else = { custom_tooltip = single_combat.0001.duel_success.medium }
-	}
-	else_if = {
-		limit = { $DUEL_SUCCESS$ = zz_magic_duel_success_high }
-		# If this is a past tense tooltip, refer to scope:my_foe grammatically.
-		if = {
-			limit = { this = scope:my_foe }
-			custom_tooltip = single_combat.0001.duel_success.high.has_happened
-		}
-		# Otherwise, we do it from first person.
-		else = { custom_tooltip = single_combat.0001.duel_success.high }
-	}
-	else_if = {
-		limit = { $DUEL_SUCCESS$ = zz_magic_duel_success_very_high }
 		# If this is a past tense tooltip, refer to scope:my_foe grammatically.
 		if = {
 			limit = { this = scope:my_foe }
@@ -5497,32 +5483,262 @@ scripted_effect combat_move_blade_dance_effect = {
 	}
 }
 
-scripted_effect combat_move_mages_fury_effect = {
-	# Show off your skill with the blade.
-	add_prestige = combat_move_blade_dance_value
-
+#zz_valyria A spell used as a duel move: its strength is the mover's skill in its school (zz_duel_spell_success_<school>)
+scripted_effect combat_move_zz_spell_effect = {
+	remove_variable = zz_duel_last_spell
 	#Change the last move registered for loc purposes.
 	if = {
 		limit = { this = scope:sc_attacker }
 		save_scope_value_as = {
 			name = sc_attacker_last_move
-			value = flag:blade_dance
+			value = flag:magic_potency_$SCHOOL$_01
 		}
 	}
 	if = {
 		limit = { this = scope:sc_defender }
 		save_scope_value_as = {
 			name = sc_defender_last_move
-			value = flag:blade_dance
+			value = flag:magic_potency_$SCHOOL$_01
 		}
 	}
+	#And adjust risk-reward scores; no risk of injury to the caster.
+	if = {
+		limit = { this = scope:sc_attacker }
+		change_variable = {
+			name = sc_attacker_duel_success_score
+			add = zz_duel_spell_success_$SCHOOL$
+		}
+	}
+	if = {
+		limit = { this = scope:sc_defender }
+		change_variable = {
+			name = sc_defender_duel_success_score
+			add = zz_duel_spell_success_$SCHOOL$
+		}
+	}
+	if = {
+		limit = { zz_duel_spell_success_$SCHOOL$ >= duel_success_very_high }
+		if = {
+			limit = { this = scope:my_foe }
+			custom_tooltip = single_combat.0001.duel_success.very_high.has_happened
+		}
+		else = { custom_tooltip = single_combat.0001.duel_success.very_high }
+	}
+	else_if = {
+		limit = { zz_duel_spell_success_$SCHOOL$ >= duel_success_high }
+		if = {
+			limit = { this = scope:my_foe }
+			custom_tooltip = single_combat.0001.duel_success.high.has_happened
+		}
+		else = { custom_tooltip = single_combat.0001.duel_success.high }
+	}
+	else_if = {
+		limit = { zz_duel_spell_success_$SCHOOL$ >= duel_success_medium }
+		if = {
+			limit = { this = scope:my_foe }
+			custom_tooltip = single_combat.0001.duel_success.medium.has_happened
+		}
+		else = { custom_tooltip = single_combat.0001.duel_success.medium }
+	}
+	else = {
+		if = {
+			limit = { this = scope:my_foe }
+			custom_tooltip = single_combat.0001.duel_success.low.has_happened
+		}
+		else = { custom_tooltip = single_combat.0001.duel_success.low }
+	}
+	if = {
+		limit = { this = scope:my_foe }
+		custom_tooltip = single_combat.0001.injury.none.has_happened
+	}
+	else = { custom_tooltip = single_combat.0001.injury.none }
+}
 
-	#And adjust risk-reward scores.
-	adjust_risk_reward_effect = {
-		INJURY_RISK = injury_risk_none
-		DUEL_SUCCESS = duel_success_very_high
+#zz_valyria Change one of the mover's own duel scores. A score never falls below 0.
+scripted_effect zz_duel_change_own_effect = {
+	save_temporary_scope_value_as = {
+		name = zz_duel_amount
+		value = {
+			value = $AMOUNT$
+			multiply = $SIGN$
+		}
+	}
+	if = {
+		limit = { this = scope:sc_attacker }
+		change_variable = {
+			name = sc_attacker_$STAT$
+			add = scope:zz_duel_amount
+		}
+		if = {
+			limit = { var:sc_attacker_$STAT$ < 0 }
+			set_variable = {
+				name = sc_attacker_$STAT$
+				value = 0
+			}
+		}
+	}
+	if = {
+		limit = { this = scope:sc_defender }
+		change_variable = {
+			name = sc_defender_$STAT$
+			add = scope:zz_duel_amount
+		}
+		if = {
+			limit = { var:sc_defender_$STAT$ < 0 }
+			set_variable = {
+				name = sc_defender_$STAT$
+				value = 0
+			}
+		}
 	}
 }
+
+#zz_valyria Change one of the foe's duel scores; the amount is worked out from the mover. A score never falls below 0.
+scripted_effect zz_duel_change_foe_effect = {
+	save_temporary_scope_value_as = {
+		name = zz_duel_amount
+		value = {
+			value = $AMOUNT$
+			multiply = $SIGN$
+		}
+	}
+	if = {
+		limit = { this = scope:sc_attacker }
+		scope:sc_defender = {
+			change_variable = {
+				name = sc_defender_$STAT$
+				add = scope:zz_duel_amount
+			}
+			if = {
+				limit = { var:sc_defender_$STAT$ < 0 }
+				set_variable = {
+					name = sc_defender_$STAT$
+					value = 0
+				}
+			}
+		}
+	}
+	if = {
+		limit = { this = scope:sc_defender }
+		scope:sc_attacker = {
+			change_variable = {
+				name = sc_attacker_$STAT$
+				add = scope:zz_duel_amount
+			}
+			if = {
+				limit = { var:sc_attacker_$STAT$ < 0 }
+				set_variable = {
+					name = sc_attacker_$STAT$
+					value = 0
+				}
+			}
+		}
+	}
+}
+
+#zz_valyria Record a second-spell move: the school's last-move flag (for the round texts) and which spell it was (for the foe's move tooltip)
+scripted_effect zz_duel_spell_mark_effect = {
+	if = {
+		limit = { this = scope:sc_attacker }
+		save_scope_value_as = {
+			name = sc_attacker_last_move
+			value = flag:magic_potency_$SCHOOL$_01
+		}
+	}
+	if = {
+		limit = { this = scope:sc_defender }
+		save_scope_value_as = {
+			name = sc_defender_last_move
+			value = flag:magic_potency_$SCHOOL$_01
+		}
+	}
+	set_variable = {
+		name = zz_duel_last_spell
+		value = flag:$MOVE$
+		days = 30
+	}
+}
+
+#zz_valyria Spell move: [zz_mystery] of Searing Brand (Fire Magic). No risk of injury beyond what it states.
+scripted_effect combat_move_zz_searing_brand_effect = {
+	zz_duel_spell_mark_effect = { SCHOOL = fire MOVE = searing_brand }
+	zz_duel_change_foe_effect = { STAT = injury_risk_score AMOUNT = zz_duel_searing_brand_value SIGN = 1 }
+	custom_tooltip = single_combat.0001.zz_duel_tt.searing_brand
+}
+
+#zz_valyria Spell move: [zz_mystery] of the Gale Step (Air Magic). No risk of injury beyond what it states.
+scripted_effect combat_move_zz_gale_step_effect = {
+	zz_duel_spell_mark_effect = { SCHOOL = air MOVE = gale_step }
+	zz_duel_change_own_effect = { STAT = injury_risk_score AMOUNT = zz_duel_gale_step_value SIGN = -1 }
+	custom_tooltip = single_combat.0001.zz_duel_tt.gale_step
+}
+
+#zz_valyria Spell move: [zz_mystery] of the Undertow (Water Magic). No risk of injury beyond what it states.
+scripted_effect combat_move_zz_undertow_effect = {
+	zz_duel_spell_mark_effect = { SCHOOL = water MOVE = undertow }
+	zz_duel_change_foe_effect = { STAT = duel_success_score AMOUNT = zz_duel_undertow_value SIGN = -1 }
+	custom_tooltip = single_combat.0001.zz_duel_tt.undertow
+}
+
+#zz_valyria Spell move: [zz_mystery] of the Blood Price (Blood Magic). No risk of injury beyond what it states.
+scripted_effect combat_move_zz_blood_price_effect = {
+	zz_duel_spell_mark_effect = { SCHOOL = blood MOVE = blood_price }
+	zz_duel_change_own_effect = { STAT = duel_success_score AMOUNT = zz_duel_blood_price_value SIGN = 1 }
+	zz_duel_change_own_effect = { STAT = injury_risk_score AMOUNT = injury_risk_medium SIGN = 1 }
+	custom_tooltip = single_combat.0001.zz_duel_tt.blood_price
+}
+
+#zz_valyria Spell move: [zz_mystery] of the Shadow Feint (Shadow Magic). No risk of injury beyond what it states.
+scripted_effect combat_move_zz_shadow_feint_effect = {
+	zz_duel_spell_mark_effect = { SCHOOL = shadow MOVE = shadow_feint }
+	zz_duel_change_foe_effect = { STAT = duel_success_score AMOUNT = zz_duel_shadow_feint_value SIGN = -1 }
+	zz_duel_change_foe_effect = { STAT = injury_risk_score AMOUNT = zz_duel_shadow_feint_value SIGN = 1 }
+	custom_tooltip = single_combat.0001.zz_duel_tt.shadow_feint
+}
+
+#zz_valyria Spell move: [zz_mystery] of Foresight (Dream Magic). No risk of injury beyond what it states.
+scripted_effect combat_move_zz_foresight_effect = {
+	zz_duel_spell_mark_effect = { SCHOOL = dream MOVE = foresight }
+	set_variable = {
+		name = zz_duel_foresight
+		value = scope:sc_defender.var:current_round
+		days = 30
+	}
+	custom_tooltip = single_combat.0001.zz_duel_tt.foresight
+}
+
+#zz_valyria Spell move: [zz_mystery] of Quicksilver Skin (Alchemy Magic). No risk of injury beyond what it states.
+scripted_effect combat_move_zz_quicksilver_skin_effect = {
+	zz_duel_spell_mark_effect = { SCHOOL = alchemy MOVE = quicksilver_skin }
+	if = {
+		limit = { this = scope:sc_attacker }
+		change_variable = {
+			name = sc_attacker_injury_risk_score
+			multiply = zz_duel_quicksilver_skin_value
+		}
+	}
+	if = {
+		limit = { this = scope:sc_defender }
+		change_variable = {
+			name = sc_defender_injury_risk_score
+			multiply = zz_duel_quicksilver_skin_value
+		}
+	}
+	custom_tooltip = single_combat.0001.zz_duel_tt.quicksilver_skin
+}
+
+#zz_valyria Foresight's lasting benefit, applied every round from the one it was cast in (run on each fighter by single_combat.0021)
+scripted_effect zz_duel_foresight_round_effect = {
+	if = {
+		limit = {
+			has_variable = zz_duel_foresight
+			var:zz_duel_foresight <= scope:sc_defender.var:current_round # from the round it is cast
+		}
+		zz_duel_change_own_effect = { STAT = duel_success_score AMOUNT = zz_duel_foresight_success_value SIGN = 1 }
+		zz_duel_change_own_effect = { STAT = injury_risk_score AMOUNT = zz_duel_foresight_ward_value SIGN = -1 }
+	}
+}
+
 ## Not a separate combat move, just an effect inside the subsequent one.
 scripted_effect combat_move_wrath_of_highgod_piety_reward_effect = {
 	# Non-scripted values used to keep the piety amount low; you might take this option several times in one duel, so we don't really want you to be farming piety from it.
@@ -5664,336 +5880,6 @@ scripted_effect combat_move_hurt_me_better_effect = {
 }
 
 # Magic Move Effects
-scripted_effect combat_move_mage_potency_01_effect = {
-	# Show off your skill with the blade.
-	add_prestige = combat_move_blade_dance_value
-
-	#Change the last move registered for loc purposes.
-	if = {
-		limit = { this = scope:sc_attacker }
-		switch = {
-			trigger = var:magic_type
-			flag:fire = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_fire_01
-				}
-			}
-			flag:air = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_air_01
-				}
-			}
-			flag:water = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_water_01
-				}
-			}
-			flag:shadow = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_shadow_01
-				}
-			}
-			flag:alchemy = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_alchemy_01
-				}
-			}
-			flag:blood = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_blood_01
-				}
-			}
-			flag:dream = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_dream_01
-				}
-			}
-		}
-		
-	}
-	if = {
-		limit = { this = scope:sc_defender }
-		switch = {
-			trigger = var:magic_type
-			flag:fire = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_fire_01
-				}
-			}
-			flag:air = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_air_01
-				}
-			}
-			flag:water = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_water_01
-				}
-			}
-			flag:shadow = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_shadow_01
-				}
-			}
-			flag:alchemy = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_alchemy_01
-				}
-			}
-			flag:blood = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_blood_01
-				}
-			}
-			flag:dream = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_dream_01
-				}
-			}
-			
-		}
-	}
-
-	#And adjust risk-reward scores.
-	adjust_risk_reward_effect = {
-		INJURY_RISK = injury_risk_none
-		DUEL_SUCCESS = zz_magic_duel_success_medium
-	}
-}
-scripted_effect combat_move_mage_potency_02_effect = {
-	# Show off your skill with the blade.
-	add_prestige = combat_move_blade_dance_value
-
-	#Change the last move registered for loc purposes.
-	if = {
-		limit = { this = scope:sc_attacker }
-		switch = {
-			trigger = var:magic_type
-			flag:fire = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_fire_01
-				}
-			}
-			flag:air = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_air_01
-				}
-			}
-			flag:water = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_water_01
-				}
-			}
-			flag:shadow = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_shadow_01
-				}
-			}
-			flag:alchemy = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_alchemy_01
-				}
-			}
-			flag:blood = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_blood_01
-				}
-			}
-			flag:dream = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_dream_01
-				}
-			}
-		}
-		
-	}
-	if = {
-		limit = { this = scope:sc_defender }
-		switch = {
-			trigger = var:magic_type
-			flag:fire = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_fire_01
-				}
-			}
-			flag:air = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_air_01
-				}
-			}
-			flag:water = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_water_01
-				}
-			}
-			flag:shadow = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_shadow_01
-				}
-			}
-			flag:alchemy = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_alchemy_01
-				}
-			}
-			flag:blood = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_blood_01
-				}
-			}
-			flag:dream = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_dream_01
-				}
-			}
-			
-		}
-	}
-
-	#And adjust risk-reward scores.
-	adjust_risk_reward_effect = {
-		INJURY_RISK = injury_risk_none
-		DUEL_SUCCESS = zz_magic_duel_success_high
-	}
-}
-scripted_effect combat_move_mage_potency_03_effect = {
-	# Show off your skill with the blade.
-	add_prestige = combat_move_blade_dance_value
-
-	#Change the last move registered for loc purposes.
-	if = {
-		limit = { this = scope:sc_attacker }
-		switch = {
-			trigger = var:magic_type
-			flag:fire = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_fire_01
-				}
-			}
-			flag:air = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_air_01
-				}
-			}
-			flag:water = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_water_01
-				}
-			}
-			flag:shadow = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_shadow_01
-				}
-			}
-			flag:alchemy = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_alchemy_01
-				}
-			}
-			flag:blood = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_blood_01
-				}
-			}
-			flag:dream = {
-				save_scope_value_as = {
-					name = sc_attacker_last_move
-					value = flag:magic_potency_dream_01
-				}
-			}
-		}
-		
-	}
-	if = {
-		limit = { this = scope:sc_defender }
-		switch = {
-			trigger = var:magic_type
-			flag:fire = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_fire_01
-				}
-			}
-			flag:air = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_air_01
-				}
-			}
-			flag:water = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_water_01
-				}
-			}
-			flag:shadow = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_shadow_01
-				}
-			}
-			flag:alchemy = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_alchemy_01
-				}
-			}
-			flag:blood = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_blood_01
-				}
-			}
-			flag:dream = {
-				save_scope_value_as = {
-					name = sc_defender_last_move
-					value = flag:magic_potency_dream_01
-				}
-			}
-			
-		}
-	}
-
-	#And adjust risk-reward scores.
-	adjust_risk_reward_effect = {
-		INJURY_RISK = injury_risk_none
-		DUEL_SUCCESS = zz_magic_duel_success_very_high
-	}
-}
 
 
 # Misc move effects
@@ -7355,6 +7241,11 @@ single_combat.0001 = {
 		play_music_cue = "mx_cue_combat_stinger"
 		# Generate combat options.
 		select_combat_options_from_pool_effect = yes
+		#zz_valyria A new duel starts without Foresight
+		if = {
+			limit = { scope:sc_defender.var:current_round ?= 1 }
+			remove_variable = zz_duel_foresight
+		}
 		# Set up portraits for this event, putting the current actor always on the left.
 		if = {
 			limit = { this = scope:sc_defender }
@@ -8069,7 +7960,13 @@ single_combat.0001 = {
 					}
 				}
 				scope:my_foe = {
-					show_as_tooltip = { combat_move_mage_potency_01_effect = yes }
+					if = {
+						limit = { var:zz_duel_last_spell ?= flag:searing_brand }
+						show_as_tooltip = { combat_move_zz_searing_brand_effect = yes }
+					}
+					else = {
+						show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = fire } }
+					}
 				}
 			}
 			if = {
@@ -8086,7 +7983,13 @@ single_combat.0001 = {
 					}
 				}
 				scope:my_foe = {
-					show_as_tooltip = { combat_move_mage_potency_01_effect = yes }
+					if = {
+						limit = { var:zz_duel_last_spell ?= flag:gale_step }
+						show_as_tooltip = { combat_move_zz_gale_step_effect = yes }
+					}
+					else = {
+						show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = air } }
+					}
 				}
 			}
 			if = {
@@ -8103,7 +8006,13 @@ single_combat.0001 = {
 					}
 				}
 				scope:my_foe = {
-					show_as_tooltip = { combat_move_mage_potency_01_effect = yes }
+					if = {
+						limit = { var:zz_duel_last_spell ?= flag:undertow }
+						show_as_tooltip = { combat_move_zz_undertow_effect = yes }
+					}
+					else = {
+						show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = water } }
+					}
 				}
 			}
 			if = {
@@ -8120,7 +8029,13 @@ single_combat.0001 = {
 					}
 				}
 				scope:my_foe = {
-					show_as_tooltip = { combat_move_mage_potency_01_effect = yes }
+					if = {
+						limit = { var:zz_duel_last_spell ?= flag:shadow_feint }
+						show_as_tooltip = { combat_move_zz_shadow_feint_effect = yes }
+					}
+					else = {
+						show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = shadow } }
+					}
 				}
 			}
 			if = {
@@ -8137,7 +8052,13 @@ single_combat.0001 = {
 					}
 				}
 				scope:my_foe = {
-					show_as_tooltip = { combat_move_mage_potency_01_effect = yes }
+					if = {
+						limit = { var:zz_duel_last_spell ?= flag:quicksilver_skin }
+						show_as_tooltip = { combat_move_zz_quicksilver_skin_effect = yes }
+					}
+					else = {
+						show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = alchemy } }
+					}
 				}
 			}
 			if = {
@@ -8154,7 +8075,36 @@ single_combat.0001 = {
 					}
 				}
 				scope:my_foe = {
-					show_as_tooltip = { combat_move_mage_potency_01_effect = yes }
+					if = {
+						limit = { var:zz_duel_last_spell ?= flag:blood_price }
+						show_as_tooltip = { combat_move_zz_blood_price_effect = yes }
+					}
+					else = {
+						show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = blood } }
+					}
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						AND = {
+							this = scope:sc_defender
+							scope:sc_attacker_last_move = flag:magic_potency_dream_01
+						}
+						AND = {
+							this = scope:sc_attacker
+							scope:sc_defender_last_move = flag:magic_potency_dream_01
+						}
+					}
+				}
+				scope:my_foe = {
+					if = {
+						limit = { var:zz_duel_last_spell ?= flag:foresight }
+						show_as_tooltip = { combat_move_zz_foresight_effect = yes }
+					}
+					else = {
+						show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = dream } }
+					}
 				}
 			}
 		}
@@ -9432,241 +9382,595 @@ single_combat.0001 = {
 		}
 	}
 
-	#Mage's Strike
+	#zz_valyria Spell move: [zz_mystery] of Striking Flame
 	option = {
-		name = {
-			text = single_combat.0001.magic_assault
-			trigger = { 
-				is_landed = yes 
-				
-			}
-		}
-		trigger = { 
-			has_trait = zz_magister 
-			zz_valyria_drops_of_power_stat >= 25
-			not = { 
-				has_variable = magic_type
-			}
+		name = single_combat.0001.zz_spell_fire
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_fire_magic_001 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_fire_magic_001_cost }
 		}
 
 		#Move clarification
-		custom_tooltip = single_combat.0001.tt.blade_dance
-		
+		custom_tooltip = single_combat.0001.tt.zz_spell_fire
+
 		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
 		trait = zz_magister
 
 		#Move effects
-
 		set_variable = {
-			name = zz_manacost 
-			value = 25
+			name = zz_manacost
+			value = zz_valyria_magic_fire_magic_001_cost
 		}
 		zz_valyria_mana_spend = yes
 		## First, we show the move's effects with no guff.
-		show_as_tooltip = { combat_move_mages_fury_effect = yes }
+		show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = fire } }
 		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
 		if = {
 			limit = {
 				scope:my_foe = { is_alive = yes }
 			}
-			hidden_effect = { combat_move_mages_fury_effect = yes }
+			hidden_effect = { combat_move_zz_spell_effect = { SCHOOL = fire } }
 		}
-
-		# No appropriate stress loss for blade dance; arguably arrogant, as we portray them as haughty in the loc, but it's a bit mean to both hit the player verbally and mechanically for something that's up for interpretation.
-		ai_chance = {
-			base = 0
-			sce_preferred_shrewd_fighter_scripted_modifier = yes
-		}
-	}
-
-	#Mage's Strike 01
-	option = {
-		name = {
-			text = single_combat.0001.magic_assault_fire_01
-			trigger = { var:magic_type ?= flag:fire }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_air_01
-			trigger = { var:magic_type ?= flag:air }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_water_01
-			trigger = { var:magic_type ?= flag:water }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_shadow_01
-			trigger = { var:magic_type ?= flag:shadow}
-		}
-		name = {
-			text = single_combat.0001.magic_assault_alchemy_01
-			trigger = { var:magic_type ?= flag:alchemy }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_blood_01
-			trigger = { var:magic_type ?= flag:blood }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_dream_01
-			trigger = { var:magic_type ?= flag:dream }
-		}
-		trigger = { exists = local_var:zz_magic_attack_tier_01 }
-
-		#Move clarification
-		custom_tooltip = single_combat.0001.tt.magic_assault_fire_01
-		
-		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
-		trait = zz_magister
-
-		#Move effects
-
-		## First, we show the move's effects with no guff.
-		show_as_tooltip = { combat_move_mage_potency_01_effect = yes }
-		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
-		if = {
-			limit = {
-				scope:my_foe = { is_alive = yes }
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = fire_magic
+				XPGAIN = 1
 			}
-			hidden_effect = { combat_move_mage_potency_01_effect = yes }
 		}
 
-		# No appropriate stress loss for blade dance; arguably arrogant, as we portray them as haughty in the loc, but it's a bit mean to both hit the player verbally and mechanically for something that's up for interpretation.
 		ai_chance = {
 			base = 100
 			sce_preferred_shrewd_fighter_scripted_modifier = yes
 		}
 	}
-	#Mage's Strike 02
+
+	#zz_valyria Spell move: [zz_mystery] of the Slicing Wind
 	option = {
-		name = {
-			text = single_combat.0001.magic_assault_fire_02
-			trigger = { var:magic_type ?= flag:fire }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_air_02
-			trigger = { var:magic_type ?= flag:air }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_water_02
-			trigger = { var:magic_type ?= flag:water }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_shadow_02
-			trigger = { var:magic_type ?= flag:shadow}
-		}
-		name = {
-			text = single_combat.0001.magic_assault_alchemy_02
-			trigger = { var:magic_type ?= flag:alchemy }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_blood_02
-			trigger = { var:magic_type ?= flag:blood }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_dream_01
-			trigger = { var:magic_type ?= flag:dream }
-		}	
-		trigger = { 
-			exists = local_var:zz_magic_attack_tier_02 
-			zz_valyria_drops_of_power_stat >= 5
+		name = single_combat.0001.zz_spell_air
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_air_magic_001 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_air_magic_001_cost }
 		}
 
 		#Move clarification
-		custom_tooltip = single_combat.0001.tt.magic_assault_fire_01
-		
+		custom_tooltip = single_combat.0001.tt.zz_spell_air
+
 		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
 		trait = zz_magister
 
 		#Move effects
-
 		set_variable = {
-			name = zz_manacost 
-			value = 5
-		}
-		
-		## First, we show the move's effects with no guff.
-		show_as_tooltip = { combat_move_mage_potency_02_effect = yes }
-		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
-		if = {
-			limit = {
-				scope:my_foe = { is_alive = yes }
-			}
-			hidden_effect = { combat_move_mage_potency_02_effect = yes }
-		}
-
-		stress_and_fulfillment_impact = {
-			callous = minor_stress_impact_loss
-			sadistic = minor_stress_impact_loss
-			compassionate = minor_stress_impact_gain
-		}
-		ai_chance = {
-			base = 100
-			sce_preferred_shrewd_fighter_scripted_modifier = yes
-		}
-	}
-	#Mage's Strike 03
-	option = {
-		name = {
-			text = single_combat.0001.magic_assault_fire_03
-			trigger = { var:magic_type ?= flag:fire }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_air_03
-			trigger = { var:magic_type ?= flag:air }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_water_03
-			trigger = { var:magic_type ?= flag:water }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_shadow_03
-			trigger = { var:magic_type ?= flag:shadow}
-		}
-		name = {
-			text = single_combat.0001.magic_assault_alchemy_03
-			trigger = { var:magic_type ?= flag:alchemy }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_blood_03
-			trigger = { var:magic_type ?= flag:blood }
-		}
-		name = {
-			text = single_combat.0001.magic_assault_dream_01
-			trigger = { var:magic_type ?= flag:dream }
-		}	
-		trigger = { 
-			exists = local_var:zz_magic_attack_tier_03 
-			zz_valyria_drops_of_power_stat >= 10
-		}
-
-		#Move clarification
-		custom_tooltip = single_combat.0001.tt.magic_assault_fire_01
-		
-		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
-		trait = zz_magister
-
-		#Move effects
-
-		set_variable = {
-			name = zz_manacost 
-			value = 10
+			name = zz_manacost
+			value = zz_valyria_magic_air_magic_001_cost
 		}
 		zz_valyria_mana_spend = yes
 		## First, we show the move's effects with no guff.
-		show_as_tooltip = { combat_move_mage_potency_03_effect = yes }
+		show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = air } }
 		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
 		if = {
 			limit = {
 				scope:my_foe = { is_alive = yes }
 			}
-			hidden_effect = { combat_move_mage_potency_03_effect = yes }
+			hidden_effect = { combat_move_zz_spell_effect = { SCHOOL = air } }
+		}
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = air_magic
+				XPGAIN = 1
+			}
 		}
 
-		# No appropriate stress loss for blade dance; arguably arrogant, as we portray them as haughty in the loc, but it's a bit mean to both hit the player verbally and mechanically for something that's up for interpretation.
 		ai_chance = {
 			base = 100
 			sce_preferred_shrewd_fighter_scripted_modifier = yes
 		}
 	}
+
+	#zz_valyria Spell move: [zz_mystery] of the Crushing Waters
+	option = {
+		name = single_combat.0001.zz_spell_water
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_water_magic_001 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_water_magic_001_cost }
+		}
+
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.zz_spell_water
+
+		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
+		trait = zz_magister
+
+		#Move effects
+		set_variable = {
+			name = zz_manacost
+			value = zz_valyria_magic_water_magic_001_cost
+		}
+		zz_valyria_mana_spend = yes
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = water } }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { combat_move_zz_spell_effect = { SCHOOL = water } }
+		}
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = water_magic
+				XPGAIN = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			sce_preferred_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#zz_valyria Spell move: [zz_mystery] of Vital Consumption
+	option = {
+		name = single_combat.0001.zz_spell_blood
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_blood_magic_017 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_blood_magic_017_cost }
+		}
+
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.zz_spell_blood
+
+		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
+		trait = zz_magister
+
+		#Move effects
+		set_variable = {
+			name = zz_manacost
+			value = zz_valyria_magic_blood_magic_017_cost
+		}
+		zz_valyria_mana_spend = yes
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = blood } }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { combat_move_zz_spell_effect = { SCHOOL = blood } }
+		}
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = blood_magic
+				XPGAIN = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			sce_preferred_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#zz_valyria Spell move: [zz_mystery] of the Assassin of the Shadow
+	option = {
+		name = single_combat.0001.zz_spell_shadow
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_shadow_magic_009 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_shadow_magic_009_cost }
+		}
+
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.zz_spell_shadow
+
+		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
+		trait = zz_magister
+
+		#Move effects
+		set_variable = {
+			name = zz_manacost
+			value = zz_valyria_magic_shadow_magic_009_cost
+		}
+		zz_valyria_mana_spend = yes
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = shadow } }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { combat_move_zz_spell_effect = { SCHOOL = shadow } }
+		}
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = shadow_magic
+				XPGAIN = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			sce_preferred_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#zz_valyria Spell move: [zz_mystery] of Murderous Dreams
+	option = {
+		name = single_combat.0001.zz_spell_dream
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_dream_magic_008 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_dream_magic_008_cost }
+		}
+
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.zz_spell_dream
+
+		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
+		trait = zz_magister
+
+		#Move effects
+		set_variable = {
+			name = zz_manacost
+			value = zz_valyria_magic_dream_magic_008_cost
+		}
+		zz_valyria_mana_spend = yes
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = dream } }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { combat_move_zz_spell_effect = { SCHOOL = dream } }
+		}
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = dream_magic
+				XPGAIN = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			sce_preferred_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#zz_valyria Spell move: [zz_mystery] of Transmutative Assault
+	option = {
+		name = single_combat.0001.zz_spell_alchemy
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_alchemy_magic_017 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_alchemy_magic_017_cost }
+		}
+
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.zz_spell_alchemy
+
+		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
+		trait = zz_magister
+
+		#Move effects
+		set_variable = {
+			name = zz_manacost
+			value = zz_valyria_magic_alchemy_magic_017_cost
+		}
+		zz_valyria_mana_spend = yes
+		## First, we show the move's effects with no guff.
+		show_as_tooltip = { combat_move_zz_spell_effect = { SCHOOL = alchemy } }
+		## Then, we check to make sure if scope:my_foe is still around to suffer the effects. This prevents errors if they die mid-combat.
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { combat_move_zz_spell_effect = { SCHOOL = alchemy } }
+		}
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = alchemy_magic
+				XPGAIN = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			sce_preferred_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#zz_valyria Spell move: [zz_mystery] of Searing Brand
+	option = {
+		name = single_combat.0001.zz_spell_searing_brand
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_fire_magic_033 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_fire_magic_033_cost }
+		}
+
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.zz_spell_searing_brand
+
+		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
+		trait = zz_magister
+
+		#Move effects
+		set_variable = {
+			name = zz_manacost
+			value = zz_valyria_magic_fire_magic_033_cost
+		}
+		zz_valyria_mana_spend = yes
+		show_as_tooltip = { combat_move_zz_searing_brand_effect = yes }
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { combat_move_zz_searing_brand_effect = yes }
+		}
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = fire_magic
+				XPGAIN = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			sce_preferred_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#zz_valyria Spell move: [zz_mystery] of the Gale Step
+	option = {
+		name = single_combat.0001.zz_spell_gale_step
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_air_magic_033 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_air_magic_033_cost }
+		}
+
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.zz_spell_gale_step
+
+		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
+		trait = zz_magister
+
+		#Move effects
+		set_variable = {
+			name = zz_manacost
+			value = zz_valyria_magic_air_magic_033_cost
+		}
+		zz_valyria_mana_spend = yes
+		show_as_tooltip = { combat_move_zz_gale_step_effect = yes }
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { combat_move_zz_gale_step_effect = yes }
+		}
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = air_magic
+				XPGAIN = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			sce_preferred_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#zz_valyria Spell move: [zz_mystery] of the Undertow
+	option = {
+		name = single_combat.0001.zz_spell_undertow
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_water_magic_033 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_water_magic_033_cost }
+		}
+
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.zz_spell_undertow
+
+		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
+		trait = zz_magister
+
+		#Move effects
+		set_variable = {
+			name = zz_manacost
+			value = zz_valyria_magic_water_magic_033_cost
+		}
+		zz_valyria_mana_spend = yes
+		show_as_tooltip = { combat_move_zz_undertow_effect = yes }
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { combat_move_zz_undertow_effect = yes }
+		}
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = water_magic
+				XPGAIN = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			sce_preferred_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#zz_valyria Spell move: [zz_mystery] of the Blood Price
+	option = {
+		name = single_combat.0001.zz_spell_blood_price
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_blood_magic_041 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_blood_magic_041_cost }
+		}
+
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.zz_spell_blood_price
+
+		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
+		trait = zz_magister
+
+		#Move effects
+		set_variable = {
+			name = zz_manacost
+			value = zz_valyria_magic_blood_magic_041_cost
+		}
+		zz_valyria_mana_spend = yes
+		show_as_tooltip = { combat_move_zz_blood_price_effect = yes }
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { combat_move_zz_blood_price_effect = yes }
+		}
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = blood_magic
+				XPGAIN = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			sce_preferred_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#zz_valyria Spell move: [zz_mystery] of the Shadow Feint
+	option = {
+		name = single_combat.0001.zz_spell_shadow_feint
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_shadow_magic_033 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_shadow_magic_033_cost }
+		}
+
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.zz_spell_shadow_feint
+
+		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
+		trait = zz_magister
+
+		#Move effects
+		set_variable = {
+			name = zz_manacost
+			value = zz_valyria_magic_shadow_magic_033_cost
+		}
+		zz_valyria_mana_spend = yes
+		show_as_tooltip = { combat_move_zz_shadow_feint_effect = yes }
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { combat_move_zz_shadow_feint_effect = yes }
+		}
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = shadow_magic
+				XPGAIN = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			sce_preferred_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#zz_valyria Spell move: [zz_mystery] of Foresight
+	option = {
+		name = single_combat.0001.zz_spell_foresight
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_dream_magic_107 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_dream_magic_107_cost }
+			NOT = { has_variable = zz_duel_foresight } # once per duel
+		}
+
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.zz_spell_foresight
+
+		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
+		trait = zz_magister
+
+		#Move effects
+		set_variable = {
+			name = zz_manacost
+			value = zz_valyria_magic_dream_magic_107_cost
+		}
+		zz_valyria_mana_spend = yes
+		show_as_tooltip = { combat_move_zz_foresight_effect = yes }
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { combat_move_zz_foresight_effect = yes }
+		}
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = dream_magic
+				XPGAIN = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			sce_preferred_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
+	#zz_valyria Spell move: [zz_mystery] of Quicksilver Skin
+	option = {
+		name = single_combat.0001.zz_spell_quicksilver_skin
+		trigger = {
+			has_trait = zz_magister
+			zz_valyria_knows_spell = { SPELL = zz_valyria_magic_alchemy_magic_044 }
+			zz_valyria_has_mana_to_cast = { MANACOST = zz_valyria_magic_alchemy_magic_044_cost }
+		}
+
+		#Move clarification
+		custom_tooltip = single_combat.0001.tt.zz_spell_quicksilver_skin
+
+		#Spawn Info; use individual traits so that the unlock trait shows in the option UI.
+		trait = zz_magister
+
+		#Move effects
+		set_variable = {
+			name = zz_manacost
+			value = zz_valyria_magic_alchemy_magic_044_cost
+		}
+		zz_valyria_mana_spend = yes
+		show_as_tooltip = { combat_move_zz_quicksilver_skin_effect = yes }
+		if = {
+			limit = {
+				scope:my_foe = { is_alive = yes }
+			}
+			hidden_effect = { combat_move_zz_quicksilver_skin_effect = yes }
+		}
+		hidden_effect = {
+			zz_valyria_gain_spell_experience = {
+				XPTRACK = alchemy_magic
+				XPGAIN = 1
+			}
+		}
+
+		ai_chance = {
+			base = 100
+			sce_preferred_shrewd_fighter_scripted_modifier = yes
+		}
+	}
+
 
 	#Wrath of [HighGod]
 	option = {
@@ -9868,6 +10172,9 @@ single_combat.0021 = {
 	hidden = yes
 
 	immediate = {
+		#zz_valyria Foresight's lasting benefit for each fighter who cast it
+		scope:sc_attacker = { zz_duel_foresight_round_effect = yes }
+		scope:sc_defender = { zz_duel_foresight_round_effect = yes }
 		# Check what round we're at, and reduce the threshold variables as appropriate if we're in a late enough round.
 		## Reduce injury thresholds for both characters.
 		if = {
@@ -11636,9 +11943,16 @@ single_combat.0031 = {
 		if = {
 			limit = { duel_will_end_in_my_death_trigger = yes }
 			show_as_tooltip = {
-				death = {
-					killer = scope:sc_victor
-					death_reason = death_duel
+				#zz_valyria Modified: a Soothsaying (Battle) vision turns this death aside
+				if = {
+					limit = { zz_valyria_battle_ward_trigger = yes }
+					trigger_event = { on_action = zz_valyria_battle_ward }
+				}
+				else = {
+					death = {
+						killer = scope:sc_victor
+						death_reason = death_duel
+					}
 				}
 			}
 		}
@@ -13444,9 +13758,16 @@ single_combat.0041 = {
 			}
 			scope:sc_loser = {
 				show_as_tooltip = {
-					death = {
-						killer = scope:sc_victor
-						death_reason = death_duel
+					#zz_valyria Modified: a Soothsaying (Battle) vision turns this death aside
+					if = {
+						limit = { zz_valyria_battle_ward_trigger = yes }
+						trigger_event = { on_action = zz_valyria_battle_ward }
+					}
+					else = {
+						death = {
+							killer = scope:sc_victor
+							death_reason = death_duel
+						}
 					}
 				}
 			}

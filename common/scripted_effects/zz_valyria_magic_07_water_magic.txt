@@ -1,4 +1,5 @@
-﻿zz_valyria_magic_water_magic_001_effect = {
+﻿# Spell: Water 001 - Mystery of the Crushing Waters
+zz_valyria_magic_water_magic_001_effect = {
 	random_list = {
 		75 = {
 			modifier = {
@@ -15,16 +16,33 @@
 					add_character_modifier = duel_edge_debuff_02_modifier
 				}
 			}
-			zz_configure_start_magic_combat_effect = {
-				SC_INITIATOR = scope:secondary_recipient
-				SC_ATTACKER = scope:secondary_recipient
-				SC_DEFENDER = scope:recipient
-				FATALITY = possible
-				FIXED = no
-				LOCALE = tavern
-				OUTPUT_EVENT = jason_locale_events.201
-				INVALIDATION_EVENT = single_combat.1006
-				MAGIC = water
+			# The first event option spares the target; otherwise losing the combat can be fatal
+			if = {
+				limit = { scope:option_01 ?= yes }
+				zz_configure_start_magic_combat_effect = {
+					SC_INITIATOR = scope:secondary_recipient
+					SC_ATTACKER = scope:secondary_recipient
+					SC_DEFENDER = scope:recipient
+					FATALITY = no
+					FIXED = no
+					LOCALE = tavern
+					OUTPUT_EVENT = jason_locale_events.201
+					INVALIDATION_EVENT = single_combat.1006
+					MAGIC = water
+				}
+			}
+			else = {
+				zz_configure_start_magic_combat_effect = {
+					SC_INITIATOR = scope:secondary_recipient
+					SC_ATTACKER = scope:secondary_recipient
+					SC_DEFENDER = scope:recipient
+					FATALITY = possible
+					FIXED = no
+					LOCALE = tavern
+					OUTPUT_EVENT = jason_locale_events.201
+					INVALIDATION_EVENT = single_combat.1006
+					MAGIC = water
+				}
 			}
 		}
 		25 = {
@@ -36,6 +54,7 @@
 	}
 }
 
+# Spell: Water 002 - Mystery of the Surging Torrent
 zz_valyria_magic_water_magic_002_effect = {
 	random_list = {
 		75 = {
@@ -47,7 +66,7 @@ zz_valyria_magic_water_magic_002_effect = {
 				SPELL = $SPELL$
 			}
 			scope:target = {
-				deplete_army_by_percentage = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+				zz_valyria_change_army_troops_effect = { AMOUNT = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 }
 			}
 		}
 		25 = {
@@ -59,6 +78,7 @@ zz_valyria_magic_water_magic_002_effect = {
 	}
 }
 
+# Spell: Water 003 - Mystery of Replenishing Waters
 zz_valyria_magic_water_magic_003_effect = {
 	random_list = {
 		75 = {
@@ -82,6 +102,7 @@ zz_valyria_magic_water_magic_003_effect = {
 	}
 }
 
+# Spell: Water 004 - Mystery of the Poisoned River
 zz_valyria_magic_water_magic_004_effect = {
 	random_list = {
 		75 = {
@@ -157,6 +178,7 @@ zz_valyria_magic_water_magic_004_effect = {
 	}
 }
 
+# Spell: Water 005 - Mystery of Winter
 zz_valyria_magic_water_magic_005_effect = {
 	random_list = {
 		75 = {
@@ -208,6 +230,7 @@ zz_valyria_magic_water_magic_005_effect = {
 	}
 }
 
+# Spell: Water 006 - Mystery of Purifying Waters
 zz_valyria_magic_water_magic_006_effect = {
 	random_list = {
 		75 = {
@@ -239,6 +262,7 @@ zz_valyria_magic_water_magic_006_effect = {
 	}
 }
 
+# Spell: Water 007 - Mystery of Waters of Fertility
 zz_valyria_magic_water_magic_007_effect = {
 	random_list = {
 		75 = {
@@ -250,9 +274,7 @@ zz_valyria_magic_water_magic_007_effect = {
 				SPELL = $SPELL$
 			}
 			scope:target = {
-				county = {
-					change_prosperity_level = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
-				}
+				change_prosperity_level = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
 			}
 		}
 		25 = {
@@ -264,6 +286,7 @@ zz_valyria_magic_water_magic_007_effect = {
 	}
 }
 
+# Spell: Water 008 - Mystery of Mists
 zz_valyria_magic_water_magic_008_effect = {
 	random_list = {
 		75 = {
@@ -291,6 +314,7 @@ zz_valyria_magic_water_magic_008_effect = {
 	}
 }
 
+# Spell: Water 009 - Mystery of Soggy Ground
 zz_valyria_magic_water_magic_009_effect = {
 	random_list = {
 		75 = {
@@ -318,6 +342,7 @@ zz_valyria_magic_water_magic_009_effect = {
 	}
 }
 
+# Spell: Water 010 - Mystery of Water's Resilience (Army)
 zz_valyria_magic_water_magic_010_effect = {
 	random_list = {
 		75 = {
@@ -345,6 +370,7 @@ zz_valyria_magic_water_magic_010_effect = {
 	}
 }
 
+# Spell: Water 011 - Mystery of Cleansing Tide
 zz_valyria_magic_water_magic_011_effect = {
 	random_list = {
 		75 = {
@@ -521,6 +547,7 @@ zz_valyria_magic_water_magic_011_effect = {
 	}
 }
 
+# Spell: Water 012 - Mystery of Water's Edge
 zz_valyria_magic_water_magic_012_effect = {
 	random_list = {
 		75 = {
@@ -572,6 +599,7 @@ zz_valyria_magic_water_magic_012_effect = {
 	}
 }
 
+# Spell: Water 013 - Mystery of Condensed Barrier
 zz_valyria_magic_water_magic_013_effect = {
 	random_list = {
 		75 = {
@@ -623,6 +651,7 @@ zz_valyria_magic_water_magic_013_effect = {
 	}
 }
 
+# Spell: Water 014 - Mystery of Water's Purity
 zz_valyria_magic_water_magic_014_effect = {
 	random_list = {
 		75 = {
@@ -678,6 +707,7 @@ zz_valyria_magic_water_magic_014_effect = {
 	}
 }
 
+# Spell: Water 015 - Mystery of Watery Casting
 zz_valyria_magic_water_magic_015_effect = {
 	random_list = {
 		75 = {
@@ -739,6 +769,7 @@ zz_valyria_magic_water_magic_015_effect = {
 	}
 }
 
+# Spell: Water 016 - Mystery of the River Fortress
 zz_valyria_magic_water_magic_016_effect = {
 	random_list = {
 		75 = {
@@ -752,8 +783,8 @@ zz_valyria_magic_water_magic_016_effect = {
 			scope:target = {
 				zz_valyria_magic_apply_province_modifier_effect = {
 					MODIFIER = zz_valyria_magic_water_magic_016_modifier
-					DURATION = 1
-					BOOSTED_DURATION = 1
+					DURATION = 12 # months
+					BOOSTED_DURATION = 24
 				}
 			}
 		}
@@ -766,6 +797,7 @@ zz_valyria_magic_water_magic_016_effect = {
 	}
 }
 
+# Spell: Water 017 - Mystery of Oppression of the Mists
 zz_valyria_magic_water_magic_017_effect = {
 	random_list = {
 		75 = {
@@ -779,9 +811,454 @@ zz_valyria_magic_water_magic_017_effect = {
 			scope:target = {
 				zz_valyria_magic_apply_province_modifier_effect = {
 					MODIFIER = zz_valyria_magic_water_magic_017_modifier
-					DURATION = 1
-					BOOSTED_DURATION = 1
+					DURATION = 12 # months
+					BOOSTED_DURATION = 24
 				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 018 - Mystery of Drowning Grasp
+zz_valyria_magic_water_magic_018_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				change_maa_troops_count = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 019 - Mystery of Riptide
+zz_valyria_magic_water_magic_019_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				if = {
+					limit = {
+						location = {
+							OR = {
+								is_coastal = yes
+								is_riverside_province = yes
+							}
+						}
+					}
+					zz_valyria_change_army_troops_effect = { AMOUNT = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_02 }
+				}
+				else = {
+					zz_valyria_change_army_troops_effect = { AMOUNT = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 }
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 020 - Mystery of the Breaking of the Dams
+zz_valyria_magic_water_magic_020_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_story_province
+					value = scope:target
+				}
+				create_story = {
+					type = zz_valyria_magic_water_magic_020_story
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 021 - Mystery of Healing Springs
+zz_valyria_magic_water_magic_021_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				change_maa_troops_count = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 022 - Mystery of Lungs of Brine
+zz_valyria_magic_water_magic_022_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			zz_valyria_assassination_begin_effect = { EVENT = zz_valyria_magic_assassination.1001 }
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 023 - Mystery of Tide's Favour
+zz_valyria_magic_water_magic_023_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_water_magic_023_modifier
+					DURATION = 1
+					BOOSTED_DURATION = 2
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 024 - Mystery of the Mist Host
+zz_valyria_magic_water_magic_024_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				spawn_army = {
+					men_at_arms = {
+						type = zz_mist_shades
+						stacks = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+					location = scope:recipient.location
+					uses_supply = no
+					name = "zz_valyria_mist_host"
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 025 - Mystery of Still Waters
+zz_valyria_magic_water_magic_025_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				add_stress = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_water_magic_025_modifier
+					DURATION = 2
+					BOOSTED_DURATION = 4
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 026 - Mystery of Baptismal Waters
+zz_valyria_magic_water_magic_026_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				set_character_faith = scope:actor.faith
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 027 - Mystery of The Sea Change
+zz_valyria_magic_water_magic_027_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				set_culture = scope:culture
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 028 - Mystery of Water Under the Bridge
+zz_valyria_magic_water_magic_028_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				switch = {
+					trigger = scope:relation
+					flag:dream_magic_relation_01 = { remove_relation_soulmate = scope:target }
+					flag:dream_magic_relation_02 = { remove_relation_lover = scope:target }
+					flag:dream_magic_relation_03 = { remove_relation_best_friend = scope:target }
+					flag:dream_magic_relation_04 = { remove_relation_friend = scope:target }
+					flag:dream_magic_relation_05 = { remove_relation_nemesis = scope:target }
+					flag:dream_magic_relation_06 = { remove_relation_rival = scope:target }
+					flag:dream_magic_relation_07 = { remove_relation_grudge = scope:target }
+					flag:dream_magic_relation_08 = { remove_relation_bully = scope:target }
+					flag:dream_magic_relation_09 = { remove_relation_victim = scope:target }
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 029 - Mystery of Wash Away the Stain
+zz_valyria_magic_water_magic_029_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:secret = {
+				remove_secret = yes
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 030 - Mystery of The Fertile Flood
+zz_valyria_magic_water_magic_030_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				change_prosperity_progress_with_overflow = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+				add_county_modifier = {
+					modifier = zz_valyria_magic_water_magic_030_modifier
+					months = 6
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 031 - Mystery of The Breaking of Bonds
+zz_valyria_magic_water_magic_031_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				if = {
+					limit = { has_weak_hook = scope:target }
+					remove_hook = { target = scope:target }
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 032 - Mystery of the Drowning Deep (Strike Embarked Army)
+# Catastrophic damage to an army at sea; it does nothing to an army on land.
+zz_valyria_magic_water_magic_032_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target ?= {
+				if = {
+					limit = { location = { is_sea_province = yes } }
+					zz_valyria_change_army_troops_effect = { AMOUNT = zz_valyria_magic_water_magic_032_value_01 }
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Water 033 - Mystery of the Undertow (Single Combat). Its work is done in single combat (combat_move_zz_undertow_effect).
+zz_valyria_magic_water_magic_033_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
 		}
 		25 = {

@@ -155,6 +155,7 @@ zz_removed_magic_effect = {
 			}
 		}
 }
+# Spell: Fire 001 - Mystery of Striking Flame
 zz_valyria_magic_fire_magic_001_effect = {
 	random_list = {
 		75 = {
@@ -172,47 +173,32 @@ zz_valyria_magic_fire_magic_001_effect = {
 					add_character_modifier = duel_edge_debuff_02_modifier
 				}
 			}
-			zz_configure_start_magic_combat_effect = {
-				SC_INITIATOR = scope:secondary_recipient
-				SC_ATTACKER = scope:secondary_recipient
-				SC_DEFENDER = scope:recipient
-				FATALITY = possible
-				FIXED = no
-				LOCALE = tavern
-				OUTPUT_EVENT = jason_locale_events.201
-				INVALIDATION_EVENT = single_combat.1006
-				MAGIC = fire
+			# The first event option spares the target; otherwise losing the combat can be fatal
+			if = {
+				limit = { scope:option_01 ?= yes }
+				zz_configure_start_magic_combat_effect = {
+					SC_INITIATOR = scope:secondary_recipient
+					SC_ATTACKER = scope:secondary_recipient
+					SC_DEFENDER = scope:recipient
+					FATALITY = no
+					FIXED = no
+					LOCALE = tavern
+					OUTPUT_EVENT = jason_locale_events.201
+					INVALIDATION_EVENT = single_combat.1006
+					MAGIC = fire
+				}
 			}
-		}
-		25 = {
-			zz_valyria_magic_spell_failure_interface = {
-				SPELLSCHOOL = $SPELLSCHOOL$
-				SPELL = $SPELL$
-			}
-		}
-	}
-}
-
-zz_valyria_magic_fire_magic_002_effect = {
-	random_list = {
-		75 = {
-			modifier = {
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
-			}
-			zz_valyria_magic_spell_success_interface = {
-				SPELLSCHOOL = $SPELLSCHOOL$
-				SPELL = $SPELL$
-			}
-			scope:target = {
-				deplete_army_by_percentage = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
-				if = {
-					limit = {
-						is_army_in_combat = yes
-						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 >= 100
-					}
-					involved_combat_side.enemy_side = {
-						set_winner = yes 
-					}
+			else = {
+				zz_configure_start_magic_combat_effect = {
+					SC_INITIATOR = scope:secondary_recipient
+					SC_ATTACKER = scope:secondary_recipient
+					SC_DEFENDER = scope:recipient
+					FATALITY = possible
+					FIXED = no
+					LOCALE = tavern
+					OUTPUT_EVENT = jason_locale_events.201
+					INVALIDATION_EVENT = single_combat.1006
+					MAGIC = fire
 				}
 			}
 		}
@@ -225,6 +211,40 @@ zz_valyria_magic_fire_magic_002_effect = {
 	}
 }
 
+# Spell: Fire 002 - Mystery of the Blasting Flame
+zz_valyria_magic_fire_magic_002_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				if = {
+					limit = {
+						is_army_in_combat = yes
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 >= 1
+					}
+					involved_combat_side.enemy_side = {
+						set_winner = yes
+					}
+				}
+				zz_valyria_change_army_troops_effect = { AMOUNT = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 }
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 003 - Mystery of the Storm of Fire
 zz_valyria_magic_fire_magic_003_effect = {
 	random_list = {
 		75 = {
@@ -236,7 +256,7 @@ zz_valyria_magic_fire_magic_003_effect = {
 				SPELL = $SPELL$
 			}
 			scope:target = {
-				deplete_army_by_percentage = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+				zz_valyria_change_army_troops_effect = { AMOUNT = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 }
 				location = {
 					random = {
 						chance = 25
@@ -262,6 +282,7 @@ zz_valyria_magic_fire_magic_003_effect = {
 	}
 }
 
+# Spell: Fire 004 - Mystery of Flaming Purification
 zz_valyria_magic_fire_magic_004_effect = {
 	random_list = {
 		75 = {
@@ -539,6 +560,7 @@ zz_valyria_magic_fire_magic_004_effect = {
 	}
 }
 
+# Spell: Fire 005 - Mystery of Flaming Blades (Army)
 zz_valyria_magic_fire_magic_005_effect = {
 	random_list = {
 		75 = {
@@ -592,6 +614,7 @@ zz_valyria_magic_fire_magic_005_effect = {
 	}
 }
 
+# Spell: Fire 006 - Mystery of Secret Flame (Secrets)
 zz_valyria_magic_fire_magic_006_effect = {
 	random_list = {
 		75 = {
@@ -782,6 +805,7 @@ zz_valyria_magic_fire_magic_006_effect = {
 	}
 }
 
+# Spell: Fire 007 - Mystery of Revealing Flames (Schemes)
 zz_valyria_magic_fire_magic_007_effect = {
 	random_list = {
 		75 = {
@@ -973,6 +997,7 @@ zz_valyria_magic_fire_magic_007_effect = {
 	}
 }
 
+# Spell: Fire 008 - Mystery of Siege
 zz_valyria_magic_fire_magic_008_effect = {
 	random_list = {
 		75 = {
@@ -1026,6 +1051,7 @@ zz_valyria_magic_fire_magic_008_effect = {
 	}
 }
 
+# Spell: Fire 009 - Mystery of Fireball
 zz_valyria_magic_fire_magic_009_effect = {
 	random_list = {
 		75 = {
@@ -1049,6 +1075,7 @@ zz_valyria_magic_fire_magic_009_effect = {
 	}
 }
 
+# Spell: Fire 010 - Mystery of Dragon's Breath
 zz_valyria_magic_fire_magic_010_effect = {
 	random_list = {
 		75 = {
@@ -1102,6 +1129,7 @@ zz_valyria_magic_fire_magic_010_effect = {
 	}
 }
 
+# Spell: Fire 011 - Mystery of Flame Volley
 zz_valyria_magic_fire_magic_011_effect = {
 	random_list = {
 		75 = {
@@ -1131,6 +1159,7 @@ zz_valyria_magic_fire_magic_011_effect = {
 	}
 }
 
+# Spell: Fire 012 - Mystery of Flaming Edge
 zz_valyria_magic_fire_magic_012_effect = {
 	random_list = {
 		75 = {
@@ -1182,6 +1211,7 @@ zz_valyria_magic_fire_magic_012_effect = {
 	}
 }
 
+# Spell: Fire 013 - Mystery of Ember's Armour
 zz_valyria_magic_fire_magic_013_effect = {
 	random_list = {
 		75 = {
@@ -1233,6 +1263,7 @@ zz_valyria_magic_fire_magic_013_effect = {
 	}
 }
 
+# Spell: Fire 014 - Mystery of Flame's Magical Purity
 zz_valyria_magic_fire_magic_014_effect = {
 	random_list = {
 		75 = {
@@ -1288,6 +1319,7 @@ zz_valyria_magic_fire_magic_014_effect = {
 	}
 }
 
+# Spell: Fire 015 - Mystery of Flaming Casting
 zz_valyria_magic_fire_magic_015_effect = {
 	random_list = {
 		75 = {
@@ -1349,6 +1381,7 @@ zz_valyria_magic_fire_magic_015_effect = {
 	}
 }
 
+# Spell: Fire 016 - Mystery of Bastion of Flame
 zz_valyria_magic_fire_magic_016_effect = {
 	random_list = {
 		75 = {
@@ -1362,8 +1395,8 @@ zz_valyria_magic_fire_magic_016_effect = {
 			scope:target = {
 				zz_valyria_magic_apply_province_modifier_effect = {
 					MODIFIER = zz_valyria_magic_fire_magic_016_modifier
-					DURATION = 1
-					BOOSTED_DURATION = 1
+					DURATION = 12 # months
+					BOOSTED_DURATION = 24
 				}
 			}
 		}
@@ -1376,6 +1409,7 @@ zz_valyria_magic_fire_magic_016_effect = {
 	}
 }
 
+# Spell: Fire 017 - Mystery of Invasion of the Flames
 zz_valyria_magic_fire_magic_017_effect = {
 	random_list = {
 		75 = {
@@ -1389,9 +1423,496 @@ zz_valyria_magic_fire_magic_017_effect = {
 			scope:target = {
 				zz_valyria_magic_apply_province_modifier_effect = {
 					MODIFIER = zz_valyria_magic_fire_magic_017_modifier
-					DURATION = 1
-					BOOSTED_DURATION = 1
+					DURATION = 12 # months
+					BOOSTED_DURATION = 24
 				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 018 - Mystery of Burning the Stores
+zz_valyria_magic_fire_magic_018_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				add_supply = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 019 - Mystery of Scorched Earth
+zz_valyria_magic_fire_magic_019_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				zz_valyria_magic_apply_county_modifier_effect = {
+					MODIFIER = zz_valyria_magic_fire_magic_019_modifier
+					DURATION = 12
+					BOOSTED_DURATION = 24
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 020 - Mystery of Hearthfire
+zz_valyria_magic_fire_magic_020_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_fire_magic_020_modifier
+					DURATION = 1
+					BOOSTED_DURATION = 2
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 021 - Mystery of Immolation
+zz_valyria_magic_fire_magic_021_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			random_list = {
+				1 = {
+					modifier = {
+						add = zz_valyria_magic_fire_magic_021_kill_value
+					}
+					scope:recipient = {
+						death = {
+							death_reason = death_fire_magic
+							killer = scope:secondary_recipient
+						}
+					}
+				}
+				1 = {
+					modifier = {
+						add = zz_valyria_magic_fire_magic_021_survive_value
+					}
+					scope:recipient = {
+						add_trait = disfigured
+						increase_wounds_effect = { REASON = fire_magic }
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 022 - Mystery of the Kindled Assassin
+zz_valyria_magic_fire_magic_022_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			zz_valyria_assassination_begin_effect = { EVENT = zz_valyria_magic_assassination.3001 }
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 023 - Mystery of Wildfire
+zz_valyria_magic_fire_magic_023_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_story_province
+					value = scope:target
+				}
+				create_story = {
+					type = zz_valyria_magic_fire_magic_023_story
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 024 - Mystery of the Ember Host
+zz_valyria_magic_fire_magic_024_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				spawn_army = {
+					men_at_arms = {
+						type = zz_ember_shades
+						stacks = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+					location = scope:recipient.location
+					uses_supply = no
+					name = "zz_valyria_ember_host"
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 025 - Mystery of Beacon Fires
+zz_valyria_magic_fire_magic_025_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				zz_valyria_magic_apply_province_modifier_effect = {
+					MODIFIER = zz_valyria_magic_fire_magic_025_modifier
+					DURATION = 12 # months
+					BOOSTED_DURATION = 24
+				}
+				every_neighboring_province = {
+					limit = {
+						exists = county
+						county.holder.top_liege = scope:target.county.holder.top_liege
+					}
+					zz_valyria_magic_apply_province_modifier_effect = {
+						MODIFIER = zz_valyria_magic_fire_magic_025_modifier
+						DURATION = 12 # months
+						BOOSTED_DURATION = 24
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 026 - Mystery of Burn the Records
+zz_valyria_magic_fire_magic_026_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				remove_claim = scope:title
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 027 - Mystery of The Forge-Fire
+zz_valyria_magic_fire_magic_027_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				if = {
+					limit = {
+						any_county_province = {
+							any_built_regular_district = { any_district_building = { can_building_be_upgraded = yes } }
+						}
+					}
+					random_county_province = {
+						limit = { any_built_regular_district = { any_district_building = { can_building_be_upgraded = yes } } }
+						random_built_regular_district = {
+							limit = { any_district_building = { can_building_be_upgraded = yes } }
+							random_district_building = {
+								limit = { can_building_be_upgraded = yes }
+								upgrade_this_building = yes
+							}
+						}
+					}
+				}
+				else = {
+					zz_valyria_magic_apply_county_modifier_effect = {
+						MODIFIER = zz_valyria_magic_fire_magic_027_modifier
+						DURATION = 12
+						BOOSTED_DURATION = 24
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 028 - Mystery of The Firebrand
+zz_valyria_magic_fire_magic_028_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				random_county_province = {
+					limit = { has_holding = yes }
+					destroy_random_building_variable_effect = yes
+					destroy_random_building_effect = yes
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 029 - Mystery of Trial by Fire
+zz_valyria_magic_fire_magic_029_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:trait = {
+				random_opposite_trait = { save_scope_as = new_trait }
+			}
+			scope:recipient = {
+				if = {
+					limit = {
+						has_trait = scope:trait
+						exists = scope:new_trait
+					}
+					remove_trait = scope:trait
+					add_trait = scope:new_trait
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 030 - Mystery of The Reforging
+zz_valyria_magic_fire_magic_030_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				add_durability = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 031 - Mystery of Burning Bridges
+zz_valyria_magic_fire_magic_031_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				break_alliance = scope:target
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 032 - Mystery of the Terror of Flame (Dread)
+# The commander gains dread, growing with Fire Magic, and for some years their dread fades at half the rate.
+zz_valyria_magic_fire_magic_032_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:actor = {
+				add_dread = zz_valyria_magic_fire_magic_032_value_01
+				remove_character_modifier = zz_valyria_magic_fire_magic_032_modifier
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_fire_magic_032_modifier
+					DURATION = 5
+					BOOSTED_DURATION = 10
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Fire 033 - Mystery of Searing Brand (Single Combat). Its work is done in single combat (combat_move_zz_searing_brand_effect).
+zz_valyria_magic_fire_magic_033_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
 		}
 		25 = {

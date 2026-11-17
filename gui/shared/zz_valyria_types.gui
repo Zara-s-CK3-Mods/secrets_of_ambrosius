@@ -9,12 +9,12 @@ types CharacterWindow
 		state = {
 			name = _show
 			# should be width of window_character - 10
-			position = { 640 5 }
+			position = { 600 5 }
 			using = Animation_FadeIn_Quick
 		}
 		state = {
 			name = _hide
-			position = { 540 5 }
+			position = { 500 5 }
 			using = Animation_FadeOut_Quick
 		}
 		using = Window_Background_Subwindow

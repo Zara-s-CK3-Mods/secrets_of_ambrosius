@@ -12,6 +12,7 @@
 
 
 # Dream Magic 
+# Spell: Dream 001 - Mystery of Mental Domination
 zz_valyria_magic_dream_magic_001_effect = { 
 	random_list = { 
 		50 = {
@@ -84,6 +85,7 @@ zz_valyria_magic_dream_magic_001_effect = {
 	}
 }
 
+# Spell: Dream 002 - Mystery of Dreams (Lifestyle Traits)
 zz_valyria_magic_dream_magic_002_effect = {
 	random_list = { 
 		50 = {
@@ -251,6 +253,98 @@ zz_valyria_magic_dream_magic_002_effect = {
 					else = { add_trait = governor }
 				}
 			}	
+			if  = {
+				limit = {
+					scope:trait ?= trait:lifestyle_poet
+				}
+				scope:recipient = {
+					if = {
+						limit = { has_trait = lifestyle_poet }
+						add_trait_xp = {
+							trait = lifestyle_poet
+							value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+						}
+					}
+					else = { add_trait = lifestyle_poet }
+				}
+			}
+			if  = {
+				limit = {
+					scope:trait ?= trait:lifestyle_traveler
+				}
+				scope:recipient = {
+					if = {
+						limit = { has_trait = lifestyle_traveler }
+						add_trait_xp = {
+							trait = lifestyle_traveler
+							track = travel
+							value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+						}
+						add_trait_xp = {
+							trait = lifestyle_traveler
+							track = danger
+							value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+						}
+					}
+					else = { add_trait = lifestyle_traveler }
+				}
+			}
+			if  = {
+				limit = {
+					scope:trait ?= trait:the_wake
+				}
+				scope:recipient = {
+					if = {
+						limit = { has_trait = the_wake }
+						add_trait_xp = {
+							trait = the_wake
+							value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+						}
+					}
+					else = { add_trait = the_wake }
+				}
+			}
+			if  = {
+				limit = {
+					scope:trait ?= trait:lifestyle_scholar
+				}
+				scope:recipient = {
+					if = {
+						limit = { has_trait = lifestyle_scholar }
+						add_trait_xp = {
+							trait = lifestyle_scholar
+							value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+						}
+					}
+					else = { add_trait = lifestyle_scholar }
+				}
+			}
+			if  = {
+				limit = {
+					scope:trait ?= trait:lifestyle_merchant
+				}
+				scope:recipient = {
+					if = {
+						limit = { has_trait = lifestyle_merchant }
+						add_trait_xp = {
+							trait = lifestyle_merchant
+							track = caravaneer
+							value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+						}
+						add_trait_xp = {
+							trait = lifestyle_merchant
+							track = artisan
+							value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+						}
+						add_trait_xp = {
+							trait = lifestyle_merchant
+							track = creditor
+							value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+						}
+					}
+					else = { add_trait = lifestyle_merchant }
+				}
+			}
 			scope:recipient = {		
 				if = {
 					limit = {
@@ -270,6 +364,7 @@ zz_valyria_magic_dream_magic_002_effect = {
 	}
 }
 
+# Spell: Dream 003 - Mystery of Dreams (Lifestyle XP)
 zz_valyria_magic_dream_magic_003_effect = { 
 	random_list = { 
 		50 = {
@@ -325,18 +420,6 @@ zz_valyria_magic_dream_magic_003_effect = {
 				}
 				scope:recipient = { add_wanderer_lifestyle_xp = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 } 
 			}
-			if = {
-				limit = {
-					scope:option_07 ?= yes
-				}
-				scope:recipient = { add_nht_prowess_lifestyle_xp = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 } 
-			}
-			if = {
-				limit = {
-					scope:option_08 ?= yes
-				}
-				scope:recipient = { add_nht_leadership_lifestyle_xp = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 } 
-			}
 			
 			scope:recipient = {		
 				if = {
@@ -357,6 +440,7 @@ zz_valyria_magic_dream_magic_003_effect = {
 	}
 }
 
+# Spell: Dream 004 - Mystery of Soothsaying (Secrets)
 zz_valyria_magic_dream_magic_004_effect = { 
 	random_list = { 
 		50 = {
@@ -385,6 +469,10 @@ zz_valyria_magic_dream_magic_004_effect = {
 					name = actor 
 					value = scope:actor 
 				}
+				set_variable = {
+					name = zz_valyria_mystery_visions
+					value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
 				create_story = {
 					type = zz_valyria_magic_dream_magic_004_story
 					save_scope_as = story
@@ -409,6 +497,7 @@ zz_valyria_magic_dream_magic_004_effect = {
 	}
 }
 
+# Spell: Dream 005 - Mystery of Dreams (Personality Traits)
 zz_valyria_magic_dream_magic_005_effect = {
 	random_list = { 
 		50 = {
@@ -459,6 +548,7 @@ zz_valyria_magic_dream_magic_005_effect = {
 	}
 }
 
+# Spell: Dream 006 - Mystery of Dreams (Education Traits)
 zz_valyria_magic_dream_magic_006_effect_modify_education_trait_effect = {
 	if = {
 		limit = {
@@ -589,6 +679,7 @@ zz_valyria_magic_dream_magic_006_effect = {
 
 
 
+# Spell: Dream 007 - Mystery of Dreaming Fascinations
 zz_valyria_magic_dream_magic_007_effect = {
 	random_list = { 
 		50 = {
@@ -633,6 +724,7 @@ zz_valyria_magic_dream_magic_007_effect = {
 }
 
 
+# Spell: Dream 008 - Mystery of Murderous Dreams
 zz_valyria_magic_dream_magic_008_effect = { 
 	random_list = { 
 		75 = {
@@ -668,6 +760,7 @@ zz_valyria_magic_dream_magic_008_effect = {
 	}
 }
 
+# Spell: Dream 009 - Mystery of Dreams of Insight (Skills)
 zz_valyria_magic_dream_magic_009_effect = { 
 	random_list = { 
 		50 = {
@@ -716,9 +809,10 @@ zz_valyria_magic_dream_magic_009_effect = {
 									has_character_modifier = bp1_1000_focus_on_work_modifier
 								}
 							}
-							add_character_modifier = {
-								modifier = bp1_1000_focus_on_work_modifier
-								years = 2
+							zz_valyria_magic_apply_character_modifier_effect = {
+								MODIFIER = bp1_1000_focus_on_work_modifier
+								DURATION = 2
+								BOOSTED_DURATION = 4
 							}
 						}
 					}
@@ -744,6 +838,7 @@ zz_valyria_magic_dream_magic_009_effect = {
 	}
 }
 
+# Spell: Dream 010 - Mystery of Soothsaying (Mystic Power)
 zz_valyria_magic_dream_magic_010_effect = {
 	random_list = { 
 		50 = {
@@ -797,6 +892,7 @@ zz_valyria_magic_dream_magic_010_effect = {
 	}
 }
 
+# Spell: Dream 011 - Mystery of Scheme Perception (Subject's)
 zz_valyria_magic_dream_magic_011_effect = {
 	random_list = { 
 		50 = {
@@ -832,6 +928,7 @@ zz_valyria_magic_dream_magic_011_effect = {
 	}
 }
 
+# Spell: Dream 012 - Mystery of Scheme Perception (Targeted)
 zz_valyria_magic_dream_magic_012_effect = {
 	random_list = { 
 		50 = {
@@ -867,6 +964,7 @@ zz_valyria_magic_dream_magic_012_effect = {
 	}
 }
 
+# Spell: Dream 013 - Mystery of Secret Perception (Subject's)
 zz_valyria_magic_dream_magic_013_effect = {
 	random_list = { 
 		50 = {
@@ -901,6 +999,7 @@ zz_valyria_magic_dream_magic_013_effect = {
 	}
 }
 
+# Spell: Dream 014 - Mystery of Secret Perception (Targeted)
 zz_valyria_magic_dream_magic_014_effect = {
 	random_list = { 
 		50 = {
@@ -935,6 +1034,7 @@ zz_valyria_magic_dream_magic_014_effect = {
 	}
 }
 
+# Spell: Dream 015 - Mystery of Secret Perception (Known)
 zz_valyria_magic_dream_magic_015_effect = {
 	random_list = { 
 		50 = {
@@ -968,6 +1068,7 @@ zz_valyria_magic_dream_magic_015_effect = {
 		}
 	}
 }
+# Spell: Dream 016 - Mystery of Secret Binding (Subject's)
 zz_valyria_magic_dream_magic_016_effect = {
 	random_list = { 
 		50 = {
@@ -1001,6 +1102,7 @@ zz_valyria_magic_dream_magic_016_effect = {
 		}
 	}
 }
+# Spell: Dream 017 - Mystery of Secret Binding (Targeted)
 zz_valyria_magic_dream_magic_017_effect = {
 	random_list = { 
 		50 = {
@@ -1034,6 +1136,7 @@ zz_valyria_magic_dream_magic_017_effect = {
 		}
 	}
 }
+# Spell: Dream 018 - Mystery of Secret Binding (Known)
 zz_valyria_magic_dream_magic_018_effect = {
 	random_list = { 
 		50 = {
@@ -1069,6 +1172,7 @@ zz_valyria_magic_dream_magic_018_effect = {
 }
 
 
+# Spell: Dream 019 - Mystery of Scheme Breaching (Targeted)
 zz_valyria_magic_dream_magic_019_effect = {
 	random_list = { 
 		50 = {
@@ -1103,6 +1207,7 @@ zz_valyria_magic_dream_magic_019_effect = {
 	}
 }
 
+# Spell: Dream 020 - Mystery of Scheme Breaching (Subject's)
 zz_valyria_magic_dream_magic_020_effect = {
 	random_list = { 
 		50 = {
@@ -1137,6 +1242,7 @@ zz_valyria_magic_dream_magic_020_effect = {
 	}
 }
 
+# Spell: Dream 021 - Mystery of Scheme Empowerment (Targeted)
 zz_valyria_magic_dream_magic_021_effect = {
 	random_list = { 
 		50 = {
@@ -1170,6 +1276,7 @@ zz_valyria_magic_dream_magic_021_effect = {
 		}
 	}
 }
+# Spell: Dream 022 - Mystery of Scheme Empowerment (Subject's)
 zz_valyria_magic_dream_magic_022_effect = {
 	random_list = { 
 		50 = {
@@ -1204,6 +1311,7 @@ zz_valyria_magic_dream_magic_022_effect = {
 	}
 }
 
+# Spell: Dream 023 - Mystery of Scheme Manipulation (Targeted)
 zz_valyria_magic_dream_magic_023_effect = {
 	random_list = { 
 		50 = {
@@ -1238,6 +1346,7 @@ zz_valyria_magic_dream_magic_023_effect = {
 	}
 }
 
+# Spell: Dream 024 - Mystery of Scheme Manipulation (Subject's)
 zz_valyria_magic_dream_magic_024_effect = {
 	random_list = { 
 		50 = {
@@ -1272,6 +1381,7 @@ zz_valyria_magic_dream_magic_024_effect = {
 	}
 }
 
+# Spell: Dream 025 - Mystery of Scheme Revelation (Targeted)
 zz_valyria_magic_dream_magic_025_effect = {
 	random_list = { 
 		50 = {
@@ -1305,6 +1415,7 @@ zz_valyria_magic_dream_magic_025_effect = {
 		}
 	}
 }
+# Spell: Dream 026 - Mystery of Scheme Revelation (Subject's)
 zz_valyria_magic_dream_magic_026_effect = {
 	random_list = { 
 		50 = {
@@ -1339,6 +1450,7 @@ zz_valyria_magic_dream_magic_026_effect = {
 	}
 }
 
+# Spell: Dream 027 - Mystery of Scheme Delay (Targeted)
 zz_valyria_magic_dream_magic_027_effect = {
 	random_list = { 
 		50 = {
@@ -1376,6 +1488,7 @@ zz_valyria_magic_dream_magic_027_effect = {
 	}
 }
 
+# Spell: Dream 028 - Mystery of Scheme Delay (Subject's)
 zz_valyria_magic_dream_magic_028_effect = {
 	random_list = { 
 		50 = {
@@ -1413,6 +1526,7 @@ zz_valyria_magic_dream_magic_028_effect = {
 	}
 }
 
+# Spell: Dream 029 - Mystery of Scheme Weakening (Targeted)
 zz_valyria_magic_dream_magic_029_effect = {
 	random_list = { 
 		50 = {
@@ -1447,6 +1561,7 @@ zz_valyria_magic_dream_magic_029_effect = {
 	}
 }
 
+# Spell: Dream 030 - Mystery of Scheme Weakening (Subject's)
 zz_valyria_magic_dream_magic_030_effect = {
 	random_list = { 
 		50 = {
@@ -1482,6 +1597,7 @@ zz_valyria_magic_dream_magic_030_effect = {
 }
 
 
+# Spell: Dream 031 - Mystery of Scheme Disruption (Targeted)
 zz_valyria_magic_dream_magic_031_effect = {
 	random_list = { 
 		50 = {
@@ -1516,6 +1632,7 @@ zz_valyria_magic_dream_magic_031_effect = {
 	}
 }
 
+# Spell: Dream 032 - Mystery of Scheme Disruption (Subject's)
 zz_valyria_magic_dream_magic_032_effect = {
 	random_list = { 
 		50 = {
@@ -1551,6 +1668,7 @@ zz_valyria_magic_dream_magic_032_effect = {
 }
 
 
+# Spell: Dream 033 - Mystery of Skinchanging
 zz_valyria_magic_dream_magic_033_effect = {
 	random_list = { 
 		50 = {
@@ -1570,69 +1688,64 @@ zz_valyria_magic_dream_magic_033_effect = {
 					callous = minor_stress_gain
 				}
 			}
-			if = { 
-				limit = {
-					scope:option_01 ?= yes
-				}
-				scope:recipient = { 
-					spawn_army = {
-						men_at_arms = { 
-							type = zz_valyria_ravens
-							stacks = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+			switch = {
+				trigger = var:selected_flag
+				flag:dream_magic_skinchanging_ravens = {
+					scope:recipient = {
+						spawn_army = {
+							men_at_arms = {
+								type = zz_valyria_ravens
+								stacks = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_02
+							}
+							location = scope:recipient.location
+							uses_supply = no
+							name = "zz_valyria_raven_host"
 						}
-						location = scope:recipient.location
-						uses_supply = no
-						name = "zz_valyria_raven_host"
 					}
-				}	
-			}
-			if = { 
-				limit = {
-					scope:option_02 ?= yes
 				}
-				set_variable = {
-					name = zz_manacost 
-					value = 12
-				}
-
-				zz_valyria_mana_spend = yes
-				scope:recipient = { 
-					spawn_army = {
-						men_at_arms = { 
-							type = zz_valyria_direwolves
-							stacks = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+				flag:dream_magic_skinchanging_direwolves = {
+					scope:secondary_recipient = {
+						set_variable = {
+							name = zz_manacost
+							value = 12
 						}
-						location = scope:recipient.location
-						uses_supply = no
-						name = "zz_valyria_direwolf_host"
+						zz_valyria_mana_spend = yes
 					}
-					stress_impact ={ 
-						base = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
-					}  
-				}	
-			}
-			if = { 
-				limit = {
-					scope:option_03 ?= yes
-				}
-				scope:secondary_recipient = {
-					set_variable = {
-						name = zz_manacost 
-						value = 42
-					}
-					zz_valyria_mana_spend = yes
-				}
-				scope:recipient = { 
-					spawn_army = {
-						men_at_arms = { 
-							type = zz_valyria_bears
-							stacks = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					scope:recipient = {
+						spawn_army = {
+							men_at_arms = {
+								type = zz_valyria_direwolves
+								stacks = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_02
+							}
+							location = scope:recipient.location
+							uses_supply = no
+							name = "zz_valyria_direwolf_host"
 						}
-						location = scope:recipient.location
-						uses_supply = no
-						name = "zz_valyria_bear_host"
+						stress_impact = {
+							base = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+						}
 					}
-				}	
+				}
+				flag:dream_magic_skinchanging_bears = {
+					scope:secondary_recipient = {
+						set_variable = {
+							name = zz_manacost
+							value = 45
+						}
+						zz_valyria_mana_spend = yes
+					}
+					scope:recipient = {
+						spawn_army = {
+							men_at_arms = {
+								type = zz_valyria_bears
+								stacks = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_02
+							}
+							location = scope:recipient.location
+							uses_supply = no
+							name = "zz_valyria_bear_host"
+						}
+					}
+				}
 			}
 		}
 		50 = {
@@ -1641,6 +1754,7 @@ zz_valyria_magic_dream_magic_033_effect = {
 	}
 }
 
+# Spell: Dream 034 - Mystery of Cultural Affiliation (Character)
 zz_valyria_magic_dream_magic_034_effect = {
 	random_list = { 
 		50 = {
@@ -1682,6 +1796,7 @@ zz_valyria_magic_dream_magic_034_effect = {
 	}
 }
 
+# Spell: Dream 035 - Mystery of Religious Proclamation (Character)
 zz_valyria_magic_dream_magic_035_effect = {
 	random_list = { 
 		50 = {
@@ -1723,6 +1838,7 @@ zz_valyria_magic_dream_magic_035_effect = {
 	}
 }
 
+# Spell: Dream 036 - Mystery of Cultural Shift (County)
 zz_valyria_magic_dream_magic_036_effect = {
 	random_list = { 
 		50 = {
@@ -1764,6 +1880,7 @@ zz_valyria_magic_dream_magic_036_effect = {
 	}
 }
 
+# Spell: Dream 037 - Mystery of Religious Indoctrination (County)
 zz_valyria_magic_dream_magic_037_effect = {
 	random_list = { 
 		50 = {
@@ -1805,6 +1922,7 @@ zz_valyria_magic_dream_magic_037_effect = {
 	}
 }
 
+# Spell: Dream 038 - Mystery of Soothing Dreams
 zz_valyria_magic_dream_magic_038_effect = {
 	random_list = { 
 		50 = {
@@ -1825,11 +1943,7 @@ zz_valyria_magic_dream_magic_038_effect = {
 				}
 			}		
 			scope:target = {
-				zz_valyria_magic_apply_county_modifier_effect = { 
-					MODIFIER = zz_valyria_magic_dream_magic_038_modifier
-					DURATION = 24
-					BOOSTED_DURATION = 48
-				}
+				add_popular_opinion = zz_valyria_magic_dream_magic_038_value_01
 			}
 			scope:recipient = {		
 				if = {
@@ -1850,6 +1964,7 @@ zz_valyria_magic_dream_magic_038_effect = {
 	}
 }
 
+# Spell: Dream 039 - Mystery of Nightmares
 zz_valyria_magic_dream_magic_039_effect = {
 	random_list = { 
 		50 = {
@@ -1864,17 +1979,12 @@ zz_valyria_magic_dream_magic_039_effect = {
 					}
 				}
 				stress_impact = {
-					compassionate = medium_stress_impact_loss
-					sadistic = minor_stress_gain
-					callous = minor_stress_gain
+					compassionate = minor_stress_impact_gain
+					sadistic = minor_stress_impact_loss
 				}
 			}		
 			scope:target = {
-				zz_valyria_magic_apply_county_modifier_effect = { 
-					MODIFIER = zz_valyria_magic_dream_magic_039_modifier
-					DURATION = 24
-					BOOSTED_DURATION = 48
-				}
+				add_popular_opinion = zz_valyria_magic_dream_magic_039_value_01
 			}
 			scope:recipient = {		
 				if = {
@@ -1882,9 +1992,9 @@ zz_valyria_magic_dream_magic_039_effect = {
 						NOT = { scope:actor = scope:recipient }
 					}
 					add_opinion = {
-						modifier = grateful_opinion
+						modifier = scared_opinion
 						target = scope:actor
-						opinion = 70
+						opinion = -30
 					}
 				}
 			}
@@ -1895,6 +2005,7 @@ zz_valyria_magic_dream_magic_039_effect = {
 	}
 }
 
+# Spell: Dream 040 - Mystery of Secret Oblivion (Subject's)
 zz_valyria_magic_dream_magic_040_effect = {
 	random_list = { 
 		50 = {
@@ -1928,6 +2039,7 @@ zz_valyria_magic_dream_magic_040_effect = {
 		}
 	}
 }
+# Spell: Dream 041 - Mystery of Secret Oblivion (Targeted)
 zz_valyria_magic_dream_magic_041_effect = {
 	random_list = { 
 		50 = {
@@ -1961,6 +2073,7 @@ zz_valyria_magic_dream_magic_041_effect = {
 		}
 	}
 }
+# Spell: Dream 042 - Mystery of Secret Oblivion (Known)
 zz_valyria_magic_dream_magic_042_effect = {
 	random_list = { 
 		50 = {
@@ -1994,6 +2107,7 @@ zz_valyria_magic_dream_magic_042_effect = {
 		}
 	}
 }
+# Spell: Dream 043 - Mystery of Ordered Dreams
 zz_valyria_magic_dream_magic_043_effect = {
 	random_list = { 
 		50 = {
@@ -2034,6 +2148,7 @@ zz_valyria_magic_dream_magic_043_effect = {
 		}
 	}
 }
+# Spell: Dream 044 - Mystery of Disordered Dreams
 zz_valyria_magic_dream_magic_044_effect = {
 	random_list = { 
 		50 = {
@@ -2074,6 +2189,7 @@ zz_valyria_magic_dream_magic_044_effect = {
 		}
 	}
 }
+# Spell: Dream 045 - Mystery of Dreams of Progress
 zz_valyria_magic_dream_magic_045_effect = {
 	random_list = { 
 		50 = {
@@ -2114,6 +2230,7 @@ zz_valyria_magic_dream_magic_045_effect = {
 		}
 	}
 }
+# Spell: Dream 046 - Mystery of Dreams of Progress Lost
 zz_valyria_magic_dream_magic_046_effect = {
 	random_list = { 
 		50 = {
@@ -2155,6 +2272,7 @@ zz_valyria_magic_dream_magic_046_effect = {
 	}
 }
 
+# Spell: Dream 047 - Mystery of Dreams of Cataclysm
 zz_valyria_magic_dream_magic_047_effect = { 
 	random_list = { 
 		50 = {
@@ -2188,6 +2306,7 @@ zz_valyria_magic_dream_magic_047_effect = {
 	}
 }
 
+# Spell: Dream 048 - Mystery of Soothsaying (Maternal Mortality)
 zz_valyria_magic_dream_magic_048_effect = { 
 	random_list = { 
 		50 = {
@@ -2216,6 +2335,10 @@ zz_valyria_magic_dream_magic_048_effect = {
 					name = actor 
 					value = scope:actor 
 				}
+				set_variable = {
+					name = zz_valyria_mystery_visions
+					value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
 				create_story = {
 					type = zz_valyria_magic_dream_magic_048_story
 					save_scope_as = story
@@ -2239,6 +2362,7 @@ zz_valyria_magic_dream_magic_048_effect = {
 		}
 	}
 }
+# Spell: Dream 049 - Mystery of Soothsaying (Infant Mortality)
 zz_valyria_magic_dream_magic_049_effect = { 
 	random_list = { 
 		50 = {
@@ -2267,6 +2391,10 @@ zz_valyria_magic_dream_magic_049_effect = {
 					name = actor 
 					value = scope:actor 
 				}
+				set_variable = {
+					name = zz_valyria_mystery_visions
+					value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
 				create_story = {
 					type = zz_valyria_magic_dream_magic_049_story
 					save_scope_as = story
@@ -2291,6 +2419,7 @@ zz_valyria_magic_dream_magic_049_effect = {
 	}
 }
 
+# Spell: Dream 050 - Mystery of Cultural Advancement
 zz_valyria_magic_dream_magic_050_effect = {
 	random_list = { 
 		50 = {
@@ -2311,8 +2440,11 @@ zz_valyria_magic_dream_magic_050_effect = {
 				}
 			}
 			scope:recipient = { 
-				culture = {
-					add_culture_tradition = scope:selected_culture_tradition
+				if = {
+					limit = { exists = scope:selected_culture_tradition }
+					culture = {
+						add_culture_tradition = scope:selected_culture_tradition
+					}
 				}
 			}			
 			scope:recipient = {		
@@ -2334,6 +2466,7 @@ zz_valyria_magic_dream_magic_050_effect = {
 	}
 }
 
+# Spell: Dream 051 - Mystery of Restorative Dreaming
 zz_valyria_magic_dream_magic_051_effect = {
 	random_list = { 
 		50 = {
@@ -2383,6 +2516,7 @@ zz_valyria_magic_dream_magic_051_effect = {
 }
 
 
+# Spell: Dream 052 - Mystery of Shield of Dreams
 zz_valyria_magic_dream_magic_052_effect = {
 	random_list = { 
 		75 = {
@@ -2438,6 +2572,7 @@ zz_valyria_magic_dream_magic_052_effect = {
 }
 
 
+# Spell: Dream 053 - Mystery of Magical Dreaming (Passive Gain)
 zz_valyria_magic_dream_magic_053_effect = {
 	random_list = { 
 		75 = {
@@ -2498,6 +2633,7 @@ zz_valyria_magic_dream_magic_053_effect = {
 }
 
 
+# Spell: Dream 054 - Mystery of Magical Dreaming (Multiplier)
 zz_valyria_magic_dream_magic_054_effect = {
 	random_list = { 
 		75 = {
@@ -2559,6 +2695,7 @@ zz_valyria_magic_dream_magic_054_effect = {
 }
 
 
+# Spell: Dream 055 - Mystery of Magical Dreaming (Cap)
 zz_valyria_magic_dream_magic_055_effect = {
 	random_list = { 
 		75 = {
@@ -2619,6 +2756,7 @@ zz_valyria_magic_dream_magic_055_effect = {
 }
 
 ## Dream of Magic Quests 
+# Spell: Dream 056 - Mystery of Prophecy (Magic Knowledge)
 zz_valyria_magic_dream_magic_056_effect = {
 	random_list = { 
 		75 = {
@@ -2630,10 +2768,13 @@ zz_valyria_magic_dream_magic_056_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			scope:recipient = {
@@ -2667,6 +2808,7 @@ zz_valyria_magic_dream_magic_056_effect = {
 }
 
 ## Render Unto Dreams (remove slected trait) 
+# Spell: Dream 057 - Mystery of Render to Dreams
 zz_valyria_magic_dream_magic_057_effect = {
 	random_list = { 
 		75 = {
@@ -2678,10 +2820,13 @@ zz_valyria_magic_dream_magic_057_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			remove_trait = scope:trait  
@@ -2693,6 +2838,275 @@ zz_valyria_magic_dream_magic_057_effect = {
 }
 
 #Dreams of Health
+# Dream of Health healing, one pass (also run by the Soothsaying of Resilience story)
+# Spell: Dream 058 - Mystery of Dream of Health
+zz_valyria_magic_dream_magic_058_heal_effect = {
+ 
+		stress_impact = {
+			base = minor_stress_impact_loss
+		}
+		if = { 
+			limit = { 
+				OR = { 
+					has_character_modifier = chronic_headaches_modifier 
+					has_character_modifier = infected_wound_modifier
+					has_character_modifier = gangrene_modifier
+				}
+			}
+			if = { limit = { has_character_modifier = chronic_headaches_modifier }
+				remove_character_modifier = chronic_headaches_modifier
+			}
+			if = { limit = { has_character_modifier = infected_wound_modifier }
+				remove_character_modifier = infected_wound_modifier
+			}
+			if = { limit = { has_character_modifier = gangrene_modifier }
+				remove_character_modifier = gangrene_modifier
+			}
+		}
+		if = { 
+			limit = {
+				has_character_modifier = stress_frozen_grief
+			}
+			remove_character_modifier = stress_frozen_grief
+		}
+		if = { 
+			limit = {
+				has_character_modifier = stress_stuffed_corpse
+			}
+			remove_character_modifier = stress_stuffed_corpse
+		}
+		if = { 
+			limit = {
+				has_character_modifier = stress_managed_grief
+			}
+			remove_character_modifier = stress_managed_grief
+		}
+		if = { 
+			limit = {
+				has_character_modifier = stress_disturbing_confession
+			}
+			remove_character_modifier = stress_disturbing_confession
+		}
+		if = { 
+			limit = {
+				has_character_modifier = stress_drinking_binge
+			}
+			remove_character_modifier = stress_drinking_binge
+		}
+		if = { 
+			limit = {
+				has_character_modifier = stress_hashish_stupor
+			}
+			remove_character_modifier = stress_hashish_stupor
+		}
+		if = { 
+			limit = {
+				has_character_modifier = stress_inappetetic_hunger_1
+			}
+			remove_character_modifier = stress_inappetetic_hunger_1
+		}
+		if = { 
+			limit = {
+				has_character_modifier = stress_inappetetic_hunger_2
+			}
+			remove_character_modifier = stress_inappetetic_hunger_2
+		}
+		if = { 
+			limit = {
+				has_character_modifier = stress_inappetetic_hunger_3
+			}
+			remove_character_modifier = stress_inappetetic_hunger_3
+		}
+		if = { 
+			limit = {
+				has_character_modifier = stress_smelling_of_sweat
+			}
+			remove_character_modifier = stress_smelling_of_sweat
+		}
+		
+		else = { 
+			switch = { 
+				trigger = has_trait 
+				infirm ={
+					if = {
+						limit = {
+							has_trait_xp = {
+								trait = infirm
+								track = infirm
+								value < 5
+							}
+						}
+						remove_trait = infirm
+					}
+					add_trait_xp = { trait = infirm track = infirm value = -10 }
+				}
+				withering_mind ={
+					if = {
+						limit = {
+							has_trait_xp = {
+								trait = withering_mind
+								track = withering_mind
+								value < 5
+							}
+						}
+						remove_trait = withering_mind
+					}
+					add_trait_xp = { trait = withering_mind track = infirm value = -10 }
+				}							
+				clouded_eyes ={
+					if = {
+						limit = {
+							has_trait_xp = {
+								trait = clouded_eyes
+								track = clouded_eyes
+								value < 5
+							}
+						}
+						remove_trait = clouded_eyes
+					}
+					add_trait_xp = { trait = clouded_eyes track = infirm value = -10 }
+				}
+				fragile_bones ={
+					if = {
+						limit = {
+							has_trait_xp = {
+								trait = fragile_bones
+								track = fragile_bones
+								value < 5
+							}
+						}
+						remove_trait = fragile_bones
+					}
+					add_trait_xp = { trait = fragile_bones track = infirm value = -10 }
+				}
+				faltering_heart ={
+					if = {
+						limit = {
+							has_trait_xp = {
+								trait = faltering_heart
+								track = faltering_heart
+								value < 5
+							}
+						}
+						remove_trait = faltering_heart
+					}
+					add_trait_xp = { trait = faltering_heart track = infirm value = -10 }
+				}
+				wounded_1 = {
+					change_trait_rank = {
+						trait = wounded
+						rank = -1
+					}
+				}
+				
+				ill = { 
+					recover_from_disease_effect = { DISEASE = ill } #Removes the trait, sends event "health.2202" to those who care
+					remove_disease_treatment_effect = yes
+				}
+				sickly = {
+					remove_trait = sickly
+				}
+				disfigured = { 
+					remove_trait = disfigured
+				}
+				impotent = {
+					remove_trait = impotent
+				}
+				one_legged = {
+					remove_trait = one_legged
+				}
+				one_eyed = {
+					remove_trait = one_eyed
+				}
+				lunatic_genetic = {
+					remove_trait = lunatic_genetic
+				}
+				lunatic_1 = {
+					remove_trait = lunatic_1
+				}
+				possessed_genetic = {
+					remove_trait = possessed_genetic
+				}
+				possessed_1 = {
+					remove_trait = possessed_1
+				}
+				depressed_genetic = {
+					remove_trait = depressed_genetic
+				}
+				depressed_1 = {
+					remove_trait = depressed_1
+				}
+
+				pneumonic = {
+					recover_from_disease_effect = { DISEASE = pneumonic } #Removes the trait, sends event "health.2202" to those who care
+					remove_disease_treatment_effect = yes
+				}
+				great_pox = {
+					recover_from_disease_effect = { DISEASE = great_pox } #Removes the trait, sends event "health.2202" to those who care & sexual partners
+					remove_disease_treatment_effect = yes
+				}
+				early_great_pox = {
+					remove_trait = early_great_pox
+				}
+				lovers_pox ={
+					remove_trait = lovers_pox
+				}
+				leper ={
+					remove_trait = leper
+				}
+				maimed = {
+					remove_trait = maimed
+				}
+				
+				incapable = {
+					remove_trait = incapable
+				}
+				gout_ridden = {
+					recover_from_disease_effect = { DISEASE = gout_ridden } #Removes the trait, sends event "health.2202" to those who care
+					remove_disease_treatment_effect = yes
+				}
+				consumption = {
+					recover_from_disease_effect = { DISEASE = consumption } #Removes the trait, sends event "health.2202" to those who care
+					remove_disease_treatment_effect = yes
+				}
+				cancer = {
+					recover_from_disease_effect = { DISEASE = cancer } #Removes the trait, sends event "health.2202" to those who care
+					remove_disease_treatment_effect = yes
+				}
+				typhus = {
+					recover_from_disease_effect = { DISEASE = typhus } #Removes the trait, sends event "health.2202" to those who care
+					remove_disease_treatment_effect = yes
+				}
+				bubonic_plague = {
+					recover_from_disease_effect = { DISEASE = bubonic_plague } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
+					remove_disease_treatment_effect = yes
+				}
+				smallpox = {
+					recover_from_disease_effect = { DISEASE = smallpox } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
+					remove_disease_treatment_effect = yes
+				}
+				blind = {
+					remove_trait = blind
+				}
+				measles = {
+					recover_from_disease_effect = { DISEASE = measles } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
+					remove_disease_treatment_effect = yes
+				}
+				dysentery = {
+					recover_from_disease_effect = { DISEASE = dysentery } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
+					remove_disease_treatment_effect = yes
+				}
+				ergotism = {
+					recover_from_disease_effect = { DISEASE = ergotism } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
+					remove_disease_treatment_effect = yes
+				}
+				scarred = {
+					remove_trait = scarred
+				}
+			}
+		}
+	
+}
 zz_valyria_magic_dream_magic_058_effect = {
 	random_list = { 
 		75 = {
@@ -2715,270 +3129,8 @@ zz_valyria_magic_dream_magic_058_effect = {
 
 			while = {
 				count = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 
-				scope:recipient = { 
-					stress_impact = {
-						base = minor_stress_impact_loss
-					}
-					if = { 
-						limit = { 
-							OR = { 
-								has_character_modifier = chronic_headaches_modifier 
-								has_character_modifier = infected_wound_modifier
-								has_character_modifier = gangrene_modifier
-							}
-						}
-						if = { limit = { has_character_modifier = chronic_headaches_modifier }
-							remove_character_modifier = chronic_headaches_modifier
-						}
-						if = { limit = { has_character_modifier = infected_wound_modifier }
-							remove_character_modifier = infected_wound_modifier
-						}
-						if = { limit = { has_character_modifier = gangrene_modifier }
-							remove_character_modifier = gangrene_modifier
-						}
-					}
-					if = { 
-						limit = {
-							has_character_modifier = stress_frozen_grief
-						}
-						remove_character_modifier = stress_frozen_grief
-					}
-					if = { 
-						limit = {
-							has_character_modifier = stress_stuffed_corpse
-						}
-						remove_character_modifier = stress_stuffed_corpse
-					}
-					if = { 
-						limit = {
-							has_character_modifier = stress_managed_grief
-						}
-						remove_character_modifier = stress_managed_grief
-					}
-					if = { 
-						limit = {
-							has_character_modifier = stress_disturbing_confession
-						}
-						remove_character_modifier = stress_disturbing_confession
-					}
-					if = { 
-						limit = {
-							has_character_modifier = stress_drinking_binge
-						}
-						remove_character_modifier = stress_drinking_binge
-					}
-					if = { 
-						limit = {
-							has_character_modifier = stress_hashish_stupor
-						}
-						remove_character_modifier = stress_hashish_stupor
-					}
-					if = { 
-						limit = {
-							has_character_modifier = stress_inappetetic_hunger_1
-						}
-						remove_character_modifier = stress_inappetetic_hunger_1
-					}
-					if = { 
-						limit = {
-							has_character_modifier = stress_inappetetic_hunger_2
-						}
-						remove_character_modifier = stress_inappetetic_hunger_2
-					}
-					if = { 
-						limit = {
-							has_character_modifier = stress_inappetetic_hunger_3
-						}
-						remove_character_modifier = stress_inappetetic_hunger_3
-					}
-					if = { 
-						limit = {
-							has_character_modifier = stress_smelling_of_sweat
-						}
-						remove_character_modifier = stress_smelling_of_sweat
-					}
-					
-					else = { 
-						switch = { 
-							trigger = has_trait 
-							infirm ={
-								if = {
-									limit = {
-										has_trait_xp = {
-											trait = infirm
-											track = infirm
-											value < 5
-										}
-									}
-									remove_trait = infirm
-								}
-								add_trait_xp = { trait = infirm track = infirm value = -10 }
-							}
-							withering_mind ={
-								if = {
-									limit = {
-										has_trait_xp = {
-											trait = withering_mind
-											track = withering_mind
-											value < 5
-										}
-									}
-									remove_trait = withering_mind
-								}
-								add_trait_xp = { trait = withering_mind track = infirm value = -10 }
-							}							
-							clouded_eyes ={
-								if = {
-									limit = {
-										has_trait_xp = {
-											trait = clouded_eyes
-											track = clouded_eyes
-											value < 5
-										}
-									}
-									remove_trait = clouded_eyes
-								}
-								add_trait_xp = { trait = clouded_eyes track = infirm value = -10 }
-							}
-							fragile_bones ={
-								if = {
-									limit = {
-										has_trait_xp = {
-											trait = fragile_bones
-											track = fragile_bones
-											value < 5
-										}
-									}
-									remove_trait = fragile_bones
-								}
-								add_trait_xp = { trait = fragile_bones track = infirm value = -10 }
-							}
-							faltering_heart ={
-								if = {
-									limit = {
-										has_trait_xp = {
-											trait = faltering_heart
-											track = faltering_heart
-											value < 5
-										}
-									}
-									remove_trait = faltering_heart
-								}
-								add_trait_xp = { trait = faltering_heart track = infirm value = -10 }
-							}
-							wounded_1 = {
-								change_trait_rank = {
-									trait = wounded
-									rank = -1
-								}
-							}
-							
-							ill = { 
-								recover_from_disease_effect = { DISEASE = ill } #Removes the trait, sends event "health.2202" to those who care
-								remove_disease_treatment_effect = yes
-							}
-							sickly = {
-								remove_trait = sickly
-							}
-							disfigured = { 
-								remove_trait = disfigured
-							}
-							impotent = {
-								remove_trait = impotent
-							}
-							one_legged = {
-								remove_trait = one_legged
-							}
-							one_eyed = {
-								remove_trait = one_eyed
-							}
-							lunatic_genetic = {
-								remove_trait = lunatic_genetic
-							}
-							lunatic_1 = {
-								remove_trait = lunatic_1
-							}
-							possessed_genetic = {
-								remove_trait = possessed_genetic
-							}
-							possessed_1 = {
-								remove_trait = possessed_1
-							}
-							depressed_genetic = {
-								remove_trait = depressed_genetic
-							}
-							depressed_1 = {
-								remove_trait = depressed_1
-							}
-
-							pneumonic = {
-								recover_from_disease_effect = { DISEASE = pneumonic } #Removes the trait, sends event "health.2202" to those who care
-								remove_disease_treatment_effect = yes
-							}
-							great_pox = {
-								recover_from_disease_effect = { DISEASE = great_pox } #Removes the trait, sends event "health.2202" to those who care & sexual partners
-								remove_disease_treatment_effect = yes
-							}
-							early_great_pox = {
-								remove_trait = early_great_pox
-							}
-							lovers_pox ={
-								remove_trait = lovers_pox
-							}
-							leper ={
-								remove_trait = leper
-							}
-							maimed = {
-								remove_trait = maimed
-							}
-							
-							incapable = {
-								remove_trait = incapable
-							}
-							gout_ridden = {
-								recover_from_disease_effect = { DISEASE = gout_ridden } #Removes the trait, sends event "health.2202" to those who care
-								remove_disease_treatment_effect = yes
-							}
-							consumption = {
-								recover_from_disease_effect = { DISEASE = consumption } #Removes the trait, sends event "health.2202" to those who care
-								remove_disease_treatment_effect = yes
-							}
-							cancer = {
-								recover_from_disease_effect = { DISEASE = cancer } #Removes the trait, sends event "health.2202" to those who care
-								remove_disease_treatment_effect = yes
-							}
-							typhus = {
-								recover_from_disease_effect = { DISEASE = typhus } #Removes the trait, sends event "health.2202" to those who care
-								remove_disease_treatment_effect = yes
-							}
-							bubonic_plague = {
-								recover_from_disease_effect = { DISEASE = bubonic_plague } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
-								remove_disease_treatment_effect = yes
-							}
-							smallpox = {
-								recover_from_disease_effect = { DISEASE = smallpox } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
-								remove_disease_treatment_effect = yes
-							}
-							blind = {
-								remove_trait = blind
-							}
-							measles = {
-								recover_from_disease_effect = { DISEASE = measles } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
-								remove_disease_treatment_effect = yes
-							}
-							dysentery = {
-								recover_from_disease_effect = { DISEASE = dysentery } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
-								remove_disease_treatment_effect = yes
-							}
-							ergotism = {
-								recover_from_disease_effect = { DISEASE = ergotism } #Removes the trait, sends event "health.2202" to those who care & liege/host/imprisoner, adds immunity flag
-								remove_disease_treatment_effect = yes
-							}
-							scarred = {
-								remove_trait = scarred
-							}
-						}
-					}
+				scope:recipient = {
+					zz_valyria_magic_dream_magic_058_heal_effect = yes
 				}
 			}
 			scope:recipient = {				
@@ -3001,6 +3153,7 @@ zz_valyria_magic_dream_magic_058_effect = {
 }
 
 ## Manifest the Dream 
+# Spell: Dream 059 - Mystery of Manifested Dream
 zz_valyria_magic_dream_magic_059_effect = {
 	random_list = { 
 		75 = {
@@ -3012,10 +3165,13 @@ zz_valyria_magic_dream_magic_059_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			while = {
@@ -3407,6 +3563,7 @@ zz_valyria_magic_dream_magic_059_effect = {
 		}
 	}
 }
+# Spell: Dream 060 - Mystery of Relationships (Create)
 zz_valyria_magic_dream_magic_060_effect = {
 	random_list = { 
 		75 = {
@@ -3418,10 +3575,13 @@ zz_valyria_magic_dream_magic_060_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			scope:recipient = {
@@ -3463,6 +3623,7 @@ zz_valyria_magic_dream_magic_060_effect = {
 	}
 }
 
+# Spell: Dream 061 - Mystery of Relationships (Remove)
 zz_valyria_magic_dream_magic_061_effect = {
 	random_list = { 
 		75 = {
@@ -3470,16 +3631,6 @@ zz_valyria_magic_dream_magic_061_effect = {
 				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
 			}
 			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
-			}
 			scope:recipient = {
 				switch = {
 					trigger = scope:relation
@@ -3519,6 +3670,7 @@ zz_valyria_magic_dream_magic_061_effect = {
 	}
 }
 
+# Spell: Dream 062 - Mystery of Loyalty (Grant)
 zz_valyria_magic_dream_magic_062_effect = {
 	random_list = { 
 		75 = {
@@ -3530,10 +3682,13 @@ zz_valyria_magic_dream_magic_062_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			scope:recipient = {
@@ -3549,6 +3704,7 @@ zz_valyria_magic_dream_magic_062_effect = {
 	}
 }
 
+# Spell: Dream 063 - Mystery of Loyalty (Remove)
 zz_valyria_magic_dream_magic_063_effect = {
 	random_list = { 
 		75 = {
@@ -3556,16 +3712,6 @@ zz_valyria_magic_dream_magic_063_effect = {
 				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
 			}
 			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
-			}
 			scope:recipient = {
 				remove_hook  =  { target = scope:target }
 			}
@@ -3576,6 +3722,7 @@ zz_valyria_magic_dream_magic_063_effect = {
 	}
 }
 
+# Spell: Dream 064 - Mystery of Improving Opinion
 zz_valyria_magic_dream_magic_064_effect = {
 	random_list = { 
 		75 = {
@@ -3587,10 +3734,13 @@ zz_valyria_magic_dream_magic_064_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			scope:recipient = {
@@ -3607,6 +3757,7 @@ zz_valyria_magic_dream_magic_064_effect = {
 	}
 }
 
+# Spell: Dream 065 - Mystery of Degrading Opinion
 zz_valyria_magic_dream_magic_065_effect = {
 	random_list = { 
 		75 = {
@@ -3614,16 +3765,6 @@ zz_valyria_magic_dream_magic_065_effect = {
 				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
 			}
 			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
-			}
 			scope:recipient = {
 				add_opinion = {
 					modifier = angry_opinion
@@ -3638,6 +3779,7 @@ zz_valyria_magic_dream_magic_065_effect = {
 	}
 }
 
+# Spell: Dream 066 - Mystery of Prophecy (Wealth)
 zz_valyria_magic_dream_magic_066_effect = {
 	random_list = { 
 		75 = {
@@ -3649,10 +3791,13 @@ zz_valyria_magic_dream_magic_066_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			scope:recipient = {
@@ -3674,6 +3819,7 @@ zz_valyria_magic_dream_magic_066_effect = {
 	}
 }
 
+# Spell: Dream 067 - Mystery of Prophecy (Piety)
 zz_valyria_magic_dream_magic_067_effect = {
 	random_list = { 
 		75 = {
@@ -3685,10 +3831,13 @@ zz_valyria_magic_dream_magic_067_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			scope:recipient = {
@@ -3709,6 +3858,7 @@ zz_valyria_magic_dream_magic_067_effect = {
 	}
 }
 
+# Spell: Dream 068 - Mystery of Prophecy (Prestige)
 zz_valyria_magic_dream_magic_068_effect = {
 	random_list = { 
 		75 = {
@@ -3720,10 +3870,13 @@ zz_valyria_magic_dream_magic_068_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			scope:recipient = {
@@ -3744,6 +3897,7 @@ zz_valyria_magic_dream_magic_068_effect = {
 	}
 }
 
+# Spell: Dream 069 - Mystery of Prophecy (Renown)
 zz_valyria_magic_dream_magic_069_effect = {
 	random_list = { 
 		75 = {
@@ -3755,10 +3909,13 @@ zz_valyria_magic_dream_magic_069_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			scope:recipient = {
@@ -3779,6 +3936,7 @@ zz_valyria_magic_dream_magic_069_effect = {
 	}
 }
 
+# Spell: Dream 070 - Mystery of Prophecy (Influence)
 zz_valyria_magic_dream_magic_070_effect = {
 	random_list = { 
 		75 = {
@@ -3790,10 +3948,13 @@ zz_valyria_magic_dream_magic_070_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			scope:recipient = {
@@ -3814,6 +3975,7 @@ zz_valyria_magic_dream_magic_070_effect = {
 	}
 }
 
+# Spell: Dream 071 - Mystery of Prophecy (Magic Power)
 zz_valyria_magic_dream_magic_071_effect = {
 	random_list = { 
 		75 = {
@@ -3825,10 +3987,13 @@ zz_valyria_magic_dream_magic_071_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			scope:recipient = {
@@ -3849,6 +4014,7 @@ zz_valyria_magic_dream_magic_071_effect = {
 	}
 }
 
+# Spell: Dream 072 - Mystery of Prophecy (Treasury)
 zz_valyria_magic_dream_magic_072_effect = {
 	random_list = { 
 		75 = {
@@ -3860,10 +4026,13 @@ zz_valyria_magic_dream_magic_072_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			scope:recipient = {
@@ -3884,6 +4053,7 @@ zz_valyria_magic_dream_magic_072_effect = {
 	}
 }
 
+# Spell: Dream 073 - Mystery of Prophecy (Provisions)
 zz_valyria_magic_dream_magic_073_effect = {
 	random_list = { 
 		75 = {
@@ -3895,10 +4065,13 @@ zz_valyria_magic_dream_magic_073_effect = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
 			scope:recipient = {
@@ -3919,1218 +4092,1330 @@ zz_valyria_magic_dream_magic_073_effect = {
 	}
 }
 
+# Spell: Dream 074 - Mystery of the Dreaming Road (Hasten)
 zz_valyria_magic_dream_magic_074_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+				current_travel_plan ?= {
+					# The further the road already travelled, the stronger the dream's hold on it
+					if = {
+						limit = { days_travelled >= 180 }
+						add_travel_plan_modifier = { modifier = zz_valyria_magic_dream_magic_074_modifier_04 }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
+					else_if = {
+						limit = { days_travelled >= 90 }
+						add_travel_plan_modifier = { modifier = zz_valyria_magic_dream_magic_074_modifier_03 }
 					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
+					else_if = {
+						limit = { days_travelled >= 30 }
+						add_travel_plan_modifier = { modifier = zz_valyria_magic_dream_magic_074_modifier_02 }
 					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					else = {
+						add_travel_plan_modifier = { modifier = zz_valyria_magic_dream_magic_074_modifier_01 }
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 075 - Mystery of the Dreaming Road (Hinder)
 zz_valyria_magic_dream_magic_075_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+				current_travel_plan ?= {
+					# The further the road already travelled, the stronger the dream's hold on it
+					if = {
+						limit = { days_travelled >= 180 }
+						delay_travel_plan = { days = zz_valyria_magic_dream_magic_075_delay_value_04 }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
+					else_if = {
+						limit = { days_travelled >= 90 }
+						delay_travel_plan = { days = zz_valyria_magic_dream_magic_075_delay_value_03 }
 					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
+					else_if = {
+						limit = { days_travelled >= 30 }
+						delay_travel_plan = { days = zz_valyria_magic_dream_magic_075_delay_value_02 }
 					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					else = {
+						delay_travel_plan = { days = zz_valyria_magic_dream_magic_075_delay_value_01 }
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 076 - Mystery of the Watchful Road
 zz_valyria_magic_dream_magic_076_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_dream_magic_076_modifier
+					DURATION = 5
+					BOOSTED_DURATION = 10
+				}
+				if = {
+					limit = {
+						NOT = {
+							scope:actor = scope:recipient
 						}
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 30
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 077 - Mystery of Prophecy (Resources)
 zz_valyria_magic_dream_magic_077_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 			if = {
 				limit = {
 					NOT = { scope:actor = scope:recipient }
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				# The recipient is grateful to the actor (this used to run in the actor's own scope)
+				scope:recipient = {
+					add_opinion = {
+						modifier  = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
 				}
 			}
+			# AI casters have no widget: the prophecy points at the target's capital
+			if = {
+				limit = { NOT = { exists = scope:target } }
+				scope:recipient.capital_province ?= { save_scope_as = target }
+			}
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
-					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+				save_scope_value_as = {
+					name = toggle_distance_ignore
+					value = yes
+				}
+				hidden_effect = {
+					zz_valyria_magic_prophecy_location_spawn = {
+						PROPHECY = zz_valyria_magic_dream_magic_077
+						LOCATION = scope:target
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 078 - Mystery of the Dreaming City
 zz_valyria_magic_dream_magic_078_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
-			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
-					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
-					}
+			scope:target ?= {
+				zz_valyria_magic_apply_province_modifier_effect = {
+					MODIFIER = zz_valyria_magic_dream_magic_078_modifier
+					DURATION = 60
+					BOOSTED_DURATION = 120
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 079 - Mystery of the Shared Dream
 zz_valyria_magic_dream_magic_079_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
-			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
-					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
-					}
+			scope:target = {
+				zz_valyria_magic_apply_county_modifier_effect = {
+					MODIFIER = zz_valyria_magic_dream_magic_079_modifier
+					DURATION = 60
+					BOOSTED_DURATION = 120
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 080 - Mystery of Soothsaying (Resilience)
 zz_valyria_magic_dream_magic_080_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_valyria_mystery_visions
+					value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				create_story = {
+					type = zz_valyria_magic_dream_magic_080_story
+				}
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 081 - Mystery of Soothsaying (Longevity)
 zz_valyria_magic_dream_magic_081_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_valyria_mystery_visions
+					value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				create_story = {
+					type = zz_valyria_magic_dream_magic_081_story
+				}
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 082 - Mystery of Soothsaying (Health)
 zz_valyria_magic_dream_magic_082_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_valyria_mystery_visions
+					value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				create_story = {
+					type = zz_valyria_magic_dream_magic_082_story
+				}
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 083 - Mystery of Soothsaying (Infant Sex)
 zz_valyria_magic_dream_magic_083_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+				if = {
+					limit = { scope:option_02 ?= yes }
+					set_variable = { name = zz_valyria_dream_infant_sex value = flag:female }
+				}
+				else = {
+					set_variable = { name = zz_valyria_dream_infant_sex value = flag:male }
+				}
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_valyria_mystery_visions
+					value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				create_story = {
+					type = zz_valyria_magic_dream_magic_083_story
+				}
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 084 - Mystery of Soothsaying (Scheme Defence)
 zz_valyria_magic_dream_magic_084_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_valyria_mystery_visions
+					value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				create_story = {
+					type = zz_valyria_magic_dream_magic_084_story
+				}
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 085 - Mystery of Soothsaying (Secret Destruction)
 zz_valyria_magic_dream_magic_085_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_valyria_mystery_visions
+					value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				create_story = {
+					type = zz_valyria_magic_dream_magic_085_story
+				}
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 086 - Mystery of the Long Dream of Devotion
 zz_valyria_magic_dream_magic_086_effect = {
 	random_list = { 
-		75 = {
+		50 = {
 			modifier = { 
 				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
-			}
+			}	
 			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 			if = {
 				limit = {
-					NOT = { scope:actor = scope:recipient }
+					NOT = {
+						scope:actor = scope:recipient
+					}
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				stress_impact = {
+					compassionate = medium_stress_impact_loss
+					sadistic = minor_stress_gain
+					callous = minor_stress_gain
+				}
+			}		
+			scope:target = {
+				zz_valyria_magic_apply_county_modifier_effect = { 
+					MODIFIER = zz_valyria_magic_dream_magic_086_modifier
+					DURATION = 120 # months
+					BOOSTED_DURATION = 240
 				}
 			}
-			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+			scope:recipient = {		
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
 					}
 				}
 			}
 		}
-		25 = {
+		50 = {
 			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 		}
 	}
 }
 
+# Spell: Dream 087 - Mystery of the Long Nightmare of Betrayal
 zz_valyria_magic_dream_magic_087_effect = {
 	random_list = { 
-		75 = {
+		50 = {
 			modifier = { 
 				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
-			}
+			}	
 			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 			if = {
 				limit = {
-					NOT = { scope:actor = scope:recipient }
+					NOT = {
+						scope:actor = scope:recipient
+					}
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				stress_impact = {
+					compassionate = minor_stress_impact_gain
+					sadistic = minor_stress_impact_loss
+				}
+			}		
+			scope:target = {
+				zz_valyria_magic_apply_county_modifier_effect = { 
+					MODIFIER = zz_valyria_magic_dream_magic_087_modifier
+					DURATION = 120 # months
+					BOOSTED_DURATION = 240
 				}
 			}
-			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+			scope:recipient = {		
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = scared_opinion
+						target = scope:actor
+						opinion = -30
 					}
 				}
 			}
 		}
-		25 = {
+		50 = {
 			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 		}
 	}
 }
 
+# Spell: Dream 088 - Mystery of the Long Dream of Order
 zz_valyria_magic_dream_magic_088_effect = {
 	random_list = { 
-		75 = {
+		50 = {
 			modifier = { 
 				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
-			}
+			}	
 			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 			if = {
 				limit = {
-					NOT = { scope:actor = scope:recipient }
+					NOT = {
+						scope:actor = scope:recipient
+					}
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				stress_impact = {
+					compassionate = medium_stress_impact_loss
+					sadistic = minor_stress_gain
+					callous = minor_stress_gain
+				}
+			}		
+			scope:target = {
+				zz_valyria_magic_apply_county_modifier_effect = { 
+					MODIFIER = zz_valyria_magic_dream_magic_088_modifier
+					DURATION = 120 # months
+					BOOSTED_DURATION = 240
 				}
 			}
-			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+			scope:recipient = {		
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
 					}
 				}
 			}
 		}
-		25 = {
+		50 = {
 			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 		}
 	}
 }
 
+# Spell: Dream 089 - Mystery of the Long Nightmare of Unrest
 zz_valyria_magic_dream_magic_089_effect = {
 	random_list = { 
-		75 = {
+		50 = {
 			modifier = { 
 				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
-			}
+			}	
 			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 			if = {
 				limit = {
-					NOT = { scope:actor = scope:recipient }
+					NOT = {
+						scope:actor = scope:recipient
+					}
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				stress_impact = {
+					compassionate = minor_stress_impact_gain
+					sadistic = minor_stress_impact_loss
+				}
+			}		
+			scope:target = {
+				zz_valyria_magic_apply_county_modifier_effect = { 
+					MODIFIER = zz_valyria_magic_dream_magic_089_modifier
+					DURATION = 120 # months
+					BOOSTED_DURATION = 240
 				}
 			}
-			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+			scope:recipient = {		
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = scared_opinion
+						target = scope:actor
+						opinion = -30
 					}
 				}
 			}
 		}
-		25 = {
+		50 = {
 			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 		}
 	}
 }
 
+# Spell: Dream 090 - Mystery of the Long Dream of Spring
 zz_valyria_magic_dream_magic_090_effect = {
 	random_list = { 
-		75 = {
+		50 = {
 			modifier = { 
 				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
-			}
+			}	
 			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 			if = {
 				limit = {
-					NOT = { scope:actor = scope:recipient }
+					NOT = {
+						scope:actor = scope:recipient
+					}
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				stress_impact = {
+					compassionate = medium_stress_impact_loss
+					sadistic = minor_stress_gain
+					callous = minor_stress_gain
+				}
+			}		
+			scope:target = {
+				zz_valyria_magic_apply_county_modifier_effect = { 
+					MODIFIER = zz_valyria_magic_dream_magic_090_modifier
+					DURATION = 120 # months
+					BOOSTED_DURATION = 240
 				}
 			}
-			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+			scope:recipient = {		
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
 					}
 				}
 			}
 		}
-		25 = {
+		50 = {
 			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 		}
 	}
 }
 
+# Spell: Dream 091 - Mystery of the Long Nightmare of Winter
 zz_valyria_magic_dream_magic_091_effect = {
 	random_list = { 
-		75 = {
+		50 = {
 			modifier = { 
 				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
-			}
+			}	
 			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 			if = {
 				limit = {
-					NOT = { scope:actor = scope:recipient }
+					NOT = {
+						scope:actor = scope:recipient
+					}
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				stress_impact = {
+					compassionate = minor_stress_impact_gain
+					sadistic = minor_stress_impact_loss
+				}
+			}		
+			scope:target = {
+				zz_valyria_magic_apply_county_modifier_effect = { 
+					MODIFIER = zz_valyria_magic_dream_magic_091_modifier
+					DURATION = 120 # months
+					BOOSTED_DURATION = 240
 				}
 			}
-			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+			scope:recipient = {		
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = scared_opinion
+						target = scope:actor
+						opinion = -30
 					}
 				}
 			}
 		}
-		25 = {
+		50 = {
 			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 		}
 	}
 }
 
+# Spell: Dream 092 - Mystery of the Long Dream of Plenty
 zz_valyria_magic_dream_magic_092_effect = {
 	random_list = { 
-		75 = {
+		50 = {
 			modifier = { 
 				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
-			}
+			}	
 			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 			if = {
 				limit = {
-					NOT = { scope:actor = scope:recipient }
+					NOT = {
+						scope:actor = scope:recipient
+					}
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				stress_impact = {
+					compassionate = medium_stress_impact_loss
+					sadistic = minor_stress_gain
+					callous = minor_stress_gain
+				}
+			}		
+			scope:target = {
+				zz_valyria_magic_apply_county_modifier_effect = { 
+					MODIFIER = zz_valyria_magic_dream_magic_092_modifier
+					DURATION = 120 # months
+					BOOSTED_DURATION = 240
 				}
 			}
-			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+			scope:recipient = {		
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
 					}
 				}
 			}
 		}
-		25 = {
+		50 = {
 			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 		}
 	}
 }
 
+# Spell: Dream 093 - Mystery of the Long Nightmare of Want
 zz_valyria_magic_dream_magic_093_effect = {
 	random_list = { 
-		75 = {
+		50 = {
 			modifier = { 
 				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
-			}
+			}	
 			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 			if = {
 				limit = {
-					NOT = { scope:actor = scope:recipient }
+					NOT = {
+						scope:actor = scope:recipient
+					}
 				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
+				stress_impact = {
+					compassionate = minor_stress_impact_gain
+					sadistic = minor_stress_impact_loss
+				}
+			}		
+			scope:target = {
+				zz_valyria_magic_apply_county_modifier_effect = { 
+					MODIFIER = zz_valyria_magic_dream_magic_093_modifier
+					DURATION = 120 # months
+					BOOSTED_DURATION = 240
 				}
 			}
-			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+			scope:recipient = {		
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = scared_opinion
+						target = scope:actor
+						opinion = -30
 					}
 				}
 			}
 		}
-		25 = {
+		50 = {
 			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
 		}
 	}
 }
 
+
+
+
+
+
+
+
+# Spell: Dream 094 - Mystery of Dreamshaping (Diplomacy)
+# Permanently raises or lowers diplomacy by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
 zz_valyria_magic_dream_magic_094_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
+			# Change diplomacy by the amount chosen on the counter widget
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
+					add_diplomacy_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 095 - Mystery of Dreamshaping (Martial)
+# Permanently raises or lowers martial by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
 zz_valyria_magic_dream_magic_095_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
+			# Change martial by the amount chosen on the counter widget
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
+					add_martial_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 096 - Mystery of Dreamshaping (Stewardship)
+# Permanently raises or lowers stewardship by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
 zz_valyria_magic_dream_magic_096_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
+			# Change stewardship by the amount chosen on the counter widget
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
+					add_stewardship_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 097 - Mystery of Dreamshaping (Intrigue)
+# Permanently raises or lowers intrigue by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
 zz_valyria_magic_dream_magic_097_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
+			# Change intrigue by the amount chosen on the counter widget
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
+					add_intrigue_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 098 - Mystery of Dreamshaping (Learning)
+# Permanently raises or lowers learning by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
 zz_valyria_magic_dream_magic_098_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
-			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
+			# Change learning by the amount chosen on the counter widget
 			scope:recipient = {
-				switch = {
-					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
-						}
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
-						}
+					add_learning_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
 					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
-						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }
 
+# Spell: Dream 099 - Mystery of Dreamshaping (Prowess)
+# Permanently raises or lowers prowess by the amount chosen on the counter widget, within the spell's power; full power when cast without the widget
 zz_valyria_magic_dream_magic_099_effect = {
-	random_list = { 
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			# Change prowess by the amount chosen on the counter widget
+			scope:recipient = {
+				if = {
+					limit = {
+						NOT = { zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 = 0 }
+					}
+					add_prowess_skill = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				if = {
+					limit = {
+						zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03 > 0
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Dream 100 - Mystery of Soothsaying (Assassination)
+zz_valyria_magic_dream_magic_100_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_valyria_mystery_visions
+					value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				create_story = {
+					type = zz_valyria_magic_dream_magic_100_story
+				}
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Dream 101 - Mystery of Soothsaying (Battle)
+zz_valyria_magic_dream_magic_101_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_valyria_mystery_visions
+					value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				create_story = {
+					type = zz_valyria_magic_dream_magic_101_story
+				}
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spends one vision of a Soothsaying ward and tells the caster. Scope is the warded character
+# STORY is the story type, SPELL the spell number for the message
+zz_valyria_soothsaying_ward_spend_vision_effect = {
+	random_owned_story = {
+		limit = {
+			story_type = $STORY$
+			var:mystery_duration > 0
+		}
+		change_variable = {
+			name = mystery_duration
+			subtract = 1
+		}
+		var:mystery_caster ?= {
+			save_scope_as = caster
+		}
+	}
+	save_scope_as = zz_story_owner # the message icons need a saved scope
+	scope:caster ?= {
+		send_interface_message = {
+			type = send_interface_message_as_feed_spell_buff_proc
+			title = zz_valyria_magic_dream_magic.$SPELL$.buff.toast.t
+			desc = zz_valyria_magic_dream_magic.$SPELL$.buff.toast.desc
+			left_icon = scope:caster
+			right_icon = scope:zz_story_owner
+			custom_tooltip = zz_valyria_magic_dream_magic.$SPELL$.buff.toast.tt
+		}
+	}
+}
+
+# Spell: Dream 102 - Mystery of Secret Weaving (False Memory)
+# The subject wakes remembering something they did to another character, and a secret is made of it.
+# Unlike the Shadow of Guilt, the secret involves a second, chosen character. The commander learns it.
+zz_valyria_magic_dream_magic_102_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
 			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
-			}
 			scope:recipient = {
 				switch = {
 					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
+					# A love affair: the dream makes them lovers, so the secret holds. Not possible with a spouse or betrothed
+					flag:zz_weave_lover = {
+						if = {
+							limit = {
+								is_adult = yes
+								scope:target = { is_adult = yes is_alive = yes }
+								NOR = {
+									is_consort_of = scope:target
+									betrothed ?= scope:target
+								}
+							}
+							if = {
+								limit = { NOT = { has_relation_lover = scope:target } }
+								set_relation_lover = scope:target
+							}
+							if = {
+								limit = {
+									NOT = { any_secret = { secret_type = secret_lover secret_target = scope:target } }
+								}
+								add_secret = { type = secret_lover target = scope:target }
+							}
+							random_secret = {
+								limit = { secret_type = secret_lover secret_target = scope:target }
+								reveal_to = scope:actor
+							}
 						}
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
+					# An attempt on the chosen character's life
+					flag:zz_weave_murder_attempt = {
+						if = {
+							limit = {
+								NOT = { any_secret = { secret_type = secret_murder_attempt secret_target = scope:target } }
+							}
+							add_secret = { type = secret_murder_attempt target = scope:target }
 						}
-					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
+						random_secret = {
+							limit = { secret_type = secret_murder_attempt secret_target = scope:target }
+							reveal_to = scope:actor
 						}
-					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
 					}
 				}
 			}
@@ -5141,49 +5426,238 @@ zz_valyria_magic_dream_magic_099_effect = {
 	}
 }
 
-zz_valyria_magic_dream_magic_100_effect = {
-	random_list = { 
+# Spell: Dream 103 - Mystery of Secret Weaving (Sleep-Talk)
+# Plants a secret that the subject then speaks of in their sleep, where only the commander hears it.
+zz_valyria_magic_dream_magic_103_effect = {
+	random_list = {
 		75 = {
-			modifier = { 
-				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value 
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
 			}
 			zz_valyria_magic_spell_success_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
-			if = {
-				limit = {
-					NOT = { scope:actor = scope:recipient }
-				}
-				add_opinion = {
-					modifier  = grateful_opinion
-					target = scope:actor
-					opinion = 70
-				}
-			}
 			scope:recipient = {
 				switch = {
 					trigger = scope:option
-					flag:dream_magic_prophecy_option_01 = {
-						magic_contract_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 3
+					flag:zz_guilt_deviant = {
+						if = {
+							limit = { NOT = { any_secret = { secret_type = secret_deviant } } }
+							add_secret = { type = secret_deviant }
+						}
+						random_secret = {
+							limit = { secret_type = secret_deviant }
+							save_scope_as = zz_spoken_secret
 						}
 					}
-					flag:dream_magic_prophecy_option_02 = {
-						magic_contract_xp_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 2
+					flag:zz_guilt_homosexual = {
+						if = {
+							limit = { NOT = { any_secret = { secret_type = secret_homosexual } } }
+							add_secret = { type = secret_homosexual }
+						}
+						random_secret = {
+							limit = { secret_type = secret_homosexual }
+							save_scope_as = zz_spoken_secret
 						}
 					}
-					flag:dream_magic_prophecy_option_03 = {
-						magic_contract_learn_mystery_passive_spawn_effect = {
-							SPAWN_CONTRACTS = 1
+					flag:zz_guilt_incest = {
+						if = {
+							limit = { NOT = { any_secret = { secret_type = secret_incest } } }
+							add_secret = { type = secret_incest }
+						}
+						random_secret = {
+							limit = { secret_type = secret_incest }
+							save_scope_as = zz_spoken_secret
 						}
 					}
-					flag:dream_magic_prophecy_option_04 = {
-						zz_spawn_magic_quest_contracts_spell_effect = yes
+					flag:zz_guilt_cannibal = {
+						if = {
+							limit = { NOT = { any_secret = { secret_type = secret_cannibal } } }
+							add_secret = { type = secret_cannibal }
+						}
+						random_secret = {
+							limit = { secret_type = secret_cannibal }
+							save_scope_as = zz_spoken_secret
+						}
+					}
+					flag:zz_guilt_witch = {
+						if = {
+							limit = { NOT = { any_secret = { secret_type = secret_witch } } }
+							add_secret = { type = secret_witch }
+						}
+						random_secret = {
+							limit = { secret_type = secret_witch }
+							save_scope_as = zz_spoken_secret
+						}
+					}
+					flag:zz_guilt_non_believer = {
+						if = {
+							limit = { NOT = { any_secret = { secret_type = secret_non_believer } } }
+							add_secret = { type = secret_non_believer }
+						}
+						random_secret = {
+							limit = { secret_type = secret_non_believer }
+							save_scope_as = zz_spoken_secret
+						}
+					}
+				}
+			}
+			# Only the ruler who ordered the casting hears what the subject says in their sleep
+			scope:zz_spoken_secret ?= {
+				reveal_to = scope:actor
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+		}
+	}
+}
+
+# Spell: Dream 104 - Mystery of Soothsaying (Captivity)
+zz_valyria_magic_dream_magic_104_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_valyria_mystery_visions
+					value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				create_story = {
+					type = zz_valyria_magic_dream_magic_104_story
+				}
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
 					}
 				}
 			}
 		}
 		25 = {
-			zz_valyria_magic_spell_failure_interface = { SPELLSCHOOL = $SPELLSCHOOL$ SPELL = $SPELL$}
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Dream 105 - Mystery of Soothsaying (Omens of War)
+zz_valyria_magic_dream_magic_105_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_valyria_mystery_visions
+					value = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_03
+				}
+				create_story = {
+					type = zz_valyria_magic_dream_magic_105_story
+				}
+				if = {
+					limit = {
+						NOT = { scope:actor = scope:recipient }
+					}
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 70
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Dream 106 - Mystery of the Dream of Fealty (Leave Faction)
+# The subject dreams of their oath and abandons their faction, and cannot join another for 2 to 10 years.
+zz_valyria_magic_dream_magic_106_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				if = {
+					limit = { exists = joined_faction }
+					leave_faction_with_cooldown_effect = {
+						FACTION = joined_faction
+						YEARS = zz_valyria_magic_dream_magic_106_value_01
+					}
+				}
+				else = {
+					add_faction_cooldown_effect = { YEARS = zz_valyria_magic_dream_magic_106_value_01 }
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Dream 107 - Mystery of Foresight (Single Combat). Its work is done in single combat (combat_move_zz_foresight_effect).
+zz_valyria_magic_dream_magic_107_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
 		}
 	}
 }

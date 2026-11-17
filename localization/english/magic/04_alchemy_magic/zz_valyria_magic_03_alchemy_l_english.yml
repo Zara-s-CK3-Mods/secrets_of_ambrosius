@@ -5,16 +5,18 @@ l_english:
   ## Alchemical Magic
   ## Interaction
   ##\n\nThe use of the arcane forces of [alchemy_magic|E] to increase the prosperity in the chosen province of the selected subject.
-  zz_valyria_magic_alchemy_magic_001.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_bsp$\n\nThe use of the arcane forces of [alchemy_magic|E] to increase the prosperity in the chosen province of the selected subject. \n\nThrough the secret arts of [alchemy_magic|E] it is possible to enrich the very soil, to bring forth growth and prosperity."
+  zz_valyria_magic_alchemy_magic_001.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tcc$\n$zz_ccd$\n$zz_devg$\n\nThe use of the arcane forces of [alchemy_magic|E] to quicken the prosperity of a chosen county.\n\nThe alchemists of the Freehold held that land, too, is a substance, and may be refined like any other. Through this mystery, the soil, the water, and the very air of a county are enriched, so that crops grow fuller, trades flourish, and towns swell with new life.\n\nThe effect is subtle but profound. [prosperity|E] comes more swiftly to a county so blessed, and the gains it makes are lasting long after the working fades.\n\nIt is said that the gardens of Old Valyria bore fruit in every season, and that its cities grew from villages in a single generation. If so, this was the art that made them."
 
   ## event
   zz_valyria_magic_alchemy_magic.001.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.001.name$"
-  zz_valyria_magic_alchemy_magic.001.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and some wondering chemists are thought to be what remains of such practices, at your command true alchemy can be done. It would be possible through such transmutations to enrich the very land of one of [recipient.GetFirstName]'s provinces. \n\nNow is the moment to choose, with but an arcane word of lost Valyria, and the prepared energies of magical might it would be possible to empower the province, but is it wise to so change the land itself?"
-  zz_valyria_magic_alchemy_magic.001.opt.a:0 "Yes, Let the world be transmuted!"
+  zz_valyria_magic_alchemy_magic.001.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. At their centre lies a handful of earth from the chosen county, which begins to darken and glisten as the elixirs are poured over it, giving off the rich smell of rain on ploughed fields.\n\nThe land-alchemists of the Freehold walked the provinces of the empire as healers walk the wards of a hospital, tending the sick soil and fattening the lean.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Through such transmutation you may quicken the prosperity of the lands of [recipient.GetFirstName], bringing growth and prosperity to their people. Will you enrich the land?"
+  zz_valyria_magic_alchemy_magic.001.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA clay tablet stamped with the outline of the chosen county is set upon the workbench, and the alchemist pours a green and bitter tincture over it, drop by drop. Where each drop falls, the clay softens and darkens, and tiny shoots of moss begin to push up through its surface.\n\nThe land-alchemists of Valyria held that the soil is as much a living thing as any beast, and as willing to be fed and fattened.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Through such transmutation you may quicken the prosperity of the lands of [recipient.GetFirstName], bringing growth and prosperity to their people. Will you enrich the land?"
+  zz_valyria_magic_alchemy_magic.001.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nSeeds of wheat and barley are steeped in a bath of golden liquid until they swell to twice their size. The alchemist scatters them across a map of the county and speaks the old words, and the scent of harvest, of cut grain and warm bread, rises from the parchment.\n\nIn the Freehold, a lean county was a failure of the alchemist assigned to it, and failures were not long tolerated.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Through such transmutation you may quicken the prosperity of the lands of [recipient.GetFirstName], bringing growth and prosperity to their people. Will you enrich the land?"
+  zz_valyria_magic_alchemy_magic.001.opt.a:0 "Let the land flourish!"
   zz_valyria_magic_alchemy_magic.001.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.001.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.001.name$"
-  zz_valyria_magic_alchemy_magic.001.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ improving the prosperity growth of [target.GetName]"
+  zz_valyria_magic_alchemy_magic.001.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ quickening the prosperity of [target.GetName]."
   zz_valyria_magic_alchemy_magic.001.toast.tt:0 "$zz_valyria_magic_alchemy_magic.001.toast.desc$"
   zz_valyria_magic_alchemy_magic.001.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.001.name$"
   zz_valyria_magic_alchemy_magic.001.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -22,16 +24,18 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_002.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_bsp$\n\nThrough the secret arts of [alchemy_magic|E] it is possible to empower the processes of construction. Helping to rapidly advance construction projects."
+  zz_valyria_magic_alchemy_magic_002.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_bld$\n\nThe use of the arcane forces of [alchemy_magic|E] to hasten the raising of buildings in a chosen province.\n\nStone is merely earth that has been persuaded to hold a shape. Through this mystery, the stone, timber, and mortar used in a province's construction are made more willing: blocks fit more readily, mortar sets more swiftly, and beams resist warping and rot.\n\nBuilding works in the province advance far faster than the labour of mortal masons alone would allow.\n\nThe great cities of the Freehold were raised with such haste that their enemies took them for the work of gods. The truth was only a little less remarkable."
 
   ##event
   zz_valyria_magic_alchemy_magic.002.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.002.name$"
-  zz_valyria_magic_alchemy_magic.002.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and some wondering chemists are thought to be what remains of such practices, at your command true alchemy can be done. It would be possible through such transmutations to make more effortless the construction projects in [recipient.GetFirstName]'s provinces. But is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.002.opt.a:0 "Yes, Let the world be transmuted!"
+  zz_valyria_magic_alchemy_magic.002.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A small block of stone rests in a basin of quicksilver, and as the incantation proceeds it softens, flows, and sets again into a shape more perfect than any mason's chisel could achieve.\n\nThe builder-alchemists of Valyria were the true architects of the Freehold. The dragons may have conquered the world, but it was the alchemists who rebuilt it in Valyria's image.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may hasten the construction of works in the lands of [recipient.GetFirstName], so that walls, halls, and markets rise in a fraction of the usual time. Will you lend your art to the builders?"
+  zz_valyria_magic_alchemy_magic.002.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA mason's plumb line hangs above a basin of quicksilver, perfectly still. As the alchemist speaks, the quicksilver rises to meet it, climbing the line in a thin silver thread and setting, as it cools, into a slender column straighter than any builder's art could make.\n\nThe great roads and walls of Valyria were built in years, not generations. Its alchemists made sure of it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may hasten the construction of works in the lands of [recipient.GetFirstName], so that walls, halls, and markets rise in a fraction of the usual time. Will you lend your art to the builders?"
+  zz_valyria_magic_alchemy_magic.002.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nBricks of raw clay are laid in a ring around the crucible, and the alchemist anoints each with a pale, chalky paste. As the incantation proceeds, the bricks harden and grow smooth, their edges sharpening until they could be fitted together without a single gap.\n\nThe builder-alchemists of the Freehold could raise a city in the time it took other lords to raise a tower.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may hasten the construction of works in the lands of [recipient.GetFirstName], so that walls, halls, and markets rise in a fraction of the usual time. Will you lend your art to the builders?"
+  zz_valyria_magic_alchemy_magic.002.opt.a:0 "Let the stone obey!"
   zz_valyria_magic_alchemy_magic.002.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.002.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.002.name$"
-  zz_valyria_magic_alchemy_magic.002.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ improving the construction rate of [recipient.GetFirstName]"
+  zz_valyria_magic_alchemy_magic.002.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ hastening the construction of buildings in the lands of [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.002.toast.tt:0 "$zz_valyria_magic_alchemy_magic.002.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.002.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.002.name$"
@@ -40,20 +44,22 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_003.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_ccr$\n\nThrough the secret arts of [alchemy_magic|E], it is possible to transmute base matter into gleaming [gold|E], conjuring wealth from nought."
+  zz_valyria_magic_alchemy_magic_003.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_gold$\n\nThe use of the arcane forces of [alchemy_magic|E] to transmute base matter into gleaming gold.\n\nLesser alchemists spend their lives in pursuit of a single transmutation and never achieve it. The adepts of the Freehold regarded such transmutations as the first lessons of their art: the reshaping of base matter into whatever the world values most.\n\nThrough this mystery, lead, iron, and common stone are transformed into gleaming [gold|E], conjuring wealth from nothing. The alchemist need only supply the base matter and the will.\n\nThe Valyrians were careful never to flood the markets of the world with sorcerous gold, lest its value collapse. Those who practise this art in secret would do well to remember their caution."
 
   ##event
   zz_valyria_magic_alchemy_magic.003.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.003.name$"
 
-  zz_valyria_magic_alchemy_magic.003.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and certain wandering chemists are thought to preserve but fragments of such lore, at your command true alchemy may yet be practiced. Through sacred transmutation it would be possible to turn base matter into pure [gold|E] for [recipient.GetFirstName], filling [recipient.GetHerHis] coffers with conjured riches. Yet is it wise to rely upon magic in this way?"
+  zz_valyria_magic_alchemy_magic.003.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A heap of lead shot lies in the largest crucible. As the incantations are spoken, the dull grey of the metal begins to warm, then to glow, then to shine with the unmistakable yellow of true gold.\n\nThe treasuries of the dragonlords were said to be bottomless. Few outside the Freehold ever guessed why.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may transmute base metal into gold for [recipient.GetFirstName], filling [recipient.GetHerHis] coffers with wealth conjured from nothing. Will you make gold from lead?"
+  zz_valyria_magic_alchemy_magic.003.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA ladle of molten lead is poured slowly into a mould of carved stone, and the alchemist sprinkles a red powder into the stream as it falls. Where the powder touches the metal, the grey turns warm and bright, and by the time the mould is full, it holds a bar of pure gold.\n\nThe Freehold paid its armies, its builders and its bribes in gold. Little of it ever came from a mine.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may transmute base metal into gold for [recipient.GetFirstName], filling [recipient.GetHerHis] coffers with wealth conjured from nothing. Will you make gold from lead?"
+  zz_valyria_magic_alchemy_magic.003.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA heap of copper coins, the small change of a market town, is tipped into a crucible and covered with a pale, shimmering liquid. As the alchemist stirs, the coins begin to hiss and glow, and when the liquid is poured away, they gleam like the sun.\n\nThe coffers of the dragonlords were never empty, and the alchemists who filled them were never poor.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may transmute base metal into gold for [recipient.GetFirstName], filling [recipient.GetHerHis] coffers with wealth conjured from nothing. Will you make gold from lead?"
 
-  zz_valyria_magic_alchemy_magic.003.opt.a:0 "Yes, transmute gold!"
+  zz_valyria_magic_alchemy_magic.003.opt.a:0 "Transmute the gold!"
   zz_valyria_magic_alchemy_magic.003.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.003.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.003.name$"
 
-  zz_valyria_magic_alchemy_magic.003.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ transmuting base matter into [gold|E] for [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.003.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ transmuting base metal into gold for [recipient.GetFirstName]."
 
   zz_valyria_magic_alchemy_magic.003.toast.tt:0 "$zz_valyria_magic_alchemy_magic.003.toast.desc$"
 
@@ -68,17 +74,19 @@ l_english:
   recipient_valyria_magic_craft_potion:0 "Spell Subject"
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_004.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bcm$\n\nThrough the secret arts of [alchemy_magic|E] it is possible to enchant the forces of war. You may increase the number of knights."
+  zz_valyria_magic_alchemy_magic_004.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_knl$\n\nThe use of the arcane forces of [alchemy_magic|E] to draw more knights into the service of a chosen subject.\n\nThrough this mystery, the spirit of martial loyalty itself is distilled and bound to the chosen subject, drawing warriors of renown to their banner who might otherwise have sworn to another.\n\nThe subject finds themselves able to field more [knight|E]s than their station would ordinarily allow, as champions seek them out and remain at their side.\n\nThe alchemists of the Freehold did not think of loyalty as a virtue. They thought of it as a substance, and a substance can always be manufactured."
 
   ##event
   zz_valyria_magic_alchemy_magic.004.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.004.name$"
-  zz_valyria_magic_alchemy_magic.004.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and some wondering chemists are thought to be what remains of such practices, at your command true alchemy can be done. It would be possible to transumute concepts, to make the forces of [recipient.GetFirstName] more potent. This could give them more knights, or more professional troops, or indeed to increase the capabilities of what they already possess, but is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.004.opt.a:0 "Yes, Attract more Knights!"
+  zz_valyria_magic_alchemy_magic.004.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A single golden spur rests in a dish of quicksilver, and as the elixir is poured over it, the spur seems to multiply, its reflection appearing again and again in the polished vessels around it.\n\nThe Valyrians called this the Distillation of Fealty, and used it to bind the warrior castes of conquered peoples to the service of their new masters.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may draw more knights to the banner of [recipient.GetFirstName], enlarging the champions who fight at their side. Is it right to purchase loyalty with sorcery?"
+  zz_valyria_magic_alchemy_magic.004.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA knight's gauntlet, worn and scarred from many battles, rests within a circle of glyphs. The alchemist pours a silver tincture into its palm, and the liquid spreads through the leather and steel, and the gauntlet's reflection in the polished vessels begins to multiply.\n\nIn Valyria, the bonds of knightly service were made as much in the alchemist's workshop as in the hall of oaths.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may draw more knights to the banner of [recipient.GetFirstName], enlarging the champions who fight at their side. Is it right to purchase loyalty with sorcery?"
+  zz_valyria_magic_alchemy_magic.004.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA ring of bronze, engraved with an oath of service, is dropped into a flask of golden liquid. As it sinks, the flask fills with tiny gleaming rings, each a perfect copy of the first, until they crowd against the glass.\n\nThe Freehold's warrior castes were never short of champions. Its alchemists saw to it that every lord had the knights they needed.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may draw more knights to the banner of [recipient.GetFirstName], enlarging the champions who fight at their side. Is it right to purchase loyalty with sorcery?"
+  zz_valyria_magic_alchemy_magic.004.opt.a:0 "Summon more champions!"
   zz_valyria_magic_alchemy_magic.004.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.004.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.004.name$"
-  zz_valyria_magic_alchemy_magic.004.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ granting improved armaments to the forces of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.004.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ drawing more knights to the banner of [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.004.toast.tt:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ granting improved armaments to the forces of [recipient.GetFirstName]."
 
   zz_valyria_magic_alchemy_magic.004.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.004.name$"
@@ -87,18 +95,20 @@ l_english:
 
   ## Interaction
 
-  zz_valyria_magic_alchemy_magic_005.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bcm$\n\nThrough the secret arts of [alchemy_magic|E] it is possible to enchant the your realm. This will let you keep more vassals, and to hold more within your personal domain."
+  zz_valyria_magic_alchemy_magic_005.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_dml$\n\nThe use of the arcane forces of [alchemy_magic|E] to extend the reach of a chosen ruler's personal rule.\n\nA ruler's attention is a finite thing, and the lands they can hold directly are limited by it. Through this mystery, the essence of rulership is refined within the chosen subject, so that their gaze reaches further and their grip holds firmer.\n\nThe subject's [domain_limit|E] increases, allowing them to hold more holdings personally without the inefficiency that normally follows.\n\nThe archons of the Freehold were said to govern vast estates without ever seeming to tire. Alchemy, more than talent, was the secret of their stamina."
 
 
   ##event
   zz_valyria_magic_alchemy_magic.005.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.005.name$"
-  zz_valyria_magic_alchemy_magic.005.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and some wondering chemists are thought to be what remains of such practices, at your command true alchemy can be done. It would be possible to transumute concepts, to make the forces of [recipient.GetFirstName] more potent. This could give them more knights, or more professional troops, or indeed to increase the capabilities of what they already possess, but is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.005.opt.a:0 "Yes, Domain Efficiencies!"
+  zz_valyria_magic_alchemy_magic.005.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A tiny crown of hammered gold sits within a sealed flask, and as the vapours rise, it seems to grow, filling the vessel until the glass groans and creaks around it.\n\nThe administrator-alchemists of the Freehold refined the governors of the empire's provinces as a smith tempers a blade, so that a single archon could rule what would otherwise have required a dozen.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may extend the reach of [recipient.GetFirstName]'s personal rule, allowing them to hold more of their realm in their own hands. Will you refine their rulership?"
+  zz_valyria_magic_alchemy_magic.005.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA seal of office, heavy and ornate, is pressed into a pool of warm wax upon the workbench. The alchemist pours a fine silver dust into the impression, and as the incantation proceeds, the impression deepens and widens, until it is far larger than the seal that made it.\n\nThe archons of the Freehold ruled more land than any lord before them, and did so without seeming to tire.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may extend the reach of [recipient.GetFirstName]'s personal rule, allowing them to hold more of their realm in their own hands. Will you refine their rulership?"
+  zz_valyria_magic_alchemy_magic.005.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA small model of a palace, carved from white stone, rests within a ring of glyphs. As the alchemist works, its walls seem to stretch outward, its halls lengthening and its courtyards widening, until the model is twice the size it was.\n\nIn Valyria, a ruler's reach was a matter of refinement. The administrator-alchemists refined it, and the empire grew.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may extend the reach of [recipient.GetFirstName]'s personal rule, allowing them to hold more of their realm in their own hands. Will you refine their rulership?"
+  zz_valyria_magic_alchemy_magic.005.opt.a:0 "Extend their reach!"
   zz_valyria_magic_alchemy_magic.005.opt.b:0 "Yes, Vassal Efficiencies!"
   zz_valyria_magic_alchemy_magic.005.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.005.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.005.name$"
-  zz_valyria_magic_alchemy_magic.005.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ improving the realm management of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.005.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ extending the reach of [recipient.GetFirstName]'s personal rule."
   zz_valyria_magic_alchemy_magic.005.toast.tt:0 "$zz_valyria_magic_alchemy_magic.005.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.005.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.005.name$"
@@ -107,16 +117,18 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_006.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_cci$\n\nThrough the secret arts of [alchemy_magic|E] it is possible to enchant an item. This will add new and improved potencies to the item, making it far more capable."
+  zz_valyria_magic_alchemy_magic_006.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tci$\n$zz_cci$\n\nThe use of the arcane forces of [alchemy_magic|E] to enchant a chosen item with new and greater potencies.\n\nEvery object has an essence, and an essence can be refined. Through this mystery, an item is broken down and rebuilt at the most fundamental level, gaining new properties: a sharper edge, a deeper wisdom, a hunger for magic, or a share of its owner's fortune.\n\nThe nature of the enchantment depends on the caster's will and skill, and no two enchanted items are ever quite the same.\n\nThe treasures of the Freehold, the blades and crowns and rings that survived the Doom, were all made this way. They still hum with the power that was folded into them."
 
   ##event
   zz_valyria_magic_alchemy_magic.006.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.006.name$"
-  zz_valyria_magic_alchemy_magic.006.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and some wondering chemists are thought to be what remains of such practices, at your command true alchemy can be done. It would be possible to transumute concepts, to make an item of [recipient.GetFirstName] more potent. This would alter an item with an increase  to the capabilities of what it already possesses, but is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.006.opt.a:0 "Yes, make it glow!"
+  zz_valyria_magic_alchemy_magic.006.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. The chosen item rests within a circle of glyphs, and as the elixirs are poured over it, its surface ripples like water and glows with a faint inner light.\n\nThe artificers of Valyria were alchemists first and craftsmen second. Their workshops were filled not with hammers and anvils but with crucibles and furnaces, and their creations were as much spell as substance.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may enchant the treasure of [recipient.GetFirstName], granting it new and greater potencies. Will you make it glow?"
+  zz_valyria_magic_alchemy_magic.006.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe chosen item is wrapped in a cloth of woven silver thread and laid upon a slab of black stone. The alchemist pours a thin stream of glowing liquid over the cloth, and where it soaks through, the item beneath begins to hum faintly, as though something within it had woken.\n\nThe artificers of the Freehold made treasures that still pass from hand to hand, centuries after their makers were dust.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may enchant the treasure of [recipient.GetFirstName], granting it new and greater potencies. Will you make it glow?"
+  zz_valyria_magic_alchemy_magic.006.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA small furnace is lit beneath a crucible of dark glass, and the chosen item is lowered into it on a silver chain. The flames rise blue and then white, and when the item is drawn out, its surface shines with a light that does not come from the fire.\n\nIn Valyria, there was no object so plain that an alchemist could not make it wondrous.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may enchant the treasure of [recipient.GetFirstName], granting it new and greater potencies. Will you make it glow?"
+  zz_valyria_magic_alchemy_magic.006.opt.a:0 "Make it glow!"
   zz_valyria_magic_alchemy_magic.006.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.006.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.006.name$"
-  zz_valyria_magic_alchemy_magic.006.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ enchanting an item of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.006.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ enchanting a treasure belonging to [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.006.toast.tt:0 "$zz_valyria_magic_alchemy_magic.006.toast.desc$"
   zz_mana_gain_extra_cost_400:0 "This Mystery will cost an additional 400 [drops_of_power]."
   zz_valyria_magic_alchemy_magic.006.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.006.name$"
@@ -125,17 +137,19 @@ l_english:
 
 
     ## Interaction
-  zz_valyria_magic_alchemy_magic_007.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_ccr$\n\nThrough the secret arts of [alchemy_magic|E], it is possible to conjure sacred relics and hallowed treasures that will generate [piety|E]."
+  zz_valyria_magic_alchemy_magic_007.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_pty$\n\nThe use of the arcane forces of [alchemy_magic|E] to transmute base matter into sacred relics.\n\nLesser alchemists spend their lives in pursuit of a single transmutation and never achieve it. The adepts of the Freehold regarded such transmutations as the first lessons of their art: the reshaping of base matter into whatever the world values most.\n\nThrough this mystery, the alchemist conjures objects of profound sanctity: relics, icons, and hallowed treasures whose very presence inspires devotion, granting their owner [piety|E].\n\nWhether such relics are truly holy is a matter for theologians. Their effect upon the faithful is undeniable."
 
   ##event
   zz_valyria_magic_alchemy_magic.007.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.007.name$"
-  zz_valyria_magic_alchemy_magic.007.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and certain wandering chemists are thought to preserve but fragments of such lore, at your command true alchemy may yet be practiced. Through sacred transmutation it would be possible to conjure blessed relics, saintly icons, and hallowed treasures for [recipient.GetFirstName], surrounding [recipient.GetHerHim] with objects of reverence that shall inspire lasting [piety|E]. Yet is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.007.opt.a:0 "Yes, conjure holy relics!"
+  zz_valyria_magic_alchemy_magic.007.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A small, unremarkable bone rests in a dish of silver. As the incantation proceeds, it begins to glow with a soft, warm light, and a scent like incense fills the chamber.\n\nThe priests of the Freehold's many gods were often surprised by the frequency with which miraculous relics appeared in Valyrian temples. The alchemists were rarely surprised at all.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure sacred relics for [recipient.GetFirstName], granting [recipient.GetHerHim] the respect and devotion of the faithful. But is it right to manufacture holiness?"
+  zz_valyria_magic_alchemy_magic.007.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA cup of plain clay is set within a circle of incense burners, and the alchemist fills it with water drawn from a temple well. As the incantation proceeds, the cup grows warm and the water within it glows, and the faint sound of distant singing fills the chamber.\n\nThe priests of the Freehold were often grateful for the relics that its alchemists provided, and seldom asked where they came from.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure sacred relics for [recipient.GetFirstName], granting [recipient.GetHerHim] the respect and devotion of the faithful. But is it right to manufacture holiness?"
+  zz_valyria_magic_alchemy_magic.007.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA strip of plain linen is laid upon the workbench and anointed with sacred oils, one after another. As the last is poured, the linen begins to shimmer, and those who look upon it feel a sudden and unaccountable sense of reverence.\n\nIn Valyria, holiness was a substance like any other, and the alchemists knew how to refine it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure sacred relics for [recipient.GetFirstName], granting [recipient.GetHerHim] the respect and devotion of the faithful. But is it right to manufacture holiness?"
+  zz_valyria_magic_alchemy_magic.007.opt.a:0 "Conjure holy relics!"
   zz_valyria_magic_alchemy_magic.007.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.007.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.007.name$"
-  zz_valyria_magic_alchemy_magic.007.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ conjuring sacred relics for [recipient.GetFirstName], filling the realm with reverence and [piety|E]."
+  zz_valyria_magic_alchemy_magic.007.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ conjuring sacred relics for [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.007.toast.tt:0 "$zz_valyria_magic_alchemy_magic.007.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.007.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.007.name$"
@@ -144,17 +158,19 @@ l_english:
 
 
     ## Interaction
-  zz_valyria_magic_alchemy_magic_008.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_ccr$\n\nThrough the secret arts of [alchemy_magic|E], it is possible to conjure wondrous regalia, triumphal treasures, and symbols of greatness that will grant personal [prestige|E]."
+  zz_valyria_magic_alchemy_magic_008.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_prs$\n\nThe use of the arcane forces of [alchemy_magic|E] to transmute base matter into wondrous regalia.\n\nLesser alchemists spend their lives in pursuit of a single transmutation and never achieve it. The adepts of the Freehold regarded such transmutations as the first lessons of their art: the reshaping of base matter into whatever the world values most.\n\nThrough this mystery, the alchemist conjures objects of dazzling grandeur: regalia, triumphal treasures, and symbols of greatness that fill all who behold them with awe, granting their owner personal [prestige|E].\n\nSuch treasures are often more impressive than any made by human hands, which is precisely the point."
 
   ##event
   zz_valyria_magic_alchemy_magic.008.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.008.name$"
-  zz_valyria_magic_alchemy_magic.008.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and certain wandering chemists are thought to preserve but fragments of such lore, at your command true alchemy may yet be practiced. Through noble transmutation it would be possible to conjure crowns, banners, jeweled regalia, and other magnificent treasures for [recipient.GetFirstName], surrounding [recipient.GetHerHim] with symbols of glory that shall inspire lasting personal [prestige|E]. Yet is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.008.opt.a:0 "Yes, conjure glorious treasures!"
+  zz_valyria_magic_alchemy_magic.008.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A crown of plain iron rests in the largest crucible. As the incantation proceeds, it begins to gleam, then to sparkle, as gemstones bloom upon its surface like flowers.\n\nThe dragonlords of the Freehold dressed themselves in treasures so magnificent that the kings of other lands felt like beggars in their presence.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure wondrous regalia for [recipient.GetFirstName], increasing [recipient.GetHerHis] renown among the great and powerful. Will you make them magnificent?"
+  zz_valyria_magic_alchemy_magic.008.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA plain iron goblet is set in a bath of quicksilver and gold leaf, and the alchemist stirs the bath slowly with a rod of crystal. As the incantation proceeds, the goblet grows heavier and brighter, until it seems carved from a single great jewel.\n\nThe dragonlords displayed their wealth as a weapon, and their alchemists forged it for them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure wondrous regalia for [recipient.GetFirstName], increasing [recipient.GetHerHis] renown among the great and powerful. Will you make them magnificent?"
+  zz_valyria_magic_alchemy_magic.008.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA rough, uncut stone is held in a pair of silver tongs over a blue flame. As the alchemist speaks, the stone's dull surface begins to clear, and facets appear upon it, catching the light and throwing it in brilliant shards across the room.\n\nIn the courts of the Freehold, splendour was a form of power, and few lords could compete with the treasures of Valyria.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure wondrous regalia for [recipient.GetFirstName], increasing [recipient.GetHerHis] renown among the great and powerful. Will you make them magnificent?"
+  zz_valyria_magic_alchemy_magic.008.opt.a:0 "Conjure glorious treasures!"
   zz_valyria_magic_alchemy_magic.008.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.008.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.008.name$"
-  zz_valyria_magic_alchemy_magic.008.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ conjuring magnificent treasures for [recipient.GetFirstName], raising [recipient.GetHerHis] personal [prestige|E]."
+  zz_valyria_magic_alchemy_magic.008.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ conjuring wondrous regalia that increase the prestige of [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.008.toast.tt:0 "$zz_valyria_magic_alchemy_magic.008.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.008.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.008.name$"
@@ -163,17 +179,19 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_009.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_ccr$\n\nThrough the secret arts of [alchemy_magic|E], it is possible to conjure ancestral treasures, storied heirlooms, and icons of legacy that will contribute to [dynasty_prestige|E]."
+  zz_valyria_magic_alchemy_magic_009.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_rnw$\n\nThe use of the arcane forces of [alchemy_magic|E] to transmute base matter into storied heirlooms.\n\nLesser alchemists spend their lives in pursuit of a single transmutation and never achieve it. The adepts of the Freehold regarded such transmutations as the first lessons of their art: the reshaping of base matter into whatever the world values most.\n\nThrough this mystery, the alchemist conjures objects of ancestral weight: heirlooms, storied treasures, and icons of legacy that seem to have been in the family for generations, adding to the [dynasty_prestige|E] of the chosen subject's dynasty.\n\nFamilies that possess such heirlooms are respected for their antiquity, even when that antiquity is entirely conjured."
 
   ##event
   zz_valyria_magic_alchemy_magic.009.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.009.name$"
-  zz_valyria_magic_alchemy_magic.009.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and certain wandering chemists are thought to preserve but fragments of such lore, at your command true alchemy may yet be practiced. Through exalted transmutation it would be possible to conjure ancestral regalia, storied banners, jeweled heirlooms, and other symbols of lineage for [recipient.GetFirstName]. Such treasures would glorify [recipient.GetHerHis] bloodline and bring lasting gains to [dynasty_prestige|E]. Yet is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.009.opt.a:0 "Yes, conjure icons of legacy!"
+  zz_valyria_magic_alchemy_magic.009.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A plain wooden box rests within a circle of glyphs. As the incantation proceeds, it ages before the watchers' eyes, its wood darkening and its fittings tarnishing until it seems a thousand years old.\n\nMore than one great house of the Freehold owed its ancient lineage to an alchemist who could make yesterday's trinket into a relic of an age long forgotten.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure storied heirlooms for [recipient.GetFirstName], adding to the renown of [recipient.GetHerHis] dynasty. Will you forge a legacy?"
+  zz_valyria_magic_alchemy_magic.009.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA newly forged sword is laid upon a bed of ash and buried in it, and the alchemist pours a dark, smoky liquid over the ash until it is soaked. When the sword is drawn out again, its blade is notched and its hilt worn smooth, as though carried by a hundred generations of heroes.\n\nIn Valyria, a family's history could be made as well as inherited, and the alchemists made a great deal of it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure storied heirlooms for [recipient.GetFirstName], adding to the renown of [recipient.GetHerHis] dynasty. Will you forge a legacy?"
+  zz_valyria_magic_alchemy_magic.009.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA freshly written scroll is held over a smouldering brazier of herbs, and the alchemist speaks the words of age and memory. The parchment yellows and curls, its ink fading to brown, until it looks as though it had been written before the Freehold was founded.\n\nThe great houses of Valyria boasted of ancient lineages, and their alchemists provided the evidence.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure storied heirlooms for [recipient.GetFirstName], adding to the renown of [recipient.GetHerHis] dynasty. Will you forge a legacy?"
+  zz_valyria_magic_alchemy_magic.009.opt.a:0 "Conjure icons of legacy!"
   zz_valyria_magic_alchemy_magic.009.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.009.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.009.name$"
-  zz_valyria_magic_alchemy_magic.009.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ conjuring treasures of lineage for [recipient.GetFirstName], increasing [recipient.GetHerHis] house's [dynasty_prestige|E]."
+  zz_valyria_magic_alchemy_magic.009.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ conjuring storied heirlooms that add to the renown of [recipient.GetFirstName]'s dynasty."
   zz_valyria_magic_alchemy_magic.009.toast.tt:0 "$zz_valyria_magic_alchemy_magic.009.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.009.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.009.name$"
@@ -182,17 +200,18 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_010.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_cca$\n\nThrough the secret arts of [alchemy_magic|E] it is possible to transmute even concepts. You can make the age of a character run from their face, or indeed add it back again."
+  zz_valyria_magic_alchemy_magic_010.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_yng$\n\nThe use of the arcane forces of [alchemy_magic|E] to transmute away years of a chosen subject's age. The stronger the caster, the more years may be taken, and the caster chooses how many.\n\nTime is a substance like any other, the alchemists of the Freehold taught, and a substance may be extracted. Through this mystery, years of age are drawn out of the chosen subject's body and distilled into nothing.\n\nThe subject grows younger in body. The effect is permanent, and may be repeated, though each repetition is said to grow more difficult.\n\nThe archons of the Freehold were famously long-lived. Some lived so long that their own grandchildren came to resent them."
 
   ##event
   zz_valyria_magic_alchemy_magic.010.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.010.name$"
-  zz_valyria_magic_alchemy_magic.010.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and some wondering chemists are thought to be what remains of such practices, at your command true alchemy can be done. It would be possible through such transmutations to change the age of [recipient.GetFirstName]'. This would bring them youth,  but is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.010.opt.a:0 "Yes, Transmute away a single year!"
-  zz_valyria_magic_alchemy_magic.010.opt.b:0 "Yes, Transmute away as much as possible!"
+  zz_valyria_magic_alchemy_magic.010.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. An hourglass rests at the centre of the circle, and as the incantation proceeds, its sand begins to flow upward, grain by grain, back into the upper chamber.\n\nThe Valyrians called this the Unwinding, and it was among the most jealously guarded of their alchemical secrets. Many a war was fought over a single practitioner who knew it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may draw years of age out of [recipient.GetFirstName], leaving them younger in body. Choose the age they will be. Is it right to steal back time from the world?"
+  zz_valyria_magic_alchemy_magic.010.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA single grey hair, plucked from the subject's head, is laid in a dish of clear liquid. As the alchemist speaks, the hair darkens slowly from root to tip, until it is as black and glossy as it was in the subject's youth.\n\nThe Unwinding was among the Freehold's most coveted secrets. Lords would trade provinces for a single treatment.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may draw years of age out of [recipient.GetFirstName], leaving them younger in body. Choose the age they will be. Is it right to steal back time from the world?"
+  zz_valyria_magic_alchemy_magic.010.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA candle that has burned half away is set within a circle of glyphs, and the alchemist relights it. As the incantation proceeds, the flame burns not down but up, and the wax rises to meet it, until the candle stands as tall as the day it was made.\n\nIn Valyria, it was said that time was only another substance, and that a skilled alchemist could pour it back into the flask.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may draw years of age out of [recipient.GetFirstName], leaving them younger in body. Choose the age they will be. Is it right to steal back time from the world?"
+  zz_valyria_magic_alchemy_magic.010.opt.a:0 "Unwind the years!"
   zz_valyria_magic_alchemy_magic.010.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.010.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.010.name$"
-  zz_valyria_magic_alchemy_magic.010.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ restoring youth to [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.010.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ drawing years of age out of [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.010.toast.tt:0 "$zz_valyria_magic_alchemy_magic.010.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.010.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.010.name$"
@@ -201,17 +220,18 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_011.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_cca$\n\nThrough the secret arts of [alchemy_magic|E] it is possible to transmute even concepts. You can make the age of a character run from their face, or indeed add it back again."
+  zz_valyria_magic_alchemy_magic_011.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_old$\n\nThe use of the arcane forces of [alchemy_magic|E] to add years to a chosen subject's age. The stronger the caster, the more years may be added, and the caster chooses how many.\n\nWhat can be drawn out can also be poured in. Through this mystery, years of age are distilled and forced into the chosen subject's body, leaving them older in an instant.\n\nSome use it to hasten a child into adulthood. Others use it as a weapon, ageing their enemies year by year until there is nothing left of them.\n\nThe Valyrians called this the Winding, and considered it a punishment fit only for traitors."
 
   ##event
   zz_valyria_magic_alchemy_magic.011.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.011.name$"
-  zz_valyria_magic_alchemy_magic.011.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and some wondering chemists are thought to be what remains of such practices, at your command true alchemy can be done. It would be possible through such transmutations to change the age of [recipient.GetFirstName]'. This would brings years to their face, but is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.011.opt.a:0 "Yes, Transmute an additional year!"
-  zz_valyria_magic_alchemy_magic.011.opt.b:0 "Yes, Transmute as many additional years as possible!"
+  zz_valyria_magic_alchemy_magic.011.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. An hourglass rests at the centre of the circle, and as the incantation proceeds, its sand pours down far faster than it should, a year's worth of grains falling in a single heartbeat.\n\nIn the courts of the Freehold, an enemy might be punished not with death but with time, aged a year for every insult until they were too frail to be dangerous.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may force years of age upon [recipient.GetFirstName], leaving them older in body. Choose the age they will be. Will you hasten the passing of their years?"
+  zz_valyria_magic_alchemy_magic.011.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA fresh flower is set in a vase of water at the centre of the circle. As the alchemist speaks, its petals curl and brown, its stem droops, and within moments it has withered and died, as though a whole season had passed in a breath.\n\nIn the courts of the Freehold, there were punishments worse than death, and the alchemists were their most inventive executioners.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may force years of age upon [recipient.GetFirstName], leaving them older in body. Choose the age they will be. Will you hasten the passing of their years?"
+  zz_valyria_magic_alchemy_magic.011.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA polished bronze mirror is held up before the circle, and the alchemist breathes upon it, speaking the words of years. The reflection in the mirror grows older, its lines deepening and its hair greying, and somewhere far away, the subject feels a sudden, heavy weariness.\n\nIn Valyria, time could be given as well as taken. It was seldom given as a gift.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may force years of age upon [recipient.GetFirstName], leaving them older in body. Choose the age they will be. Will you hasten the passing of their years?"
+  zz_valyria_magic_alchemy_magic.011.opt.a:0 "Wind on the years!"
   zz_valyria_magic_alchemy_magic.011.opt.z:0 "No, do not cast!"
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.011.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.011.name$"
-  zz_valyria_magic_alchemy_magic.011.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ adding age to [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.011.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ forcing years of age upon [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.011.toast.tt:0 "$zz_valyria_magic_alchemy_magic.011.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.011.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.011.name$"
@@ -220,17 +240,19 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_012.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bcm$\n\nThrough the secret arts of [alchemy_magic|E] it is possible to enchant the forces of war. You may empower the combat power of knights a character can employ."
+  zz_valyria_magic_alchemy_magic_012.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_kne$\n\nThe use of the arcane forces of [alchemy_magic|E] to strengthen the arms and armour of a chosen subject's knights.\n\nThrough this mystery, the steel carried by the chosen subject's knights is refined at the most fundamental level, made lighter, harder, and keener than the work of any mortal smith.\n\nThe subject's [knight|E]s fight with far greater effectiveness, their weapons cutting deeper and their armour turning blows that would otherwise have felled them.\n\nThe champions of the Freehold rode to war in arms of such quality that the knights of other lands seemed to be dressed in tin."
 
   ##event
-  zz_valyria_magic_alchemy_magic.012.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.012$"
-  zz_valyria_magic_alchemy_magic.012.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and some wondering chemists are thought to be what remains of such practices, at your command true alchemy can be done. It would be possible to transumute concepts, to make the forces of [recipient.GetFirstName] more potent. This could give them more knights, or more professional troops, or indeed to increase the capabilities of what they already possess, but is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.012.opt.a:0 "Yes, Empower Knightly Armaments!"
+  zz_valyria_magic_alchemy_magic.012.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.012.name$"
+  zz_valyria_magic_alchemy_magic.012.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A sword lies within the circle, and as the elixirs are poured along its length, the steel ripples and darkens, its edge growing so fine it seems to vanish when viewed side-on.\n\nThe armourer-alchemists of Valyria worked alongside its smiths, refining every blade and plate before it was given to the Freehold's champions.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may refine the arms of [recipient.GetFirstName]'s knights, making them far deadlier in battle. Will you temper their steel?"
+  zz_valyria_magic_alchemy_magic.012.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA knight's helm is set upon a stand of iron, and the alchemist pours a dark, viscous oil over it until it gleams. As the oil soaks into the metal, the helm seems to grow lighter, its lines sharper, its steel harder than any natural forge could make it.\n\nThe champions of the Freehold fought in armour that had passed through the alchemists' workshops before ever it saw a battlefield.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may refine the arms of [recipient.GetFirstName]'s knights, making them far deadlier in battle. Will you temper their steel?"
+  zz_valyria_magic_alchemy_magic.012.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA whetstone of grey slate is dipped in a silver solution and drawn along the edge of a lance. Each stroke leaves a trail of faint light upon the steel, and by the time the alchemist is finished, the lance seems to hum with eagerness.\n\nIn Valyria, a knight's strength was measured not only in their arm, but in the work of the alchemists who equipped them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may refine the arms of [recipient.GetFirstName]'s knights, making them far deadlier in battle. Will you temper their steel?"
+  zz_valyria_magic_alchemy_magic.012.opt.a:0 "Empower their arms!"
   zz_valyria_magic_alchemy_magic.012.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
-  zz_valyria_magic_alchemy_magic.012.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.012$"
-  zz_valyria_magic_alchemy_magic.012.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ granting improved armaments to the forces of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.012.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.012.name$"
+  zz_valyria_magic_alchemy_magic.012.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ refining the arms and armour of the knights of [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.012.toast.tt:0 "$zz_valyria_magic_alchemy_magic.012.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.012.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.012.name$"
@@ -239,17 +261,19 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_013.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bcm$\n\nThrough the secret arts of [alchemy_magic|E] it is possible to enchant the forces of war. You may increase the number of MAA regiments a character can recruit."
+  zz_valyria_magic_alchemy_magic_013.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_maac$\n\nThe use of the arcane forces of [alchemy_magic|E] to increase the number of men-at-arms regiments a chosen subject can raise.\n\nThrough this mystery, the essence of soldiery is distilled and bound to the chosen subject, drawing professional warriors to their service in numbers their realm could not ordinarily support.\n\nThe subject can raise more regiments of [men_at_arms|E] than their station would ordinarily allow.\n\nThe legions of the Freehold seemed to grow from nothing. Their enemies never understood that this was, in a sense, exactly true."
 
   ##event
   zz_valyria_magic_alchemy_magic.013.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.013.name$"
-  zz_valyria_magic_alchemy_magic.013.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and some wondering chemists are thought to be what remains of such practices, at your command true alchemy can be done. It would be possible to transumute concepts, to make the forces of [recipient.GetFirstName] more potent. This could give them more knights, or more professional troops, or indeed to increase the capabilities of what they already possess, but is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.013.opt.a:0 "Yes, Attract more Men at Arms!"
+  zz_valyria_magic_alchemy_magic.013.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A row of tiny lead soldiers stands within the circle, and as the incantation proceeds, they seem to multiply, new ranks appearing behind the old until the circle can hold no more.\n\nThe war-alchemists of Valyria bound this working to the commanders of the Freehold's legions, so that no army of the empire ever lacked for soldiers.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may draw more men-at-arms to the service of [recipient.GetFirstName], allowing them to raise more regiments. Will you swell their ranks?"
+  zz_valyria_magic_alchemy_magic.013.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA muster roll, its columns half empty, is laid open upon the workbench, and the alchemist sprinkles a fine silver dust across its pages. As the incantation proceeds, new names appear in the empty columns, written in a careful hand that is not the alchemist's own.\n\nThe legions of the Freehold never lacked for soldiers. Where men were short, alchemy made up the difference.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may draw more men-at-arms to the service of [recipient.GetFirstName], allowing them to raise more regiments. Will you swell their ranks?"
+  zz_valyria_magic_alchemy_magic.013.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA single iron spearhead is dropped into a crucible of quicksilver and gold. As the alchemist stirs, the spearhead divides, and divides again, until the crucible is filled with a forest of gleaming points, each identical to the first.\n\nIn Valyria, an army was a substance like any other, and the war-alchemists knew how to multiply it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may draw more men-at-arms to the service of [recipient.GetFirstName], allowing them to raise more regiments. Will you swell their ranks?"
+  zz_valyria_magic_alchemy_magic.013.opt.a:0 "Raise more regiments!"
   zz_valyria_magic_alchemy_magic.013.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.013.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.013.name$"
-  zz_valyria_magic_alchemy_magic.013.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ granting improved armaments to the forces of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.013.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ drawing more men-at-arms to the service of [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.013.toast.tt:0 "$zz_valyria_magic_alchemy_magic.013.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.013.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.013.name$"
@@ -257,17 +281,19 @@ l_english:
   zz_valyria_magic_alchemy_magic.013.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.013.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_014.tooltip.desc:0 "Effects:\n$zz_dop$$zz_tc$\n$zz_bcm$\n\nThrough the secret arts of [alchemy_magic|E] it is possible to enchant the forces of war. You may increase the size of the MAA regiments a character can recruit."
+  zz_valyria_magic_alchemy_magic_014.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_maas$\n\nThe use of the arcane forces of [alchemy_magic|E] to enlarge the men-at-arms regiments of a chosen subject.\n\nThrough this mystery, the companies of the chosen subject's army are made to swell, as soldiers who would have served elsewhere are drawn into their ranks.\n\nEach regiment of [men_at_arms|E] the subject raises is larger than it would ordinarily be.\n\nThe companies of the Freehold's legions were said to be twice the size of those of any other army. This was the reason."
 
   ##event
   zz_valyria_magic_alchemy_magic.014.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.014.name$"
-  zz_valyria_magic_alchemy_magic.014.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and some wondering chemists are thought to be what remains of such practices, at your command true alchemy can be done. It would be possible to transumute concepts, to make the forces of [recipient.GetFirstName] more potent. This could give them more knights, or more professional troops, or indeed to increase the capabilities of what they already possess, but is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.014.opt.a:0 "Yes, Make Men at Arms more Effective!"
+  zz_valyria_magic_alchemy_magic.014.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A single banner rests within the circle, and as the incantation proceeds, it seems to grow heavier and broader, as though more and more hands were reaching out to hold it.\n\nThe quartermasters of the Freehold worked hand in hand with its alchemists, so that every company that marched beneath the dragons marched at full strength and more.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may enlarge the regiments of [recipient.GetFirstName], so that each company they raise is greater in number. Will you swell their companies?"
+  zz_valyria_magic_alchemy_magic.014.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA drum of stretched hide is set at the centre of the circle, and the alchemist strikes it once with a stick dipped in a red tincture. The beat echoes far longer than it should, and with each echo the sound grows deeper and fuller, as though more and more drums were joining in.\n\nThe companies of the Freehold always marched at full strength, and often at more than full strength. Its alchemists saw to that.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may enlarge the regiments of [recipient.GetFirstName], so that each company they raise is greater in number. Will you swell their companies?"
+  zz_valyria_magic_alchemy_magic.014.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA soldier's cloak, cut to the pattern of a company's livery, is laid out upon the workbench and dusted with a fine golden powder. As the alchemist speaks, the cloak seems to grow broader and heavier, as though it were being worn by a hundred men at once.\n\nIn Valyria, every company was made larger in the alchemist's workshop before it ever marched to war.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may enlarge the regiments of [recipient.GetFirstName], so that each company they raise is greater in number. Will you swell their companies?"
+  zz_valyria_magic_alchemy_magic.014.opt.a:0 "Enlarge their companies!"
   zz_valyria_magic_alchemy_magic.014.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.014.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.014.name$"
-  zz_valyria_magic_alchemy_magic.014.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ granting improved armaments to the forces of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.014.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ enlarging the regiments of [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.014.toast.tt:0 "$zz_valyria_magic_alchemy_magic.014.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.014.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.014.name$"
@@ -275,17 +301,19 @@ l_english:
   zz_valyria_magic_alchemy_magic.014.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.014.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_015.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bcm$\n\nThrough the secret arts of [alchemy_magic|E] it is possible to enchant the forces of war. You may increase the number of titular MAA a character can recreuit."
+  zz_valyria_magic_alchemy_magic_015.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_tmaac$\n\nThe use of the arcane forces of [alchemy_magic|E] to increase the number of title men-at-arms regiments a chosen subject can raise.\n\nThe lands a ruler holds bring with them their own martial traditions and obligations. Through this mystery, those obligations are refined and multiplied, so that the subject's titles yield more professional soldiers than they ordinarily would.\n\nThe subject can raise more regiments of title [men_at_arms|E].\n\nThe provinces of the Freehold were each bound to supply soldiers to the legions. Alchemy ensured that they always supplied more than the quota."
 
   ##event
   zz_valyria_magic_alchemy_magic.015.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.015.name$"
-  zz_valyria_magic_alchemy_magic.015.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcaknights, their power, or the number of MAA and their sizene art. Though the pyromancers and some wondering chemists are thought to be what remains of such practices, at your command true alchemy can be done. It would be possible to transumute concepts, to make the forces of [recipient.GetFirstName] more potent. This could give them more knights, or more professional troops, or indeed to increase the capabilities of what they already possess, but is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.015.opt.a:0 "Yes, Attract more titular Men at Arms!"
+  zz_valyria_magic_alchemy_magic.015.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A wax seal bearing the arms of a ruler's title rests within the circle, and as the elixirs are poured over it, it seems to multiply, the same seal appearing upon a growing stack of writs.\n\nThe administrator-alchemists of Valyria bound this working to the governors of the empire's provinces, so that every title of the Freehold yielded its full measure of soldiers and more.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may multiply the regiments that the titles of [recipient.GetFirstName] can raise. Will you summon more title men-at-arms?"
+  zz_valyria_magic_alchemy_magic.015.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA blank writ of muster is laid beneath a crystal vessel, and the alchemist pours a dark ink into the vessel from above. As the ink drips through, it spells out the names of soldiers on the writ below, page after page, until a stack of writs stands where there was one.\n\nIn the Freehold, a title's worth was measured in the soldiers it could raise. The alchemists made sure that worth was always high.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may multiply the regiments that the titles of [recipient.GetFirstName] can raise. Will you summon more title men-at-arms?"
+  zz_valyria_magic_alchemy_magic.015.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA ruler's seal, carved from green stone, is set upon a pad of soft red wax. As the alchemist speaks, the seal presses down again and again of its own accord, each impression a summons to arms, until the wax is crowded with them.\n\nThe governors of Valyria's provinces commanded more soldiers than their lands should have been able to raise. Alchemy was the reason.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may multiply the regiments that the titles of [recipient.GetFirstName] can raise. Will you summon more title men-at-arms?"
+  zz_valyria_magic_alchemy_magic.015.opt.a:0 "Summon more title regiments!"
   zz_valyria_magic_alchemy_magic.015.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.015.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.015.name$"
-  zz_valyria_magic_alchemy_magic.015.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ granting improved armaments to the forces of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.015.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ multiplying the title men-at-arms regiments of [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.015.toast.tt:0 "$zz_valyria_magic_alchemy_magic.015.toast.desc$"
   zz_valyria_magic_alchemy_magic.015.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.015.name$"
   zz_valyria_magic_alchemy_magic.015.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$.."  
@@ -293,17 +321,19 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_016.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bcm$\n\nThrough the secret arts of [alchemy_magic|E] it is possible to enchant the forces of war. You may increase the size of Titular MAA this character can recruit. "
+  zz_valyria_magic_alchemy_magic_016.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_tmaas$\n\nThe use of the arcane forces of [alchemy_magic|E] to enlarge the title men-at-arms regiments of a chosen subject.\n\nThrough this mystery, the title regiments that the chosen subject's lands supply are made to swell, drawing more soldiers into each company than the land would ordinarily provide.\n\nEach regiment of title [men_at_arms|E] the subject raises is larger than it would ordinarily be.\n\nThe provincial legions of the Freehold were famous for their size. Few of their enemies ever realised how much of that size was conjured."
 
   ##event
   zz_valyria_magic_alchemy_magic.016.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.016.name$"
-  zz_valyria_magic_alchemy_magic.016.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and some wondering chemists are thought to be what remains of such practices, at your command true alchemy can be done. It would be possible to transumute concepts, to make the forces of [recipient.GetFirstName] more potent. This could give them more knights, or more professional troops, or indeed to increase the capabilities of what they already possess, but is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.016.opt.a:0 "Yes, Make Men at Arms titular more Effective!"
+  zz_valyria_magic_alchemy_magic.016.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A provincial standard rests within the circle, and as the incantation proceeds, the fabric ripples and the threads multiply, the banner growing ever larger and heavier.\n\nThe provincial governors of the Freehold competed to field the greatest title regiments, and the best alchemists were courted like princes for the service.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may enlarge the title regiments of [recipient.GetFirstName], so that each company their lands provide is greater in number. Will you swell them?"
+  zz_valyria_magic_alchemy_magic.016.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA regimental standard is unfurled across the workbench, and the alchemist anoints its edges with a bright, metallic oil. As the incantation proceeds, the standard grows larger, its fringe lengthening and its colours deepening, as though more and more soldiers were gathering beneath it.\n\nIn the Freehold, a province's regiment was the pride of its governor, and alchemy made that pride well founded.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may enlarge the title regiments of [recipient.GetFirstName], so that each company their lands provide is greater in number. Will you swell them?"
+  zz_valyria_magic_alchemy_magic.016.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA small model of a fortress is set within the circle, its walls lined with tiny carved soldiers. As the alchemist speaks, the ranks of soldiers grow, new figures appearing upon the walls until the model can scarcely hold them all.\n\nThe provincial governors of Valyria paid well for this working, for a great title regiment was the surest way to the dragonlords' favour.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may enlarge the title regiments of [recipient.GetFirstName], so that each company their lands provide is greater in number. Will you swell them?"
+  zz_valyria_magic_alchemy_magic.016.opt.a:0 "Enlarge their title regiments!"
   zz_valyria_magic_alchemy_magic.016.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.016.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.016.name$"
-  zz_valyria_magic_alchemy_magic.016.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ granting improved armaments to the forces of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.016.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ enlarging the title men-at-arms regiments of [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.016.toast.tt:0 "$zz_valyria_magic_alchemy_magic.016.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.016.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.016.name$"
@@ -313,18 +343,20 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_017.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_da$\n$zz_md$\n\nThrough the secret arts of [alchemy_magic|E] it is possible to launch an assault of transmutative magic, mutating and harming your foe with uncontrolled transformative energies "
+  zz_valyria_magic_alchemy_magic_017.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_duel_move$\n$zz_duel_skill$\n\nThe use of the arcane forces of [alchemy_magic|E] to assail a chosen subject with uncontrolled transmutative energies.\n\nEvery transmutation carries the risk of going wrong. This mystery is that risk made into a weapon: a torrent of raw transmutative force hurled at a chosen subject, warping their flesh, twisting their bones, and turning their own body against them.\n\nIn the instant of the assault, the caster may choose whether to maim or to slay. Either way, the subject will not be the same afterwards.\n\nThe alchemists of the Freehold used this working rarely, for it was considered crude, but they never hesitated to use it when crudeness was called for."
 
   ##event
   zz_valyria_magic_alchemy_magic.017.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.017.name$"
-  zz_valyria_magic_alchemy_magic.017.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and some wondering chemists are thought to be what remains of such practices, at your command true alchemy can be done. It is possible to launch an assault upon [recipient.GetFirstName] with the magics of pure transmutation. This assault would surely leave them mortally harmed, ruined or crippled, but is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.017.opt.a:0 "Yes, have them broken!"
-  zz_valyria_magic_alchemy_magic.017.opt.b:0 "Yes, Render them to nothing!"
+  zz_valyria_magic_alchemy_magic.017.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. The vessels on the table begin to tremble, and the liquids within them boil and change colour, cycling through every hue as raw, uncontrolled transmutative force gathers in the air.\n\nIn the duelling circles of the Freehold, alchemists fought with this working, and the losers were seldom recognisable afterwards.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may hurl a torrent of transmutative energy at [recipient.GetFirstName], warping and twisting them as you see fit. Will you have them broken?"
+  zz_valyria_magic_alchemy_magic.017.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist draws a ring of salt around themselves and sets the vessels about them shuddering with a single word. A storm of coloured vapour rises from the crucibles, swirling faster and faster, crackling with a force that seeks only something to change.\n\nThe duelling alchemists of the Freehold were feared by sorcerer and soldier alike. What they struck was rarely the same afterwards.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may hurl a torrent of transmutative energy at [recipient.GetFirstName], warping and twisting them as you see fit. Will you have them broken?"
+  zz_valyria_magic_alchemy_magic.017.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA flask of black liquid is unstoppered, and a thick vapour pours out, writhing like a living thing. The alchemist speaks a name into it, and the vapour gathers itself into a tight, shimmering knot, straining to be released towards its target.\n\nIn Valyria, transmutation was not only a craft. In the right hands, it was a weapon that could turn flesh to stone, or worse.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may hurl a torrent of transmutative energy at [recipient.GetFirstName], warping and twisting them as you see fit. Will you have them broken?"
+  zz_valyria_magic_alchemy_magic.017.opt.a:0 "Have them broken, but not destroyed!"
+  zz_valyria_magic_alchemy_magic.017.opt.b:0 "Yes, render them to nothing!"
   zz_valyria_magic_alchemy_magic.017.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.017.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.017.name$"
-  zz_valyria_magic_alchemy_magic.017.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ unleahses an assault of transmutative magics upon [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.017.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ assailing [recipient.GetFirstName] with uncontrolled transmutative energies."
   zz_valyria_magic_alchemy_magic.017.toast.tt:0 "$zz_valyria_magic_alchemy_magic.017.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.017.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.017.name$"
@@ -333,17 +365,19 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_018.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_ccr$\n\nThrough the secret arts of [alchemy_magic|E], it is possible to conjure seals of office, imperial writs, and tokens of favor that will grant a character [influence|E]."
+  zz_valyria_magic_alchemy_magic_018.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_infl$\n\nThe use of the arcane forces of [alchemy_magic|E] to transmute base matter into seals of office and tokens of favour.\n\nLesser alchemists spend their lives in pursuit of a single transmutation and never achieve it. The adepts of the Freehold regarded such transmutations as the first lessons of their art: the reshaping of base matter into whatever the world values most.\n\nThrough this mystery, the alchemist conjures objects of political weight: seals of office, writs of authority, and tokens of favour that open doors and bend officials to the bearer's will, granting [influence|E].\n\nSuch tokens are never quite counterfeit. They are simply real in a way that no court ever authorised."
 
   ##event
   zz_valyria_magic_alchemy_magic.018.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.018.name$"
-  zz_valyria_magic_alchemy_magic.018.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and certain wandering chemists are thought to preserve but fragments of such lore, at your command true alchemy may yet be practiced. Through subtle transmutation it would be possible to conjure seals of office, jeweled insignia, letters patent, and other instruments of authority for [recipient.GetFirstName]. Such creations would elevate [recipient.GetHerHis] standing in the courts of empire and bring lasting gains of [influence|E]. Yet is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.018.opt.a:0 "Yes, conjure tokens of favor!"
+  zz_valyria_magic_alchemy_magic.018.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A blank sheet of vellum rests beneath a crystal vessel. As the incantation proceeds, ink blooms across its surface, forming a writ in an immaculate hand, sealed with wax that was not there a moment before.\n\nThe courtiers of the Freehold were masters of intrigue, and the alchemists who served them were masters of the documents that intrigue required.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure tokens of favour for [recipient.GetFirstName], increasing [recipient.GetHerHis] influence over the institutions of the realm. Will you manufacture authority?"
+  zz_valyria_magic_alchemy_magic.018.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA quill of silver is dipped in an ink that shimmers like oil on water, and the alchemist begins to write. The words flow faster than their hand moves, filling page after page with letters of introduction, favours owed, and promises of support, each one sealed and signed.\n\nIn the Freehold, influence was a matter of paper as much as of power, and the alchemists made a great deal of paper.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure tokens of favour for [recipient.GetFirstName], increasing [recipient.GetHerHis] influence over the institutions of the realm. Will you manufacture authority?"
+  zz_valyria_magic_alchemy_magic.018.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA small golden key is laid upon a sheet of vellum, and the alchemist pours a thin wash of quicksilver over both. As the liquid dries, the outlines of doors appear upon the vellum, dozens of them, each one standing slightly open.\n\nThe courtiers of Valyria were masters of access, and the alchemists who served them could open doors that no bribe could reach.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure tokens of favour for [recipient.GetFirstName], increasing [recipient.GetHerHis] influence over the institutions of the realm. Will you manufacture authority?"
+  zz_valyria_magic_alchemy_magic.018.opt.a:0 "Conjure tokens of favour!"
   zz_valyria_magic_alchemy_magic.018.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.018.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.018.name$"
-  zz_valyria_magic_alchemy_magic.018.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ conjuring instruments of authority for [recipient.GetFirstName], increasing [recipient.GetHerHis] [influence|E]."
+  zz_valyria_magic_alchemy_magic.018.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ conjuring tokens of favour that increase the influence of [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.018.toast.tt:0 "$zz_valyria_magic_alchemy_magic.018.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.018.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.018.name$"
@@ -352,17 +386,19 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_019.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_ccr$\n\nThrough the secret arts of [alchemy_magic|E], it is possible to conjure imperial stores, tribute chests, and instruments of revenue that will contribute to a character's [treasury|E]."
+  zz_valyria_magic_alchemy_magic_019.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_trsy$\n\nThe use of the arcane forces of [alchemy_magic|E] to transmute base matter into the stores and revenues of a realm.\n\nLesser alchemists spend their lives in pursuit of a single transmutation and never achieve it. The adepts of the Freehold regarded such transmutations as the first lessons of their art: the reshaping of base matter into whatever the world values most.\n\nThrough this mystery, the alchemist conjures the instruments of a state's wealth: tribute chests, granary stores, and sealed revenues that swell a realm's [treasury|E] rather than a ruler's purse.\n\nUnlike personal gold, such wealth belongs to the realm, and is spent upon the realm's needs."
 
   ##event
   zz_valyria_magic_alchemy_magic.019.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.019.name$"
-  zz_valyria_magic_alchemy_magic.019.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though the pyromancers and certain wandering chemists are thought to preserve but fragments of such lore, at your command true alchemy may yet be practiced. Through sovereign transmutation it would be possible to conjure tribute chests, imperial storehouses, ledgers of revenue, and other resources of administration for [recipient.GetFirstName]. Such creations would strengthen [recipient.GetHerHis] authority and bring lasting gains to [recipient.GetHerHis] [treasury|E]. Yet is it wise to rely upon magic in this way?"
-  zz_valyria_magic_alchemy_magic.019.opt.a:0 "Yes, conjure imperial stores!"
+  zz_valyria_magic_alchemy_magic.019.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A small iron chest rests within the circle, and as the incantation proceeds, it grows heavier and heavier until the table creaks beneath it, its seams straining with conjured wealth.\n\nThe treasuries of the Freehold were the envy of the world, and the alchemists who kept them full were among the most honoured servants of the empire.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure imperial stores for the realm of [recipient.GetFirstName], swelling [recipient.GetHerHis] treasury. Will you fill the coffers of the state?"
+  zz_valyria_magic_alchemy_magic.019.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA merchant's scale is set at the centre of the circle, one pan empty and the other holding a single coin. As the alchemist speaks, the empty pan slowly sinks, weighed down by nothing that can be seen, until it rests heavily upon the table.\n\nThe treasuries of the Freehold never ran dry. Its alchemists were among the reasons why.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure imperial stores for the realm of [recipient.GetFirstName], swelling [recipient.GetHerHis] treasury. Will you fill the coffers of the state?"
+  zz_valyria_magic_alchemy_magic.019.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA worn leather purse is laid open upon the workbench and dusted with gold powder. As the incantation proceeds, the purse fills and swells, coins spilling from its mouth onto the table in a steady, glittering stream.\n\nIn Valyria, the honoured treasury-alchemists were spoken of in the same breath as the dragonlords themselves.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may conjure imperial stores for the realm of [recipient.GetFirstName], swelling [recipient.GetHerHis] treasury. Will you fill the coffers of the state?"
+  zz_valyria_magic_alchemy_magic.019.opt.a:0 "Conjure imperial stores!"
   zz_valyria_magic_alchemy_magic.019.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.019.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.019.name$"
-  zz_valyria_magic_alchemy_magic.019.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ conjuring imperial resources for [recipient.GetFirstName], increasing [recipient.GetHerHis] [treasury|E]."
+  zz_valyria_magic_alchemy_magic.019.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ conjuring stores and revenues for the treasury of [recipient.GetFirstName]."
   zz_valyria_magic_alchemy_magic.019.toast.tt:0 "$zz_valyria_magic_alchemy_magic.019.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.019.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.019.name$"
@@ -371,17 +407,19 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_020.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_evl$\n\nThrough the secret arts of [alchemy_magic|E], it is possible to refine the administrative essence of a ruler, creating alchemical compounds and sovereign elixirs that enhance a character’s ability to govern and maintain greater numbers of vassals."
+  zz_valyria_magic_alchemy_magic_020.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_vsl$\n\nThe use of the arcane forces of [alchemy_magic|E] to refine a chosen ruler's capacity to command many vassals.\n\nA ruler can only keep so many vassals before their loyalty frays and their oversight fails. Through this mystery, the essence of authority is distilled and refined within the chosen subject, so that their command extends over far more lords than would ordinarily be possible.\n\nThe subject's [vassal_limit|E] increases considerably.\n\nThe archons of the Freehold commanded great webs of subordinate lords, each bound to them by oaths that alchemy made stronger than any mortal promise."
 
   ##event
   zz_valyria_magic_alchemy_magic.020.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.020.name$"
-  zz_valyria_magic_alchemy_magic.020.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of substances is an ancient and arcane art. Though lesser alchemists concern themselves with simple metals and vapours, the greatest adepts of lost Valyria understood that authority itself could be distilled, strengthened, and refined. Through careful transmutation it would be possible to create sovereign draughts, ritual compounds, and arcane tinctures that reinforce the instincts of rulership within [recipient.GetFirstName]. \n\nSuch alchemical refinements would sharpen [recipient.GetHerHis] ability to organize hierarchies, command subordinates, and sustain dominion over a far greater body of sworn vassals. These substances would not merely enrich the body, but alter the administrative essence of the soul itself. Yet to tamper with the foundations of rulership through sorcery is no light matter. Shall the rite proceed?"
-  zz_valyria_magic_alchemy_magic.020.opt.a:0 "Yes, refine the essence of rulership!"
+  zz_valyria_magic_alchemy_magic.020.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist's tools are laid out in careful order: crucibles, alembics, and vessels of crystal etched with Valyrian glyphs. A ring of tiny keys rests within the circle, and as the elixirs are poured over it, more and more keys appear upon it, each bearing the device of a different lord.\n\nThe greatest adepts of lost Valyria understood that authority itself could be distilled, strengthened, and refined, and the archons of the Freehold were the proof of their art.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may refine the essence of rulership within [recipient.GetFirstName], so that [recipient.GetHerHis] authority extends over a far greater number of vassals. Will you strengthen their command?"
+  zz_valyria_magic_alchemy_magic.020.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA heavy signet ring is set upon a pedestal of black stone, and the alchemist pours a gleaming liquid over it. As it drips down, it forms new rings upon the stone, each bearing a different device, each the seal of a lord who might be bound in service.\n\nThe archons of the Freehold ruled over countless vassals, and their alchemists made sure that none of them ever stood alone.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may refine the essence of rulership within [recipient.GetFirstName], so that [recipient.GetHerHis] authority extends over a far greater number of vassals. Will you strengthen their command?"
+  zz_valyria_magic_alchemy_magic.020.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA long chain of linked iron is laid in a spiral upon the workbench, and the alchemist anoints each link with a bright red oil. As the incantation proceeds, the chain lengthens, new links forming at its end, until it reaches all the way across the room.\n\nIn Valyria, authority was a substance that could be refined, and a ruler who held more of it could bind more lords to their service.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may refine the essence of rulership within [recipient.GetFirstName], so that [recipient.GetHerHis] authority extends over a far greater number of vassals. Will you strengthen their command?"
+  zz_valyria_magic_alchemy_magic.020.opt.a:0 "Refine the essence of rulership!"
   zz_valyria_magic_alchemy_magic.020.opt.z:0 "No, do not cast!"
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.020.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.020.name$"
-  zz_valyria_magic_alchemy_magic.020.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ refining the sovereign instincts of [recipient.GetFirstName], increasing [recipient.GetHerHis] vassal limit."
+  zz_valyria_magic_alchemy_magic.020.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ refining the essence of rulership within [recipient.GetFirstName], allowing them to command more vassals."
   zz_valyria_magic_alchemy_magic.020.toast.tt:0 "$zz_valyria_magic_alchemy_magic.020.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.020.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.020.name$"
@@ -390,12 +428,14 @@ l_english:
 
 
   ## Interaction
-  zz_valyria_magic_alchemy_magic_021.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_scc$\n\nThrough the secret arts of [alchemy_magic|E], it is possible to shape an artificial being from preserved genetic patterns, creating a homunculus formed in the image of selected bloodline material. \n\nThis alchemical construct emerges as a cloned child possessing the exact inherited qualities of the chosen pattern, yet born as a fresh and unformed life within the caster’s court."
+  zz_valyria_magic_alchemy_magic_021.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hom$\n\nThe use of the arcane forces of [alchemy_magic|E] to distil a homunculus from a preserved pattern of living essence.\n\nThrough this mystery, the alchemist shapes an artificial being from preserved genetic patterns, creating a homunculus in the image of the chosen bloodline.\n\nThe construct emerges as a child, possessing the exact inherited qualities of the pattern it was made from. Raised and educated like any other child, it may grow to be indistinguishable from one born of woman.\n\nThe ancient alchemists of Valyria believed that flesh itself was but another substance to be refined. The homunculi of the Freehold were their proof, and their most disturbing legacy."
 
   ##event
   zz_valyria_magic_alchemy_magic.021.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.021.name$"
-  zz_valyria_magic_alchemy_magic.021.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nWithin crystal vessels and engraved alchemical circles rests the preserved pattern of living essence — distilled, measured, and reduced into its most fundamental principles. The ancient alchemists of Valyria believed that flesh itself was but another material to be perfected through knowledge and precise transmutation. \n\nThrough careful refinement of the selected blood-pattern, it would now be possible to shape an entirely new lifeform: a homunculus wrought according to the exact inherited design contained within the preserved essence. Such a being would emerge not through natural birth, but through calculated artifice — a cloned child carrying the physical and genetic inheritance of the chosen template, yet arriving into the world as a blank and unshaped mind. \n\nThe vessel shall awaken within your own court, owing its very existence to your mastery of the higher alchemical arts. Yet to create life through transmutation is to intrude upon mysteries many would call divine. Shall the experiment proceed?"
-  zz_valyria_magic_alchemy_magic.021.opt.a:0 "Yes, let new life be distilled!"
+  zz_valyria_magic_alchemy_magic.021.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nWithin crystal vessels and engraved alchemical circles rests the preserved pattern of living essence: distilled, measured, and reduced to its most fundamental principles. As the incantation proceeds, a pale shape begins to form within the largest vessel, curled and small, its features slowly sharpening.\n\nThe ancient alchemists of Valyria believed that flesh itself was but another substance to be refined. Their homunculi served the Freehold as heirs, servants, and spies, and some, it is said, were never discovered at all.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may distil new life from the preserved essence and give it into the keeping of [recipient.GetFirstName]. But what manner of soul will dwell within a body made in a flask?"
+  zz_valyria_magic_alchemy_magic.021.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA great flask of clouded glass stands at the centre of the workbench, filled with a pale and milky fluid. As the alchemist works, the fluid thickens and darkens, and something within it begins to turn, slowly, as though stirring in sleep.\n\nThe homunculi of the Freehold were the alchemists' greatest triumph, and their greatest secret. Few who met one ever guessed what it was.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may distil new life from the preserved essence and give it into the keeping of [recipient.GetFirstName]. But what manner of soul will dwell within a body made in a flask?"
+  zz_valyria_magic_alchemy_magic.021.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist draws a careful sigil upon a slab of polished stone, and lays upon it a vessel filled with distilled essence. As the incantation proceeds, the essence rises from the vessel in a slow mist and settles upon the sigil, and within the mist, a small shape begins to take form.\n\nIn Valyria, life was a recipe, and the alchemists who knew it were both honoured and feared.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may distil new life from the preserved essence and give it into the keeping of [recipient.GetFirstName]. But what manner of soul will dwell within a body made in a flask?"
+  zz_valyria_magic_alchemy_magic.021.opt.a:0 "Let new life be distilled!"
   zz_valyria_magic_alchemy_magic.021.opt.z:0 "No, do not cast!"
 
   alchemy_magic_clone_01:0 "Exact Copy!"
@@ -404,9 +444,402 @@ l_english:
 
   ## Spell Toast
   zz_valyria_magic_alchemy_magic.021.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.021.name$"
-  zz_valyria_magic_alchemy_magic.021.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ creating a homunculus within the court of [actor.GetFirstName] using preserved genetic patterns."
+  zz_valyria_magic_alchemy_magic.021.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ distilling a homunculus from preserved living essence."
   zz_valyria_magic_alchemy_magic.021.toast.tt:0 "$zz_valyria_magic_alchemy_magic.021.toast.desc$"
 
   zz_valyria_magic_alchemy_magic.021.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.021.name$"
   zz_valyria_magic_alchemy_magic.021.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$.."
   zz_valyria_magic_alchemy_magic.021.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.021.f.toast.desc$"
+
+  ## Alchemy Magic - Mysteries of Transmutation
+  zz_valyria_magic_alchemy_magic_022.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_prodg$\n\nThe use of the arcane forces of [alchemy_magic|E] to make a chosen province bring forth more of a chosen [trade_good|E].\n\nThe alchemists of the Freehold taught that every substance is but one shape of a single prime matter, and that what the earth yields is only a habit of the earth. Through this mystery the alchemist chooses what the land shall make: timber thickens in the forests, ore swells in the seams of the hills, the looms and kilns of the province turn out more than the hands that work them should allow.\n\nThe chosen [trade_good|E] is permanently produced in greater quantity, more so the greater the alchemist's skill. The land does not forget what it has been taught, and it never settles back into its old habits."
+  zz_valyria_magic_alchemy_magic.022.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.022.name$"
+  zz_valyria_magic_alchemy_magic.022.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA map of the province is pinned beneath a sheet of glass, and on the glass the alchemist has traced the sigils of the prime matter in quicksilver. Samples of the land's yield are set at its corners: a splinter of wood, a pinch of salt, a twist of wool, a shard of ore. The crucible at the centre waits empty, for the alchemist has yet to name what the land shall make.\n\nThe old texts warn that the earth answers only one question at a time. Choose the province to be changed, and the [trade_good|E] it shall bring forth.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you work the transmutation upon the land, or let the quicksilver run back into its flask?"
+  zz_valyria_magic_alchemy_magic.022.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA row of small crucibles stands upon the workbench, each holding a sample of something the land might yield: a sliver of timber, a pinch of dye, a fleck of ore, a grain of spice. A map of the province lies beneath them, and the alchemist's hand hovers over it, waiting.\n\nThe old texts say that every land holds the seeds of many things, and that the alchemist need only choose which to wake. Choose the province to be changed, and the [trade_good|E] it shall bring forth.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you work the transmutation upon the land, or let the quicksilver run back into its flask?"
+  zz_valyria_magic_alchemy_magic.022.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA great flask of prime matter, grey and formless, bubbles slowly over a low flame. The alchemist has marked a single province upon the map before it, and set out the tools to draw from the flask whatever the land should yield.\n\nThe land-alchemists of the Freehold changed what the provinces of the empire produced as easily as a farmer changes his crop. Choose the province to be changed, and the [trade_good|E] it shall bring forth.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you work the transmutation upon the land, or let the quicksilver run back into its flask?"
+  zz_valyria_magic_alchemy_magic.022.opt.a:0 "Let the land bring forth what I ask!"
+  zz_valyria_magic_alchemy_magic.022.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_alchemy_magic.022.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.022.name$"
+  zz_valyria_magic_alchemy_magic.022.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ transmuting the land of [target.GetName] to bring forth new riches."
+  zz_valyria_magic_alchemy_magic.022.toast.tt:0 "$zz_valyria_magic_alchemy_magic.022.toast.desc$"
+  zz_valyria_magic_alchemy_magic.022.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.022.name$"
+  zz_valyria_magic_alchemy_magic.022.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.022.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.022.f.toast.desc$"
+
+  ## Alchemy Magic - Mysteries of Expansion
+  zz_valyria_magic_alchemy_magic_023.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_hsize$\n\nThe use of the arcane forces of [alchemy_magic|E] to make a chosen [holding|E] grow beyond its natural bounds.\n\nThe alchemists of the Freehold held that a settlement, like a living thing, has a natural size that it strives towards: so many mouths as its fields can feed, so many roofs as its walls can shelter. Through this mystery that measure is rewritten. Wells run deeper, fields bear more, walls seem to stand a little further apart each spring, and the holding swells to fill the new bounds the alchemist has set for it.\n\nThe [holding|E] grows at once, by one point of [settlement_size|E] for every level of the alchemist's skill, a full size level for a master. The land does not forget its old measure, though, and over many years the holding slowly shrinks back towards what it can bear unaided."
+  zz_valyria_magic_alchemy_magic.023.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.023.name$"
+  zz_valyria_magic_alchemy_magic.023.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA plan of the settlement has been drawn in silver ink upon vellum, every wall and well and field marked with care. The alchemist sets a ring of bronze upon it and pours a measure of quicksilver within, and slowly, as the incantation is spoken, the ring begins to widen, and the silver lines beneath it stretch and spread to fill it.\n\nWhat is drawn here, the old texts say, the land will remember.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you widen the bounds of the holding, or let the ring close again?"
+  zz_valyria_magic_alchemy_magic.023.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA model of the settlement, carved in soft white wax, stands at the centre of the workbench. The alchemist sets a ring of silver about it and warms the ring with a slow flame, and as the wax softens, the model spreads outward to fill the ring, its streets lengthening and its walls drawing back.\n\nThe builder-alchemists of the Freehold could make a town into a city in a single season. The land would remember, for a while.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you widen the bounds of the holding, or let the ring close again?"
+  zz_valyria_magic_alchemy_magic.023.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA handful of earth from the settlement's fields is sealed in a crystal jar and set upon the workbench. The alchemist pours in a measure of golden liquid, and the earth begins to stir and swell, rising up the sides of the jar until it presses against the lid.\n\nIn Valyria, it was said that a settlement could be made to grow as surely as a crop, if only the right elixir were poured upon its soil.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you widen the bounds of the holding, or let the ring close again?"
+  zz_valyria_magic_alchemy_magic.023.opt.a:0 "Let the holding grow!"
+  zz_valyria_magic_alchemy_magic.023.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_alchemy_magic.023.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.023.name$"
+  zz_valyria_magic_alchemy_magic.023.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ widening the bounds of [target.GetName]."
+  zz_valyria_magic_alchemy_magic.023.toast.tt:0 "$zz_valyria_magic_alchemy_magic.023.toast.desc$"
+  zz_valyria_magic_alchemy_magic.023.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.023.name$"
+  zz_valyria_magic_alchemy_magic.023.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.023.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.023.f.toast.desc$"
+  ## Alchemy Magic - Mystery of Mercantile Reach
+  zz_valyria_magic_alchemy_magic_027.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_tpl$\n\nThe use of the arcane forces of [alchemy_magic|E] to bind a chosen subject's name to far-off markets, letting them hold more [trade_posts|E] than any merchant could otherwise manage.\n\nThe alchemists of the Freehold sealed their trading charters with a wax of their own making, and it was said that no factor who broke such a seal ever prospered. Through this mystery the same wax binds distant agents to the subject, and their reach stretches across the map.\n\nThe subject can permanently hold up to three more [trade_posts|E], more the greater the alchemist's skill."
+  zz_valyria_magic_alchemy_magic.027.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.027.name$"
+  zz_valyria_magic_alchemy_magic.027.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA stick of dark red wax is warmed over a blue flame until it runs like blood. The alchemist presses the subject's seal into it, once for each distant market named in the incantation, and the impressions glow faintly as they cool.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you seal the charters?"
+  zz_valyria_magic_alchemy_magic.027.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA merchant's ledger is laid open upon the workbench, and the alchemist writes the names of distant markets in its margins with a quill dipped in gleaming ink. As each name is written, a tiny mark appears beside it, like the seal of a trading house that has agreed to deal.\n\nThe merchant-alchemists of the Freehold held posts in markets across the world, and none could ever say how they had come by them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you seal the charters?"
+  zz_valyria_magic_alchemy_magic.027.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA small brass compass is set upon a map of the known world, and the alchemist anoints its needle with a single drop of quicksilver. The needle spins, then stops, then spins again, each time pointing to a different market, and wherever it points, a faint red mark appears upon the map.\n\nIn Valyria, a merchant's reach was measured in the trade posts they held. The alchemists could stretch that reach across the world.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you seal the charters?"
+  zz_valyria_magic_alchemy_magic.027.opt.a:0 "Seal the charters!"
+  zz_valyria_magic_alchemy_magic.027.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_alchemy_magic.027.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.027.name$"
+  zz_valyria_magic_alchemy_magic.027.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ sealing distant charters in the name of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.027.toast.tt:0 "$zz_valyria_magic_alchemy_magic.027.toast.desc$"
+  zz_valyria_magic_alchemy_magic.027.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.027.name$"
+  zz_valyria_magic_alchemy_magic.027.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.027.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.027.f.toast.desc$"
+  ## Alchemy Magic - Mystery of Bountiful Caravans
+  zz_valyria_magic_alchemy_magic_028.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_trcap$\n\nThe use of the arcane forces of [alchemy_magic|E] upon every [trade_route|E] a chosen subject owns, so that their caravans and holds carry more than they should.\n\nThrough this mystery the packs and barrels of the subject's merchants are worked with quiet transmutations: sacks hold a little more than their size, casks never quite run dry, and goods that should spoil on the road arrive fresh.\n\nEvery [trade_route|E] the subject owns, now and in the future, permanently gains capacity, more the greater the alchemist's skill."
+  zz_valyria_magic_alchemy_magic.028.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.028.name$"
+  zz_valyria_magic_alchemy_magic.028.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA single empty sack from each of the subject's caravans has been gathered on the workbench. The alchemist dusts each with a fine silver powder and folds it closed, and though nothing has been put inside, each sack grows heavy in the hand.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you fill the caravans?"
+  zz_valyria_magic_alchemy_magic.028.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA wooden crate, of the kind used to carry goods along the trade roads, is set upon the workbench and anointed inside with a pale silver oil. The alchemist closes its lid, and when it is opened again, the empty space within seems somehow deeper than it was.\n\nThe caravans of the Freehold carried more than any caravan should, and arrived with their goods as fresh as the day they set out.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you fill the caravans?"
+  zz_valyria_magic_alchemy_magic.028.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA merchant's scale is balanced upon the workbench, and the alchemist pours a fine grey powder into one of its pans. The powder weighs nothing, and yet the pan sinks, and the alchemist smiles, for the trade routes of the subject will now carry far more than their size allows.\n\nIn Valyria, it was said that a single caravan could carry the wealth of a province, if its packs had been touched by alchemy.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you fill the caravans?"
+  zz_valyria_magic_alchemy_magic.028.opt.a:0 "Let the caravans carry more!"
+  zz_valyria_magic_alchemy_magic.028.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_alchemy_magic.028.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.028.name$"
+  zz_valyria_magic_alchemy_magic.028.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ swelling the caravans of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.028.toast.tt:0 "$zz_valyria_magic_alchemy_magic.028.toast.desc$"
+  zz_valyria_magic_alchemy_magic.028.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.028.name$"
+  zz_valyria_magic_alchemy_magic.028.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.028.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.028.f.toast.desc$"
+  ## Alchemy Magic - Mystery of the Long Road
+  zz_valyria_magic_alchemy_magic_029.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_trlen$\n\nThe use of the arcane forces of [alchemy_magic|E] upon every [trade_route|E] a chosen subject owns, so that their merchants can travel further than they could before.\n\nThrough this mystery the subject's merchants are given draughts that keep them hale on the longest roads, and their beasts and ships are anointed against wear and weather. Roads that once ended at the edge of the known world now reach a little past it.\n\nEvery [trade_route|E] the subject owns, now and in the future, can permanently stretch further, more the greater the alchemist's skill."
+  zz_valyria_magic_alchemy_magic.029.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.029.name$"
+  zz_valyria_magic_alchemy_magic.029.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA long cord, knotted once for every league of the subject's trade roads, is laid out on the floor. The alchemist anoints it from end to end with a pale oil, and as the incantation goes on, the cord seems to grow longer than the room should allow.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you lengthen the roads?"
+  zz_valyria_magic_alchemy_magic.029.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA map of the subject's trade routes is laid upon the workbench, each road traced in a thin line of ink. The alchemist runs a finger dipped in quicksilver along each line, and as they do, the roads seem to stretch, reaching out towards markets that were too far away a moment before.\n\nThe merchant-alchemists of the Freehold sent their caravans further than any other traders dared to go.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you lengthen the roads?"
+  zz_valyria_magic_alchemy_magic.029.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA pair of worn traveller's boots is set upon the workbench, and the alchemist anoints their soles with a dark, sweet-smelling oil. The leather drinks the oil greedily, and as it does, the boots seem to grow lighter, as if they could walk forever without tiring.\n\nIn Valyria, the roads of trade were as long as the alchemists could make them, and they could make them very long indeed.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you lengthen the roads?"
+  zz_valyria_magic_alchemy_magic.029.opt.a:0 "Let the roads run further!"
+  zz_valyria_magic_alchemy_magic.029.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_alchemy_magic.029.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.029.name$"
+  zz_valyria_magic_alchemy_magic.029.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ lengthening the trade roads of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.029.toast.tt:0 "$zz_valyria_magic_alchemy_magic.029.toast.desc$"
+  zz_valyria_magic_alchemy_magic.029.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.029.name$"
+  zz_valyria_magic_alchemy_magic.029.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.029.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.029.f.toast.desc$"
+  ## Alchemy Magic - Mystery of the Open Road
+  zz_valyria_magic_alchemy_magic_030.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_mtr$\n\nThe use of the arcane forces of [alchemy_magic|E] to open a new road for a chosen subject's trade, letting them run one more [trade_route|E] than they otherwise could.\n\nThe merchant-alchemists of the Freehold kept a lodestone for every road their houses ran, and it was said a new road could only be opened when a new stone was made. Through this mystery such a stone is quickened and bound to the subject, and their factors find a way where there was none.\n\nThe subject can permanently run an additional [trade_route|E], two for a master alchemist."
+  zz_valyria_magic_alchemy_magic.030.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.030.name$"
+  zz_valyria_magic_alchemy_magic.030.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA plain grey stone sits in a bowl of quicksilver. As the incantation is spoken, the alchemist turns it slowly, and the quicksilver begins to pull at it, always towards the same distant point, no matter how the bowl is turned.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you open the road?"
+  zz_valyria_magic_alchemy_magic.030.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA small iron key is set within a ring of glyphs, and the alchemist pours a glowing liquid over it. As it cools, the key's shadow lengthens across the table, stretching out like a road that leads to a door no one has yet opened.\n\nThe merchant-alchemists of the Freehold opened trade roads where there had been none, and the wealth that flowed along them filled the empire's coffers.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you open the road?"
+  zz_valyria_magic_alchemy_magic.030.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA bundle of milestones in miniature, carved from white stone, is laid out in a line upon the workbench. The alchemist anoints the last one with a drop of quicksilver, and a new stone appears at the end of the line, and then another, leading away towards some distant and unknown market.\n\nIn Valyria, a new trade road was a gift beyond price, and the alchemists who could open one were honoured as princes.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you open the road?"
+  zz_valyria_magic_alchemy_magic.030.opt.a:0 "Open a new road!"
+  zz_valyria_magic_alchemy_magic.030.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_alchemy_magic.030.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.030.name$"
+  zz_valyria_magic_alchemy_magic.030.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ opening a new trade road for [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.030.toast.tt:0 "$zz_valyria_magic_alchemy_magic.030.toast.desc$"
+  zz_valyria_magic_alchemy_magic.030.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.030.name$"
+  zz_valyria_magic_alchemy_magic.030.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.030.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.030.f.toast.desc$"
+  ## Alchemy Magic - Mystery of Many Markets
+  zz_valyria_magic_alchemy_magic_031.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_mkt$\n\nThe use of the arcane forces of [alchemy_magic|E] to let every [trade_route|E] of a chosen subject reach more [trade_market|E]s along its way.\n\nThe merchant-alchemists of the Freehold were said to keep a ledger whose pages never ran out, and every market a caravan passed through was written into it in ink that would not fade. Through this mystery such a ledger is bound to the subject, and their merchants find a welcome in more markets than any caravan could otherwise manage.\n\nEvery [trade_route|E] the subject owns, now and in the future, can permanently pass through an additional [trade_market|E], two for a master alchemist."
+  zz_valyria_magic_alchemy_magic.031.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.031.name$"
+  zz_valyria_magic_alchemy_magic.031.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA heavy ledger bound in grey leather lies open on the workbench, its pages blank. The alchemist writes the name of each market along the subject's roads in an ink that shines like quicksilver, and as the incantation goes on, new names begin to appear on the page in the same silver hand, written by no one.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you open the ledger?"
+  zz_valyria_magic_alchemy_magic.031.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA merchant's map is laid out upon the workbench, its roads marked in black ink. The alchemist dips a fine brush in quicksilver and touches it to each road in turn, and wherever the brush touches, new markets bloom along the route like flowers along a garden path.\n\nThe merchant-alchemists of the Freehold made their patrons' caravans welcome in markets that turned all others away.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you open the ledger?"
+  zz_valyria_magic_alchemy_magic.031.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA string of small coins, each from a different land, is threaded upon a silver cord and laid across the workbench. As the alchemist speaks, new coins appear upon the cord, one after another, each one marking a market where the subject's goods will now be welcome.\n\nIn Valyria, the longest trade roads passed through the most markets, and the alchemists could add markets as easily as a clerk adds names to a ledger.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] Will you open the ledger?"
+  zz_valyria_magic_alchemy_magic.031.opt.a:0 "Fill the ledger with markets!"
+  zz_valyria_magic_alchemy_magic.031.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_alchemy_magic.031.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.031.name$"
+  zz_valyria_magic_alchemy_magic.031.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ opening new markets to the roads of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.031.toast.tt:0 "$zz_valyria_magic_alchemy_magic.031.toast.desc$"
+  zz_valyria_magic_alchemy_magic.031.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.031.name$"
+  zz_valyria_magic_alchemy_magic.031.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.031.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.031.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_alchemy_magic_032.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_vs_ingot$\n\nThe use of the arcane forces of [alchemy_magic|E] to transmute common metals into Valyrian steel.\n\nThe smiths of the Freehold forged their steel with fire and spellsong; the alchemists remembered that every substance is but one shape of a single prime matter, and simply asked the iron to become something else. Through this mystery the alchemist turns base metal into ingots of Valyrian steel, from which every great work of magical craft must begin.\n\nThe subject receives one Valyrian Steel Ingot for every 500 points of the alchemist's skill, and always at least one."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_alchemy_magic.032.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.032.name$"
+  zz_valyria_magic_alchemy_magic.032.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nIron, silver and a pinch of powdered dragonglass are laid in a crucible of black clay, and the alchemist speaks the old formula of the Freehold over them. The metals do not melt so much as forget themselves, flowing together into something darker and harder, rippled like smoke beneath ice.\n\nThe smiths of Valyria needed fire and spellsong. The alchemists needed only to remember what the steel had once been.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.032.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA common bar of castle iron is wrapped in parchment written over with sigils, and the alchemist lays it in a bath of quicksilver. Through the long night the quicksilver darkens and the sigils fade one by one, and by dawn the bar that rises from the bath is no longer iron at all.\n\nIn the Freehold, it was whispered that the alchemists could make Valyrian steel in a bowl. The smiths never forgave them for it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.032.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe alchemist grinds lodestone, ash and the alchemist's own blood together in a mortar, then scatters the powder over a heap of old blades. Where it falls, the steel shivers and runs together, folding itself a hundred times without a hammer ever touching it.\n\nWhat is left when the shivering stops is small, and heavy, and very dark.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.032.opt.a:0 "Let the iron remember what it was!"
+  zz_valyria_magic_alchemy_magic.032.opt.z:0 "No, do not cast!"
+
+  ## Spell Toast
+  zz_valyria_magic_alchemy_magic.032.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.032.name$"
+  zz_valyria_magic_alchemy_magic.032.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ transmuting common metal into Valyrian steel for [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.032.toast.tt:0 "$zz_valyria_magic_alchemy_magic.032.toast.desc$"
+
+  zz_valyria_magic_alchemy_magic.032.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.032.name$"
+  zz_valyria_magic_alchemy_magic.032.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.032.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.032.f.toast.desc$"
+  zz_valyria_magic_has_trade_routes_tt:0 "Owns at least one [trade_route|E]"
+
+
+  ## Alchemy 033
+  zz_valyria_magic_alchemy_magic_033.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_sa$\n$zz_nrep$\n\nThe use of the arcane forces of [alchemy_magic|E] to give motion to bronze.\n\nThrough this mystery, a company of bronze automatons is cast, quickened and set in the service of the chosen subject. They are few, but each stands as firm as a veteran of the line.\n\nThey are made and not born, and no recruit can take the place of one that falls. What is broken stays broken."
+  zz_valyria_magic_alchemy_magic.033.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.033.name$"
+  zz_valyria_magic_alchemy_magic.033.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nMolten bronze runs along channels cut into the floor, and fills a row of waiting moulds. As it cools, something within begins to knock."
+  zz_valyria_magic_alchemy_magic.033.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster presses a lead tablet, marked with a single word, into a bronze chest. Slowly and with a grinding of joints, the figure lifts its head."
+  zz_valyria_magic_alchemy_magic.033.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nRows of hollow figures stand in the workshop, dull and still. The caster walks between them, touching each brow, and each in turn begins to turn its head."
+  zz_valyria_magic_alchemy_magic.033.opt.a:0 "Awaken, and serve."
+  zz_valyria_magic_alchemy_magic.033.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_alchemy_magic.033.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.033.name$"
+  zz_valyria_magic_alchemy_magic.033.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ casting bronze sentinels for [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.033.toast.tt:0 "$zz_valyria_magic_alchemy_magic.033.toast.desc$"
+  zz_valyria_magic_alchemy_magic.033.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.033.name$"
+  zz_valyria_magic_alchemy_magic.033.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_alchemy_magic.033.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.033.f.toast.desc$"
+
+
+  ## Alchemy 034
+  zz_valyria_magic_alchemy_magic_034.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_sa$\n$zz_nrep$\n\nThe use of the arcane forces of [alchemy_magic|E] to raise giants of iron.\n\nThrough this mystery, towering automatons are forged and woken for the chosen subject. There are never more than a handful, but each can break a battle line by itself, and they tear down walls as readily as they tear down men.\n\nNo mystery of alchemy is more costly, and none is less forgiving. A fallen colossus can never be replaced."
+  zz_valyria_magic_alchemy_magic.034.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.034.name$"
+  zz_valyria_magic_alchemy_magic.034.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe furnace roars until the walls glow. From its mouth comes a slow, heavy tread, and the floor of the chamber shakes."
+  zz_valyria_magic_alchemy_magic.034.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster climbs a scaffold to reach an iron brow, and inscribes a last line upon it. High above, a great hand closes."
+  zz_valyria_magic_alchemy_magic.034.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nGreat plates of iron drag themselves across the workshop floor. They fit together with a sound like a closing gate, and stand."
+  zz_valyria_magic_alchemy_magic.034.opt.a:0 "Rise, and break their walls!"
+  zz_valyria_magic_alchemy_magic.034.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_alchemy_magic.034.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.034.name$"
+  zz_valyria_magic_alchemy_magic.034.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ forging iron colossi for [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.034.toast.tt:0 "$zz_valyria_magic_alchemy_magic.034.toast.desc$"
+  zz_valyria_magic_alchemy_magic.034.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.034.name$"
+  zz_valyria_magic_alchemy_magic.034.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_alchemy_magic.034.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.034.f.toast.desc$"
+
+  zz_bronze_sentinels:0 "Bronze Sentinels"
+  zz_bronze_sentinels_flavor:0 "They do not tire, they do not fear, and they do not stop. Nor do they mend: a broken sentinel is scrap."
+  zz_valyria_bronze_host:0 "Host of Bronze"
+  zz_iron_colossi:0 "Iron Colossi"
+  zz_iron_colossi_flavor:0 "Each one strides over the shield wall and walks through the gate. There are never many, and no forge can repair them once they fall."
+  zz_valyria_iron_host:0 "Host of Iron"
+
+  ## Interaction
+  zz_valyria_magic_alchemy_magic_035.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hcm$\n\nThe use of the arcane forces of [alchemy_magic|E] to reduce the selected subject's miscast counter.\n\nTo the alchemist, a miscast is dross: the slag a working leaves behind when it is poorly made. Through this mystery, the subject is refined as metal is refined, heated and skimmed until the impurity is drawn off.\n\nNo school purges the residue of failed magic as thoroughly as alchemy, but its reagents are costly. The subject's miscast counter is greatly reduced, more so the greater the caster's skill."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_alchemy_magic.035.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.035.name$"
+  zz_valyria_magic_alchemy_magic.035.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe subject sits within a ring of seven crucibles, each holding a different metal kept molten over a low flame. The caster chants the stages of the Great Work, and with each stage a dull grey film rises on the surface of one crucible and is skimmed away with a silver spoon.\n\nWhen the last crucible runs clear, the subject feels lighter, as though something heavy had been poured out of them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.035.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA bitter draught of quicksilver, salt and sulphur, prepared over many days, is given to the subject to drink. They sweat for an hour, and the sweat comes out grey and leaves a crust upon the skin, which the caster scrapes into a jar and seals with lead.\n\nThe alchemists of the Freehold kept such jars in deep cellars and never opened them again.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.035.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster sets an alembic over the subject's head and recites the formula of separation. Vapour rises from the subject's skin, is caught in the glass, and condenses into a few drops of black liquid that hiss when they touch the bench.\n\nIn Valyria it was said that every failed spell left a residue, and that a wise mage had it distilled out before it could set.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.035.opt.a:0 "Yes, purge the dross!"
+  zz_valyria_magic_alchemy_magic.035.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_alchemy_magic.035.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.035.name$"
+  zz_valyria_magic_alchemy_magic.035.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ refining the dross of failed magic out of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.035.toast.tt:0 "$zz_valyria_magic_alchemy_magic.035.toast.desc$"
+
+  zz_valyria_magic_alchemy_magic.035.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.035.name$"
+  zz_valyria_magic_alchemy_magic.035.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.035.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.035.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_alchemy_magic_036.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_pcm$\n\nThe use of the arcane forces of [alchemy_magic|E] to prevent the selected subject from miscasting.\n\nIron that is quenched and tempered holds its edge. Through this mystery, the subject is tempered in the same way, so that a working which begins to slip from their control bends instead of breaking.\n\nThe subject is protected against miscasts, more so the greater the caster's skill."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_alchemy_magic.036.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.036.name$"
+  zz_valyria_magic_alchemy_magic.036.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe subject's hands are plunged into a vat of brine and oil while the caster speaks the formula of tempering. Then they are drawn out and held over the coals, and plunged again, seven times, until the skin is flushed and the pulse beats slow and even.\n\nSteel is made strong by heat and cold in turn. The alchemists held that mages were no different.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.036.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nFine filings of iron, silver and gold are mixed into a paste and painted in bands around the subject's wrists and throat. As the caster chants, the bands warm and harden into a thin metallic sheen, and then fade into the skin.\n\nWhen a working goes awry, it is said the bands grow hot, and the magic runs to earth through them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.036.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster sets the subject's palm upon an anvil of black iron and strikes a single ringing blow beside it with a hammer of bronze. The note does not fade. It sinks into the subject's bones, and they carry it with them, steady and unbroken.\n\nThe alchemists called it the tempering note, for a mage who hears it will not shatter.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.036.opt.a:0 "Yes, temper them!"
+  zz_valyria_magic_alchemy_magic.036.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_alchemy_magic.036.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.036.name$"
+  zz_valyria_magic_alchemy_magic.036.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ tempering [recipient.GetFirstName] against miscasting."
+  zz_valyria_magic_alchemy_magic.036.toast.tt:0 "$zz_valyria_magic_alchemy_magic.036.toast.desc$"
+
+  zz_valyria_magic_alchemy_magic.036.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.036.name$"
+  zz_valyria_magic_alchemy_magic.036.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.036.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.036.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_alchemy_magic_037.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_skl_pm$\n\nThe use of the arcane forces of [alchemy_magic|E] to permanently raise or lower the selected subject's [diplomacy|E].\n\nTo the alchemist a person is only another substance, to be refined or debased. Through this mystery the caster transmutes the subject to sharpen or dull their [diplomacy|E].\n\nThe change is small and slow to grow: one point for every 80 points of the caster's skill, and never less than one."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_alchemy_magic.037.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.037.name$"
+  zz_valyria_magic_alchemy_magic.037.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe subject lies within a circle of seven crucibles, each holding a different metal. The caster speaks the formula of transmutation, and a thin vapour rises from the crucibles and settles upon the subject, seeping into the voice and the bearing.\n\nThe alchemists held that a person could be refined like any other substance, and that their words carry further, or falter and die in the mouth.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.037.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA draught distilled over many weeks from quicksilver, salt and the ashes of old books is given to the subject. As it takes hold, the caster traces the signs of change upon their skin with a stylus of gold.\n\nThe work is patient and precise. Little changes at once, but what does change does not change back, and their words carry further, or falter and die in the mouth.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.037.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster sets an alembic over a brazier and fills it with a few drops of the subject's sweat, tears and breath, caught in glass. As the mixture boils, they recite the stages of the Great Work, and the subject feels the voice and the bearing shift like sand settling in water.\n\nIn Valyria it was said that the alchemist's true crucible was the body itself.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.037.opt.a:0 "Transmute their [diplomacy|E]!"
+  zz_valyria_magic_alchemy_magic.037.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_alchemy_magic.037.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.037.name$"
+  zz_valyria_magic_alchemy_magic.037.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ reshaping the [diplomacy|E] of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.037.toast.tt:0 "$zz_valyria_magic_alchemy_magic.037.toast.desc$"
+
+  zz_valyria_magic_alchemy_magic.037.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.037.name$"
+  zz_valyria_magic_alchemy_magic.037.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.037.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.037.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_alchemy_magic_038.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_skl_pm$\n\nThe use of the arcane forces of [alchemy_magic|E] to permanently raise or lower the selected subject's [martial|E].\n\nTo the alchemist a person is only another substance, to be refined or debased. Through this mystery the caster transmutes the subject to sharpen or dull their [martial|E].\n\nThe change is small and slow to grow: one point for every 90 points of the caster's skill, and never less than one."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_alchemy_magic.038.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.038.name$"
+  zz_valyria_magic_alchemy_magic.038.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe subject lies within a circle of seven crucibles, each holding a different metal. The caster speaks the formula of transmutation, and a thin vapour rises from the crucibles and settles upon the subject, seeping into the instinct for command.\n\nThe alchemists held that a person could be refined like any other substance, and that they read a field of battle as a scholar reads a page, or lose the thread of it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.038.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA draught distilled over many weeks from quicksilver, salt and the ashes of old books is given to the subject. As it takes hold, the caster traces the signs of change upon their skin with a stylus of gold.\n\nThe work is patient and precise. Little changes at once, but what does change does not change back, and they read a field of battle as a scholar reads a page, or lose the thread of it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.038.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster sets an alembic over a brazier and fills it with a few drops of the subject's sweat, tears and breath, caught in glass. As the mixture boils, they recite the stages of the Great Work, and the subject feels the instinct for command shift like sand settling in water.\n\nIn Valyria it was said that the alchemist's true crucible was the body itself.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.038.opt.a:0 "Transmute their [martial|E]!"
+  zz_valyria_magic_alchemy_magic.038.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_alchemy_magic.038.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.038.name$"
+  zz_valyria_magic_alchemy_magic.038.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ reshaping the [martial|E] of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.038.toast.tt:0 "$zz_valyria_magic_alchemy_magic.038.toast.desc$"
+
+  zz_valyria_magic_alchemy_magic.038.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.038.name$"
+  zz_valyria_magic_alchemy_magic.038.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.038.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.038.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_alchemy_magic_039.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_skl_pm$\n\nThe use of the arcane forces of [alchemy_magic|E] to permanently raise or lower the selected subject's [stewardship|E].\n\nTo the alchemist a person is only another substance, to be refined or debased. Through this mystery the caster transmutes the subject to sharpen or dull their [stewardship|E].\n\nThe change is small and slow to grow: one point for every 35 points of the caster's skill, and never less than one."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_alchemy_magic.039.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.039.name$"
+  zz_valyria_magic_alchemy_magic.039.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe subject lies within a circle of seven crucibles, each holding a different metal. The caster speaks the formula of transmutation, and a thin vapour rises from the crucibles and settles upon the subject, seeping into the head for numbers and order.\n\nThe alchemists held that a person could be refined like any other substance, and that accounts balance in their mind unbidden, or slip away like water.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.039.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA draught distilled over many weeks from quicksilver, salt and the ashes of old books is given to the subject. As it takes hold, the caster traces the signs of change upon their skin with a stylus of gold.\n\nThe work is patient and precise. Little changes at once, but what does change does not change back, and accounts balance in their mind unbidden, or slip away like water.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.039.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster sets an alembic over a brazier and fills it with a few drops of the subject's sweat, tears and breath, caught in glass. As the mixture boils, they recite the stages of the Great Work, and the subject feels the head for numbers and order shift like sand settling in water.\n\nIn Valyria it was said that the alchemist's true crucible was the body itself.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.039.opt.a:0 "Transmute their [stewardship|E]!"
+  zz_valyria_magic_alchemy_magic.039.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_alchemy_magic.039.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.039.name$"
+  zz_valyria_magic_alchemy_magic.039.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ reshaping the [stewardship|E] of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.039.toast.tt:0 "$zz_valyria_magic_alchemy_magic.039.toast.desc$"
+
+  zz_valyria_magic_alchemy_magic.039.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.039.name$"
+  zz_valyria_magic_alchemy_magic.039.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.039.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.039.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_alchemy_magic_040.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_skl_pm$\n\nThe use of the arcane forces of [alchemy_magic|E] to permanently raise or lower the selected subject's [intrigue|E].\n\nTo the alchemist a person is only another substance, to be refined or debased. Through this mystery the caster transmutes the subject to sharpen or dull their [intrigue|E].\n\nThe change is small and slow to grow: one point for every 65 points of the caster's skill, and never less than one."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_alchemy_magic.040.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.040.name$"
+  zz_valyria_magic_alchemy_magic.040.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe subject lies within a circle of seven crucibles, each holding a different metal. The caster speaks the formula of transmutation, and a thin vapour rises from the crucibles and settles upon the subject, seeping into the shadowed, watchful part of the mind.\n\nThe alchemists held that a person could be refined like any other substance, and that they see the knife before it is drawn, or never see it at all.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.040.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA draught distilled over many weeks from quicksilver, salt and the ashes of old books is given to the subject. As it takes hold, the caster traces the signs of change upon their skin with a stylus of gold.\n\nThe work is patient and precise. Little changes at once, but what does change does not change back, and they see the knife before it is drawn, or never see it at all.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.040.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster sets an alembic over a brazier and fills it with a few drops of the subject's sweat, tears and breath, caught in glass. As the mixture boils, they recite the stages of the Great Work, and the subject feels the shadowed, watchful part of the mind shift like sand settling in water.\n\nIn Valyria it was said that the alchemist's true crucible was the body itself.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.040.opt.a:0 "Transmute their [intrigue|E]!"
+  zz_valyria_magic_alchemy_magic.040.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_alchemy_magic.040.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.040.name$"
+  zz_valyria_magic_alchemy_magic.040.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ reshaping the [intrigue|E] of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.040.toast.tt:0 "$zz_valyria_magic_alchemy_magic.040.toast.desc$"
+
+  zz_valyria_magic_alchemy_magic.040.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.040.name$"
+  zz_valyria_magic_alchemy_magic.040.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.040.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.040.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_alchemy_magic_041.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_skl_pm$\n\nThe use of the arcane forces of [alchemy_magic|E] to permanently raise or lower the selected subject's [learning|E].\n\nTo the alchemist a person is only another substance, to be refined or debased. Through this mystery the caster transmutes the subject to sharpen or dull their [learning|E].\n\nThe change is small and slow to grow: one point for every 45 points of the caster's skill, and never less than one."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_alchemy_magic.041.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.041.name$"
+  zz_valyria_magic_alchemy_magic.041.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe subject lies within a circle of seven crucibles, each holding a different metal. The caster speaks the formula of transmutation, and a thin vapour rises from the crucibles and settles upon the subject, seeping into the memory and the hunger to know.\n\nThe alchemists held that a person could be refined like any other substance, and that what they read stays with them, or fades before the page is turned.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.041.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA draught distilled over many weeks from quicksilver, salt and the ashes of old books is given to the subject. As it takes hold, the caster traces the signs of change upon their skin with a stylus of gold.\n\nThe work is patient and precise. Little changes at once, but what does change does not change back, and what they read stays with them, or fades before the page is turned.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.041.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster sets an alembic over a brazier and fills it with a few drops of the subject's sweat, tears and breath, caught in glass. As the mixture boils, they recite the stages of the Great Work, and the subject feels the memory and the hunger to know shift like sand settling in water.\n\nIn Valyria it was said that the alchemist's true crucible was the body itself.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.041.opt.a:0 "Transmute their [learning|E]!"
+  zz_valyria_magic_alchemy_magic.041.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_alchemy_magic.041.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.041.name$"
+  zz_valyria_magic_alchemy_magic.041.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ reshaping the [learning|E] of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.041.toast.tt:0 "$zz_valyria_magic_alchemy_magic.041.toast.desc$"
+
+  zz_valyria_magic_alchemy_magic.041.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.041.name$"
+  zz_valyria_magic_alchemy_magic.041.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.041.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.041.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_alchemy_magic_042.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_skl_pm$\n\nThe use of the arcane forces of [alchemy_magic|E] to permanently raise or lower the selected subject's [prowess|E].\n\nTo the alchemist a person is only another substance, to be refined or debased. Through this mystery the caster transmutes the subject to sharpen or dull their [prowess|E].\n\nThe change is small and slow to grow: one point for every 100 points of the caster's skill, and never less than one."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_alchemy_magic.042.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.042.name$"
+  zz_valyria_magic_alchemy_magic.042.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe subject lies within a circle of seven crucibles, each holding a different metal. The caster speaks the formula of transmutation, and a thin vapour rises from the crucibles and settles upon the subject, seeping into the sinew and the strength of the arm.\n\nThe alchemists held that a person could be refined like any other substance, and that the blade grows light in their hand, or heavy as lead.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.042.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA draught distilled over many weeks from quicksilver, salt and the ashes of old books is given to the subject. As it takes hold, the caster traces the signs of change upon their skin with a stylus of gold.\n\nThe work is patient and precise. Little changes at once, but what does change does not change back, and the blade grows light in their hand, or heavy as lead.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.042.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster sets an alembic over a brazier and fills it with a few drops of the subject's sweat, tears and breath, caught in glass. As the mixture boils, they recite the stages of the Great Work, and the subject feels the sinew and the strength of the arm shift like sand settling in water.\n\nIn Valyria it was said that the alchemist's true crucible was the body itself.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')]"
+  zz_valyria_magic_alchemy_magic.042.opt.a:0 "Transmute their [prowess|E]!"
+  zz_valyria_magic_alchemy_magic.042.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_alchemy_magic.042.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.042.name$"
+  zz_valyria_magic_alchemy_magic.042.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ reshaping the [prowess|E] of [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.042.toast.tt:0 "$zz_valyria_magic_alchemy_magic.042.toast.desc$"
+
+  zz_valyria_magic_alchemy_magic.042.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.042.name$"
+  zz_valyria_magic_alchemy_magic.042.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.042.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.042.f.toast.desc$"
+
+  # Alchemy 024
+  zz_valyria_magic_alchemy_magic_024.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_tcc$\n$zz_bdmg$\n$zz_gold$\n\nThe use of the arcane forces of [alchemy_magic|E] to transmute a building back into the wealth it was made from.\n\nThe alchemists of the Freehold taught that every made thing is only prime matter that has been persuaded to hold a shape. Persuaded otherwise, stone and timber remember that they were once silver.\n\nA random building in one of the subject's counties is destroyed or brought down a level, and the subject receives [gold|E], more the greater the caster's skill. Nothing is gained if the county has no building to unmake."
+  zz_valyria_magic_alchemy_magic.024.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.024.name$"
+  zz_valyria_magic_alchemy_magic.024.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster lays a ledger open upon the floor and reads aloud the costs of every stone and beam, line by line. As each sum is spoken, a building in the county grows faint and thin, until only its value is left.\n\nThe alchemists of the Freehold taught that every made thing is only prime matter persuaded to hold a shape.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may unmake a building of [recipient.GetFirstName]'s, and return it to them as gold. Will you cast?"
+  zz_valyria_magic_alchemy_magic.024.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA crucible is set over a slow flame, and into it the caster drops a single brick taken from the county. It melts, and runs, and when it cools it is silver.\n\nIn Valyria, it was said that the richest lords kept their treasuries in their walls, and their walls in their treasuries.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may unmake a building of [recipient.GetFirstName]'s, and return it to them as gold. Will you cast?"
+  zz_valyria_magic_alchemy_magic.024.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster draws the plan of a building in chalk and slowly rubs it out, line by line. With each line, coins gather in a dish beside the drawing.\n\nThe alchemists of the Freehold held that nothing is ever destroyed, only returned to what it was.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may unmake a building of [recipient.GetFirstName]'s, and return it to them as gold. Will you cast?"
+  zz_valyria_magic_alchemy_magic.024.opt.a:0 "Unmake it!"
+  zz_valyria_magic_alchemy_magic.024.opt.z:0 "No, let it stand."
+  zz_valyria_magic_alchemy_magic.024.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.024.name$"
+  zz_valyria_magic_alchemy_magic.024.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ unmaking a building of [recipient.GetFirstName]'s into gold."
+  zz_valyria_magic_alchemy_magic.024.toast.tt:0 "$zz_valyria_magic_alchemy_magic.024.toast.desc$"
+  zz_valyria_magic_alchemy_magic.024.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.024.name$"
+  zz_valyria_magic_alchemy_magic.024.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$ as the stones stubbornly keep their shape."
+  zz_valyria_magic_alchemy_magic.024.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.024.f.toast.desc$"
+
+  # Alchemy 026
+  zz_valyria_magic_alchemy_magic_026.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_da$\n$zz_md$\n$zz_gold$\n\nThe use of the arcane forces of [alchemy_magic|E] to turn the soldiers of an army to base metal where they stand.\n\nThis is the transmutation every lesser alchemist dreams of, turned upon the one substance they dare not touch. Flesh becomes lead and iron from the skin inwards, and in the heart of each soldier, a little gold.\n\nThe chosen army loses soldiers, more the greater the caster's skill. The commander collects the gold left behind: a quarter of a [gold|E] piece for every soldier transmuted."
+  zz_valyria_magic_alchemy_magic.026.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.026.name$"
+  zz_valyria_magic_alchemy_magic.026.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster pours molten lead into a sand-table model of the field, filling the hollows where the enemy stands. Far away, men stumble as their legs grow heavy, and do not rise again.\n\nThe alchemists of the Freehold called this the Last Transmutation, and swore never to work it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may turn the soldiers of an army to metal and gold. Will you cast?"
+  zz_valyria_magic_alchemy_magic.026.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA handful of iron filings is cast over a map of the enemy's camp, and the caster speaks a single word of binding. Where each filing falls, a soldier stiffens and turns grey.\n\nIn Valyria, it was said that the battlefields of the Freehold's wars could be mined for years afterwards.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may turn the soldiers of an army to metal and gold. Will you cast?"
+  zz_valyria_magic_alchemy_magic.026.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster rubs a pinch of gold dust between two fingers and blows it towards the enemy's banners. It settles on their ranks, and spreads.\n\nThe alchemists of the Freehold taught that gold is only matter that has stopped changing, and that an army can be made to stop.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may turn the soldiers of an army to metal and gold. Will you cast?"
+  zz_valyria_magic_alchemy_magic.026.opt.a:0 "Turn them to metal!"
+  zz_valyria_magic_alchemy_magic.026.opt.z:0 "No, let them march on."
+  zz_valyria_magic_alchemy_magic.026.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.026.name$"
+  zz_valyria_magic_alchemy_magic.026.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ turning the soldiers of an enemy army to base metal and gold."
+  zz_valyria_magic_alchemy_magic.026.toast.tt:0 "$zz_valyria_magic_alchemy_magic.026.toast.desc$"
+  zz_valyria_magic_alchemy_magic.026.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.026.name$"
+  zz_valyria_magic_alchemy_magic.026.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$ as the soldiers shake the weight from their limbs."
+  zz_valyria_magic_alchemy_magic.026.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.026.f.toast.desc$"
+
+  # Alchemy 025
+  zz_valyria_magic_alchemy_magic_025.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_potion_make$\n\nThe use of the arcane forces of [alchemy_magic|E] to brew a potion of the caster's choosing.\n\nThe alchemists of the Freehold kept cellars of bottled workings, so that a lord could carry a mystery with them that no one at their side knew how to cast.\n\nThe subject receives a potion: an elixir with a permanent effect, a draught that lasts some years, or a potion that works a mystery when it is taken. Any potion on the list can be brewed. Stronger casters brew stronger potions. A potion is given with the Administer Potion interaction, and is used up."
+  zz_valyria_magic_alchemy_magic.025.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.025.name$"
+  zz_valyria_magic_alchemy_magic.025.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA row of glass vessels stands upon the bench, each over its own low flame. The caster tends them one by one, adding a pinch here and a drop there, until one of them begins to glow.\n\nThe alchemists of the Freehold kept cellars of bottled workings.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may brew a potion for [recipient.GetFirstName]. Choose what it will do. Will you cast?"
+  zz_valyria_magic_alchemy_magic.025.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster grinds a handful of strange salts into a mortar, pours in quicksilver, and speaks a word into the mixture. It clears, and turns the colour of the working it holds.\n\nIn Valyria, it was said that a lord's physician and their alchemist were rarely on speaking terms.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may brew a potion for [recipient.GetFirstName]. Choose what it will do. Will you cast?"
+  zz_valyria_magic_alchemy_magic.025.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA single flask is held over a candle while the caster recites a mystery under their breath, from beginning to end. When the last word is spoken, the flask is stoppered, and the working is inside it.\n\nThe alchemists of the Freehold taught that a spell can be poured, as easily as wine.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may brew a potion for [recipient.GetFirstName]. Choose what it will do. Will you cast?"
+  zz_valyria_magic_alchemy_magic.025.opt.a:0 "Brew it!"
+  zz_valyria_magic_alchemy_magic.025.opt.z:0 "No, not today."
+  zz_valyria_magic_alchemy_magic.025.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.025.name$"
+  zz_valyria_magic_alchemy_magic.025.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ brewing a potion for [recipient.GetFirstName]."
+  zz_valyria_magic_alchemy_magic.025.toast.tt:0 "$zz_valyria_magic_alchemy_magic.025.toast.desc$"
+  zz_valyria_magic_alchemy_magic.025.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.025.name$"
+  zz_valyria_magic_alchemy_magic.025.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$ as the mixture curdles and spoils."
+  zz_valyria_magic_alchemy_magic.025.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.025.f.toast.desc$"
+
+  # Alchemy 043 - Transmutation (Development)
+  zz_valyria_magic_alchemy_magic_043.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tcc$\n$zz_dev$\n\nThe use of the arcane forces of [alchemy_magic|E] to transmute the substance of a county, raising its [prosperity|E].\n\nThe chosen county gains between one and five levels of prosperity, growing with the caster's mastery.\n\nThe alchemists of the Freehold held that a land is only a slower kind of metal, and that a patient hand can refine anything."
+  zz_valyria_magic_alchemy_magic.043.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.043.name$"
+  zz_valyria_magic_alchemy_magic.043.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster pours a phial of quicksilver into the earth at a crossroads. Over the following seasons the roads straighten, the mills turn faster and the market swells.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may refine one of [recipient.GetFirstName]'s counties. Will you transmute it?"
+  zz_valyria_magic_alchemy_magic.043.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nA grain of the philosopher's salt is dropped into the county's well. Those who drink find their crafts come easier, their fields yield more, and their town grows around them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may refine one of [recipient.GetFirstName]'s counties. Will you transmute it?"
+  zz_valyria_magic_alchemy_magic.043.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_alchemy_magic')]\n\nThe caster walks the county's bounds with a smoking censer, and where the smoke settles, mud becomes stone, thatch becomes tile and hovels become houses.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may refine one of [recipient.GetFirstName]'s counties. Will you transmute it?"
+  zz_valyria_magic_alchemy_magic.043.opt.a:0 "Transmute the county."
+  zz_valyria_magic_alchemy_magic.043.opt.z:0 "No, leave the land as it is."
+  zz_valyria_magic_alchemy_magic.043.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.043.name$"
+  zz_valyria_magic_alchemy_magic.043.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ transmuting the substance of a county."
+  zz_valyria_magic_alchemy_magic.043.toast.tt:0 "$zz_valyria_magic_alchemy_magic.043.toast.desc$"
+  zz_valyria_magic_alchemy_magic.043.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.043.name$"
+  zz_valyria_magic_alchemy_magic.043.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$ as the transmutation curdles and fails."
+  zz_valyria_magic_alchemy_magic.043.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.043.f.toast.desc$"
+
+  # Alchemy 044 - Quicksilver Skin (Single Combat)
+  zz_valyria_magic_alchemy_magic_044.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_duel_move$\n$zz_duel_skill$\n\nThe use of the arcane forces of [alchemy_magic|E] to turn the caster's skin to living quicksilver, so that steel slides from it like water.\n\nA share of the caster's injury risk is washed away, growing with skill in Alchemy until, with mastery, none is left."
+  zz_valyria_magic_alchemy_magic.044.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.044.name$"
+  zz_valyria_magic_alchemy_magic.044.desc:0 "This [zz_mystery|E] is worked only in [single_combat_fight|E]."
+  zz_valyria_magic_alchemy_magic.044.opt.z:0 "Very well."
+  zz_valyria_magic_alchemy_magic.044.toast.t:0 "[alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.044.name$"
+  zz_valyria_magic_alchemy_magic.044.toast.desc:0 "$zz_toast_01$ [alchemy_magic|E], $zz_toast_02$ in single combat."
+  zz_valyria_magic_alchemy_magic.044.toast.tt:0 "$zz_valyria_magic_alchemy_magic.044.toast.desc$"
+  zz_valyria_magic_alchemy_magic.044.f.toast.t:0 "Failure [alchemy_magic|E] - $zz_valyria_magic_alchemy_magic.044.name$"
+  zz_valyria_magic_alchemy_magic.044.f.toast.desc:0 "$zz_toast_01$ [alchemy_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_alchemy_magic.044.f.toast.tt:0 "$zz_valyria_magic_alchemy_magic.044.f.toast.desc$"

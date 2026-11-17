@@ -1,9 +1,16 @@
 ﻿namespace = zz_valyria_magic_dream_magic
+# Spell: Dream 001 - Mystery of Mental Domination
 zz_valyria_magic_dream_magic.001 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.001.t
-	desc = zz_valyria_magic_dream_magic.001.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.001.desc
+			desc = zz_valyria_magic_dream_magic.001.desc_02
+			desc = zz_valyria_magic_dream_magic.001.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -13,27 +20,33 @@ zz_valyria_magic_dream_magic.001 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
-	option = {
-		name = zz_valyria_magic_dream_magic.001.opt.a
-		hidden_effect = {
-			save_scope_value_as = {
-				name = option_01
-				value = yes
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 001
-			}
+	immediate = {
+		remove_variable = selected_flag
+		clear_variable_list = possible_flags
+		add_to_variable_list = { name = possible_flags target = flag:zz_domination_mind }
+		add_to_variable_list = { name = possible_flags target = flag:zz_domination_soul }
+		set_variable = { name = selected_flag value = flag:zz_domination_mind }
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_flag_selection"
+			container = "custom_widgets_container"
 		}
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic.001.opt.b
+		name = zz_valyria_magic_dream_magic.001.opt.a
 		hidden_effect = {
-			save_scope_value_as = {
-				name = option_02
-				value = yes
+			switch = {
+				trigger = var:selected_flag
+				flag:zz_domination_mind = {
+					save_scope_value_as = { name = option_01 value = yes }
+				}
+				flag:zz_domination_soul = {
+					save_scope_value_as = { name = option_02 value = yes }
+				}
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 001
 			}
@@ -44,11 +57,18 @@ zz_valyria_magic_dream_magic.001 = {
 	}
 }
 
+# Spell: Dream 002 - Mystery of Dreams (Lifestyle Traits)
 zz_valyria_magic_dream_magic.002 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.002.t
-	desc = zz_valyria_magic_dream_magic.002.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.002.desc
+			desc = zz_valyria_magic_dream_magic.002.desc_02
+			desc = zz_valyria_magic_dream_magic.002.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -152,6 +172,46 @@ zz_valyria_magic_dream_magic.002 = {
 				}
 			}
 		}
+		trait:lifestyle_poet = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:lifestyle_traveler = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:the_wake = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:lifestyle_scholar = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
+		trait:lifestyle_merchant = {
+			root = {
+				add_to_variable_list = {
+					name = possible_traits
+					target = prev
+				}
+			}
+		}
 	}
 	widget = {
 		is_shown = {
@@ -165,7 +225,7 @@ zz_valyria_magic_dream_magic.002 = {
 			var:selected_trait ?= {
 				save_scope_as = trait
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 002
 			}
@@ -176,11 +236,18 @@ zz_valyria_magic_dream_magic.002 = {
 	}
 }
 
+# Spell: Dream 003 - Mystery of Dreams (Lifestyle XP)
 zz_valyria_magic_dream_magic.003 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.003.t
-	desc = zz_valyria_magic_dream_magic.003.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.003.desc
+			desc = zz_valyria_magic_dream_magic.003.desc_02
+			desc = zz_valyria_magic_dream_magic.003.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -216,14 +283,6 @@ zz_valyria_magic_dream_magic.003 = {
 		add_to_variable_list = {
 			name = possible_flags
 			target = flag:lifestyle_06
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:lifestyle_07
-		}
-		add_to_variable_list = {
-			name = possible_flags
-			target = flag:lifestyle_08
 		}
 		set_variable = {
 			name = selected_flag
@@ -278,20 +337,8 @@ zz_valyria_magic_dream_magic.003 = {
 						value = yes
 					}
 				}
-				flag:lifestyle_07 = {
-					save_scope_value_as = {
-						name = option_07
-						value = yes
-					}
-				}
-				flag:lifestyle_08 = {
-					save_scope_value_as = {
-						name = option_08
-						value = yes
-					}
-				}
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 003
 			}
@@ -302,11 +349,18 @@ zz_valyria_magic_dream_magic.003 = {
 	}
 }
 
+# Spell: Dream 004 - Mystery of Soothsaying (Secrets)
 zz_valyria_magic_dream_magic.004 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.004.t
-	desc = zz_valyria_magic_dream_magic.004.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.004.desc
+			desc = zz_valyria_magic_dream_magic.004.desc_02
+			desc = zz_valyria_magic_dream_magic.004.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -316,10 +370,33 @@ zz_valyria_magic_dream_magic.004 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 004
+			CURRENT = zz_valyria_magic_dream_magic_004_value_02
+			LOWER = zz_valyria_magic_dream_magic_004_value_02
+			RAISE = 0
+			START = base
+		}
+		# At least one vision
+		set_variable = {
+			name = zz_valyria_magic_event_window_counter_selection_counter_min
+			value = 1
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
 	option = {
 		name = zz_valyria_magic_dream_magic.004.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 004
 			}
@@ -328,13 +405,23 @@ zz_valyria_magic_dream_magic.004 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.004.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 005 - Mystery of Dreams (Personality Traits)
 zz_valyria_magic_dream_magic.005 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.005.t
-	desc = zz_valyria_magic_dream_magic.005.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.005.desc
+			desc = zz_valyria_magic_dream_magic.005.desc_02
+			desc = zz_valyria_magic_dream_magic.005.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -704,7 +791,7 @@ zz_valyria_magic_dream_magic.005 = {
 			var:selected_trait ?= {
 				save_scope_as = trait
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 005
 			}
@@ -715,11 +802,18 @@ zz_valyria_magic_dream_magic.005 = {
 	}
 }
 
+# Spell: Dream 006 - Mystery of Dreams (Education Traits)
 zz_valyria_magic_dream_magic.006 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.006.t
-	desc = zz_valyria_magic_dream_magic.006.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.006.desc
+			desc = zz_valyria_magic_dream_magic.006.desc_02
+			desc = zz_valyria_magic_dream_magic.006.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -812,7 +906,7 @@ zz_valyria_magic_dream_magic.006 = {
 			var:selected_trait ?= {
 				save_scope_as = trait
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 006
 			}
@@ -823,11 +917,18 @@ zz_valyria_magic_dream_magic.006 = {
 	}
 }
 
+# Spell: Dream 007 - Mystery of Dreaming Fascinations
 zz_valyria_magic_dream_magic.007 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.007.t
-	desc = zz_valyria_magic_dream_magic.007.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.007.desc
+			desc = zz_valyria_magic_dream_magic.007.desc_02
+			desc = zz_valyria_magic_dream_magic.007.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -840,7 +941,7 @@ zz_valyria_magic_dream_magic.007 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.007.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 007
 			}
@@ -851,11 +952,18 @@ zz_valyria_magic_dream_magic.007 = {
 	}
 }
 
+# Spell: Dream 008 - Mystery of Murderous Dreams
 zz_valyria_magic_dream_magic.008 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.008.t
-	desc = zz_valyria_magic_dream_magic.008.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.008.desc
+			desc = zz_valyria_magic_dream_magic.008.desc_02
+			desc = zz_valyria_magic_dream_magic.008.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -872,7 +980,7 @@ zz_valyria_magic_dream_magic.008 = {
 				name = option_01
 				value = yes
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 008
 			}
@@ -885,7 +993,7 @@ zz_valyria_magic_dream_magic.008 = {
 				name = option_02
 				value = yes
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 008
 			}
@@ -896,11 +1004,18 @@ zz_valyria_magic_dream_magic.008 = {
 	}
 }
 
+# Spell: Dream 009 - Mystery of Dreams of Insight (Skills)
 zz_valyria_magic_dream_magic.009 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.009.t
-	desc = zz_valyria_magic_dream_magic.009.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.009.desc
+			desc = zz_valyria_magic_dream_magic.009.desc_02
+			desc = zz_valyria_magic_dream_magic.009.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -913,7 +1028,7 @@ zz_valyria_magic_dream_magic.009 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.009.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 009
 			}
@@ -924,11 +1039,18 @@ zz_valyria_magic_dream_magic.009 = {
 	}
 }
 
+# Spell: Dream 010 - Mystery of Soothsaying (Mystic Power)
 zz_valyria_magic_dream_magic.010 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.010.t
-	desc = zz_valyria_magic_dream_magic.010.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.010.desc
+			desc = zz_valyria_magic_dream_magic.010.desc_02
+			desc = zz_valyria_magic_dream_magic.010.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -941,7 +1063,7 @@ zz_valyria_magic_dream_magic.010 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.010.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 010
 			}
@@ -952,11 +1074,18 @@ zz_valyria_magic_dream_magic.010 = {
 	}
 }
 
+# Spell: Dream 011 - Mystery of Scheme Perception (Subject's)
 zz_valyria_magic_dream_magic.011 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.011.t
-	desc = zz_valyria_magic_dream_magic.011.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.011.desc
+			desc = zz_valyria_magic_dream_magic.011.desc_02
+			desc = zz_valyria_magic_dream_magic.011.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -979,12 +1108,15 @@ zz_valyria_magic_dream_magic.011 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.011.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 011
+			if = {
+				limit = { exists = var:selected_scheme }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 011
+				}
 			}
 		}
 	}
@@ -993,11 +1125,18 @@ zz_valyria_magic_dream_magic.011 = {
 	}
 }
 
+# Spell: Dream 012 - Mystery of Scheme Perception (Targeted)
 zz_valyria_magic_dream_magic.012 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.012.t
-	desc = zz_valyria_magic_dream_magic.012.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.012.desc
+			desc = zz_valyria_magic_dream_magic.012.desc_02
+			desc = zz_valyria_magic_dream_magic.012.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1020,12 +1159,15 @@ zz_valyria_magic_dream_magic.012 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.012.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 012
+			if = {
+				limit = { exists = var:selected_scheme }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 012
+				}
 			}
 		}
 	}
@@ -1034,11 +1176,18 @@ zz_valyria_magic_dream_magic.012 = {
 	}
 }
 
+# Spell: Dream 013 - Mystery of Secret Perception (Subject's)
 zz_valyria_magic_dream_magic.013 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.013.t
-	desc = zz_valyria_magic_dream_magic.013.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.013.desc
+			desc = zz_valyria_magic_dream_magic.013.desc_02
+			desc = zz_valyria_magic_dream_magic.013.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1061,12 +1210,15 @@ zz_valyria_magic_dream_magic.013 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.013.opt.a
 		hidden_effect = {
-			var:selected_secret = {
-				save_scope_as = secret
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 013
+			if = {
+				limit = { exists = var:selected_secret }
+				var:selected_secret = {
+					save_scope_as = secret
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 013
+				}
 			}
 		}
 	}
@@ -1075,11 +1227,18 @@ zz_valyria_magic_dream_magic.013 = {
 	}
 }
 
+# Spell: Dream 014 - Mystery of Secret Perception (Targeted)
 zz_valyria_magic_dream_magic.014 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.014.t
-	desc = zz_valyria_magic_dream_magic.014.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.014.desc
+			desc = zz_valyria_magic_dream_magic.014.desc_02
+			desc = zz_valyria_magic_dream_magic.014.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1102,12 +1261,15 @@ zz_valyria_magic_dream_magic.014 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.014.opt.a
 		hidden_effect = {
-			var:selected_secret = {
-				save_scope_as = secret
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 014
+			if = {
+				limit = { exists = var:selected_secret }
+				var:selected_secret = {
+					save_scope_as = secret
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 014
+				}
 			}
 		}
 	}
@@ -1116,11 +1278,18 @@ zz_valyria_magic_dream_magic.014 = {
 	}
 }
 
+# Spell: Dream 015 - Mystery of Secret Perception (Known)
 zz_valyria_magic_dream_magic.015 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.015.t
-	desc = zz_valyria_magic_dream_magic.015.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.015.desc
+			desc = zz_valyria_magic_dream_magic.015.desc_02
+			desc = zz_valyria_magic_dream_magic.015.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1143,12 +1312,15 @@ zz_valyria_magic_dream_magic.015 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.015.opt.a
 		hidden_effect = {
-			var:selected_secret = {
-				save_scope_as = secret
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 015
+			if = {
+				limit = { exists = var:selected_secret }
+				var:selected_secret = {
+					save_scope_as = secret
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 015
+				}
 			}
 		}
 	}
@@ -1157,11 +1329,18 @@ zz_valyria_magic_dream_magic.015 = {
 	}
 }
 
+# Spell: Dream 016 - Mystery of Secret Binding (Subject's)
 zz_valyria_magic_dream_magic.016 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.016.t
-	desc = zz_valyria_magic_dream_magic.016.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.016.desc
+			desc = zz_valyria_magic_dream_magic.016.desc_02
+			desc = zz_valyria_magic_dream_magic.016.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1180,7 +1359,7 @@ zz_valyria_magic_dream_magic.016 = {
 			is_shown = {
 				is_ai = no
 			}
-			gui = "zz_valyria_secret_owned_selecting"
+			gui = "event_window_secret_owned_selection"
 			container = "custom_widgets_container"
 		}
 		widget = {
@@ -1192,22 +1371,25 @@ zz_valyria_magic_dream_magic.016 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.016.opt.a
 		hidden_effect = {
-			var:selected_secret = {
-				save_scope_as = secret
-			}
-			var:zz_valyria_selected_character = {
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 016
+			if = {
+				limit = { exists = var:selected_secret exists = var:zz_valyria_selected_character }
+				var:selected_secret = {
+					save_scope_as = secret
+				}
+				var:zz_valyria_selected_character = {
+					save_scope_as = target
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 016
+				}
 			}
 		}
 	}
@@ -1216,11 +1398,18 @@ zz_valyria_magic_dream_magic.016 = {
 	}
 }
 
+# Spell: Dream 017 - Mystery of Secret Binding (Targeted)
 zz_valyria_magic_dream_magic.017 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.017.t
-	desc = zz_valyria_magic_dream_magic.017.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.017.desc
+			desc = zz_valyria_magic_dream_magic.017.desc_02
+			desc = zz_valyria_magic_dream_magic.017.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1251,22 +1440,25 @@ zz_valyria_magic_dream_magic.017 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.017.opt.a
 		hidden_effect = {
-			var:selected_secret = {
-				save_scope_as = secret
-			}
-			var:zz_valyria_selected_character = {
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 017
+			if = {
+				limit = { exists = var:selected_secret exists = var:zz_valyria_selected_character }
+				var:selected_secret = {
+					save_scope_as = secret
+				}
+				var:zz_valyria_selected_character = {
+					save_scope_as = target
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 017
+				}
 			}
 		}
 	}
@@ -1275,11 +1467,18 @@ zz_valyria_magic_dream_magic.017 = {
 	}
 }
 
+# Spell: Dream 018 - Mystery of Secret Binding (Known)
 zz_valyria_magic_dream_magic.018 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.018.t
-	desc = zz_valyria_magic_dream_magic.018.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.018.desc
+			desc = zz_valyria_magic_dream_magic.018.desc_04
+			desc = zz_valyria_magic_dream_magic.018.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1310,22 +1509,25 @@ zz_valyria_magic_dream_magic.018 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.018.opt.a
 		hidden_effect = {
-			var:selected_secret = {
-				save_scope_as = secret
-			}
-			var:zz_valyria_selected_character = {
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 018
+			if = {
+				limit = { exists = var:selected_secret exists = var:zz_valyria_selected_character }
+				var:selected_secret = {
+					save_scope_as = secret
+				}
+				var:zz_valyria_selected_character = {
+					save_scope_as = target
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 018
+				}
 			}
 		}
 	}
@@ -1334,11 +1536,18 @@ zz_valyria_magic_dream_magic.018 = {
 	}
 }
 
+# Spell: Dream 019 - Mystery of Scheme Breaching (Targeted)
 zz_valyria_magic_dream_magic.019 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.019.t
-	desc = zz_valyria_magic_dream_magic.019.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.019.desc
+			desc = zz_valyria_magic_dream_magic.019.desc_02
+			desc = zz_valyria_magic_dream_magic.019.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1383,12 +1592,15 @@ zz_valyria_magic_dream_magic.019 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.019.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 019
+			if = {
+				limit = { exists = var:selected_scheme }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 019
+				}
 			}
 		}
 	}
@@ -1397,11 +1609,18 @@ zz_valyria_magic_dream_magic.019 = {
 	}
 }
 
+# Spell: Dream 020 - Mystery of Scheme Breaching (Subject's)
 zz_valyria_magic_dream_magic.020 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.020.t
-	desc = zz_valyria_magic_dream_magic.020.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.020.desc
+			desc = zz_valyria_magic_dream_magic.020.desc_02
+			desc = zz_valyria_magic_dream_magic.020.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1446,12 +1665,15 @@ zz_valyria_magic_dream_magic.020 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.020.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 020
+			if = {
+				limit = { exists = var:selected_scheme }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 020
+				}
 			}
 		}
 	}
@@ -1460,11 +1682,18 @@ zz_valyria_magic_dream_magic.020 = {
 	}
 }
 
+# Spell: Dream 021 - Mystery of Scheme Empowerment (Targeted)
 zz_valyria_magic_dream_magic.021 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic.020.t
-	desc = zz_valyria_magic_dream_magic.020.desc
+	title = zz_valyria_magic_dream_magic.021.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.021.desc
+			desc = zz_valyria_magic_dream_magic.021.desc_02
+			desc = zz_valyria_magic_dream_magic.021.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1507,14 +1736,17 @@ zz_valyria_magic_dream_magic.021 = {
 		container = "custom_widgets_container"
 	}
 	option = {
-		name = zz_valyria_magic_dream_magic.020.opt.a
+		name = zz_valyria_magic_dream_magic.021.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 021
+			if = {
+				limit = { exists = var:selected_scheme }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 021
+				}
 			}
 		}
 	}
@@ -1523,11 +1755,18 @@ zz_valyria_magic_dream_magic.021 = {
 	}
 }
 
+# Spell: Dream 022 - Mystery of Scheme Empowerment (Subject's)
 zz_valyria_magic_dream_magic.022 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.022.t
-	desc = zz_valyria_magic_dream_magic.022.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.022.desc
+			desc = zz_valyria_magic_dream_magic.022.desc_02
+			desc = zz_valyria_magic_dream_magic.022.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1572,12 +1811,15 @@ zz_valyria_magic_dream_magic.022 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.022.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 022
+			if = {
+				limit = { exists = var:selected_scheme }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 022
+				}
 			}
 		}
 	}
@@ -1586,11 +1828,18 @@ zz_valyria_magic_dream_magic.022 = {
 	}
 }
 
+# Spell: Dream 023 - Mystery of Scheme Manipulation (Targeted)
 zz_valyria_magic_dream_magic.023 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.023.t
-	desc = zz_valyria_magic_dream_magic.023.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.023.desc
+			desc = zz_valyria_magic_dream_magic.023.desc_02
+			desc = zz_valyria_magic_dream_magic.023.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1609,7 +1858,7 @@ zz_valyria_magic_dream_magic.023 = {
 			is_shown = {
 				is_ai = no
 			}
-			gui = "zz_valyria_scheme_agents_selecting"
+			gui = "event_window_schemes_agents_selection"
 			container = "custom_widgets_container"
 		}
 		widget = {
@@ -1621,22 +1870,25 @@ zz_valyria_magic_dream_magic.023 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.023.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			var:zz_valyria_selected_character = {
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 023
+			if = {
+				limit = { exists = var:selected_scheme exists = var:zz_valyria_selected_character }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				var:zz_valyria_selected_character = {
+					save_scope_as = target
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 023
+				}
 			}
 		}
 	}
@@ -1645,11 +1897,18 @@ zz_valyria_magic_dream_magic.023 = {
 	}
 }
 
+# Spell: Dream 024 - Mystery of Scheme Manipulation (Subject's)
 zz_valyria_magic_dream_magic.024 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.024.t
-	desc = zz_valyria_magic_dream_magic.024.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.024.desc
+			desc = zz_valyria_magic_dream_magic.024.desc_02
+			desc = zz_valyria_magic_dream_magic.024.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1668,7 +1927,7 @@ zz_valyria_magic_dream_magic.024 = {
 			is_shown = {
 				is_ai = no
 			}
-			gui = "zz_valyria_scheme_agents_selecting"
+			gui = "event_window_schemes_agents_selection"
 			container = "custom_widgets_container"
 		}
 		widget = {
@@ -1680,22 +1939,25 @@ zz_valyria_magic_dream_magic.024 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.024.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			var:zz_valyria_selected_character = {
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 024
+			if = {
+				limit = { exists = var:selected_scheme exists = var:zz_valyria_selected_character }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				var:zz_valyria_selected_character = {
+					save_scope_as = target
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 024
+				}
 			}
 		}
 	}
@@ -1704,11 +1966,18 @@ zz_valyria_magic_dream_magic.024 = {
 	}
 }
 
+# Spell: Dream 025 - Mystery of Scheme Revelation (Targeted)
 zz_valyria_magic_dream_magic.025 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.025.t
-	desc = zz_valyria_magic_dream_magic.025.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.025.desc
+			desc = zz_valyria_magic_dream_magic.025.desc_02
+			desc = zz_valyria_magic_dream_magic.025.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1739,22 +2008,25 @@ zz_valyria_magic_dream_magic.025 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.025.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			var:zz_valyria_selected_character = {
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 025
+			if = {
+				limit = { exists = var:selected_scheme exists = var:zz_valyria_selected_character }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				var:zz_valyria_selected_character = {
+					save_scope_as = target
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 025
+				}
 			}
 		}
 	}
@@ -1763,11 +2035,18 @@ zz_valyria_magic_dream_magic.025 = {
 	}
 }
 
+# Spell: Dream 026 - Mystery of Scheme Revelation (Subject's)
 zz_valyria_magic_dream_magic.026 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.026.t
-	desc = zz_valyria_magic_dream_magic.026.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.026.desc
+			desc = zz_valyria_magic_dream_magic.026.desc_02
+			desc = zz_valyria_magic_dream_magic.026.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1798,22 +2077,25 @@ zz_valyria_magic_dream_magic.026 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.026.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			var:zz_valyria_selected_character = {
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 026
+			if = {
+				limit = { exists = var:selected_scheme exists = var:zz_valyria_selected_character }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				var:zz_valyria_selected_character = {
+					save_scope_as = target
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 026
+				}
 			}
 		}
 	}
@@ -1822,11 +2104,18 @@ zz_valyria_magic_dream_magic.026 = {
 	}
 }
 
+# Spell: Dream 027 - Mystery of Scheme Delay (Targeted)
 zz_valyria_magic_dream_magic.027 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.027.t
-	desc = zz_valyria_magic_dream_magic.027.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.027.desc
+			desc = zz_valyria_magic_dream_magic.027.desc_02
+			desc = zz_valyria_magic_dream_magic.027.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1871,12 +2160,15 @@ zz_valyria_magic_dream_magic.027 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.027.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 027
+			if = {
+				limit = { exists = var:selected_scheme }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 027
+				}
 			}
 		}
 	}
@@ -1885,11 +2177,18 @@ zz_valyria_magic_dream_magic.027 = {
 	}
 }
 
+# Spell: Dream 028 - Mystery of Scheme Delay (Subject's)
 zz_valyria_magic_dream_magic.028 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.028.t
-	desc = zz_valyria_magic_dream_magic.028.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.028.desc
+			desc = zz_valyria_magic_dream_magic.028.desc_02
+			desc = zz_valyria_magic_dream_magic.028.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1934,12 +2233,15 @@ zz_valyria_magic_dream_magic.028 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.028.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 028
+			if = {
+				limit = { exists = var:selected_scheme }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 028
+				}
 			}
 		}
 	}
@@ -1948,11 +2250,18 @@ zz_valyria_magic_dream_magic.028 = {
 	}
 }
 
+# Spell: Dream 029 - Mystery of Scheme Weakening (Targeted)
 zz_valyria_magic_dream_magic.029 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.029.t
-	desc = zz_valyria_magic_dream_magic.029.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.029.desc
+			desc = zz_valyria_magic_dream_magic.029.desc_02
+			desc = zz_valyria_magic_dream_magic.029.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -1997,12 +2306,15 @@ zz_valyria_magic_dream_magic.029 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.029.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 029
+			if = {
+				limit = { exists = var:selected_scheme }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 029
+				}
 			}
 		}
 	}
@@ -2011,11 +2323,18 @@ zz_valyria_magic_dream_magic.029 = {
 	}
 }
 
+# Spell: Dream 030 - Mystery of Scheme Weakening (Subject's)
 zz_valyria_magic_dream_magic.030 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.030.t
-	desc = zz_valyria_magic_dream_magic.030.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.030.desc
+			desc = zz_valyria_magic_dream_magic.030.desc_02
+			desc = zz_valyria_magic_dream_magic.030.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2060,12 +2379,15 @@ zz_valyria_magic_dream_magic.030 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.030.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 030
+			if = {
+				limit = { exists = var:selected_scheme }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 030
+				}
 			}
 		}
 	}
@@ -2074,11 +2396,18 @@ zz_valyria_magic_dream_magic.030 = {
 	}
 }
 
+# Spell: Dream 031 - Mystery of Scheme Disruption (Targeted)
 zz_valyria_magic_dream_magic.031 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.031.t
-	desc = zz_valyria_magic_dream_magic.031.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.031.desc
+			desc = zz_valyria_magic_dream_magic.031.desc_02
+			desc = zz_valyria_magic_dream_magic.031.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2123,12 +2452,15 @@ zz_valyria_magic_dream_magic.031 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.031.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 031
+			if = {
+				limit = { exists = var:selected_scheme }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 031
+				}
 			}
 		}
 	}
@@ -2137,11 +2469,18 @@ zz_valyria_magic_dream_magic.031 = {
 	}
 }
 
+# Spell: Dream 032 - Mystery of Scheme Disruption (Subject's)
 zz_valyria_magic_dream_magic.032 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.032.t
-	desc = zz_valyria_magic_dream_magic.032.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.032.desc
+			desc = zz_valyria_magic_dream_magic.032.desc_02
+			desc = zz_valyria_magic_dream_magic.032.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2186,12 +2525,15 @@ zz_valyria_magic_dream_magic.032 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.032.opt.a
 		hidden_effect = {
-			var:selected_scheme = {
-				save_scope_as = scheme
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 032
+			if = {
+				limit = { exists = var:selected_scheme }
+				var:selected_scheme = {
+					save_scope_as = scheme
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 032
+				}
 			}
 		}
 	}
@@ -2200,11 +2542,18 @@ zz_valyria_magic_dream_magic.032 = {
 	}
 }
 
+# Spell: Dream 033 - Mystery of Skinchanging
 zz_valyria_magic_dream_magic.033 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.033.t
-	desc = zz_valyria_magic_dream_magic.033.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.033.desc
+			desc = zz_valyria_magic_dream_magic.033.desc_02
+			desc = zz_valyria_magic_dream_magic.033.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2215,55 +2564,18 @@ zz_valyria_magic_dream_magic.033 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
+		zz_valyria_dream_magic_skinchanging_list = yes
+	}
+	widget = {
+		is_shown = {
+		}
+		gui = "event_window_flag_selection"
+		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.033.opt.a
 		hidden_effect = {
-			save_scope_value_as = {
-				name = option_01
-				value = yes
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 033
-			}
-		}
-	}
-	option = {
-		name = zz_valyria_magic_dream_magic.033.opt.b
-		trigger = {
-			scope:secondary_recipient = {
-				zz_valyria_has_mana_to_cast = {
-					MANACOST = 12
-				}
-			}
-		}
-		hidden_effect = {
-			save_scope_value_as = {
-				name = option_02
-				value = yes
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 033
-			}
-		}
-	}
-	option = {
-		name = zz_valyria_magic_dream_magic.033.opt.c
-		trigger = {
-			scope:secondary_recipient = {
-				zz_valyria_has_mana_to_cast = {
-					MANACOST = 45
-				}
-			}
-		}
-		hidden_effect = {
-			save_scope_value_as = {
-				name = option_03
-				value = yes
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 033
 			}
@@ -2274,11 +2586,18 @@ zz_valyria_magic_dream_magic.033 = {
 	}
 }
 
+# Spell: Dream 034 - Mystery of Cultural Affiliation (Character)
 zz_valyria_magic_dream_magic.034 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.034.t
-	desc = zz_valyria_magic_dream_magic.034.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.034.desc
+			desc = zz_valyria_magic_dream_magic.034.desc_02
+			desc = zz_valyria_magic_dream_magic.034.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2344,7 +2663,7 @@ zz_valyria_magic_dream_magic.034 = {
 			var:selected_culture ?= {
 				save_scope_as = culture
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 034
 			}
@@ -2355,11 +2674,18 @@ zz_valyria_magic_dream_magic.034 = {
 	}
 }
 
+# Spell: Dream 035 - Mystery of Religious Proclamation (Character)
 zz_valyria_magic_dream_magic.035 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.035.t
-	desc = zz_valyria_magic_dream_magic.035.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.035.desc
+			desc = zz_valyria_magic_dream_magic.035.desc_02
+			desc = zz_valyria_magic_dream_magic.035.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2439,7 +2765,7 @@ zz_valyria_magic_dream_magic.035 = {
 			var:selected_religion ?= {
 				save_scope_as = religion
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 035
 			}
@@ -2450,11 +2776,18 @@ zz_valyria_magic_dream_magic.035 = {
 	}
 }
 
+# Spell: Dream 036 - Mystery of Cultural Shift (County)
 zz_valyria_magic_dream_magic.036 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.036.t
-	desc = zz_valyria_magic_dream_magic.036.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.036.desc
+			desc = zz_valyria_magic_dream_magic.036.desc_02
+			desc = zz_valyria_magic_dream_magic.036.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2535,7 +2868,7 @@ zz_valyria_magic_dream_magic.036 = {
 			var:selected_county ?= {
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 036
 			}
@@ -2546,11 +2879,18 @@ zz_valyria_magic_dream_magic.036 = {
 	}
 }
 
+# Spell: Dream 037 - Mystery of Religious Indoctrination (County)
 zz_valyria_magic_dream_magic.037 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.037.t
-	desc = zz_valyria_magic_dream_magic.037.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.037.desc
+			desc = zz_valyria_magic_dream_magic.037.desc_02
+			desc = zz_valyria_magic_dream_magic.037.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2637,7 +2977,7 @@ zz_valyria_magic_dream_magic.037 = {
 			var:selected_county ?= {
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 037
 			}
@@ -2648,11 +2988,18 @@ zz_valyria_magic_dream_magic.037 = {
 	}
 }
 
+# Spell: Dream 038 - Mystery of Soothing Dreams
 zz_valyria_magic_dream_magic.038 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.038.t
-	desc = zz_valyria_magic_dream_magic.038.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.038.desc
+			desc = zz_valyria_magic_dream_magic.038.desc_02
+			desc = zz_valyria_magic_dream_magic.038.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2678,7 +3025,7 @@ zz_valyria_magic_dream_magic.038 = {
 			var:selected_county ?= {
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 038
 			}
@@ -2689,11 +3036,18 @@ zz_valyria_magic_dream_magic.038 = {
 	}
 }
 
+# Spell: Dream 039 - Mystery of Nightmares
 zz_valyria_magic_dream_magic.039 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.039.t
-	desc = zz_valyria_magic_dream_magic.039.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.039.desc
+			desc = zz_valyria_magic_dream_magic.039.desc_02
+			desc = zz_valyria_magic_dream_magic.039.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2719,7 +3073,7 @@ zz_valyria_magic_dream_magic.039 = {
 			var:selected_county ?= {
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 039
 			}
@@ -2730,11 +3084,18 @@ zz_valyria_magic_dream_magic.039 = {
 	}
 }
 
+# Spell: Dream 040 - Mystery of Secret Oblivion (Subject's)
 zz_valyria_magic_dream_magic.040 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.040.t
-	desc = zz_valyria_magic_dream_magic.040.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.040.desc
+			desc = zz_valyria_magic_dream_magic.040.desc_02
+			desc = zz_valyria_magic_dream_magic.040.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2779,12 +3140,15 @@ zz_valyria_magic_dream_magic.040 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.040.opt.a
 		hidden_effect = {
-			var:selected_secret = {
-				save_scope_as = secret
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 040
+			if = {
+				limit = { exists = var:selected_secret }
+				var:selected_secret = {
+					save_scope_as = secret
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 040
+				}
 			}
 		}
 	}
@@ -2793,11 +3157,18 @@ zz_valyria_magic_dream_magic.040 = {
 	}
 }
 
+# Spell: Dream 041 - Mystery of Secret Oblivion (Targeted)
 zz_valyria_magic_dream_magic.041 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.041.t
-	desc = zz_valyria_magic_dream_magic.041.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.041.desc
+			desc = zz_valyria_magic_dream_magic.041.desc_02
+			desc = zz_valyria_magic_dream_magic.041.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2842,12 +3213,15 @@ zz_valyria_magic_dream_magic.041 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.041.opt.a
 		hidden_effect = {
-			var:selected_secret = {
-				save_scope_as = secret
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 041
+			if = {
+				limit = { exists = var:selected_secret }
+				var:selected_secret = {
+					save_scope_as = secret
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 041
+				}
 			}
 		}
 	}
@@ -2856,11 +3230,18 @@ zz_valyria_magic_dream_magic.041 = {
 	}
 }
 
+# Spell: Dream 042 - Mystery of Secret Oblivion (Known)
 zz_valyria_magic_dream_magic.042 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.042.t
-	desc = zz_valyria_magic_dream_magic.042.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.042.desc
+			desc = zz_valyria_magic_dream_magic.042.desc_02
+			desc = zz_valyria_magic_dream_magic.042.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2905,12 +3286,15 @@ zz_valyria_magic_dream_magic.042 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.042.opt.a
 		hidden_effect = {
-			var:selected_secret = {
-				save_scope_as = secret
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 042
+			if = {
+				limit = { exists = var:selected_secret }
+				var:selected_secret = {
+					save_scope_as = secret
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 042
+				}
 			}
 		}
 	}
@@ -2919,11 +3303,18 @@ zz_valyria_magic_dream_magic.042 = {
 	}
 }
 
+# Spell: Dream 043 - Mystery of Ordered Dreams
 zz_valyria_magic_dream_magic.043 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.043.t
-	desc = zz_valyria_magic_dream_magic.043.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.043.desc
+			desc = zz_valyria_magic_dream_magic.043.desc_02
+			desc = zz_valyria_magic_dream_magic.043.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2949,7 +3340,7 @@ zz_valyria_magic_dream_magic.043 = {
 			var:selected_county ?= {
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 043
 			}
@@ -2960,11 +3351,18 @@ zz_valyria_magic_dream_magic.043 = {
 	}
 }
 
+# Spell: Dream 044 - Mystery of Disordered Dreams
 zz_valyria_magic_dream_magic.044 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.044.t
-	desc = zz_valyria_magic_dream_magic.044.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.044.desc
+			desc = zz_valyria_magic_dream_magic.044.desc_02
+			desc = zz_valyria_magic_dream_magic.044.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -2990,7 +3388,7 @@ zz_valyria_magic_dream_magic.044 = {
 			var:selected_county ?= {
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 044
 			}
@@ -3001,11 +3399,18 @@ zz_valyria_magic_dream_magic.044 = {
 	}
 }
 
+# Spell: Dream 045 - Mystery of Dreams of Progress
 zz_valyria_magic_dream_magic.045 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.045.t
-	desc = zz_valyria_magic_dream_magic.045.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.045.desc
+			desc = zz_valyria_magic_dream_magic.045.desc_02
+			desc = zz_valyria_magic_dream_magic.045.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3031,7 +3436,7 @@ zz_valyria_magic_dream_magic.045 = {
 			var:selected_county ?= {
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 045
 			}
@@ -3042,11 +3447,18 @@ zz_valyria_magic_dream_magic.045 = {
 	}
 }
 
+# Spell: Dream 046 - Mystery of Dreams of Progress Lost
 zz_valyria_magic_dream_magic.046 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.046.t
-	desc = zz_valyria_magic_dream_magic.046.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.046.desc
+			desc = zz_valyria_magic_dream_magic.046.desc_02
+			desc = zz_valyria_magic_dream_magic.046.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3072,7 +3484,7 @@ zz_valyria_magic_dream_magic.046 = {
 			var:selected_county ?= {
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 046
 			}
@@ -3083,11 +3495,18 @@ zz_valyria_magic_dream_magic.046 = {
 	}
 }
 
+# Spell: Dream 047 - Mystery of Dreams of Cataclysm
 zz_valyria_magic_dream_magic.047 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
-	title = zz_valyria_magic_dream_magic.002.t
-	desc = zz_valyria_magic_dream_magic.002.desc
+	title = zz_valyria_magic_dream_magic.047.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.047.desc
+			desc = zz_valyria_magic_dream_magic.047.desc_02
+			desc = zz_valyria_magic_dream_magic.047.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3098,29 +3517,7 @@ zz_valyria_magic_dream_magic.047 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		clear_variable_list = possible_armies
-		remove_variable = selected_army
-		scope:recipient = {
-			every_army = {
-				root = {
-					add_to_variable_list = {
-						name = possible_armies
-						target = prev
-					}
-					if = {
-						limit = {
-							NOT = {
-								has_variable = selected_army
-							}
-						}
-						set_variable = {
-							name = selected_army
-							value = prev
-						}
-					}
-				}
-			}
-		}
+		zz_targed_character_army_selection_list_effect = yes
 	}
 	widget = {
 		is_shown = {
@@ -3135,7 +3532,7 @@ zz_valyria_magic_dream_magic.047 = {
 			var:selected_army ?= {
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 047
 			}
@@ -3146,11 +3543,18 @@ zz_valyria_magic_dream_magic.047 = {
 	}
 }
 
+# Spell: Dream 048 - Mystery of Soothsaying (Maternal Mortality)
 zz_valyria_magic_dream_magic.048 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.048.t
-	desc = zz_valyria_magic_dream_magic.048.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.048.desc
+			desc = zz_valyria_magic_dream_magic.048.desc_02
+			desc = zz_valyria_magic_dream_magic.048.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3160,10 +3564,33 @@ zz_valyria_magic_dream_magic.048 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 048
+			CURRENT = zz_valyria_magic_dream_magic_048_value_02
+			LOWER = zz_valyria_magic_dream_magic_048_value_02
+			RAISE = 0
+			START = base
+		}
+		# At least one vision
+		set_variable = {
+			name = zz_valyria_magic_event_window_counter_selection_counter_min
+			value = 1
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
 	option = {
 		name = zz_valyria_magic_dream_magic.048.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 048
 			}
@@ -3172,13 +3599,23 @@ zz_valyria_magic_dream_magic.048 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.048.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 049 - Mystery of Soothsaying (Infant Mortality)
 zz_valyria_magic_dream_magic.049 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.049.t
-	desc = zz_valyria_magic_dream_magic.049.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.049.desc
+			desc = zz_valyria_magic_dream_magic.049.desc_02
+			desc = zz_valyria_magic_dream_magic.049.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3188,10 +3625,33 @@ zz_valyria_magic_dream_magic.049 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 049
+			CURRENT = zz_valyria_magic_dream_magic_049_value_02
+			LOWER = zz_valyria_magic_dream_magic_049_value_02
+			RAISE = 0
+			START = base
+		}
+		# At least one vision
+		set_variable = {
+			name = zz_valyria_magic_event_window_counter_selection_counter_min
+			value = 1
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
 	option = {
 		name = zz_valyria_magic_dream_magic.049.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 049
 			}
@@ -3200,13 +3660,23 @@ zz_valyria_magic_dream_magic.049 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.049.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 050 - Mystery of Cultural Advancement
 zz_valyria_magic_dream_magic.050 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.050.t
-	desc = zz_valyria_magic_dream_magic.050.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.050.desc
+			desc = zz_valyria_magic_dream_magic.050.desc_02
+			desc = zz_valyria_magic_dream_magic.050.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3228,11 +3698,11 @@ zz_valyria_magic_dream_magic.050 = {
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.050.opt.a
-		var:selected_culture_tradition = {
+		var:selected_culture_tradition ?= {
 			save_scope_as = selected_culture_tradition
 		}
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 050
 			}
@@ -3243,11 +3713,18 @@ zz_valyria_magic_dream_magic.050 = {
 	}
 }
 
+# Spell: Dream 051 - Mystery of Restorative Dreaming
 zz_valyria_magic_dream_magic.051 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.051.t
-	desc = zz_valyria_magic_dream_magic.051.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.051.desc
+			desc = zz_valyria_magic_dream_magic.051.desc_02
+			desc = zz_valyria_magic_dream_magic.051.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3262,7 +3739,7 @@ zz_valyria_magic_dream_magic.051 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.051.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 051
 			}
@@ -3273,11 +3750,18 @@ zz_valyria_magic_dream_magic.051 = {
 	}
 }
 
+# Spell: Dream 052 - Mystery of Shield of Dreams
 zz_valyria_magic_dream_magic.052 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.052.t
-	desc = zz_valyria_magic_dream_magic.052.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.052.desc
+			desc = zz_valyria_magic_dream_magic.052.desc_02
+			desc = zz_valyria_magic_dream_magic.052.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3292,7 +3776,7 @@ zz_valyria_magic_dream_magic.052 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.052.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 052
 			}
@@ -3303,11 +3787,18 @@ zz_valyria_magic_dream_magic.052 = {
 	}
 }
 
+# Spell: Dream 053 - Mystery of Magical Dreaming (Passive Gain)
 zz_valyria_magic_dream_magic.053 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.053.t
-	desc = zz_valyria_magic_dream_magic.053.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.053.desc
+			desc = zz_valyria_magic_dream_magic.053.desc_02
+			desc = zz_valyria_magic_dream_magic.053.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3322,7 +3813,7 @@ zz_valyria_magic_dream_magic.053 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.053.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 053
 			}
@@ -3333,11 +3824,18 @@ zz_valyria_magic_dream_magic.053 = {
 	}
 }
 
+# Spell: Dream 054 - Mystery of Magical Dreaming (Multiplier)
 zz_valyria_magic_dream_magic.054 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.054.t
-	desc = zz_valyria_magic_dream_magic.054.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.054.desc
+			desc = zz_valyria_magic_dream_magic.054.desc_02
+			desc = zz_valyria_magic_dream_magic.054.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3352,7 +3850,7 @@ zz_valyria_magic_dream_magic.054 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.054.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 054
 			}
@@ -3363,11 +3861,18 @@ zz_valyria_magic_dream_magic.054 = {
 	}
 }
 
+# Spell: Dream 055 - Mystery of Magical Dreaming (Cap)
 zz_valyria_magic_dream_magic.055 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.055.t
-	desc = zz_valyria_magic_dream_magic.055.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.055.desc
+			desc = zz_valyria_magic_dream_magic.055.desc_02
+			desc = zz_valyria_magic_dream_magic.055.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3382,7 +3887,7 @@ zz_valyria_magic_dream_magic.055 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.055.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 055
 			}
@@ -3393,11 +3898,18 @@ zz_valyria_magic_dream_magic.055 = {
 	}
 }
 
+# Spell: Dream 056 - Mystery of Prophecy (Magic Knowledge)
 zz_valyria_magic_dream_magic.056 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.056.t
-	desc = zz_valyria_magic_dream_magic.056.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.056.desc
+			desc = zz_valyria_magic_dream_magic.056.desc_02
+			desc = zz_valyria_magic_dream_magic.056.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3423,7 +3935,7 @@ zz_valyria_magic_dream_magic.056 = {
 			save_scope_as = option
 		}
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 056
 			}
@@ -3434,11 +3946,18 @@ zz_valyria_magic_dream_magic.056 = {
 	}
 }
 
+# Spell: Dream 057 - Mystery of Render to Dreams
 zz_valyria_magic_dream_magic.057 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.057.t
-	desc = zz_valyria_magic_dream_magic.057.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.057.desc
+			desc = zz_valyria_magic_dream_magic.057.desc_02
+			desc = zz_valyria_magic_dream_magic.057.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3463,7 +3982,7 @@ zz_valyria_magic_dream_magic.057 = {
 			var:selected_trait ?= {
 				save_scope_as = trait
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 057
 			}
@@ -3474,11 +3993,18 @@ zz_valyria_magic_dream_magic.057 = {
 	}
 }
 
+# Spell: Dream 058 - Mystery of Dream of Health
 zz_valyria_magic_dream_magic.058 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.058.t
-	desc = zz_valyria_magic_dream_magic.058.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.058.desc
+			desc = zz_valyria_magic_dream_magic.058.desc_02
+			desc = zz_valyria_magic_dream_magic.058.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3493,7 +4019,7 @@ zz_valyria_magic_dream_magic.058 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.058.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 058
 			}
@@ -3504,11 +4030,18 @@ zz_valyria_magic_dream_magic.058 = {
 	}
 }
 
+# Spell: Dream 059 - Mystery of Manifested Dream
 zz_valyria_magic_dream_magic.059 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.059.t
-	desc = zz_valyria_magic_dream_magic.059.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.059.desc
+			desc = zz_valyria_magic_dream_magic.059.desc_02
+			desc = zz_valyria_magic_dream_magic.059.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3533,7 +4066,7 @@ zz_valyria_magic_dream_magic.059 = {
 			var:selected_trait ?= {
 				save_scope_as = trait
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 059
 			}
@@ -3544,11 +4077,18 @@ zz_valyria_magic_dream_magic.059 = {
 	}
 }
 
+# Spell: Dream 060 - Mystery of Relationships (Create)
 zz_valyria_magic_dream_magic.060 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.060.t
-	desc = zz_valyria_magic_dream_magic.060.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.060.desc
+			desc = zz_valyria_magic_dream_magic.060.desc_02
+			desc = zz_valyria_magic_dream_magic.060.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3579,7 +4119,7 @@ zz_valyria_magic_dream_magic.060 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 		
@@ -3593,7 +4133,7 @@ zz_valyria_magic_dream_magic.060 = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 060
 			}
@@ -3604,11 +4144,18 @@ zz_valyria_magic_dream_magic.060 = {
 	}
 }
 
+# Spell: Dream 061 - Mystery of Relationships (Remove)
 zz_valyria_magic_dream_magic.061 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.061.t
-	desc = zz_valyria_magic_dream_magic.061.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.061.desc
+			desc = zz_valyria_magic_dream_magic.061.desc_02
+			desc = zz_valyria_magic_dream_magic.061.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3639,7 +4186,7 @@ zz_valyria_magic_dream_magic.061 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 	}
@@ -3652,7 +4199,7 @@ zz_valyria_magic_dream_magic.061 = {
 			var:zz_valyria_selected_character = {
 				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 061
 			}
@@ -3663,11 +4210,18 @@ zz_valyria_magic_dream_magic.061 = {
 	}
 }
 
+# Spell: Dream 062 - Mystery of Loyalty (Grant)
 zz_valyria_magic_dream_magic.062 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.062.t
-	desc = zz_valyria_magic_dream_magic.062.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.062.desc
+			desc = zz_valyria_magic_dream_magic.062.desc_02
+			desc = zz_valyria_magic_dream_magic.062.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3690,19 +4244,22 @@ zz_valyria_magic_dream_magic.062 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.062.opt.a
 		hidden_effect = {
-			var:zz_valyria_selected_character = {
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 062
+			if = {
+				limit = { exists = var:zz_valyria_selected_character }
+				var:zz_valyria_selected_character = {
+					save_scope_as = target
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 062
+				}
 			}
 		}
 	}
@@ -3711,11 +4268,18 @@ zz_valyria_magic_dream_magic.062 = {
 	}
 }
 
+# Spell: Dream 063 - Mystery of Loyalty (Remove)
 zz_valyria_magic_dream_magic.063 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.063.t
-	desc = zz_valyria_magic_dream_magic.063.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.063.desc
+			desc = zz_valyria_magic_dream_magic.063.desc_02
+			desc = zz_valyria_magic_dream_magic.063.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3738,19 +4302,22 @@ zz_valyria_magic_dream_magic.063 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.063.opt.a
 		hidden_effect = {
-			var:zz_valyria_selected_character = {
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 063
+			if = {
+				limit = { exists = var:zz_valyria_selected_character }
+				var:zz_valyria_selected_character = {
+					save_scope_as = target
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 063
+				}
 			}
 		}
 	}
@@ -3759,11 +4326,18 @@ zz_valyria_magic_dream_magic.063 = {
 	}
 }
 
+# Spell: Dream 064 - Mystery of Improving Opinion
 zz_valyria_magic_dream_magic.064 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.064.t
-	desc = zz_valyria_magic_dream_magic.064.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.064.desc
+			desc = zz_valyria_magic_dream_magic.064.desc_02
+			desc = zz_valyria_magic_dream_magic.064.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3786,19 +4360,22 @@ zz_valyria_magic_dream_magic.064 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.064.opt.a
 		hidden_effect = {
-			var:zz_valyria_selected_character = {
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 064
+			if = {
+				limit = { exists = var:zz_valyria_selected_character }
+				var:zz_valyria_selected_character = {
+					save_scope_as = target
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 064
+				}
 			}
 		}
 	}
@@ -3807,11 +4384,18 @@ zz_valyria_magic_dream_magic.064 = {
 	}
 }
 
+# Spell: Dream 065 - Mystery of Degrading Opinion
 zz_valyria_magic_dream_magic.065 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.065.t
-	desc = zz_valyria_magic_dream_magic.065.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.065.desc
+			desc = zz_valyria_magic_dream_magic.065.desc_02
+			desc = zz_valyria_magic_dream_magic.065.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3834,19 +4418,22 @@ zz_valyria_magic_dream_magic.065 = {
 					}
 				}
 			}
-			gui = "event_window_character_selection"
+			gui = "event_window_character_selection_popup"
 			container = "custom_widgets_container"
 		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.065.opt.a
 		hidden_effect = {
-			var:zz_valyria_selected_character = {
-				save_scope_as = target
-			}
-			zz_valyria_magic_cast_effect = {
-				SKILL = dream_magic
-				SPELL = 065
+			if = {
+				limit = { exists = var:zz_valyria_selected_character }
+				var:zz_valyria_selected_character = {
+					save_scope_as = target
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 065
+				}
 			}
 		}
 	}
@@ -3855,11 +4442,18 @@ zz_valyria_magic_dream_magic.065 = {
 	}
 }
 
+# Spell: Dream 066 - Mystery of Prophecy (Wealth)
 zz_valyria_magic_dream_magic.066 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.066.t
-	desc = zz_valyria_magic_dream_magic.066.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.066.desc
+			desc = zz_valyria_magic_dream_magic.066.desc_02
+			desc = zz_valyria_magic_dream_magic.066.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3875,7 +4469,7 @@ zz_valyria_magic_dream_magic.066 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.066.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 066
 			}
@@ -3886,11 +4480,18 @@ zz_valyria_magic_dream_magic.066 = {
 	}
 }
 
+# Spell: Dream 067 - Mystery of Prophecy (Piety)
 zz_valyria_magic_dream_magic.067 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.067.t
-	desc = zz_valyria_magic_dream_magic.067.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.067.desc
+			desc = zz_valyria_magic_dream_magic.067.desc_02
+			desc = zz_valyria_magic_dream_magic.067.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3906,7 +4507,7 @@ zz_valyria_magic_dream_magic.067 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.067.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 067
 			}
@@ -3917,11 +4518,18 @@ zz_valyria_magic_dream_magic.067 = {
 	}
 }
 
+# Spell: Dream 068 - Mystery of Prophecy (Prestige)
 zz_valyria_magic_dream_magic.068 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.068.t
-	desc = zz_valyria_magic_dream_magic.068.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.068.desc
+			desc = zz_valyria_magic_dream_magic.068.desc_02
+			desc = zz_valyria_magic_dream_magic.068.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3936,7 +4544,7 @@ zz_valyria_magic_dream_magic.068 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.068.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 068
 			}
@@ -3947,11 +4555,18 @@ zz_valyria_magic_dream_magic.068 = {
 	}
 }
 
+# Spell: Dream 069 - Mystery of Prophecy (Renown)
 zz_valyria_magic_dream_magic.069 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.069.t
-	desc = zz_valyria_magic_dream_magic.069.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.069.desc
+			desc = zz_valyria_magic_dream_magic.069.desc_02
+			desc = zz_valyria_magic_dream_magic.069.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3966,7 +4581,7 @@ zz_valyria_magic_dream_magic.069 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.069.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 069
 			}
@@ -3977,11 +4592,18 @@ zz_valyria_magic_dream_magic.069 = {
 	}
 }
 
+# Spell: Dream 070 - Mystery of Prophecy (Influence)
 zz_valyria_magic_dream_magic.070 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.070.t
-	desc = zz_valyria_magic_dream_magic.070.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.070.desc
+			desc = zz_valyria_magic_dream_magic.070.desc_02
+			desc = zz_valyria_magic_dream_magic.070.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -3996,7 +4618,7 @@ zz_valyria_magic_dream_magic.070 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.070.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 070
 			}
@@ -4007,11 +4629,18 @@ zz_valyria_magic_dream_magic.070 = {
 	}
 }
 
+# Spell: Dream 071 - Mystery of Prophecy (Magic Power)
 zz_valyria_magic_dream_magic.071 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.071.t
-	desc = zz_valyria_magic_dream_magic.071.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.071.desc
+			desc = zz_valyria_magic_dream_magic.071.desc_02
+			desc = zz_valyria_magic_dream_magic.071.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4026,7 +4655,7 @@ zz_valyria_magic_dream_magic.071 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.071.opt.a
 		hidden_effect = {
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 071
 			}
@@ -4037,11 +4666,18 @@ zz_valyria_magic_dream_magic.071 = {
 	}
 }
 
+# Spell: Dream 072 - Mystery of Prophecy (Treasury)
 zz_valyria_magic_dream_magic.072 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.072.t
-	desc = zz_valyria_magic_dream_magic.072.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.072.desc
+			desc = zz_valyria_magic_dream_magic.072.desc_02
+			desc = zz_valyria_magic_dream_magic.072.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4059,7 +4695,7 @@ zz_valyria_magic_dream_magic.072 = {
 			var:selected_trait ?= {
 				save_scope_as = trait
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 072
 			}
@@ -4070,11 +4706,18 @@ zz_valyria_magic_dream_magic.072 = {
 	}
 }
 
+# Spell: Dream 073 - Mystery of Prophecy (Provisions)
 zz_valyria_magic_dream_magic.073 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.073.t
-	desc = zz_valyria_magic_dream_magic.073.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.073.desc
+			desc = zz_valyria_magic_dream_magic.073.desc_02
+			desc = zz_valyria_magic_dream_magic.073.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4092,7 +4735,7 @@ zz_valyria_magic_dream_magic.073 = {
 			var:selected_trait ?= {
 				save_scope_as = trait
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 073
 			}
@@ -4103,11 +4746,18 @@ zz_valyria_magic_dream_magic.073 = {
 	}
 }
 
+# Spell: Dream 074 - Mystery of the Dreaming Road (Hasten)
 zz_valyria_magic_dream_magic.074 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.074.t
-	desc = zz_valyria_magic_dream_magic.074.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.074.desc
+			desc = zz_valyria_magic_dream_magic.074.desc_02
+			desc = zz_valyria_magic_dream_magic.074.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4117,18 +4767,19 @@ zz_valyria_magic_dream_magic.074 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
-	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
 	option = {
 		name = zz_valyria_magic_dream_magic.074.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 074
+			}
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 40
+				scope:recipient = { NOT = { opinion = { target = root value < 0 } } }
 			}
 		}
 	}
@@ -4137,11 +4788,18 @@ zz_valyria_magic_dream_magic.074 = {
 	}
 }
 
+# Spell: Dream 075 - Mystery of the Dreaming Road (Hinder)
 zz_valyria_magic_dream_magic.075 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.075.t
-	desc = zz_valyria_magic_dream_magic.075.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.075.desc
+			desc = zz_valyria_magic_dream_magic.075.desc_02
+			desc = zz_valyria_magic_dream_magic.075.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4151,18 +4809,19 @@ zz_valyria_magic_dream_magic.075 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
-	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
 	option = {
 		name = zz_valyria_magic_dream_magic.075.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 075
+			}
+		}
+		ai_chance = {
+			base = 10
+			modifier = {
+				add = 40
+				scope:recipient = { opinion = { target = root value < 0 } }
 			}
 		}
 	}
@@ -4171,11 +4830,18 @@ zz_valyria_magic_dream_magic.075 = {
 	}
 }
 
+# Spell: Dream 076 - Mystery of the Watchful Road
 zz_valyria_magic_dream_magic.076 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.076.t
-	desc = zz_valyria_magic_dream_magic.076.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.076.desc
+			desc = zz_valyria_magic_dream_magic.076.desc_02
+			desc = zz_valyria_magic_dream_magic.076.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4185,16 +4851,10 @@ zz_valyria_magic_dream_magic.076 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
-	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
 	option = {
 		name = zz_valyria_magic_dream_magic.076.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 076
 			}
@@ -4205,11 +4865,18 @@ zz_valyria_magic_dream_magic.076 = {
 	}
 }
 
+# Spell: Dream 077 - Mystery of Prophecy (Resources)
 zz_valyria_magic_dream_magic.077 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.077.t
-	desc = zz_valyria_magic_dream_magic.077.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.077.desc
+			desc = zz_valyria_magic_dream_magic.077.desc_02
+			desc = zz_valyria_magic_dream_magic.077.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4220,15 +4887,22 @@ zz_valyria_magic_dream_magic.077 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
+		zz_targeted_character_province_selection_list_effect = yes
+	}
+	widget = {
+		is_shown = {
+			is_ai = no
+		}
+		gui = "event_window_province_selection"
+		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.077.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
+			var:selected_province ?= {
+				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 077
 			}
@@ -4239,11 +4913,18 @@ zz_valyria_magic_dream_magic.077 = {
 	}
 }
 
+# Spell: Dream 078 - Mystery of the Dreaming City
 zz_valyria_magic_dream_magic.078 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.078.t
-	desc = zz_valyria_magic_dream_magic.078.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.078.desc
+			desc = zz_valyria_magic_dream_magic.078.desc_02
+			desc = zz_valyria_magic_dream_magic.078.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4253,22 +4934,25 @@ zz_valyria_magic_dream_magic.078 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
+
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
+		zz_targeted_character_province_selection_list_effect = yes
 	}
+
 	widget = {
 		is_shown = {
+			is_ai = no
 		}
-		gui = "event_window_trait_selection"
+		gui = "event_window_province_selection"
 		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.078.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
+			var:selected_province ?= {
+				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 078
 			}
@@ -4279,11 +4963,18 @@ zz_valyria_magic_dream_magic.078 = {
 	}
 }
 
+# Spell: Dream 079 - Mystery of the Shared Dream
 zz_valyria_magic_dream_magic.079 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.079.t
-	desc = zz_valyria_magic_dream_magic.079.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.079.desc
+			desc = zz_valyria_magic_dream_magic.079.desc_02
+			desc = zz_valyria_magic_dream_magic.079.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4293,22 +4984,25 @@ zz_valyria_magic_dream_magic.079 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
+
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
+		zz_targeted_character_county_selection_list_effect = yes
 	}
+
 	widget = {
 		is_shown = {
+			is_ai = no
 		}
-		gui = "event_window_trait_selection"
+		gui = "event_window_county_selection"
 		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.079.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
+			var:selected_county ?= {
+				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 079
 			}
@@ -4319,11 +5013,18 @@ zz_valyria_magic_dream_magic.079 = {
 	}
 }
 
+# Spell: Dream 080 - Mystery of Soothsaying (Resilience)
 zz_valyria_magic_dream_magic.080 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.080.t
-	desc = zz_valyria_magic_dream_magic.080.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.080.desc
+			desc = zz_valyria_magic_dream_magic.080.desc_02
+			desc = zz_valyria_magic_dream_magic.080.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4334,21 +5035,32 @@ zz_valyria_magic_dream_magic.080 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
-	widget = {
-		is_shown = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 080
+			CURRENT = zz_valyria_magic_dream_magic_080_value_02
+			LOWER = zz_valyria_magic_dream_magic_080_value_02
+			RAISE = 0
+			START = base
 		}
-		gui = "event_window_trait_selection"
-		container = "custom_widgets_container"
+		# At least one vision
+		set_variable = {
+			name = zz_valyria_magic_event_window_counter_selection_counter_min
+			value = 1
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.080.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 080
 			}
@@ -4357,13 +5069,23 @@ zz_valyria_magic_dream_magic.080 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.080.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 081 - Mystery of Soothsaying (Longevity)
 zz_valyria_magic_dream_magic.081 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.081.t
-	desc = zz_valyria_magic_dream_magic.081.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.081.desc
+			desc = zz_valyria_magic_dream_magic.081.desc_02
+			desc = zz_valyria_magic_dream_magic.081.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4374,21 +5096,32 @@ zz_valyria_magic_dream_magic.081 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
-	widget = {
-		is_shown = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 081
+			CURRENT = zz_valyria_magic_dream_magic_081_value_02
+			LOWER = zz_valyria_magic_dream_magic_081_value_02
+			RAISE = 0
+			START = base
 		}
-		gui = "event_window_trait_selection"
-		container = "custom_widgets_container"
+		# At least one vision
+		set_variable = {
+			name = zz_valyria_magic_event_window_counter_selection_counter_min
+			value = 1
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.081.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 081
 			}
@@ -4397,13 +5130,23 @@ zz_valyria_magic_dream_magic.081 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.081.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 082 - Mystery of Soothsaying (Health)
 zz_valyria_magic_dream_magic.082 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.082.t
-	desc = zz_valyria_magic_dream_magic.082.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.082.desc
+			desc = zz_valyria_magic_dream_magic.082.desc_02
+			desc = zz_valyria_magic_dream_magic.082.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4414,21 +5157,32 @@ zz_valyria_magic_dream_magic.082 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
-	widget = {
-		is_shown = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 082
+			CURRENT = zz_valyria_magic_dream_magic_082_value_02
+			LOWER = zz_valyria_magic_dream_magic_082_value_02
+			RAISE = 0
+			START = base
 		}
-		gui = "event_window_trait_selection"
-		container = "custom_widgets_container"
+		# At least one vision
+		set_variable = {
+			name = zz_valyria_magic_event_window_counter_selection_counter_min
+			value = 1
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.082.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 082
 			}
@@ -4437,13 +5191,23 @@ zz_valyria_magic_dream_magic.082 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.082.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 083 - Mystery of Soothsaying (Infant Sex)
 zz_valyria_magic_dream_magic.083 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.083.t
-	desc = zz_valyria_magic_dream_magic.083.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.083.desc
+			desc = zz_valyria_magic_dream_magic.083.desc_02
+			desc = zz_valyria_magic_dream_magic.083.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4454,21 +5218,51 @@ zz_valyria_magic_dream_magic.083 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
-	widget = {
-		is_shown = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 083
+			CURRENT = zz_valyria_magic_dream_magic_083_value_02
+			LOWER = zz_valyria_magic_dream_magic_083_value_02
+			RAISE = 0
+			START = base
 		}
-		gui = "event_window_trait_selection"
-		container = "custom_widgets_container"
+		# At least one vision
+		set_variable = {
+			name = zz_valyria_magic_event_window_counter_selection_counter_min
+			value = 1
+		}
+		remove_variable = selected_flag
+		clear_variable_list = possible_flags
+		add_to_variable_list = { name = possible_flags target = flag:zz_soothsay_son }
+		add_to_variable_list = { name = possible_flags target = flag:zz_soothsay_daughter }
+		set_variable = { name = selected_flag value = flag:zz_soothsay_son }
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_flag_selection"
+			container = "custom_widgets_container"
+		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.083.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
+			switch = {
+				trigger = var:selected_flag
+				flag:zz_soothsay_son = {
+					save_scope_value_as = { name = option_01 value = yes }
+				}
+				flag:zz_soothsay_daughter = {
+					save_scope_value_as = { name = option_02 value = yes }
+				}
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 083
 			}
@@ -4477,13 +5271,23 @@ zz_valyria_magic_dream_magic.083 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.083.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 084 - Mystery of Soothsaying (Scheme Defence)
 zz_valyria_magic_dream_magic.084 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.084.t
-	desc = zz_valyria_magic_dream_magic.084.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.084.desc
+			desc = zz_valyria_magic_dream_magic.084.desc_02
+			desc = zz_valyria_magic_dream_magic.084.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4494,21 +5298,32 @@ zz_valyria_magic_dream_magic.084 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
-	widget = {
-		is_shown = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 084
+			CURRENT = zz_valyria_magic_dream_magic_084_value_02
+			LOWER = zz_valyria_magic_dream_magic_084_value_02
+			RAISE = 0
+			START = base
 		}
-		gui = "event_window_trait_selection"
-		container = "custom_widgets_container"
+		# At least one vision
+		set_variable = {
+			name = zz_valyria_magic_event_window_counter_selection_counter_min
+			value = 1
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.084.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 084
 			}
@@ -4517,13 +5332,23 @@ zz_valyria_magic_dream_magic.084 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.084.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 085 - Mystery of Soothsaying (Secret Destruction)
 zz_valyria_magic_dream_magic.085 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.085.t
-	desc = zz_valyria_magic_dream_magic.085.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.085.desc
+			desc = zz_valyria_magic_dream_magic.085.desc_02
+			desc = zz_valyria_magic_dream_magic.085.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4534,21 +5359,32 @@ zz_valyria_magic_dream_magic.085 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
-	widget = {
-		is_shown = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 085
+			CURRENT = zz_valyria_magic_dream_magic_085_value_02
+			LOWER = zz_valyria_magic_dream_magic_085_value_02
+			RAISE = 0
+			START = base
 		}
-		gui = "event_window_trait_selection"
-		container = "custom_widgets_container"
+		# At least one vision
+		set_variable = {
+			name = zz_valyria_magic_event_window_counter_selection_counter_min
+			value = 1
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.085.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 085
 			}
@@ -4557,13 +5393,23 @@ zz_valyria_magic_dream_magic.085 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.085.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 086 - Mystery of the Long Dream of Devotion
 zz_valyria_magic_dream_magic.086 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.086.t
-	desc = zz_valyria_magic_dream_magic.086.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.086.desc
+			desc = zz_valyria_magic_dream_magic.086.desc_02
+			desc = zz_valyria_magic_dream_magic.086.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4574,21 +5420,22 @@ zz_valyria_magic_dream_magic.086 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
+		zz_targeted_character_county_selection_list_effect = yes
 	}
 	widget = {
 		is_shown = {
+			is_ai = no
 		}
-		gui = "event_window_trait_selection"
+		gui = "event_window_county_selection"
 		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.086.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
+			var:selected_county ?= {
+				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 086
 			}
@@ -4599,11 +5446,18 @@ zz_valyria_magic_dream_magic.086 = {
 	}
 }
 
+# Spell: Dream 087 - Mystery of the Long Nightmare of Betrayal
 zz_valyria_magic_dream_magic.087 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.087.t
-	desc = zz_valyria_magic_dream_magic.087.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.087.desc
+			desc = zz_valyria_magic_dream_magic.087.desc_02
+			desc = zz_valyria_magic_dream_magic.087.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4614,21 +5468,22 @@ zz_valyria_magic_dream_magic.087 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
+		zz_targeted_character_county_selection_list_effect = yes
 	}
 	widget = {
 		is_shown = {
+			is_ai = no
 		}
-		gui = "event_window_trait_selection"
+		gui = "event_window_county_selection"
 		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.087.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
+			var:selected_county ?= {
+				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 087
 			}
@@ -4639,11 +5494,18 @@ zz_valyria_magic_dream_magic.087 = {
 	}
 }
 
+# Spell: Dream 088 - Mystery of the Long Dream of Order
 zz_valyria_magic_dream_magic.088 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.088.t
-	desc = zz_valyria_magic_dream_magic.088.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.088.desc
+			desc = zz_valyria_magic_dream_magic.088.desc_02
+			desc = zz_valyria_magic_dream_magic.088.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4654,21 +5516,22 @@ zz_valyria_magic_dream_magic.088 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
+		zz_targeted_character_county_selection_list_effect = yes
 	}
 	widget = {
 		is_shown = {
+			is_ai = no
 		}
-		gui = "event_window_trait_selection"
+		gui = "event_window_county_selection"
 		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.088.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
+			var:selected_county ?= {
+				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 088
 			}
@@ -4679,11 +5542,18 @@ zz_valyria_magic_dream_magic.088 = {
 	}
 }
 
+# Spell: Dream 089 - Mystery of the Long Nightmare of Unrest
 zz_valyria_magic_dream_magic.089 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.089.t
-	desc = zz_valyria_magic_dream_magic.089.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.089.desc
+			desc = zz_valyria_magic_dream_magic.089.desc_02
+			desc = zz_valyria_magic_dream_magic.089.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4694,21 +5564,22 @@ zz_valyria_magic_dream_magic.089 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
+		zz_targeted_character_county_selection_list_effect = yes
 	}
 	widget = {
 		is_shown = {
+			is_ai = no
 		}
-		gui = "event_window_trait_selection"
+		gui = "event_window_county_selection"
 		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.089.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
+			var:selected_county ?= {
+				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 089
 			}
@@ -4719,11 +5590,18 @@ zz_valyria_magic_dream_magic.089 = {
 	}
 }
 
+# Spell: Dream 090 - Mystery of the Long Dream of Spring
 zz_valyria_magic_dream_magic.090 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.090.t
-	desc = zz_valyria_magic_dream_magic.090.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.090.desc
+			desc = zz_valyria_magic_dream_magic.090.desc_02
+			desc = zz_valyria_magic_dream_magic.090.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4734,21 +5612,22 @@ zz_valyria_magic_dream_magic.090 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
+		zz_targeted_character_county_selection_list_effect = yes
 	}
 	widget = {
 		is_shown = {
+			is_ai = no
 		}
-		gui = "event_window_trait_selection"
+		gui = "event_window_county_selection"
 		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.090.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
+			var:selected_county ?= {
+				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 090
 			}
@@ -4759,11 +5638,18 @@ zz_valyria_magic_dream_magic.090 = {
 	}
 }
 
+# Spell: Dream 091 - Mystery of the Long Nightmare of Winter
 zz_valyria_magic_dream_magic.091 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.091.t
-	desc = zz_valyria_magic_dream_magic.091.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.091.desc
+			desc = zz_valyria_magic_dream_magic.091.desc_02
+			desc = zz_valyria_magic_dream_magic.091.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4774,21 +5660,22 @@ zz_valyria_magic_dream_magic.091 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
+		zz_targeted_character_county_selection_list_effect = yes
 	}
 	widget = {
 		is_shown = {
+			is_ai = no
 		}
-		gui = "event_window_trait_selection"
+		gui = "event_window_county_selection"
 		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.091.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
+			var:selected_county ?= {
+				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 091
 			}
@@ -4799,11 +5686,18 @@ zz_valyria_magic_dream_magic.091 = {
 	}
 }
 
+# Spell: Dream 092 - Mystery of the Long Dream of Plenty
 zz_valyria_magic_dream_magic.092 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.092.t
-	desc = zz_valyria_magic_dream_magic.092.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.092.desc
+			desc = zz_valyria_magic_dream_magic.092.desc_02
+			desc = zz_valyria_magic_dream_magic.092.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4814,21 +5708,22 @@ zz_valyria_magic_dream_magic.092 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
+		zz_targeted_character_county_selection_list_effect = yes
 	}
 	widget = {
 		is_shown = {
+			is_ai = no
 		}
-		gui = "event_window_trait_selection"
+		gui = "event_window_county_selection"
 		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.092.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
+			var:selected_county ?= {
+				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 092
 			}
@@ -4839,11 +5734,18 @@ zz_valyria_magic_dream_magic.092 = {
 	}
 }
 
+# Spell: Dream 093 - Mystery of the Long Nightmare of Want
 zz_valyria_magic_dream_magic.093 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.093.t
-	desc = zz_valyria_magic_dream_magic.093.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.093.desc
+			desc = zz_valyria_magic_dream_magic.093.desc_02
+			desc = zz_valyria_magic_dream_magic.093.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4854,21 +5756,22 @@ zz_valyria_magic_dream_magic.093 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
+		zz_targeted_character_county_selection_list_effect = yes
 	}
 	widget = {
 		is_shown = {
+			is_ai = no
 		}
-		gui = "event_window_trait_selection"
+		gui = "event_window_county_selection"
 		container = "custom_widgets_container"
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.093.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
+			var:selected_county ?= {
+				save_scope_as = target
 			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 093
 			}
@@ -4879,11 +5782,25 @@ zz_valyria_magic_dream_magic.093 = {
 	}
 }
 
+
+
+
+
+
+
+
+# Spell: Dream 094 - Mystery of Dreamshaping (Diplomacy)
 zz_valyria_magic_dream_magic.094 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.094.t
-	desc = zz_valyria_magic_dream_magic.094.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.094.desc
+			desc = zz_valyria_magic_dream_magic.094.desc_02
+			desc = zz_valyria_magic_dream_magic.094.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4893,22 +5810,30 @@ zz_valyria_magic_dream_magic.094 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
+
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
-	widget = {
-		is_shown = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 094
+			CURRENT = scope:recipient.diplomacy
+			LOWER = zz_valyria_magic_dream_magic_094_value_01
+			RAISE = zz_valyria_magic_dream_magic_094_value_01
+			START = max
 		}
-		gui = "event_window_trait_selection"
-		container = "custom_widgets_container"
 	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
 	option = {
 		name = zz_valyria_magic_dream_magic.094.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = dream_magic
 				SPELL = 094
 			}
@@ -4917,13 +5842,23 @@ zz_valyria_magic_dream_magic.094 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.094.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 095 - Mystery of Dreamshaping (Martial)
 zz_valyria_magic_dream_magic.095 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.095.t
-	desc = zz_valyria_magic_dream_magic.095.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.095.desc
+			desc = zz_valyria_magic_dream_magic.095.desc_02
+			desc = zz_valyria_magic_dream_magic.095.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4933,22 +5868,30 @@ zz_valyria_magic_dream_magic.095 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
+
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
-	widget = {
-		is_shown = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 095
+			CURRENT = scope:recipient.martial
+			LOWER = zz_valyria_magic_dream_magic_095_value_01
+			RAISE = zz_valyria_magic_dream_magic_095_value_01
+			START = max
 		}
-		gui = "event_window_trait_selection"
-		container = "custom_widgets_container"
 	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
 	option = {
 		name = zz_valyria_magic_dream_magic.095.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = dream_magic
 				SPELL = 095
 			}
@@ -4957,13 +5900,23 @@ zz_valyria_magic_dream_magic.095 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.095.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 096 - Mystery of Dreamshaping (Stewardship)
 zz_valyria_magic_dream_magic.096 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.096.t
-	desc = zz_valyria_magic_dream_magic.096.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.096.desc
+			desc = zz_valyria_magic_dream_magic.096.desc_02
+			desc = zz_valyria_magic_dream_magic.096.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -4973,22 +5926,30 @@ zz_valyria_magic_dream_magic.096 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
+
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
-	widget = {
-		is_shown = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 096
+			CURRENT = scope:recipient.stewardship
+			LOWER = zz_valyria_magic_dream_magic_096_value_01
+			RAISE = zz_valyria_magic_dream_magic_096_value_01
+			START = max
 		}
-		gui = "event_window_trait_selection"
-		container = "custom_widgets_container"
 	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
 	option = {
 		name = zz_valyria_magic_dream_magic.096.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = dream_magic
 				SPELL = 096
 			}
@@ -4997,13 +5958,23 @@ zz_valyria_magic_dream_magic.096 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.096.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 097 - Mystery of Dreamshaping (Intrigue)
 zz_valyria_magic_dream_magic.097 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.097.t
-	desc = zz_valyria_magic_dream_magic.097.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.097.desc
+			desc = zz_valyria_magic_dream_magic.097.desc_02
+			desc = zz_valyria_magic_dream_magic.097.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -5013,22 +5984,30 @@ zz_valyria_magic_dream_magic.097 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
+
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
-	widget = {
-		is_shown = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 097
+			CURRENT = scope:recipient.intrigue
+			LOWER = zz_valyria_magic_dream_magic_097_value_01
+			RAISE = zz_valyria_magic_dream_magic_097_value_01
+			START = max
 		}
-		gui = "event_window_trait_selection"
-		container = "custom_widgets_container"
 	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
 	option = {
 		name = zz_valyria_magic_dream_magic.097.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = dream_magic
 				SPELL = 097
 			}
@@ -5037,13 +6016,23 @@ zz_valyria_magic_dream_magic.097 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.097.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 098 - Mystery of Dreamshaping (Learning)
 zz_valyria_magic_dream_magic.098 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.098.t
-	desc = zz_valyria_magic_dream_magic.098.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.098.desc
+			desc = zz_valyria_magic_dream_magic.098.desc_02
+			desc = zz_valyria_magic_dream_magic.098.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -5053,22 +6042,30 @@ zz_valyria_magic_dream_magic.098 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
+
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
-	widget = {
-		is_shown = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 098
+			CURRENT = scope:recipient.learning
+			LOWER = zz_valyria_magic_dream_magic_098_value_01
+			RAISE = zz_valyria_magic_dream_magic_098_value_01
+			START = max
 		}
-		gui = "event_window_trait_selection"
-		container = "custom_widgets_container"
 	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
 	option = {
 		name = zz_valyria_magic_dream_magic.098.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = dream_magic
 				SPELL = 098
 			}
@@ -5077,13 +6074,23 @@ zz_valyria_magic_dream_magic.098 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.098.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 099 - Mystery of Dreamshaping (Prowess)
 zz_valyria_magic_dream_magic.099 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.099.t
-	desc = zz_valyria_magic_dream_magic.099.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.099.desc
+			desc = zz_valyria_magic_dream_magic.099.desc_02
+			desc = zz_valyria_magic_dream_magic.099.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -5093,22 +6100,30 @@ zz_valyria_magic_dream_magic.099 = {
 		character = scope:secondary_recipient
 	}
 	lower_center_portrait = scope:recipient
+
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
-	widget = {
-		is_shown = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 099
+			CURRENT = scope:recipient.prowess
+			LOWER = zz_valyria_magic_dream_magic_099_value_01
+			RAISE = zz_valyria_magic_dream_magic_099_value_01
+			START = max
 		}
-		gui = "event_window_trait_selection"
-		container = "custom_widgets_container"
 	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+
 	option = {
 		name = zz_valyria_magic_dream_magic.099.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = { 
 				SKILL = dream_magic
 				SPELL = 099
 			}
@@ -5117,13 +6132,23 @@ zz_valyria_magic_dream_magic.099 = {
 	option = {
 		name = zz_valyria_magic_dream_magic.099.opt.z
 	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
 }
 
+# Spell: Dream 084 - Mystery of Soothsaying (Assassination)
 zz_valyria_magic_dream_magic.100 = {
 	type = character_event
 	window = zz_valyria_magic_character_event
 	title = zz_valyria_magic_dream_magic.100.t
-	desc = zz_valyria_magic_dream_magic.100.desc
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.100.desc
+			desc = zz_valyria_magic_dream_magic.100.desc_02
+			desc = zz_valyria_magic_dream_magic.100.desc_03
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_dream_magic
@@ -5134,21 +6159,32 @@ zz_valyria_magic_dream_magic.100 = {
 	}
 	lower_center_portrait = scope:recipient
 	immediate = {
-		zz_valyria_genetic_trait_list = yes
-	}
-	widget = {
-		is_shown = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 100
+			CURRENT = zz_valyria_magic_dream_magic_100_value_02
+			LOWER = zz_valyria_magic_dream_magic_100_value_02
+			RAISE = 0
+			START = base
 		}
-		gui = "event_window_trait_selection"
-		container = "custom_widgets_container"
+		# At least one vision
+		set_variable = {
+			name = zz_valyria_magic_event_window_counter_selection_counter_min
+			value = 1
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.100.opt.a
 		hidden_effect = {
-			var:selected_trait ?= {
-				save_scope_as = trait
-			}
-			zz_valyria_magic_cast_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
 				SKILL = dream_magic
 				SPELL = 100
 			}
@@ -5156,5 +6192,559 @@ zz_valyria_magic_dream_magic.100 = {
 	}
 	option = {
 		name = zz_valyria_magic_dream_magic.100.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Dream 084 - Mystery of Soothsaying (Battle)
+zz_valyria_magic_dream_magic.101 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic.101.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.101.desc
+			desc = zz_valyria_magic_dream_magic.101.desc_02
+			desc = zz_valyria_magic_dream_magic.101.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_dream_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 101
+			CURRENT = zz_valyria_magic_dream_magic_101_value_02
+			LOWER = zz_valyria_magic_dream_magic_101_value_02
+			RAISE = 0
+			START = base
+		}
+		# At least one vision
+		set_variable = {
+			name = zz_valyria_magic_event_window_counter_selection_counter_min
+			value = 1
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.101.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = dream_magic
+				SPELL = 101
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.101.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Soothsaying (Assassination) save, owner POV: the murder fails because the target was warned in a vision
+zz_valyria_magic_dream_magic.1100 = {
+	type = character_event
+	window = scheme_failed_event
+	title = zz_valyria_magic_dream_magic.1100.t
+	desc = zz_valyria_magic_dream_magic.1100.desc
+	theme = murder_scheme
+	left_portrait = {
+		character = scope:target
+		animation = shock
+	}
+	widget = {
+		gui = "event_window_widget_scheme"
+		container = "custom_widgets_container"
+	}
+
+	trigger = { scope:interception_unique = flag:zz_soothsaying_vision }
+
+	immediate = {
+		murder_failure_effect = yes
+		scope:target = {
+			zz_valyria_soothsaying_ward_spend_vision_effect = { STORY = zz_valyria_magic_dream_magic_100_story SPELL = 100 }
+		}
+	}
+
+	option = {
+		name = murder_save.0001.a
+		scope:scheme = { end_scheme = yes }
+	}
+
+	option = {
+		name = murder_save.0001.b
+		trigger = {
+			NOT = { exists = scope:scheme_discovered }
+		}
+		restart_murder_scheme_effect = yes
+	}
+
+	after = {
+		scope:target = { trigger_event = zz_valyria_magic_dream_magic.2100 }
+	}
+}
+
+# Soothsaying (Assassination) save, target POV
+zz_valyria_magic_dream_magic.2100 = {
+	type = character_event
+	window = scheme_conclusion_event_no_header
+	title = zz_valyria_magic_dream_magic.1100.t
+	desc = zz_valyria_magic_dream_magic.2100.desc
+	theme = murder_scheme
+	left_portrait = {
+		character = root
+		animation = shock
+	}
+	right_portrait = {
+		character = scope:owner_to_reveal
+		animation = anger
+	}
+
+	option = {
+		name = zz_valyria_magic_dream_magic.2100.a
+		trigger = {
+			NOT = { exists = scope:scheme_discovered }
+		}
+		custom_tooltip = murder_save.failure_unknown_owner_tt
+	}
+
+	option = {
+		name = murder_save.1001.b
+		trigger = {
+			exists = scope:scheme_discovered
+		}
+		custom_tooltip = murder_save.failure_known_owner_tt
+	}
+
+	after = {
+		add_character_modifier = {
+			modifier = watchful_modifier
+			days = watchful_modifier_duration
+		}
+	}
+}
+
+# Spell: Dream 102 - Mystery of Secret Weaving (False Memory)
+zz_valyria_magic_dream_magic.102 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic.102.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.102.desc
+			desc = zz_valyria_magic_dream_magic.102.desc_02
+			desc = zz_valyria_magic_dream_magic.102.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_dream_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		remove_variable = selected_flag
+		clear_variable_list = possible_flags
+		# The love affair is only offered for an adult subject; the other character is checked when the spell takes hold
+		if = {
+			limit = {
+				scope:recipient = {
+					is_adult = yes
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_weave_lover }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_weave_lover }
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					is_alive = yes
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_weave_murder_attempt }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_weave_murder_attempt }
+			}
+		}
+		zz_valyria_not_recipient_every_spouse_family_courter_or_guest_list_top_liege_liege_ruler = yes
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+				is_ai = no
+			}
+			gui = "event_window_flag_selection"
+			container = "custom_widgets_container"
+		}
+		widget = {
+			is_shown = {
+				root = {
+					any_in_list = {
+						variable = zz_valyria_possible_characters
+						count > 0
+					}
+				}
+			}
+			gui = "event_window_character_selection_popup"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.102.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_flag
+					exists = var:zz_valyria_selected_character
+				}
+				var:selected_flag = { save_scope_as = option }
+				var:zz_valyria_selected_character = { save_scope_as = target }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 102
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.102.opt.z
+	}
+}
+
+# Spell: Dream 103 - Mystery of Secret Weaving (Sleep-Talk)
+zz_valyria_magic_dream_magic.103 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic.103.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.103.desc
+			desc = zz_valyria_magic_dream_magic.103.desc_02
+			desc = zz_valyria_magic_dream_magic.103.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_dream_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		remove_variable = selected_flag
+		clear_variable_list = possible_flags
+		# The same secrets as the Shadow of Guilt; this mystery differs in who comes to know them
+		if = {
+			limit = {
+				scope:recipient = {
+					is_adult = yes NOT = { has_trait = deviant }
+					NOT = { any_secret = { secret_type = secret_deviant } }
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_guilt_deviant }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_guilt_deviant }
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					is_adult = yes is_male = yes NOT = { has_trait = sodomite }
+					NOT = { any_secret = { secret_type = secret_homosexual } }
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_guilt_homosexual }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_guilt_homosexual }
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					is_adult = yes NOT = { has_trait = incestuous }
+					NOT = { any_secret = { secret_type = secret_incest } }
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_guilt_incest }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_guilt_incest }
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					NOT = { has_trait = cannibal }
+					NOT = { any_secret = { secret_type = secret_cannibal } }
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_guilt_cannibal }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_guilt_cannibal }
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					NOT = { has_trait = witch }
+					NOT = { any_secret = { secret_type = secret_witch } }
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_guilt_witch }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_guilt_witch }
+			}
+		}
+		if = {
+			limit = {
+				scope:recipient = {
+					NOT = { has_character_modifier = known_non_believer }
+					NOT = { any_secret = { secret_type = secret_non_believer } }
+				}
+			}
+			add_to_variable_list = { name = possible_flags target = flag:zz_guilt_non_believer }
+			if = {
+				limit = { NOT = { has_variable = selected_flag } }
+				set_variable = { name = selected_flag value = flag:zz_guilt_non_believer }
+			}
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = { is_ai = no }
+			gui = "event_window_flag_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.103.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					exists = var:selected_flag
+				}
+				var:selected_flag = { save_scope_as = option }
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 103
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.103.opt.z
+	}
+}
+
+# Spell: Dream 104 - Mystery of Soothsaying (Captivity)
+zz_valyria_magic_dream_magic.104 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic.104.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.104.desc
+			desc = zz_valyria_magic_dream_magic.104.desc_02
+			desc = zz_valyria_magic_dream_magic.104.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_dream_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 104
+			CURRENT = zz_valyria_magic_dream_magic_104_value_02
+			LOWER = zz_valyria_magic_dream_magic_104_value_02
+			RAISE = 0
+			START = base
+		}
+		# At least one vision
+		set_variable = {
+			name = zz_valyria_magic_event_window_counter_selection_counter_min
+			value = 1
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.104.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = dream_magic
+				SPELL = 104
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.104.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Dream 105 - Mystery of Soothsaying (Omens of War)
+zz_valyria_magic_dream_magic.105 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic.105.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.105.desc
+			desc = zz_valyria_magic_dream_magic.105.desc_02
+			desc = zz_valyria_magic_dream_magic.105.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_dream_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	immediate = {
+		zz_valyria_magic_event_window_counter_selection_setup = {
+			SPELLSCHOOL = dream
+			SPELL = 105
+			CURRENT = zz_valyria_magic_dream_magic_105_value_02
+			LOWER = zz_valyria_magic_dream_magic_105_value_02
+			RAISE = 0
+			START = base
+		}
+		# At least one vision
+		set_variable = {
+			name = zz_valyria_magic_event_window_counter_selection_counter_min
+			value = 1
+		}
+	}
+	widgets = {
+		widget = {
+			is_shown = {
+			}
+			gui = "event_window_counter_selection"
+			container = "custom_widgets_container"
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.105.opt.a
+		hidden_effect = {
+			zz_valyria_magic_cast_deferred_effect = {
+				SKILL = dream_magic
+				SPELL = 105
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.105.opt.z
+	}
+	after = {
+		zz_valyria_magic_event_window_counter_selection_clear = yes
+	}
+}
+
+# Spell: Dream 106 - Mystery of the Dream of Fealty (Leave Faction)
+zz_valyria_magic_dream_magic.106 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic.106.t
+	desc = {
+		random_valid = {
+			desc = zz_valyria_magic_dream_magic.106.desc
+			desc = zz_valyria_magic_dream_magic.106.desc_02
+			desc = zz_valyria_magic_dream_magic.106.desc_03
+		}
+	}
+	theme = university
+	override_background = {
+		reference = zz_dream_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_dream_magic.106.opt.a
+		hidden_effect = {
+			if = {
+				limit = {
+					NOT = { scope:recipient = scope:secondary_recipient }
+				}
+				zz_valyria_magic_cast_deferred_effect = {
+					SKILL = dream_magic
+					SPELL = 106
+				}
+			}
+		}
+	}
+	option = {
+		name = zz_valyria_magic_dream_magic.106.opt.z
+	}
+}
+
+# Spell: Dream 107 - Mystery of Foresight (Single Combat). A duel move only: it never appears in the casting menu.
+zz_valyria_magic_dream_magic.107 = {
+	type = character_event
+	window = zz_valyria_magic_character_event
+	title = zz_valyria_magic_dream_magic.107.t
+	desc = zz_valyria_magic_dream_magic.107.desc
+	theme = university
+	override_background = {
+		reference = zz_dream_magic
+	}
+	lower_left_portrait = root
+	lower_right_portrait = {
+		character = scope:secondary_recipient
+	}
+	lower_center_portrait = scope:recipient
+	option = {
+		name = zz_valyria_magic_dream_magic.107.opt.z
 	}
 }

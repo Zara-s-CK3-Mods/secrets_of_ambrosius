@@ -5,290 +5,599 @@ l_english:
  
   ## Fire Magic
   ## Interaction
-  zz_valyria_magic_fire_magic_001.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_cwok$\n\nThrough the arts of [fire_magic|E] it is possible to conjure a blast of concentrated flame. With this weapon you can strike down your enemies and inspire fear in those who watch this element bend to your will."
+  zz_valyria_magic_fire_magic_001.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_duel_move$\n$zz_duel_skill$\n\nThe use of the arcane forces of [fire_magic|E] to strike a chosen subject with a lance of living flame.\n\nThis is the first and simplest of the war-flames, taught to the sons and daughters of the Freehold before ever they were permitted to approach a dragon. A word of command, a gesture of the hand, and the air itself ignites along the path of the caster's will.\n\nThe Valyrians held that fire does not truly destroy, but releases: wood into smoke, flesh into ash, the soul into whatever lies beyond. A practitioner who masters this mystery learns to choose precisely how much is released, and whether the subject walks away scarred or does not walk away at all.\n\nFew sights unnerve a court so thoroughly as a sorcerer who can kill with a glance. Even those who survive the flame rarely forget who lit it."
   ## Spell Options
   ##event
-  zz_valyria_magic_fire_magic.001.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_001.name$"
-  zz_valyria_magic_fire_magic.001.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You could have [recipient.GetFirstName] consumed by the fires, but such a means of death, is it truly fitting?"
-  zz_valyria_magic_fire_magic.001.opt.a:0 "Yes, let fire take them!"
-  zz_valyria_magic_fire_magic.001.opt.b:0 "Yes, let the full fury of the fire take them!"
+  zz_valyria_magic_fire_magic.001.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.001.name$"
+  zz_valyria_magic_fire_magic.001.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe candles in the chamber lean towards the caster, their flames stretching thin and white as if drawn by an unseen breath. Heat gathers in the palms of the hands, then in the eyes, until the very air shimmers with the promise of combustion.\n\nIn the days of the Freehold, such duels of flame were fought in the fighting pits of the Fourteen Flames, sorcerer against sorcerer, until only one shadow remained on the scorched sand. The words have not changed in all the centuries since.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may loose the flame upon [recipient.GetFirstName] and decide, in the instant of burning, whether to maim or to slay. Or you may let the heat bleed harmlessly away. Is such a death, or such a scar, truly fitting for them?"
+  zz_valyria_magic_fire_magic.001.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster draws a single long breath and lets it out slowly between their teeth. Where the breath passes, the air catches, a thin line of flame unspooling from their lips and coiling about their wrist like a burning serpent, waiting to strike.\n\nThe duelling sorcerers of the Freehold learned this working before any other. It was said that a mage who could not strike with flame could not be trusted with anything greater.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may loose the flame upon [recipient.GetFirstName] and decide, in the instant of burning, whether to maim or to slay. Or you may let the heat bleed harmlessly away. Is such a death, or such a scar, truly fitting for them?"
+  zz_valyria_magic_fire_magic.001.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA coal is lifted bare-handed from the brazier, and it does not burn the caster's palm. They close their fingers around it, and when they open them again, the coal is gone, and their hand glows from within like a lantern behind thin paper.\n\nIn Valyria, the first lesson of fire was that it obeys those who do not fear it. The second was that it never stops looking for a reason to disobey.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may loose the flame upon [recipient.GetFirstName] and decide, in the instant of burning, whether to maim or to slay. Or you may let the heat bleed harmlessly away. Is such a death, or such a scar, truly fitting for them?"
+  zz_valyria_magic_fire_magic.001.opt.a:0 "Burn them, but let them live!"
+  zz_valyria_magic_fire_magic.001.opt.b:0 "Yes, let the full fury of the fire take them, even unto death!"
   zz_valyria_magic_fire_magic.001.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.001.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_001.name$"
+  zz_valyria_magic_fire_magic.001.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.001.name$"
   zz_valyria_magic_fire_magic.001.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ lashing forth with burning tongues of fire at [recipient.GetFirstName]."
   zz_valyria_magic_fire_magic.001.toast.tt:0 "$zz_valyria_magic_fire_magic.001.toast.desc$"
 
-  zz_valyria_magic_fire_magic.001.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_001.name$"
+  zz_valyria_magic_fire_magic.001.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.001.name$"
   zz_valyria_magic_fire_magic.001.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.001.f.toast.tt:0 "$zz_valyria_magic_fire_magic.001.f.toast.desc$"
 
   zz_valyria_magic_fire_magic.001.toast.tyranny:0 ""
 
   ## Interaction
-  zz_valyria_magic_fire_magic_002.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_da$\n$zz_md$\n\nThrough the arts of [fire_magic|E] it is possible to unleash a flaming deluge. Such a weapon shall bring low the armies of your enmies, as the grasping flames reduce to ash, man, beast, and stone."
+  zz_valyria_magic_fire_magic_002.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_da$\n$zz_md$\n\nThe use of the arcane forces of [fire_magic|E] to hurl a torrent of flame against an enemy host.\n\nBefore the dragons were fully mastered, the war-sorcerers of Valyria marched with the legions and broke the shield walls of their enemies with fire called down from an empty sky. This mystery is the remnant of that art: a single, overwhelming wave of flame cast against a marching army.\n\nThe fire does not discriminate. Spears burn as readily as men, wagons as readily as horses. Where it passes, the line of battle simply ceases to exist, and the survivors are left choking in a field of ash.\n\nShould the stricken army be locked in battle at the moment of casting, the shock of the flame may break its spirit entirely and hand the field to its foes."
   ##event
-  zz_valyria_magic_fire_magic.002.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_002.name$"
-  zz_valyria_magic_fire_magic.002.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You could launch a blast of unremitting flame at an army of [recipient.GetFirstName]. But surely such a monstrous act is beyond the limits of a just war?"
-  zz_valyria_magic_fire_magic.002.opt.a:0 "Yes, let fire take them!"
+  zz_valyria_magic_fire_magic.002.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.002.name$"
+  zz_valyria_magic_fire_magic.002.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA deep and terrible heat begins to rise from the ritual circle. The flagstones crack, and the smoke that curls from them glows from within like the heart of a forge.\n\nThe war-sorcerers of the Freehold called this the Opening of the Furnace. They would stand upon a hill above the enemy host and simply open their hands, and the valley below would become an oven.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may loose this torrent upon an army of [recipient.GetFirstName], reducing men and beasts to cinders where they stand. But to burn a host of soldiers who cannot even see their killer, is that war, or merely slaughter?"
+  zz_valyria_magic_fire_magic.002.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster kneels and presses both palms flat against the floor. The stone beneath them reddens, and the redness spreads outward in a ring, and a low roar rises from somewhere far below, like the sound of a great furnace door being opened.\n\nThe armies that faced the Freehold learned to dread the sight of a lone figure on a hill, palms pressed to the earth. By the time the heat reached them, it was already too late.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may loose this torrent upon an army of [recipient.GetFirstName], reducing men and beasts to cinders where they stand. But to burn a host of soldiers who cannot even see their killer, is that war, or merely slaughter?"
+  zz_valyria_magic_fire_magic.002.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA clay pot filled with oil and pitch is set at the centre of the circle, and the caster speaks a single word over it. It does not burst into flame. Instead it begins to glow, brighter and brighter, until the clay itself turns white and the heat pushes the watchers back against the walls.\n\nIn Valyria, the war-sorcerers were said to carry the heat of a dozen forges within them, and to release it all at once upon whatever host stood in their way.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may loose this torrent upon an army of [recipient.GetFirstName], reducing men and beasts to cinders where they stand. But to burn a host of soldiers who cannot even see their killer, is that war, or merely slaughter?"
+  zz_valyria_magic_fire_magic.002.opt.a:0 "Open the Furnace!"
   zz_valyria_magic_fire_magic.002.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.002.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_002.name$"
+  zz_valyria_magic_fire_magic.002.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.002.name$"
   zz_valyria_magic_fire_magic.002.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ striking forth with a blast of flame, consuming troops of [recipient.GetFirstName]."
   zz_valyria_magic_fire_magic.002.toast.tt:0 "$zz_valyria_magic_fire_magic.002.toast.desc$"
 
-  zz_valyria_magic_fire_magic.002.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_002.name$"
+  zz_valyria_magic_fire_magic.002.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.002.name$"
   zz_valyria_magic_fire_magic.002.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.002.f.toast.tt:0 "$zz_valyria_magic_fire_magic.002.f.toast.desc$"
 
 
 
   ## Interaction
-  zz_valyria_magic_fire_magic_003.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_da$\n$zz_sd$\n\nThrough the arts of [fire_magic|E] it is possible to conjure forth a veritable holocaust. To render an entire region under an unholy conflagration of flame. Such a a weapon of war rivals the might of the dragons."
+  zz_valyria_magic_fire_magic_003.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_da$\n$zz_sd$\n\nThe use of the arcane forces of [fire_magic|E] to call down a storm of fire upon an army and the land on which it stands.\n\nThis is fire magic at its most catastrophic, a working that rivals the breath of the great dragons. The sky itself is set alight, and burning rain falls upon the chosen army for as long as the caster can endure the strain.\n\nThe storm does not end with the soldiers. Granaries, mills, and walls in the region beneath it may catch and burn, leaving scars upon the land that will take years to heal.\n\nIt is said that the last great storms of fire were called in the final days of the Freehold, and that the Doom itself was only the world answering in kind."
   ##event
-  zz_valyria_magic_fire_magic.003.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_003.name$"
-  zz_valyria_magic_fire_magic.003.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You could launch call forth a veritable storm of flame to consume an army of [recipient.GetFirstName]. But such acts surely stain the soul in their total depravirty?"
-  zz_valyria_magic_fire_magic.003.opt.a:0 "Yes, BURN THEM ALL!"
+  zz_valyria_magic_fire_magic.003.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.003.name$"
+  zz_valyria_magic_fire_magic.003.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe chamber grows unbearably hot. Sweat beads and evaporates in the same instant, and the walls tick and groan like the timbers of a ship in a storm. Overhead, though there is only stone, the ceiling seems to glow a dull and angry red.\n\nThe dragonlords reserved this working for the rebellions of their subject cities, so that none who witnessed it would ever dare raise a hand against the Freehold again. Whole regions were made into examples.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may call a storm of fire down upon an army of [recipient.GetFirstName] and the countryside about it. But such destruction cannot be taken back. Is any victory worth the stain such an act leaves upon the soul?"
+  zz_valyria_magic_fire_magic.003.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster lifts their arms, and every flame in the chamber rises with them. The candles stretch into pillars of fire that lick at the ceiling, and the shadows on the walls grow wild and frantic, as though fleeing from a storm that is about to break.\n\nThe Freehold used this working sparingly, for it did not distinguish between soldiers and the towns they camped in. Those who survived it never forgot the sky turning to fire above them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may call a storm of fire down upon an army of [recipient.GetFirstName] and the countryside about it. But such destruction cannot be taken back. Is any victory worth the stain such an act leaves upon the soul?"
+  zz_valyria_magic_fire_magic.003.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA great map of the region is laid out upon the floor, and the caster sprinkles red powder across it in a slow, wide spiral. As the incantation rises, the powder begins to smoulder, and then to burn, and the whole map is swallowed by a whirling ring of flame.\n\nIn Valyria, it was said that the dragons were the empire's sword, and the fire-storms of its sorcerers were its hammer.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may call a storm of fire down upon an army of [recipient.GetFirstName] and the countryside about it. But such destruction cannot be taken back. Is any victory worth the stain such an act leaves upon the soul?"
+  zz_valyria_magic_fire_magic.003.opt.a:0 "Let the sky burn!"
   zz_valyria_magic_fire_magic.003.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.003.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_003.name$"
-  zz_valyria_magic_fire_magic.003.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ striking forth with a veritable holocaust, consuming an entire region of [recipient.GetFirstName] in flame."
+  zz_valyria_magic_fire_magic.003.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.003.name$"
+  zz_valyria_magic_fire_magic.003.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ calling down a storm of fire, consuming an army of [recipient.GetFirstName] and the lands around it."
   zz_valyria_magic_fire_magic.003.toast.tt:0 "$zz_valyria_magic_fire_magic.003.toast.desc$"
-  zz_valyria_magic_fire_magic.003.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_003.name$"
+  zz_valyria_magic_fire_magic.003.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.003.name$"
   zz_valyria_magic_fire_magic.003.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.003.f.toast.tt:0 "$zz_valyria_magic_fire_magic.003.f.toast.desc$"
 
 
 
   ## Interaction
-  zz_valyria_magic_fire_magic_004.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hc$\n$zz_ctb$\n\nThrough the arts of [fire_magic|E] it is possible to burn away the concepts of imperfection. With a risk of burning, a character can be restored to health."
+  zz_valyria_magic_fire_magic_004.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hc$\n$zz_lh$\n$zz_ctb$\n\nThe use of the arcane forces of [fire_magic|E] to burn away the wounds, sicknesses, and blights of a chosen subject.\n\nFire purifies. The healers of the Freehold understood this better than any, and developed a perilous art of passing living flame through the body of the afflicted, consuming the rot and fever and wrongness within while sparing the flesh that surrounds it.\n\nWhen the working succeeds, wounds close, fevers break, and even blights of birth may be scoured away. When it fails, the flame forgets what it was meant to spare, and the subject is left burned rather than cleansed.\n\nMany who sought this cure preferred to die of their ailments. Many more did not, and some among them were made whole in ways no physician could explain."
   ##event
-  zz_valyria_magic_fire_magic.004.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_004.name$"
-  zz_valyria_magic_fire_magic.004.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. But you can wage a war upon the illnesses that ravage the mortal form. Perhaps you can set the flames upon [recipient.GetFirstName] and try and burn away the things that bring their body to its limits. But are the benefits worth the risks?"
-  zz_valyria_magic_fire_magic.004.opt.a:0 "Yes, Let the fire purify them!"
+  zz_valyria_magic_fire_magic.004.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.004.name$"
+  zz_valyria_magic_fire_magic.004.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA pale, clean flame rises from the caster's hands, almost colourless at its heart. It gives off no smoke, and the air around it smells faintly of rain on hot stone.\n\nThe fire-healers of the Freehold were feared as much as revered, for their cure was a trial by fire in the most literal sense. Patients were laid within a circle of glyphs and wrapped in flame from head to foot, and only then would the healer begin to sing.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set the purifying fire upon [recipient.GetFirstName] and attempt to burn away all that ails them, knowing the flame may wound as surely as it heals. Are the benefits worth the risk?"
+  zz_valyria_magic_fire_magic.004.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster fills a bowl with clear oil and sets it alight with a whispered word. The flame that rises is pale blue and almost silent, and when the caster dips their fingers into it and touches the subject's skin, it does not burn, but cleanses.\n\nThe fire-healers of the Freehold burned away sickness as a farmer burns away weeds, and their patients, though they feared the flame, seldom stayed sick for long.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set the purifying fire upon [recipient.GetFirstName] and attempt to burn away all that ails them, knowing the flame may wound as surely as it heals. Are the benefits worth the risk?"
+  zz_valyria_magic_fire_magic.004.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA circle of white candles is lit around the subject, and the caster walks slowly around it, singing in a low voice. The flames bend inward with each step, until they meet above the subject's head in a single bright point of light that settles over them like a veil.\n\nIn Valyria, it was understood that fire purifies, and that a body passed through the right flame comes out cleaner than it went in.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set the purifying fire upon [recipient.GetFirstName] and attempt to burn away all that ails them, knowing the flame may wound as surely as it heals. Are the benefits worth the risk?"
+  zz_valyria_magic_fire_magic.004.opt.a:0 "Burn away the sickness."
   zz_valyria_magic_fire_magic.004.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.004.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_004.name$"
-  zz_valyria_magic_fire_magic.004.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ purifying[recipient.GetFirstName] in flame."
+  zz_valyria_magic_fire_magic.004.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.004.name$"
+  zz_valyria_magic_fire_magic.004.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ purifying [recipient.GetFirstName] in flame."
   zz_valyria_magic_fire_magic.004.toast.tt:0 "$zz_valyria_magic_fire_magic.004.toast.desc$"
-  zz_valyria_magic_fire_magic.004.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_004.name$"
+  zz_valyria_magic_fire_magic.004.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.004.name$"
   zz_valyria_magic_fire_magic.004.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.004.f.toast.tt:0 "$zz_valyria_magic_fire_magic.004.f.toast.desc$"
 
 
   ## Interaction
-  zz_valyria_magic_fire_magic_005.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThrough the arts of [fire_magic|E] it is possible to enchant blades with a temporary flame. An army led by a character empowered with this [zz_mystery|E] will do additional damage."
+  zz_valyria_magic_fire_magic_005.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_maad$\n\nThe use of the arcane forces of [fire_magic|E] to wreath the blades of a commander's soldiers in flame.\n\nThrough this mystery, the steel carried by an army led by the chosen subject is bound to a smouldering flame. Swords glow cherry-red, spearheads smoke, and every wound they deliver is a burn as much as a cut.\n\nThe professional soldiers of the Freehold's legions fought with such weapons when they faced enemies who could not be reached by dragonfire, in the narrow streets of rebel cities or the dense forests of the lands beyond the great rivers.\n\nThe flame lasts only for a season, but in that season the men-at-arms of the subject's host strike with a ferocity their enemies will not soon forget."
   ##event
-  zz_valyria_magic_fire_magic.005.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_005.name$"
-  zz_valyria_magic_fire_magic.005.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You could call a flame to inhabit the blades of one of [recipient.GetFirstName]'s armies. But surely such weapons would violate the laws of honourable war?"
-  zz_valyria_magic_fire_magic.005.opt.a:0 "Yes, BURN THEM ALL!"
+  zz_valyria_magic_fire_magic.005.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.005.name$"
+  zz_valyria_magic_fire_magic.005.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA smell of hot iron fills the chamber. Every blade within it, from the knife at the caster's belt to the swords of the guards at the door, begins to glow from within.\n\nThe smiths of the Freehold worked hand in hand with its sorcerers, folding spells into the very grain of the steel. This working is a shadow of that lost art, a temporary kindling rather than a permanent forging, but no less fearsome on the battlefield for that.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set the blades of [recipient.GetFirstName]'s soldiers alight, granting their men-at-arms a terrible edge in battle. Yet many would say such weapons violate the laws of honourable war. Do you care?"
+  zz_valyria_magic_fire_magic.005.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster draws a blade across the palm of their hand and lets the steel drink a few drops of blood. Then they breathe upon it, and the blade begins to glow, its edge turning red, then orange, then a brilliant white, while the hilt remains cool in their grip.\n\nThe smiths of the Freehold could bind fire to steel forever. This working lasts only a while, but while it lasts, a blade so kindled will cut through armour as if it were cloth.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set the blades of [recipient.GetFirstName]'s soldiers alight, granting their men-at-arms a terrible edge in battle. Yet many would say such weapons violate the laws of honourable war. Do you care?"
+  zz_valyria_magic_fire_magic.005.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nEvery weapon in the chamber is laid in a row upon the floor, and the caster walks slowly along it, trailing their fingers across each one. Where they touch, the steel begins to smoke and then to burn, a steady flame running along every edge.\n\nIn Valyria, it was said that a soldier with a burning blade was worth ten without. The war-sorcerers made sure the legions never lacked for them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set the blades of [recipient.GetFirstName]'s soldiers alight, granting their men-at-arms a terrible edge in battle. Yet many would say such weapons violate the laws of honourable war. Do you care?"
+  zz_valyria_magic_fire_magic.005.opt.a:0 "Kindle the blades!"
   zz_valyria_magic_fire_magic.005.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.005.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_005.name$"
-  zz_valyria_magic_fire_magic.005.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ empowering the forces of [recipient.GetFirstName] with blades empowered by flame."
+  zz_valyria_magic_fire_magic.005.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.005.name$"
+  zz_valyria_magic_fire_magic.005.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ wreathing the blades of the forces commanded by [recipient.GetFirstName] in flame."
   zz_valyria_magic_fire_magic.005.toast.tt:0 "$zz_valyria_magic_fire_magic.005.toast.desc$"
-  zz_valyria_magic_fire_magic.005.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_005.name$"
+  zz_valyria_magic_fire_magic.005.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.005.name$"
   zz_valyria_magic_fire_magic.005.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.005.f.toast.tt:0 "$zz_valyria_magic_fire_magic.005.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_fire_magic_006.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_rs$\n\nThrough the arts of [fire_magic|E] it is possible to seek out secrets in the light of the flames. By staring long into the fires the recipient of the fire's blessing can percieve secrets from those who may wish to hide them from them."
+  zz_valyria_magic_fire_magic_006.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_sec_rv$\n\nThe use of the arcane forces of [fire_magic|E] to reveal the hidden secrets of others in the dance of the flames.\n\nFire illuminates. In its light, shadows flee, and the patient eye may glimpse what others would rather keep hidden. Practitioners of this mystery stare into a prepared flame until it shows them truths about the people around them: a hidden lover, a concealed murder, a faith kept in secret.\n\nThe visions are not always welcome, nor always clear. But the flames do not lie, and those who learn to read them hold a quiet power over the courts they move within.\n\nPriests of fire in many lands claim a similar gift. Whether they truly possess it, or merely remember fragments of this Valyrian art, is a question few dare ask them."
 
   ##event
-  zz_valyria_magic_fire_magic.006.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_006.name$"
-  zz_valyria_magic_fire_magic.006.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You could call a flame to reveal the secrets of others to [recipient.GetFirstName]. But surely is it wise to invade the secrets of others this way?"
-  zz_valyria_magic_fire_magic.006.opt.a:0 "Yes, reveal the secrets!"
+  zz_valyria_magic_fire_magic.006.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.006.name$"
+  zz_valyria_magic_fire_magic.006.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA single brazier burns at the centre of the chamber. As the incantation is spoken, its flames slow and thicken, moving with the deliberate grace of a dancer, and shapes begin to form within them: faces, rooms, hands clasped in the dark.\n\nThe scryers of the Freehold served the dragonlords as their eyes and ears. No conspiracy could take root in the Fourteen Flames without some gazer in some tower glimpsing it in the coals.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant [recipient.GetFirstName] the sight of the flames, revealing to them the hidden secrets of those around them. But is it wise, or right, to tear open the private shames of others in this way?"
+  zz_valyria_magic_fire_magic.006.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster scatters a handful of herbs into the brazier, and a thick, fragrant smoke rises from the coals. Within it, shapes begin to drift: a hand passing a letter, a face turned away, a figure in a doorway who should not be there.\n\nThe fire-scryers of Valyria could find any secret, if only it had once been spoken near a flame.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant [recipient.GetFirstName] the sight of the flames, revealing to them the hidden secrets of those around them. But is it wise, or right, to tear open the private shames of others in this way?"
+  zz_valyria_magic_fire_magic.006.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA single candle is lit in an otherwise dark chamber, and the caster gazes into it without blinking. The flame grows tall and thin, and in its heart a picture forms, of a room far away, and of the things that are done there when no one thinks they are watched.\n\nIn the Freehold, it was said that every fire was a window, and that the dragonlords' scryers could look through any of them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant [recipient.GetFirstName] the sight of the flames, revealing to them the hidden secrets of those around them. But is it wise, or right, to tear open the private shames of others in this way?"
+  zz_valyria_magic_fire_magic.006.opt.a:0 "Let the flames reveal all."
   zz_valyria_magic_fire_magic.006.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.006.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_006.name$"
+  zz_valyria_magic_fire_magic.006.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.006.name$"
   zz_valyria_magic_fire_magic.006.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ revealing the secrets of others to [recipient.GetFirstName]."
   zz_valyria_magic_fire_magic.006.toast.tt:0 "$zz_valyria_magic_fire_magic.006.toast.desc$"
-  zz_valyria_magic_fire_magic.006.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_006.name$"
+  zz_valyria_magic_fire_magic.006.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.006.name$"
   zz_valyria_magic_fire_magic.006.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.006.f.toast.tt:0 "$zz_valyria_magic_fire_magic.006.f.toast.desc$"
 
 
 
   ## Interaction
-  zz_valyria_magic_fire_magic_007.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_rp$\n\nThrough the arts of [fire_magic|E] it is possible to seek out secrets in the light of the flames. By staring long into the fires the recipient of the fire's blessing can percieve the schemes of others from those who may wish to hide them from them."
+  zz_valyria_magic_fire_magic_007.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_sch_exp$\n\nThe use of the arcane forces of [fire_magic|E] to expose the hidden schemes of others in the light of the flames.\n\nWhere the Secret Flame reveals what has been done, this mystery reveals what is being planned. The flames show the shapes of plots yet unfinished: the poisoner gathering their herbs, the conspirators whispering in a stairwell, the false friend composing a letter.\n\nIn a world where knives are often hidden behind smiles, such foreknowledge is more precious than gold. A practitioner who can see the schemes of others coming may turn them aside, or turn them to their own advantage.\n\nThose who have been exposed in this way rarely learn how. They only know that their plans were known before they could bear fruit."
 
   ##event
-  zz_valyria_magic_fire_magic.007.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_007.name$"
-  zz_valyria_magic_fire_magic.007.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You could call a flame to reveal the schemes of others to [recipient.GetFirstName]. But surely is it wise to invade the secrets of others this way?"
-  zz_valyria_magic_fire_magic.007.opt.a:0 "Yes, reveal the secrets!"
+  zz_valyria_magic_fire_magic.007.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.007.name$"
+  zz_valyria_magic_fire_magic.007.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe brazier's flames twist and knot, forming shapes that shift too quickly to follow: figures that lean together, hands that pass something small and hidden, a door that opens onto darkness.\n\nThe dragonlords were masters of intrigue as much as war, and their sorcerers were expected to see every plot before it struck. More than one would-be assassin of the Freehold was found waiting for them by guards who already knew their name.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant [recipient.GetFirstName] the sight to see the hidden schemes of those around them. Yet to know every plot is to trust no one. Is that a gift, or a curse?"
+  zz_valyria_magic_fire_magic.007.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster tosses a pinch of copper filings into the brazier, and the flames turn a vivid green. In the shifting light, figures form and break apart again: whispering heads drawn together, a blade passed hand to hand, a name written and then burned.\n\nThe sorcerers of the Freehold were expected to see every plot before it struck. Those who failed in that duty seldom kept their towers for long.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant [recipient.GetFirstName] the sight to see the hidden schemes of those around them. Yet to know every plot is to trust no one. Is that a gift, or a curse?"
+  zz_valyria_magic_fire_magic.007.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA circle of mirrors is set about a single flame, so that its light is thrown from one to the next in an endless ring. As the caster speaks, the reflected flames begin to show different things, and one by one they reveal the shape of a plot that was meant to stay hidden.\n\nIn Valyria, no conspiracy was safe from those who knew how to read the fire.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may grant [recipient.GetFirstName] the sight to see the hidden schemes of those around them. Yet to know every plot is to trust no one. Is that a gift, or a curse?"
+  zz_valyria_magic_fire_magic.007.opt.a:0 "Let no scheme stay hidden."
   zz_valyria_magic_fire_magic.007.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.007.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_007.name$"
+  zz_valyria_magic_fire_magic.007.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.007.name$"
   zz_valyria_magic_fire_magic.007.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ revealing the schemes of others to [recipient.GetFirstName]."
   zz_valyria_magic_fire_magic.007.toast.tt:0 "$zz_valyria_magic_fire_magic.007.toast.desc$"
-  zz_valyria_magic_fire_magic.007.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_007.name$"
+  zz_valyria_magic_fire_magic.007.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.007.name$"
   zz_valyria_magic_fire_magic.007.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.007.f.toast.tt:0 "$zz_valyria_magic_fire_magic.007.f.toast.desc$"
 
 
   ## Interaction
-  zz_valyria_magic_fire_magic_008.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThrough the arts of [fire_magic|E] it is possible to empower the weapons of an army to do more damage when taking part in sieges."
+  zz_valyria_magic_fire_magic_008.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_sieg$\n\nThe use of the arcane forces of [fire_magic|E] to empower an army's assault upon walls and fortifications.\n\nStone does not burn, but it cracks. Through this mystery the siege engines, rams, and sappers of the subject's host are bound to a hungry heat that weakens mortar and splits masonry wherever it touches.\n\nThe cities of the old world learned to fear the sight of Valyrian legions encamped beneath their walls, for walls that should have stood for months would fall in a matter of weeks.\n\nUnder this working, fortifications that seemed impregnable can be reduced to rubble, and the long patience of a siege can be shortened to a matter of days."
 
   ##event
-  zz_valyria_magic_fire_magic.008.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_008.name$"
-  zz_valyria_magic_fire_magic.008.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You can infuse the weapons of the soldiers of [recipient.GetFirstName] with a roaring flame, letting them blast down the walls that stop them from completing their bloody business."
-  zz_valyria_magic_fire_magic.008.opt.a:0 "Yes, reveal the secrets!"
+  zz_valyria_magic_fire_magic.008.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.008.name$"
+  zz_valyria_magic_fire_magic.008.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe air above the ritual circle wavers like the air above a kiln. A low, grinding sound fills the chamber, the sound of stone under pressure, as though the walls themselves were complaining.\n\nThe siege-sorcerers of the Freehold walked among the engines before every assault, laying their hands upon ram and trebuchet and whispering to them. When the stones began to fly, they flew burning.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may infuse the siege weapons of [recipient.GetFirstName]'s soldiers with roaring flame, letting them blast down the walls that bar their path. Will you hasten the fall of a city?"
+  zz_valyria_magic_fire_magic.008.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster lays a hand upon a small model of a siege engine, carved from oak and bound with iron. The wood begins to smoulder, and the iron to glow, and a heavy, grinding heat rises from it, as though it were straining to hurl something enormous across the room.\n\nThe siege-sorcerers of the Freehold walked among their engines before every assault, and every stone that flew from them flew burning.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may infuse the siege weapons of [recipient.GetFirstName]'s soldiers with roaring flame, letting them blast down the walls that bar their path. Will you hasten the fall of a city?"
+  zz_valyria_magic_fire_magic.008.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA pile of heavy stones is heaped in the centre of the ritual circle, and the caster pours a thin stream of oil over them, speaking the old words of breaking. The stones begin to glow from within, and cracks spread across their surfaces, as though they longed to be hurled against a wall.\n\nIn Valyria, it was said that no fortress was strong enough to resist both stone and fire at once. The siege-sorcerers made sure their engines carried both.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may infuse the siege weapons of [recipient.GetFirstName]'s soldiers with roaring flame, letting them blast down the walls that bar their path. Will you hasten the fall of a city?"
+  zz_valyria_magic_fire_magic.008.opt.a:0 "Bring down the walls!"
   zz_valyria_magic_fire_magic.008.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.008.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_008.name$"
-  zz_valyria_magic_fire_magic.008.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ enchanting the weapons of troops commanded by [recipient.GetFirstName] with flames that increase their effective in waging siege warfare."
+  zz_valyria_magic_fire_magic.008.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.008.name$"
+  zz_valyria_magic_fire_magic.008.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ enchanting the weapons of troops commanded by [recipient.GetFirstName] with flames that hasten their sieges."
   zz_valyria_magic_fire_magic.008.toast.tt:0 "$zz_valyria_magic_fire_magic.008.toast.desc$"
-  zz_valyria_magic_fire_magic.008.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_008.name$"
+  zz_valyria_magic_fire_magic.008.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.008.name$"
   zz_valyria_magic_fire_magic.008.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.008.f.toast.tt:0 "$zz_valyria_magic_fire_magic.008.f.toast.desc$"
 
 
   ## Interaction
-  zz_valyria_magic_fire_magic_009.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tr$\n$zz_dr$\n$zz_sd$\n\nThrough the arts of [fire_magic|E] it is possible to unleash pure flame upon the elite soldiers of your enemy.."
+  zz_valyria_magic_fire_magic_009.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tr$\n$zz_dr$\n$zz_sd$\n\nThe use of the arcane forces of [fire_magic|E] to hurl a sphere of concentrated fire at a single enemy company.\n\nThe fireball is the most celebrated of the war-flames, depicted on the mosaics of a hundred Valyrian villas. A sphere of flame, no larger than a man's head when cast, it swells as it flies and bursts upon its target with the force of a dragon's breath.\n\nThough it strikes only a single company, it strikes with a fury few other workings can match. Elite soldiers, the pride of a lord's army, can be reduced to a smouldering ruin in a heartbeat.\n\nMany a commander has learned too late that the most valuable troops are also the most tempting targets for a sorcerer."
 
   ##event
-  zz_valyria_magic_fire_magic.009.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_009.name$"
-  zz_valyria_magic_fire_magic.009.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You order an assault with a ball of fire, that strikes at one of the regiments of [recipient.GetFirstName], reducing men, supplies and hopes to a sludgy black ash."
-  zz_valyria_magic_fire_magic.009.opt.a:0 "Yes, reveal the secrets!"
+  zz_valyria_magic_fire_magic.009.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.009.name$"
+  zz_valyria_magic_fire_magic.009.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA spark appears between the caster's palms, then a flame, then a sphere of roiling fire that grows until its heat drives everyone else in the chamber back against the walls. It hangs there, turning slowly, eager to be thrown.\n\nThe fireball was the signature of the battle-mages of the Freehold, who were said to compete to see who could break the proudest enemy company with a single throw.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may hurl this sphere of fire at one of the companies of [recipient.GetFirstName], reducing men, supplies, and hopes to sludgy black ash. Will you strike?"
+  zz_valyria_magic_fire_magic.009.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster cups their hands as if to catch water, and within them a small, bright flame appears. They breathe upon it, and it swells, and swells again, until it is a roaring ball of fire too bright to look at, spinning slowly between their palms.\n\nThe battle-mages of the Freehold competed to see who could break the most fearsome enemy companies with a single throw. Few of their rivals ever lasted long enough to compete.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may hurl this sphere of fire at one of the companies of [recipient.GetFirstName], reducing men, supplies, and hopes to sludgy black ash. Will you strike?"
+  zz_valyria_magic_fire_magic.009.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nEmbers are drawn from the brazier one by one and set floating in the air before the caster. As the incantation rises, they drift together and merge, each one feeding the next, until a single great sphere of flame hangs in the chamber, hissing and crackling with barely contained fury.\n\nIn Valyria, the fireball was the simplest of the war-spells, and the most often used. Simplicity, the war-sorcerers said, is not the same as weakness.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may hurl this sphere of fire at one of the companies of [recipient.GetFirstName], reducing men, supplies, and hopes to sludgy black ash. Will you strike?"
+  zz_valyria_magic_fire_magic.009.opt.a:0 "Throw it!"
   zz_valyria_magic_fire_magic.009.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.009.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_009.name$"
-  zz_valyria_magic_fire_magic.009.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ unleashing a vibrant ball of virdant flame upon [target.getname] reducing men and equipment to only so much ash."
+  zz_valyria_magic_fire_magic.009.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.009.name$"
+  zz_valyria_magic_fire_magic.009.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ unleashing a vibrant ball of verdant flame upon the forces of [recipient.GetFirstName], reducing men and equipment to ash."
   zz_valyria_magic_fire_magic.009.toast.tt:0 "$zz_valyria_magic_fire_magic.009.toast.desc$"
-  zz_valyria_magic_fire_magic.009.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_009.name$"
+  zz_valyria_magic_fire_magic.009.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.009.name$"
   zz_valyria_magic_fire_magic.009.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.009.f.toast.tt:0 "$zz_valyria_magic_fire_magic.009.f.toast.desc$"
 
 
 
   ## Interaction
-  zz_valyria_magic_fire_magic_010.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_bca$\n\nThrough the arts of [fire_magic|E] it is possible to empower the forces commanded by a character with the essence of dragon fire, granting them substantial advantage on the field of battle."
+  zz_valyria_magic_fire_magic_010.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_adv$\n\nThe use of the arcane forces of [fire_magic|E] to fill the hearts of a commander's soldiers with the essence of dragonfire.\n\nThe dragon is fire given will. Through this mystery, a measure of that will is bound into the spirit of an army: its soldiers fight with the ferocity of the great beasts, heedless of fear, burning with a heat that drives them forward.\n\nAn army so empowered gains a decisive advantage over its enemies, pressing where others would falter and holding where others would break.\n\nOld soldiers who fought under such a working describe it as a fever: a burning in the chest that made them feel, for a time, as if they could not die."
 
   ##event
-  zz_valyria_magic_fire_magic.010.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_010.name$"
-  zz_valyria_magic_fire_magic.010.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You can infuse the army of [recipient.GetFirstName] with the essence of a Dragon's Fire, empowering their capabilities to win decisive advantage over the forces of the enemy."
-  zz_valyria_magic_fire_magic.010.opt.a:0 "Yes, reveal the secrets!"
+  zz_valyria_magic_fire_magic.010.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.010.name$"
+  zz_valyria_magic_fire_magic.010.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe chamber fills with a sound like distant wings. The heat that rises from the ritual circle smells of sulphur and brimstone, and for a moment the shadows on the walls take on the shape of something vast, coiled, and watchful.\n\nThe legions of the Freehold marched beneath the dragons, and some of their sorcerers learned to borrow a spark of the dragons' fury for the soldiers below. Armies so blessed were said to fight like beasts themselves.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may infuse the army of [recipient.GetFirstName] with the essence of dragonfire, granting them a decisive advantage in the battles to come. Are you willing to light that fever in their hearts?"
+  zz_valyria_magic_fire_magic.010.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster lays a scale shed by a dragon upon the ritual stone and breathes upon it. The scale grows hot, then begins to glow, and a sound fills the chamber like the slow, deep breathing of something enormous, sleeping just beyond the walls.\n\nThe legions of the Freehold fought beneath the shadow of dragons, and some of them carried a little of the dragons' fire into battle with them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may infuse the army of [recipient.GetFirstName] with the essence of dragonfire, granting them a decisive advantage in the battles to come. Are you willing to light that fever in their hearts?"
+  zz_valyria_magic_fire_magic.010.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA great horn, carved from the bone of some ancient beast, is sounded once in the chamber. Its note is low and long, and as it fades, the air grows hot and thick with the smell of brimstone, and the shadows on the walls take on the shape of wings.\n\nIn Valyria, it was said that the soldiers who marched beneath the dragons fought with their fury. The war-sorcerers made sure that this was more than a saying.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may infuse the army of [recipient.GetFirstName] with the essence of dragonfire, granting them a decisive advantage in the battles to come. Are you willing to light that fever in their hearts?"
+  zz_valyria_magic_fire_magic.010.opt.a:0 "Give them dragonfire!"
   zz_valyria_magic_fire_magic.010.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.010.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_010.name$"
-  zz_valyria_magic_fire_magic.010.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ empowering the spirit of the forces commanded by[recipient.GetFirstName] with the essence of dragon fire."
+  zz_valyria_magic_fire_magic.010.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.010.name$"
+  zz_valyria_magic_fire_magic.010.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ empowering the spirit of the forces commanded by [recipient.GetFirstName] with the essence of dragonfire."
   zz_valyria_magic_fire_magic.010.toast.tt:0 "$zz_valyria_magic_fire_magic.010.toast.desc$"
 
-  zz_valyria_magic_fire_magic.010.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_010.name$"
+  zz_valyria_magic_fire_magic.010.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.010.name$"
   zz_valyria_magic_fire_magic.010.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.010.f.toast.tt:0 "$zz_valyria_magic_fire_magic.010.f.toast.desc$"
 
 
   ## Interaction
-  zz_valyria_magic_fire_magic_011.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tr$\n$zz_dr$\n$zz_ld$\n\nThrough the arts of [fire_magic|E] it is possible to unleash several volleys of pure flame upon the elite soldiers of your enemy.."
+  zz_valyria_magic_fire_magic_011.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tr$\n$zz_drs$\n$zz_ld$\n\nThe use of the arcane forces of [fire_magic|E] to loose a volley of flame against several enemy companies at once.\n\nWhere the fireball concentrates its fury on a single target, the flame volley spreads it wide. Several bolts of fire are loosed at once, each seeking out a different company of the enemy host.\n\nNo single strike is as devastating as the fireball, but the volley spreads fear and chaos through an army's ranks, thinning many companies rather than destroying one.\n\nBattle-mages of the Freehold preferred this working against armies whose strength lay in their numbers rather than their elites."
 
   ##event
-  zz_valyria_magic_fire_magic.011.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_011.name$"
-  zz_valyria_magic_fire_magic.011.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You order an assault with a volley of flame, striking severa of the regiments of [recipient.GetFirstName], reducing men, supplies and hopes to a sludgy black ash."
-  zz_valyria_magic_fire_magic.011.opt.a:0 "Yes, reveal the secrets!"
+  zz_valyria_magic_fire_magic.011.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.011.name$"
+  zz_valyria_magic_fire_magic.011.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nDarts of flame flicker into being around the caster, hanging in the air like a swarm of burning wasps. They hum with a high, thin sound, and each seems to turn its point towards a different corner of the world.\n\nThe war-sorcerers of Valyria called this the Scattering of Sparks, and used it to break the cohesion of enemy hosts before the legions closed for the kill.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may loose this volley upon several companies of [recipient.GetFirstName], scorching each in turn. Will you scatter the sparks?"
+  zz_valyria_magic_fire_magic.011.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster flicks their fingers outward, and sparks scatter from their fingertips like seeds blown from a dandelion. They do not fall. They hang in the air, burning brightly, and each one turns slowly until it points in a different direction.\n\nThe war-sorcerers of the Freehold used this working to break the enemy's ranks before the legions closed in. Few formations could hold together under such a scattered, endless rain.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may loose this volley upon several companies of [recipient.GetFirstName], scorching each in turn. Will you scatter the sparks?"
+  zz_valyria_magic_fire_magic.011.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA quiver of arrows is emptied upon the floor, and the caster runs a hand along their shafts, speaking the words of kindling. The arrowheads glow and then lift into the air of their own accord, hanging in a burning cloud above the ritual circle, waiting for a target.\n\nIn Valyria, the archers of the legions were never the only ones loosing arrows. The sorcerers loosed theirs too, and theirs never missed.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may loose this volley upon several companies of [recipient.GetFirstName], scorching each in turn. Will you scatter the sparks?"
+  zz_valyria_magic_fire_magic.011.opt.a:0 "Loose the volley!"
   zz_valyria_magic_fire_magic.011.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.011.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_011.name$"
+  zz_valyria_magic_fire_magic.011.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.011.name$"
   zz_valyria_magic_fire_magic.011.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ unleashing several blasts of fire against the forces of [recipient.GetFirstName]."
   zz_valyria_magic_fire_magic.011.toast.tt:0 "$zz_valyria_magic_fire_magic.011.toast.desc$"
-  zz_valyria_magic_fire_magic.011.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_011.name$"
+  zz_valyria_magic_fire_magic.011.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.011.name$"
   zz_valyria_magic_fire_magic.011.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.011.f.toast.tt:0 "$zz_valyria_magic_fire_magic.011.f.toast.desc$"
 
 
   ## Interaction
-  zz_valyria_magic_fire_magic_012.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tr$\n$zz_dr$\n$zz_ld$\n\nThrough the arts of [fire_magic|E] it is possible to unleash several volleys of pure flame upon the elite soldiers of your enemy.."
+  zz_valyria_magic_fire_magic_012.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_prw$\n\nThe use of the arcane forces of [fire_magic|E] to bind a burning edge to the strikes of a chosen warrior.\n\nThis mystery is meant not for armies but for a single fighter. The chosen subject's every blow is accompanied by a flicker of flame, and their prowess in combat swells as surely as if they had trained for years.\n\nChampions of the Freehold's fighting pits sometimes paid sorcerers handsomely for such a blessing, though to be discovered using it was to be disgraced.\n\nThe edge burns for a season, and while it lasts, its bearer is a far more dangerous opponent than their natural skill would suggest."
 
   ##event
-  zz_valyria_magic_fire_magic.012.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_012.name$"
-  zz_valyria_magic_fire_magic.012.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You order an assault with a volley of flame, striking severa of the regiments of [recipient.GetFirstName], reducing men, supplies and hopes to a sludgy black ash."
-  zz_valyria_magic_fire_magic.012.opt.a:0 "Yes, reveal the secrets!"
+  zz_valyria_magic_fire_magic.012.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.012.name$"
+  zz_valyria_magic_fire_magic.012.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA thin line of fire traces itself along the subject's arm, from shoulder to fingertip, then sinks into the skin and vanishes. Their hand trembles, and the air around it shimmers with heat.\n\nIn the arenas of Old Valyria, duellists who bore the flaming edge were said to move like dancers, each strike trailing a ribbon of light. Their opponents rarely saw the blow that killed them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bind the flaming edge to [recipient.GetFirstName], making them a far deadlier fighter for a time. Is it right to give them such an advantage over those they face?"
+  zz_valyria_magic_fire_magic.012.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster takes the subject's sword hand in their own and traces a line of flame along the back of it with a single fingertip. The flame sinks into the skin and is gone, and the subject's grip on their blade tightens of its own accord, as though their arm already knew how to strike.\n\nThe duellists of Old Valyria fought with blades that left ribbons of fire in the air. Their opponents seldom lived long enough to describe them.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bind the flaming edge to [recipient.GetFirstName], making them a far deadlier fighter for a time. Is it right to give them such an advantage over those they face?"
+  zz_valyria_magic_fire_magic.012.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA thin wire of copper is wound around the subject's wrist and set alight. It burns down to ash in a moment, but the warmth of it remains, settling into the bones of their arm and running down into their fingers like molten gold.\n\nIn Valyria, the flaming edge was the mark of a champion, and the sorcerers who granted it were paid in gold and honour alike.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may bind the flaming edge to [recipient.GetFirstName], making them a far deadlier fighter for a time. Is it right to give them such an advantage over those they face?"
+  zz_valyria_magic_fire_magic.012.opt.a:0 "Give them the burning edge."
   zz_valyria_magic_fire_magic.012.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.012.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_012.name$"
-  zz_valyria_magic_fire_magic.012.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ unleashing several blasts of fire against the forces of [recipient.GetFirstName]."
+  zz_valyria_magic_fire_magic.012.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.012.name$"
+  zz_valyria_magic_fire_magic.012.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ binding a burning edge to the strikes of [recipient.GetFirstName]."
   zz_valyria_magic_fire_magic.012.toast.tt:0 "$zz_valyria_magic_fire_magic.012.toast.desc$"
-  zz_valyria_magic_fire_magic.012.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_012.name$"
+  zz_valyria_magic_fire_magic.012.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.012.name$"
   zz_valyria_magic_fire_magic.012.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.012.f.toast.tt:0 "$zz_valyria_magic_fire_magic.012.f.toast.desc$"
 
 
   ## Interaction
-  zz_valyria_magic_fire_magic_013.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tr$\n$zz_dr$\n$zz_ld$\n\nThrough the arts of [fire_magic|E] it is possible weaken a foe's defenses, rendering them vulnerable to your blade..."
+  zz_valyria_magic_fire_magic_013.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_nwp$\n\nThe use of the arcane forces of [fire_magic|E] to clad a chosen warrior in a mantle of embers that shrugs off the weakness of their wounds.\n\nPain is only a message, the Valyrian battle-sorcerers taught, and messages may be burned unread. Through this mystery the chosen subject is wrapped in a mantle of invisible embers that consumes the weakness of their injuries before it can reach their limbs.\n\nThose who bear Ember's Armour fight on as if their wounds did not exist. Broken bones, torn muscle, and the slow drain of old injuries no longer hinder their arm.\n\nThe wounds themselves remain. When the armour fades, they return in full, and many who relied too long upon it found their bodies presenting a very large bill."
 
   ##event
-  zz_valyria_magic_fire_magic.013.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_013.name$"
-  zz_valyria_magic_fire_magic.013.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You order an assault with a volley of flame, striking severa of the regiments of [recipient.GetFirstName], reducing men, supplies and hopes to a sludgy black ash."
-  zz_valyria_magic_fire_magic.013.opt.a:0 "Yes, reveal the secrets!"
+  zz_valyria_magic_fire_magic.013.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.013.name$"
+  zz_valyria_magic_fire_magic.013.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA faint orange glow settles over the subject like a cloak, visible only from the corner of the eye. Where it touches old scars, they seem to smoulder, and the stiffness of past injuries melts away.\n\nThe legion commanders of the Freehold were often clad in Ember's Armour before battle, so that no wound, however grievous, could stop them leading from the front.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may wrap [recipient.GetFirstName] in this mantle of embers, letting them fight on unhindered by their wounds. But pain ignored is not pain healed. Will you grant it?"
+  zz_valyria_magic_fire_magic.013.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster lays a heavy cloak of red wool across the subject's shoulders and touches its hem with a burning taper. The cloak does not burn. Instead, a soft glow spreads through its weave, and the subject feels a warmth settle over them that will not let them fall.\n\nThe commanders of the Freehold led from the front, and Ember's Armour was the reason so many of them lived to lead again.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may wrap [recipient.GetFirstName] in this mantle of embers, letting them fight on unhindered by their wounds. But pain ignored is not pain healed. Will you grant it?"
+  zz_valyria_magic_fire_magic.013.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA brazier of coals is set before the subject, and the caster bids them hold their hands above it. The heat is fierce, and yet it does not burn, and as it rises, it wraps itself around them like a second skin, warm and watchful.\n\nIn Valyria, the war-sorcerers armoured their champions not in steel but in flame. Few blades could cut through it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may wrap [recipient.GetFirstName] in this mantle of embers, letting them fight on unhindered by their wounds. But pain ignored is not pain healed. Will you grant it?"
+  zz_valyria_magic_fire_magic.013.opt.a:0 "Clad them in embers."
   zz_valyria_magic_fire_magic.013.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.013.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_013.name$"
-  zz_valyria_magic_fire_magic.013.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ unleashing several blasts of fire against the forces of [recipient.GetFirstName]."
+  zz_valyria_magic_fire_magic.013.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.013.name$"
+  zz_valyria_magic_fire_magic.013.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ wrapping [recipient.GetFirstName] in a mantle of embers that holds the weakness of their wounds at bay."
   zz_valyria_magic_fire_magic.013.toast.tt:0 "$zz_valyria_magic_fire_magic.013.toast.desc$"
-  zz_valyria_magic_fire_magic.013.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_013.name$"
+  zz_valyria_magic_fire_magic.013.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.013.name$"
   zz_valyria_magic_fire_magic.013.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.013.f.toast.tt:0 "$zz_valyria_magic_fire_magic.013.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_fire_magic_014.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hcm$\n\nThrough the arts of [fire_magic|E] a talented practictioner is capable of burning away the negative effects of failed spells..."
+  zz_valyria_magic_fire_magic_014.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_hcm$\n\nThe use of the arcane forces of [fire_magic|E] to burn away the lingering taint of failed and miscast workings.\n\nEvery failed spell leaves a residue: a knot in the soul, a fraying of the threads through which power flows. Accumulate enough of them, and even a great sorcerer becomes dangerous to cast near.\n\nThrough this mystery, a gentle and purifying flame is passed through the subject's spirit, burning away the scars of past miscasts and restoring their capacity to work magic safely.\n\nThe sorcerers of the Freehold underwent this cleansing regularly, as a soldier might whet a blade. Those who neglected it rarely lived to regret it."
 
   ##event
-  zz_valyria_magic_fire_magic.014.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_014.name$"
-  zz_valyria_magic_fire_magic.014.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You order an assault with a volley of flame, striking severa of the regiments of [recipient.GetFirstName], reducing men, supplies and hopes to a sludgy black ash."
-  zz_valyria_magic_fire_magic.014.opt.a:0 "Yes, reveal the secrets!"
+  zz_valyria_magic_fire_magic.014.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.014.name$"
+  zz_valyria_magic_fire_magic.014.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA soft, golden flame rises around the subject, warm rather than hot. Where it passes, something dark and tangled seems to unravel and drift away like smoke.\n\nThe Valyrians called this the Rite of the Clean Hearth, and performed it at the turning of every season, so that no sorcerer should carry the debris of failure into the year to come.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may cleanse [recipient.GetFirstName] of the lingering taint of their failed workings, restoring their capacity to cast in safety. Will you perform the rite?"
+  zz_valyria_magic_fire_magic.014.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster lights a bundle of sweet herbs and passes it slowly around the subject, from head to foot. Where the smoke drifts, something dark seems to lift from them, drawn out into the fragrant air and burned away to nothing.\n\nThe Rite of the Clean Hearth was performed in the towers of the Freehold at the turning of every season, so that the sorcerers within would begin each year untainted by the failures of the last.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may cleanse [recipient.GetFirstName] of the lingering taint of their failed workings, restoring their capacity to cast in safety. Will you perform the rite?"
+  zz_valyria_magic_fire_magic.014.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA single golden flame is kindled in a bowl of clear water, burning upon its surface as though it were oil. The caster bids the subject look into it, and as they do, the scars of old and failed workings rise to the surface of their mind, and the flame consumes them, one by one.\n\nIn Valyria, it was understood that every failed spell leaves a mark. The fire, properly called, could burn that mark away.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may cleanse [recipient.GetFirstName] of the lingering taint of their failed workings, restoring their capacity to cast in safety. Will you perform the rite?"
+  zz_valyria_magic_fire_magic.014.opt.a:0 "Cleanse the hearth."
   zz_valyria_magic_fire_magic.014.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.014.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_014.name$"
-  zz_valyria_magic_fire_magic.014.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ unleashing several blasts of fire against the forces of [recipient.GetFirstName]."
+  zz_valyria_magic_fire_magic.014.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.014.name$"
+  zz_valyria_magic_fire_magic.014.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ burning away the lingering taint of failed workings from [recipient.GetFirstName]."
   zz_valyria_magic_fire_magic.014.toast.tt:0 "$zz_valyria_magic_fire_magic.014.toast.desc$"
-  zz_valyria_magic_fire_magic.014.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_014.name$"
+  zz_valyria_magic_fire_magic.014.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.014.name$"
   zz_valyria_magic_fire_magic.014.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.014.f.toast.tt:0 "$zz_valyria_magic_fire_magic.014.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_fire_magic_015.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_pcm$\n\nThrough the arts of [fire_magic|E] you can erect a barrier against rampant magical energies can be prepared, protecting the caster from costly mystical mistakes..."
+  zz_valyria_magic_fire_magic_015.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_pcm$\n\nThe use of the arcane forces of [fire_magic|E] to raise a ward of flame that protects a caster from the backlash of a miscast spell.\n\nThe Higher Mysteries are dangerous, and every working carries the risk that the power will slip its leash and turn upon the one who called it. This mystery raises a ward of steady flame around the subject's spirit, ready to catch and consume that backlash before it can do harm.\n\nThe ward lies dormant until it is needed. When a working fails, the flame flares and devours the wild energies, leaving the caster shaken but unharmed.\n\nApprentices of the Freehold were never permitted to attempt a dangerous working without such a ward. Masters, it is said, considered it beneath them, and the ash of their arrogance still drifts through the ruins of their towers."
 
   ##event
-  zz_valyria_magic_fire_magic.015.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_015.name$"
-  zz_valyria_magic_fire_magic.015.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You order an assault with a volley of flame, striking severa of the regiments of [recipient.GetFirstName], reducing men, supplies and hopes to a sludgy black ash."
-  zz_valyria_magic_fire_magic.015.opt.a:0 "Yes, reveal the secrets!"
+  zz_valyria_magic_fire_magic.015.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.015.name$"
+  zz_valyria_magic_fire_magic.015.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA ring of small, steady flames kindles around the subject and slowly rises to encircle them like a crown. Then it fades from sight, leaving behind only a faint warmth that does not leave.\n\nThe teachers of the Freehold laid this ward upon their students before every lesson, so that a single mistake would not cost them a pupil, or a tower.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lay the warding flame upon [recipient.GetFirstName], protecting them from the backlash of their next failed working. Will you grant them this protection?"
+  zz_valyria_magic_fire_magic.015.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster draws a ring of fire upon the floor with a burning taper, and the subject steps inside. The flames rise to their knees, then their shoulders, then above their head, and then they sink back down and are gone, leaving only a faint warmth upon the skin.\n\nThe teachers of the Freehold laid this ward upon their apprentices, so that a mistake in the casting would burn the ward rather than the student.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lay the warding flame upon [recipient.GetFirstName], protecting them from the backlash of their next failed working. Will you grant them this protection?"
+  zz_valyria_magic_fire_magic.015.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA circle of small oil lamps is set around the subject, each one burning with a steady, unflickering flame. As the caster speaks, the flames grow brighter and draw together, until they form a single shining crown that settles over the subject's brow and fades from sight.\n\nIn Valyria, it was said that the fire which shields is the same fire which burns. The difference lies only in who commands it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may lay the warding flame upon [recipient.GetFirstName], protecting them from the backlash of their next failed working. Will you grant them this protection?"
+  zz_valyria_magic_fire_magic.015.opt.a:0 "Raise the ward."
   zz_valyria_magic_fire_magic.015.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.015.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_015.name$"
-  zz_valyria_magic_fire_magic.015.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ unleashing several blasts of fire against the forces of [recipient.GetFirstName]."
+  zz_valyria_magic_fire_magic.015.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.015.name$"
+  zz_valyria_magic_fire_magic.015.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ laying a warding flame upon [recipient.GetFirstName] that will consume the backlash of a failed working."
   zz_valyria_magic_fire_magic.015.toast.tt:0 "$zz_valyria_magic_fire_magic.015.toast.desc$"
-  zz_valyria_magic_fire_magic.015.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_015.name$"
+  zz_valyria_magic_fire_magic.015.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.015.name$"
   zz_valyria_magic_fire_magic.015.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.015.f.toast.tt:0 "$zz_valyria_magic_fire_magic.015.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_fire_magic_016.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_bsp$\n$zz_ccf$\n\nThrough the arts of [fire_magic|E] a fortress's weaknesses may be revealed and fortifications forged into impenetrable edifices..."
+  zz_valyria_magic_fire_magic_016.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_ccf$\n\nThe use of the arcane forces of [fire_magic|E] to fuse and harden the fortifications of a chosen province with sorcerous fire.\n\nThe great walls of the Freehold were not built; they were fused. Sorcerers walked the courses of stone, singing to the fire within them, until rock flowed like wax and set harder than any mortar could bind.\n\nThrough this mystery, a lesser version of that art is worked upon the fortifications of the chosen province. Gates are sealed with fused stone, weak points hardened, and the whole defence made far more resistant to assault.\n\nThe effect lasts for a time before the stone begins to cool and weaken, but while it endures, besiegers will find the walls a far tougher nut to crack."
 
   ##event
-  zz_valyria_magic_fire_magic.016.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_016.name$"
-  zz_valyria_magic_fire_magic.016.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You order an assault with a volley of flame, striking severa of the regiments of [target.GetName], reducing men, supplies and hopes to a sludgy black ash."
-  zz_valyria_magic_fire_magic.016.opt.a:0 "Yes, reveal the secrets!"
+  zz_valyria_magic_fire_magic.016.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.016.name$"
+  zz_valyria_magic_fire_magic.016.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe ground beneath the ritual circle grows warm, then hot. In the distance, the stones of the chosen province begin to glow, faintly at first, then brighter, as the fire within them wakes.\n\nThe fused fortresses of the Freehold were wonders of the world, and some still stand amid the ruins of the old empire, their walls as smooth and dark as glass.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may fuse the fortifications of the chosen province with sorcerous fire, making them far stronger against any assault. Will you raise this bastion?"
+  zz_valyria_magic_fire_magic.016.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster lays a hand upon a stone taken from the walls of the chosen province's chief fortress. The stone grows warm, then hot, then begins to glow, and far away, the walls it came from begin to glow in the same way, their stones fusing into a smooth and seamless mass.\n\nThe fortresses of the Freehold were fused by fire into single great stones. Some of them still stand.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may fuse the fortifications of the chosen province with sorcerous fire, making them far stronger against any assault. Will you raise this bastion?"
+  zz_valyria_magic_fire_magic.016.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA model of the province's defences, carved from soft clay, is set upon the ritual stone. As the caster speaks, the clay hardens and darkens, and a faint glow runs through every wall and tower, as though fire had been poured into their cracks.\n\nIn Valyria, the war-sorcerers did not trust stone alone to keep their enemies out. They added fire, and the fire never slept.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may fuse the fortifications of the chosen province with sorcerous fire, making them far stronger against any assault. Will you raise this bastion?"
+  zz_valyria_magic_fire_magic.016.opt.a:0 "Raise the bastion!"
   zz_valyria_magic_fire_magic.016.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.016.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_016.name$"
-  zz_valyria_magic_fire_magic.016.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ unleashing several blasts of fire against the forces of [target.GetName]."
+  zz_valyria_magic_fire_magic.016.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.016.name$"
+  zz_valyria_magic_fire_magic.016.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ fusing the fortifications of [target.GetName] with sorcerous fire, strengthening them against assault."
   zz_valyria_magic_fire_magic.016.toast.tt:0 "$zz_valyria_magic_fire_magic.016.toast.desc$"
 
-  zz_valyria_magic_fire_magic.016.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_016.name$"
+  zz_valyria_magic_fire_magic.016.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.016.name$"
   zz_valyria_magic_fire_magic.016.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.016.f.toast.tt:0 "$zz_valyria_magic_fire_magic.016.f.toast.desc$"
 
   ## Interaction
-  zz_valyria_magic_fire_magic_017.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_dsp$\n$zz_ccf$\n\nThrough the arts of [fire_magic|E] you call forth a mighty wall of flame to protect [target.GetName] from the assaults of your enemies.."
+  zz_valyria_magic_fire_magic_017.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_ccf$\n\nThe use of the arcane forces of [fire_magic|E] to wrack the defences of a chosen province with a ring of oppressive flame.\n\nAs fire may fuse stone, so may it crack it. Through this mystery, a ring of invisible flame is laid about the defences of the chosen province, heating them day and night until mortar crumbles, beams char, and gates warp in their frames.\n\nThe defenders find their walls failing beneath them, and their capacity to resist an assault drains away week by week.\n\nThe Valyrian legions used this working to soften the strongholds of their enemies before ever a siege engine was raised."
 
   ##event
-  zz_valyria_magic_fire_magic.017.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_017.name$"
-  zz_valyria_magic_fire_magic.017.desc:0 "[secondary_recipient.GetFirstName] stands ready to enact a mystery. \nThe manipulation of flame is an art as old as ancient Valyria. The dragon lords would command the flame in conjunction with their dragons, and it was always a potent weapon of war. You ring [target.GetName] will an oppressive wall of flame, reducing steadily the capability of the defenders to resist the assaults of your armies."
-  zz_valyria_magic_fire_magic.017.opt.a:0 "Yes, reveal the secrets!"
+  zz_valyria_magic_fire_magic.017.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.017.name$"
+  zz_valyria_magic_fire_magic.017.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA dull red glow appears on the horizon in the direction of the chosen province, like the light of a distant city burning. The air in the chamber grows dry and harsh, and the scent of scorched stone fills every breath.\n\nThe besiegers of the Freehold seldom needed to storm a wall. They simply ringed it in sorcerous fire and waited for it to fall down of its own accord.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may ring the chosen province in oppressive flame, steadily breaking the defenders' ability to resist your armies. Will you lay the fire?"
+  zz_valyria_magic_fire_magic.017.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster spreads a map of the chosen province upon the floor and lets a single drop of burning oil fall upon its walls. The flame spreads along the lines of the fortifications, slowly and deliberately, and wherever it passes, the ink blackens and the parchment cracks.\n\nThe besiegers of the Freehold rarely needed to scale a wall. They let the fire do the work, and waited.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may ring the chosen province in oppressive flame, steadily breaking the defenders' ability to resist your armies. Will you lay the fire?"
+  zz_valyria_magic_fire_magic.017.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA handful of earth from the chosen province is thrown into the brazier, and the flames turn a deep and angry red. The heat rises until the very air seems to burn, and far away, the walls of the province's strongholds begin to smoke and crumble.\n\nIn Valyria, it was said that no wall could stand against a patient fire. The war-sorcerers were very patient.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may ring the chosen province in oppressive flame, steadily breaking the defenders' ability to resist your armies. Will you lay the fire?"
+  zz_valyria_magic_fire_magic.017.opt.a:0 "Ring them in fire!"
   zz_valyria_magic_fire_magic.017.opt.z:0 "No, do not cast!"
   ## Spell Toast
-  zz_valyria_magic_fire_magic.017.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic_017.name$"
-  zz_valyria_magic_fire_magic.017.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ unleashing an insidious wall of flames around [target.GetName], reducing the resilience of this province to seiges."
+  zz_valyria_magic_fire_magic.017.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.017.name$"
+  zz_valyria_magic_fire_magic.017.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ unleashing an insidious wall of flame around [target.GetName], weakening the province's defences against siege."
   zz_valyria_magic_fire_magic.017.toast.tt:0 "$zz_valyria_magic_fire_magic.017.toast.desc$"
-  zz_valyria_magic_fire_magic.017.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic_017.name$"
+  zz_valyria_magic_fire_magic.017.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.017.name$"
   zz_valyria_magic_fire_magic.017.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."  
   zz_valyria_magic_fire_magic.017.f.toast.tt:0 "$zz_valyria_magic_fire_magic.017.f.toast.desc$"
+
+
+  ## Fire 018
+  zz_valyria_magic_fire_magic_018.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_ta$\n$zz_dsup$\n\nThe use of the arcane forces of [fire_magic|E] to set light to an enemy army's supplies.\n\nThrough this mystery, wagons burst into flame on the road and grain smoulders in its sacks. Not one soldier is touched, but an army with nothing to eat will not march for long.\n\nThe masters of the Freehold understood that a host can be starved as surely as it can be burned."
+  zz_valyria_magic_fire_magic.018.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.018.name$"
+  zz_valyria_magic_fire_magic.018.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA smell of burning bread fills the chamber. A sack of grain upon the altar begins to smoke, and small red lines crawl across its weave."
+  zz_valyria_magic_fire_magic.018.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster holds a handful of grain to a candle. It does not catch, yet far away, wagon after wagon goes up in flame."
+  zz_valyria_magic_fire_magic.018.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe brazier sinks low, as though it has found something better to burn. Its light moves away across the wall and out of the chamber."
+  zz_valyria_magic_fire_magic.018.opt.a:0 "Burn it all!"
+  zz_valyria_magic_fire_magic.018.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_fire_magic.018.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.018.name$"
+  zz_valyria_magic_fire_magic.018.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ burning the stores of an army of [recipient.GetFirstName]."
+  zz_valyria_magic_fire_magic.018.toast.tt:0 "$zz_valyria_magic_fire_magic.018.toast.desc$"
+  zz_valyria_magic_fire_magic.018.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.018.name$"
+  zz_valyria_magic_fire_magic.018.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_fire_magic.018.f.toast.tt:0 "$zz_valyria_magic_fire_magic.018.f.toast.desc$"
+
+
+  ## Fire 019
+  zz_valyria_magic_fire_magic_019.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tcc$\n$zz_ccd$\n\nThe use of the arcane forces of [fire_magic|E] to sear the land of a chosen county.\n\nThrough this mystery, the fields of a county blacken and the soil turns to ash. Armies find little to feed on there, and the land recovers only slowly.\n\nIt destroys nothing that can be counted in a ledger, but a burned land is a poor prize for any conqueror."
+  zz_valyria_magic_fire_magic.019.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.019.name$"
+  zz_valyria_magic_fire_magic.019.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe air above the ritual circle wavers. A smell of burned straw rises, and a pale ash begins to fall softly upon the map upon the table."
+  zz_valyria_magic_fire_magic.019.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA handful of good soil is cast into the brazier. It does not smother the flames. They feed upon it, and burn brighter."
+  zz_valyria_magic_fire_magic.019.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster draws a burning brand across the map. No mark appears, but the parchment beneath it curls and turns brown."
+  zz_valyria_magic_fire_magic.019.opt.a:0 "Sear the land!"
+  zz_valyria_magic_fire_magic.019.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_fire_magic.019.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.019.name$"
+  zz_valyria_magic_fire_magic.019.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ scorching the lands of [recipient.GetFirstName]."
+  zz_valyria_magic_fire_magic.019.toast.tt:0 "$zz_valyria_magic_fire_magic.019.toast.desc$"
+  zz_valyria_magic_fire_magic.019.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.019.name$"
+  zz_valyria_magic_fire_magic.019.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_fire_magic.019.f.toast.tt:0 "$zz_valyria_magic_fire_magic.019.f.toast.desc$"
+
+
+  ## Fire 020
+  zz_valyria_magic_fire_magic_020.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tca$\n$zz_supl$\n\nThe use of the arcane forces of [fire_magic|E] to carry the warmth of home to an army in the field.\n\nThrough this mystery, a small fire burns in every camp of the subject's host and never needs feeding. Stores last longer, and hostile lands take less of a toll.\n\nIt is a gentle working, and one the soldiers of the Freehold learned to bless."
+  zz_valyria_magic_fire_magic.020.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.020.name$"
+  zz_valyria_magic_fire_magic.020.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA single coal upon the altar begins to glow, warm and steady. It gives off no smoke, and those near it feel their shoulders ease."
+  zz_valyria_magic_fire_magic.020.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster divides a burning coal in two, then in two again. Neither piece grows any dimmer for the sharing."
+  zz_valyria_magic_fire_magic.020.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA smell of woodsmoke and baking bread drifts through the chamber. For a moment it could be any kitchen, on any winter evening."
+  zz_valyria_magic_fire_magic.020.opt.a:0 "Keep them warm!"
+  zz_valyria_magic_fire_magic.020.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_fire_magic.020.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.020.name$"
+  zz_valyria_magic_fire_magic.020.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ kindling a hearthfire for [recipient.GetFirstName]."
+  zz_valyria_magic_fire_magic.020.toast.tt:0 "$zz_valyria_magic_fire_magic.020.toast.desc$"
+  zz_valyria_magic_fire_magic.020.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.020.name$"
+  zz_valyria_magic_fire_magic.020.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_fire_magic.020.f.toast.tt:0 "$zz_valyria_magic_fire_magic.020.f.toast.desc$"
+
+
+  ## Fire 021
+  zz_valyria_magic_fire_magic_021.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_ctb$\n$zz_resm$\n\nThe use of the arcane forces of [fire_magic|E] to set a chosen subject alight from within.\n\nThrough this mystery, the subject is consumed by a fire with no source. There is no warning and no duel. Those who survive it carry the scars for the rest of their lives.\n\nSkilled mages resist it through their own Higher Mysteries."
+  zz_valyria_magic_fire_magic.021.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.021.name$"
+  zz_valyria_magic_fire_magic.021.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe brazier roars up to the ceiling and then, all at once, goes out. The heat does not leave with it. It has only gone somewhere else."
+  zz_valyria_magic_fire_magic.021.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster breathes upon a wax figure, and it begins to burn from the inside, its surface still smooth while its heart runs to liquid."
+  zz_valyria_magic_fire_magic.021.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA name is written upon parchment and held to the flame. The paper does not burn. The name does."
+  zz_valyria_magic_fire_magic.021.opt.a:0 "Burn!"
+  zz_valyria_magic_fire_magic.021.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_fire_magic.021.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.021.name$"
+  zz_valyria_magic_fire_magic.021.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ setting [recipient.GetFirstName] alight."
+  zz_valyria_magic_fire_magic.021.toast.tt:0 "$zz_valyria_magic_fire_magic.021.toast.desc$"
+  zz_valyria_magic_fire_magic.021.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.021.name$"
+  zz_valyria_magic_fire_magic.021.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_fire_magic.021.f.toast.tt:0 "$zz_valyria_magic_fire_magic.021.f.toast.desc$"
+
+
+  ## Fire 022
+  zz_valyria_magic_fire_magic_022.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_asn$\n$zz_resm$\n\nThe use of the arcane forces of [fire_magic|E] to raise a blaze around a chosen subject.\n\nThrough this mystery, fire breaks out wherever the subject sleeps. It is swift and terrible, and those nearby may be caught in it.\n\nIt is the loudest of the killing mysteries, and the easiest to trace back to its caster. Skilled mages resist it through their own Higher Mysteries."
+  zz_valyria_magic_fire_magic.022.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.022.name$"
+  zz_valyria_magic_fire_magic.022.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe brazier sinks to embers. Then, one by one, the embers rise and hang in the air, turning slowly, as though listening for directions."
+  zz_valyria_magic_fire_magic.022.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA small wooden figure of a house is set upon the altar. The caster breathes on the door, and a thread of smoke begins to rise from within."
+  zz_valyria_magic_fire_magic.022.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster speaks the name of a bedchamber. Every flame in the room bows towards the sound of it."
+  zz_valyria_magic_fire_magic.022.opt.a:0 "Find them!"
+  zz_valyria_magic_fire_magic.022.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_fire_magic.022.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.022.name$"
+  zz_valyria_magic_fire_magic.022.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ sending fire to find [recipient.GetFirstName]."
+  zz_valyria_magic_fire_magic.022.toast.tt:0 "$zz_valyria_magic_fire_magic.022.toast.desc$"
+  zz_valyria_magic_fire_magic.022.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.022.name$"
+  zz_valyria_magic_fire_magic.022.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_fire_magic.022.f.toast.tt:0 "$zz_valyria_magic_fire_magic.022.f.toast.desc$"
+
+
+  ## Fire 023
+  zz_valyria_magic_fire_magic_023.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_dar$\n$zz_vld$\n$zz_ccd$\n$zz_spr$\n\nThe use of the arcane forces of [fire_magic|E] to set a fire that will not stay where it is put.\n\nThrough this mystery, a green-hearted fire takes hold in a chosen province, burning buildings and wealth alike. Each month it leaps to the richest land nearby, and it may split and burn in two places at once.\n\nIt cannot cross the sea. Once lit, no mage alive can call it back."
+  zz_valyria_magic_fire_magic.023.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.023.name$"
+  zz_valyria_magic_fire_magic.023.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA single spark falls from the brazier and lands upon the map. It does not go out. It begins to travel."
+  zz_valyria_magic_fire_magic.023.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe flames in the chamber turn a sickly, shining green, and they lean towards the door as though they have somewhere to be."
+  zz_valyria_magic_fire_magic.023.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster touches a burning taper to a thread laid across the map. The fire runs along it, and at each knot it splits."
+  zz_valyria_magic_fire_magic.023.opt.a:0 "Let it spread!"
+  zz_valyria_magic_fire_magic.023.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_fire_magic.023.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.023.name$"
+  zz_valyria_magic_fire_magic.023.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ setting a wildfire in the lands of [recipient.GetFirstName]."
+  zz_valyria_magic_fire_magic.023.toast.tt:0 "$zz_valyria_magic_fire_magic.023.toast.desc$"
+  zz_valyria_magic_fire_magic.023.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.023.name$"
+  zz_valyria_magic_fire_magic.023.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_fire_magic.023.f.toast.tt:0 "$zz_valyria_magic_fire_magic.023.f.toast.desc$"
+
+
+  ## Fire 024
+  zz_valyria_magic_fire_magic_024.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_sa$\n$zz_nrep$\n\nThe use of the arcane forces of [fire_magic|E] to raise a host of living embers.\n\nThrough this mystery, a great company of Ember Shades rises from the coals around the chosen commander. No other summoned host is so numerous, and none hits so hard.\n\nNor can it be made whole. Each ember that goes dark stays dark, and the host dwindles with every battle."
+  zz_valyria_magic_fire_magic.024.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.024.name$"
+  zz_valyria_magic_fire_magic.024.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe brazier flares white and spills over. The coals do not scatter, but stand, and take the shape of men."
+  zz_valyria_magic_fire_magic.024.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster walks through the fire and out the other side. Behind them, one by one, burning figures step out to follow."
+  zz_valyria_magic_fire_magic.024.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nSparks rise from the hearth and do not go out. They gather in ranks beneath the ceiling, waiting."
+  zz_valyria_magic_fire_magic.024.opt.a:0 "Burn bright, and burn fast!"
+  zz_valyria_magic_fire_magic.024.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_fire_magic.024.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.024.name$"
+  zz_valyria_magic_fire_magic.024.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ raising a host of embers for [recipient.GetFirstName]."
+  zz_valyria_magic_fire_magic.024.toast.tt:0 "$zz_valyria_magic_fire_magic.024.toast.desc$"
+  zz_valyria_magic_fire_magic.024.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.024.name$"
+  zz_valyria_magic_fire_magic.024.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_fire_magic.024.f.toast.tt:0 "$zz_valyria_magic_fire_magic.024.f.toast.desc$"
+
+
+  ## Fire 025
+  zz_valyria_magic_fire_magic_025.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tp$\n$zz_garr$\n$zz_spr$\n\nThe use of the arcane forces of [fire_magic|E] to light a chain of warning fires across the land.\n\nThrough this mystery, a beacon is kindled in the chosen province and answered on every hilltop around it. Raiders find the land roused against them, and the levies and garrisons muster sooner.\n\nThe fires spread to each neighbouring province held within the same realm, and no further."
+  zz_valyria_magic_fire_magic.025.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.025.name$"
+  zz_valyria_magic_fire_magic.025.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA single coal is set upon a map, and it does not burn the parchment. Points of light begin to answer it from the provinces around."
+  zz_valyria_magic_fire_magic.025.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster lights a taper and raises it high. Far off, on a hill they cannot see, something catches."
+  zz_valyria_magic_fire_magic.025.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nFlame runs from candle to candle around the chamber, leaping the gaps between them, until every wick in the room is lit."
+  zz_valyria_magic_fire_magic.025.opt.a:0 "Let the beacons be lit!"
+  zz_valyria_magic_fire_magic.025.opt.z:0 "No, do not cast!"
+  zz_valyria_magic_fire_magic.025.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.025.name$"
+  zz_valyria_magic_fire_magic.025.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ lighting beacon fires across the land."
+  zz_valyria_magic_fire_magic.025.toast.tt:0 "$zz_valyria_magic_fire_magic.025.toast.desc$"
+  zz_valyria_magic_fire_magic.025.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.025.name$"
+  zz_valyria_magic_fire_magic.025.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$.."
+  zz_valyria_magic_fire_magic.025.f.toast.tt:0 "$zz_valyria_magic_fire_magic.025.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_fire_magic_026.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_dclm$\n\nThe use of the arcane forces of [fire_magic|E] to burn away one of the selected subject's claims on a title.\n\nA claim lives in ink and parchment, in genealogies and old charters. Fire unmakes them all, and with them the right they recorded."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_fire_magic.026.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.026.name$"
+  zz_valyria_magic_fire_magic.026.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster holds a blank sheet of vellum over the flame. As it chars, faded writing rises on it, the record of a claim, and then burns away."
+  zz_valyria_magic_fire_magic.026.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA seal of red wax is pressed and then melted over a brazier. Somewhere a charter curls and blackens in its chest."
+  zz_valyria_magic_fire_magic.026.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster names the title three times into the fire. The third time the fire answers, and the name is gone from every record."
+  zz_valyria_magic_fire_magic.026.opt.a:0 "Burn the claim."
+  zz_valyria_magic_fire_magic.026.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_fire_magic.026.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.026.name$"
+  zz_valyria_magic_fire_magic.026.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ burning the records of [recipient.GetFirstName]'s claim."
+  zz_valyria_magic_fire_magic.026.toast.tt:0 "$zz_valyria_magic_fire_magic.026.toast.desc$"
+
+  zz_valyria_magic_fire_magic.026.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.026.name$"
+  zz_valyria_magic_fire_magic.026.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_fire_magic.026.f.toast.tt:0 "$zz_valyria_magic_fire_magic.026.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_fire_magic_027.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tcc$\n$zz_bup$\n$zz_bld$\n\nThe use of the arcane forces of [fire_magic|E] to raise one building in the selected county a level at once; where none can be raised, the county builds faster and cheaper for a year.\n\nFire is the first of all crafts. Where it is called, stone sets, iron runs and walls rise in a season."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_fire_magic.027.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.027.name$"
+  zz_valyria_magic_fire_magic.027.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster lights a single coal in the county's forge and breathes on it. By morning every hearth in the county is burning white."
+  zz_valyria_magic_fire_magic.027.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA brand is pressed into the cornerstone of the hall. The stone glows, and the masons work as though their tools were weightless."
+  zz_valyria_magic_fire_magic.027.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster walks the walls with a torch, and wherever the flame touches, mortar sets hard and new."
+  zz_valyria_magic_fire_magic.027.opt.a:0 "Kindle the forges."
+  zz_valyria_magic_fire_magic.027.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_fire_magic.027.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.027.name$"
+  zz_valyria_magic_fire_magic.027.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ kindling the forge-fire in [target.GetName]."
+  zz_valyria_magic_fire_magic.027.toast.tt:0 "$zz_valyria_magic_fire_magic.027.toast.desc$"
+
+  zz_valyria_magic_fire_magic.027.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.027.name$"
+  zz_valyria_magic_fire_magic.027.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_fire_magic.027.f.toast.tt:0 "$zz_valyria_magic_fire_magic.027.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_fire_magic_028.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tcc$\n$zz_bdmg$\n\nThe use of the arcane forces of [fire_magic|E] to set a fire that destroys or damages one building in the selected county.\n\nFire does not ask whose roof it burns."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_fire_magic.028.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.028.name$"
+  zz_valyria_magic_fire_magic.028.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA single spark is flicked from the caster's fingers. It drifts for days on the wind before it lands on a thatched roof far away."
+  zz_valyria_magic_fire_magic.028.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster names a building and drops a coal into a bowl of oil. The bowl flares, and somewhere the building does too."
+  zz_valyria_magic_fire_magic.028.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA tallow figure of a hall is set on the hearth and allowed to melt."
+  zz_valyria_magic_fire_magic.028.opt.a:0 "Let it burn."
+  zz_valyria_magic_fire_magic.028.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_fire_magic.028.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.028.name$"
+  zz_valyria_magic_fire_magic.028.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ setting fire to [target.GetName]."
+  zz_valyria_magic_fire_magic.028.toast.tt:0 "$zz_valyria_magic_fire_magic.028.toast.desc$"
+
+  zz_valyria_magic_fire_magic.028.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.028.name$"
+  zz_valyria_magic_fire_magic.028.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_fire_magic.028.f.toast.tt:0 "$zz_valyria_magic_fire_magic.028.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_fire_magic_029.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_trsw$\n\nThe use of the arcane forces of [fire_magic|E] to burn one of the selected subject's personality traits away, leaving its opposite in its place.\n\nFire tests all things and turns them to their opposite: the cold to warmth, the hard to ash, the coward to the brave."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_fire_magic.029.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.029.name$"
+  zz_valyria_magic_fire_magic.029.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe subject walks barefoot over hot coals while the caster chants. Halfway across, something in them turns over."
+  zz_valyria_magic_fire_magic.029.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster holds the subject's hand in the flame of a single candle. It does not burn them, but something else burns instead."
+  zz_valyria_magic_fire_magic.029.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA brand bearing the subject's sign is heated until it glows white and pressed to an iron mirror. When the subject looks into it, a stranger looks back."
+  zz_valyria_magic_fire_magic.029.opt.a:0 "Put them to the trial."
+  zz_valyria_magic_fire_magic.029.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_fire_magic.029.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.029.name$"
+  zz_valyria_magic_fire_magic.029.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ putting [recipient.GetFirstName] to the trial by fire."
+  zz_valyria_magic_fire_magic.029.toast.tt:0 "$zz_valyria_magic_fire_magic.029.toast.desc$"
+
+  zz_valyria_magic_fire_magic.029.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.029.name$"
+  zz_valyria_magic_fire_magic.029.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_fire_magic.029.f.toast.tt:0 "$zz_valyria_magic_fire_magic.029.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_fire_magic_030.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_arep$\n\nThe use of the arcane forces of [fire_magic|E] to repair one of the selected subject's artifacts, restoring two durability for every point of the caster's skill.\n\nWhatever was made in fire can be remade in it."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_fire_magic.030.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.030.name$"
+  zz_valyria_magic_fire_magic.030.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe artifact is laid in the coals and left there. When it is drawn out, it is whole again, and cool to the touch."
+  zz_valyria_magic_fire_magic.030.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster passes a flame along every crack and seam, and the cracks close behind it like water."
+  zz_valyria_magic_fire_magic.030.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA smith's hammer is heated in the caster's own hands and struck once, and the worn thing rings like new."
+  zz_valyria_magic_fire_magic.030.opt.a:0 "Reforge it."
+  zz_valyria_magic_fire_magic.030.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_fire_magic.030.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.030.name$"
+  zz_valyria_magic_fire_magic.030.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ reforging an artifact of [recipient.GetFirstName]."
+  zz_valyria_magic_fire_magic.030.toast.tt:0 "$zz_valyria_magic_fire_magic.030.toast.desc$"
+
+  zz_valyria_magic_fire_magic.030.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.030.name$"
+  zz_valyria_magic_fire_magic.030.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_fire_magic.030.f.toast.tt:0 "$zz_valyria_magic_fire_magic.030.f.toast.desc$"
+
+  ## Interaction
+  zz_valyria_magic_fire_magic_031.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_tc$\n$zz_dall$\n\nThe use of the arcane forces of [fire_magic|E] to end the alliance between the selected subject and one of their allies.\n\nAn alliance is a bridge between two houses. Fire takes bridges first."
+
+  ## Spell Options
+  ## event
+  zz_valyria_magic_fire_magic.031.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.031.name$"
+  zz_valyria_magic_fire_magic.031.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster draws two banners on a sheet of paper and touches a flame to the fold between them."
+  zz_valyria_magic_fire_magic.031.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA rope is knotted between two rings and held over the fire until it parts."
+  zz_valyria_magic_fire_magic.031.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster burns a copy of the treaty, and far away the ink on the original fades to nothing."
+  zz_valyria_magic_fire_magic.031.opt.a:0 "Burn the bridge."
+  zz_valyria_magic_fire_magic.031.opt.z:0 "No, do not cast!"
+
+  zz_valyria_magic_fire_magic.031.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.031.name$"
+  zz_valyria_magic_fire_magic.031.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ burning the bridges of [recipient.GetFirstName]."
+  zz_valyria_magic_fire_magic.031.toast.tt:0 "$zz_valyria_magic_fire_magic.031.toast.desc$"
+
+  zz_valyria_magic_fire_magic.031.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.031.name$"
+  zz_valyria_magic_fire_magic.031.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_fire_magic.031.f.toast.tt:0 "$zz_valyria_magic_fire_magic.031.f.toast.desc$"
+
+  # Fire 032 - the Terror of Flame (Dread)
+  zz_valyria_magic_fire_magic_032.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_dread$\n$zz_dury$\n\nThe use of the arcane forces of [fire_magic|E] to show the realm what its ruler commands.\n\nThe commander gains [dread|E], growing with the caster's mastery, and for some years that dread fades at half the rate.\n\nThe fire-mages of the Freehold knew that a city need only see one tower burn to remember the sight for a generation."
+  zz_valyria_magic_fire_magic.032.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.032.name$"
+  zz_valyria_magic_fire_magic.032.desc:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nBefore the assembled court, the caster lifts a hand, and every torch and brazier in the hall roars up to the ceiling at once. When the flames sink back, no one dares to speak.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set the fear of fire into [actor.GetFirstName]'s realm. Will you light it?"
+  zz_valyria_magic_fire_magic.032.desc_02:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nA pillar of fire rises over the commander's seat at dusk, visible for leagues, and burns all night without fuel. By morning, every vassal in the realm has heard of it.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set the fear of fire into [actor.GetFirstName]'s realm. Will you light it?"
+  zz_valyria_magic_fire_magic.032.desc_03:0 "[secondary_recipient.Custom('zz_valyria_magic_cast_opener_fire_magic')]\n\nThe caster breathes upon a captured banner and it burns white, then black, then is gone. The ashes are sent, without a word, to all who might think of defiance.\n\n[secondary_recipient.Custom('zz_valyria_magic_cast_moment')] You may set the fear of fire into [actor.GetFirstName]'s realm. Will you light it?"
+  zz_valyria_magic_fire_magic.032.opt.a:0 "Let them fear the flame."
+  zz_valyria_magic_fire_magic.032.opt.z:0 "No, keep the fire banked."
+  zz_valyria_magic_fire_magic.032.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.032.name$"
+  zz_valyria_magic_fire_magic.032.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ setting the realm in terror of the flame."
+  zz_valyria_magic_fire_magic.032.toast.tt:0 "$zz_valyria_magic_fire_magic.032.toast.desc$"
+  zz_valyria_magic_fire_magic.032.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.032.name$"
+  zz_valyria_magic_fire_magic.032.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$ as the flames gutter and die unseen."
+  zz_valyria_magic_fire_magic.032.f.toast.tt:0 "$zz_valyria_magic_fire_magic.032.f.toast.desc$"
+
+  # Fire 033 - Searing Brand (Single Combat)
+  zz_valyria_magic_fire_magic_033.tooltip.desc:0 "Effects:\n$zz_dop$\n$zz_duel_move$\n$zz_duel_skill$\n\nThe use of the arcane forces of [fire_magic|E] to sear a brand into the foe's flesh, so that every blow they strike afterwards costs them dear.\n\nThe foe's injury risk rises, the more so with greater skill in Fire Magic."
+  zz_valyria_magic_fire_magic.033.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.033.name$"
+  zz_valyria_magic_fire_magic.033.desc:0 "This [zz_mystery|E] is worked only in [single_combat_fight|E]."
+  zz_valyria_magic_fire_magic.033.opt.z:0 "Very well."
+  zz_valyria_magic_fire_magic.033.toast.t:0 "[fire_magic|E] - $zz_valyria_magic_fire_magic.033.name$"
+  zz_valyria_magic_fire_magic.033.toast.desc:0 "$zz_toast_01$ [fire_magic|E], $zz_toast_02$ in single combat."
+  zz_valyria_magic_fire_magic.033.toast.tt:0 "$zz_valyria_magic_fire_magic.033.toast.desc$"
+  zz_valyria_magic_fire_magic.033.f.toast.t:0 "Failure [fire_magic|E] - $zz_valyria_magic_fire_magic.033.name$"
+  zz_valyria_magic_fire_magic.033.f.toast.desc:0 "$zz_toast_01$ [fire_magic],$zz_toast_02$ $zz_toast_03$."
+  zz_valyria_magic_fire_magic.033.f.toast.tt:0 "$zz_valyria_magic_fire_magic.033.f.toast.desc$"

@@ -29,7 +29,49 @@ zz_valyria_magic_further_education.0099 = {
 zz_valyria_magic_further_education.0001 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.0001.t
-	desc = zz_valyria_magic_further_education.0001.desc
+	desc = {
+		# Event flavour variants
+		desc = zz_valyria_magic_further_education.0001.desc
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.water_magic
+			}
+		}
+		random_valid = {
+			desc = zz_valyria_magic_further_education.0001.desc.variant.1
+			desc = zz_valyria_magic_further_education.0001.desc.variant.2
+			desc = zz_valyria_magic_further_education.0001.desc.variant.3
+		}
+	}
 	theme = befriend_scheme
 
 	left_portrait = root
@@ -132,7 +174,16 @@ zz_valyria_magic_further_education.0001 = {
 zz_valyria_magic_further_education.0002 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.0002.t
-	desc = zz_valyria_magic_further_education.0002.desc
+	desc = {
+		# Event flavour variants
+		desc = zz_valyria_magic_further_education.0002.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.0002.desc.variant.1
+			desc = zz_valyria_magic_further_education.0002.desc.variant.2
+			desc = zz_valyria_magic_further_education.0002.desc.variant.3
+			desc = zz_valyria_magic_further_education.0002.desc.variant.4
+		}
+	}
 	theme = befriend_scheme
 
 	left_portrait = root
@@ -156,7 +207,77 @@ zz_valyria_magic_further_education.0002 = {
 zz_valyria_magic_further_education.1000 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1000.t
-	desc = zz_valyria_magic_further_education.1000.desc
+	desc = {
+		# Event flavour variants
+		desc = zz_valyria_magic_further_education.1000.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.setting.1
+			desc = zz_valyria_magic_further_education.desc.setting.2
+			desc = zz_valyria_magic_further_education.desc.setting.3
+			desc = zz_valyria_magic_further_education.desc.setting.4
+			desc = zz_valyria_magic_further_education.desc.setting.5
+			desc = zz_valyria_magic_further_education.desc.setting.6
+			desc = zz_valyria_magic_further_education.desc.setting.7
+			triggered_desc = {
+				trigger = { has_trait = diligent }
+				desc = zz_valyria_magic_further_education.desc.setting.diligent
+			}
+			triggered_desc = {
+				trigger = { has_trait = lazy }
+				desc = zz_valyria_magic_further_education.desc.setting.lazy
+			}
+			triggered_desc = {
+				trigger = { has_trait = patient }
+				desc = zz_valyria_magic_further_education.desc.setting.patient
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.setting.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = paranoid }
+				desc = zz_valyria_magic_further_education.desc.setting.paranoid
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.setting.arrogant
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.water_magic
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -287,7 +408,51 @@ zz_valyria_magic_further_education.1000 = {
 zz_valyria_magic_further_education.1001 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1001.t
-	desc = zz_valyria_magic_further_education.1001.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1001.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.success.1
+			desc = zz_valyria_magic_further_education.desc.success.2
+			desc = zz_valyria_magic_further_education.desc.success.3
+			desc = zz_valyria_magic_further_education.desc.success.4
+			desc = zz_valyria_magic_further_education.desc.success.5
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -325,7 +490,66 @@ zz_valyria_magic_further_education.1001 = {
 zz_valyria_magic_further_education.1002 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1002.t
-	desc = zz_valyria_magic_further_education.1002.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1002.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.failure.1
+			desc = zz_valyria_magic_further_education.desc.failure.2
+			desc = zz_valyria_magic_further_education.desc.failure.3
+			desc = zz_valyria_magic_further_education.desc.failure.4
+			triggered_desc = {
+				trigger = { has_trait = stubborn }
+				desc = zz_valyria_magic_further_education.desc.failure.stubborn
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.failure.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = humble }
+				desc = zz_valyria_magic_further_education.desc.failure.humble
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.failure.arrogant
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -366,7 +590,77 @@ zz_valyria_magic_further_education.1002 = {
 zz_valyria_magic_further_education.1010 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1010.t
-	desc = zz_valyria_magic_further_education.1010.desc
+	desc = {
+		# Event flavour variants
+		desc = zz_valyria_magic_further_education.1010.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.setting.1
+			desc = zz_valyria_magic_further_education.desc.setting.2
+			desc = zz_valyria_magic_further_education.desc.setting.3
+			desc = zz_valyria_magic_further_education.desc.setting.4
+			desc = zz_valyria_magic_further_education.desc.setting.5
+			desc = zz_valyria_magic_further_education.desc.setting.6
+			desc = zz_valyria_magic_further_education.desc.setting.7
+			triggered_desc = {
+				trigger = { has_trait = diligent }
+				desc = zz_valyria_magic_further_education.desc.setting.diligent
+			}
+			triggered_desc = {
+				trigger = { has_trait = lazy }
+				desc = zz_valyria_magic_further_education.desc.setting.lazy
+			}
+			triggered_desc = {
+				trigger = { has_trait = patient }
+				desc = zz_valyria_magic_further_education.desc.setting.patient
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.setting.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = paranoid }
+				desc = zz_valyria_magic_further_education.desc.setting.paranoid
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.setting.arrogant
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.water_magic
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -455,7 +749,51 @@ zz_valyria_magic_further_education.1010 = {
 zz_valyria_magic_further_education.1011 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1011.t
-	desc = zz_valyria_magic_further_education.1011.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1011.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.success.1
+			desc = zz_valyria_magic_further_education.desc.success.2
+			desc = zz_valyria_magic_further_education.desc.success.3
+			desc = zz_valyria_magic_further_education.desc.success.4
+			desc = zz_valyria_magic_further_education.desc.success.5
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -480,7 +818,66 @@ zz_valyria_magic_further_education.1011 = {
 zz_valyria_magic_further_education.1012 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1012.t
-	desc = zz_valyria_magic_further_education.1012.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1012.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.failure.1
+			desc = zz_valyria_magic_further_education.desc.failure.2
+			desc = zz_valyria_magic_further_education.desc.failure.3
+			desc = zz_valyria_magic_further_education.desc.failure.4
+			triggered_desc = {
+				trigger = { has_trait = stubborn }
+				desc = zz_valyria_magic_further_education.desc.failure.stubborn
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.failure.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = humble }
+				desc = zz_valyria_magic_further_education.desc.failure.humble
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.failure.arrogant
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -506,7 +903,77 @@ zz_valyria_magic_further_education.1012 = {
 zz_valyria_magic_further_education.1020 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1020.t
-	desc = zz_valyria_magic_further_education.1020.desc
+	desc = {
+		# Event flavour variants
+		desc = zz_valyria_magic_further_education.1020.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.setting.1
+			desc = zz_valyria_magic_further_education.desc.setting.2
+			desc = zz_valyria_magic_further_education.desc.setting.3
+			desc = zz_valyria_magic_further_education.desc.setting.4
+			desc = zz_valyria_magic_further_education.desc.setting.5
+			desc = zz_valyria_magic_further_education.desc.setting.6
+			desc = zz_valyria_magic_further_education.desc.setting.7
+			triggered_desc = {
+				trigger = { has_trait = diligent }
+				desc = zz_valyria_magic_further_education.desc.setting.diligent
+			}
+			triggered_desc = {
+				trigger = { has_trait = lazy }
+				desc = zz_valyria_magic_further_education.desc.setting.lazy
+			}
+			triggered_desc = {
+				trigger = { has_trait = patient }
+				desc = zz_valyria_magic_further_education.desc.setting.patient
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.setting.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = paranoid }
+				desc = zz_valyria_magic_further_education.desc.setting.paranoid
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.setting.arrogant
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.water_magic
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -603,7 +1070,51 @@ zz_valyria_magic_further_education.1020 = {
 zz_valyria_magic_further_education.1021 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1021.t
-	desc = zz_valyria_magic_further_education.1021.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1021.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.success.1
+			desc = zz_valyria_magic_further_education.desc.success.2
+			desc = zz_valyria_magic_further_education.desc.success.3
+			desc = zz_valyria_magic_further_education.desc.success.4
+			desc = zz_valyria_magic_further_education.desc.success.5
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -628,7 +1139,66 @@ zz_valyria_magic_further_education.1021 = {
 zz_valyria_magic_further_education.1022 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1022.t
-	desc = zz_valyria_magic_further_education.1022.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1022.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.failure.1
+			desc = zz_valyria_magic_further_education.desc.failure.2
+			desc = zz_valyria_magic_further_education.desc.failure.3
+			desc = zz_valyria_magic_further_education.desc.failure.4
+			triggered_desc = {
+				trigger = { has_trait = stubborn }
+				desc = zz_valyria_magic_further_education.desc.failure.stubborn
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.failure.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = humble }
+				desc = zz_valyria_magic_further_education.desc.failure.humble
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.failure.arrogant
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -652,7 +1222,77 @@ zz_valyria_magic_further_education.1022 = {
 zz_valyria_magic_further_education.1030 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1030.t
-	desc = zz_valyria_magic_further_education.1030.desc
+	desc = {
+		# Event flavour variants
+		desc = zz_valyria_magic_further_education.1030.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.setting.1
+			desc = zz_valyria_magic_further_education.desc.setting.2
+			desc = zz_valyria_magic_further_education.desc.setting.3
+			desc = zz_valyria_magic_further_education.desc.setting.4
+			desc = zz_valyria_magic_further_education.desc.setting.5
+			desc = zz_valyria_magic_further_education.desc.setting.6
+			desc = zz_valyria_magic_further_education.desc.setting.7
+			triggered_desc = {
+				trigger = { has_trait = diligent }
+				desc = zz_valyria_magic_further_education.desc.setting.diligent
+			}
+			triggered_desc = {
+				trigger = { has_trait = lazy }
+				desc = zz_valyria_magic_further_education.desc.setting.lazy
+			}
+			triggered_desc = {
+				trigger = { has_trait = patient }
+				desc = zz_valyria_magic_further_education.desc.setting.patient
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.setting.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = paranoid }
+				desc = zz_valyria_magic_further_education.desc.setting.paranoid
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.setting.arrogant
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.water_magic
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -749,7 +1389,51 @@ zz_valyria_magic_further_education.1030 = {
 zz_valyria_magic_further_education.1031 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1031.t
-	desc = zz_valyria_magic_further_education.1031.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1031.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.success.1
+			desc = zz_valyria_magic_further_education.desc.success.2
+			desc = zz_valyria_magic_further_education.desc.success.3
+			desc = zz_valyria_magic_further_education.desc.success.4
+			desc = zz_valyria_magic_further_education.desc.success.5
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -774,7 +1458,66 @@ zz_valyria_magic_further_education.1031 = {
 zz_valyria_magic_further_education.1032 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1032.t
-	desc = zz_valyria_magic_further_education.1032.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1032.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.failure.1
+			desc = zz_valyria_magic_further_education.desc.failure.2
+			desc = zz_valyria_magic_further_education.desc.failure.3
+			desc = zz_valyria_magic_further_education.desc.failure.4
+			triggered_desc = {
+				trigger = { has_trait = stubborn }
+				desc = zz_valyria_magic_further_education.desc.failure.stubborn
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.failure.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = humble }
+				desc = zz_valyria_magic_further_education.desc.failure.humble
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.failure.arrogant
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -799,7 +1542,77 @@ zz_valyria_magic_further_education.1032 = {
 zz_valyria_magic_further_education.1040 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1040.t
-	desc = zz_valyria_magic_further_education.1040.desc
+	desc = {
+		# Event flavour variants
+		desc = zz_valyria_magic_further_education.1040.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.setting.1
+			desc = zz_valyria_magic_further_education.desc.setting.2
+			desc = zz_valyria_magic_further_education.desc.setting.3
+			desc = zz_valyria_magic_further_education.desc.setting.4
+			desc = zz_valyria_magic_further_education.desc.setting.5
+			desc = zz_valyria_magic_further_education.desc.setting.6
+			desc = zz_valyria_magic_further_education.desc.setting.7
+			triggered_desc = {
+				trigger = { has_trait = diligent }
+				desc = zz_valyria_magic_further_education.desc.setting.diligent
+			}
+			triggered_desc = {
+				trigger = { has_trait = lazy }
+				desc = zz_valyria_magic_further_education.desc.setting.lazy
+			}
+			triggered_desc = {
+				trigger = { has_trait = patient }
+				desc = zz_valyria_magic_further_education.desc.setting.patient
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.setting.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = paranoid }
+				desc = zz_valyria_magic_further_education.desc.setting.paranoid
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.setting.arrogant
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.water_magic
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -896,7 +1709,51 @@ zz_valyria_magic_further_education.1040 = {
 zz_valyria_magic_further_education.1041 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1041.t
-	desc = zz_valyria_magic_further_education.1041.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1041.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.success.1
+			desc = zz_valyria_magic_further_education.desc.success.2
+			desc = zz_valyria_magic_further_education.desc.success.3
+			desc = zz_valyria_magic_further_education.desc.success.4
+			desc = zz_valyria_magic_further_education.desc.success.5
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -921,7 +1778,66 @@ zz_valyria_magic_further_education.1041 = {
 zz_valyria_magic_further_education.1042 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1042.t
-	desc = zz_valyria_magic_further_education.1042.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1042.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.failure.1
+			desc = zz_valyria_magic_further_education.desc.failure.2
+			desc = zz_valyria_magic_further_education.desc.failure.3
+			desc = zz_valyria_magic_further_education.desc.failure.4
+			triggered_desc = {
+				trigger = { has_trait = stubborn }
+				desc = zz_valyria_magic_further_education.desc.failure.stubborn
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.failure.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = humble }
+				desc = zz_valyria_magic_further_education.desc.failure.humble
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.failure.arrogant
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -945,7 +1861,77 @@ zz_valyria_magic_further_education.1042 = {
 zz_valyria_magic_further_education.1050 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1050.t
-	desc = zz_valyria_magic_further_education.1050.desc
+	desc = {
+		# Event flavour variants
+		desc = zz_valyria_magic_further_education.1050.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.setting.1
+			desc = zz_valyria_magic_further_education.desc.setting.2
+			desc = zz_valyria_magic_further_education.desc.setting.3
+			desc = zz_valyria_magic_further_education.desc.setting.4
+			desc = zz_valyria_magic_further_education.desc.setting.5
+			desc = zz_valyria_magic_further_education.desc.setting.6
+			desc = zz_valyria_magic_further_education.desc.setting.7
+			triggered_desc = {
+				trigger = { has_trait = diligent }
+				desc = zz_valyria_magic_further_education.desc.setting.diligent
+			}
+			triggered_desc = {
+				trigger = { has_trait = lazy }
+				desc = zz_valyria_magic_further_education.desc.setting.lazy
+			}
+			triggered_desc = {
+				trigger = { has_trait = patient }
+				desc = zz_valyria_magic_further_education.desc.setting.patient
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.setting.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = paranoid }
+				desc = zz_valyria_magic_further_education.desc.setting.paranoid
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.setting.arrogant
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.water_magic
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -1042,7 +2028,51 @@ zz_valyria_magic_further_education.1050 = {
 zz_valyria_magic_further_education.1051 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1051.t
-	desc = zz_valyria_magic_further_education.1051.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1051.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.success.1
+			desc = zz_valyria_magic_further_education.desc.success.2
+			desc = zz_valyria_magic_further_education.desc.success.3
+			desc = zz_valyria_magic_further_education.desc.success.4
+			desc = zz_valyria_magic_further_education.desc.success.5
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -1067,7 +2097,66 @@ zz_valyria_magic_further_education.1051 = {
 zz_valyria_magic_further_education.1052 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1052.t
-	desc = zz_valyria_magic_further_education.1052.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1052.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.failure.1
+			desc = zz_valyria_magic_further_education.desc.failure.2
+			desc = zz_valyria_magic_further_education.desc.failure.3
+			desc = zz_valyria_magic_further_education.desc.failure.4
+			triggered_desc = {
+				trigger = { has_trait = stubborn }
+				desc = zz_valyria_magic_further_education.desc.failure.stubborn
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.failure.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = humble }
+				desc = zz_valyria_magic_further_education.desc.failure.humble
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.failure.arrogant
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -1090,7 +2179,77 @@ zz_valyria_magic_further_education.1052 = {
 zz_valyria_magic_further_education.1060 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1060.t
-	desc = zz_valyria_magic_further_education.1060.desc
+	desc = {
+		# Event flavour variants
+		desc = zz_valyria_magic_further_education.1060.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.setting.1
+			desc = zz_valyria_magic_further_education.desc.setting.2
+			desc = zz_valyria_magic_further_education.desc.setting.3
+			desc = zz_valyria_magic_further_education.desc.setting.4
+			desc = zz_valyria_magic_further_education.desc.setting.5
+			desc = zz_valyria_magic_further_education.desc.setting.6
+			desc = zz_valyria_magic_further_education.desc.setting.7
+			triggered_desc = {
+				trigger = { has_trait = diligent }
+				desc = zz_valyria_magic_further_education.desc.setting.diligent
+			}
+			triggered_desc = {
+				trigger = { has_trait = lazy }
+				desc = zz_valyria_magic_further_education.desc.setting.lazy
+			}
+			triggered_desc = {
+				trigger = { has_trait = patient }
+				desc = zz_valyria_magic_further_education.desc.setting.patient
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.setting.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = paranoid }
+				desc = zz_valyria_magic_further_education.desc.setting.paranoid
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.setting.arrogant
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.water_magic
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -1180,7 +2339,51 @@ zz_valyria_magic_further_education.1060 = {
 zz_valyria_magic_further_education.1061 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1061.t
-	desc = zz_valyria_magic_further_education.1061.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1061.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.success.1
+			desc = zz_valyria_magic_further_education.desc.success.2
+			desc = zz_valyria_magic_further_education.desc.success.3
+			desc = zz_valyria_magic_further_education.desc.success.4
+			desc = zz_valyria_magic_further_education.desc.success.5
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -1204,7 +2407,66 @@ zz_valyria_magic_further_education.1061 = {
 zz_valyria_magic_further_education.1062 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1062.t
-	desc = zz_valyria_magic_further_education.1062.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1062.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.failure.1
+			desc = zz_valyria_magic_further_education.desc.failure.2
+			desc = zz_valyria_magic_further_education.desc.failure.3
+			desc = zz_valyria_magic_further_education.desc.failure.4
+			triggered_desc = {
+				trigger = { has_trait = stubborn }
+				desc = zz_valyria_magic_further_education.desc.failure.stubborn
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.failure.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = humble }
+				desc = zz_valyria_magic_further_education.desc.failure.humble
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.failure.arrogant
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -1230,7 +2492,77 @@ zz_valyria_magic_further_education.1062 = {
 zz_valyria_magic_further_education.1070 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1070.t
-	desc = zz_valyria_magic_further_education.1070.desc
+	desc = {
+		# Event flavour variants
+		desc = zz_valyria_magic_further_education.1070.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.setting.1
+			desc = zz_valyria_magic_further_education.desc.setting.2
+			desc = zz_valyria_magic_further_education.desc.setting.3
+			desc = zz_valyria_magic_further_education.desc.setting.4
+			desc = zz_valyria_magic_further_education.desc.setting.5
+			desc = zz_valyria_magic_further_education.desc.setting.6
+			desc = zz_valyria_magic_further_education.desc.setting.7
+			triggered_desc = {
+				trigger = { has_trait = diligent }
+				desc = zz_valyria_magic_further_education.desc.setting.diligent
+			}
+			triggered_desc = {
+				trigger = { has_trait = lazy }
+				desc = zz_valyria_magic_further_education.desc.setting.lazy
+			}
+			triggered_desc = {
+				trigger = { has_trait = patient }
+				desc = zz_valyria_magic_further_education.desc.setting.patient
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.setting.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = paranoid }
+				desc = zz_valyria_magic_further_education.desc.setting.paranoid
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.setting.arrogant
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.focus.water_magic
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -1320,7 +2652,51 @@ zz_valyria_magic_further_education.1070 = {
 zz_valyria_magic_further_education.1071 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1071.t
-	desc = zz_valyria_magic_further_education.1071.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_win.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1071.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.success.1
+			desc = zz_valyria_magic_further_education.desc.success.2
+			desc = zz_valyria_magic_further_education.desc.success.3
+			desc = zz_valyria_magic_further_education.desc.success.4
+			desc = zz_valyria_magic_further_education.desc.success.5
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction
@@ -1344,7 +2720,66 @@ zz_valyria_magic_further_education.1071 = {
 zz_valyria_magic_further_education.1072 = {
 	type = character_event
 	title = zz_valyria_magic_further_education.1072.t
-	desc = zz_valyria_magic_further_education.1072.desc
+	desc = {
+		# Event flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:generalist_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.generalist_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:blood_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.blood_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:dream_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.dream_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:shadow_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:air_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.air_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:fire_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.fire_magic
+			}
+			triggered_desc = {
+				trigger = { var:current_school_of_magic ?= flag:water_magic }
+				desc = zz_valyria_magic_further_education.desc.school_lose.water_magic
+			}
+		}
+		desc = zz_valyria_magic_further_education.1072.desc
+		random_valid = {
+			desc = zz_valyria_magic_further_education.desc.failure.1
+			desc = zz_valyria_magic_further_education.desc.failure.2
+			desc = zz_valyria_magic_further_education.desc.failure.3
+			desc = zz_valyria_magic_further_education.desc.failure.4
+			triggered_desc = {
+				trigger = { has_trait = stubborn }
+				desc = zz_valyria_magic_further_education.desc.failure.stubborn
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_further_education.desc.failure.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = humble }
+				desc = zz_valyria_magic_further_education.desc.failure.humble
+			}
+			triggered_desc = {
+				trigger = { has_trait = arrogant }
+				desc = zz_valyria_magic_further_education.desc.failure.arrogant
+			}
+		}
+	}
 	theme = university
 	override_background = {
 		reference = zz_magical_eduction

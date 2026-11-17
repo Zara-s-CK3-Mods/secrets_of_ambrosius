@@ -59,6 +59,64 @@ zz_valyria_magic_contracts.0002 = {
 
 	immediate = {
 		scope:ongoing_contract = {
+			save_scope_as = task_contract
+			task_contract_employer ?= { save_scope_as = employer }
+			if = {
+				limit = { has_task_contract_type = zz_valyria_magic_practical_magic_experiments_higher_mysteries }
+				save_scope_value_as = {
+					name = experiments_type
+					value = flag:higher_mysteries
+				}
+			}
+			if = {
+				limit = { has_task_contract_type = zz_valyria_magic_practical_magic_experiments_blood_magic }
+				save_scope_value_as = {
+					name = experiments_type
+					value = flag:blood_magic
+				}
+			}
+			if = {
+				limit = { has_task_contract_type = zz_valyria_magic_practical_magic_experiments_dream_magic }
+				save_scope_value_as = {
+					name = experiments_type
+					value = flag:dream_magic
+				}
+			}
+			if = {
+				limit = { has_task_contract_type = zz_valyria_magic_practical_magic_experiments_alchemy_magic }
+				save_scope_value_as = {
+					name = experiments_type
+					value = flag:alchemy_magic
+				}
+			}
+			if = {
+				limit = { has_task_contract_type = zz_valyria_magic_practical_magic_experiments_shadow_magic }
+				save_scope_value_as = {
+					name = experiments_type
+					value = flag:shadow_magic
+				}
+			}
+			if = {
+				limit = { has_task_contract_type = zz_valyria_magic_practical_magic_experiments_air_magic }
+				save_scope_value_as = {
+					name = experiments_type
+					value = flag:air_magic
+				}
+			}
+			if = {
+				limit = { has_task_contract_type = zz_valyria_magic_practical_magic_experiments_fire_magic }
+				save_scope_value_as = {
+					name = experiments_type
+					value = flag:fire_magic
+				}
+			}
+			if = {
+				limit = { has_task_contract_type = zz_valyria_magic_practical_magic_experiments_water_magic }
+				save_scope_value_as = {
+					name = experiments_type
+					value = flag:water_magic
+				}
+			}
 			switch = {
 				trigger = has_task_contract_type
 				zz_valyria_magic_visit_library = {
@@ -94,6 +152,9 @@ zz_valyria_magic_contracts.0002 = {
 				zz_valyria_magic_study_magic_mystery = {
 					scope:contract_taker = { trigger_event = zz_valyria_magic_contracts.00091 }
 				}
+				zz_valyria_magic_forge_valyrian_steel_ingot = {
+					scope:contract_taker = { trigger_event = zz_valyria_magic_contracts.00501 }
+				}
 				zz_valyria_magic_dream_magic_066 = {
 					scope:contract_taker = { trigger_event = zz_valyria_magic_dream_magic_prophecy_task.0002 }
 				}
@@ -115,8 +176,11 @@ zz_valyria_magic_contracts.0002 = {
 				zz_valyria_magic_dream_magic_072 = {
 					scope:contract_taker = { trigger_event = zz_valyria_magic_dream_magic_prophecy_task.0026 }
 				}
-				zz_valyria_magic_dream_magic_072 = {
+				zz_valyria_magic_dream_magic_073 = {
 					scope:contract_taker = { trigger_event = zz_valyria_magic_dream_magic_prophecy_task.0030 }
+				}
+				zz_valyria_magic_dream_magic_077 = {
+					scope:contract_taker = { trigger_event = zz_valyria_magic_dream_magic_prophecy_task.0042 }
 				}
 			}
 		}
@@ -144,7 +208,26 @@ zz_valyria_magic_contracts.00010 = {
 zz_valyria_magic_contracts.00011 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00011.t
-	desc = zz_valyria_magic_contracts.00011.desc
+	desc = {
+		# Study flavour variants (archives)
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00011.desc.arrival.1
+			desc = zz_valyria_magic_contracts.00011.desc.arrival.2
+			desc = zz_valyria_magic_contracts.00011.desc.arrival.3
+			desc = zz_valyria_magic_contracts.00011.desc.arrival.4
+			desc = zz_valyria_magic_contracts.00011.desc.arrival.5
+		}
+		random_valid = {
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.1
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.2
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.3
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.4
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.5
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.6
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.7
+		}
+		desc = zz_valyria_magic_contracts.00011.desc.warning
+	}
 	theme = learning
 	left_portrait = {
 		character = root
@@ -260,7 +343,7 @@ zz_valyria_magic_contracts.00011 = {
 	# Learning duel.
 	option = {
 		name = zz_valyria_magic_contracts.00011.d
-		trigger = { stewardship < laamp_base_contract_schemes_2661_other_skill_threshold_value }
+		trigger = { learning < laamp_base_contract_schemes_2661_other_skill_threshold_value }
 
 		save_scope_value_as = {
 			name = resolution_type
@@ -312,24 +395,23 @@ zz_valyria_magic_contracts.00012 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00012.t
 	desc = {
+		# Study flavour variants (archives)
 		first_valid = {
 			triggered_desc = {
-				trigger = { scope:resolution_type = flag:stewardship }
+				trigger = { scope:resolution_type ?= flag:stewardship }
 				desc = zz_valyria_magic_contracts.00012.desc.resolution_type.stewardship
 			}
-			triggered_desc = {
-				trigger = { scope:resolution_type = flag:secondary_skill }
-				desc = zz_valyria_magic_contracts.00012.desc.resolution_type.secondary_skill
-			}
+			desc = zz_valyria_magic_contracts.00012.desc.resolution_type.secondary_skill
 		}
-		triggered_desc = {
-			trigger = {
-				NOR = {
-					scope:resolution_type = flag:left_sacrifice
-					scope:resolution_type = flag:camp_purpose
-				}
-			}
-			desc = zz_valyria_magic_contracts.00012.desc.outro
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00012.desc.find.1
+			desc = zz_valyria_magic_contracts.00012.desc.find.2
+			desc = zz_valyria_magic_contracts.00012.desc.find.3
+		}
+		random_valid = {
+			desc = zz_valyria_magic_contracts.archive.desc.success_outro.1
+			desc = zz_valyria_magic_contracts.archive.desc.success_outro.2
+			desc = zz_valyria_magic_contracts.archive.desc.success_outro.3
 		}
 	}
 	theme = learning
@@ -363,18 +445,19 @@ zz_valyria_magic_contracts.00013 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00013.t
 	desc = {
+		# Study flavour variants (archives)
 		first_valid = {
 			triggered_desc = {
-				trigger = { scope:resolution_type = flag:stewardship }
+				trigger = { scope:resolution_type ?= flag:stewardship }
 				desc = zz_valyria_magic_contracts.00013.desc.stewardship
 			}
-			triggered_desc = {
-				trigger = { scope:resolution_type = flag:secondary_skill }
-				desc = zz_valyria_magic_contracts.00013.desc.resolution_type.secondary_skill
-			}
-			
+			desc = zz_valyria_magic_contracts.00013.desc.resolution_type.secondary_skill
 		}
-		desc = zz_valyria_magic_contracts.00013.desc.outro
+		random_valid = {
+			desc = zz_valyria_magic_contracts.archive.desc.failure_outro.1
+			desc = zz_valyria_magic_contracts.archive.desc.failure_outro.2
+			desc = zz_valyria_magic_contracts.archive.desc.failure_outro.3
+		}
 	}
 	theme = learning
 	left_portrait = {
@@ -421,7 +504,25 @@ zz_valyria_magic_contracts.00020 = {
 zz_valyria_magic_contracts.00021 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00021.t
-	desc = zz_valyria_magic_contracts.00021.desc
+	desc = {
+		# Study flavour variants (archives)
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00021.desc.arrival.1
+			desc = zz_valyria_magic_contracts.00021.desc.arrival.2
+			desc = zz_valyria_magic_contracts.00021.desc.arrival.3
+			desc = zz_valyria_magic_contracts.00021.desc.arrival.4
+		}
+		random_valid = {
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.1
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.2
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.3
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.4
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.5
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.6
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.7
+		}
+		desc = zz_valyria_magic_contracts.00021.desc.warning
+	}
 	theme = learning
 	left_portrait = {
 		character = root
@@ -537,7 +638,7 @@ zz_valyria_magic_contracts.00021 = {
 	# Learning duel.
 	option = {
 		name = zz_valyria_magic_contracts.00021.d
-		trigger = { stewardship < laamp_base_contract_schemes_2661_other_skill_threshold_value }
+		trigger = { learning < laamp_base_contract_schemes_2661_other_skill_threshold_value }
 
 		save_scope_value_as = {
 			name = resolution_type
@@ -588,24 +689,23 @@ zz_valyria_magic_contracts.00022 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00022.t
 	desc = {
+		# Study flavour variants (archives)
 		first_valid = {
 			triggered_desc = {
-				trigger = { scope:resolution_type = flag:stewardship }
+				trigger = { scope:resolution_type ?= flag:stewardship }
 				desc = zz_valyria_magic_contracts.00022.desc.resolution_type.stewardship
 			}
-			triggered_desc = {
-				trigger = { scope:resolution_type = flag:secondary_skill }
-				desc = zz_valyria_magic_contracts.00022.desc.resolution_type.secondary_skill
-			}
+			desc = zz_valyria_magic_contracts.00022.desc.resolution_type.secondary_skill
 		}
-		triggered_desc = {
-			trigger = {
-				NOR = {
-					scope:resolution_type = flag:left_sacrifice
-					scope:resolution_type = flag:camp_purpose
-				}
-			}
-			desc = zz_valyria_magic_contracts.00022.desc.outro
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00022.desc.find.1
+			desc = zz_valyria_magic_contracts.00022.desc.find.2
+			desc = zz_valyria_magic_contracts.00022.desc.find.3
+		}
+		random_valid = {
+			desc = zz_valyria_magic_contracts.archive.desc.success_outro.1
+			desc = zz_valyria_magic_contracts.archive.desc.success_outro.2
+			desc = zz_valyria_magic_contracts.archive.desc.success_outro.3
 		}
 	}
 	theme = learning
@@ -639,18 +739,19 @@ zz_valyria_magic_contracts.00023 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00023.t
 	desc = {
+		# Study flavour variants (archives)
 		first_valid = {
 			triggered_desc = {
-				trigger = { scope:resolution_type = flag:stewardship }
+				trigger = { scope:resolution_type ?= flag:stewardship }
 				desc = zz_valyria_magic_contracts.00023.desc.stewardship
 			}
-			triggered_desc = {
-				trigger = { scope:resolution_type = flag:secondary_skill }
-				desc = zz_valyria_magic_contracts.00023.desc.resolution_type.secondary_skill
-			}
-			
+			desc = zz_valyria_magic_contracts.00023.desc.resolution_type.secondary_skill
 		}
-		desc = zz_valyria_magic_contracts.00023.desc.outro
+		random_valid = {
+			desc = zz_valyria_magic_contracts.archive.desc.failure_outro.1
+			desc = zz_valyria_magic_contracts.archive.desc.failure_outro.2
+			desc = zz_valyria_magic_contracts.archive.desc.failure_outro.3
+		}
 	}
 	theme = learning
 	left_portrait = {
@@ -697,7 +798,25 @@ zz_valyria_magic_contracts.00030 = {
 zz_valyria_magic_contracts.00031 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00031.t
-	desc = zz_valyria_magic_contracts.00031.desc
+	desc = {
+		# Study flavour variants (archives)
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00031.desc.arrival.1
+			desc = zz_valyria_magic_contracts.00031.desc.arrival.2
+			desc = zz_valyria_magic_contracts.00031.desc.arrival.3
+			desc = zz_valyria_magic_contracts.00031.desc.arrival.4
+		}
+		random_valid = {
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.1
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.2
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.3
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.4
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.5
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.6
+			desc = zz_valyria_magic_contracts.archive.desc.obstacle.7
+		}
+		desc = zz_valyria_magic_contracts.00031.desc.warning
+	}
 	theme = learning
 	left_portrait = {
 		character = root
@@ -813,7 +932,7 @@ zz_valyria_magic_contracts.00031 = {
 	# Learning duel.
 	option = {
 		name = zz_valyria_magic_contracts.00031.d
-		trigger = { stewardship < laamp_base_contract_schemes_2661_other_skill_threshold_value }
+		trigger = { learning < laamp_base_contract_schemes_2661_other_skill_threshold_value }
 
 		save_scope_value_as = {
 			name = resolution_type
@@ -864,24 +983,23 @@ zz_valyria_magic_contracts.00032 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00032.t
 	desc = {
+		# Study flavour variants (archives)
 		first_valid = {
 			triggered_desc = {
-				trigger = { scope:resolution_type = flag:stewardship }
+				trigger = { scope:resolution_type ?= flag:stewardship }
 				desc = zz_valyria_magic_contracts.00032.desc.resolution_type.stewardship
 			}
-			triggered_desc = {
-				trigger = { scope:resolution_type = flag:secondary_skill }
-				desc = zz_valyria_magic_contracts.00032.desc.resolution_type.secondary_skill
-			}
+			desc = zz_valyria_magic_contracts.00032.desc.resolution_type.secondary_skill
 		}
-		triggered_desc = {
-			trigger = {
-				NOR = {
-					scope:resolution_type = flag:left_sacrifice
-					scope:resolution_type = flag:camp_purpose
-				}
-			}
-			desc = zz_valyria_magic_contracts.00032.desc.outro
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00032.desc.find.1
+			desc = zz_valyria_magic_contracts.00032.desc.find.2
+			desc = zz_valyria_magic_contracts.00032.desc.find.3
+		}
+		random_valid = {
+			desc = zz_valyria_magic_contracts.archive.desc.success_outro.1
+			desc = zz_valyria_magic_contracts.archive.desc.success_outro.2
+			desc = zz_valyria_magic_contracts.archive.desc.success_outro.3
 		}
 	}
 	theme = learning
@@ -915,18 +1033,19 @@ zz_valyria_magic_contracts.00033 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00033.t
 	desc = {
+		# Study flavour variants (archives)
 		first_valid = {
 			triggered_desc = {
-				trigger = { scope:resolution_type = flag:stewardship }
+				trigger = { scope:resolution_type ?= flag:stewardship }
 				desc = zz_valyria_magic_contracts.00033.desc.stewardship
 			}
-			triggered_desc = {
-				trigger = { scope:resolution_type = flag:secondary_skill }
-				desc = zz_valyria_magic_contracts.00033.desc.resolution_type.secondary_skill
-			}
-			
+			desc = zz_valyria_magic_contracts.00033.desc.resolution_type.secondary_skill
 		}
-		desc = zz_valyria_magic_contracts.00033.desc.outro
+		random_valid = {
+			desc = zz_valyria_magic_contracts.archive.desc.failure_outro.1
+			desc = zz_valyria_magic_contracts.archive.desc.failure_outro.2
+			desc = zz_valyria_magic_contracts.archive.desc.failure_outro.3
+		}
 	}
 	theme = learning
 	left_portrait = {
@@ -978,40 +1097,199 @@ zz_valyria_magic_contracts.00101 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00101.t
 	desc = {
-		desc = zz_valyria_magic_contracts.00101.desc
-		triggered_desc = {
-			trigger = { scope:experiments_type = flag:higher_mysteries }
-			desc = zz_valyria_magic_contracts.00101.desc.experiments_type.higher_mysteries
+		# Study flavour variants
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 2 }
+				desc = zz_valyria_magic_contracts.00101.desc.round.2
+			}
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 1 }
+				desc = zz_valyria_magic_contracts.00101.desc.round.3
+			}
+			desc = zz_valyria_magic_contracts.00101.desc
 		}
-		triggered_desc = {
-			trigger = { scope:experiments_type = flag:blood_magic }
-			desc = zz_valyria_magic_contracts.00101.desc.experiments_type.blood_magic
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00101.desc.scene.01
+			desc = zz_valyria_magic_contracts.00101.desc.scene.02
+			desc = zz_valyria_magic_contracts.00101.desc.scene.03
+			desc = zz_valyria_magic_contracts.00101.desc.scene.04
+			desc = zz_valyria_magic_contracts.00101.desc.scene.05
+			desc = zz_valyria_magic_contracts.00101.desc.scene.06
+			desc = zz_valyria_magic_contracts.00101.desc.scene.07
+			desc = zz_valyria_magic_contracts.00101.desc.scene.08
+			desc = zz_valyria_magic_contracts.00101.desc.scene.09
+			desc = zz_valyria_magic_contracts.00101.desc.scene.10
+			desc = zz_valyria_magic_contracts.00101.desc.scene.11
+			desc = zz_valyria_magic_contracts.00101.desc.scene.12
+			triggered_desc = {
+				trigger = { has_trait = paranoid }
+				desc = zz_valyria_magic_contracts.00101.desc.scene.paranoid
+			}
+			triggered_desc = {
+				trigger = { has_trait = diligent }
+				desc = zz_valyria_magic_contracts.00101.desc.scene.diligent
+			}
+			triggered_desc = {
+				trigger = { has_trait = lazy }
+				desc = zz_valyria_magic_contracts.00101.desc.scene.lazy
+			}
+			triggered_desc = {
+				trigger = { has_trait = impatient }
+				desc = zz_valyria_magic_contracts.00101.desc.scene.impatient
+			}
+			triggered_desc = {
+				trigger = { has_trait = brave }
+				desc = zz_valyria_magic_contracts.00101.desc.scene.brave
+			}
+			triggered_desc = {
+				trigger = { has_trait = craven }
+				desc = zz_valyria_magic_contracts.00101.desc.scene.craven
+			}
 		}
-		triggered_desc = {
-			trigger = { scope:experiments_type = flag:dream_magic }
-			desc = zz_valyria_magic_contracts.00101.desc.experiments_type.dream_magic
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 3 scope:experiments_type ?= flag:higher_mysteries }
+				desc = zz_valyria_magic_contracts.00101.desc.experiments_type.higher_mysteries
+			}
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 3 scope:experiments_type ?= flag:blood_magic }
+				desc = zz_valyria_magic_contracts.00101.desc.experiments_type.blood_magic
+			}
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 3 scope:experiments_type ?= flag:dream_magic }
+				desc = zz_valyria_magic_contracts.00101.desc.experiments_type.dream_magic
+			}
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 3 scope:experiments_type ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_contracts.00101.desc.experiments_type.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 3 scope:experiments_type ?= flag:shadow_magic }
+				desc = zz_valyria_magic_contracts.00101.desc.experiments_type.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 3 scope:experiments_type ?= flag:air_magic }
+				desc = zz_valyria_magic_contracts.00101.desc.experiments_type.air_magic
+			}
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 3 scope:experiments_type ?= flag:fire_magic }
+				desc = zz_valyria_magic_contracts.00101.desc.experiments_type.fire_magic
+			}
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 3 scope:experiments_type ?= flag:water_magic }
+				desc = zz_valyria_magic_contracts.00101.desc.experiments_type.water_magic
+			}
+			random_valid = {
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:higher_mysteries }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.higher_mysteries.1
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:higher_mysteries }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.higher_mysteries.2
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:higher_mysteries }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.higher_mysteries.3
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:blood_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.blood_magic.1
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:blood_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.blood_magic.2
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:blood_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.blood_magic.3
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:dream_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.dream_magic.1
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:dream_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.dream_magic.2
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:dream_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.dream_magic.3
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:alchemy_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.alchemy_magic.1
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:alchemy_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.alchemy_magic.2
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:alchemy_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.alchemy_magic.3
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:shadow_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.shadow_magic.1
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:shadow_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.shadow_magic.2
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:shadow_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.shadow_magic.3
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:air_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.air_magic.1
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:air_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.air_magic.2
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:air_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.air_magic.3
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:fire_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.fire_magic.1
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:fire_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.fire_magic.2
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:fire_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.fire_magic.3
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:water_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.water_magic.1
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:water_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.water_magic.2
+				}
+				triggered_desc = {
+					trigger = { scope:experiments_type ?= flag:water_magic }
+					desc = zz_valyria_magic_contracts.00101.desc.progress.water_magic.3
+				}
+			}
 		}
-		triggered_desc = {
-			trigger = { scope:experiments_type = flag:alchemy_magic }
-			desc = zz_valyria_magic_contracts.00101.desc.experiments_type.alchemy_magic
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 3 }
+				desc = zz_valyria_magic_contracts.00101.desc.stakes.3
+			}
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 2 }
+				desc = zz_valyria_magic_contracts.00101.desc.stakes.2
+			}
+			desc = zz_valyria_magic_contracts.00101.desc.stakes.1
 		}
-		triggered_desc = {
-			trigger = { scope:experiments_type = flag:shadow_magic }
-			desc = zz_valyria_magic_contracts.00101.desc.experiments_type.shadow_magic
-		}
-		triggered_desc = {
-			trigger = { scope:experiments_type = flag:air_magic }
-			desc = zz_valyria_magic_contracts.00101.desc.experiments_type.air_magic
-		}
-		triggered_desc = {
-			trigger = { scope:experiments_type = flag:fire_magic }
-			desc = zz_valyria_magic_contracts.00101.desc.experiments_type.fire_magic
-		}
-		triggered_desc = {
-			trigger = { scope:experiments_type = flag:water_magic }
-			desc = zz_valyria_magic_contracts.00101.desc.experiments_type.water_magic
-		}
-		
 	}
 
 	
@@ -1038,7 +1316,42 @@ zz_valyria_magic_contracts.00101 = {
 
 	# Learning auto-win.
 	option = {
-		name = zz_valyria_magic_contracts.00101.a
+		name = {
+			trigger = { scope:experiments_type ?= flag:higher_mysteries }
+			text = zz_valyria_magic_contracts.00101.a.higher_mysteries
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:blood_magic }
+			text = zz_valyria_magic_contracts.00101.a.blood_magic
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:dream_magic }
+			text = zz_valyria_magic_contracts.00101.a.dream_magic
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:alchemy_magic }
+			text = zz_valyria_magic_contracts.00101.a.alchemy_magic
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:shadow_magic }
+			text = zz_valyria_magic_contracts.00101.a.shadow_magic
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:air_magic }
+			text = zz_valyria_magic_contracts.00101.a.air_magic
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:fire_magic }
+			text = zz_valyria_magic_contracts.00101.a.fire_magic
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:water_magic }
+			text = zz_valyria_magic_contracts.00101.a.water_magic
+		}
+		name = {
+			trigger = { always = yes }
+			text = zz_valyria_magic_contracts.00101.a
+		}
 		trigger = { learning >= laamp_base_contract_schemes_2661_other_skill_threshold_value }
 		skill = learning
 
@@ -1065,8 +1378,43 @@ zz_valyria_magic_contracts.00101 = {
 	}
 	# Learning duel.
 	option = {
-		name = zz_valyria_magic_contracts.00101.b
-		trigger = { stewardship < laamp_base_contract_schemes_2661_other_skill_threshold_value }
+		name = {
+			trigger = { scope:experiments_type ?= flag:higher_mysteries }
+			text = zz_valyria_magic_contracts.00101.b.higher_mysteries
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:blood_magic }
+			text = zz_valyria_magic_contracts.00101.b.blood_magic
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:dream_magic }
+			text = zz_valyria_magic_contracts.00101.b.dream_magic
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:alchemy_magic }
+			text = zz_valyria_magic_contracts.00101.b.alchemy_magic
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:shadow_magic }
+			text = zz_valyria_magic_contracts.00101.b.shadow_magic
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:air_magic }
+			text = zz_valyria_magic_contracts.00101.b.air_magic
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:fire_magic }
+			text = zz_valyria_magic_contracts.00101.b.fire_magic
+		}
+		name = {
+			trigger = { scope:experiments_type ?= flag:water_magic }
+			text = zz_valyria_magic_contracts.00101.b.water_magic
+		}
+		name = {
+			trigger = { always = yes }
+			text = zz_valyria_magic_contracts.00101.b
+		}
+		trigger = { learning < laamp_base_contract_schemes_2661_other_skill_threshold_value }
 
 		save_scope_value_as = {
 			name = resolution_type
@@ -1176,15 +1524,48 @@ zz_valyria_magic_contracts.00102 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00102.t
 	desc = {
+		# Study flavour variants
 		first_valid = {
 			triggered_desc = {
-				trigger = { scope:resolution_type = flag:secondary_skill }
-				desc = zz_valyria_magic_contracts.00102.desc.resolution_type.learning
+				trigger = { scope:experiments_type ?= flag:higher_mysteries }
+				desc = zz_valyria_magic_contracts.00102.desc.higher_mysteries
 			}
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:blood_magic }
+				desc = zz_valyria_magic_contracts.00102.desc.blood_magic
+			}
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:dream_magic }
+				desc = zz_valyria_magic_contracts.00102.desc.dream_magic
+			}
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_contracts.00102.desc.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:shadow_magic }
+				desc = zz_valyria_magic_contracts.00102.desc.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:air_magic }
+				desc = zz_valyria_magic_contracts.00102.desc.air_magic
+			}
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:fire_magic }
+				desc = zz_valyria_magic_contracts.00102.desc.fire_magic
+			}
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:water_magic }
+				desc = zz_valyria_magic_contracts.00102.desc.water_magic
+			}
+			desc = zz_valyria_magic_contracts.00102.desc.resolution_type.learning
 		}
-		triggered_desc = {
-			desc = zz_valyria_magic_contracts.00102.desc.outro
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00102.desc.employer.1
+			desc = zz_valyria_magic_contracts.00102.desc.employer.2
+			desc = zz_valyria_magic_contracts.00102.desc.employer.3
 		}
+		desc = zz_valyria_magic_contracts.00102.desc.outro
 	}
 	theme = learning
 	left_portrait = {
@@ -1230,12 +1611,46 @@ zz_valyria_magic_contracts.00103 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00103.t
 	desc = {
+		# Study flavour variants
 		first_valid = {
 			triggered_desc = {
-				trigger = { scope:resolution_type = flag:secondary_skill }
-				desc = zz_valyria_magic_contracts.00103.desc.resolution_type.learning
+				trigger = { scope:experiments_type ?= flag:higher_mysteries }
+				desc = zz_valyria_magic_contracts.00103.desc.higher_mysteries
 			}
-			
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:blood_magic }
+				desc = zz_valyria_magic_contracts.00103.desc.blood_magic
+			}
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:dream_magic }
+				desc = zz_valyria_magic_contracts.00103.desc.dream_magic
+			}
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:alchemy_magic }
+				desc = zz_valyria_magic_contracts.00103.desc.alchemy_magic
+			}
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:shadow_magic }
+				desc = zz_valyria_magic_contracts.00103.desc.shadow_magic
+			}
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:air_magic }
+				desc = zz_valyria_magic_contracts.00103.desc.air_magic
+			}
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:fire_magic }
+				desc = zz_valyria_magic_contracts.00103.desc.fire_magic
+			}
+			triggered_desc = {
+				trigger = { scope:experiments_type ?= flag:water_magic }
+				desc = zz_valyria_magic_contracts.00103.desc.water_magic
+			}
+			desc = zz_valyria_magic_contracts.00103.desc.resolution_type.learning
+		}
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00103.desc.employer.1
+			desc = zz_valyria_magic_contracts.00103.desc.employer.2
+			desc = zz_valyria_magic_contracts.00103.desc.employer.3
 		}
 		desc = zz_valyria_magic_contracts.00103.desc.outro
 	}
@@ -1288,7 +1703,23 @@ zz_valyria_magic_contracts.00090 = {
 zz_valyria_magic_contracts.00091 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00091.t
-	desc = zz_valyria_magic_contracts.00091.desc
+	desc = {
+		# Study flavour variants
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00091.desc.intro.1
+			desc = zz_valyria_magic_contracts.00091.desc.intro.2
+			desc = zz_valyria_magic_contracts.00091.desc.intro.3
+			desc = zz_valyria_magic_contracts.00091.desc.intro.4
+			desc = zz_valyria_magic_contracts.00091.desc.intro.5
+		}
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00091.desc.hint.1
+			desc = zz_valyria_magic_contracts.00091.desc.hint.2
+			desc = zz_valyria_magic_contracts.00091.desc.hint.3
+			desc = zz_valyria_magic_contracts.00091.desc.hint.4
+		}
+		desc = zz_valyria_magic_contracts.00091.desc.body
+	}
 	theme = learning
 	left_portrait = {
 		character = root
@@ -1385,17 +1816,14 @@ zz_valyria_magic_contracts.00092 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00092.t
 	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = { scope:resolution_type = flag:learning }
-				desc = zz_valyria_magic_contracts.00092.desc.resolution_type.learning
-			}
+		# Study flavour variants
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00092.desc.resolution_type.learning
+			desc = zz_valyria_magic_contracts.00092.desc.variant.1
+			desc = zz_valyria_magic_contracts.00092.desc.variant.2
+			desc = zz_valyria_magic_contracts.00092.desc.variant.3
 		}
-		triggered_desc = {
-			trigger = {
-			}
-			desc = zz_valyria_magic_contracts.00092.desc.outro
-		}
+		desc = zz_valyria_magic_contracts.00092.desc.outro
 	}
 	theme = learning
 	left_portrait = {
@@ -1428,13 +1856,12 @@ zz_valyria_magic_contracts.00093 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00093.t
 	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = { scope:resolution_type = flag:learning }
-				desc = zz_valyria_magic_contracts.00093.desc.learning
-			}
-
-			
+		# Study flavour variants
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00093.desc.learning
+			desc = zz_valyria_magic_contracts.00093.desc.variant.1
+			desc = zz_valyria_magic_contracts.00093.desc.variant.2
+			desc = zz_valyria_magic_contracts.00093.desc.variant.3
 		}
 		desc = zz_valyria_magic_contracts.00093.desc.outro
 	}
@@ -1904,12 +2331,43 @@ zz_valyria_magic_contracts.00501 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00501.t
 	desc = {
-		desc = zz_valyria_magic_contracts.00501.desc
-		triggered_desc = {
-			trigger = { }
-			desc = zz_valyria_magic_contracts.00501.desc.experiments_type.dragon_steel
+		# Study flavour variants (archives)
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 2 }
+				desc = zz_valyria_magic_contracts.00501.desc.round.2
+			}
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 1 }
+				desc = zz_valyria_magic_contracts.00501.desc.round.3
+			}
+			desc = zz_valyria_magic_contracts.00501.desc
 		}
-		
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00501.desc.scene.1
+			desc = zz_valyria_magic_contracts.00501.desc.scene.2
+			desc = zz_valyria_magic_contracts.00501.desc.scene.3
+			desc = zz_valyria_magic_contracts.00501.desc.scene.4
+			desc = zz_valyria_magic_contracts.00501.desc.scene.5
+			desc = zz_valyria_magic_contracts.00501.desc.scene.6
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 3 }
+				desc = zz_valyria_magic_contracts.00501.desc.experiments_type.dragon_steel
+			}
+		}
+		first_valid = {
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 3 }
+				desc = zz_valyria_magic_contracts.00501.desc.stakes.3
+			}
+			triggered_desc = {
+				trigger = { scope:task_contract.var:magic_experiments_left ?= 2 }
+				desc = zz_valyria_magic_contracts.00501.desc.stakes.2
+			}
+			desc = zz_valyria_magic_contracts.00501.desc.stakes.1
+		}
 	}
 
 	
@@ -1964,7 +2422,7 @@ zz_valyria_magic_contracts.00501 = {
 	# Learning duel.
 	option = {
 		name = zz_valyria_magic_contracts.00501.b
-		trigger = { stewardship < laamp_base_contract_schemes_2661_other_skill_threshold_value }
+		trigger = { learning < laamp_base_contract_schemes_2661_other_skill_threshold_value }
 
 		save_scope_value_as = {
 			name = resolution_type
@@ -2074,15 +2532,14 @@ zz_valyria_magic_contracts.00502 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00502.t
 	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = { scope:resolution_type = flag:secondary_skill }
-				desc = zz_valyria_magic_contracts.00502.desc.resolution_type.dragon_steel
-			}
+		# Study flavour variants (archives)
+		desc = zz_valyria_magic_contracts.00502.desc.resolution_type.dragon_steel
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00502.desc.variant.1
+			desc = zz_valyria_magic_contracts.00502.desc.variant.2
+			desc = zz_valyria_magic_contracts.00502.desc.variant.3
 		}
-		triggered_desc = {
-			desc = zz_valyria_magic_contracts.00502.desc.outro
-		}
+		desc = zz_valyria_magic_contracts.00502.desc.outro
 	}
 	theme = learning
 	left_portrait = {
@@ -2128,14 +2585,14 @@ zz_valyria_magic_contracts.00503 = {
 	type = character_event
 	title = zz_valyria_magic_contracts.00503.t
 	desc = {
-		first_valid = {
-			triggered_desc = {
-				trigger = { scope:resolution_type = flag:secondary_skill }
-				desc = zz_valyria_magic_contracts.00103.desc.resolution_type.learning
-			}
-			
+		# Study flavour variants (archives)
+		desc = zz_valyria_magic_contracts.00503.desc.resolution_type.dragon_steel
+		random_valid = {
+			desc = zz_valyria_magic_contracts.00503.desc.variant.1
+			desc = zz_valyria_magic_contracts.00503.desc.variant.2
+			desc = zz_valyria_magic_contracts.00503.desc.variant.3
 		}
-		desc = zz_valyria_magic_contracts.00103.desc.outro
+		desc = zz_valyria_magic_contracts.00503.desc.outro
 	}
 	theme = learning
 	left_portrait = {

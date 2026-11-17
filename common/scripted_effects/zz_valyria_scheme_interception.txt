@@ -1,0 +1,218 @@
+﻿# Redefines the game's scheme_unique_interception_roll_effect, which the game keeps separate so mods can replace it.
+# Copied from 00_scheme_scripted_effects.txt; the only change is the block marked "#zz_valyria Modified". Re-copy it on game updates.
+
+scheme_unique_interception_roll_effect = {
+	scope:target = {
+		# These are ordered highest % to lowest %: remember to adjust their position in the list if you adjust their percentage likelihood.
+		## 50% — Saved by soulmate's sacrifice (boosted).
+		if = {
+			limit = {
+				has_perk = mortal_adoration_perk
+				any_relation = {
+					type = soulmate
+					available_lover_to_sacrifice_in_murder_trigger = { TARGET = scope:target }
+				}
+			}
+			random = {
+				chance = 50
+				save_scope_value_as = {
+					name = interception_unique
+					value = flag:sacrifice_lover
+				}
+			}
+		}
+		## 45% — Family Connections dynasty legacy.
+		else_if = {
+			limit = {
+				dynasty ?= { has_dynasty_perk = guile_legacy_5 }
+				NOT = { has_character_flag = guile_legacy_5_save_used }
+			}
+			random = {
+				chance = 45
+				save_scope_value_as = {
+					name = interception_unique
+					value = flag:family_connections_dynleg
+				}
+			}
+		}
+		## 30% — Saved by lover's sacrifice (boosted).
+		else_if = {
+			limit = {
+				has_perk = mortal_adoration_perk
+				any_relation = {
+					type = lover
+					available_lover_to_sacrifice_in_murder_trigger = { TARGET = scope:target }
+				}
+			}
+			random = {
+				chance = 30
+				save_scope_value_as = {
+					name = interception_unique
+					value = flag:sacrifice_lover
+				}
+			}
+		}
+		## 20% — Target's warhorse saves them from hired thugs
+		else_if = {
+			limit = { owns_story_of_type = story_cycle_martial_lifestyle_warhorse }
+			random = {
+				chance = 20
+				save_scope_value_as = {
+					name = interception_unique
+					value = flag:sacrifice_warhorse
+				}
+			}
+		}
+		## 20% — Saved by prison pet.
+		else_if = {
+			limit = {
+				is_imprisoned = yes
+				has_variable = prison_pet_variable
+			}
+			random = {
+				chance = 20
+				save_scope_value_as = {
+					name = interception_unique
+					value = flag:sacrifice_pet_prison
+				}
+			}
+		}
+		## 20% — Saved by soulmate's sacrifice (regular).
+		else_if = {
+			limit = {
+				any_relation = {
+					type = soulmate
+					available_lover_to_sacrifice_in_murder_trigger = { TARGET = scope:target }
+				}
+			}
+			random = {
+				chance = 20
+				save_scope_value_as = {
+					name = interception_unique
+					value = flag:sacrifice_lover
+				}
+			}
+		}
+		## 10% — Saved by lover's sacrifice (regular).
+		else_if = {
+			limit = {
+				any_relation = {
+					type = lover
+					available_lover_to_sacrifice_in_murder_trigger = { TARGET = scope:target }
+				}
+			}
+			random = {
+				chance = 10
+				save_scope_value_as = {
+					name = interception_unique
+					value = flag:sacrifice_lover
+				}
+			}
+		}
+		## 06% — Saved by cat.
+		### Man's _true_ best friend.
+		else_if = {
+			limit = {
+				any_owned_story = { type = story_cycle_pet_cat }
+			}
+			random = {
+				chance = 6
+				save_scope_value_as = {
+					name = interception_unique
+					value = flag:sacrifice_cat
+				}
+			}
+		}
+		## 05% — Saved by dog.
+		else_if = {
+			limit = {
+				any_owned_story = { type = story_cycle_pet_dog }
+			}
+			random = {
+				chance = 5
+				save_scope_value_as = {
+					name = interception_unique
+					value = flag:sacrifice_dog
+				}
+			}
+		}
+		## 03% — Saved by due to bilinguality.
+		else_if = {
+			limit = {
+				knows_language_of_culture = scope:owner.culture
+				NOR = {
+					culture = { has_same_culture_language = scope:owner.culture }
+					AND = {
+						has_variable_list = bilingual_murder_saves
+						is_target_in_variable_list = {
+							name = bilingual_murder_saves
+							target = scope:owner.culture
+						}
+					}
+				}
+			}
+			random = {
+				chance = 3
+				save_scope_value_as = {
+					name = interception_unique
+					value = flag:knowledge_bilingual
+				}
+			}
+		}
+		## 01% — Saved due to mindbreak character.
+		else_if = {
+			limit = {
+				has_variable = mind_broken_victim
+				var:mind_broken_victim = {
+					is_alive = yes
+					is_incapable = no
+				}
+			}
+			random = {
+				chance = 1
+				save_scope_value_as = {
+					name = interception_unique
+					value = flag:sacrifice_mindbreak
+				}
+			}
+		}
+		## 00.5% — Saved by having an artifact.
+		### Special ridiculously low chance because otherwise this event, which has fun loc, will give _every_ character in the title a 1% chance to nullify any scheme against them.
+		else_if = {
+			limit = {
+				is_available_healthy_adult = yes
+				# Gotta be on land.
+				exists = location.barony
+				# And have a suitable artifact.
+				## Which they probably will.
+				### Statistically almost always, in fact.
+				has_any_artifact = yes
+				any_character_artifact = {
+					NOT = {  has_variable = saved_from_assassination }
+				}
+			}
+			# Don't tell anyone this is even a possibility, as otherwise it's gonna look weird in the tooltips.
+			hidden_effect = {
+				random = {
+					chance = 1
+					# And then reduce the chance even further.
+					random = {
+						chance = 50
+						save_scope_value_as = {
+							name = interception_unique
+							value = flag:sacrifice_artifact
+						}
+					}
+				}
+			}
+		}
+		#zz_valyria Modified: a Soothsaying (Assassination) vision always saves the target. Last, so it wins over the rolls above
+		if = {
+			limit = { zz_valyria_assassination_ward_trigger = yes }
+			save_scope_value_as = {
+				name = interception_unique
+				value = flag:zz_soothsaying_vision
+			}
+		}
+	}
+}

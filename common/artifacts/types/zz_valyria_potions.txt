@@ -1,0 +1,4 @@
+﻿# Potions: single-use items made by Potion Making (Alchemy 025) and given with the Administer Potion interaction
+potion = {
+	slot = miscellaneous # the trinket slots: no extra inventory tab or slot needed
+}

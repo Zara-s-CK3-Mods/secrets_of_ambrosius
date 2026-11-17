@@ -1,7 +1,51 @@
-﻿zz_valyria_ring = { # Needs asset?
-	icon = "zz_ring_01.dds" #"archmaester_ring.dds"
-    icon = "zz_ring_02.dds" #"archmaester_ring.dds"
-    icon = "zz_ring_03.dds" #"archmaester_ring.dds"
-    icon = "zz_ring_04.dds" #"archmaester_ring.dds"
+﻿zz_valyria_ring = { # rings made before each ring had its own visual
+	icon = "zz_ring_01.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+
+zz_valyria_vs_ingot = {
+	icon = "artifact_medium_box.dds"
+	asset = vs_ingot_entity
+	pedestal = "short"
+}
+
+zz_valyria_ring_drops_of_power = {
+	icon = "zz_ring_drops_of_power.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+zz_valyria_ring_blood_magic = {
+	icon = "zz_ring_blood_magic.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+zz_valyria_ring_shadow_magic = {
+	icon = "zz_ring_shadow_magic.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+zz_valyria_ring_dream_magic = {
+	icon = "zz_ring_dream_magic.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+zz_valyria_ring_alchemy_magic = {
+	icon = "zz_ring_alchemy_magic.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+zz_valyria_ring_fire_magic = {
+	icon = "zz_ring_fire_magic.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+zz_valyria_ring_air_magic = {
+	icon = "zz_ring_air_magic.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+zz_valyria_ring_water_magic = {
+	icon = "zz_ring_water_magic.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+zz_valyria_ring_higher_mysteries = {
+	icon = "zz_ring_higher_mysteries.dds"
+	asset = ep1_generic_jewelry_01_a_entity
+}
+zz_valyria_ring_all_magic = {
+	icon = "zz_ring_all_magic.dds"
 	asset = ep1_generic_jewelry_01_a_entity
 }

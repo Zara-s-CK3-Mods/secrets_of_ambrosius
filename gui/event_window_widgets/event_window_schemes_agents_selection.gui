@@ -1,4 +1,4 @@
-widget = {
+﻿widget = {
 	allow_outside = yes
 	name = "event_window_schemes_agents_selection"
 	size = { 350 250 } # Size of the insert inside the event window; needs to fit under the text box since a margin will only push the content and not the widget
@@ -25,7 +25,7 @@ widget = {
 								size = { 300 45 }
 								datacontext = "[Scope.Scheme]"
 								
-								down = "[GetScriptedGui( 'zz_valyria_scheme_agents_selectings' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_scheme', Scheme.MakeScope ).End )]"
+								down = "[GetScriptedGui( 'zz_valyria_scheme_agents_selecting' ).IsShown( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_scheme', Scheme.MakeScope ).End )]"
 								onclick = "[GetScriptedGui( 'zz_valyria_scheme_agents_selecting' ).Execute( GuiScope.SetRoot( GetPlayer.MakeScope ).AddScope( 'selected_scheme', Scheme.MakeScope ).End )]"
 								tooltip = "[Scheme.GetName]"
 

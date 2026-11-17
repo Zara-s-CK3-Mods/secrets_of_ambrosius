@@ -1,0 +1,102 @@
+﻿# Creates a potion for the scoped character. EFFECT is the potion key; scope:potion_strength must be saved first (1 to 10)
+zz_valyria_create_potion_effect = {
+	set_artifact_rarity_masterwork = yes
+	create_artifact = {
+		name = zz_valyria_potion_$EFFECT$_name
+		description = zz_valyria_potion_$EFFECT$_desc
+		type = potion
+		visuals = flask
+		wealth = scope:wealth
+		quality = scope:quality
+		modifier = artifact_placeholder_modifier
+		save_scope_as = newly_created_potion
+		decaying = no
+	}
+	scope:newly_created_potion ?= {
+		clear_artifact_modifiers = yes
+		set_variable = { name = potion_effect value = flag:$EFFECT$ }
+		set_variable = { name = potion_strength value = scope:potion_strength }
+	}
+}
+
+# Brewer's strength: their Alchemy skill / 10, from 1 to 10. Run in the brewer's scope
+zz_valyria_save_potion_strength_effect = {
+	save_scope_value_as = {
+		name = potion_strength
+		value = {
+			value = zz_valyria_magic_alchemy_magic_base_value
+			divide = 10
+			min = 1
+			max = 10
+		}
+	}
+}
+
+# Applies the potion saved as scope:potion to the scoped character, then the potion is used up
+zz_valyria_drink_potion_effect = {
+	switch = {
+		trigger = scope:potion.var:potion_effect
+		flag:elixir_longevity = { add_character_modifier = { modifier = zz_valyria_potion_elixir_longevity_modifier } }
+		flag:elixir_fertility = { add_character_modifier = { modifier = zz_valyria_potion_elixir_fertility_modifier } }
+		flag:draught_strength = {
+			add_character_modifier = {
+				modifier = zz_valyria_potion_draught_strength_modifier
+				years = scope:potion.var:potion_strength
+			}
+		}
+		flag:draught_clarity = {
+			add_character_modifier = {
+				modifier = zz_valyria_potion_draught_clarity_modifier
+				years = scope:potion.var:potion_strength
+			}
+		}
+		flag:draught_calm = {
+			add_character_modifier = {
+				modifier = zz_valyria_potion_draught_calm_modifier
+				years = scope:potion.var:potion_strength
+			}
+		}
+		flag:draught_warding = {
+			add_character_modifier = {
+				modifier = zz_valyria_potion_draught_warding_modifier
+				years = scope:potion.var:potion_strength
+			}
+		}
+		flag:potion_healing = {
+			while = {
+				count = scope:potion.var:potion_strength
+				zz_valyria_magic_dream_magic_058_heal_effect = yes
+			}
+		}
+		flag:potion_purging = {
+			add_character_flag = {
+				flag = immune_to_disease
+				years = scope:potion.var:potion_strength
+			}
+			if = {
+				limit = { has_any_disease_trigger = yes }
+				add_character_modifier = {
+					modifier = zz_valyria_potion_purging_treatment_modifier
+					years = 1
+				}
+			}
+		}
+		flag:potion_restoring = {
+			if = {
+				limit = { has_variable = zz_miscast_count }
+				change_variable = {
+					name = zz_miscast_count
+					subtract = scope:potion.var:potion_strength
+				}
+				if = {
+					limit = { var:zz_miscast_count < 0 }
+					set_variable = { name = zz_miscast_count value = 0 }
+				}
+			}
+		}
+		flag:tonic_power = {
+			zz_valyria_mana_gain = { MANAGAIN = { value = scope:potion.var:potion_strength multiply = 5 } }
+		}
+	}
+	destroy_artifact = scope:potion
+}

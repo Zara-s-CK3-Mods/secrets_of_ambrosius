@@ -1,8 +1,8 @@
 ﻿further_magical_education_scheme = {
 	# Basic Setup
 	skill = learning
-	desc = learn_language_desc_general
-	success_desc = "LEARN_LANGUAGE_SUCCESS_DESC"
+	desc = further_magical_education_scheme_desc
+	success_desc = "FURTHER_MAGICAL_EDUCATION_SUCCESS_DESC"
 	icon = "gfx/interface/icons/activity_types/activity_zz_magic_education_icon.dds"
 	illustration = "gfx/interface/illustrations/event_scenes/corridor.dds"
 	target_type = character
@@ -51,6 +51,27 @@
 		base = 0
 
 		valryia_study_magic_scheme_modifier = yes
+		# Temperament
+		modifier = {
+			desc = "zz_scheme_trait_diligent"
+			scope:owner = { has_trait = diligent }
+			add = 5
+		}
+		modifier = {
+			desc = "zz_scheme_trait_lazy"
+			scope:owner = { has_trait = lazy }
+			add = -5
+		}
+		modifier = {
+			desc = "zz_scheme_trait_patient"
+			scope:owner = { has_trait = patient }
+			add = 5
+		}
+		modifier = {
+			desc = "zz_scheme_trait_impatient"
+			scope:owner = { has_trait = impatient }
+			add = -5
+		}
 		#Intellect good
 		modifier = {
 			desc = "scheme_intellect_good_1"

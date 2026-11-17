@@ -1422,6 +1422,7 @@ zz_valyria_dream_magic_menal_manipulation.interaction = {
 			if = {
 				limit = {
 					scope:become_soulmate = yes
+					NOT = { has_relation_soulmate = scope:actor }
 				}
 				
 				set_relation_soulmate = {
@@ -1693,8 +1694,9 @@ zz_valyria_magic_designate_speciaL_magic_target.interaction = {
 						target = scope:recipient
 					}
 				}
-				scope:recipient = {
-					remove_from_list = special_magic_target
+				remove_list_variable = { # the list is a variable list on the actor
+					name = special_magic_target
+					target = scope:recipient
 				}
 			}
 			else = {

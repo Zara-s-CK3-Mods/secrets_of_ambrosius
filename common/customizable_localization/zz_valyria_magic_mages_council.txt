@@ -18,12 +18,14 @@ zz_valyria_mages_fatigue = {
 	}
 	text = {
 		trigger = {
+			exists = var:zz_miscast_count
 			var:zz_miscast_count == zz_valyria_miscast_warning_1
 		}
 		localization_key = zz_valyria_magic_miscast_1
 	}
 	text = {
 		trigger = {
+			exists = var:zz_miscast_count
 			var:zz_miscast_count == zz_valyria_miscast_warning_2
 		}
 		localization_key = zz_valyria_magic_miscast_2

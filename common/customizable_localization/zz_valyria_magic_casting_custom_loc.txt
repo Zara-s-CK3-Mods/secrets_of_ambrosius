@@ -1,0 +1,753 @@
+﻿## Variant casting text (random_valid) for the spell events and toasts.
+# Text is in localization/english/magic/zz_valyria_magic_casting_flavour_l_english.yml
+
+zz_valyria_magic_cast_opener_blood_magic = {
+	type = character
+	random_valid = yes
+
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.1
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.2
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.3
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.4
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.5
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.6
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.7
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.blood_magic.1
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.blood_magic.2
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.blood_magic.3
+	}
+	text = {
+		trigger = { has_trait = calm }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.calm
+	}
+	text = {
+		trigger = { has_trait = wrathful }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.wrathful
+	}
+	text = {
+		trigger = { has_trait = arrogant }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.arrogant
+	}
+	text = {
+		trigger = { has_trait = humble }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.humble
+	}
+	text = {
+		trigger = { has_trait = paranoid }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.paranoid
+	}
+	text = {
+		trigger = { has_trait = zealous }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.zealous
+	}
+	text = {
+		trigger = { has_trait = craven }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.craven
+	}
+	text = {
+		trigger = { has_trait = brave }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.brave
+	}
+	text = {
+		trigger = { has_trait = ambitious }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.ambitious
+	}
+	text = {
+		trigger = { has_trait = sadistic }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.sadistic
+	}
+	text = {
+		trigger = { has_trait = impatient }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.impatient
+	}
+}
+
+zz_valyria_magic_cast_opener_shadow_magic = {
+	type = character
+	random_valid = yes
+
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.1
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.2
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.3
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.4
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.5
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.6
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.7
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.shadow_magic.1
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.shadow_magic.2
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.shadow_magic.3
+	}
+	text = {
+		trigger = { has_trait = calm }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.calm
+	}
+	text = {
+		trigger = { has_trait = wrathful }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.wrathful
+	}
+	text = {
+		trigger = { has_trait = arrogant }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.arrogant
+	}
+	text = {
+		trigger = { has_trait = humble }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.humble
+	}
+	text = {
+		trigger = { has_trait = paranoid }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.paranoid
+	}
+	text = {
+		trigger = { has_trait = zealous }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.zealous
+	}
+	text = {
+		trigger = { has_trait = craven }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.craven
+	}
+	text = {
+		trigger = { has_trait = brave }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.brave
+	}
+	text = {
+		trigger = { has_trait = ambitious }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.ambitious
+	}
+	text = {
+		trigger = { has_trait = sadistic }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.sadistic
+	}
+	text = {
+		trigger = { has_trait = impatient }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.impatient
+	}
+}
+
+zz_valyria_magic_cast_opener_dream_magic = {
+	type = character
+	random_valid = yes
+
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.1
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.2
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.3
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.4
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.5
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.6
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.7
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.dream_magic.1
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.dream_magic.2
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.dream_magic.3
+	}
+	text = {
+		trigger = { has_trait = calm }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.calm
+	}
+	text = {
+		trigger = { has_trait = wrathful }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.wrathful
+	}
+	text = {
+		trigger = { has_trait = arrogant }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.arrogant
+	}
+	text = {
+		trigger = { has_trait = humble }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.humble
+	}
+	text = {
+		trigger = { has_trait = paranoid }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.paranoid
+	}
+	text = {
+		trigger = { has_trait = zealous }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.zealous
+	}
+	text = {
+		trigger = { has_trait = craven }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.craven
+	}
+	text = {
+		trigger = { has_trait = brave }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.brave
+	}
+	text = {
+		trigger = { has_trait = ambitious }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.ambitious
+	}
+	text = {
+		trigger = { has_trait = sadistic }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.sadistic
+	}
+	text = {
+		trigger = { has_trait = impatient }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.impatient
+	}
+}
+
+zz_valyria_magic_cast_opener_alchemy_magic = {
+	type = character
+	random_valid = yes
+
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.1
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.2
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.3
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.4
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.5
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.6
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.7
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.alchemy_magic.1
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.alchemy_magic.2
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.alchemy_magic.3
+	}
+	text = {
+		trigger = { has_trait = calm }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.calm
+	}
+	text = {
+		trigger = { has_trait = wrathful }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.wrathful
+	}
+	text = {
+		trigger = { has_trait = arrogant }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.arrogant
+	}
+	text = {
+		trigger = { has_trait = humble }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.humble
+	}
+	text = {
+		trigger = { has_trait = paranoid }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.paranoid
+	}
+	text = {
+		trigger = { has_trait = zealous }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.zealous
+	}
+	text = {
+		trigger = { has_trait = craven }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.craven
+	}
+	text = {
+		trigger = { has_trait = brave }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.brave
+	}
+	text = {
+		trigger = { has_trait = ambitious }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.ambitious
+	}
+	text = {
+		trigger = { has_trait = sadistic }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.sadistic
+	}
+	text = {
+		trigger = { has_trait = impatient }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.impatient
+	}
+}
+
+zz_valyria_magic_cast_opener_fire_magic = {
+	type = character
+	random_valid = yes
+
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.1
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.2
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.3
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.4
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.5
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.6
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.7
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.fire_magic.1
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.fire_magic.2
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.fire_magic.3
+	}
+	text = {
+		trigger = { has_trait = calm }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.calm
+	}
+	text = {
+		trigger = { has_trait = wrathful }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.wrathful
+	}
+	text = {
+		trigger = { has_trait = arrogant }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.arrogant
+	}
+	text = {
+		trigger = { has_trait = humble }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.humble
+	}
+	text = {
+		trigger = { has_trait = paranoid }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.paranoid
+	}
+	text = {
+		trigger = { has_trait = zealous }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.zealous
+	}
+	text = {
+		trigger = { has_trait = craven }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.craven
+	}
+	text = {
+		trigger = { has_trait = brave }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.brave
+	}
+	text = {
+		trigger = { has_trait = ambitious }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.ambitious
+	}
+	text = {
+		trigger = { has_trait = sadistic }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.sadistic
+	}
+	text = {
+		trigger = { has_trait = impatient }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.impatient
+	}
+}
+
+zz_valyria_magic_cast_opener_air_magic = {
+	type = character
+	random_valid = yes
+
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.1
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.2
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.3
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.4
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.5
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.6
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.7
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.air_magic.1
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.air_magic.2
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.air_magic.3
+	}
+	text = {
+		trigger = { has_trait = calm }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.calm
+	}
+	text = {
+		trigger = { has_trait = wrathful }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.wrathful
+	}
+	text = {
+		trigger = { has_trait = arrogant }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.arrogant
+	}
+	text = {
+		trigger = { has_trait = humble }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.humble
+	}
+	text = {
+		trigger = { has_trait = paranoid }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.paranoid
+	}
+	text = {
+		trigger = { has_trait = zealous }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.zealous
+	}
+	text = {
+		trigger = { has_trait = craven }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.craven
+	}
+	text = {
+		trigger = { has_trait = brave }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.brave
+	}
+	text = {
+		trigger = { has_trait = ambitious }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.ambitious
+	}
+	text = {
+		trigger = { has_trait = sadistic }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.sadistic
+	}
+	text = {
+		trigger = { has_trait = impatient }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.impatient
+	}
+}
+
+zz_valyria_magic_cast_opener_water_magic = {
+	type = character
+	random_valid = yes
+
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.1
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.2
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.3
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.4
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.5
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.6
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.opener.general.7
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.water_magic.1
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.water_magic.2
+	}
+	text = {
+		weight_multiplier = { base = 2 }
+		localization_key = zz_valyria_magic_cast.opener.water_magic.3
+	}
+	text = {
+		trigger = { has_trait = calm }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.calm
+	}
+	text = {
+		trigger = { has_trait = wrathful }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.wrathful
+	}
+	text = {
+		trigger = { has_trait = arrogant }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.arrogant
+	}
+	text = {
+		trigger = { has_trait = humble }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.humble
+	}
+	text = {
+		trigger = { has_trait = paranoid }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.paranoid
+	}
+	text = {
+		trigger = { has_trait = zealous }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.zealous
+	}
+	text = {
+		trigger = { has_trait = craven }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.craven
+	}
+	text = {
+		trigger = { has_trait = brave }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.brave
+	}
+	text = {
+		trigger = { has_trait = ambitious }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.ambitious
+	}
+	text = {
+		trigger = { has_trait = sadistic }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.sadistic
+	}
+	text = {
+		trigger = { has_trait = impatient }
+		weight_multiplier = { base = 3 }
+		localization_key = zz_valyria_magic_cast.opener.trait.impatient
+	}
+}
+
+zz_valyria_magic_cast_moment = {
+	type = character
+	random_valid = yes
+
+	text = {
+		localization_key = zz_valyria_magic_cast.moment.1
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.moment.2
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.moment.3
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.moment.4
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.moment.5
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.moment.6
+	}
+}
+
+zz_valyria_magic_cast_arts = {
+	type = character
+	random_valid = yes
+
+	text = {
+		localization_key = zz_valyria_magic_cast.arts.1
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.arts.2
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.arts.3
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.arts.4
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.arts.5
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.arts.6
+	}
+}
+
+zz_valyria_magic_cast_enacted = {
+	type = character
+	random_valid = yes
+
+	text = {
+		localization_key = zz_valyria_magic_cast.enacted.1
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.enacted.2
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.enacted.3
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.enacted.4
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.enacted.5
+	}
+}
+
+zz_valyria_magic_cast_failed = {
+	type = character
+	random_valid = yes
+
+	text = {
+		localization_key = zz_valyria_magic_cast.failed.1
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.failed.2
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.failed.3
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.failed.4
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.failed.5
+	}
+	text = {
+		localization_key = zz_valyria_magic_cast.failed.6
+	}
+}

@@ -1,0 +1,70 @@
+﻿# Soothsaying wards that react to events rather than to the monthly story check.
+# These only add to vanilla's on_action lists, so vanilla's own effects are untouched.
+
+on_imprison = {
+	on_actions = {
+		zz_valyria_captivity_ward
+	}
+}
+
+on_combat_start = {
+	on_actions = {
+		zz_valyria_omens_of_war_ward
+	}
+}
+
+# Soothsaying (Captivity): a vision shows the prisoner the way out. Root is the prisoner.
+# The release waits a day so that the imprisonment itself finishes first
+zz_valyria_captivity_ward = {
+	trigger = {
+		any_owned_story = {
+			story_type = zz_valyria_magic_dream_magic_104_story
+			var:mystery_duration > 0
+		}
+	}
+	effect = {
+		trigger_event = {
+			on_action = zz_valyria_captivity_ward_release
+			days = 1
+		}
+	}
+}
+
+zz_valyria_captivity_ward_release = {
+	trigger = {
+		is_imprisoned = yes
+		any_owned_story = {
+			story_type = zz_valyria_magic_dream_magic_104_story
+			var:mystery_duration > 0
+		}
+	}
+	effect = {
+		release_from_prison = yes
+		zz_valyria_soothsaying_ward_spend_vision_effect = { STORY = zz_valyria_magic_dream_magic_104_story SPELL = 104 }
+	}
+}
+
+# Soothsaying (Omens of War): a commander who foresaw the battle fights it with an advantage. Root is the combat
+zz_valyria_omens_of_war_ward = {
+	effect = {
+		every_combat_side = {
+			every_side_commander = {
+				limit = {
+					any_owned_story = {
+						story_type = zz_valyria_magic_dream_magic_105_story
+						var:mystery_duration > 0
+					}
+				}
+				random_owned_story = {
+					limit = { story_type = zz_valyria_magic_dream_magic_105_story }
+					save_scope_as = zz_omens_story
+				}
+				if = { limit = { scope:zz_omens_story.var:mystery_potency >= 8 } add_character_modifier = { modifier = zz_valyria_magic_dream_magic_105_modifier_04 days = 20 } }
+				else_if = { limit = { scope:zz_omens_story.var:mystery_potency >= 5 } add_character_modifier = { modifier = zz_valyria_magic_dream_magic_105_modifier_03 days = 20 } }
+				else_if = { limit = { scope:zz_omens_story.var:mystery_potency >= 3 } add_character_modifier = { modifier = zz_valyria_magic_dream_magic_105_modifier_02 days = 20 } }
+				else = { add_character_modifier = { modifier = zz_valyria_magic_dream_magic_105_modifier_01 days = 20 } }
+				zz_valyria_soothsaying_ward_spend_vision_effect = { STORY = zz_valyria_magic_dream_magic_105_story SPELL = 105 }
+			}
+		}
+	}
+}

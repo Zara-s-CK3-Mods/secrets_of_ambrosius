@@ -1,0 +1,33 @@
+﻿# Potion buffs. The elixirs are permanent and cannot be taken twice; the draughts last as many years as the potion's strength
+zz_valyria_potion_elixir_longevity_modifier = {
+	icon = health_positive
+	life_expectancy = 5
+	health = 0.5
+}
+zz_valyria_potion_elixir_fertility_modifier = {
+	icon = fertility_positive
+	fertility = 0.2
+	years_of_fertility = 3
+}
+zz_valyria_potion_draught_strength_modifier = {
+	icon = prowess_positive
+	prowess = 4
+}
+zz_valyria_potion_draught_clarity_modifier = {
+	icon = learning_positive
+	learning = 2
+	monthly_lifestyle_xp_gain_mult = 0.1
+}
+zz_valyria_potion_draught_calm_modifier = {
+	icon = stress_positive
+	stress_gain_mult = -0.2
+	stress_loss_mult = 0.2
+}
+zz_valyria_potion_draught_warding_modifier = {
+	icon = health_positive
+	epidemic_resistance = 10
+}
+zz_valyria_potion_purging_treatment_modifier = {
+	icon = treatment_positive
+	negate_health_penalty_add = 1
+}

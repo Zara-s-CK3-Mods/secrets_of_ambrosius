@@ -1,0 +1,8 @@
+﻿# The number of mysteries in the open Spellbook (on the player)
+zz_valyria_spellbook_count = {
+	value = 0
+	every_in_list = {
+		variable = zz_valyria_book_list
+		add = 1
+	}
+}

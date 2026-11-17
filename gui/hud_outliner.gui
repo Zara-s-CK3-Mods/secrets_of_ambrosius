@@ -123,6 +123,9 @@ widget = {
 
 					outliner_trade_posts_header = {}
 					outliner_trade_posts_info = {}
+					
+					outliner_trade_routes_header = {}
+					outliner_trade_routes_info = {}
 
 					outliner_pinned_holdings_header = {
 						shortcut = tab_4
@@ -986,7 +989,7 @@ types Outliner {
 							name = "holding_name"
 							layoutpolicy_horizontal = expanding
 							autoresize = yes
-							text = "[Holding.GetProvince.GetNameNoTooltip]"
+							text = "[Holding.GetProvince.GetTitle.GetNameNoTierNoTooltip]"
 							align = nobaseline
 						}
 
@@ -1455,7 +1458,6 @@ types Outliner {
 		}
 	}
 
-	## TODO_GDP: Finalise look of these entries
 	type outliner_trade_posts_info = vbox {
 		datacontext = "[AccessHoldingView]"
 		name = "trade_posts"
@@ -1518,7 +1520,141 @@ types Outliner {
 			}
 		}
 	}
+	
+	type outliner_trade_routes_header = button_outliner_header {
+		name = "trade_routes_header"
+		layoutpolicy_horizontal = expanding
+		visible = "[GetPlayer.IsValid]"
 
+		blockoverride "button_expand_frame"
+		{
+			frame = "[BoolTo1And2(Outliner.IsCategoryShown('trade_route'))]"
+		}
+
+		blockoverride "oh_button"
+		{
+			onclick = "[Outliner.ToggleCategory('trade_route')]"
+			tooltip = "[SelectLocalization( Outliner.IsCategoryShown('trade_route'), 'OUTLINER_COLLAPSE', 'OUTLINER_EXPAND' )]"
+		}
+
+		blockoverride "oh_name"
+		{
+			text = "TRADE_WINDOW_TRADE_ROUTES"
+		}
+
+		blockoverride "oh_count"
+		{
+			text = "[Outliner.GetCategoryItemsCount('trade_route')|V]"
+		}
+
+		blockoverride "expanded"
+		{
+			frame = "[BoolTo1And2(Outliner.IsCategoryShown('trade_route'))]"
+		}
+	}
+
+	type outliner_trade_routes_info = vbox {
+		datacontext = "[AccessHoldingView]"
+		name = "trade_routes"
+		block "model" {
+			datamodel = "[Outliner.GetTradeRouteItems]"
+			visible = "[Outliner.IsCategoryShown('trade_route')]"
+		}
+
+		layoutpolicy_horizontal = expanding
+		margin = { 8 5 }
+		margin_bottom = 4
+
+		item = {
+			button_list = {
+				name = "trade_route_item"
+				layoutpolicy_horizontal = expanding
+				size = { 0 52 }
+
+				block "context" {
+					datacontext = "[TradeRouteItem]"
+					datacontext = "[TradeRouteItem.GetTradeRoute]"
+				}
+
+				block "click" {
+					onclick = "[SetMapMode('trade_markets')]"
+					onclick = "[TradeRoute.CyclePanMarketLocations]"
+				}
+
+				using = tooltip_ws
+
+				margin_widget = {
+					size = { 100% 100% }
+					margin = { 0 2 }
+					margin_left = 40
+				}
+				
+				vbox = {
+					hbox = {
+						spacing = 5
+						layoutpolicy_horizontal = expanding
+
+						text_single = {
+							raw_text = "[TradeRoute.GetNameNoTooltip]"
+							default_format = "#high"
+							align = nobaseline
+							max_width = 270
+						}
+
+						expand = {}
+					}
+					
+					hbox = {
+						layoutpolicy_horizontal = expanding
+					
+						trade_route_goods_list = {
+							max_width = "[Select_int32(TradeRoute.IsProfitRoute, '(int32)125', '(int32)-1')]"
+						
+							blockoverride "good_icon_size" {
+								size = { 26	26 }
+							}
+							blockoverride "good_amount_text" {
+								visible = no
+							}
+						}
+						
+						text_single = {
+							visible = "[TradeRoute.IsProfitRoute]"
+							alwaystransparent = yes
+							text = "TRADE_ROUTE_ENTRY_ACTUAL_PROFIT"
+							align = nobaseline
+							using = tooltip_se
+
+							tooltipwidget = {
+								trade_route_transactions_tooltip = {}
+							}
+
+							background = {
+								margin_left = 40
+								margin_right = 40
+								# alpha = 0.5
+
+								texture = "gfx/interface/component_tiles/tile_title_bg_01.dds"
+								spriteType = Corneredtiled
+								spriteborder = { 40 8 }
+								texture_density = 2
+
+								modify_texture = {
+									name = "mask"
+									texture = "gfx/interface/component_masks/mask_fade_horizontal_middle_thick.dds"
+									spriteType = Corneredstretched
+									spriteborder = { 0 0 }
+									blend_mode = alphamultiply
+								}
+							}
+						}
+						
+						expand = {}
+					}
+				}
+			}
+		}
+	}
 
 	type outliner_pinned_holdings_header = button_outliner_header {
 		name = "pinned_holdings_header"

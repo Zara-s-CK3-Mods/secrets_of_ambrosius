@@ -1,0 +1,898 @@
+﻿zz_valyria_magic_water_magic_020_story = { # the Breaking of the Dams
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_STEPS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+			var:zz_story_province = {
+				save_scope_as = zz_story_province
+			}
+			remove_variable = zz_story_province
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_water_magic_020_value
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_water_magic_020_value_01
+		}
+		set_variable = {
+			name = zz_hit
+			value = zz_valyria_magic_water_magic_020_value_02
+		}
+		set_variable = {
+			name = zz_buildings
+			value = zz_valyria_magic_water_magic_020_value_03
+		}
+		set_variable = {
+			name = zz_current_province
+			value = scope:zz_story_province
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	effect_group = {
+		months = 1
+		first_valid = {
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration > 0
+				}
+				effect = {
+					change_variable = {
+						name = mystery_duration
+						subtract = 1
+					}
+					var:mystery_caster ?= {
+						save_scope_as = zz_storm_caster
+					}
+					var:zz_current_province = {
+						save_scope_as = zz_here
+							scope:story = {
+								add_to_variable_list = {
+									name = zz_path
+									target = scope:zz_here
+								}
+							}
+						zz_valyria_moving_spell_hit_effect = {
+							STRENGTH = scope:story.var:zz_hit
+							BUILDINGS = scope:story.var:zz_buildings
+						}
+						county ?= {
+							add_county_modifier = {
+								modifier = zz_valyria_magic_water_magic_020_modifier
+								months = 24
+							}
+						}
+						random_neighboring_province = {
+							limit = {
+								exists = county
+								OR = {
+									is_riverside_province = yes
+									is_coastal = yes
+								}
+								save_temporary_scope_as = zz_candidate
+					NOT = {
+						scope:story = {
+							is_target_in_variable_list = {
+								name = zz_path
+								target = scope:zz_candidate
+							}
+						}
+					}
+							}
+							save_scope_as = zz_next
+						}
+					}
+					if = {
+						limit = {
+							exists = scope:zz_next
+						}
+						set_variable = {
+							name = zz_current_province
+							value = scope:zz_next
+						}
+					}
+					else = {
+						end_story = yes
+					}
+				}
+			}
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration < 1
+				}
+				effect = {
+					end_story = yes
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_air_magic_023_story = { # Stormcaller
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_STEPS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+			var:zz_story_province = {
+				save_scope_as = zz_story_province
+			}
+			remove_variable = zz_story_province
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_air_magic_023_value
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_air_magic_023_value_01
+		}
+		set_variable = {
+			name = zz_hit
+			value = zz_valyria_magic_air_magic_023_value_02
+		}
+		set_variable = {
+			name = zz_final_hit
+			value = zz_valyria_magic_air_magic_023_value_03
+		}
+		set_variable = {
+			name = zz_buildings
+			value = zz_valyria_magic_air_magic_023_value_04
+		}
+		set_variable = {
+			name = zz_current_province
+			value = scope:zz_story_province
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+		story_owner.capital_province ?= {
+			save_scope_as = zz_storm_destination
+		}
+		set_variable = {
+			name = zz_destination
+			value = scope:zz_storm_destination
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	effect_group = {
+		days = 15
+		first_valid = {
+			triggered_effect = {
+				trigger = {
+					scope:story.var:zz_current_province = scope:story.var:zz_destination
+				}
+				effect = {
+					var:mystery_caster ?= {
+						save_scope_as = zz_storm_caster
+					}
+					var:zz_current_province = {
+						zz_valyria_moving_spell_hit_effect = {
+							STRENGTH = scope:story.var:zz_final_hit
+							BUILDINGS = scope:story.var:zz_buildings
+						}
+					}
+					end_story = yes
+				}
+			}
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration > 0
+				}
+				effect = {
+					change_variable = {
+						name = mystery_duration
+						subtract = 1
+					}
+					var:mystery_caster ?= {
+						save_scope_as = zz_storm_caster
+					}
+					var:zz_destination = {
+						save_scope_as = zz_storm_destination
+					}
+					var:zz_current_province = {
+						save_scope_as = zz_here
+							scope:story = {
+								add_to_variable_list = {
+									name = zz_path
+									target = scope:zz_here
+								}
+							}
+						zz_valyria_moving_spell_hit_effect = {
+							STRENGTH = scope:story.var:zz_hit
+							BUILDINGS = 1
+						}
+						ordered_neighboring_province = {
+							limit = {
+								save_temporary_scope_as = zz_candidate
+					NOT = {
+						scope:story = {
+							is_target_in_variable_list = {
+								name = zz_path
+								target = scope:zz_candidate
+							}
+						}
+					}
+							}
+							order_by = {
+								value = 0
+								subtract = "squared_distance(scope:zz_storm_destination)"
+							}
+							save_scope_as = zz_next
+						}
+					}
+					if = {
+						limit = {
+							exists = scope:zz_next
+						}
+						set_variable = {
+							name = zz_current_province
+							value = scope:zz_next
+						}
+					}
+					else = {
+						end_story = yes
+					}
+				}
+			}
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration < 1
+				}
+				effect = {
+					end_story = yes
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_fire_magic_023_story = { # Wildfire
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_STEPS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+			var:zz_story_province = {
+				save_scope_as = zz_story_province
+			}
+			remove_variable = zz_story_province
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_fire_magic_023_value
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_fire_magic_023_value_01
+		}
+		set_variable = {
+			name = zz_hit
+			value = zz_valyria_magic_fire_magic_023_value_02
+		}
+		set_variable = {
+			name = zz_buildings
+			value = zz_valyria_magic_fire_magic_023_value_03
+		}
+		set_variable = {
+			name = zz_front_count
+			value = 1
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+		add_to_variable_list = {
+			name = zz_fronts
+			target = scope:zz_story_province
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	effect_group = {
+		months = 1
+		first_valid = {
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration > 0
+				}
+				effect = {
+					change_variable = {
+						name = mystery_duration
+						subtract = 1
+					}
+					var:mystery_caster ?= {
+						save_scope_as = zz_storm_caster
+					}
+					clear_variable_list = zz_next_fronts
+					every_in_list = {
+						variable = zz_fronts
+						save_scope_as = zz_here
+							scope:story = {
+								add_to_variable_list = {
+									name = zz_path
+									target = scope:zz_here
+								}
+							}
+						zz_valyria_moving_spell_hit_effect = {
+							STRENGTH = scope:story.var:zz_hit
+							BUILDINGS = scope:story.var:zz_buildings
+						}
+						county ?= {
+							change_prosperity_level = -1
+						}
+						ordered_neighboring_province = {
+							limit = {
+								exists = county
+								save_temporary_scope_as = zz_candidate
+					NOT = {
+						scope:story = {
+							is_target_in_variable_list = {
+								name = zz_path
+								target = scope:zz_candidate
+							}
+						}
+					}
+							}
+							order_by = county.prosperity_level
+							save_scope_as = zz_next
+							scope:story = {
+								add_to_variable_list = {
+									name = zz_next_fronts
+									target = scope:zz_next
+								}
+							}
+						}
+						if = {
+							limit = {
+								scope:story.var:zz_front_count < 4
+							}
+							random = {
+								chance = 25
+								random_neighboring_province = {
+									limit = {
+										exists = county
+										NOT = { this = scope:zz_next }
+										save_temporary_scope_as = zz_candidate
+					NOT = {
+						scope:story = {
+							is_target_in_variable_list = {
+								name = zz_path
+								target = scope:zz_candidate
+							}
+						}
+					}
+									}
+									save_scope_as = zz_split
+									scope:story = {
+										add_to_variable_list = {
+											name = zz_next_fronts
+											target = scope:zz_split
+										}
+										change_variable = {
+											name = zz_front_count
+											add = 1
+										}
+									}
+								}
+							}
+						}
+					}
+					clear_variable_list = zz_fronts
+					every_in_list = {
+						variable = zz_next_fronts
+						save_scope_as = zz_front
+						scope:story = {
+							add_to_variable_list = {
+								name = zz_fronts
+								target = scope:zz_front
+							}
+						}
+					}
+					if = {
+						limit = {
+							NOT = {
+								any_in_list = {
+									variable = zz_fronts
+									count > 0
+								}
+							}
+						}
+						end_story = yes
+					}
+				}
+			}
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration < 1
+				}
+				effect = {
+					end_story = yes
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_shadow_magic_019_story = { # Creeping Dread
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_STEPS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+			var:zz_story_province = {
+				save_scope_as = zz_story_province
+			}
+			remove_variable = zz_story_province
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_shadow_magic_019_value
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_shadow_magic_019_value_03
+		}
+		set_variable = {
+			name = zz_control_loss
+			value = zz_valyria_magic_shadow_magic_019_value_01
+		}
+		set_variable = {
+			name = zz_current_province
+			value = scope:zz_story_province
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	effect_group = {
+		months = 1
+		first_valid = {
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration > 0
+				}
+				effect = {
+					change_variable = {
+						name = mystery_duration
+						subtract = 1
+					}
+					story_owner = {
+						save_scope_as = zz_realm_owner
+					}
+					var:zz_current_province = {
+						save_scope_as = zz_here
+						county ?= {
+							change_county_control = {
+								value = scope:story.var:zz_control_loss
+								multiply = -1
+							}
+							add_county_modifier = {
+								modifier = zz_valyria_magic_shadow_magic_019_modifier
+								months = 12
+							}
+						}
+					}
+					if = {
+						limit = {
+							var:zz_current_province.county.county_control < 30
+						}
+						var:zz_current_province = {
+							scope:story = {
+								add_to_variable_list = {
+									name = zz_path
+									target = scope:zz_here
+								}
+							}
+							ordered_neighboring_province = {
+								limit = {
+									exists = county
+									county.county_control >= 30
+									county.holder.top_liege = scope:zz_realm_owner.top_liege
+									save_temporary_scope_as = zz_candidate
+					NOT = {
+						scope:story = {
+							is_target_in_variable_list = {
+								name = zz_path
+								target = scope:zz_candidate
+							}
+						}
+					}
+								}
+								order_by = {
+									value = 0
+									subtract = county.county_control
+								}
+								save_scope_as = zz_next
+							}
+						}
+					if = {
+						limit = {
+							exists = scope:zz_next
+						}
+						set_variable = {
+							name = zz_current_province
+							value = scope:zz_next
+						}
+					}
+					else = {
+						end_story = yes
+					}
+					}
+				}
+			}
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration < 1
+				}
+				effect = {
+					end_story = yes
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_shadow_magic_021_story = { # the Veil of Secrets
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_SILENCES_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_shadow_magic_021_value_01
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_shadow_magic_021_value_02
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+		save_scope_as = zz_veil_story
+		story_owner = {
+			every_secret = {
+				every_secret_knower = {
+					save_scope_as = zz_knower
+					scope:zz_veil_story = {
+						add_to_variable_list = {
+							name = zz_known
+							target = scope:zz_knower
+						}
+					}
+				}
+			}
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	effect_group = {
+		months = 1
+		first_valid = {
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration > 0
+				}
+				effect = {
+					story_owner = {
+						save_scope_as = zz_secret_keeper
+						save_scope_as = zz_story_owner
+						every_secret = {
+							save_scope_as = zz_veil_secret
+							every_secret_knower = {
+								limit = {
+									NOT = { this = scope:zz_secret_keeper }
+									save_temporary_scope_as = zz_candidate
+									NOT = {
+										scope:story = {
+											is_target_in_variable_list = {
+												name = zz_known
+												target = scope:zz_candidate
+											}
+										}
+									}
+								}
+								save_scope_as = zz_knower
+								scope:story = {
+									add_to_variable_list = {
+										name = zz_known
+										target = scope:zz_knower
+									}
+								}
+								if = {
+									limit = {
+										scope:story.var:mystery_duration > 0
+										scope:zz_veil_secret = {
+											can_be_exposed_by = scope:zz_knower
+										}
+									}
+									scope:zz_veil_secret = {
+										disable_exposure_by = scope:zz_knower
+									}
+									scope:story = {
+										change_variable = {
+											name = mystery_duration
+											subtract = 1
+										}
+										zz_valyria_story_proc_message_effect = {
+											SPELLSCHOOL = shadow_magic
+											SPELL = 021
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration < 1
+				}
+				effect = {
+					end_story = yes
+				}
+			}
+		}
+	}
+}
+
+zz_valyria_magic_air_magic_021_story = { # Whispers on the Wind
+	visible = yes
+	visualization = {
+		character = {
+			variable_name = "mystery_caster"
+			label = "ZZ_VALYRIA_STORY_CASTER"
+		}
+		basic_counter = {
+			variable_name = "mystery_potency"
+			label = "ZZ_VALYRIA_STORY_MYSTERY_STRENGTH"
+		}
+		basic_counter = {
+			variable_name = "mystery_duration"
+			label = "ZZ_VALYRIA_STORY_WHISPERS_REMAINING"
+		}
+	}
+	on_setup = {
+		story_owner = {
+			var:caster = {
+				save_scope_as = secondary_recipient
+			}
+			remove_variable = caster
+			var:actor = {
+				save_scope_as = actor
+			}
+			remove_variable = actor
+		}
+		set_variable = {
+			name = mystery_potency
+			value = zz_valyria_magic_air_magic_021_value_01
+		}
+		set_variable = {
+			name = mystery_duration
+			value = zz_valyria_magic_air_magic_021_value_02
+		}
+		set_variable = {
+			name = zz_listener
+			value = scope:actor
+		}
+		set_variable = {
+			name = mystery_caster
+			value = scope:secondary_recipient
+		}
+	}
+
+	on_end = {
+		story_owner = {
+		}
+	}
+
+	on_owner_death = {
+		end_story = yes
+	}
+
+	effect_group = {
+		months = 3
+		first_valid = {
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration > 0
+				}
+				effect = {
+					change_variable = {
+						name = mystery_duration
+						subtract = 1
+					}
+					var:zz_listener = {
+						save_scope_as = zz_listener_scope
+					}
+					story_owner = {
+						save_scope_as = zz_story_owner
+						if = {
+							limit = {
+								any_secret = {
+									NOT = { is_known_by = scope:zz_listener_scope }
+								}
+							}
+							random_secret = {
+								limit = {
+									NOT = { is_known_by = scope:zz_listener_scope }
+								}
+								reveal_to = scope:zz_listener_scope
+							}
+							scope:story = {
+								zz_valyria_story_proc_message_effect = {
+									SPELLSCHOOL = air_magic
+									SPELL = 021
+								}
+							}
+						}
+					}
+				}
+			}
+			triggered_effect = {
+				trigger = {
+					scope:story.var:mystery_duration < 1
+				}
+				effect = {
+					end_story = yes
+				}
+			}
+		}
+	}
+}

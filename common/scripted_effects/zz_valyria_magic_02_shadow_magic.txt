@@ -1,4 +1,5 @@
-﻿zz_valyria_magic_shadow_magic_001_effect = {
+﻿# Spell: Shadow 001 - Mystery of Shadowy Steeds
+zz_valyria_magic_shadow_magic_001_effect = {
 	random_list = {
 		75 = {
 			modifier = { 
@@ -42,6 +43,7 @@
 		}
 	}
 }
+# Spell: Shadow 002 - Mystery of Shadowy Daggers
 zz_valyria_magic_shadow_magic_002_effect = {
 	random_list = {
 		75 = {
@@ -86,6 +88,7 @@ zz_valyria_magic_shadow_magic_002_effect = {
 		}
 	}
 }
+# Spell: Shadow 003 - Mystery of the Shadow Shield
 zz_valyria_magic_shadow_magic_003_effect = {
 	random_list = {
 		75 = {
@@ -139,6 +142,7 @@ zz_valyria_magic_shadow_magic_003_effect = {
 	}
 }
 
+# Spell: Shadow 004 - Mystery of the Shadowy Cloak
 zz_valyria_magic_shadow_magic_004_effect = {
 	random_list = {
 		75 = {
@@ -192,6 +196,7 @@ zz_valyria_magic_shadow_magic_004_effect = {
 	}
 }
 
+# Spell: Shadow 005 - Mystery of Cloying Shadows
 zz_valyria_magic_shadow_magic_005_effect = {
 	random_list = {
 		75 = {
@@ -209,9 +214,8 @@ zz_valyria_magic_shadow_magic_005_effect = {
 					}
 				}
 				stress_impact = {
-					compassionate = medium_stress_impact_loss
-					sadistic = minor_stress_gain
-					callous = minor_stress_gain
+					compassionate = minor_stress_impact_gain
+					sadistic = minor_stress_impact_loss
 				}
 			}
 			scope:recipient = {
@@ -229,9 +233,9 @@ zz_valyria_magic_shadow_magic_005_effect = {
 						}
 					}
 					add_opinion = {
-						modifier = grateful_opinion
+						modifier = scared_opinion
 						target = scope:actor
-						opinion = 70
+						opinion = -30
 					}
 				}
 			}
@@ -245,6 +249,7 @@ zz_valyria_magic_shadow_magic_005_effect = {
 	}
 }
 
+# Spell: Shadow 006 - Mystery of Feeble Daggers
 zz_valyria_magic_shadow_magic_006_effect = {
 	random_list = {
 		75 = {
@@ -262,9 +267,8 @@ zz_valyria_magic_shadow_magic_006_effect = {
 					}
 				}
 				stress_impact = {
-					compassionate = medium_stress_impact_loss
-					sadistic = minor_stress_gain
-					callous = minor_stress_gain
+					compassionate = minor_stress_impact_gain
+					sadistic = minor_stress_impact_loss
 				}
 			}
 			scope:recipient = {
@@ -282,9 +286,9 @@ zz_valyria_magic_shadow_magic_006_effect = {
 						}
 					}
 					add_opinion = {
-						modifier = grateful_opinion
+						modifier = scared_opinion
 						target = scope:actor
-						opinion = 70
+						opinion = -30
 					}
 				}
 			}
@@ -298,6 +302,7 @@ zz_valyria_magic_shadow_magic_006_effect = {
 	}
 }
 
+# Spell: Shadow 007 - Mystery of the Weakened Vigilance
 zz_valyria_magic_shadow_magic_007_effect = {
 	random_list = {
 		75 = {
@@ -315,9 +320,8 @@ zz_valyria_magic_shadow_magic_007_effect = {
 					}
 				}
 				stress_impact = {
-					compassionate = medium_stress_impact_loss
-					sadistic = minor_stress_gain
-					callous = minor_stress_gain
+					compassionate = minor_stress_impact_gain
+					sadistic = minor_stress_impact_loss
 				}
 			}
 			scope:recipient = {
@@ -335,9 +339,9 @@ zz_valyria_magic_shadow_magic_007_effect = {
 						}
 					}
 					add_opinion = {
-						modifier = grateful_opinion
+						modifier = scared_opinion
 						target = scope:actor
-						opinion = 70
+						opinion = -30
 					}
 				}
 			}
@@ -351,6 +355,7 @@ zz_valyria_magic_shadow_magic_007_effect = {
 	}
 }
 
+# Spell: Shadow 008 - Mystery of Revealed Shadows
 zz_valyria_magic_shadow_magic_008_effect = {
 	random_list = {
 		75 = {
@@ -368,9 +373,8 @@ zz_valyria_magic_shadow_magic_008_effect = {
 					}
 				}
 				stress_impact = {
-					compassionate = medium_stress_impact_loss
-					sadistic = minor_stress_gain
-					callous = minor_stress_gain
+					compassionate = minor_stress_impact_gain
+					sadistic = minor_stress_impact_loss
 				}
 			}
 			scope:recipient = {
@@ -388,9 +392,9 @@ zz_valyria_magic_shadow_magic_008_effect = {
 						}
 					}
 					add_opinion = {
-						modifier = grateful_opinion
+						modifier = scared_opinion
 						target = scope:actor
-						opinion = 70
+						opinion = -30
 					}
 				}
 			}
@@ -404,6 +408,7 @@ zz_valyria_magic_shadow_magic_008_effect = {
 	}
 }
 
+# Spell: Shadow 009 - Mystery of the Assassin of the Shadow
 zz_valyria_magic_shadow_magic_009_effect = {
 	random_list = {
 		75 = {
@@ -442,6 +447,7 @@ zz_valyria_magic_shadow_magic_009_effect = {
 	}
 }
 
+# Spell: Shadow 010 - Mystery of Umbral Blast (Army)
 zz_valyria_magic_shadow_magic_010_effect = {
 	random_list = {
 		75 = {
@@ -453,7 +459,7 @@ zz_valyria_magic_shadow_magic_010_effect = {
 				SPELL = $SPELL$
 			}
 			scope:target = {
-				deplete_army_by_percentage = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+				zz_valyria_change_army_troops_effect = { AMOUNT = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01 }
 			}
 		}
 		25 = {
@@ -465,6 +471,7 @@ zz_valyria_magic_shadow_magic_010_effect = {
 	}
 }
 
+# Spell: Shadow 011 - Mystery of Umbral Strike (Regiment)
 zz_valyria_magic_shadow_magic_011_effect = {
 	random_list = {
 		75 = {
@@ -488,6 +495,7 @@ zz_valyria_magic_shadow_magic_011_effect = {
 	}
 }
 
+# Spell: Shadow 012 - Mystery of Shadow Blade
 zz_valyria_magic_shadow_magic_012_effect = {
 	random_list = {
 		75 = {
@@ -539,6 +547,7 @@ zz_valyria_magic_shadow_magic_012_effect = {
 	}
 }
 
+# Spell: Shadow 013 - Mystery of Feeble Shield
 zz_valyria_magic_shadow_magic_013_effect = {
 	random_list = {
 		75 = {
@@ -556,9 +565,8 @@ zz_valyria_magic_shadow_magic_013_effect = {
 					}
 				}
 				stress_impact = {
-					compassionate = medium_stress_impact_loss
-					sadistic = minor_stress_gain
-					callous = minor_stress_gain
+					compassionate = minor_stress_impact_gain
+					sadistic = minor_stress_impact_loss
 				}
 			}
 			scope:recipient = {
@@ -574,9 +582,9 @@ zz_valyria_magic_shadow_magic_013_effect = {
 						}
 					}
 					add_opinion = {
-						modifier = grateful_opinion
+						modifier = scared_opinion
 						target = scope:actor
-						opinion = 70
+						opinion = -30
 					}
 				}
 			}
@@ -590,6 +598,7 @@ zz_valyria_magic_shadow_magic_013_effect = {
 	}
 }
 
+# Spell: Shadow 014 - Mystery of Shadow's Caress
 zz_valyria_magic_shadow_magic_014_effect = {
 	random_list = {
 		75 = {
@@ -645,6 +654,7 @@ zz_valyria_magic_shadow_magic_014_effect = {
 	}
 }
 
+# Spell: Shadow 015 - Mystery of Shadowy Casting
 zz_valyria_magic_shadow_magic_015_effect = {
 	random_list = {
 		75 = {
@@ -706,6 +716,7 @@ zz_valyria_magic_shadow_magic_015_effect = {
 	}
 }
 
+# Spell: Shadow 016 - Mystery of Shadowy Bulwark
 zz_valyria_magic_shadow_magic_016_effect = {
 	random_list = {
 		75 = {
@@ -719,8 +730,8 @@ zz_valyria_magic_shadow_magic_016_effect = {
 			scope:target = {
 				zz_valyria_magic_apply_province_modifier_effect = {
 					MODIFIER = zz_valyria_magic_shadow_magic_016_modifier
-					DURATION = 1
-					BOOSTED_DURATION = 1
+					DURATION = 12 # months
+					BOOSTED_DURATION = 24
 				}
 			}
 		}
@@ -733,6 +744,7 @@ zz_valyria_magic_shadow_magic_016_effect = {
 	}
 }
 
+# Spell: Shadow 017 - Mystery of Insidious Shadow
 zz_valyria_magic_shadow_magic_017_effect = {
 	random_list = {
 		75 = {
@@ -746,9 +758,538 @@ zz_valyria_magic_shadow_magic_017_effect = {
 			scope:target = {
 				zz_valyria_magic_apply_province_modifier_effect = {
 					MODIFIER = zz_valyria_magic_shadow_magic_017_modifier
-					DURATION = 1
-					BOOSTED_DURATION = 1
+					DURATION = 12 # months
+					BOOSTED_DURATION = 24
 				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 018 - Mystery of Night Terrors
+zz_valyria_magic_shadow_magic_018_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				add_stress = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_02
+			}
+			scope:recipient = {
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_shadow_magic_018_modifier
+					DURATION = 1
+					BOOSTED_DURATION = 2
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 019 - Mystery of Creeping Dread
+zz_valyria_magic_shadow_magic_019_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				set_variable = {
+					name = zz_story_province
+					value = scope:target
+				}
+				create_story = {
+					type = zz_valyria_magic_shadow_magic_019_story
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 020 - Mystery of Shackles of Shadow
+zz_valyria_magic_shadow_magic_020_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				zz_valyria_magic_apply_character_modifier_effect = {
+					MODIFIER = zz_valyria_magic_shadow_magic_020_modifier
+					DURATION = 1
+					BOOSTED_DURATION = 2
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 021 - Mystery of the Veil of Secrets
+zz_valyria_magic_shadow_magic_021_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				set_variable = {
+					name = caster
+					value = scope:secondary_recipient
+				}
+				set_variable = {
+					name = actor
+					value = scope:actor
+				}
+				create_story = {
+					type = zz_valyria_magic_shadow_magic_021_story
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 022 - Mystery of the Shade's Errand
+zz_valyria_magic_shadow_magic_022_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			zz_valyria_assassination_begin_effect = { EVENT = zz_valyria_magic_assassination.2001 }
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 023 - Mystery of Shadow Shades
+zz_valyria_magic_shadow_magic_023_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				spawn_army = {
+					men_at_arms = {
+						type = zz_shadow_shades
+						stacks = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+					location = scope:recipient.location
+					uses_supply = no
+					name = "zz_valyria_shadow_host"
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 024 - Mystery of Thieving Shadows
+zz_valyria_magic_shadow_magic_024_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				if = {
+					limit = {
+						gold >= 1
+					}
+					pay_short_term_gold = {
+						target = scope:actor
+						gold = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 025 - Mystery of Hollow Oaths
+zz_valyria_magic_shadow_magic_025_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				every_vassal = {
+					add_opinion = {
+						modifier = zz_hollow_oaths_opinion
+						target = scope:recipient
+						opinion = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_01
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 026 - Mystery of The Stolen Secret
+zz_valyria_magic_shadow_magic_026_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				random_known_secret = {
+					limit = {
+						NOT = { secret_owner = { this = scope:actor } }
+						NOT = { is_known_by = scope:actor }
+					}
+					reveal_to = scope:actor
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 027 - Mystery of The Snuffed Plot
+zz_valyria_magic_shadow_magic_027_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:scheme = {
+				add_scheme_progress = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value_02
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 028 - Mystery of The Night's Escape
+zz_valyria_magic_shadow_magic_028_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				release_from_prison = yes
+			}
+			if = {
+				limit = {
+					scope:recipient = {
+						is_landed = no
+						NOT = { this = scope:actor }
+						NOT = { is_courtier_of = scope:actor }
+					}
+					scope:actor = { is_landed = yes }
+				}
+				scope:actor = { add_courtier = scope:recipient }
+			}
+			if = {
+				limit = { NOT = { scope:actor = scope:recipient } }
+				scope:recipient = {
+					add_opinion = {
+						modifier = grateful_opinion
+						target = scope:actor
+						opinion = 50
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 029 - Mystery of Shadow Theft
+zz_valyria_magic_shadow_magic_029_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:target = {
+				set_owner = {
+					target = scope:actor
+					history = {
+						type = stolen
+						actor = scope:recipient
+						recipient = scope:actor
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 030 - Mystery of The Shadow of Guilt
+zz_valyria_magic_shadow_magic_030_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				switch = {
+					trigger = scope:option
+					flag:zz_guilt_deviant = {
+						add_secret = { type = secret_deviant }
+						random_secret = {
+							limit = { secret_type = secret_deviant }
+							reveal_to = scope:actor
+						}
+					}
+					flag:zz_guilt_homosexual = {
+						add_secret = { type = secret_homosexual }
+						random_secret = {
+							limit = { secret_type = secret_homosexual }
+							reveal_to = scope:actor
+						}
+					}
+					flag:zz_guilt_incest = {
+						add_secret = { type = secret_incest }
+						random_secret = {
+							limit = { secret_type = secret_incest }
+							reveal_to = scope:actor
+						}
+					}
+					flag:zz_guilt_cannibal = {
+						add_secret = { type = secret_cannibal }
+						random_secret = {
+							limit = { secret_type = secret_cannibal }
+							reveal_to = scope:actor
+						}
+					}
+					flag:zz_guilt_witch = {
+						add_secret = { type = secret_witch }
+						random_secret = {
+							limit = { secret_type = secret_witch }
+							reveal_to = scope:actor
+						}
+					}
+					flag:zz_guilt_non_believer = {
+						add_secret = { type = secret_non_believer }
+						random_secret = {
+							limit = { secret_type = secret_non_believer }
+							reveal_to = scope:actor
+						}
+					}
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 031 - Mystery of The Whispered Hook
+zz_valyria_magic_shadow_magic_031_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				add_hook = {
+					type = favor_hook
+					target = scope:target
+				}
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 032 - Mystery of the Forged Lineage (Create Claim)
+# The commander gains an unpressed claim on the subject's highest title they can reach: a county at first, an empire with mastery (value_01 is the highest tier).
+zz_valyria_magic_shadow_magic_032_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+			scope:recipient = {
+				ordered_held_title = {
+					limit = {
+						tier >= tier_county
+						tier <= zz_valyria_magic_shadow_magic_032_value_01
+						NOT = { scope:actor = { has_claim_on = prev } }
+					}
+					order_by = tier
+					save_scope_as = zz_forged_title
+				}
+			}
+			scope:zz_forged_title ?= {
+				scope:actor = { add_unpressed_claim = scope:zz_forged_title }
+			}
+		}
+		25 = {
+			zz_valyria_magic_spell_failure_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
+			}
+		}
+	}
+}
+
+# Spell: Shadow 033 - Mystery of the Shadow Feint (Single Combat). Its work is done in single combat (combat_move_zz_shadow_feint_effect).
+zz_valyria_magic_shadow_magic_033_effect = {
+	random_list = {
+		75 = {
+			modifier = {
+				add = zz_valyria_magic_$SPELLSCHOOL$_$SPELL$_value
+			}
+			zz_valyria_magic_spell_success_interface = {
+				SPELLSCHOOL = $SPELLSCHOOL$
+				SPELL = $SPELL$
 			}
 		}
 		25 = {

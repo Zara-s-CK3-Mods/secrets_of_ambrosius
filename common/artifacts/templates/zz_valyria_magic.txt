@@ -36,3 +36,15 @@ zz_valyria_mages_staff_artifact_template = {
 		value = 100
 	}
 }
+
+zz_vs_ingot_artifact_template = {
+	can_benefit = {
+		always = yes
+	}
+	fallback = {
+	}
+	unique = yes
+	ai_score = {
+		value = 100
+	}
+}

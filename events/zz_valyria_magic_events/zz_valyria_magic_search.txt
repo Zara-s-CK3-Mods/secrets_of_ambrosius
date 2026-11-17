@@ -1,0 +1,42 @@
+﻿namespace = zz_valyria_magic_search
+
+# Search the mysteries in the cast window by keyword
+# The typed text is saved as localized text zz_spell_search on root, which the cast window reads with GetLocalizedText
+zz_valyria_magic_search.1 = {
+	type = character_event
+	title = zz_valyria_magic_search.1.t
+	desc = zz_valyria_magic_search.1.desc
+	theme = learning
+	left_portrait = {
+		character = root
+		animation = thinking
+	}
+
+	widget = {
+		gui = "event_window_widget_enter_text"
+		container = "dynamic_birth_name"
+		controller = {
+			type = text
+			data = {
+				key = zz_spell_search
+				default = {
+					localization_key = zz_spell_search_default
+				}
+			}
+		}
+		# The text is saved on text_target, which the cast window reads with GetPlayer.GetLocalizedText
+		setup_scope = {
+			root = { save_scope_as = text_target }
+		}
+	}
+
+	option = { # Search
+		name = zz_valyria_magic_search.1.a
+		remove_variable = zz_spell_search
+	}
+	option = { # Clear the search
+		name = zz_valyria_magic_search.1.b
+		remove_localized_text = zz_spell_search
+		remove_variable = zz_spell_search
+	}
+}

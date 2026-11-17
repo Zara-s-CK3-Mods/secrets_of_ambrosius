@@ -115,7 +115,7 @@ zz_valyria_on_game_start_after_lobby = {
 			add_dynasty_perk = fp2_coterie_legacy_1
 		}
 		
-		if = {
+		every_ruler = {
 			limit = {
 				zz_valyria_is_mage = yes 
 			}
@@ -156,6 +156,19 @@ random_yearly_everyone_pulse = {
 		zz_valyria_mana_gain_on_actions
 		zz_valyria_dynn_ambrosius_scroll_generation
 		zz_valyria_mage_contracts
+		zz_valyria_tenet_discovery_on_action
+	}
+}
+
+# A mage may find an old book that teaches them a magic tenet
+zz_valyria_tenet_discovery_on_action = {
+	trigger = {
+		zz_valyria_can_discover_magic_tenet_trigger = yes
+		NOT = { has_character_flag = zz_valyria_tenet_book_cooldown }
+	}
+	random_events = {
+		chance_of_no_event = { value = 85 }
+		100 = zz_valyria_magic_tenet.0001
 	}
 }
 
@@ -173,9 +186,10 @@ zz_valyria_mana_gain_on_actions = {
 
 zz_valyria_mage_contracts = {
 	trigger = {
-		zz_valyria_is_mage = yes 
+		# Cheapest checks first: few characters are players investigating
 		is_ai = no
-		has_character_flag = zz_valyria_magic_search_enable
+		has_character_flag = zz_valyria_magic_search # Toggled by the Investigate / Stop investigating decisions
+		zz_valyria_is_mage = yes
 	}
 	effect = {
 		if = {
@@ -387,7 +401,7 @@ zz_valyria_magic_blood_magic_001 = {
 	}
 	effect = {
 		zz_valyria_magic_event_target ={ TRIGGER = zz_valyria_magic_healing_target }
-		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 001 SPELLSCHOOL = blood_magic }
+		zz_valyria_magic_event_cast = { TARGET = scope:zz_magic_target SPELL = 001 SPELLSCHOOL = blood_magic }
 	}
 }
 
@@ -406,9 +420,11 @@ zz_valyria_magic_blood_magic_002 = {
 		
 	}
 	effect = {
-		zz_valyria_magic_blood_magic_transmog_restore = yes 
 		zz_valyria_magic_event_target ={ TRIGGER = zz_valyria_magic_genetic_restore_target }
-		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 002 SPELLSCHOOL = blood_magic }
+		scope:zz_magic_target = {
+			zz_valyria_magic_blood_magic_transmog_restore = yes 
+		}
+		zz_valyria_magic_event_cast = { TARGET = scope:zz_magic_target SPELL = 002 SPELLSCHOOL = blood_magic }
 	}
 }
 
@@ -429,7 +445,7 @@ zz_valyria_magic_blood_magic_011 = {
 	}
 	effect = {
 		zz_valyria_magic_event_target ={ TRIGGER = zz_valyria_magic_longevity_target }
-		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 011 SPELLSCHOOL = blood_magic }
+		zz_valyria_magic_event_cast = { TARGET = scope:zz_magic_target SPELL = 011 SPELLSCHOOL = blood_magic }
 	}
 }
 
@@ -449,6 +465,65 @@ zz_valyria_magic_blood_magic_012 = {
 	}
 	effect = {
 		zz_valyria_magic_event_target ={ TRIGGER = zz_valyria_magic_health_boost_target }
-		zz_valyria_magic_event_cast = { TARGET = THIS SPELL = 012 SPELLSCHOOL = blood_magic }
+		zz_valyria_magic_event_cast = { TARGET = scope:zz_magic_target SPELL = 012 SPELLSCHOOL = blood_magic }
+	}
+}
+
+# Soothsaying (Longevity): a vision turns aside a natural death, using one charge and adding a stacking boost to life expectancy and health
+# Called from on_natural_death_second_chance in common/on_action/death.txt. Root is the character who would have died
+zz_valyria_longevity_second_chance = {
+	effect = {
+		random_owned_story = {
+			limit = {
+				story_type = zz_valyria_magic_dream_magic_081_story
+				var:mystery_duration > 0
+			}
+			change_variable = {
+				name = mystery_duration
+				subtract = 1
+			}
+			var:mystery_caster ?= {
+				save_scope_as = caster
+			}
+		}
+		add_character_modifier = {
+			modifier = zz_valyria_magic_dream_magic_081_stacking_modifier
+		}
+		save_scope_as = zz_story_owner # the message icons need a saved scope
+		scope:caster ?= {
+			send_interface_message = {
+				type = send_interface_message_as_feed_spell_buff_proc
+				title = zz_valyria_magic_dream_magic.081.buff.toast.t
+				desc = zz_valyria_magic_dream_magic.081.buff.toast.desc
+				left_icon = scope:caster
+				right_icon = scope:zz_story_owner
+				custom_tooltip = zz_valyria_magic_dream_magic.081.buff.toast.tt
+			}
+		}
+	}
+}
+
+# Soothsaying (Battle): a vision turns aside a death in battle or single combat, and the character comes through unharmed
+# Called in place of death in the overridden combat files (marked "#zz_valyria Modified"). Root is the character who would have died
+zz_valyria_battle_ward = {
+	effect = {
+		zz_valyria_soothsaying_ward_spend_vision_effect = { STORY = zz_valyria_magic_dream_magic_101_story SPELL = 101 }
+	}
+}
+
+# Soothsaying (Assassination): a vision saves the target of a murder scheme
+pick_unique_murder_intercept_on_action = {
+	first_valid = {
+		zz_valyria_magic_dream_magic.1100	# Owner POV: the target was warned in a vision
+	}
+}
+
+# Runs a spell cast by zz_valyria_magic_cast_deferred_effect; scope:zz_deferred_spell is the spell's flag
+zz_valyria_magic_deferred_cast = {
+	effect = {
+		zz_spell_trigger_switch_effect = {
+			SCOPE = scope:zz_deferred_spell
+			EFFECT = zz_valyria_magic_deferred_cast_switch_effect
+		}
 	}
 }

@@ -50,6 +50,21 @@ zz_valyria_magic_fire_magic_base_value = {
 				add = this.var:fire_magic_overcap
 			}
 		}
+		multiply = {
+			value = 1
+			if = {
+				limit = {
+					faith = { has_doctrine_parameter = zz_tenet_strength_fire_magic }
+				}
+				add = 0.25
+			}
+			if = {
+				limit = {
+					has_personal_tenet_flag = zz_personal_strength_fire_magic
+				}
+				add = 0.1
+			}
+		}
 	}
 }
 zz_valyria_magic_fire_magic_001_value = {
@@ -83,8 +98,8 @@ zz_valyria_magic_fire_magic_002_value_01 = {
 	add = { 
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_fire_magic_base_value
-			divide = zz_valyria_moderate_damage_army
-			min = 0.01
+			multiply = zz_valyria_moderate_damage_army
+			min = zz_valyria_moderate_damage_army
 		}
 	}
 }
@@ -102,8 +117,8 @@ zz_valyria_magic_fire_magic_003_value_01 = {
 	add = { 
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_fire_magic_base_value
-			divide = zz_valyria_serious_damage_army
-			min = 0.01
+			multiply = zz_valyria_serious_damage_army
+			min = zz_valyria_serious_damage_army
 		}
 	}
 }
@@ -357,6 +372,266 @@ zz_valyria_magic_fire_magic_017_value_01 = {
 		scope:secondary_recipient = { 
 			value = zz_valyria_magic_fire_magic_base_value
 			divide = 5
+			min = 1
+		}
+	}
+}
+# Fire 018 - Burning the Stores
+zz_valyria_magic_fire_magic_018_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_fire_magic_018_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			multiply = -1
+			max = -5
+		}
+	}
+}
+# Fire 019 - Scorched Earth
+zz_valyria_magic_fire_magic_019_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_fire_magic_019_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+# Fire 020 - Hearthfire
+zz_valyria_magic_fire_magic_020_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_fire_magic_020_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			divide = 5
+			min = 1
+		}
+	}
+}
+# Fire 021 - Immolation
+zz_valyria_magic_fire_magic_021_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+# Fire 022 - the Kindled Assassin
+zz_valyria_magic_fire_magic_022_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+# Fire 023 - Wildfire
+zz_valyria_magic_fire_magic_023_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_fire_magic_023_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			divide = 10
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_fire_magic_023_value_02 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			multiply = zz_valyria_very_low_damage_army
+			min = zz_valyria_very_low_damage_army
+		}
+	}
+}
+zz_valyria_magic_fire_magic_023_value_03 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			divide = 25
+			min = 1
+		}
+	}
+}
+# Fire 024 - the Ember Host
+zz_valyria_magic_fire_magic_024_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_fire_magic_024_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			divide = 7
+			min = 2
+		}
+	}
+}
+# Fire 025 - Beacon Fires
+zz_valyria_magic_fire_magic_025_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_fire_magic_025_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+# Fire 026 - Burn the Records
+zz_valyria_magic_fire_magic_026_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+# Fire 027 - The Forge-Fire
+zz_valyria_magic_fire_magic_027_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+# Fire 028 - The Firebrand
+zz_valyria_magic_fire_magic_028_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+# Fire 029 - Trial by Fire
+zz_valyria_magic_fire_magic_029_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+# Fire 030 - The Reforging
+zz_valyria_magic_fire_magic_030_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_fire_magic_030_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			multiply = 2
+			min = 1
+		}
+	}
+}
+# Fire 031 - Burning Bridges
+zz_valyria_magic_fire_magic_031_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+
+zz_valyria_magic_fire_magic_032_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			min = 1
+		}
+	}
+}
+zz_valyria_magic_fire_magic_032_value_01 = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
+			divide = 2
+			min = 5
+			max = 60
+		}
+	}
+}
+
+zz_valyria_magic_fire_magic_033_value = {
+	value = 0
+	add = {
+		scope:secondary_recipient = {
+			value = zz_valyria_magic_fire_magic_base_value
 			min = 1
 		}
 	}
