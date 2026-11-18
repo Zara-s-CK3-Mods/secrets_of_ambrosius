@@ -14,7 +14,7 @@ zz_valyria_general_tenet_discoverable_trigger = {
 
 zz_valyria_can_discover_magic_tenet_trigger = {
 	has_trait = zz_magister
-	is_playable = yes # add_known_tenet only works on rulers
+	is_playable_character = yes # add_known_tenet only works on rulers
 	OR = {
 		zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_blood_rites SCHOOL = blood_magic }
 		zz_valyria_school_tenet_discoverable_trigger = { TENET = tenet_zz_faceless_arts SCHOOL = shadow_magic }

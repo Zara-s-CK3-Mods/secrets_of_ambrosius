@@ -1,4 +1,5 @@
-﻿# Creates a potion for the scoped character. EFFECT is the potion key; scope:potion_strength must be saved first (1 to 10)
+﻿# Creates a potion for the scoped character. EFFECT is the potion key; run zz_valyria_save_potion_strength_effect first
+# The potion keeps its own potency, duration and heal strength, fixed when it was brewed
 zz_valyria_create_potion_effect = {
 	set_artifact_rarity_masterwork = yes
 	create_artifact = {
@@ -16,20 +17,16 @@ zz_valyria_create_potion_effect = {
 		clear_artifact_modifiers = yes
 		set_variable = { name = potion_effect value = flag:$EFFECT$ }
 		set_variable = { name = potion_strength value = scope:potion_strength }
+		set_variable = { name = potion_duration value = scope:potion_duration }
+		set_variable = { name = potion_heal value = scope:potion_heal }
 	}
 }
 
-# Brewer's strength: their Alchemy skill / 10, from 1 to 10. Run in the brewer's scope
+# Saves the brewer's potency, duration (years) and heal strength as scope values for zz_valyria_create_potion_effect. Run in the brewer's scope
 zz_valyria_save_potion_strength_effect = {
-	save_scope_value_as = {
-		name = potion_strength
-		value = {
-			value = zz_valyria_magic_alchemy_magic_base_value
-			divide = 10
-			min = 1
-			max = 10
-		}
-	}
+	save_scope_value_as = { name = potion_strength value = zz_valyria_potion_strength_value }
+	save_scope_value_as = { name = potion_duration value = zz_valyria_potion_duration_value }
+	save_scope_value_as = { name = potion_heal value = zz_valyria_potion_heal_value }
 }
 
 # Applies the potion saved as scope:potion to the scoped character, then the potion is used up
@@ -41,37 +38,37 @@ zz_valyria_drink_potion_effect = {
 		flag:draught_strength = {
 			add_character_modifier = {
 				modifier = zz_valyria_potion_draught_strength_modifier
-				years = scope:potion.var:potion_strength
+				years = zz_valyria_drunk_potion_duration_value
 			}
 		}
 		flag:draught_clarity = {
 			add_character_modifier = {
 				modifier = zz_valyria_potion_draught_clarity_modifier
-				years = scope:potion.var:potion_strength
+				years = zz_valyria_drunk_potion_duration_value
 			}
 		}
 		flag:draught_calm = {
 			add_character_modifier = {
 				modifier = zz_valyria_potion_draught_calm_modifier
-				years = scope:potion.var:potion_strength
+				years = zz_valyria_drunk_potion_duration_value
 			}
 		}
 		flag:draught_warding = {
 			add_character_modifier = {
 				modifier = zz_valyria_potion_draught_warding_modifier
-				years = scope:potion.var:potion_strength
+				years = zz_valyria_drunk_potion_duration_value
 			}
 		}
 		flag:potion_healing = {
 			while = {
-				count = scope:potion.var:potion_strength
+				count = zz_valyria_drunk_potion_heal_value
 				zz_valyria_magic_dream_magic_058_heal_effect = yes
 			}
 		}
 		flag:potion_purging = {
 			add_character_flag = {
 				flag = immune_to_disease
-				years = scope:potion.var:potion_strength
+				years = zz_valyria_drunk_potion_duration_value
 			}
 			if = {
 				limit = { has_any_disease_trigger = yes }
@@ -95,7 +92,7 @@ zz_valyria_drink_potion_effect = {
 			}
 		}
 		flag:tonic_power = {
-			zz_valyria_mana_gain = { MANAGAIN = { value = scope:potion.var:potion_strength multiply = 5 } }
+			zz_valyria_mana_gain = { MANAGAIN = zz_valyria_drunk_potion_mana_value } # $MANAGAIN$ is pasted as text, so it takes a named value, not a block
 		}
 	}
 	destroy_artifact = scope:potion

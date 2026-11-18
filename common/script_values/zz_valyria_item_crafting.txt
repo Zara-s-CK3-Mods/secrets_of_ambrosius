@@ -279,3 +279,31 @@ zz_valyria_potion_strength_value = {
 	min = 1
 	max = 10
 }
+# How many years a brewed draught (and Purging's disease immunity) lasts. Character scope (the brewer); stored on the potion as var:potion_duration
+zz_valyria_potion_duration_value = {
+	value = zz_valyria_potion_strength_value
+}
+# How many times a brewed Healing potion heals. Character scope (the brewer); stored on the potion as var:potion_heal
+zz_valyria_potion_heal_value = {
+	value = zz_valyria_potion_strength_value
+}
+# Read from the potion saved as scope:potion when it is drunk. Potions brewed before these were stored fall back to their strength
+zz_valyria_drunk_potion_duration_value = {
+	value = scope:potion.var:potion_strength
+	if = {
+		limit = { scope:potion = { has_variable = potion_duration } }
+		value = scope:potion.var:potion_duration
+	}
+}
+zz_valyria_drunk_potion_heal_value = {
+	value = scope:potion.var:potion_strength
+	if = {
+		limit = { scope:potion = { has_variable = potion_heal } }
+		value = scope:potion.var:potion_heal
+	}
+}
+# Drops of power a Tonic of Power gives: 5 per point of potency
+zz_valyria_drunk_potion_mana_value = {
+	value = scope:potion.var:potion_strength
+	multiply = 5
+}

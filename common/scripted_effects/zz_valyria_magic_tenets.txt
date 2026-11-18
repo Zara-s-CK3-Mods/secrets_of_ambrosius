@@ -24,7 +24,7 @@ zz_valyria_anathema_discovery_effect = {
 	if = {
 		limit = {
 			is_alive = yes
-			is_playable = yes # add_known_tenet only works on rulers
+			is_playable_character = yes # add_known_tenet only works on rulers
 			NOT = { has_trait = zz_magister }
 			NOT = { knows_tenet = tenet_zz_sorcery_anathema }
 			NOT = { this = scope:secondary_recipient }
